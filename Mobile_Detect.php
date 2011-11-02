@@ -31,7 +31,7 @@ class Mobile_Detect
 		"palm" => "(avantgo|blazer|elaine|hiptop|palm|plucker|xiino)",
 		"windows" => "windows ce; (iemobile|ppc|smartphone)",
 		"windowsphone" => "windows phone os",
-		"generic" => "(kindle|mobile|mmp|midp|o2|pda|pocket|psp|symbian|smartphone|treo|up.browser|up.link|vodafone|wap|opera mini)"
+		"generic" => "(kindle|mobile|mmp|midp|pocket|psp|symbian|smartphone|treo|up.browser|up.link|vodafone|wap|opera mini)"
 	);
 
 	public function __construct()
