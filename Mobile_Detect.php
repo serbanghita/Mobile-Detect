@@ -15,6 +15,7 @@ class Mobile_Detect
 	protected $isIphone = null;
 	protected $isIpad = null;
 	protected $isBlackberry = null;
+	protected $isBlackberrytablet = null;
 	protected $isOpera = null;
 	protected $isPalm = null;
 	protected $isWindows = null;
