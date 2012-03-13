@@ -16,7 +16,6 @@ class Mobile_Detect
 	protected $isIpad = null;
 	protected $isBlackberry = null;
 	protected $isBlackberrytablet = null;
-	protected $isOpera = null;
 	protected $isPalm = null;
 	protected $isWindows = null;
 	protected $isWindowsphone = null;
@@ -31,7 +30,7 @@ class Mobile_Detect
 		"palm" => "(avantgo|blazer|elaine|hiptop|palm|plucker|xiino)",
 		"windows" => "windows ce; (iemobile|ppc|smartphone)",
 		"windowsphone" => "windows phone os",
-		"generic" => "(kindle|mobile|mmp|midp|pocket|psp|symbian|smartphone|treo|up.browser|up.link|vodafone|wap|opera mini)"
+		"generic" => "(kindle|mobile|mmp|midp|pocket|psp|symbian|smartphone|treo|up.browser|up.link|vodafone|wap|opera mini|opera mobi)"
 	);
 
 	public function __construct()
