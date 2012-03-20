@@ -67,7 +67,7 @@ class Mobile_Detect {
     protected $userAgents = array(      
       'Chrome' => '\bCrMo\b',
       'Dolfin' => 'Dolfin',
-      'Opera' => '(Opera Mini|Opera Mobi)',  
+      'Opera' => '(Opera.*Mini|Opera.*Mobi)',  
       'Skyfire' => 'skyfire',      
       'IE' => 'ie*mobile',
       'Firefox' => 'fennec|firefox.*maemo',
@@ -179,7 +179,6 @@ class Mobile_Detect {
                 if(empty($_regex)){ continue; }
                 if(preg_match('/'.$_regex.'/is', $this->userAgent)){
                     $this->isMobile = true;
-                    var_dump($_regex);
                     return true;
                 } 
             }
