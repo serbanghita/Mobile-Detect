@@ -36,7 +36,7 @@ class Mobile_Detect {
             'Sony' => 'E10i',
             'Asus' => 'Asus.*Galaxy',
             'Palm' => 'PalmSource|Palm', // avantgo|blazer|elaine|hiptop|plucker|xiino
-            'GenericPhone' => '(mmp|pocket|psp|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|wap|nokia|SonyEricsson|N900|\bPPC\b|MAUI.*WAP.*Browser)'
+            'GenericPhone' => '(mmp|pocket|psp|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|wap|nokia|Series40|Series60|S60|SonyEricsson|N900|\bPPC\b|MAUI.*WAP.*Browser)'
     );
     // List of tablet devices.
     protected $tabletDevices = array(
@@ -53,7 +53,7 @@ class Mobile_Detect {
         'AndroidOS' => '(android.*mobile|android(?!.*mobile))',
         'BlackBerryOS' => '(blackberry|rim tablet os)',
         'PalmOS' => '(avantgo|blazer|elaine|hiptop|palm|plucker|xiino)',
-        'SymbianOS' => 'Symbian',
+        'SymbianOS' => 'Symbian|SymbOS|Series60|Series40|\bS60\b',
         'WindowsMobileOS' => 'IEMobile|Windows Phone|Windows CE.*(PPC|Smartphone)|MSIEMobile|Window Mobile|XBLWP7',
         'iOS' => '(iphone|ipod|ipad)',
         'FlashLiteOS' => '',
@@ -76,7 +76,7 @@ class Mobile_Detect {
       'Blazer' => 'Blazer',
       'Safari' => 'Mobile*Safari',
       'Midori' => 'midori',
-      'GenericBrowser' => 'NokiaBrowser'
+      'GenericBrowser' => 'NokiaBrowser|OviBrowser'
     );
     
     function __construct(){
@@ -102,7 +102,8 @@ class Mobile_Detect {
                 isset($_SERVER['HTTP_X_ORANGE_ID']) ||
                 isset($_SERVER['HTTP_X_VODAFONE_3GPDPCONTEXT']) ||
                 isset($_SERVER['HTTP_X_HUAWEI_USERID']) ||
-                isset($_SERVER['HTTP_UA_OS']) // Reported by Windows Smartphones
+                isset($_SERVER['HTTP_UA_OS']) || // Reported by Windows Smartphones
+                $_SERVER['HTTP_UA_CPU'] == 'ARM' // Seen this on a HTC
 		) {
                 $this->isMobile = true;
         } elseif (!empty($this->accept) && (strpos($this->accept, 'text/vnd.wap.wml') !== false || strpos($this->accept, 'application/vnd.wap.xhtml+xml') !== false)) {
