@@ -1,5 +1,10 @@
 <?php
-error_reporting(E_ALL & ~E_NOTICE);
+/**
+ * Mobile Detect Demo Page
+ * $Id$
+ * 
+ */
+error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', true);
 
 function writeToFile($file, $content){

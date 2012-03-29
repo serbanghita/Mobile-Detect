@@ -1,6 +1,7 @@
 <?php
 /**
  * Mobile Detect
+ * $Id$
  * 
  * @usage      require_once 'Mobile_Detect.php';
  *             $detect = new Mobile_Detect();
@@ -32,18 +33,18 @@ class Mobile_Detect {
             'Nexus' => 'Nexus One|Nexus S',
             'DellStreak' => 'Dell Streak',
             'Motorola' => '\bDroid\b.*Build|HRI39|MOT\-',
-            'Samsung' => 'Samsung|GT-P1000|SGH-T959D',
+            'Samsung' => 'Samsung|GT\-P1000|SGH\-T959D|GT\-I9100|GT\-I9000',
             'Sony' => 'E10i',
             'Asus' => 'Asus.*Galaxy',
             'Palm' => 'PalmSource|Palm', // avantgo|blazer|elaine|hiptop|plucker|xiino
-            'GenericPhone' => '(mmp|pocket|psp|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|wap|nokia|Series40|Series60|S60|SonyEricsson|N900|\bPPC\b|MAUI.*WAP.*Browser)'
+            'GenericPhone' => '(mmp|pocket|psp|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|wap|nokia|Series40|Series60|S60|SonyEricsson|N900|\bPPC\b|MAUI.*WAP.*Browser|LG\-P500)'
     );
     // List of tablet devices.
     protected $tabletDevices = array(
         'BlackBerryTablet' => 'PlayBook|RIM Tablet',
         'iPad' => 'iPad.*Mobile',
         'Kindle' => 'Kindle|Silk.*Accelerated',
-        'SamsungTablet' => 'SCH\-I800|GT\-P1000',
+        'SamsungTablet' => 'SCH\-I800|GT\-P1000|Galaxy.*Tab',
         'MotorolaTablet' => 'xoom|sholest',
         'AsusTablet' => 'Transformer|TF101',
         'GenericTablet' => 'Tablet|ViewPad7|LG\-V909|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b',
@@ -103,7 +104,7 @@ class Mobile_Detect {
                 isset($_SERVER['HTTP_X_VODAFONE_3GPDPCONTEXT']) ||
                 isset($_SERVER['HTTP_X_HUAWEI_USERID']) ||
                 isset($_SERVER['HTTP_UA_OS']) || // Reported by Windows Smartphones
-                $_SERVER['HTTP_UA_CPU'] == 'ARM' // Seen this on a HTC
+                (isset($_SERVER['HTTP_UA_CPU']) && $_SERVER['HTTP_UA_CPU'] == 'ARM') // Seen this on a HTC
 		) {
                 $this->isMobile = true;
         } elseif (!empty($this->accept) && (strpos($this->accept, 'text/vnd.wap.wml') !== false || strpos($this->accept, 'application/vnd.wap.xhtml+xml') !== false)) {
@@ -201,8 +202,10 @@ class Mobile_Detect {
                     return false;
                 }           
             } else {
-                trigger_error("Method $name is not defined", E_USER_WARNING);
-            }	
+                trigger_error("Method $key is not defined", E_USER_WARNING);
+            }
+            
+            return false;
 
         }
 
