@@ -47,6 +47,7 @@ class Mobile_Detect {
         'SamsungTablet' => 'SCH\-I800|GT\-P1000|Galaxy.*Tab',
         'MotorolaTablet' => 'xoom|sholest',
         'AsusTablet' => 'Transformer|TF101',
+        'NookTablet' => 'NookColor|nook browser|BNTV250A|LogicPD Zoom2',
         'GenericTablet' => 'Tablet|ViewPad7|LG\-V909|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b',
     );
     // List of mobile Operating Systems.
