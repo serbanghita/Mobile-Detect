@@ -68,7 +68,7 @@ class Mobile_Detect {
     );
     // List of mobile User Agents.
     protected $userAgents = array(      
-      'Chrome' => '\bCrMo\b',
+      'Chrome' => '\bCrMo\b|Chrome\/[.0-9]* Mobile',
       'Dolfin' => '\bDolfin\b',
       'Opera' => '(Opera.*Mini|Opera.*Mobi)',  
       'Skyfire' => 'skyfire',      
