@@ -29,7 +29,7 @@ class Mobile_Detect {
     protected $phoneDevices = array(     
             'iPhone' => '(iPhone.*Mobile|iPod|iTunes)',            
             'BlackBerry' => 'BlackBerry|rim[0-9]+',
-            'HTC' => 'HTC|HTC.*(A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT',
+            'HTC' => 'HTC|HTC.*(6800|8100|8900|A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT|Qtek9090',
             'Nexus' => 'Nexus One|Nexus S',
             'DellStreak' => 'Dell Streak',
             'Motorola' => '\bDroid\b.*Build|HRI39|MOT\-',
@@ -37,7 +37,7 @@ class Mobile_Detect {
             'Sony' => 'E10i|SonyEricsson|SonyEricssonLT15iv',
             'Asus' => 'Asus.*Galaxy',
             'Palm' => 'PalmSource|Palm', // avantgo|blazer|elaine|hiptop|plucker|xiino
-            'GenericPhone' => '(mmp|pocket|psp|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|wap|nokia|Series40|Series60|S60|SonyEricsson|N900|\bPPC\b|MAUI.*WAP.*Browser|LG\-P500)'
+            'GenericPhone' => '(mmp|pocket|psp|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|wap|nokia|Series40|Series60|S60|SonyEricsson|N900|PPC;|MAUI.*WAP.*Browser|LG-P500)'
     );
     // List of tablet devices.
     protected $tabletDevices = array(
@@ -51,7 +51,7 @@ class Mobile_Detect {
         'NookTablet' => 'NookColor|nook browser|BNTV250A|LogicPD Zoom2',
         'AcerTablet' => 'Android.*(A100|A101|A200|A500|A501|A510|W500|W500P|W501|W501P)',
 	'YarvikTablet' => 'Android.*(TAB210|TAB211|TAB224|TAB250|TAB260|TAB264|TAB310|TAB360|TAB364|TAB410|TAB411|TAB420|TAB424|TAB450|TAB460|TAB461|TAB464|TAB465|TAB467|TAB468)',
-        'GenericTablet' => 'Tablet|ViewPad7|LG\-V909|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b',
+        'GenericTablet' => 'Tablet|ViewPad7|LG-V909|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b',
     );
     // List of mobile Operating Systems.
     protected $operatingSystems = array(
