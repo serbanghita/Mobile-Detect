@@ -2,6 +2,9 @@
 /**
  * Mobile Detect
  * $Id$
+ *
+ * @author      Mobile_Detect v.1.0 Victor Stanciu <vic.stanciu@gmail.com>
+ *              Mobile_Detect v.2.x Serban Ghita <serban.ghita@gmail.com>
  * 
  * @usage      require_once 'Mobile_Detect.php';
  *             $detect = new Mobile_Detect();
@@ -14,17 +17,14 @@
  */
 
 class Mobile_Detect {
-    
-    protected $detectionRules;
+
+    // External info.
     protected $userAgent = null;
-    protected $accept = null;
-    // Assume the visitor has a desktop environment.
-    protected $isMobile = false;
-    protected $isTablet = false;
-    protected $phoneDeviceName = null;
-    protected $tabletDevicename = null;
-    protected $operatingSystemName = null;
-    protected $userAgentName = null;
+    protected $httpHeaders;
+
+    // Array holding all detection rules.
+    protected $mobileDetectionRules;
+
     // List of mobile devices (phones)
     protected $phoneDevices = array(     
             'iPhone'        => '(iPhone.*Mobile|iPod|iTunes)',
@@ -52,6 +52,8 @@ class Mobile_Detect {
         'NookTablet'        => 'NookColor|nook browser|BNTV250A|LogicPD Zoom2',
         'AcerTablet'        => 'Android.*\b(A100|A101|A200|A500|A501|A510|W500|W500P|W501|W501P)\b',
 	    'YarvikTablet'      => 'Android.*(TAB210|TAB211|TAB224|TAB250|TAB260|TAB264|TAB310|TAB360|TAB364|TAB410|TAB411|TAB420|TAB424|TAB450|TAB460|TAB461|TAB464|TAB465|TAB467|TAB468)',
+        'MedionTablet'      => 'Android.*\bOYO\b|LIFE.*(P9212|P9514|P9516|S9512)|LIFETAB',
+        'ArnovaTablet'      => 'AN10G2|AN7bG3|AN7fG3|AN8G3|AN8cG3|AN7G3|AN9G3|AN7dG3|AN7dG3ST|AN7dG3ChildPad|AN10bG3|AN10bG3DT',
         'GenericTablet'     => 'Tablet(?!.*PC)|ViewPad7|LG-V909|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b',
     );
     // List of mobile Operating Systems.
@@ -70,7 +72,7 @@ class Mobile_Detect {
         'BREWOS'            => '',
     );
     // List of mobile User Agents.
-    protected $userAgents = array(      
+    protected $userAgents = array(
       'Chrome'          => '\bCrMo\b|Chrome\/[.0-9]* Mobile',
       'Dolfin'          => '\bDolfin\b',
       'Opera'           => 'Opera.*Mini|Opera.*Mobi|Android.*Opera',
@@ -84,45 +86,126 @@ class Mobile_Detect {
       'Midori'          => 'midori',
       'GenericBrowser'  => 'NokiaBrowser|OviBrowser|SEMC.*Browser'
     );
+    // Utilities.
+    protected $utilities = array(
+        'WebKit'        => '(webkit)[ \/]([\w.]+)',
+        'Bot'           => 'Googlebot|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
+        'MobileBot'     => 'Googlebot-Mobile|YahooSeeker\/M1A1-R2D2',
+    );
     
     function __construct(){
-        
-        // Merge all rules together.
-        $this->detectionRules = array_merge(
-                                            $this->phoneDevices, 
-                                            $this->tabletDevices, 
-                                            $this->operatingSystems, 
-                                            $this->userAgents
-                                            );
-        $this->userAgent    = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : null;
-        $this->accept       = isset($_SERVER['HTTP_ACCEPT']) ? $_SERVER['HTTP_ACCEPT'] : null;
-        
-        if (
-		isset($_SERVER['HTTP_X_WAP_PROFILE']) ||
-        isset($_SERVER['HTTP_X_WAP_CLIENTID']) ||
-        isset($_SERVER['HTTP_WAP_CONNECTION']) ||
-		isset($_SERVER['HTTP_PROFILE']) ||
-		isset($_SERVER['HTTP_X_OPERAMINI_PHONE_UA']) || // Reported by Nokia devices (eg. C3)
-        isset($_SERVER['HTTP_X_NOKIA_IPADDRESS']) ||
-        isset($_SERVER['HTTP_X_NOKIA_GATEWAY_ID']) ||
-        isset($_SERVER['HTTP_X_ORANGE_ID']) ||
-        isset($_SERVER['HTTP_X_VODAFONE_3GPDPCONTEXT']) ||
-        isset($_SERVER['HTTP_X_HUAWEI_USERID']) ||
-        isset($_SERVER['HTTP_UA_OS']) || // Reported by Windows Smartphones
-        (isset($_SERVER['HTTP_UA_CPU']) && $_SERVER['HTTP_UA_CPU'] == 'ARM') // Seen this on a HTC
-		) {
-                $this->isMobile = true;
-        } elseif (!empty($this->accept) && (strpos($this->accept, 'text/vnd.wap.wml') !== false || strpos($this->accept, 'application/vnd.wap.xhtml+xml') !== false)) {
-                $this->isMobile = true;
-        } else {
-                $this->_detect();
-        }        
-        
+
+        $this->setHttpHeaders();
+        $this->setUserAgent();
+
+        $this->setMobileDetectionRules();
+
     }
-	
+
+    public function setHttpHeaders($httpHeaders = null){
+
+        if(!empty($httpHeaders)){
+            $this->httpHeaders = $httpHeaders;
+        } else {
+            foreach($_SERVER as $key => $value){
+                if(substr($key,0,5)=='HTTP_'){
+                    $this->httpHeaders[$key] = $value;
+                }
+            }
+        }
+
+    }
+
+    public function setUserAgent($userAgent = null){
+
+        if(!empty($userAgent)){
+            $this->userAgent = $userAgent;
+        } else {
+            $this->userAgent    = isset($this->httpHeaders['HTTP_USER_AGENT']) ? $this->httpHeaders['HTTP_USER_AGENT'] : null;
+
+            if(empty($this->userAgent)){
+                $this->userAgent = isset($this->httpHeaders['HTTP_X_DEVICE_USER_AGENT']) ? $this->httpHeaders['HTTP_X_DEVICE_USER_AGENT'] : null;
+            }
+        }
+
+    }
+
+    /**
+     * Method sets the mobile detection rules.
+     *
+     * This method is used for the magic methods $detect->is*()
+     */
+    public function setMobileDetectionRules(){
+        // Merge all rules together.
+        $this->mobileDetectionRules = array_merge(
+            $this->phoneDevices,
+            $this->tabletDevices,
+            $this->operatingSystems,
+            $this->userAgents
+        );
+
+    }
+
+    /**
+     * Method sets the mobile detection rules + utilities.
+     * The reason this is separate is because utilities rules
+     * don't necessary imply mobile.
+     *
+     * This method is used inside the new $detect->is('stuff') method.
+     *
+     * @return bool
+     */
+    public function setMobileDetectionRulesExtended(){
+
+
+        // Merge all rules together.
+        $this->mobileDetectionRules = array_merge(
+            $this->phoneDevices,
+            $this->tabletDevices,
+            $this->operatingSystems,
+            $this->userAgents,
+            $this->utilities
+        );
+
+    }
+
+    public function checkHttpHeadersForMobile(){
+
+        if(
+            isset($this->httpHeaders['HTTP_X_WAP_PROFILE'])             ||
+            isset($this->httpHeaders['HTTP_X_WAP_CLIENTID'])            ||
+            isset($this->httpHeaders['HTTP_WAP_CONNECTION'])            ||
+            isset($this->httpHeaders['HTTP_PROFILE'])                   ||
+            isset($this->httpHeaders['HTTP_X_OPERAMINI_PHONE_UA'])      || // Reported by Nokia devices (eg. C3)
+            isset($this->httpHeaders['HTTP_X_NOKIA_IPADDRESS'])         ||
+            isset($this->httpHeaders['HTTP_X_NOKIA_GATEWAY_ID'])        ||
+            isset($this->httpHeaders['HTTP_X_ORANGE_ID'])               ||
+            isset($this->httpHeaders['HTTP_X_VODAFONE_3GPDPCONTEXT'])   ||
+            isset($this->httpHeaders['HTTP_X_HUAWEI_USERID'])           ||
+            isset($this->httpHeaders['HTTP_UA_OS'])                     || // Reported by Windows Smartphones.
+            isset($this->httpHeaders['HTTP_X_MOBILE_GATEWAY'])          || // Reported by Verizon, Vodafone proxy system.
+            ( isset($this->httpHeaders['HTTP_UA_CPU']) &&
+                    $this->httpHeaders['HTTP_UA_CPU'] == 'ARM'
+            )                                                           || // Seen this on a HTC.
+            isset($this->httpHeaders['HTTP_ACCEPT']) &&
+                (strpos($this->httpHeaders['HTTP_ACCEPT'], 'text/vnd.wap.wml') !== false ||
+                 strpos($this->httpHeaders['HTTP_ACCEPT'], 'application/vnd.wap.xhtml+xml') !== false)
+        ){
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+
+    /**
+     * @return array
+     */
     public function getRules()
     {
-        return $this->detectionRules;
+        return $this->mobileDetectionRules;
     }
     
     /**
@@ -137,54 +220,37 @@ class Mobile_Detect {
     {
                 
         $key = substr($name, 2);
-        return $this->_detect($key);
-        
+        return $this->matchUAAgainstKey($key);
+
     }
-    
-    /**
-     * Private method that does the detection of the 
-     * mobile devices.
-     * 
-     * @param string $key
-     * @return boolean|null 
-     */
-    private function _detect($key='')
-    {
 
-        if(empty($key)){ 
+    private function matchDetectionRulesAgainstUA($userAgent = null){
 
-            // Begin general search.
-            foreach($this->detectionRules as $_regex){
-                if(empty($_regex)){ continue; }
-                if(preg_match('/'.$_regex.'/is', $this->userAgent)){
-                    $this->isMobile = true;
-                    return true;
-                } 
+        // Begin general search.
+        foreach($this->getRules() as $_regex){
+            if(empty($_regex)){ continue; }
+            if( preg_match('/'.$_regex.'/is', (!empty($userAgent) ? $userAgent : $this->userAgent)) ){
+                return true;
             }
-            return false;
-
-        } else {
-            
-            // Search for a certain key.
-            // Make the keys lowecase so we can match: isIphone(), isiPhone(), isiphone(), etc.
-            $key = strtolower($key);
-            $_rules = array_change_key_case($this->detectionRules);
-            
-            if(array_key_exists($key, $_rules)){
-                if(empty($_rules[$key])){ return null; }
-                if(preg_match('/'.$_rules[$key].'/is', $this->userAgent)){
-                    $this->isMobile = true;
-                    return true;
-                } else {
-                    return false;
-                }           
-            } else {
-                trigger_error("Method $key is not defined", E_USER_WARNING);
-            }
-            
-            return false;
-
         }
+
+        return false;
+
+    }
+
+    // Search for a certain key.
+    private function matchUAAgainstKey($key, $userAgent = null){
+
+        // Make the keys lowercase so we can match: isIphone(), isiPhone(), isiphone(), etc.
+        $key = strtolower($key);
+        $_rules = array_change_key_case($this->getRules());
+
+        if(array_key_exists($key, $_rules)){
+            if(empty($_rules[$key])){ return null; }
+            return (bool)preg_match('/'.$_rules[$key].'/is', (!empty($userAgent) ? $userAgent : $this->userAgent));
+        }
+
+        return false;
 
     }
         
@@ -193,9 +259,19 @@ class Mobile_Detect {
     * Returns true if any type of mobile device detected, including special ones
     * @return bool
     */
-    public function isMobile()
-    {
-	    return $this->isMobile;
+    public function isMobile($userAgent = null, $httpHeaders = null) {
+
+        if($httpHeaders){ $this->setHttpHeaders($httpHeaders); }
+        if($userAgent){ $this->setUserAgent($userAgent); }
+
+        $this->setMobileDetectionRules();
+
+        if ($this->checkHttpHeadersForMobile()) {
+            return true;
+        } else {
+            return $this->matchDetectionRulesAgainstUA();
+        }
+
     } 
     
     /**
@@ -203,17 +279,36 @@ class Mobile_Detect {
     * Return true if any type of tablet device is detected.
     * @return boolean 
     */
-    public function isTablet()
-    {
+    public function isTablet($userAgent = null, $httpHeaders = null) {
 
-	foreach($this->tabletDevices as $_regex){
-	    if(preg_match('/'.$_regex.'/is', $this->userAgent)){
-		$this->isTablet = true;
-		return true;
-	    }
-	}
+        foreach($this->tabletDevices as $_regex){
+            if(preg_match('/'.$_regex.'/is', (!empty($userAgent) ? $userAgent : $this->userAgent))){
+                return true;
+            }
+        }
 
-	return false;        
+	    return false;
+
+    }
+
+    /**
+     * This method checks for a certain property in the
+     * userAgent.
+     * @todo: The httpHeaders part is not yet used.
+     *
+     * @param $key
+     * @param string $userAgent
+     * @param string $httpHeaders
+     * @return bool|int|null
+     */
+    public function is($key, $userAgent = null, $httpHeaders = null){
+
+        $this->setHttpHeaders($httpHeaders);
+        $this->setUserAgent($userAgent);
+
+        $this->setMobileDetectionRulesExtended();
+
+        return $this->matchUAAgainstKey($key);
 
     }
     
