@@ -11,15 +11,20 @@ We are proudly sponsored by ![BrowserStack](http://jquery.org/wp-content/uploads
 
 Include and instantiate the class.
 ```
+<?php
 include 'Mobile_Detect.php';
 $detect = new Mobile_Detect();
 ```
+
 ```
+<?php
 if ($detect->isMobile()) {
     // Any mobile device.
 }
 ```
+
 ```
+<?php
 if($detect->isTablet()){
     // Any tablet device.
 }
@@ -27,11 +32,14 @@ if($detect->isTablet()){
 
 Check for a specific platform:
 ```
+<?php
 if($detect->isiOS()){
     // Code to run for the Apple's iOS platform.
 }
 ```
+
 ```
+<?php
 if($detect->isAndroidOS()){
     // Code to run for the Google's Android platform.
 }
