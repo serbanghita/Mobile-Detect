@@ -10,36 +10,31 @@ We are proudly sponsored by ![BrowserStack](http://jquery.org/wp-content/uploads
 ### Usage
 
 Include and instantiate the class.
-```
-<?php
+```php
 include 'Mobile_Detect.php';
 $detect = new Mobile_Detect();
 ```
 
-```
-<?php
+```php
 if ($detect->isMobile()) {
     // Any mobile device.
 }
 ```
 
-```
-<?php
+```php
 if($detect->isTablet()){
     // Any tablet device.
 }
 ```
 
 Check for a specific platform:
-```
-<?php
+```php
 if($detect->isiOS()){
     // Code to run for the Apple's iOS platform.
 }
 ```
 
-```
-<?php
+```php
 if($detect->isAndroidOS()){
     // Code to run for the Google's Android platform.
 }
