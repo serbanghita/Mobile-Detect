@@ -1,95 +1,310 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PHP Mobile Detect - lightweight PHP class for detecting mobile devices</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.">
+    <meta name="author" content="Serban Ghita">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/prettify.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            padding: 20px 0px 0px;
+            background: #F1F1F1 url('/img/bg-grey.jpg');
+        }
+        .hero-unit-custom {
+            background: #A4C721 url('/img/bg.jpg');
+            border: none;
+            box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.3),0 1px 1px 0 rgba(255, 255, 255, 0.5);
+            color: #425609;
+            padding: 15px 60px;
+            margin-bottom: 15px;
+        }
+        .hero-unit-custom h1 {
+            /*text-transform: uppercase;*/
+            color: #425609;
+            text-shadow: 1px 1px #C2E338, 4px 4px 0px #92AE28;
+        }
+        .headerButtons { width:160px; float:right; text-align: right; margin-top:15px; }
+        .headerButtons a { width:100%; margin-bottom: 5px; }
+
+        footer {
+            background: #272727;
+            padding: 20px 0;
+            color:white;
+        }
+        .small-footer {
+            padding: 0;
+            margin: 0;
+        }
+        .small-footer p {
+            float: left;
+            margin: 0px;
+            padding:0px;
+            color: #666;
+            font-size: 80%;
+        }
+
+        .tabbable { background: white; padding:15px;
+            -webkit-border-radius: 6px 6px 0px 0px;
+            -moz-border-radius: 6px 6px 0px 0px;
+            border-radius: 6px 6px 0px 0px;
+        }
+        .tab-pane.active { background: white; }
+
+        .tableHistory { background: white; }
+        .commitDescription { font-size:80%; }
+        .downloadLink { white-space: nowrap; }
+        .btn-browserstack { background: #272727; }
+        .btn-browserstack:hover {  background: #333333; }
+
+    </style>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Mobile-Detect by serbanghita</title>
-  </head>
 
-  <body>
-    <div id="container">
-      <div class="inner">
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+</head>
 
-        <header>
-          <h1>PHP Mobile Detect</h1>
-          <h2>Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</h2>
-        </header>
+<body>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/serbanghita/Mobile-Detect/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/serbanghita/Mobile-Detect/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/serbanghita/Mobile-Detect" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+<div class="container-fluid">
 
-        <hr>
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    <div class="hero-unit hero-unit-custom">
+        <div class="headerButtons">
+            <a class="btn btn-inverse btn-small" href="https://github.com/serbanghita/Mobile-Detect" id="linkToGitHub"><i class="icon-white icon-hand-right"></i> GitHub Repository</a>
+            <a class="btn btn-inverse btn-small" href="http://code.google.com/p/php-mobile-detect/" id="linkToGoogleCode"><i class="icon-white icon-hand-right"></i> Google Code Repository</a>
+            <a class="btn btn-warning btn-small" href="https://github.com/serbanghita/Mobile-Detect/zipball/master">Download latest <sup>v.2.1 RC</sup> <i class="icon-white icon-download"></i></a>
+        </div>
+        <h1>PHP Mobile Detect</h1>
+        <p><em>The lightweight PHP class for detecting mobile devices.</em></p>
 
-        <section id="main_content">
-          <h3>About</h3>
-
-<p>Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the user-agent string combined with specific HTTP headers to detect the mobile environment.
-<strong>Note:</strong> this project is <em>the same</em> with <a href="http://code.google.com/p/php-mobile-detect/">http://code.google.com/p/php-mobile-detect/</a>. We are keeping both repositories updated until the transition to GitHub is completed.</p>
-
-<p>We are proudly sponsored by <img src="http://jquery.org/wp-content/uploads/2010/01/browserstack-150.png" alt="BrowserStack">. <a href="http://www.browserstack.com">BrowserStack</a> is a complete browser coverage tool (including mobile devices) for testing you web application.</p>
-
-<p><a href="http://www.pledgie.com/campaigns/18179"><img alt="Click here to lend your support to: Mobile Detect PHP class and make a donation at www.pledgie.com !" src="http://www.pledgie.com/campaigns/18179.png?skin_name=chrome" border="0"></a></p>
-
-<h3>Usage</h3>
-
-<p>Include and instantiate the class.</p>
-
-<div class="highlight"><pre><span class="k">include</span> <span class="s1">'Mobile_Detect.php'</span><span class="p">;</span>
-<span class="nv">$detect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mobile_Detect</span><span class="p">();</span>
-</pre></div>
-
-<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$detect</span><span class="o">-&gt;</span><span class="na">isMobile</span><span class="p">())</span> <span class="p">{</span>
-    <span class="c1">// Any mobile device.</span>
-<span class="p">}</span>
-</pre></div>
-
-<div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="nv">$detect</span><span class="o">-&gt;</span><span class="na">isTablet</span><span class="p">()){</span>
-    <span class="c1">// Any tablet device.</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>Check for a specific platform:</p>
-
-<div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="nv">$detect</span><span class="o">-&gt;</span><span class="na">isiOS</span><span class="p">()){</span>
-    <span class="c1">// Code to run for the Apple's iOS platform.</span>
-<span class="p">}</span>
-</pre></div>
-
-<div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="nv">$detect</span><span class="o">-&gt;</span><span class="na">isAndroidOS</span><span class="p">()){</span>
-    <span class="c1">// Code to run for the Google's Android platform.</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>Other case insensitive available methods are <code>isIphone()</code>, <code>isIpad()</code>, <code>isBlackBerry()</code>, <code>isKindle()</code>, <code>isOpera()</code>, etc. For the full list of available methods check the <code>demo.php</code> file or the wiki.</p>
-        </section>
-
-        <footer>
-          Mobile-Detect is maintained by <a href="https://github.com/serbanghita">serbanghita</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-                  <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-204358-16");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-      </div>
     </div>
-  </body>
+
+    <div class="tabbable tabs-left">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#lA" data-toggle="tab">Home</a></li>
+            <li><a href="http://is.gd/mobiletest">Demo</a> </li>
+            <li><a href="#lB" data-toggle="tab">Examples</a></li>
+            <li><a href="#lC" data-toggle="tab">Latest commits</a></li>
+            <li><a href="https://github.com/serbanghita/Mobile-Detect/issues/new">Submit issue</a></li>
+            <li>Test your device:<br> <img src="http://qr.kaywa.com/?s=8&d=http%3A%2F%2Fis.gd%2Fmobiletest" alt="QRCode" width="110"/></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="lA">
+                <p><code>Mobile_Detect</code> is a lightweight PHP class for detecting mobile devices. It uses the user-agent string combined with specific HTTP headers
+                    to detect the mobile environment. <br>
+                    <strong>Note:</strong> this project <i>is the same</i> with <a href="http://code.google.com/p/php-mobile-detect/">http://code.google.com/p/php-mobile-detect/</a>.
+                    We are keeping both repositories updated until the transition to GitHub is completed.</p>
+
+                <p>We are now sponsored by <a class="btn btn-browserstack" target="_blank"  href="http://www.browserstack.com"><img src="http://www.browserstack.com/images/logo-small.png" alt="BrowserStack"></a> the complete browser coverage tool (including mobile devices) for testing you web application.</p>
+
+                <hr>
+
+                <p>Let's begin detecting mobile devices:</p>
+<pre class="prettyprint linenums">
+include 'Mobile_Detect.php';
+$detect = new Mobile_Detect();
+
+if ($detect->isMobile()) {
+    // Any mobile device.
+}
+
+if($detect->isTablet()){
+    // Any tablet device.
+}
+</pre>
+
+                <p>Check for a specific platform:</p>
+
+<pre class="prettyprint linenums">
+if($detect->isiOS()){
+    // Code to run for the Apple's iOS platform.
+}
+
+if($detect->isAndroidOS()){
+    // Code to run for the Google's Android platform.
+}
+</pre>
+
+                <p>Alternative way of checking:</p>
+<pre class="prettyprint linenums">
+$isApple = $detect->is('ios');
+</pre>
+
+            </div>
+
+
+            <div class="tab-pane" id="lB">
+                <p>Here are some useful day to day usage examples.</p>
+<pre class="prettyprint linenums">
+// These lines are mandatory.
+include 'Mobile_Detect.php';
+$detect = new Mobile_Detect;
+</pre>
+
+<pre class="prettyprint linenums">
+// Starting from v.2.1 RC you can use is() method.
+$detect->is('AndroidOS'); // instead $detect->isAndroidOS()
+</pre>
+
+<pre class="prettyprint linenums">
+// 1. Check for mobile environment.
+if ($detect->isMobile()) {
+    // Your code here.
+}
+</pre>
+
+<pre class="prettyprint linenums">
+// 2. Check for tablet device.
+if($detect->isTablet()){
+    // Your code here.
+}
+</pre>
+
+<pre class="prettyprint linenums">
+// 3. Check for any mobile device, excluding tablets.
+if ($detect->isMobile() && !$detect->isTablet()) {
+    // Your code here.
+}
+</pre>
+
+<pre class="prettyprint linenums">
+// 4. Keep the value in $_SESSION for later use
+//    and for optimizing the speed of the code.
+if(!$_SESSION['isMobile']){
+    $_SESSION['isMobile'] = $detect->isMobile();
+}
+</pre>
+
+<pre class="prettyprint linenums">
+// 5. Redirect the user to your mobile version of the site.
+if($detect->isMobile()){
+    header('http://m.yoursite.com', true, 301);
+}
+</pre>
+
+<pre class="prettyprint linenums">
+// Batch usage.
+$userAgents = array(
+    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.162 Safari/535.19',
+    'Mozilla/5.0 (Windows NT 6.1; rv:11.0) Gecko/20100101 Firefox/11.0',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.56 Safari/536.5',
+    // etc.
+    );
+foreach($userAgents as $userAgent){
+    $isMobile = $detect->isMobile($userAgent);
+    $isChrome = $detect->is('chrome', $userAgent);
+    var_dump($isMobile); var_dump($isChrome);
+    echo "\n";
+}
+</pre>
+
+            </div>
+
+
+            <div class="tab-pane" id="lC">
+                <table class="table table-bordered tableHistory">
+                    <thead>
+                    <tr>
+                        <th>Version</th>
+                        <th>Commit description</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>2.1 RC <span class="label label-success">latest</span></td>
+                        <td>
+                <pre class="commitDescription">
+- refactored the code to work faster
+- added support for Medion tablets
+- added support for Arnova tablets
+- added alternative method $detect->is('AndroidOS') equivalent to $detect->isAndroidOS();
+- added posibility of using the method in batch mode. Now accepting custom $userAgent and $httpHeaders via isMobile($userAgent = null, $httpHeaders = null) and is($key, $userAgent = null, $httpHeaders = null) methods
+- added batch tests.php file</pre>
+                        </td>
+                        <td><a href="http://code.google.com/p/php-mobile-detect/downloads/detail?name=php-mobile-detect.v.2.1.RC.zip" class="btn btn-success btn-mini">Download <i class="icon-white icon-download"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2.0.9</td>
+                        <td><pre class="commitDescription">
+#66 - Opera Mobile on Android tablets reports false on isOpera
+#67 - Galaxy Nexus reports false to isNexus
+- other minor fixes</pre></td>
+                        <td><a href="http://code.google.com/p/php-mobile-detect/downloads/detail?name=php-mobile-detect.v.2.0.9.zip" class="btn btn-success btn-mini downloadLink">Download <i class="icon-white icon-download"></i></a></td>
+                    </tr>
+
+                </table>
+
+                <p>For full download and commit history, check our <a href="https://github.com/serbanghita/Mobile-Detect">GitHub</a> or <a href="http://code.google.com/p/php-mobile-detect/downloads/list?can=1&q=&colspec=Filename+Summary+Uploaded+ReleaseDate+Size+DownloadCount">Google Code</a> repositories.</p>
+
+            </div>
+        </div>
+    </div> <!-- /tabbable -->
+
+
+
+</div> <!-- /container -->
+
+<footer>
+    <div class="container-fluid">
+
+        <div class="small-footer">
+            <p>&copy; PHP Mobile Detect is an open-source script released under <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.</p>
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/js/jquery-1.8.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        // make code pretty
+        window.prettyPrint && prettyPrint()
+
+        $('#linkToGitHub').popover({
+            placement: 'left',
+            trigger: 'hover',
+            title: 'PHP Mobile Detect',
+            content: 'We keep a repository updated on GitHub.com until we migrate from Google Project Hosting.'
+        });
+        $('#linkToGoogleCode').popover({
+            placement: 'left',
+            trigger: 'hover',
+            title: 'PHP Mobile Detect',
+            content: 'We keep a repository updated on Google Project Hosting: http://code.google.com/p/php-mobile-detect/'
+        })
+    });
+</script>
+
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-204358-16");
+        pageTracker._trackPageview();
+    } catch(err) {}
+</script>
+
+</body>
 </html>
