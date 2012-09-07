@@ -291,14 +291,23 @@ foreach($userAgents as $userAgent){
 </script>
 
 <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-204358-16");
-        pageTracker._trackPageview();
-    } catch(err) {}
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-204358-16']);
+    _gaq.push(['_setDomainName', 'mobiledetect.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    setTimeout('_gaq.push(["_trackEvent", "NoBounce", "NoBounce", "Over 10 seconds"])', 10000);
+    setTimeout('_gaq.push(["_trackEvent", "NoBounce", "NoBounce", "Over 1 minute"])', 60000);
+    setTimeout('_gaq.push(["_trackEvent", "NoBounce", "NoBounce", "Over 2 minutes"])', 120000);
+    setTimeout('_gaq.push(["_trackEvent", "NoBounce", "NoBounce", "Over 5 minutes"])', 300000);
+
 </script>
 
 </body>
