@@ -29,8 +29,8 @@
             color: #425609;
             text-shadow: 1px 1px #C2E338, 4px 4px 0px #92AE28;
         }
-        .headerButtons { width:160px; float:right; text-align: right; margin-top:15px; }
-        .headerButtons a { width:100%; margin-bottom: 5px; }
+        .headerCheck { width:90px; float:right; text-align: right; font-size:80%; }
+        .headerCheck img { width: 100%; }
 
         footer {
             background: #272727;
@@ -42,7 +42,6 @@
             margin: 0;
         }
         .small-footer p {
-            float: left;
             margin: 0px;
             padding:0px;
             color: #666;
@@ -80,10 +79,8 @@
 
     <!-- Main hero unit for a primary marketing message or call to action -->
     <div class="hero-unit hero-unit-custom">
-        <div class="headerButtons">
-            <a class="btn btn-inverse btn-small" href="https://github.com/serbanghita/Mobile-Detect" id="linkToGitHub"><i class="icon-white icon-hand-right"></i> GitHub Repository</a>
-            <a class="btn btn-inverse btn-small" href="http://code.google.com/p/php-mobile-detect/" id="linkToGoogleCode"><i class="icon-white icon-hand-right"></i> Google Code Repository</a>
-            <a class="btn btn-warning btn-small" href="https://github.com/serbanghita/Mobile-Detect/zipball/master">Download latest <sup>v.2.1 RC</sup> <i class="icon-white icon-download"></i></a>
+        <div class="headerCheck">
+            Test your device:<br> <img src="http://qr.kaywa.com/?s=8&d=http%3A%2F%2Fis.gd%2Fmobiletest" alt="QRCode" />
         </div>
         <h1>PHP Mobile Detect</h1>
         <p><em>The lightweight PHP class for detecting mobile devices.</em></p>
@@ -91,13 +88,20 @@
     </div>
 
     <div class="tabbable tabs-left">
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-pills">
             <li class="active"><a href="#lA" data-toggle="tab">Home</a></li>
             <li><a href="http://is.gd/mobiletest">Demo</a> </li>
             <li><a href="#lB" data-toggle="tab">Examples</a></li>
             <li><a href="#lC" data-toggle="tab">Latest commits</a></li>
             <li><a href="https://github.com/serbanghita/Mobile-Detect/issues/new">Submit issue</a></li>
-            <li>Test your device:<br> <img src="http://qr.kaywa.com/?s=8&d=http%3A%2F%2Fis.gd%2Fmobiletest" alt="QRCode" width="110"/></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Repositories<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://github.com/serbanghita/Mobile-Detect" id="linkToGitHub">GitHub.com (git)</a></li>
+                    <li><a href="http://code.google.com/p/php-mobile-detect/" id="linkToGoogleCode">Google Code (svn)</a></li>
+                </ul>
+            </li>
+            <li><a href="https://github.com/serbanghita/Mobile-Detect/zipball/master">Download latest <sup>v.2.1 RC</sup> <i class="icon-black icon-download"></i></a></li>
+
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="lA">
@@ -259,6 +263,8 @@ foreach($userAgents as $userAgent){
     <div class="container-fluid">
 
         <div class="small-footer">
+            <p>Lead developer &amp; maintainer: <a href="http://twitter.com/serbanghita">@serbanghita</a>. Original author: <a href="http://twitter.com/victorstanciu">@victorstanciu</a></p>
+
             <p>&copy; PHP Mobile Detect is an open-source script released under <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.</p>
         </div>
 
@@ -280,18 +286,7 @@ foreach($userAgents as $userAgent){
         // make code pretty
         window.prettyPrint && prettyPrint()
 
-        $('#linkToGitHub').popover({
-            placement: 'left',
-            trigger: 'hover',
-            title: 'PHP Mobile Detect',
-            content: 'We keep a repository updated on GitHub.com until we migrate from Google Project Hosting.'
-        });
-        $('#linkToGoogleCode').popover({
-            placement: 'left',
-            trigger: 'hover',
-            title: 'PHP Mobile Detect',
-            content: 'We keep a repository updated on Google Project Hosting: http://code.google.com/p/php-mobile-detect/'
-        })
+
     });
 </script>
 
