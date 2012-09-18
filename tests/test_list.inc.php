@@ -1,0 +1,31 @@
+<?php
+switch($_GET['test']){
+
+	case 'gradeTest':
+		require_once 'mobile_useragents.inc.php';
+		include 'mobile_useragents_gradeTest.inc.php';
+	break;
+
+	case 'osVersionTest':
+		require_once 'mobile_useragents.inc.php';
+		require_once 'mobile_useragents_osVersionTest.inc.php';
+	break;
+
+	case 'nonmobileTest':
+		require_once 'nonmobile_useragents.inc.php';
+		require_once 'nonmobile_useragents_nonmobileTest.inc.php';
+	break;
+
+	default:
+	$title = 'Tests';
+	$description = 'Various tests to demonstrate the usage and coverage of Mobile_Detect class.<br>
+	You can contribute by forking us on <a href="https://github.com/serbanghita/Mobile-Detect">GitHub</a> or sending a patch via <a href="http://code.google.com/p/php-mobile-detect/">Google Code</a>';
+	$html = '
+	<ol>
+		<li><a href="test.php?test=gradeTest">Browser grade test</a></li>
+		<li><a href="test.php?test=osVersionTest">OS version test</a></li>
+		<li><a href="test.php?test=nonmobileTest">Non-mobile test</a></li>
+	</ol>
+	';
+
+}

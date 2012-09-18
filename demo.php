@@ -1,28 +1,58 @@
 <?php
 /**
- * Mobile Detect Demo Page
- * $Id$
- * 
+ * MIT License
+ * ===========
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ *
+ * @author      Serban Ghita <serbanghita@gmail.com>
+ *              Victor Stanciu <vic.stanciu@gmail.com> (until v.1.0)
+ * @copyright   2012 Serban Ghita.
+ * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
+ * @link        http://mobiledetect.net
  */
+
+// Set default timezone for PHP 5.3
 date_default_timezone_set('Europe/Bucharest');
 // Enable all errors for debugging purposes.
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', true);
 
+    // Notify me in case of an error. Helps debug the script.
+    // @todo: use jsonp
     if(isset($_GET['ajax']) && $_GET['ajax']==1 && !empty($_POST['ua']) && in_array($_POST['answer'], array('yes', 'no'))){
 
         @mail('serbanghita@gmail.com', 'PHP Mobile Detect submission', print_r(getHttpHeaders(),true)."\n".print_r($_POST,true), 'FROM: Ghita.org <site@ghita.org>');
         exit(json_encode(array('success' => true)));
+
     }
 
 /**
  * Generic write to file function.
- * 
+ *
  * @param string $file
- * @param string $content 
+ * @param string $content
  */
 function writeToFile($file, $content){
-  
+
     if (!$handle = fopen($file, 'a')) {
             echo "Cannot open file ($file)";
             exit;
@@ -39,23 +69,23 @@ function writeToFile($file, $content){
 /**
  * Get all HTTP headers plus visitor IP and
  * the date of the HTTP request.
- * 
- * @return array 
+ *
+ * @return array
  */
-function getHttpHeaders() { 
-    
+function getHttpHeaders() {
+
     $out = array();
-    
-    foreach($_SERVER as $key=>$value) { 
-	if (substr($key,0,5)=="HTTP_" || in_array($key, array('REMOTE_ADDR', 'REQUEST_TIME'))) {  
-		$out[$key]=($key=='REQUEST_TIME' ? date('d-m-Y H:i', $value) : $value); 
-	} 
-    } 
-    
-    return $out; 
-    
-} 
- 
+
+    foreach($_SERVER as $key=>$value) {
+	if (substr($key,0,5)=="HTTP_" || in_array($key, array('REMOTE_ADDR', 'REQUEST_TIME'))) {
+		$out[$key]=($key=='REQUEST_TIME' ? date('d-m-Y H:i', $value) : $value);
+	}
+    }
+
+    return $out;
+
+}
+
 // Debug.
 writeToFile('ua.txt', print_r(getHttpHeaders(),true));
 
@@ -63,23 +93,23 @@ writeToFile('ua.txt', print_r(getHttpHeaders(),true));
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Desktop/Mobile detection page</title>        
+        <title>Mobile_Detect demo</title>
         <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
         <style type="text/css">
             html {
                 font-size: 100%;
                 -webkit-text-size-adjust: 100%;
                 -ms-text-size-adjust: 100%;
-            }   
+            }
             body {
                 margin: 0;
 		        padding: 0 1em;
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                font-size: 100%;
-                line-height: 1.2em;
+                font-size: 1em;
                 color: #333333;
                 background-color: #ffffff;
             }
+            body, td { font-size: 1em; }
             a {
                 color: #0088cc;
                 text-decoration: underline;
@@ -88,9 +118,12 @@ writeToFile('ua.txt', print_r(getHttpHeaders(),true));
                 color: #005580;
                 text-decoration: underline;
             }
-            hr { border: 1px dotted #cccccc; }
 
-            .desktop { background-color:blue; color:white; } 
+            section { margin-bottom:2em; }
+            section h1 { font-size:100%; }
+            #deviceQuestion { max-width:320px; }
+
+            .computer { background-color:blue; color:white; }
             .tablet { background-color:yellow; color:black; }
             .mobile,.true { background-color:green; color:white; }
             .randomcrap { background:#eee; color:#666; }
@@ -133,7 +166,7 @@ writeToFile('ua.txt', print_r(getHttpHeaders(),true));
                 background-image:         linear-gradient( #e13027 , #b82720 );
             }
 
-            
+
         </style>
 
         <script src="//code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -165,18 +198,18 @@ writeToFile('ua.txt', print_r(getHttpHeaders(),true));
         <section>
             <header>
                 <h1><a href="http://code.google.com/p/php-mobile-detect/">Mobile_Detect</a></h1>
-                <p>Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</p>
+                <p>The lightweight PHP class for detecting mobile devices.</p>
             </header>
             <?php
-		// Check for mobile device.
+	            // Check for mobile device.
                 require_once 'Mobile_Detect.php';
                 $detect = new Mobile_Detect();
-                $layout = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'mobile') : 'desktop');
-            ?>            
+                $layout = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'mobile') : 'computer');
+            ?>
 
        </section>
 
-        <hr>
+
 
         <section id="deviceQuestion">
             <h1>Is your device really a <em><?php echo $layout; ?></em>?</h1>
@@ -185,14 +218,14 @@ writeToFile('ua.txt', print_r(getHttpHeaders(),true));
             <button class="sendDataButton yes" data-answer="yes">♥ Yes, it's correct.</button> <button class="sendDataButton no" data-answer="no">No, it's wrong!</button>
         </section>
 
-        <hr>
-	   
+
+
 	   <section>
 		   <header>
 			   <h1>Supported methods tests</h1>
-               <p>Please report any bugs to the <a href="http://code.google.com/p/php-mobile-detect/issues/list">issue list</a> specifying the user agent below.</p>
+               <p>Please report any bugs to the <a href="http://code.google.com/p/php-mobile-detect/issues/list">issue list</a> specifying the User-agent.</p>
 		   </header>
-            <table>
+            <table cellspacing="0" cellpadding="0">
                 <tbody>
                 <tr>
                     <th colspan="2">Basic detection methods</th>
@@ -217,23 +250,39 @@ writeToFile('ua.txt', print_r(getHttpHeaders(),true));
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
+                <tbody>
+                    <tr>
+                        <th colspan="2">Experimental version() method</th>
+                    </tr>
+                    <?php
+                    foreach($detect->getProperties() as $name => $match):
+                        $check = $detect->version($name);
+                        if($check!==false):
+                    ?>
+                    <tr>
+                        <td>version(<?php echo $name; ?>)</td>
+                        <td><?php var_dump($check); ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
-       </section>  
-	
+       </section>
+
 	<section>
 	    <header>
 		<h1>Other tests</h1>
 	    </header>
-	    
+
 	    <table>
 		<tr>
 			<td>isiphone()</td>
 			<td><?php echo var_dump($detect->isiphone()); ?></td>
-		</tr>		
+		</tr>
 		<tr>
 			<td>isIphone()</td>
 			<td><?php echo var_dump($detect->isIphone()); ?></td>
-		</tr>  
+		</tr>
 		<tr>
 			<td>istablet()</td>
 			<td><?php echo var_dump($detect->istablet()); ?></td>
@@ -241,16 +290,16 @@ writeToFile('ua.txt', print_r(getHttpHeaders(),true));
 		<tr>
 			<td>isIOS()</td>
 			<td><?php echo var_dump($detect->isIOS()); ?></td>
-		</tr>		
+		</tr>
 		<tr>
 			<td>isWhateverYouWant()</td>
 			<td class="randomcrap"><?php echo var_dump($detect->isWhateverYouWant()); ?></td>
-		</tr>		
+		</tr>
 	    </table>
-	    
+
 	</section>
-        
-        
+
+
         <footer>
             <p>Copyright &copy; <?php echo date('Y'); ?></p>
         </footer>
