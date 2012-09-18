@@ -76,7 +76,12 @@
 <body>
 
 <div class="container-fluid">
-
+<!--
+    <div>
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=serbanghita&repo=Mobile-Detect&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=serbanghita&repo=Mobile-Detect&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+    </div>
+-->
     <!-- Main hero unit for a primary marketing message or call to action -->
     <div class="hero-unit hero-unit-custom">
         <div class="headerCheck">
@@ -92,7 +97,6 @@
             <li class="active"><a href="#lA" data-toggle="tab">Home</a></li>
             <li><a href="http://is.gd/mobiletest">Demo</a> </li>
             <li><a href="#lB" data-toggle="tab">Examples</a></li>
-            <li><a href="#lC" data-toggle="tab">Latest commits</a></li>
             <li><a href="https://github.com/serbanghita/Mobile-Detect/issues/new">Submit issue</a></li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Repositories<b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -100,7 +104,7 @@
                     <li><a href="http://code.google.com/p/php-mobile-detect/" id="linkToGoogleCode">Google Code (svn)</a></li>
                 </ul>
             </li>
-            <li><a href="https://github.com/serbanghita/Mobile-Detect/zipball/master">Download latest <sup>v.2.1 RC</sup> <i class="icon-black icon-download"></i></a></li>
+            <li><a href="https://github.com/serbanghita/Mobile-Detect/zipball/master">Download latest <sup>v.2.1 RC2</sup> <i class="icon-black icon-download"></i></a></li>
 
         </ul>
         <div class="tab-content">
@@ -214,44 +218,6 @@ foreach($userAgents as $userAgent){
 </pre>
 
             </div>
-
-
-            <div class="tab-pane" id="lC">
-                <table class="table table-bordered tableHistory">
-                    <thead>
-                    <tr>
-                        <th>Version</th>
-                        <th>Commit description</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tr>
-                        <td>2.1 RC <span class="label label-success">latest</span></td>
-                        <td>
-                <pre class="commitDescription">
-- refactored the code to work faster
-- added support for Medion tablets
-- added support for Arnova tablets
-- added alternative method $detect->is('AndroidOS') equivalent to $detect->isAndroidOS();
-- added posibility of using the method in batch mode. Now accepting custom $userAgent and $httpHeaders via isMobile($userAgent = null, $httpHeaders = null) and is($key, $userAgent = null, $httpHeaders = null) methods
-- added batch tests.php file</pre>
-                        </td>
-                        <td><a href="http://code.google.com/p/php-mobile-detect/downloads/detail?name=php-mobile-detect.v.2.1.RC.zip" class="btn btn-success btn-mini">Download <i class="icon-white icon-download"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>2.0.9</td>
-                        <td><pre class="commitDescription">
-#66 - Opera Mobile on Android tablets reports false on isOpera
-#67 - Galaxy Nexus reports false to isNexus
-- other minor fixes</pre></td>
-                        <td><a href="http://code.google.com/p/php-mobile-detect/downloads/detail?name=php-mobile-detect.v.2.0.9.zip" class="btn btn-success btn-mini downloadLink">Download <i class="icon-white icon-download"></i></a></td>
-                    </tr>
-
-                </table>
-
-                <p>For full download and commit history, check our <a href="https://github.com/serbanghita/Mobile-Detect">GitHub</a> or <a href="http://code.google.com/p/php-mobile-detect/downloads/list?can=1&q=&colspec=Filename+Summary+Uploaded+ReleaseDate+Size+DownloadCount">Google Code</a> repositories.</p>
-
-            </div>
         </div>
     </div> <!-- /tabbable -->
 
@@ -264,7 +230,6 @@ foreach($userAgents as $userAgent){
 
         <div class="small-footer">
             <p>Lead developer &amp; maintainer: <a href="http://twitter.com/serbanghita">@serbanghita</a>. Original author: <a href="http://twitter.com/victorstanciu">@victorstanciu</a></p>
-
             <p>&copy; PHP Mobile Detect is an open-source script released under <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.</p>
         </div>
 
@@ -307,6 +272,25 @@ foreach($userAgents as $userAgent){
     setTimeout('_gaq.push(["_trackEvent", "NoBounce", "NoBounce", "Over 1 minute"])', 60000);
     setTimeout('_gaq.push(["_trackEvent", "NoBounce", "NoBounce", "Over 2 minutes"])', 120000);
     setTimeout('_gaq.push(["_trackEvent", "NoBounce", "NoBounce", "Over 5 minutes"])', 300000);
+
+
+    /*
+     $.ajax({
+     url: 'https://api.github.com/repos/' + repo,
+     dataType: 'jsonp',
+
+     success: function (results) {
+     var repo = results.data;
+     var watchers = repo.watchers;
+     var forks = repo.forks;
+
+     $(".github-watchers").html(watchers);
+     $(".github-forks").html(forks);
+     }
+     })
+
+     */
+
 
 </script>
 
