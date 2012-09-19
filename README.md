@@ -5,8 +5,6 @@ Mobile\_Detect is a lightweight PHP class for detecting mobile devices. It uses 
 
 We are proudly sponsored by ![BrowserStack](http://jquery.org/wp-content/uploads/2010/01/browserstack-150.png). [BrowserStack](http://www.browserstack.com) is a complete browser coverage tool (including mobile devices) for testing you web application.
 
-<a href='http://www.pledgie.com/campaigns/18179'><img alt='Click here to lend your support to: Mobile Detect PHP class and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/18179.png?skin_name=chrome' border='0' /></a>
-
 ### Usage
 
 Include and instantiate the class.
