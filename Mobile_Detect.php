@@ -231,7 +231,7 @@ class Mobile_Detect {
             }
             // Header can occur on devices using Opera Mini (can expose the real device type). Let's concatenate it (we need this extra info in the regexes).
             if(!empty($this->httpHeaders['HTTP_X_OPERAMINI_PHONE_UA'])){
-                $this->userAgent += ' '.$this->httpHeaders['HTTP_X_OPERAMINI_PHONE_UA'];
+                $this->userAgent .= ' '.$this->httpHeaders['HTTP_X_OPERAMINI_PHONE_UA'];
             }
         }
 
