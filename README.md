@@ -82,10 +82,11 @@ $detect->version('Opera Mini'); // 5.0 (float)
 [...]
 ```
 
-### Projects based on the class
+### Projects that are using the class
 
-* **Symphony2** bundle for detecting mobile devices - [https://github.com/suncat2000/MobileDetectBundle](https://github.com/suncat2000/MobileDetectBundle)
-* **Drupal Context Mobile Detect module** - [http://drupal.org/project/context_mobile_detect](http://drupal.org/project/context_mobile_detect)
-* **Wordpress WP Mobile Detect module** - [http://wordpress.org/extend/plugins/wp-mobile-detect/](http://wordpress.org/extend/plugins/wp-mobile-detect/)
-* **Responsage** small WordPress theme plugin that allows you to make your images responsive - [https://github.com/iamspacehead/responsage](https://github.com/iamspacehead/responsage)
-* **bConsole** creates a panel that sits on top of a browser-based project and provides information about the client machine and browser - http://code.google.com/p/bconsole/
+* **[Symphony2](https://github.com/suncat2000/MobileDetectBundle)** - Symfony2 bundle for detect mobile devices, manage mobile view and redirect to the mobile and tablet version.
+* **[Context Mobile Detect](http://drupal.org/project/context_mobile_detect)** - This is a Drupal Context module which integrates Context and PHP Mobile Detect library.
+* **[WP Mobile Detect](http://wordpress.org/extend/plugins/wp-mobile-detect/)** - WP Mobile detect gives you the ability to wrap that infographic in a [notdevice][/notdevice] shortcode so at the server level WordPress will decide to show that content only if the user is NOT on a phone or tablet.
+* **[Tiny Tiny RSS](http://tt-rss.org/redmine/projects/tt-rss/wiki)** - Is an open source web-based news feed (RSS/Atom) reader and aggregator, designed to allow you to read news from any location, while feeling as close to a real desktop application as possible.
+* **[Responsage](https://github.com/iamspacehead/responsage)** - Is a small WordPress theme plugin that allows you to make your images responsive.
+* **[bConsole](http://code.google.com/p/bconsole/)** - Creates a panel that sits on top of a browser-based project and provides information about the client machine and browser.
