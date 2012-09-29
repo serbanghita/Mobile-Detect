@@ -25,118 +25,30 @@
  *
  * @author      Serban Ghita <serbanghita@gmail.com>
  *              Victor Stanciu <vic.stanciu@gmail.com> (until v.1.0)
- * @copyright   2012 Serban Ghita.
  * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
- * @link        http://mobiledetect.net
  */
-
-// Set default timezone for PHP 5.3
-date_default_timezone_set('Europe/Bucharest');
-// Enable all errors for debugging purposes.
-error_reporting(E_ALL | E_STRICT);
-ini_set('display_errors', true);
-
-    // Notify me in case of an error. Helps debug the script.
-    // @todo: use jsonp
-    if(isset($_GET['ajax']) && $_GET['ajax']==1 && !empty($_POST['ua']) && in_array($_POST['answer'], array('yes', 'no'))){
-
-        @mail('serbanghita@gmail.com', 'PHP Mobile Detect submission', print_r(getHttpHeaders(),true)."\n".print_r($_POST,true), 'FROM: Ghita.org <site@ghita.org>');
-        exit(json_encode(array('success' => true)));
-
-    }
-
-/**
- * Generic write to file function.
- *
- * @param string $file
- * @param string $content
- */
-function writeToFile($file, $content){
-
-    if (!$handle = fopen($file, 'a')) {
-            echo "Cannot open file ($file)";
-            exit;
-    }
-
-    if (fwrite($handle, $content) === FALSE) {
-            echo "Cannot write to file ($file)";
-            exit;
-    }
-
-    fclose($handle);
-
-}
-/**
- * Get all HTTP headers plus visitor IP and
- * the date of the HTTP request.
- *
- * @return array
- */
-function getHttpHeaders() {
-
-    $out = array();
-
-    foreach($_SERVER as $key=>$value) {
-	if (substr($key,0,5)=="HTTP_" || in_array($key, array('REMOTE_ADDR', 'REQUEST_TIME'))) {
-		$out[$key]=($key=='REQUEST_TIME' ? date('d-m-Y H:i', $value) : $value);
-	}
-    }
-
-    return $out;
-
-}
-
-// Debug.
-writeToFile('ua.txt', print_r(getHttpHeaders(),true));
-
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Mobile_Detect demo</title>
-        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-        <style type="text/css">
-            html {
-                font-size: 100%;
-                -webkit-text-size-adjust: 100%;
-                -ms-text-size-adjust: 100%;
-            }
-            body {
-                margin: 0;
-		        padding: 0 1em;
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                font-size: 1em;
-                color: #333333;
-                background-color: #ffffff;
-            }
-            body, td { font-size: 1em; }
-            a {
-                color: #0088cc;
-                text-decoration: underline;
-            }
-            a:hover {
-                color: #005580;
-                text-decoration: underline;
-            }
-
-            section { margin-bottom:2em; }
-            section h1 { font-size:100%; }
-            #deviceQuestion { max-width:320px; }
-
-            .computer { background-color:blue; color:white; }
-            .tablet { background-color:yellow; color:black; }
-            .mobile,.true { background-color:green; color:white; }
-            .randomcrap { background:#eee; color:#666; }
-
-            .sendDataButton {
-                border-radius: 1em;
-                -moz-border-radius: 1em;
-                -webkit-border-radius: 1em;
-                padding:0.5em 1em;
-                cursor: pointer;
-            }
-
-            .sendDataButton.yes {
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Mobile Detect Local Demo</title>
+    <style type="text/css">
+        html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        body { margin: 0; padding: 0 1em; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 1em; color: #333333; background-color: #ffffff; max-width:320px; }
+        body, td { font-size: 1em; }
+        table th { text-align:left; }
+        a { color: #0088cc; text-decoration: underline; }
+        a:hover { color: #005580; text-decoration: underline; }
+        section { margin-bottom:2em; }
+        section h1 { font-size:100%; }
+        .infoText { font-size:85%; }
+        .response { color:red; }
+        .computer { background-color:blue; color:white; }
+        .tablet { background-color:yellow; color:black; }
+        .phone, .true { background-color:green; color:white; }
+        .sendDataButton { border-radius: 1em; -moz-border-radius: 1em; -webkit-border-radius: 1em; padding:0.5em 1em; cursor: pointer; }
+        .sendDataButton_yes {
                 color:white;
                 border: 1px solid #56A00E;
                 background: #74B042;
@@ -149,12 +61,11 @@ writeToFile('ua.txt', print_r(getHttpHeaders(),true));
                 background-image:     -ms-linear-gradient( #74B042 , #56A00E ); /* IE10 */
                 background-image:      -o-linear-gradient( #74B042 , #56A00E ); /* Opera 11.10+ */
                 background-image:         linear-gradient( #74B042 , #56A00E );
-            }
-
-            .sendDataButton.no {
+        }
+        .sendDataButton_no {
                 color:white;
                 border: 1px solid #cd2c24;
-                background: green;
+                background: red;
                 font-weight: bold;
                 color: #ffffff;
                 text-shadow: 0 1px 0 #444444;
@@ -164,144 +75,178 @@ writeToFile('ua.txt', print_r(getHttpHeaders(),true));
                 background-image:     -ms-linear-gradient( #e13027 , #b82720 ); /* IE10 */
                 background-image:      -o-linear-gradient( #e13027 , #b82720 ); /* Opera 11.10+ */
                 background-image:         linear-gradient( #e13027 , #b82720 );
-            }
+        }
+        #feedbackForm fieldset { border:1px dotted #333; }
+        #feedbackForm label { font-weight:bold; font-size:85%; }
+        #feedbackForm textarea { width: 260px; }
+    </style>
+    <script src="//code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
 
+            $('.sendDataButton').bind('click.demo', function(e){
 
-        </style>
+                $button = $(this);
+                e.preventDefault();
 
-        <script src="//code.jquery.com/jquery-1.7.1.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-
-                $('.sendDataButton').bind('click', function(){
-
-                    $.ajax({
-                        url: 'demo.php?ajax=1',
-                        type: 'post',
-                        dataType: 'json',
-                        data: 'answer='+$(this).attr('data-answer')+'&ua='+escape(navigator.userAgent),
-                        success: function(r){
-                            $('#deviceQuestion').html('<p>Thanks a lot for the submission!</p>');
-                            if($(this).attr('data-answer')=='no'){
-                                $('#deviceQuestion').append('<p>I\'ll do my best next time ;)</p>');
-                            }
-                        }
-                    });
-
+                $.ajax({
+                    url: 'http://demo.mobiledetect.net/?page=addItem',
+                    type: 'POST',
+                    dataType: 'jsonp',
+                    data: {
+                            remoteDetails:  $('#remoteDetails').val(),
+                            remoteAnswer:   $(this).attr('data-answer'),
+                            uaStringFromJS: escape(navigator.userAgent),
+                            deviceWidth:    $(window).width(),
+                            deviceHeight:   $(window).height(),
+                            source:         'demoFeedback'
+                    },
+                    beforeSend: function(){
+                        $button.html('Loading...');
+                    },
+                    success: function(r){
+                        $('#feedbackForm').html('<p class="response">'+r.msg+'</p>');
+                    }
                 });
 
             });
-        </script>
 
-    </head>
-    <body>
-        <section>
-            <header>
-                <h1><a href="http://code.google.com/p/php-mobile-detect/">Mobile_Detect</a></h1>
-                <p>The lightweight PHP class for detecting mobile devices.</p>
-            </header>
+            $.ajax({
+                url: 'http://demo.mobiledetect.net/?page=addItem',
+                type: 'POST',
+                dataType: 'jsonp',
+                data: {
+                        //uaStringFromJS: escape(navigator.userAgent),
+                        deviceWidth:    $(window).width(),
+                        deviceHeight:   $(window).height(),
+                        devicePixelRatio: (typeof window.devicePixelRatio !== 'undefined' ? window.devicePixelRatio : 0),
+                        'source':         'demoVisitor'
+                },
+                success: function(r){
+                    try{ console.log(r); } catch(e){ }
+                }
+            });
+
+
+        });
+    </script>
+
+
+</head>
+<body>
+
+<header>
+<h1><a href="https://github.com/serbanghita/Mobile-Detect">Mobile_Detect</a></h1>
+<p class="infoText">The lightweight PHP class for detecting mobile devices.</p>
+</header>
+
+<!-- copy to GitHub with a couple of changes -->
+<section>
+    <?php
+    require_once 'Mobile_Detect.php';
+    $detect = new Mobile_Detect;
+    $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
+    ?>
+
+    <p>This is a <b><?php echo $deviceType; ?></b>. Your UA is <b class="<?php echo $deviceType; ?>"><?php echo htmlentities($_SERVER['HTTP_USER_AGENT']); ?></b></p>
+
+    <p class="infoText">Please help us improve the mobile detection by choosing the correct answer.<br>
+    Before sending an answer double check if you are using the browser in 'Desktop mode'.<br>
+    You can contribute by:<br>
+     1. <a href="https://github.com/serbanghita/Mobile-Detect">forking</a> the project<br>
+     2. <a href="https://github.com/serbanghita/Mobile-Detect/issues/new?body=Please%20specify%20the%20User-Agent.%20Go%20to%20http://is.gd/mobiletest%20and%20copy-paste%20it%20here.">submiting an issue</a><br>
+     3. sending us feedback below
+    </p>
+
+    <form id="feedbackForm">
+         <fieldset>
+            <legend>Contribute</legend>
+
+            <h1>Is your device really a <?php echo $deviceType; ?>?</h1>
+
+            <p>
+            <label for="remoteDetails">Additional feedback:</label><br>
+            <textarea name="remoteDetails" id="remoteDetails"></textarea>
+            </p>
+            <button class="sendDataButton sendDataButton_yes" data-answer="yes">♥ Yes, it's correct.</button> <button class="sendDataButton sendDataButton_no" data-answer="no">No, it's wrong!</button>
+        </fieldset>
+    </form>
+
+</section>
+
+
+<!-- copy to GitHub demo.php -->
+<section>
+    <h1>Supported methods</h1>
+    <table cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr>
+            <th colspan="2">Basic detection methods</th>
+        </tr>
+        <tr>
+            <td>isMobile()</td><td <?php $check = $detect->isMobile(); if($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
+        </tr>
+        <tr>
+            <td>isTablet()</td><td <?php $check = $detect->isTablet(); if($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr>
+            <th colspan="2">Custom detection methods</th>
+        </tr>
+        <?php foreach($detect->getRules() as $name => $regex):
+                        $check = $detect->{'is'.$name}();
+        ?>
+            <tr>
+                    <td>is<?php echo $name; ?>()</td>
+                    <td <?php if($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+        <tbody>
+            <tr>
+                <th colspan="2">Experimental version() method</th>
+            </tr>
             <?php
-	            // Check for mobile device.
-                require_once 'Mobile_Detect.php';
-                $detect = new Mobile_Detect();
-                $layout = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'mobile') : 'computer');
+            foreach($detect->getProperties() as $name => $match):
+                $check = $detect->version($name);
+                if($check!==false):
             ?>
+            <tr>
+                <td>version(<?php echo $name; ?>)</td>
+                <td><?php var_dump($check); ?></td>
+            </tr>
+            <?php endif; ?>
+            <?php endforeach; ?>
+        </tbody>
+        <tbody>
+            <tr>
+                <th colspan="2">Other tests</th>
+            </tr>
+            <tr>
+                <td>isiphone()</td>
+                <td><?php echo var_dump($detect->isiphone()); ?></td>
+            </tr>
+            <tr>
+                <td>isIphone()</td>
+                <td><?php echo var_dump($detect->isIphone()); ?></td>
+            </tr>
+            <tr>
+                <td>istablet()</td>
+                <td><?php echo var_dump($detect->istablet()); ?></td>
+            </tr>
+            <tr>
+                <td>isIOS()</td>
+                <td><?php echo var_dump($detect->isIOS()); ?></td>
+            </tr>
+            <tr>
+                <td>isWhateverYouWant()</td>
+                <td class="randomcrap"><?php echo var_dump($detect->isWhateverYouWant()); ?></td>
+            </tr>
+        </tbody>
+    </table>
 
-       </section>
+</section>
 
-
-
-        <section id="deviceQuestion">
-            <h1>Is your device really a <em><?php echo $layout; ?></em>?</h1>
-            <p>Please help us improve the mobile detection by choosing the correct answer.</p>
-            <p class="<?php echo $layout; ?>">This is <b><?php echo $layout; ?></b>. Your UA is <b><?php echo htmlentities($_SERVER['HTTP_USER_AGENT']); ?></b></p>
-            <button class="sendDataButton yes" data-answer="yes">♥ Yes, it's correct.</button> <button class="sendDataButton no" data-answer="no">No, it's wrong!</button>
-        </section>
-
-
-
-	   <section>
-		   <header>
-			   <h1>Supported methods tests</h1>
-               <p>Please report any bugs to the <a href="http://code.google.com/p/php-mobile-detect/issues/list">issue list</a> specifying the User-agent.</p>
-		   </header>
-            <table cellspacing="0" cellpadding="0">
-                <tbody>
-                <tr>
-                    <th colspan="2">Basic detection methods</th>
-                </tr>
-                <tr>
-                    <td>isMobile()</td><td <?php $check = $detect->isMobile(); if($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
-                </tr>
-                <tr>
-                    <td>isTablet()</td><td <?php $check = $detect->isTablet(); if($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
-                </tr>
-                </tbody>
-                <tbody>
-                <tr>
-                    <th colspan="2">Custom detection methods</th>
-                </tr>
-                <?php foreach($detect->getRules() as $name => $regex):
-                                $check = $detect->{'is'.$name}();
-                ?>
-                    <tr>
-                            <td>is<?php echo $name; ?>()</td>
-                            <td <?php if($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <th colspan="2">Experimental version() method</th>
-                    </tr>
-                    <?php
-                    foreach($detect->getProperties() as $name => $match):
-                        $check = $detect->version($name);
-                        if($check!==false):
-                    ?>
-                    <tr>
-                        <td>version(<?php echo $name; ?>)</td>
-                        <td><?php var_dump($check); ?></td>
-                    </tr>
-                    <?php endif; ?>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-       </section>
-
-	<section>
-	    <header>
-		<h1>Other tests</h1>
-	    </header>
-
-	    <table>
-		<tr>
-			<td>isiphone()</td>
-			<td><?php echo var_dump($detect->isiphone()); ?></td>
-		</tr>
-		<tr>
-			<td>isIphone()</td>
-			<td><?php echo var_dump($detect->isIphone()); ?></td>
-		</tr>
-		<tr>
-			<td>istablet()</td>
-			<td><?php echo var_dump($detect->istablet()); ?></td>
-		</tr>
-		<tr>
-			<td>isIOS()</td>
-			<td><?php echo var_dump($detect->isIOS()); ?></td>
-		</tr>
-		<tr>
-			<td>isWhateverYouWant()</td>
-			<td class="randomcrap"><?php echo var_dump($detect->isWhateverYouWant()); ?></td>
-		</tr>
-	    </table>
-
-	</section>
-
-
-        <footer>
-            <p>Copyright &copy; <?php echo date('Y'); ?></p>
-        </footer>
-    </body>
+</body>
 </html>

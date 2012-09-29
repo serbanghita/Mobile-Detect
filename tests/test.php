@@ -70,6 +70,7 @@ $htmltemplate = '
      #results { border-collapse: collapse; }
      #results tr:hover { background: yellow; }
      #results th { border:1px solid #333; background:#eee; cursor:pointer; }
+     #results th.brand { text-align:left; }
      #results td { border:1px solid #333; white-space:nowrap; }
     </style>
   </head>

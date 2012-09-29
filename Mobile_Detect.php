@@ -27,8 +27,8 @@
  *              Victor Stanciu <vic.stanciu@gmail.com> (until v.1.0)
  * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
  * @link        http://mobiledetect.net
-                Google Code Repository: http://code.google.com/p/php-mobile-detect/
-                GitHub Repository: https://github.com/serbanghita/Mobile-Detect
+ *              Google Code Repository: http://code.google.com/p/php-mobile-detect/
+ *              GitHub Repository: https://github.com/serbanghita/Mobile-Detect
  * @version     2.1 RC2
  */
 
@@ -48,7 +48,7 @@ class Mobile_Detect {
     protected $phoneDevices = array(
         'iPhone'        => '(iPhone.*Mobile|iPod|iTunes)',
         'BlackBerry'    => 'BlackBerry|rim[0-9]+',
-        'HTC'           => 'HTC|HTC.*(Evo|Vision|Explorer|6800|8100|8900|A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT|Qtek9090|APA9292KT|HD_mini|Sensation.*Z710e|PG86100',
+        'HTC'           => 'HTC|HTC.*(Sensation|Evo|Vision|Explorer|6800|8100|8900|A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT|Qtek9090|APA9292KT|HD_mini|Sensation.*Z710e|PG86100|Z715e|Desire.*(A8181|HD)|ADR6200|ADR6425|001HT',
         'Nexus'         => 'Nexus One|Nexus S|Galaxy.*Nexus|Android.*Nexus.*Mobile',
         'Dell'          => 'Dell.*Streak|Dell.*Aero|Dell.*Venue|DELL.*Venue Pro|Dell Flash|Dell Smoke|Dell Mini 3iX|XCD28|XCD35',
         'Motorola'      => 'Motorola|\bDroid\b.*Build|DROIDX|HRI39|MOT-|A1260|A1680|A555|A853|A855|A953|A955|A956|Motorola.*ELECTRIFY|Motorola.*i1|i867|i940|MB200|MB300|MB501|MB502|MB508|MB511|MB520|MB525|MB526|MB611|MB612|MB632|MB810|MB855|MB860|MB861|MB865|MB870|ME501|ME502|ME511|ME525|ME600|ME632|ME722|ME811|ME860|ME863|ME865|MT620|MT710|MT716|MT720|MT810|MT870|MT917|Motorola.*TITANIUM|WX435|WX445|XT300|XT301|XT311|XT316|XT317|XT319|XT320|XT390|XT502|XT530|XT531|XT532|XT535|XT603|XT610|XT611|XT615|XT681|XT701|XT702|XT711|XT720|XT800|XT806|XT860|XT862|XT875|XT882|XT883|XT894|XT909|XT910|XT912|XT928',
@@ -64,14 +64,15 @@ class Mobile_Detect {
         'BlackBerryTablet'  => 'PlayBook|RIM Tablet',
         'iPad'              => 'iPad|iPad.*Mobile', // @todo: check for mobile friendly emails topic.
         'NexusTablet'       => '^.*Android.*Nexus(?:(?!Mobile).)*$',
+        // @reference: http://www.labnol.org/software/kindle-user-agent-string/20378/
         'Kindle'            => 'Kindle|Silk.*Accelerated',
         'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|GT-P1000|GT-P1010|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P1000|GT-P3100|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7300|GT-P7320|GT-P7500|GT-P7510|GT-P7511',
         'HTCtablet'         => 'HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200',
-	'MotorolaTablet'    => 'xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617',
+        'MotorolaTablet'    => 'xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617',
         'AsusTablet'        => 'Transformer|TF101',
         'NookTablet'        => 'Android.*Nook|NookColor|nook browser|BNTV250A|LogicPD Zoom2',
         'AcerTablet'        => 'Android.*\b(A100|A101|A200|A500|A501|A510|W500|W500P|W501|W501P)\b',
-	'YarvikTablet'      => 'Android.*(TAB210|TAB211|TAB224|TAB250|TAB260|TAB264|TAB310|TAB360|TAB364|TAB410|TAB411|TAB420|TAB424|TAB450|TAB460|TAB461|TAB464|TAB465|TAB467|TAB468)',
+        'YarvikTablet'      => 'Android.*(TAB210|TAB211|TAB224|TAB250|TAB260|TAB264|TAB310|TAB360|TAB364|TAB410|TAB411|TAB420|TAB424|TAB450|TAB460|TAB461|TAB464|TAB465|TAB467|TAB468)',
         'MedionTablet'      => 'Android.*\bOYO\b|LIFE.*(P9212|P9514|P9516|S9512)|LIFETAB',
         'ArnovaTablet'      => 'AN10G2|AN7bG3|AN7fG3|AN8G3|AN8cG3|AN7G3|AN9G3|AN7dG3|AN7dG3ST|AN7dG3ChildPad|AN10bG3|AN10bG3DT',
         // @reference: http://wiki.archosfans.com/index.php?title=Main_Page
@@ -156,12 +157,15 @@ class Mobile_Detect {
         'Chrome'        => 'Chrome/[VER]',
         'CriOS'         => 'CriOS/[VER]',
         'Dolfin'        => 'Dolfin/[VER]',
+        // @reference: https://developer.mozilla.org/en-US/docs/User_Agent_Strings_Reference
         'Firefox'       => 'Firefox/[VER]',
         'Fennec'        => 'Fennec/[VER]',
+        // @reference: http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
         'IEMobile'      => array('IEMobile/[VER];', 'IEMobile [VER]'),
         'MSIE'          => 'MSIE [VER];',
         // http://en.wikipedia.org/wiki/NetFront
         'NetFront'      => 'NetFront/[VER]',
+        'NokiaBrowser'  => 'NokiaBrowser/[VER]',
         'NokiaBrowser'  => 'NokiaBrowser/[VER]',
         'Opera'         => 'Version/[VER]',
         'Opera Mini'    => 'Opera Mini/[VER]',
@@ -309,7 +313,7 @@ class Mobile_Detect {
                  strpos($this->httpHeaders['HTTP_ACCEPT'], 'application/vnd.rim.html') !== false || // BlackBerry devices.
                  strpos($this->httpHeaders['HTTP_ACCEPT'], 'text/vnd.wap.wml') !== false ||
                  strpos($this->httpHeaders['HTTP_ACCEPT'], 'application/vnd.wap.xhtml+xml') !== false) ||
-            isset($this->httpHeaders['HTTP_X_WAP_PROFILE'])             ||
+            isset($this->httpHeaders['HTTP_X_WAP_PROFILE'])             || // @todo: validate
             isset($this->httpHeaders['HTTP_X_WAP_CLIENTID'])            ||
             isset($this->httpHeaders['HTTP_WAP_CONNECTION'])            ||
             isset($this->httpHeaders['HTTP_PROFILE'])                   ||
@@ -321,6 +325,8 @@ class Mobile_Detect {
             isset($this->httpHeaders['HTTP_X_HUAWEI_USERID'])           ||
             isset($this->httpHeaders['HTTP_UA_OS'])                     || // Reported by Windows Smartphones.
             isset($this->httpHeaders['HTTP_X_MOBILE_GATEWAY'])          || // Reported by Verizon, Vodafone proxy system.
+            isset($this->httpHeaders['HTTP_X_ATT_DEVICEID'])            || // Seend this on HTC Sensation. @ref: SensationXE_Beats_Z715e
+            //HTTP_X_NETWORK_TYPE = WIFI
             ( isset($this->httpHeaders['HTTP_UA_CPU']) &&
                     $this->httpHeaders['HTTP_UA_CPU'] == 'ARM'          // Seen this on a HTC.
             )
