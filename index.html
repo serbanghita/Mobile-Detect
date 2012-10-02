@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="description" content="Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.">
     <meta name="author" content="Serban Ghita">
+    <link rel="shortcut icon" href="img/favicon.ico">
 
     <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
@@ -13,29 +14,95 @@
 
     <style type="text/css">
         body {
-            padding: 20px 0px 0px;
+            padding: 0px 0px 0px;
             background: #F1F1F1 url('/img/bg-grey.jpg');
         }
+        .container-fluid-custom { padding-left:0; padding-right: 0px; }
         .hero-unit-custom {
             background: #A4C721 url('/img/bg.jpg');
             border: none;
             box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.3),0 1px 1px 0 rgba(255, 255, 255, 0.5);
             color: #425609;
             padding: 15px 60px;
-            margin-bottom: 15px;
+            margin-bottom: 0px;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+            text-align: center;        
         }
         .hero-unit-custom h1 {
-            /*text-transform: uppercase;*/
             color: #425609;
             text-shadow: 1px 1px #C2E338, 4px 4px 0px #92AE28;
+            font-size:90px;
         }
-        .headerCheck { width:90px; float:right; text-align: right; font-size:80%; }
-        .headerCheck img { width: 100%; }
+        .description { padding-bottom: 20px; }
+        .downloadBtn { padding-bottom: 20px; }
+        .downloadBtn .btn { font-size:22px; }
+        .metaInfo { font-size:15px !important; }
+
+        .bs-docs-social {
+            padding: 15px 0;
+            text-align: center;
+            background-color: whiteSmoke;
+            border-top: 1px solid white;
+            border-bottom: 1px solid #DDD;
+        } 
+        .bs-docs-social-buttons {
+            margin-left: 0;
+            margin-bottom: 0;
+            padding-left: 0;
+            list-style: none;
+        } 
+        .bs-docs-social-buttons li {
+            display: inline-block;
+            padding: 5px 8px;
+            line-height: 1;
+        } 
+
+        /* inside page */
+        .marketing {
+            color: #5A5A5A;
+            margin-top:10px;
+        }        
+        .marketing h1 {
+            margin: 60px 0 10px;
+            font-size: 40px;
+            font-weight: 200;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+        .marketing .marketing-byline {
+            margin-bottom: 40px;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 25px;
+            color: #999;
+        }
+        .marketing h2 {
+            font-weight: 200;
+            margin-bottom: 5px;
+        }  
+
+        hr.soften {
+            height: 1px;
+            margin: 20px 0;
+            background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+            background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+            background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+            background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+            border: 0;
+        }     
+
+        .sponsors {
+            padding:20px 0px;
+            text-align: center;
+        }                                      
 
         footer {
             background: #272727;
             padding: 20px 0;
             color:white;
+            text-align: center;
         }
         .small-footer {
             padding: 0;
@@ -45,22 +112,8 @@
             margin: 0px;
             padding:0px;
             color: #666;
-            font-size: 80%;
+            font-size: 95%;
         }
-
-        .tabbable { background: white; padding:15px;
-            -webkit-border-radius: 6px 6px 0px 0px;
-            -moz-border-radius: 6px 6px 0px 0px;
-            border-radius: 6px 6px 0px 0px;
-        }
-        .tab-pane.active { background: white; }
-
-        .tableHistory { background: white; }
-        .commitDescription { font-size:80%; }
-        .downloadLink { white-space: nowrap; }
-        .btn-browserstack { background: #272727; }
-        .btn-browserstack:hover {  background: #333333; }
-
     </style>
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -75,151 +128,95 @@
 
 <body>
 
-<div class="container-fluid">
-<!--
-    <div>
-        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=serbanghita&repo=Mobile-Detect&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=serbanghita&repo=Mobile-Detect&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
-    </div>
--->
-    <!-- Main hero unit for a primary marketing message or call to action -->
+<div class="container-fluid container-fluid-custom">
+
     <div class="hero-unit hero-unit-custom">
-        <div class="headerCheck">
-            Test your device:<br> <img src="http://qr.kaywa.com/?s=8&d=http%3A%2F%2Fis.gd%2Fmobiletest" alt="QRCode" />
-        </div>
+
         <h1>PHP Mobile Detect</h1>
-        <p><em>The lightweight PHP class for detecting mobile devices.</em></p>
+        <p class="description"><em>The lightweight PHP class for detecting mobile devices.</em></p>
+
+        <p class="downloadBtn"><a href="https://github.com/serbanghita/Mobile-Detect/zipball/2.2" class="btn btn-primary btn-large" onclick="_gaq.push(['_trackEvent', 'Page actions', 'Download', 'Download 2.2']);">Download now</a></p>
+
+        <p class="metaInfo"><a href="https://github.com/serbanghita/Mobile-Detect">GitHub project</a> <span>Version 2.2</span></p>
 
     </div>
 
-    <div class="tabbable tabs-left">
-        <ul class="nav nav-pills">
-            <li class="active"><a href="#lA" data-toggle="tab">Home</a></li>
-            <li><a href="http://is.gd/mobiletest">Demo</a> </li>
-            <li><a href="#lB" data-toggle="tab">Examples</a></li>
-            <li><a href="https://github.com/serbanghita/Mobile-Detect/issues/new">Submit issue</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Repositories<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="https://github.com/serbanghita/Mobile-Detect" id="linkToGitHub">GitHub.com (git)</a></li>
-                    <li><a href="http://code.google.com/p/php-mobile-detect/" id="linkToGoogleCode">Google Code (svn)</a></li>
-                </ul>
-            </li>
-            <li><a href="https://github.com/serbanghita/Mobile-Detect/zipball/master">Download latest <sup>v.2.1 RC2</sup> <i class="icon-black icon-download"></i></a></li>
-
+    <div class="bs-docs-social">
+      <div class="container">
+        <ul class="bs-docs-social-buttons">
+          <li>
+            <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=serbanghita&amp;repo=Mobile-Detect&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+          </li>
+          <li>
+            <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=serbanghita&amp;repo=Mobile-Detect&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+          </li>
+          <li class="tweet-btn">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://github.com/serbanghita/Mobile-Detect" data-count="horizontal" data-via="twbootstrap">Tweet</a>
+          </li>
         </ul>
-        <div class="tab-content">
-            <div class="tab-pane active" id="lA">
-                <p><code>Mobile_Detect</code> is a lightweight PHP class for detecting mobile devices. It uses the user-agent string combined with specific HTTP headers
-                    to detect the mobile environment. <br>
-                    <strong>Note:</strong> this project <i>is the same</i> with <a href="http://code.google.com/p/php-mobile-detect/">http://code.google.com/p/php-mobile-detect/</a>.
-                    We are keeping both repositories updated until the transition to GitHub is completed.</p>
+      </div>
+    </div>   
 
-                <p>We are now sponsored by <a class="btn btn-browserstack" target="_blank"  href="http://www.browserstack.com"><img src="http://www.browserstack.com/images/logo-small.png" alt="BrowserStack"></a> the complete browser coverage tool (including mobile devices) for testing you web application.</p>
 
-                <hr>
+    <div class="container">
+        <div class="marketing">
 
-                <p>Let's begin detecting mobile devices:</p>
+
+<div class="row-fluid">
+            <div class="span6">
+
+<h2>Simple to use</h2>
+
 <pre class="prettyprint linenums">
 include 'Mobile_Detect.php';
 $detect = new Mobile_Detect();
 
-if ($detect->isMobile()) {
-    // Any mobile device.
-}
+// Check for any mobile device.
+if ($detect->isMobile()) 
 
-if($detect->isTablet()){
-    // Any tablet device.
-}
-</pre>
+// Check for any tablet.
+if($detect->isTablet())
 
-                <p>Check for a specific platform:</p>
-
-<pre class="prettyprint linenums">
-if($detect->isiOS()){
-    // Code to run for the Apple's iOS platform.
-}
-
-if($detect->isAndroidOS()){
-    // Code to run for the Google's Android platform.
-}
-</pre>
-
-                <p>Alternative way of checking:</p>
-<pre class="prettyprint linenums">
-$isApple = $detect->is('ios');
-</pre>
-
-            </div>
-
-
-            <div class="tab-pane" id="lB">
-                <p>Here are some useful day to day usage examples.</p>
-<pre class="prettyprint linenums">
-// These lines are mandatory.
-include 'Mobile_Detect.php';
-$detect = new Mobile_Detect;
-</pre>
-
-<pre class="prettyprint linenums">
-// Starting from v.2.1 RC you can use is() method.
-$detect->is('AndroidOS'); // instead $detect->isAndroidOS()
-</pre>
-
-<pre class="prettyprint linenums">
-// 1. Check for mobile environment.
-if ($detect->isMobile()) {
-    // Your code here.
-}
-</pre>
-
-<pre class="prettyprint linenums">
-// 2. Check for tablet device.
-if($detect->isTablet()){
-    // Your code here.
-}
-</pre>
-
-<pre class="prettyprint linenums">
 // 3. Check for any mobile device, excluding tablets.
-if ($detect->isMobile() && !$detect->isTablet()) {
-    // Your code here.
-}
+if ($detect->isMobile() && !$detect->isTablet())
 </pre>
+            </div>
+
+            <div class="span6">
+
+<h2>Loads of features</h2>                
 
 <pre class="prettyprint linenums">
-// 4. Keep the value in $_SESSION for later use
-//    and for optimizing the speed of the code.
-if(!$_SESSION['isMobile']){
-    $_SESSION['isMobile'] = $detect->isMobile();
-}
-</pre>
+// Alternative to $detect->isAndroidOS()
+$detect->is('AndroidOS'); 
 
-<pre class="prettyprint linenums">
-// 5. Redirect the user to your mobile version of the site.
-if($detect->isMobile()){
-    header('http://m.yoursite.com', true, 301);
-}
-</pre>
-
-<pre class="prettyprint linenums">
-// Batch usage.
-$userAgents = array(
-    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.162 Safari/535.19',
-    'Mozilla/5.0 (Windows NT 6.1; rv:11.0) Gecko/20100101 Firefox/11.0',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.56 Safari/536.5',
-    // etc.
-    );
+// Batch usage
 foreach($userAgents as $userAgent){
-    $isMobile = $detect->isMobile($userAgent);
-    $isChrome = $detect->is('chrome', $userAgent);
-    var_dump($isMobile); var_dump($isChrome);
-    echo "\n";
+  $detect->setUserAgent($userAgent);
+  $isMobile = $detect->isMobile();
 }
+
+// Version check.
+$detect->version('iPad'); // 4.3 (float)
 </pre>
 
             </div>
+
         </div>
-    </div> <!-- /tabbable -->
+
+        <hr class="soften">
+
+        <div class="row-fluid">
+
+            <div class="span12">
+                <p class="sponsors">Sponsored by <a target="_blank" href="http://www.browserstack.com">BrowserStack</a> the complete browser coverage tool (including mobile devices) for testing you web application.</p>
+            </div>
+
+        </div>
+
+        </div>
+    </div> 
+
 
 
 
