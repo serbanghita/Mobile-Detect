@@ -83,6 +83,7 @@ $detect->version('Opera Mini'); // 5.0 (float)
 ```
 
 ### Projects that are using the class
+* **[pymobiledetect](http://pypi.python.org/pypi/pymobiledetect)** - python package made by Bas van Oostveen
 * **[PrestaShop](http://www.prestashop.com/)** - Free, secure and open source shopping cart platform.
 * **[JReviews](http://www.reviewsforjoomla.com/)** - Review Script for Joomla, CCK and PHP Directory Script.
 * **[Symphony2](https://github.com/suncat2000/MobileDetectBundle)** - Symfony2 bundle for detect mobile devices, manage mobile view and redirect to the mobile and tablet version.
