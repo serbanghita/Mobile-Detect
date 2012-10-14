@@ -8,6 +8,12 @@
 Sponsored by ![BrowserStack](http://jquery.org/wp-content/uploads/2010/01/browserstack-150.png).
 [BrowserStack](http://www.browserstack.com) is a complete browser coverage tool (including mobile devices) for testing you web application.
 
+### Roadmap and future development
+
+We are preparing [v.3.0](https://github.com/serbanghita/Mobile-Detect/wiki/Roadmap) and we need your support!
+
+<a href='http://www.pledgie.com/campaigns/18179'><img alt='Click here to lend your support to: Funding development of Mobile_Detect 3.0 and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/18179.png?skin_name=chrome' border='0' /></a>
+
 ### Usage
 
 Include and instantiate the class:
