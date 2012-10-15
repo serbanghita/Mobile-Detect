@@ -93,7 +93,8 @@ $detect->version('Opera Mini'); // 5.0 (float)
 * **[PrestaShop](http://www.prestashop.com/)** - Free, secure and open source shopping cart platform.
 * **[JReviews](http://www.reviewsforjoomla.com/)** - Review Script for Joomla, CCK and PHP Directory Script.
 * **[Symphony2](https://github.com/suncat2000/MobileDetectBundle)** - Symfony2 bundle for detect mobile devices, manage mobile view and redirect to the mobile and tablet version.
-* **[Context Mobile Detect](http://drupal.org/project/context_mobile_detect)** - This is a Drupal Context module which integrates Context and PHP Mobile Detect library.
+* **[Drupal Mobile Detect](http://drupal.org/project/mobile_detect)** - Lightweight mobile detect module for Drupal created by Matthew Donadio. 
+* **[Drupal Context Mobile Detect](http://drupal.org/project/context_mobile_detect)** - This is a Drupal Context module which integrates Context and PHP Mobile Detect library.
 * **[WP Mobile Detect](http://wordpress.org/extend/plugins/wp-mobile-detect/)** - WP Mobile detect gives you the ability to wrap that infographic in a [notdevice][/notdevice] shortcode so at the server level WordPress will decide to show that content only if the user is NOT on a phone or tablet.
 * **[Tiny Tiny RSS](http://tt-rss.org/redmine/projects/tt-rss/wiki)** - Is an open source web-based news feed (RSS/Atom) reader and aggregator, designed to allow you to read news from any location, while feeling as close to a real desktop application as possible.
 * **[Responsage](https://github.com/iamspacehead/responsage)** - Is a small WordPress theme plugin that allows you to make your images responsive.
