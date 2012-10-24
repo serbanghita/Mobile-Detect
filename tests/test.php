@@ -29,6 +29,9 @@
  * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
  * @link        http://mobiledetect.net
  */
+error_reporting(E_ALL & ~E_NOTICE);
+ini_set('display_errors', true);
+
 
 include '../Mobile_Detect.php';
 $detect = new Mobile_Detect();
