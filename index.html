@@ -17,18 +17,36 @@
             padding: 0px 0px 0px;
             background: #F1F1F1 url('/img/bg-grey.jpg');
         }
+        /* Change the docs' brand */
+        body > .navbar .brand {
+          padding-right: 0;
+          padding-left: 0;
+          margin-left: 20px;
+          float: right;
+          font-weight: bold;
+          color: #000;
+          text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+          -webkit-transition: all .2s linear;
+             -moz-transition: all .2s linear;
+                  transition: all .2s linear;
+        }
+        body > .navbar .brand:hover {
+          text-decoration: none;
+          text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+        }
+        p.nav-notice { padding-top:10px; text-align: center; }
         .container-fluid-custom { padding-left:0; padding-right: 0px; }
         .hero-unit-custom {
             background: #A4C721 url('/img/bg.jpg');
             border: none;
             box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.3),0 1px 1px 0 rgba(255, 255, 255, 0.5);
             color: #425609;
-            padding: 15px 60px;
+            padding: 60px 60px 15px;
             margin-bottom: 0px;
             -webkit-border-radius: 0px;
             -moz-border-radius: 0px;
             border-radius: 0px;
-            text-align: center;        
+            text-align: center;
         }
         .hero-unit-custom h1 {
             color: #425609;
@@ -46,24 +64,24 @@
             background-color: whiteSmoke;
             border-top: 1px solid white;
             border-bottom: 1px solid #DDD;
-        } 
+        }
         .bs-docs-social-buttons {
             margin-left: 0;
             margin-bottom: 0;
             padding-left: 0;
             list-style: none;
-        } 
+        }
         .bs-docs-social-buttons li {
             display: inline-block;
             padding: 5px 8px;
             line-height: 1;
-        } 
+        }
 
         /* inside page */
         .marketing {
             color: #5A5A5A;
             margin-top:10px;
-        }        
+        }
         .marketing h1 {
             margin: 60px 0 10px;
             font-size: 40px;
@@ -81,7 +99,7 @@
         .marketing h2 {
             font-weight: 200;
             margin-bottom: 5px;
-        }  
+        }
 
         hr.soften {
             height: 1px;
@@ -91,12 +109,12 @@
             background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
             background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
             border: 0;
-        }     
+        }
 
         .sponsors {
             padding:20px 0px;
             text-align: center;
-        }                                      
+        }
 
         footer {
             background: #272727;
@@ -128,11 +146,27 @@
 
 <body>
 
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="https://github.com/serbanghita/Mobile-Detect">Mobile_Detect</a>
+          <div class="nav-collapse collapse">
+            <p class="nav-notice">Did Mobile_Detect helped you to get the job done? Donate now and help us raise <a href="http://pledgie.com/campaigns/18179">funding for development of Mobile_Detect v.3.0</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
 <div class="container-fluid container-fluid-custom">
 
     <div class="hero-unit hero-unit-custom">
 
-        <h1>PHP Mobile Detect</h1>
+        <img src="img/logo.png" />
         <p class="description"><em>The lightweight PHP class for detecting mobile devices.</em></p>
 
         <p class="downloadBtn"><a href="https://github.com/serbanghita/Mobile-Detect/zipball/2.3" class="btn btn-primary btn-large" onclick="_gaq.push(['_trackEvent', 'Page actions', 'Download', 'Download 2.3']);">Download now</a></p>
@@ -155,7 +189,7 @@
           </li>
         </ul>
       </div>
-    </div>   
+    </div>
 
 
     <div class="container">
@@ -172,7 +206,7 @@ include 'Mobile_Detect.php';
 $detect = new Mobile_Detect();
 
 // Check for any mobile device.
-if ($detect->isMobile()) 
+if ($detect->isMobile())
 
 // Check for any tablet.
 if($detect->isTablet())
@@ -184,11 +218,11 @@ if ($detect->isMobile() && !$detect->isTablet())
 
             <div class="span6">
 
-<h2>Loads of features</h2>                
+<h2>Loads of features</h2>
 
 <pre class="prettyprint linenums">
 // Alternative to $detect->isAndroidOS()
-$detect->is('AndroidOS'); 
+$detect->is('AndroidOS');
 
 // Batch usage
 foreach($userAgents as $userAgent){
@@ -215,7 +249,7 @@ $detect->version('iPad'); // 4.3 (float)
         </div>
 
         </div>
-    </div> 
+    </div>
 
 
 
@@ -226,7 +260,7 @@ $detect->version('iPad'); // 4.3 (float)
     <div class="container-fluid">
 
         <div class="small-footer">
-            <p>Lead developer &amp; maintainer: <a href="http://twitter.com/serbanghita">@serbanghita</a>. Original author: <a href="http://twitter.com/victorstanciu">@victorstanciu</a></p>
+            <p>Lead developer &amp; maintainer: <a href="http://twitter.com/serbanghita">Șerban Ghiță</a>. Original author: <a href="http://twitter.com/victorstanciu">Victor Stanciu</a>. Logo created by <a href="https://twitter.com/grafician">Dragoș Gavrilă</a></p>
             <p>&copy; PHP Mobile Detect is an open-source script released under <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.</p>
         </div>
 
@@ -239,6 +273,7 @@ $detect->version('iPad'); // 4.3 (float)
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <script src="/js/jquery-1.8.0.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/prettify.js"></script>
