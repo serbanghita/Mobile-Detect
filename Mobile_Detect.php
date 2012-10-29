@@ -29,7 +29,7 @@
  * @link        http://mobiledetect.net
  *              Google Code Repository: http://code.google.com/p/php-mobile-detect/
  *              GitHub Repository: https://github.com/serbanghita/Mobile-Detect
- * @version     2.3 (GitHub Release)
+ * @version     2.4 (GitHub Release)
  */
 
 class Mobile_Detect {
@@ -83,7 +83,9 @@ class Mobile_Detect {
         'SonyTablet'        => 'Sony Tablet|Sony Tablet S',
         // @ref: db + http://www.cube-tablet.com/buy-products.html
         'CubeTablet'        => 'Android.*(K8GT|U9GT|U10GT|U16GT|U17GT|U18GT|U19GT|U20GT|U23GT|U30GT)',
-        'GenericTablet'     => 'Tablet(?!.*PC)|ViewPad7|LG-V909|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|hp-tablet',
+        // @ref: http://www.cobyusa.com/?p=pcat&pcat_id=3001
+        'CobyTablet'        => 'MID1042|MID1045|MID1125|MID1126|MID7012|MID7014|MID7034|MID7035|MID7036|MID7042|MID7048|MID7127|MID8042|MID8048|MID8127|MID9042|MID9740|MID9742|MID7022|MID7010',
+        'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|LG-V909|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|hp-tablet',
     );
     // List of mobile Operating Systems.
     protected $operatingSystems = array(
