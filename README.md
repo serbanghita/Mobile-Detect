@@ -89,6 +89,7 @@ $detect->version('Opera Mini'); // 5.0 (float)
 ```
 
 ### Projects that are using the class
+* **[concrete5](http://www.concrete5.org/)** - concrete5 is a content management system that is free and open source.
 * **[pymobiledetect](http://pypi.python.org/pypi/pymobiledetect)** - python package made by Bas van Oostveen
 * **[PrestaShop](http://www.prestashop.com/)** - Free, secure and open source shopping cart platform.
 * **[JReviews](http://www.reviewsforjoomla.com/)** - Review Script for Joomla, CCK and PHP Directory Script.
