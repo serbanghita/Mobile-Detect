@@ -83,6 +83,7 @@ class Mobile_Detect {
         'SonyTablet'        => 'Sony Tablet|Sony Tablet S',
         'GenericTablet'     => 'Tablet(?!.*PC)|ViewPad7|LG-V909|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|hp-tablet',
         'Toshiba'           => 'AT100',
+        'Windows_rt'   => 'MSIE 10.0; Windows NT 6.2; ARM;'
     );
     // List of mobile Operating Systems.
     protected $operatingSystems = array(
@@ -444,7 +445,7 @@ class Mobile_Detect {
             }
         }
 
-	    return false;
+        return false;
 
     }
 
