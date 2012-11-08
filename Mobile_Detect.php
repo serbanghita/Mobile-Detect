@@ -66,7 +66,7 @@ class Mobile_Detect {
         'NexusTablet'       => '^.*Android.*Nexus(?:(?!Mobile).)*$',
         // @reference: http://www.labnol.org/software/kindle-user-agent-string/20378/
         'Kindle'            => 'Kindle|Silk.*Accelerated',
-        'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|GT-P1000|GT-P1010|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P1000|GT-P3100|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7300|GT-P7320|GT-P7500|GT-P7510|GT-P7511',
+        'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|GT-P1000|GT-P1010|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P1000|GT-P3100|GT-P3110|GT-P5100|GT-P5110|GT-P5113|GT-P6200|GT-P7300|GT-P7320|GT-P7500|GT-P7510|GT-P7511',
         'HTCtablet'         => 'HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200',
         'MotorolaTablet'    => 'xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617',
         'AsusTablet'        => 'Transformer|TF101',
@@ -81,6 +81,10 @@ class Mobile_Detect {
         'AinolTablet'       => 'NOVO7|Novo7Aurora|Novo7Basic|NOVO7PALADIN',
         // @todo: inspect http://esupport.sony.com/US/p/select-system.pl?DIRECTOR=DRIVER
         'SonyTablet'        => 'Sony Tablet|Sony Tablet S',
+
+        'GenericTablet'     => 'Tablet(?!.*PC)|ViewPad7|LG-V909|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|hp-tablet',
+        'Toshiba'           => 'AT100',
+        'Windows_rt'        => 'MSIE 10.0; Windows NT 6.2; ARM;',
         // @ref: db + http://www.cube-tablet.com/buy-products.html
         'CubeTablet'        => 'Android.*(K8GT|U9GT|U10GT|U16GT|U17GT|U18GT|U19GT|U20GT|U23GT|U30GT)',
         // @ref: http://www.cobyusa.com/?p=pcat&pcat_id=3001
@@ -449,7 +453,7 @@ class Mobile_Detect {
             }
         }
 
-	    return false;
+        return false;
 
     }
 
