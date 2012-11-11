@@ -63,7 +63,7 @@ class Mobile_Detect {
     protected $tabletDevices = array(
         'BlackBerryTablet'  => 'PlayBook|RIM Tablet',
         'iPad'              => 'iPad|iPad.*Mobile', // @todo: check for mobile friendly emails topic.
-        'NexusTablet'       => '^.*Android.*Nexus(?:(?!Mobile).)*$',
+        'NexusTablet'       => '^.*Android.*Nexus(((?:(?!Mobile))|(?:(\s(7|10).+))).)*$',
         // @reference: http://www.labnol.org/software/kindle-user-agent-string/20378/
         'Kindle'            => 'Kindle|Silk.*Accelerated',
         'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|GT-P1000|GT-P1010|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P1000|GT-P3100|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7300|GT-P7320|GT-P7500|GT-P7510|GT-P7511',
