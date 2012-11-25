@@ -17,8 +17,6 @@
         "php": ">=5.0.0"
     },
     "autoload": {
-        "psr-0": {
-            "Mobile_Detect": ""
+            "classmap": ["Mobile_Detect.php"]
         }
-    }
 }
