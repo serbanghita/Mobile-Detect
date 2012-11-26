@@ -1,4 +1,7 @@
 # Mobile Detect
+
+![Mobile Detect](http://demo.mobiledetect.net/logo-github.png)
+
 ### The lightweight PHP class for detecting mobile devices.
 
 > Mobile\_Detect is a lightweight PHP class for detecting mobile devices. It uses the user-agent string combined with specific HTTP headers to detect the mobile environment.
@@ -18,13 +21,14 @@ In order to detect phones and tablets (new ones and legacy) we're testing the li
 
 We are working on a database and API that will automate this process in the near future.
 
-### Roadmap and future development
+### Roadmap and future development. Contribute!
 
 We are preparing [v.3.0](https://github.com/serbanghita/Mobile-Detect/wiki/Roadmap) and we need your support! The new milestone will mean great features like: basic detection kept untouched, full array with devices details, device/os/browser version utility, jQuery Mobile browser grading utility, source-code that can be easely updated.
 
 <a href='http://www.pledgie.com/campaigns/18179'><img alt='Click here to lend your support to: Funding development of Mobile_Detect 3.0 and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/18179.png?skin_name=chrome' border='0' /></a>
 
 Sponsored the community and by [BrowserStack](http://www.browserstack.com) - the complete browser coverage tool (including mobile devices) for testing you web application.
+Special thanks to [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
 
 ### Usage
 
