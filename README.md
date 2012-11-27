@@ -15,7 +15,7 @@ Throughout 2012, the script has been updated constantly and we have received ton
 
 The script is as reliable as server-side detection can be. This is not a replacement for RWD (media queries) or other forms of client-side detection. Read W3C's Mobile Web Application Best Practices [Prefer Server-Side Detection Where Possible](http://www.w3.org/TR/mwabp/#bp-devcap-detection) section.
 
-In order to detect phones and tablets (new ones and legacy) we're testing the library against HTTP headers and User-Agents that we find on the internet and through the demo.php file (See: http://is.gd/mobiledetect). Sometimes is hard to distinguish between a phone and a tablet, this is why we're constantly researching a lot of mobile vendors sites, checking product codes and new releases. You can see some of our 'tests' by checking the [test](https://github.com/serbanghita/Mobile-Detect/tree/master/tests) folder. 
+In order to detect phones and tablets (new ones and legacy) we're testing the library against HTTP headers and User-Agents that we find on the internet and through the demo.php file (See: http://is.gd/mobiletest). Sometimes is hard to distinguish between a phone and a tablet, this is why we're constantly researching a lot of mobile vendors sites, checking product codes and new releases. You can see some of our 'tests' by checking the [test](https://github.com/serbanghita/Mobile-Detect/tree/master/tests) folder. 
 
 We are working on a database and API that will automate this process in the near future.
 
