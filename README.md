@@ -25,7 +25,7 @@ We are preparing [v.3.0](https://github.com/serbanghita/Mobile-Detect/wiki/Roadm
 
 <a href='http://www.pledgie.com/campaigns/18179'><img alt='Click here to lend your support to: Funding development of Mobile_Detect 3.0 and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/18179.png?skin_name=chrome' border='0' /></a>
 
-Sponsored the community and by [BrowserStack](http://www.browserstack.com) - the complete browser coverage tool (including mobile devices) for testing you web application.
+Sponsored by the community and by [BrowserStack](http://www.browserstack.com) - the complete browser coverage tool (including mobile devices) for testing you web application.
 Special thanks to [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
 
 ### Usage
