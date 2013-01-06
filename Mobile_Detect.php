@@ -147,6 +147,8 @@ class Mobile_Detect {
         'UCBrowser'       => 'UC.*Browser|UCWEB',
         // @ref: https://github.com/serbanghita/Mobile-Detect/issues/7
         'DiigoBrowser'    => 'DiigoBrowser',
+        // http://www.puffinbrowser.com/index.php
+        'Puffin'            => 'Puffin',
         // @reference: http://en.wikipedia.org/wiki/Minimo
         // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
         'GenericBrowser'  => 'NokiaBrowser|OviBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision'
@@ -266,6 +268,18 @@ class Mobile_Detect {
     function setDetectionType($type = null){
 
         $this->detectionType = (!empty($type) ? $type : 'mobile');
+
+    }
+
+    public function getPhoneDevices(){
+
+        return $this->phoneDevices;
+
+    }
+
+    public function getTabletDevices(){
+
+        return $this->tabletDevices;
 
     }
 
