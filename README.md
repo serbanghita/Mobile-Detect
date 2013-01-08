@@ -1,5 +1,3 @@
-# Mobile Detect
-
 ![Mobile Detect](http://demo.mobiledetect.net/logo-github.png)
 
 ### The lightweight PHP class for detecting mobile devices.
