@@ -1,3 +1,5 @@
+# Mobile Detect
+
 ![Mobile Detect](http://demo.mobiledetect.net/logo-github.png)
 
 ### The lightweight PHP class for detecting mobile devices.
@@ -103,17 +105,63 @@ $detect->version('Opera Mini'); // 5.0 (float)
 ```
 
 ### Projects that are using the class
-* **[concrete5](http://www.concrete5.org/)** - concrete5 is a content management system that is free and open source.
-* **[pymobiledetect](http://pypi.python.org/pypi/pymobiledetect)** - python package made by Bas van Oostveen
-* **[PrestaShop](http://www.prestashop.com/)** - Free, secure and open source shopping cart platform.
-* **[JReviews](http://www.reviewsforjoomla.com/)** - Review Script for Joomla, CCK and PHP Directory Script.
-* **[Symphony2](https://github.com/suncat2000/MobileDetectBundle)** - Symfony2 bundle for detect mobile devices, manage mobile view and redirect to the mobile and tablet version.
-* **[Drupal Mobile Switch](http://drupal.org/project/mobile_switch)** - The Mobile Switch module provides a automatic theme switch functionality for mobile devices, detected by Browscap or Mobile Detect. Created by [Siegfried Neumann](http://drupal.org/user/45267).
-* **[Drupal Mobile Detect](http://drupal.org/project/mobile_detect)** - Lightweight mobile detect module for Drupal created by [Matthew Donadio](http://drupal.org/user/325244). 
-* **[Drupal Context Mobile Detect](http://drupal.org/project/context_mobile_detect)** - This is a Drupal Context module which integrates Context and PHP Mobile Detect library. Created by [Artem Shymko](http://drupal.org/user/432492).
-* **[WP Mobile Detect](http://wordpress.org/extend/plugins/wp-mobile-detect/)** - WP Mobile detect gives you the ability to wrap that infographic in a [notdevice][/notdevice] shortcode so at the server level WordPress will decide to show that content only if the user is NOT on a phone or tablet.
-* **[Tiny Tiny RSS](http://tt-rss.org/redmine/projects/tt-rss/wiki)** - Is an open source web-based news feed (RSS/Atom) reader and aggregator, designed to allow you to read news from any location, while feeling as close to a real desktop application as possible.
-* **[Responsage](https://github.com/iamspacehead/responsage)** - Is a small WordPress theme plugin that allows you to make your images responsive.
-* **[bConsole](http://code.google.com/p/bconsole/)** - Creates a panel that sits on top of a browser-based project and provides information about the client machine and browser.
 
-Is your project using the library? [Let us know](https://github.com/serbanghita/Mobile-Detect/issues/new?title=New%20script%20using%20Mobile_Detect&body=Description of your script.)!
+<table>
+ <tr>
+  <td><a href="http://www.concrete5.org">concrete5</a></td>
+  <td><code>concrete5</code> is a CMS that is free and open source.</td>
+ </tr>
+ <tr>
+    <td><a href="http://pypi.python.org/pypi/pymobiledetect">pymobiledetect</a></td>
+	<td>Mobile detect <code>python package</code>. Made by Bas van Oostveen.</td>
+ </tr>
+ <tr>
+	<td><a href="http://www.prestashop.com">PrestaShop</a></td>
+	<td>Free, secure and open source shopping cart platform. Since 1.5.x</td>
+ </tr> 
+  <tr>
+	<td><a href="http://www.reviewsforjoomla.com">JReviews</a></td>
+	<td>Review Script for <code>Joomla</code>, CCK and PHP Directory Script.</td>
+ </tr> 
+  <tr>
+	<td><a href="https://github.com/suncat2000/MobileDetectBundle">Symphony2 Mobile Detect Bundle</a></td>
+	<td><code>Symfony2</code> bundle for detect mobile devices, manage mobile view and redirect to the mobile and tablet version. Made by <a href="https://github.com/suncat2000">Nikolay Ivlev</a>.</td>
+ </tr> 
+  <tr>
+	<td><a href="https://github.com/garethtdavies/detect-mobile">ExpressionEngine</a></td>
+	<td>Lightweight PHP plugin for <code>EE2</code> that detects a mobile browser using the PHP Detect Mobile class. Made by <a href="https://github.com/garethtdavies">Gareth Davies</a>.</td>
+ </tr> 
+   <tr>
+	<td><a href="http://drupal.org/project/mobile_switch">Drupal Mobile Switch</a></td>
+	<td>The Mobile Switch <code>Drupal</code> module provides a automatic theme switch functionality for mobile devices, detected by Browscap or Mobile Detect. Made by <a href="http://drupal.org/user/45267">Siegfried Neumann</a>.</td>
+ </tr> 
+   <tr>
+	<td><a href="http://drupal.org/project/mobile_detect">Drupal Mobile Detect</a></td>
+	<td>Lightweight mobile detect module for <code>Drupal</code> created by <a href="http://drupal.org/user/325244">Matthew Donadio</a></td>
+ </tr> 
+   <tr>
+	<td><a href="http://drupal.org/project/context_mobile_detect">Drupal Context Mobile Detect</a></td>
+	<td>This is a <code>Drupal context</code> module which integrates Context and PHP Mobile Detect library. Created by <a href="http://drupal.org/user/432492">Artem Shymko</a>.</td>
+ </tr> 
+    <tr>
+	<td><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">Wordpress Mobile Detect</a></td>
+	<td>WP Mobile Detect gives you the ability to wrap that infographic in a [notdevice][/notdevice] shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</td>
+ </tr>
+
+     <tr>
+	<td><a href="https://github.com/iamspacehead/responsage">Wordpress Responsage</a></td>
+	<td>A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</td>
+ </tr> 
+ 
+    <tr>
+	<td><a href="http://tt-rss.org/redmine/projects/tt-rss/wiki">Tiny Tiny RSS</a></td>
+	<td>An open source web-based news feed (RSS/Atom) reader and aggregator, designed to allow you to read news from any location, while feeling as close to a real desktop application as possible.</td>
+ </tr> 
+    <tr>
+	<td><a href="http://code.google.com/p/bconsole/">bConsole</a></td>
+	<td>Creates a panel that sits on top of a browser-based project and provides information about the client machine and browser.</td>
+ </tr> 
+ 
+</table>
+
+Is your project using `Mobile_Detect` the library? [Let us know](https://github.com/serbanghita/Mobile-Detect/issues/new?title=New%20script%20using%20Mobile_Detect&body=Name and Description of your script.)!
