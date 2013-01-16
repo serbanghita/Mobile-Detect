@@ -21,6 +21,8 @@ We are working on a database and API that will automate this process in the near
 
 ### Roadmap and future development. Contribute!
 
+[![Devel Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel)](https://travis-ci.org/serbanghita/Mobile-Detect)
+
 We are preparing [v.3.0](https://github.com/serbanghita/Mobile-Detect/wiki/Roadmap) and we need your support! The new milestone will mean great features like: basic detection kept untouched, full array with devices details, device/os/browser version utility, jQuery Mobile browser grading utility, source-code that can be easely updated.
 
 <a href='http://www.pledgie.com/campaigns/18179'><img alt='Click here to lend your support to: Funding development of Mobile_Detect 3.0 and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/18179.png?skin_name=chrome' border='0' /></a>
