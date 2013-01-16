@@ -129,8 +129,14 @@ $detect->version('Opera Mini'); // 5.0 (float)
  </tr> 
   <tr>
 	<td><a href="https://github.com/garethtdavies/detect-mobile">ExpressionEngine</a></td>
-	<td>Lightweight PHP plugin for <code>EE2</code> that detects a mobile browser using the PHP Detect Mobile class. Made by <a href="https://github.com/garethtdavies">Gareth Davies</a>.</td>
+	<td>Lightweight PHP plugin for <code>EE2</code> that detects a mobile browser using the Mobile Detect class. Made by <a href="https://github.com/garethtdavies">Gareth Davies</a>.</td>
  </tr> 
+
+ <tr>
+ 	<td><a href="https://github.com/iamsalnikov/MobileDetect">Yii Extension</a></td>
+ 	<td>Mobile detect plugin for Yii framework. Made by <a href="https://github.com/iamsalnikov">Alexey Salnikov</a>.</td>
+ </tr>
+
    <tr>
 	<td><a href="http://drupal.org/project/mobile_switch">Drupal Mobile Switch</a></td>
 	<td>The Mobile Switch <code>Drupal</code> module provides a automatic theme switch functionality for mobile devices, detected by Browscap or Mobile Detect. Made by <a href="http://drupal.org/user/45267">Siegfried Neumann</a>.</td>
