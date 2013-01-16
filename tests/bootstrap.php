@@ -1,4 +1,5 @@
 <?php
+/*
 function __autoload($className){
 	$dirs = array('/../');
 	foreach($dirs as $dir){
@@ -6,3 +7,5 @@ function __autoload($className){
 	}
 	
 }
+*/
+require_once dirname(__FILE__).'/../Mobile_Detect.php';
