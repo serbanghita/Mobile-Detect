@@ -1,15 +1,16 @@
 <phpunit
   colors="true"
+  verbose="true"
   bootstrap="bootstrap.php"
   convertErrorsToExceptions="true"
   convertNoticesToExceptions="true"
   convertWarningsToExceptions="true"
   >
-<!--
-  <testsuite name="Sabre_XML">
+
+  <testsuite name="All tests">
     <directory>./</directory>
   </testsuite>
--->
+
 
   <filter>
     <whitelist addUncoveredFilesFromWhitelist="true">
