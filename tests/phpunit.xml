@@ -1,0 +1,19 @@
+<phpunit
+  colors="true"
+  bootstrap="bootstrap.php"
+  convertErrorsToExceptions="true"
+  convertNoticesToExceptions="true"
+  convertWarningsToExceptions="true"
+  >
+<!--
+  <testsuite name="Sabre_XML">
+    <directory>./</directory>
+  </testsuite>
+-->
+
+  <filter>
+    <whitelist addUncoveredFilesFromWhitelist="true">
+       <directory suffix=".php">../</directory>
+    </whitelist>
+  </filter>
+</phpunit>

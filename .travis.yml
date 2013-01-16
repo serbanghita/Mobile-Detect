@@ -7,3 +7,5 @@ php:
 branches:
   only:
     - devel
+
+ script: phpunit --configuration tests/phpunit.xml
