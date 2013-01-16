@@ -25,14 +25,15 @@
  *
  * @author      Serban Ghita <serbanghita@gmail.com>
  *              Victor Stanciu <vic.stanciu@gmail.com> (until v.1.0)
- * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
+ * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  * @link        Official page: http://mobiledetect.net
  *              GitHub Repository: https://github.com/serbanghita/Mobile-Detect
  *              Google Code Old Page: http://code.google.com/p/php-mobile-detect/
- * @version     2.5.3 (GitHub Release)
  */
 
 class Mobile_Detect {
+
+    protected $scriptVersion = '2.5.4';
 
     // External info.
     protected $userAgent = null;
@@ -239,6 +240,19 @@ class Mobile_Detect {
 
         $this->setMobileDetectionRules();
         $this->setMobileDetectionRulesExtended();
+
+    }
+
+
+    /**
+    * Get the current script version.
+    * This is useful for the demo.php file,
+    * so people can check on what version they are testing
+    * for mobile devices.
+    */
+    public function getScriptVersion(){
+
+        return $this->scriptVersion;
 
     }
 

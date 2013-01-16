@@ -24,9 +24,15 @@
  *
  *
  * @author      Serban Ghita <serbanghita@gmail.com>
- *              Victor Stanciu <vic.stanciu@gmail.com> (until v.1.0)
- * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
+ * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
+ *
  */
+
+require_once 'Mobile_Detect.php';
+$detect = new Mobile_Detect;
+$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
+$scriptVersion = $detect->getScriptVersion();
+
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -40,6 +46,7 @@
         table th { text-align:left; }
         a { color: #0088cc; text-decoration: underline; }
         a:hover { color: #005580; text-decoration: underline; }
+        header h1 small { font-size:small; }
         section { margin-bottom:2em; }
         section h1 { font-size:100%; }
         .infoText { font-size:85%; }
@@ -136,17 +143,12 @@
 <body>
 
 <header>
-<h1><a href="https://github.com/serbanghita/Mobile-Detect">Mobile_Detect</a></h1>
+<h1><a href="https://github.com/serbanghita/Mobile-Detect">Mobile_Detect</a> <small>v. <?php echo $scriptVersion; ?></small></h1>
 <p class="infoText">The lightweight PHP class for detecting mobile devices.</p>
 </header>
 
 <!-- copy to GitHub with a couple of changes -->
 <section>
-    <?php
-    require_once 'Mobile_Detect.php';
-    $detect = new Mobile_Detect;
-    $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
-    ?>
 
     <p>This is a <b><?php echo $deviceType; ?></b>. Your UA is <b class="<?php echo $deviceType; ?>"><?php echo htmlentities($_SERVER['HTTP_USER_AGENT']); ?></b></p>
 
