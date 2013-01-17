@@ -57,9 +57,9 @@ class BasicTest extends PHPUnit_Framework_TestCase {
 			    'HTTP_CONNECTION' 		=> 'close',
 			    'HTTP_USER_AGENT' 		=> 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25',
 			    'HTTP_ACCEPT' 			=> 'text/vnd.wap.wml, application/json, text/javascript, */*; q=0.01',
-			    'HTTP_ACCEPT_LANGUAGE' 	=> 'en-us,en;q=0.5'
-			    'HTTP_ACCEPT_ENCODING' 	=> 'gzip, deflate'
-			    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+			    'HTTP_ACCEPT_LANGUAGE' 	=> 'en-us,en;q=0.5',
+			    'HTTP_ACCEPT_ENCODING' 	=> 'gzip, deflate',
+			    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest',
 			    'HTTP_REFERER' 			=> 'http://mobiledetect.net',
 			    'HTTP_PRAGMA' 			=> 'no-cache',
 			    'HTTP_CACHE_CONTROL' 	=> 'no-cache',
