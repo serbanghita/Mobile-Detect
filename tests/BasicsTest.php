@@ -41,9 +41,6 @@ class BasicTest extends PHPUnit_Framework_TestCase {
 
 	}
 
-	/**
-	* @depends testClassExists()
-	*/
 	public function testBasicMethods(){
 
 		$this->assertNotEmpty( $this->detect->getScriptVersion() );

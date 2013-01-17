@@ -48,7 +48,7 @@ class VendorsTest extends PHPUnit_Framework_TestCase {
 		    foreach($deviceArr[$userAgent] as $condition => $assert){
 
 		    	
-		    	$this->assertTrue( $this->detect->$condition === $assert, $userAgent);
+		    	$this->assertTrue( $this->detect->$condition() === $assert, $userAgent);
 		        
 
 		    }
