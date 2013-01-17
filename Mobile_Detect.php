@@ -270,6 +270,12 @@ class Mobile_Detect {
 
     }
 
+    public function getHttpHeaders(){
+
+        return $this->httpHeaders;
+
+    }
+
     public function setUserAgent($userAgent = null){
 
         if(!empty($userAgent)){
@@ -285,6 +291,12 @@ class Mobile_Detect {
                 $this->userAgent .= ' '.$this->httpHeaders['HTTP_X_OPERAMINI_PHONE_UA'];
             }
         }
+
+    }
+
+    public function getUserAgent(){
+
+        return $this->userAgent;
 
     }
 
