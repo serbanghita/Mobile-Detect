@@ -63,7 +63,7 @@ class BasicTest extends PHPUnit_Framework_TestCase {
 			    'REMOTE_ADDR' 			=> '11.22.33.44',
 			    'REQUEST_TIME' 			=> '01-10-2012 07:57'
 			));
-		$this->assertCount( $this->detect->getHttpHeaders(), 12 );
+		$this->assertCount( count($this->detect->getHttpHeaders()), 12 );
 		$this->assertTrue( $this->detect->checkHttpHeadersForMobile() );
 
 		$this->detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25');
