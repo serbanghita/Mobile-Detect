@@ -14,7 +14,7 @@ $html .= '<table id="results" class="tablesorter" cellspacing="1" cellpadding="0
 </thead>
 <tbody>';
 
-foreach($mobilePerVendor_userAgents as $brand => $userAgents){
+foreach($mobilePerVendor_userAgents as $brand => $deviceArr){
 
     $html .= '
     <tr>
@@ -22,9 +22,9 @@ foreach($mobilePerVendor_userAgents as $brand => $userAgents){
     </tr>
     ';
 
-    foreach($userAgents as $userAgent){
+    foreach($deviceArr as $userAgent => $conditions){
 
-        $userAgentString = (is_array($userAgent) ? key($userAgent) : $userAgent );
+        $userAgentString = (is_array($conditions) ? $userAgent : $conditions );
 
         $detect->setUserAgent($userAgentString);
         $isMobile = $detect->isMobile();

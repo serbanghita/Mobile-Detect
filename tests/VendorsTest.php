@@ -32,7 +32,7 @@ class VendorsTest extends PHPUnit_Framework_TestCase {
 	protected function setUp(){
 
 		require_once dirname(__FILE__).'/../manual_tests/mobilePerVendor_useragents.inc.php';
-		$this->detect = new Mobile_Detect;		
+		$this->detect = new Mobile_Detect;
 		$this->items = $mobilePerVendor_userAgents;
 
 	}
@@ -41,15 +41,18 @@ class VendorsTest extends PHPUnit_Framework_TestCase {
 
 		foreach($this->items as $brand => $deviceArr){
 
-			if(!is_array($deviceArr)){ continue; }
-			$userAgent = key($deviceArr);
-			$this->detect->setUserAgent($userAgent);
+		    foreach($deviceArr as $userAgent => $conditions){
 
-		    foreach($deviceArr[$userAgent] as $condition => $assert){
+		    	if(!is_array($conditions)){ return true; }
 
-		    	
-		    	$this->assertTrue( $this->detect->$condition() === $assert, $userAgent);
-		        
+		    	$this->detect->setUserAgent($userAgent);
+
+		    	foreach($conditions as $condition => $assert){
+
+		    		$this->assertTrue( $this->detect->$condition() === $assert, 'UA ('.$condition.'): '.$userAgent);
+
+		    	}
+
 
 		    }
 

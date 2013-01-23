@@ -107,6 +107,8 @@ class Mobile_Detect {
         'TelstraTablet'     => 'T-Hub2',
         // @ref: http://www.fly-phone.com/devices/tablets/ ; http://www.fly-phone.com/service/
         'FlyTablet'         => 'IQ310|Fly Vision',
+        // @ref: http://www.bqreaders.com/gb/tablets-prices-sale.html
+        'bqTablet'          => 'bq.*(Elcano|Curie|Edison|Maxwell|Kepler|Pascal|Tesla|Hypatia|Platon|Newton|Livingstone|Cervantes|Avant)',
         // @ref: http://www.huaweidevice.com/worldwide/productFamily.do?method=index&directoryId=5011&treeId=3290
         // @ref: http://www.huaweidevice.com/worldwide/downloadCenter.do?method=index&directoryId=3372&treeId=0&tb=1&type=software (including legacy tablets)
         'HuaweiTablet'      => 'MediaPad|IDEOS S7|S7-201c|S7-202u|S7-101|S7-103|S7-104|S7-105|S7-106|S7-201|S7-Slim',
