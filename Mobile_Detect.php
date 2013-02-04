@@ -298,7 +298,7 @@ class Mobile_Detect {
 
     public function getUserAgent(){
 
-        return $this->userAgent;
+        return $this->userAgents;
 
     }
 
