@@ -6,7 +6,7 @@ branches:
   only:
     - devel
 
-script: 
+script:
   - phpunit --configuration tests/phpunit.xml --coverage-text
 
 notifications:
