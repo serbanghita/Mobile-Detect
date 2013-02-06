@@ -33,7 +33,7 @@
 
 class Mobile_Detect {
 
-    protected $scriptVersion = '2.5.4';
+    protected $scriptVersion = '2.5.5';
 
     // External info.
     protected $userAgent = null;
@@ -47,7 +47,7 @@ class Mobile_Detect {
 
     // List of mobile devices (phones)
     protected $phoneDevices = array(
-        'iPhone'        => '(iPhone.*Mobile|iPod|iTunes)',
+        'iPhone'        => '\biPhone.*Mobile|\biPod|\biTunes',
         'BlackBerry'    => 'BlackBerry|rim[0-9]+',
         'HTC'           => 'HTC|HTC.*(Sensation|Evo|Vision|Explorer|6800|8100|8900|A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT|Qtek9090|APA9292KT|HD_mini|Sensation.*Z710e|PG86100|Z715e|Desire.*(A8181|HD)|ADR6200|ADR6425|001HT|Inspire 4G',
         'Nexus'         => 'Nexus One|Nexus S|Galaxy.*Nexus|Android.*Nexus.*Mobile',
@@ -64,7 +64,8 @@ class Mobile_Detect {
         'Pantech'       => 'PANTECH|IM-A850S|IM-A840S|IM-A830L|IM-A830K|IM-A830S|IM-A820L|IM-A810K|IM-A810S|IM-A800S|IM-T100K|IM-A725L|IM-A780L|IM-A775C|IM-A770K|IM-A760S|IM-A750K|IM-A740S|IM-A730S|IM-A720L|IM-A710K|IM-A690L|IM-A690S|IM-A650S|IM-A630K|IM-A600S|VEGA PTL21|PT003|P8010|ADR910L|P6030|P6020|P9070|P4100|P9060|P5000|CDM8992|TXT8045|ADR8995|IS11PT|P2030|P6010|P8000|PT002|IS06|CDM8999|P9050|PT001|TXT8040|P2020|P9020|P2000|P7040|P7000|C790',
         // @ref: http://www.fly-phone.com/devices/smartphones/ ; Included only smartphones.
         'Fly'           => 'IQ230|IQ444|IQ450|IQ440|IQ442|IQ441|IQ245|IQ256|IQ236|IQ255|IQ235|IQ245|IQ275|IQ240|IQ285|IQ280|IQ270|IQ260|IQ250',
-        'GenericPhone'  => 'PDA;|PPC;|SAGEM|mmp|pocket|psp|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|wap|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser|LG-P500'
+        // @Tapatalk is a mobile app; @ref: http://support.tapatalk.com/threads/smf-2-0-2-os-and-browser-detection-plugin-and-tapatalk.15565/#post-79039
+        'GenericPhone'  => 'Tapatalk|PDA;|PPC;|SAGEM|mmp|pocket|psp|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|wap|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser|LG-P500'
     );
     // List of tablet devices.
     protected $tabletDevices = array(
@@ -73,7 +74,7 @@ class Mobile_Detect {
         'NexusTablet'       => '^.*Android.*Nexus(((?:(?!Mobile))|(?:(\s(7|10).+))).)*$',
         // @reference: http://www.labnol.org/software/kindle-user-agent-string/20378/
         'Kindle'            => 'Kindle|Silk.*Accelerated',
-        'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|GT-P1000|GT-P1010|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P3100|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7320|GT-P7511|GT-N8000|GT-P8510|SGH-I497|SPH-P500|SGH-T779|SCH-I705|SCH-I915|GT-N8013|GT-P3113|GT-P5113|GT-P8110|GT-N8010|GT-N8005|GT-N8020|GT-P1013|GT-P6201|GT-P6810|GT-P7501',
+        'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|GT-P1000|GT-P1010|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P3100|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7320|GT-P7511|GT-N8000|GT-P8510|SGH-I497|SPH-P500|SGH-T779|SCH-I705|SCH-I915|GT-N8013|GT-P3113|GT-P5113|GT-P8110|GT-N8010|GT-N8005|GT-N8020|GT-P1013|GT-P6201|GT-P6810|GT-P7501',
         'HTCtablet'         => 'HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200',
         'MotorolaTablet'    => 'xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617',
         'AsusTablet'        => 'Transformer|TF101',
@@ -85,6 +86,8 @@ class Mobile_Detect {
         // @ref: http://us.toshiba.com/tablets/tablet-finder
         // @ref: http://www.toshiba.co.jp/regza/tablet/
         'ToshibaTablet'     => 'Android.*(AT100|AT105|AT200|AT205|AT270|AT275|AT300|AT305|AT1S5|AT500|AT570|AT700|AT830)',
+        // @ref: http://www.nttdocomo.co.jp/english/service/developer/smart_phone/technical_info/spec/index.html
+        'LGTablet'          => '\bL-06C|LG-V900|LG-V909',
         'YarvikTablet'      => 'Android.*(TAB210|TAB211|TAB224|TAB250|TAB260|TAB264|TAB310|TAB360|TAB364|TAB410|TAB411|TAB420|TAB424|TAB450|TAB460|TAB461|TAB464|TAB465|TAB467|TAB468)',
         'MedionTablet'      => 'Android.*\bOYO\b|LIFE.*(P9212|P9514|P9516|S9512)|LIFETAB',
         'ArnovaTablet'      => 'AN10G2|AN7bG3|AN7fG3|AN8G3|AN8cG3|AN7G3|AN9G3|AN7dG3|AN7dG3ST|AN7dG3ChildPad|AN10bG3|AN10bG3DT',
@@ -93,7 +96,8 @@ class Mobile_Detect {
         // @reference: http://en.wikipedia.org/wiki/NOVO7
         'AinolTablet'       => 'NOVO7|Novo7Aurora|Novo7Basic|NOVO7PALADIN',
         // @todo: inspect http://esupport.sony.com/US/p/select-system.pl?DIRECTOR=DRIVER
-        'SonyTablet'        => 'Sony Tablet|Sony Tablet S',
+        // @ref: Readers http://www.atsuhiro-me.net/ebook/sony-reader/sony-reader-web-browser
+        'SonyTablet'        => 'Sony Tablet|Sony Tablet S|EBRD1101|EBRD1102|EBRD1201',
         // @ref: db + http://www.cube-tablet.com/buy-products.html
         'CubeTablet'        => 'Android.*(K8GT|U9GT|U10GT|U16GT|U17GT|U18GT|U19GT|U20GT|U23GT|U30GT)',
         // @ref: http://www.cobyusa.com/?p=pcat&pcat_id=3001
@@ -112,7 +116,11 @@ class Mobile_Detect {
         // @ref: http://www.huaweidevice.com/worldwide/productFamily.do?method=index&directoryId=5011&treeId=3290
         // @ref: http://www.huaweidevice.com/worldwide/downloadCenter.do?method=index&directoryId=3372&treeId=0&tb=1&type=software (including legacy tablets)
         'HuaweiTablet'      => 'MediaPad|IDEOS S7|S7-201c|S7-202u|S7-101|S7-103|S7-104|S7-105|S7-106|S7-201|S7-Slim',
-        'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|LG-V909|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|hp-tablet',
+        // Nec or Medias Tab
+        'NecTablet'         => '\bN-06D|\bN-08D',
+        // @note: Avoid detecting 'PLAYSTATION 3' as mobile.
+        'PlaystationTablet' => 'Playstation.*(Portable|Vita)',
+        'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|hp-tablet',
     );
     // List of mobile Operating Systems.
     protected $operatingSystems = array(
@@ -126,8 +134,7 @@ class Mobile_Detect {
         // http://wifeng.cn/?r=blog&a=view&id=106
         // http://nicksnettravels.builttoroam.com/post/2011/01/10/Bogus-Windows-Phone-7-User-Agent-String.aspx
         'WindowsPhoneOS'   => 'Windows Phone OS|XBLWP7|ZuneWP7',
-        'iOS'               => 'iphone|ipod|ipad',
-        'FlashLiteOS'       => '',
+        'iOS'               => '\biPhone.*Mobile|\biPod|\biPad',
         // http://en.wikipedia.org/wiki/MeeGo
         // @todo: research MeeGo in UAs
         'MeeGoOS'           => 'MeeGo',
@@ -167,6 +174,7 @@ class Mobile_Detect {
     );
     // Utilities.
     protected $utilities = array(
+        'TV'            => 'SonyDTV115'
         'WebKit'        => '(webkit)[ /]([\w.]+)',
         'Bot'           => 'Googlebot|DoCoMo|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
         'MobileBot'     => 'Googlebot-Mobile|DoCoMo|YahooSeeker/M1A1-R2D2',
