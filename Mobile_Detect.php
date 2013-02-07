@@ -174,7 +174,7 @@ class Mobile_Detect {
     );
     // Utilities.
     protected $utilities = array(
-        'TV'            => 'SonyDTV115'
+        'TV'            => 'SonyDTV115',
         'WebKit'        => '(webkit)[ /]([\w.]+)',
         'Bot'           => 'Googlebot|DoCoMo|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
         'MobileBot'     => 'Googlebot-Mobile|DoCoMo|YahooSeeker/M1A1-R2D2',
