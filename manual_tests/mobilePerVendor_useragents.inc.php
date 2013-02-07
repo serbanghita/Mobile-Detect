@@ -65,6 +65,7 @@ $mobilePerVendor_userAgents = array(
 		'Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10'				=> array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X; da-dk) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/21.0.1180.82 Mobile/10A523 Safari/7534.48.3'	=> array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25'					=> array('isMobile' => true, 'isTablet' => false),
+		'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X; ru-ru) AppleWebKit/536.26 (KHTML, like Gecko) CriOS/23.0.1271.100 Mobile/10B142 Safari/8536.25'		=> array('isMobile' => true, 'isTablet' => false),
 	),
 
 	'ASUS' => array(
@@ -269,6 +270,11 @@ $mobilePerVendor_userAgents = array(
 		'Mozilla/5.0 (Linux; U; Android 3.1; en-us; Xoom Build/HMJ25) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13'                                      => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; DROID RAZR 4G Build/6.7.2-180_DHD-16_M4-31) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'   => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; Xoom Build/IMM76L) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'                                   => array('isMobile' => true, 'isTablet' => true),
+		),
+
+	// @ref: https://www.nabitablet.com/
+	'Nabi'	=> array(
+		'Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; NABI-A Build/MASTER) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => array('isMobile' => true, 'isTablet' => true),
 		),
 
 	'NEC'	=> array(
