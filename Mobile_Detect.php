@@ -118,6 +118,8 @@ class Mobile_Detect {
         'HuaweiTablet'      => 'MediaPad|IDEOS S7|S7-201c|S7-202u|S7-101|S7-103|S7-104|S7-105|S7-106|S7-201|S7-Slim',
         // Nec or Medias Tab
         'NecTablet'         => '\bN-06D|\bN-08D',
+        // Broncho Tablets: http://www.broncho.cn/ (hard to find)
+        'BronchoTablet'     => 'Broncho.*(N701|N708|N802|a710)',
         // @ref: https://www.nabitablet.com/
         'NabiTablet'        => 'Android.*\bNabi',
         // @note: Avoid detecting 'PLAYSTATION 3' as mobile.
