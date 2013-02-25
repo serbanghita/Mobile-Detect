@@ -84,7 +84,7 @@ class Mobile_Detect {
         'NookTablet'        => 'Android.*Nook|NookColor|nook browser|BNTV250A|LogicPD Zoom2',
         // @ref: http://www.acer.ro/ac/ro/RO/content/drivers
         // @ref: http://www.packardbell.co.uk/pb/en/GB/content/download (Packard Bell is part of Acer)
-        'AcerTablet'        => 'Android.*\b(A100|A101|A200|A500|A501|A510|A700|A701|W500|W500P|W501|W501P|G100|G100W)\b',
+        'AcerTablet'        => 'Android.*\b(A100|A101|A110|A200|A210|A211|A500|A501|A510|A511|A700|A701|W500|W500P|W501|W501P|W510|W511|W700|G100|G100W|B1-A71)\b',
         // @ref: http://eu.computers.toshiba-europe.com/innovation/family/Tablets/1098744/banner_id/tablet_footerlink/
         // @ref: http://us.toshiba.com/tablets/tablet-finder
         // @ref: http://www.toshiba.co.jp/regza/tablet/
@@ -100,9 +100,10 @@ class Mobile_Detect {
         'AinolTablet'       => 'NOVO7|Novo7Aurora|Novo7Basic|NOVO7PALADIN',
         // @todo: inspect http://esupport.sony.com/US/p/select-system.pl?DIRECTOR=DRIVER
         // @ref: Readers http://www.atsuhiro-me.net/ebook/sony-reader/sony-reader-web-browser
-        'SonyTablet'        => 'Sony Tablet|Sony Tablet S|EBRD1101|EBRD1102|EBRD1201',
+        // @ref: http://www.sony.jp/support/tablet/
+        'SonyTablet'        => 'Sony Tablet|Sony Tablet S|SGPT12|SGPT121|SGPT122|SGPT123|SGPT111|SGPT112|SGPT113|SGPT211|SGPT213|EBRD1101|EBRD1102|EBRD1201',
         // @ref: db + http://www.cube-tablet.com/buy-products.html
-        'CubeTablet'        => 'Android.*(K8GT|U9GT|U10GT|U16GT|U17GT|U18GT|U19GT|U20GT|U23GT|U30GT)',
+        'CubeTablet'        => 'Android.*(K8GT|U9GT|U10GT|U16GT|U17GT|U18GT|U19GT|U20GT|U23GT|U30GT)|CUBE U8GT',
         // @ref: http://www.cobyusa.com/?p=pcat&pcat_id=3001
         'CobyTablet'        => 'MID1042|MID1045|MID1125|MID1126|MID7012|MID7014|MID7034|MID7035|MID7036|MID7042|MID7048|MID7127|MID8042|MID8048|MID8127|MID9042|MID9740|MID9742|MID7022|MID7010',
         // @ref: http://pdadb.net/index.php?m=pdalist&list=SMiT (NoName Chinese Tablets)
@@ -123,6 +124,10 @@ class Mobile_Detect {
         'NecTablet'         => '\bN-06D|\bN-08D',
         // Broncho Tablets: http://www.broncho.cn/ (hard to find)
         'BronchoTablet'     => 'Broncho.*(N701|N708|N802|a710)',
+        // @ref: http://versusuk.com/support.html
+        'VersusTablet'      => 'TOUCHPAD.*[78910]',
+        // @ref: http://www.zync.in/index.php/our-products/tablet-phablets
+        'ZyncTablet'        => 'z1000|Z99 2G|z99|z930|z999|z990|z909|Z919|z900',
         // @ref: https://www.nabitablet.com/
         'NabiTablet'        => 'Android.*\bNabi',
         // @note: Avoid detecting 'PLAYSTATION 3' as mobile.
@@ -175,13 +180,15 @@ class Mobile_Detect {
         'DiigoBrowser'    => 'DiigoBrowser',
         // http://www.puffinbrowser.com/index.php
         'Puffin'            => 'Puffin',
+        // @ref: http://mercury-browser.com/index.html
+        'Mercury'          => '\bMercury\b',
         // @reference: http://en.wikipedia.org/wiki/Minimo
         // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
         'GenericBrowser'  => 'NokiaBrowser|OviBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision'
     );
     // Utilities.
     protected $utilities = array(
-        'TV'            => 'SonyDTV115',
+        'TV'            => 'SonyDTV115', // experimental
         'WebKit'        => '(webkit)[ /]([\w.]+)',
         'Bot'           => 'Googlebot|DoCoMo|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
         'MobileBot'     => 'Googlebot-Mobile|DoCoMo|YahooSeeker/M1A1-R2D2',
