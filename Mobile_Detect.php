@@ -133,6 +133,7 @@ class Mobile_Detect {
         // @note: Avoid detecting 'PLAYSTATION 3' as mobile.
         'PlaystationTablet' => 'Playstation.*(Portable|Vita)',
         'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|hp-tablet',
+        'SurfaceTablet'     => 'Mozilla.*MSIE.*; Windows NT.*; Touch'
     );
     // List of mobile Operating Systems.
     protected $operatingSystems = array(
