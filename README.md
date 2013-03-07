@@ -124,7 +124,7 @@ $detect->version('Opera Mini'); // 5.0 (float)
 	<td>Review Script for <code>Joomla</code>, CCK and PHP Directory Script.</td>
  </tr>
   <tr>
-	<td><a href="https://github.com/suncat2000/MobileDetectBundle">Symphony2 Mobile Detect Bundle</a></td>
+	<td><a href="https://github.com/suncat2000/MobileDetectBundle">Symfony2 Mobile Detect Bundle</a></td>
 	<td><code>Symfony2</code> bundle for detect mobile devices, manage mobile view and redirect to the mobile and tablet version. Made by <a href="https://github.com/suncat2000">Nikolay Ivlev</a>.</td>
  </tr>
   <tr>
