@@ -29,6 +29,7 @@
  * @link        Official page: http://mobiledetect.net
  *              GitHub Repository: https://github.com/serbanghita/Mobile-Detect
  *              Google Code Old Page: http://code.google.com/p/php-mobile-detect/
+ * @version     2.5.7
  */
 
 class Mobile_Detect {
