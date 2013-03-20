@@ -154,7 +154,7 @@ class Mobile_Detect {
         // http://en.wikipedia.org/wiki/Maemo
         // @todo: research Maemo in UAs
         'MaemoOS'           => 'Maemo',
-        'JavaOS'            => 'J2ME/MIDP|Java/',
+        'JavaOS'            => 'J2ME/|Java/|MIDP|CLDC',
         'webOS'             => 'webOS|hpwOS',
         'badaOS'            => '\bBada\b',
         'BREWOS'            => 'BREW',
