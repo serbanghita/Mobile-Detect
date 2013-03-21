@@ -50,7 +50,7 @@ class Mobile_Detect {
     protected $phoneDevices = array(
         'iPhone'        => '\biPhone.*Mobile|\biPod|\biTunes',
         'BlackBerry'    => 'BlackBerry|\bBB10\b|rim[0-9]+',
-        'HTC'           => 'HTC|HTC.*(Sensation|Evo|Vision|Explorer|6800|8100|8900|A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT|Qtek9090|APA9292KT|HD_mini|Sensation.*Z710e|PG86100|Z715e|Desire.*(A8181|HD)|ADR6200|ADR6425|001HT|Inspire 4G',
+        'HTC'           => 'HTC|HTC.*(Sensation|Evo|Vision|Explorer|6800|8100|8900|A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT|Qtek9090|APA9292KT|HD_mini|Sensation.*Z710e|PG86100|Z715e|Desire.*(A8181|HD)|ADR6200|ADR6425|001HT|Inspire 4G|Android.*\bEVO\b',
         'Nexus'         => 'Nexus One|Nexus S|Galaxy.*Nexus|Android.*Nexus.*Mobile',
         // @todo: Is 'Dell Streak' a tablet or a phone? ;)
         'Dell'          => 'Dell.*Streak|Dell.*Aero|Dell.*Venue|DELL.*Venue Pro|Dell Flash|Dell Smoke|Dell Mini 3iX|XCD28|XCD35|\b001DL\b|\b101DL\b|\bGS01\b',
@@ -126,12 +126,16 @@ class Mobile_Detect {
         'HuaweiTablet'      => 'MediaPad|IDEOS S7|S7-201c|S7-202u|S7-101|S7-103|S7-104|S7-105|S7-106|S7-201|S7-Slim',
         // Nec or Medias Tab
         'NecTablet'         => '\bN-06D|\bN-08D',
+        // Pantech Tablets: http://www.pantechusa.com/phones/
+        'PantechTablet'     => 'Pantech.*P4100',
         // Broncho Tablets: http://www.broncho.cn/ (hard to find)
         'BronchoTablet'     => 'Broncho.*(N701|N708|N802|a710)',
         // @ref: http://versusuk.com/support.html
         'VersusTablet'      => 'TOUCHPAD.*[78910]',
         // @ref: http://www.zync.in/index.php/our-products/tablet-phablets
         'ZyncTablet'        => 'z1000|Z99 2G|z99|z930|z999|z990|z909|Z919|z900',
+        // @ref: http://www.positivoinformatica.com.br/www/pessoal/tablet-ypy/
+        'PositivoTablet'    => 'TB07STA|TB10STA|TB07FTA|TB10FTA',
         // @ref: https://www.nabitablet.com/
         'NabiTablet'        => 'Android.*\bNabi',
         // @note: Avoid detecting 'PLAYSTATION 3' as mobile.
@@ -157,7 +161,7 @@ class Mobile_Detect {
         // http://en.wikipedia.org/wiki/Maemo
         // @todo: research Maemo in UAs
         'MaemoOS'           => 'Maemo',
-        'JavaOS'            => 'J2ME/MIDP|Java/',
+        'JavaOS'            => 'J2ME/|Java/|\bMIDP\b|\bCLDC\b',
         'webOS'             => 'webOS|hpwOS',
         'badaOS'            => '\bBada\b',
         'BREWOS'            => 'BREW',
@@ -192,6 +196,10 @@ class Mobile_Detect {
     );
     // Utilities.
     protected $utilities = array(
+        // Experimental. When a mobile device wants to switch to 'Desktop Mode'.
+        // @ref: http://scottcate.com/technology/windows-phone-8-ie10-desktop-or-mobile/
+        // @ref: https://github.com/serbanghita/Mobile-Detect/issues/57#issuecomment-15024011
+        'DesktopMode'   => 'WPDesktop',
         'TV'            => 'SonyDTV115', // experimental
         'WebKit'        => '(webkit)[ /]([\w.]+)',
         'Bot'           => 'Googlebot|DoCoMo|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
@@ -227,7 +235,6 @@ class Mobile_Detect {
         'MSIE'          => 'MSIE [VER];',
         // http://en.wikipedia.org/wiki/NetFront
         'NetFront'      => 'NetFront/[VER]',
-        'NokiaBrowser'  => 'NokiaBrowser/[VER]',
         'NokiaBrowser'  => 'NokiaBrowser/[VER]',
         'Opera'         => 'Version/[VER]',
         'Opera Mini'    => 'Opera Mini/[VER]',
