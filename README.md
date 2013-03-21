@@ -111,8 +111,14 @@ $detect->version('Opera Mini'); // 5.0 (float)
   <td><a href="http://www.concrete5.org">concrete5</a></td>
   <td><code>concrete5</code> is a CMS that is free and open source.</td>
  </tr>
+ 
  <tr>
-    <td><a href="http://pypi.python.org/pypi/pymobiledetect">pymobiledetect</a></td>
+ <td><a href="http://www.magentocommerce.com/magento-connect/catalog/product/view/id/16835/">Magento</a></td>
+ <td>This <code>Magento helper</code> from Optimise Web enables the use of all functions provided by MobileDetect.net. Made by <a href="http://www.kathirvel.com">Kathir Vel</a>.</td>
+ </tr>
+ 
+ <tr>
+    	<td><a href="http://pypi.python.org/pypi/pymobiledetect">pymobiledetect</a></td>
 	<td>Mobile detect <code>python package</code>. Made by Bas van Oostveen.</td>
  </tr>
  <tr>
