@@ -23,14 +23,17 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * -----------------------------------------------------------------------
+ * Run this in your browser to see the example.
+ * IMPORTANT: Clear your sessions/cookies before running UA tests.
+ *
  * This is a procedural approach example of how to switch your website layout
- * based on a variable $layoutType. 
- * 
+ * based on a variable $layoutType.
+ *
  * The example also includes the switch links that you can put in the footer
  * of your page. Is a good practice to let the user switch between layouts,
  * even if he is visiting the page from a phone or tablet.
  * ------------------------------------------------------------------------
- * 
+ *
  * @author      Serban Ghita <serbanghita@gmail.com>
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  *
@@ -77,11 +80,11 @@ function initLayoutType(){
 		$layoutType = $_GET['layoutType'];
 
 	} else {
-		
+
 		if(empty($_SESSION['layoutType'])){
 
 			$layoutType = ($isMobile ? ($isTablet ? 'tablet' : 'mobile') : 'classic');
-		
+
 		} else {
 
 			$layoutType =  $_SESSION['layoutType'];
@@ -111,7 +114,12 @@ function initLayoutType(){
 // Let's roll. Call this function!
 $layoutType = initLayoutType();
 
-
+/**
+ *
+ * Example of layout switch links.
+ * Eg. ['Classic' | Mobile | 'Tablet']
+ *
+ */
 ?>
 
 <?php if(!isset($_GET['page'])): ?>
@@ -120,6 +128,7 @@ $layoutType = initLayoutType();
 	<h1>Demo page number one.</h1>
 	<p>You can go to page <a href="<?php echo $_SERVER['PHP_SELF']; ?>?page=two">two</a>.</p>
 	<p>Showing you the <b><?php echo $layoutType; ?></b> version.</p>
+	<p><b>Note:</b> When running this test using the same browser with multiple User-Agents, clear your cookies/session before each test.</p>
 
 <?php endif; ?>
 
