@@ -134,8 +134,8 @@ $detect->version('Opera Mini'); // 5.0 (float)
 	<td><code>Symfony2</code> bundle for detect mobile devices, manage mobile view and redirect to the mobile and tablet version. Made by <a href="https://github.com/suncat2000">Nikolay Ivlev</a>.</td>
  </tr>
  <tr>
-	<td><a href="https://github.com/binfo/MobileDetectServiceProvider">Silex Mobile Detect Service Provider</a></td>
-	<td><code>Silex</code> service provider to interact with Mobile detect class methods. Made by <a href="https://github.com/binfo">Lhassan Baazzi</a>.</td>
+	<td><a href="https://github.com/jbinfo/MobileDetectServiceProvider">Silex Mobile Detect Service Provider</a></td>
+	<td><code>Silex</code> service provider to interact with Mobile detect class methods. Made by <a href="https://github.com/jbinfo">Lhassan Baazzi</a>.</td>
  </tr>
   <tr>
 	<td><a href="https://github.com/garethtdavies/detect-mobile">ExpressionEngine</a></td>
