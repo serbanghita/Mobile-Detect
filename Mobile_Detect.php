@@ -205,6 +205,7 @@ class Mobile_Detect {
         'WebKit'        => '(webkit)[ /]([\w.]+)',
         'Bot'           => 'Googlebot|DoCoMo|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
         'MobileBot'     => 'Googlebot-Mobile|DoCoMo|YahooSeeker/M1A1-R2D2',
+        'WebPreview'    => 'Google\ Web\ Preview'
     );
     // Properties list.
     // @reference: http://user-agent-string.info/list-of-ua#Mobile Browser
@@ -551,6 +552,31 @@ class Mobile_Detect {
         }
 
 	    return false;
+
+    }
+    /**
+    * Check if the device is a bot.
+    * Return true if any type of bot is detected.
+     *
+     * @param null $userAgent deprecated
+     * @param null $httpHeaders deprecated
+     * @return bool
+    */
+    public function isBot($userAgent = null, $httpHeaders = null) {
+
+        // Set the UA and HTTP headers only if needed (eg. batch mode).
+        if($httpHeaders) $this->setHttpHeaders($httpHeaders);
+        if($userAgent) $this->setUserAgent($userAgent);
+        
+        $this->setDetectionType('extended');
+
+        foreach($this->utilities as $_regex){
+            if($this->match($_regex, $this->userAgent)){
+                return true;
+            }
+        }
+
+        return false;
 
     }
 
