@@ -29,7 +29,7 @@
  * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
  * @link        http://mobiledetect.net
  */
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(E_ALL);
 ini_set('display_errors', true);
 
 
@@ -37,6 +37,12 @@ include '../Mobile_Detect.php';
 $detect = new Mobile_Detect();
 
 /*
+$detect->setUserAgent('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
+$isBot = $detect->is('Bot'); var_dump ($isBot);
+
+exit;
+
+
 $detect->setUserAgent('Mozilla/5.0 (Linux; U; Android 4.0.3; nl-nl; SAMSUNG GT-I9100/I9100BULPD Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30');
 $isMobile = $detect->isMobile(); var_dump ($isMobile);
 $isTablet = $detect->istablet(); var_dump ($isTablet);
