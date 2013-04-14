@@ -29,32 +29,59 @@
  */
 class VendorsTest extends PHPUnit_Framework_TestCase {
 
-	protected function setUp(){
+	protected static $detect;
+	protected static $items;
+
+	public static function setUpBeforeClass(){
 
 		require_once dirname(__FILE__).'/../manual_tests/mobilePerVendor_useragents.inc.php';
-		$this->detect = new Mobile_Detect;
-		$this->items = $mobilePerVendor_userAgents;
+		self::$detect = new Mobile_Detect;
+		self::$items = $mobilePerVendor_userAgents;
 
 	}
 
-	function testisMobileIsTablet(){
+	public function testisMobileIsTablet(){
 
-		foreach($this->items as $brand => $deviceArr){
+		foreach(self::$items as $brand => $deviceArr){
 
 		    foreach($deviceArr as $userAgent => $conditions){
 
-		    	if(!is_array($conditions)){ return true; }
+		    	if(!is_array($conditions)){ continue; }
 
-		    	$this->detect->setUserAgent($userAgent);
+		    	self::$detect->setUserAgent($userAgent);
 
 		    	foreach($conditions as $condition => $assert){
 
-		    		$this->assertTrue( $this->detect->$condition() === $assert, 'UA ('.$condition.'): '.$userAgent);
+		    		if( $condition == 'version' ){ continue; }
+
+		    		$this->assertTrue( self::$detect->$condition() === $assert, 'UA ('.$condition.'): '.$userAgent);
 
 		    	}
 
 
 		    }
+
+		}
+
+	}
+
+	public function testVersion(){
+
+		foreach( self::$items as $brand => $deviceArr ){
+
+			foreach( $deviceArr as $userAgent => $conditions ){
+
+				if( !is_array($conditions) || !isset($conditions['version']) ){ continue; }
+
+				self::$detect->setUserAgent($userAgent);
+
+				foreach( $conditions['version'] as $condition => $assertion ){
+
+					$this->assertEquals( self::$detect->version($condition), $assertion, 'UA (version("'.$condition.'")): '.$userAgent );
+
+				}
+
+			}
 
 		}
 
