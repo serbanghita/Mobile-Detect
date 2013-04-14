@@ -110,7 +110,7 @@ $detect->version('Opera Mini'); // 5.0 (float)
 
 <tr>
     <td><a href="https://github.com/chronon/CakePHP-MobileDetectComponent-Plugin">CakePHP</a></td>
-    <td><p>CakePHP's built-in CakeRequest object can easily determine if a request is from a mobile device. Made by <a href="https://github.com/chronon">Gregory Gaskill</a></p></td>
+    <td><p>MobileDetect <code>plugin</code> component for <code>CakePHP</code> 2.x. Made by <a href="https://github.com/chronon">Gregory Gaskill</a></p></td>
 </tr>
 
  <tr>
