@@ -107,16 +107,17 @@ $detect->version('Opera Mini'); // 5.0 (float)
 ### Projects that are using the class
 
 <table>
+
+<tr>
+    <td><a href="https://github.com/chronon/CakePHP-MobileDetectComponent-Plugin">CakePHP</a></td>
+    <td><p>CakePHP's built-in CakeRequest object can easily determine if a request is from a mobile device. Made by <a href="https://github.com/chronon">Gregory Gaskill</a></p></td>
+</tr>
+
  <tr>
-  <td><a href="http://www.concrete5.org">concrete5</a></td>
-  <td><code>concrete5</code> is a CMS that is free and open source.</td>
+     <td><a href="http://www.magentocommerce.com/magento-connect/catalog/product/view/id/16835/">Magento</a></td>
+     <td>This <code>Magento helper</code> from Optimise Web enables the use of all functions provided by MobileDetect.net. Made by <a href="http://www.kathirvel.com">Kathir Vel</a>.</td>
  </tr>
- 
- <tr>
- <td><a href="http://www.magentocommerce.com/magento-connect/catalog/product/view/id/16835/">Magento</a></td>
- <td>This <code>Magento helper</code> from Optimise Web enables the use of all functions provided by MobileDetect.net. Made by <a href="http://www.kathirvel.com">Kathir Vel</a>.</td>
- </tr>
- 
+
  <tr>
     	<td><a href="http://pypi.python.org/pypi/pymobiledetect">pymobiledetect</a></td>
 	<td>Mobile detect <code>python package</code>. Made by Bas van Oostveen.</td>
@@ -167,6 +168,16 @@ $detect->version('Opera Mini'); // 5.0 (float)
      <tr>
 	<td><a href="https://github.com/iamspacehead/responsage">Wordpress Responsage</a></td>
 	<td>A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</td>
+ </tr>
+
+ <tr>
+    <td><a href="https://sourceforge.net/p/memht/code/176/">MemHT Portal</a></td>
+    <td><p>MemHT is a Free PHP CMS and Blog that permit the creation and the management online of websites with few and easy steps. It's completelly customizable, expandable and suitable for all needs.</p></td>
+ </tr>
+
+ <tr>
+  <td><a href="http://www.concrete5.org">concrete5</a></td>
+  <td><code>concrete5</code> is a CMS that is free and open source.</td>
  </tr>
 
     <tr>
