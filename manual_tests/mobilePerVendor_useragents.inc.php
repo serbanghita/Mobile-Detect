@@ -56,17 +56,17 @@ $mobilePerVendor_userAgents = array(
 		),
 
 	'Apple' => array(
-		'iTunes/9.1.1'                                                                                                                                                                           => array('isMobile' => true, 'isTablet' => false),
+		'iTunes/9.1.1'                                                                                                                                                                           => array( 'isMobile' => true, 'isTablet' => false, 'version' => array('Webkit' => '528.18', 'Safari' => '4.0', 'Mobile' => '7A341' ), 'model' => 'iPhone' ),
 		'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16'                                          => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (iPhone; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B206 Safari/7534.48.3'                                               => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (iPod; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25'                                                    => array('isMobile' => true, 'isTablet' => false),
-		'Mozilla/5.0 (iPad; CPU OS 5_1_1 like Mac OS X; en-us) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/21.0.1180.80 Mobile/9B206 Safari/7534.48.3 (6FF046A0-1BC4-4E7D-8A9D-6BF17622A123)' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Chrome' => '21.0.1180.80') ),
+		'Mozilla/5.0 (iPad; CPU OS 5_1_1 like Mac OS X; en-us) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/21.0.1180.80 Mobile/9B206 Safari/7534.48.3 (6FF046A0-1BC4-4E7D-8A9D-6BF17622A123)' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Chrome' => '21.0.1180.80', 'Webkit' => '534.46.0', 'Safari' => '7534.48.3') ),
 		'Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25'                                                           => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (iPad; U; CPU OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5'                                          => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10'                                          => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X; da-dk) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/21.0.1180.82 Mobile/10A523 Safari/7534.48.3'                              => array('isMobile' => true, 'isTablet' => false, 'version' => array('Chrome' => '21.0.1180.82') ),
 		'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25'                                                => array('isMobile' => true, 'isTablet' => false),
-		'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X; ru-ru) AppleWebKit/536.26 (KHTML, like Gecko) CriOS/23.0.1271.100 Mobile/10B142 Safari/8536.25'                                   => array('isMobile' => true, 'isTablet' => false, 'version' => array('Chrome' => '23.0.1271.100') ),
+		'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X; ru-ru) AppleWebKit/536.26 (KHTML, like Gecko) CriOS/23.0.1271.100 Mobile/10B142 Safari/8536.25'                                   => array('isMobile' => true, 'isTablet' => false, 'version' => array('Chrome' => '23.0.1271.100', 'Webkit' => '536.26'), 'model' => 'iPhone' ),
 	),
 
 	'ASUS' => array(
@@ -74,11 +74,11 @@ $mobilePerVendor_userAgents = array(
 	),
 
 	'BlackBerry' => array(
-		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9300; en) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.546 Mobile Safari/534.8+'      => array('isMobile' => true, 'isTablet' => false),
+		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9300; en) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.546 Mobile Safari/534.8+'      => array('isMobile' => true, 'isTablet' => false, 'version' => array('Webkit' => '534.8+', 'Safari' => false, 'BlackBerryOS' => '6.0.0.546'), 'model' => 'BlackBerry 9300' ),
 		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9360; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.0.0.400 Mobile Safari/534.11+' => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9700; he) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.723 Mobile Safari/534.8+'      => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9700; en-US) AppleWebKit/534.8  (KHTML, like Gecko) Version/6.0.0.448 Mobile Safari/534.8'    => array('isMobile' => true, 'isTablet' => false),
-		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9790; en-GB) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.714 Mobile Safari/534.11+' => array('isMobile' => true, 'isTablet' => false),
+		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9790; en-GB) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.714 Mobile Safari/534.11+' => array('isMobile' => true, 'isTablet' => false, 'version' => array('Webkit' => '534.11+', 'Safari' => false, 'BlackBerryOS' => '7.1.0.714'), 'model' => 'BlackBerry 9790' ),
 		'Opera/9.80 (BlackBerry; Opera Mini/7.0.29990/28.2504; U; en) Presto/2.8.119 Version/11.10'                                           => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9981; en-GB) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.342 Mobile Safari/534.11+' => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; en-GB) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.546 Mobile Safari/534.8+'   => array('isMobile' => true, 'isTablet' => false),
@@ -87,12 +87,12 @@ $mobilePerVendor_userAgents = array(
 		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en-US) AppleWebKit/534.11  (KHTML, like Gecko) Version/7.1.0.523 Mobile Safari/534.11'  => array('isMobile' => true, 'isTablet' => false),
 		'BlackBerry8520/5.0.0.592 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/136'                                                       => array('isMobile' => true, 'isTablet' => false),
 		'BlackBerry8520/5.0.0.1067 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/603'                                                      => array('isMobile' => true, 'isTablet' => false),
-		'BlackBerry8520/5.0.0.1036 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/611'                                                      => array('isMobile' => true, 'isTablet' => false),
+		'BlackBerry8520/5.0.0.1036 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/611'                                                      => array( 'isMobile' => true, 'isTablet' => false, 'version' => array('BlackBerryOS' => '5.0.0.1036', 'VendorID' => '611'), 'model' => 'BlackBerry8520' ),
 		'Mozilla/5.0 (BlackBerry; U; BlackBerry 9220; en) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.337 Mobile Safari/534.11+'    => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+'          => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (BB10; Touch) AppleWebKit/537.1+ (KHTML, like Gecko) Version/10.0.0.1337 Mobile Safari/537.1+'                           => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.2372 Mobile Safari/537.10+'                         => array('isMobile' => true, 'isTablet' => false),
-		'Mozilla/5.0 (BB10; Touch) /537.10+ (KHTML, like Gecko) Version/10.0.9.2372 Mobile Safari/537.10+'                                    => array('isMobile' => true, 'isTablet' => false),
+		'Mozilla/5.0 (BB10; Touch) /537.10+ (KHTML, like Gecko) Version/10.0.9.2372 Mobile Safari/537.10+'                                    => array( 'isMobile' => true, 'isTablet' => false, 'version' => array('BlackBerryOS' => '10.0.9.2372', 'Webkit' => '537.10+') ),
 		),
 
 	'Broncho' => array(
@@ -192,7 +192,7 @@ $mobilePerVendor_userAgents = array(
 			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; Radar C110e)'                                                         => array('isMobile' => true, 'isTablet' => false),
 			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; T8788)'                                                               => array('isMobile' => true, 'isTablet' => false),
 
-			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC 7 Mozart T8698; QSD8x50)'                                              => array('isMobile' => true, 'isTablet' => false),
+			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC 7 Mozart T8698; QSD8x50)'                                              => array('isMobile' => true, 'isTablet' => false, 'version' => array('IE' => '9.0', 'Windows Phone OS' => '7.5', 'Trident' => '5.0'), 'model' => '7 Mozart T8698' ),
 			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; 7 HTC MOZART)'                                                        => array('isMobile' => true, 'isTablet' => false),
 			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; 7 Mondrian T8788)'                                                    => array('isMobile' => true, 'isTablet' => false),
 			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; 7 Mozart T8698)'                                                      => array('isMobile' => true, 'isTablet' => false),
@@ -243,7 +243,7 @@ $mobilePerVendor_userAgents = array(
 			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; Titan)'                                                               => array('isMobile' => true, 'isTablet' => false),
 			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; Torphy T8686)'                                                        => array('isMobile' => true, 'isTablet' => false),
 			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; X310e)'                                                               => array('isMobile' => true, 'isTablet' => false),
-			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC_blocked; T8788)'                                                       => array('isMobile' => true, 'isTablet' => false),
+			'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC_blocked; T8788)'                                                       => array('isMobile' => true, 'isTablet' => false, 'version' => array('IE' => '9.0', 'Windows Phone OS' => '7.5', 'Trident' => '5.0'), 'model' => 'T8788' ),
 
 			),
 
@@ -281,7 +281,7 @@ $mobilePerVendor_userAgents = array(
 	'Microsoft' => array(
 
 		// Surface tablet
-		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch; .NET4.0E; .NET4.0C; Tablet PC 2.0)' => array('isMobile' => true, 'isTablet' => true),
+		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch; .NET4.0E; .NET4.0C; Tablet PC 2.0)' => array('isMobile' => true, 'isTablet' => true, 'version' => array('IE' => '10.0', 'Windows NT' => '6.2', 'Trident' => '6.0') ),
 		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0)'                                           => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)'                                    => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch; ARMBJS)'                            => array('isMobile' => true, 'isTablet' => true),
@@ -361,7 +361,7 @@ $mobilePerVendor_userAgents = array(
 		'Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 Nokia5230/51.0.002; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/533.4 (KHTML, like Gecko) NokiaBrowser/7.3.1.33 Mobile Safari/533.4 3gpp-gba'   => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 Nokia5530c-2/32.0.007; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.6.9 3gpp-gba'              => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 NokiaN97-1/21.0.045; Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/525 (KHTML, like Gecko) BrowserNG/7.1.4'                                        => array('isMobile' => true, 'isTablet' => false),
-		'Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 NokiaN97-4/30.0.004; Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/533.4 (KHTML, like Gecko) NokiaBrowser/7.3.1.28 3gpp-gba'                       => array('isMobile' => true, 'isTablet' => false),
+		'Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 NokiaN97-4/30.0.004; Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/533.4 (KHTML, like Gecko) NokiaBrowser/7.3.1.28 3gpp-gba'                       => array('isMobile' => true, 'isTablet' => false, 'version' => array('SymbianOS' => '9.4', 'Webkit' => '533.4', 'NokiaBrowser' => '7.3.1.28'), 'model' => 'NokiaN97-4' ),
 
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; 7 Mozart T8698)'                                                                                        => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; 710)'                                                                                                   => array('isMobile' => true, 'isTablet' => false),
@@ -385,7 +385,7 @@ $mobilePerVendor_userAgents = array(
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; Lumia 800c)'                                                                                            => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 900)'                                                                                             => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; Lumia 920)'                                                                                             => array('isMobile' => true, 'isTablet' => false),
-		'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)'                                                                                  => array('isMobile' => true, 'isTablet' => false),
+		'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)'                                                                                  => array('isMobile' => true, 'isTablet' => false, 'version' => array('IE' => '10.0', 'Windows Phone OS' => '8.0', 'Trident' => '6.0'), 'model' => 'Lumia 920' ),
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; lumia800)'                                                                                              => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Nokia 610)'                                                                                             => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Nokia 710)'                                                                                             => array('isMobile' => true, 'isTablet' => false),
@@ -394,7 +394,7 @@ $mobilePerVendor_userAgents = array(
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Nokia 900)'                                                                                             => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; Nokia)'                                                                                                 => array('isMobile' => true, 'isTablet' => false),
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; SGH-i917)'                                                                                              => array('isMobile' => true, 'isTablet' => false),
-		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; TITAN X310e)'                                                                                           => array('isMobile' => true, 'isTablet' => false),
+		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; TITAN X310e)'                                                                                           => array('isMobile' => true, 'isTablet' => false, 'version' => array('Windows Phone OS' => '7.5', 'Trident' => '5.0'), 'model' => 'TITAN X310e' ),
 		),
 
 
