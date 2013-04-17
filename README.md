@@ -170,13 +170,18 @@ $detect->version('Opera Mini'); // 5.0 (float)
 	<td>A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</td>
  </tr>
 
+<tr>
+<td><a href="https://github.com/sergeifilippov/statamic-mobile-detect">Statamic CMS</a></td>
+<td><p><code>Statamic</code> Mobile Detect <code>plugin</code>. Made by <a href="https://github.com/sergeifilippov">Sergei Filippov</a>.</p></td>
+</tr>
+
  <tr>
     <td><a href="https://sourceforge.net/p/memht/code/176/">MemHT Portal</a></td>
-    <td><p>MemHT is a Free PHP CMS and Blog that permit the creation and the management online of websites with few and easy steps. It's completelly customizable, expandable and suitable for all needs.</p></td>
+    <td><p><code>MemHT</code> is a Free PHP CMS and Blog that permit the creation and the management online of websites with few and easy steps. It's completelly customizable, expandable and suitable for all needs.</p></td>
  </tr>
 
  <tr>
-  <td><a href="http://www.concrete5.org">concrete5</a></td>
+  <td><a href="http://www.concrete5.org">concrete5 CMS</a></td>
   <td><code>concrete5</code> is a CMS that is free and open source.</td>
  </tr>
 
