@@ -24,8 +24,8 @@ We are working on a database and API that will automate this process.
 
 ##### Roadmap
 
-[Road to 2.9.9 version](./wiki/Road-to-2.9.9) - stuff that are scheduled on the `2.x.x` branch (currently in production).<br>
-[Road to 3.0.0 version](./wiki/Road-to-3.0.0) - stuff that are scheduled on the `3.x.x` branch.<br>
+[Road to 2.9.9 version](../../wiki/Road-to-2.9.9) - stuff that are scheduled on the `2.x.x` branch (currently in production).<br>
+[Road to 3.0.0 version](../../wiki/Road-to-3.0.0) - stuff that are scheduled on the `3.x.x` branch.<br>
 Current `devel` status: [![Devel Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel)](https://travis-ci.org/serbanghita/Mobile-Detect)
 
 The new `3.0.0` version will feature: compatibility with `2.x`, array with devices details (including model name), device/os/browser version, browser grading utility, separate JSON regex.
