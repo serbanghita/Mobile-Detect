@@ -31,7 +31,7 @@ class BasicTest extends PHPUnit_Framework_TestCase {
 
 	protected function setUp(){
 
-		$this->detect = new Mobile_Detect;
+		$this->detect = new Mobile_Detect();
 
 	}
 

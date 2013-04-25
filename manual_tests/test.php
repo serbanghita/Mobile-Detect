@@ -33,7 +33,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', true);
 
 
-include '../Mobile_Detect.php';
+use Mobile_Detect;
 $detect = new Mobile_Detect();
 
 /*

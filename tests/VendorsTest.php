@@ -35,7 +35,7 @@ class VendorsTest extends PHPUnit_Framework_TestCase {
 	public static function setUpBeforeClass(){
 
 		require_once dirname(__FILE__).'/../manual_tests/mobilePerVendor_useragents.inc.php';
-		self::$detect = new Mobile_Detect;
+		self::$detect = new Mobile_Detect();
 		self::$items = $mobilePerVendor_userAgents;
 
 	}
