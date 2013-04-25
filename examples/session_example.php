@@ -44,7 +44,7 @@
 session_start();
 
 // It's mandatory to include the library.
-require_once '../Mobile_Detect.php';
+use Mobile_Detect;
 
 
 
@@ -67,7 +67,7 @@ function initLayoutType(){
 	// Safety check.
 	if(!class_exists('Mobile_Detect')){ return 'classic'; }
 
-	$detect = new Mobile_Detect;
+	$detect = new Mobile_Detect();
 	$isMobile = $detect->isMobile();
 	$isTablet = $detect->isTablet();
 

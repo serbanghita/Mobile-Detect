@@ -32,7 +32,7 @@
  *
  */
 
-require_once '../Mobile_Detect.php';
+use Mobile_Detect;
 $detect = new Mobile_Detect;
 $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
 $scriptVersion = $detect->getScriptVersion();
