@@ -1,36 +1,57 @@
 ![Mobile Detect](http://demo.mobiledetect.net/logo-github.png)
 
-### The lightweight PHP class for detecting mobile devices.
+> Motto: "Every business should have a mobile detection script to detect mobile readers."
 
-> Mobile\_Detect is a lightweight PHP class for detecting mobile devices. It uses the user-agent string combined with specific HTTP headers to detect the mobile environment.
+##### The lightweight PHP class for detecting mobile devices.
 
-### History
+<i>Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets). 
+It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</i>
+
+You may consider this script as being part of the <b>RESS</b> (Responsive Web Design with Server-Side Component) movement. You can find out more on the topic by reading these articles: [Improve Mobile Support With Server-Side-Enhanced Responsive Design](http://mobile.smashingmagazine.com/2013/04/09/improve-mobile-support-with-server-side-enhanced-responsive-design/) and [RESS: Responsive Design + Server Side Components](http://www.lukew.com/ff/entry.asp?1392).
+
+##### How reliable is this script?
+
+The script is as reliable as Server-Side detection can be. This is not a replacement for Responsive Web Design (media queries) 
+or other forms of Client-Side detection. Read W3C's Mobile Web Application Best Practices [Prefer Server-Side Detection Where Possible](http://www.w3.org/TR/mwabp/#bp-devcap-detection) section.
+We're running [automated tests](./tests) to make sure the we don't break the detection every time we update it with new devices and also to avoid regex collisions.
+
+##### How frequent do you update it?
+
+The script is updated on daily and weekly basis. 
+Sometimes is hard to distinguish between a phone and a tablet, this is why we're constantly researching a lot of mobile vendors sites, checking product codes and new releases.
+
+We are working on a database and API that will automate this process.
+
+##### Roadmap
+
+[Road to 2.9.9 version](../../wiki/Road-to-2.9.9) - stuff that are scheduled on the `2.x.x` branch (currently in production).<br>
+[Road to 3.0.0 version](../../wiki/Road-to-3.0.0) - stuff that are scheduled on the `3.x.x` branch.<br>
+Current `devel` status: [![Devel Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel)](https://travis-ci.org/serbanghita/Mobile-Detect)
+
+The new `3.0.0` version will feature: compatibility with `2.x`, array with devices details (including model name), device/os/browser version, browser grading utility, separate JSON regex.
+
+##### Need your help
+
+<a href='http://www.pledgie.com/campaigns/18179'><img alt='Click here to lend your support to: Funding development of Mobile_Detect 3.0 and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/18179.png?skin_name=chrome' border='0' /></a>
+
+I'm currently paying for hosting and spend a lot of my family time to maintain the project and what is to come.
+I would highly appreciate any money donations that will keep the research going.
+
+Sponsored by the community and by [BrowserStack](http://www.browserstack.com) - the complete browser coverage tool (including mobile devices) for testing you web application.
+Special thanks to [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
+
+##### History
 
 The first version of the script was developed by Victor Stanciu in 2010.
 In December 2011, [Serban Ghita](http://twitter.com/serbanghita) updated the first version and fixed all the bugs, then launched the 2.0 version which marks a new mindset and also featuring tablet detection.
 
 Throughout 2012, the script has been updated constantly and we have received tons of feedback and requests. In July 2012 we moved from [Google Code](http://code.google.com/p/php-mobile-detect/) to GitHub.com in order to quickly accommodate the frequent updates and to involve more people.
 
-### How reliable is this script? How frequent do you update it? How?
+###### Online demo
 
-The script is as reliable as server-side detection can be. This is not a replacement for RWD (media queries) or other forms of client-side detection. Read W3C's Mobile Web Application Best Practices [Prefer Server-Side Detection Where Possible](http://www.w3.org/TR/mwabp/#bp-devcap-detection) section.
+http://is.gd/mobiletest - point your device browser to this URL.
 
-In order to detect phones and tablets (new ones and legacy) we're testing the library against HTTP headers and User-Agents that we find on the internet and through the demo.php file (See: http://is.gd/mobiletest). Sometimes is hard to distinguish between a phone and a tablet, this is why we're constantly researching a lot of mobile vendors sites, checking product codes and new releases. You can see some of our 'tests' by checking the [test](https://github.com/serbanghita/Mobile-Detect/tree/master/tests) folder.
-
-We are working on a database and API that will automate this process in the near future.
-
-### Roadmap and future development. Contribute!
-
-[![Devel Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel)](https://travis-ci.org/serbanghita/Mobile-Detect)
-
-We are preparing [v.3.0](https://github.com/serbanghita/Mobile-Detect/wiki/Roadmap) and we need your support! The new milestone will mean great features like: basic detection kept untouched, full array with devices details, device/os/browser version utility, jQuery Mobile browser grading utility, source-code that can be easely updated.
-
-<a href='http://www.pledgie.com/campaigns/18179'><img alt='Click here to lend your support to: Funding development of Mobile_Detect 3.0 and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/18179.png?skin_name=chrome' border='0' /></a>
-
-Sponsored by the community and by [BrowserStack](http://www.browserstack.com) - the complete browser coverage tool (including mobile devices) for testing you web application.
-Special thanks to [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
-
-### Usage
+##### Usage and examples
 
 Include and instantiate the class:
 ```php
@@ -104,19 +125,20 @@ $detect->version('Opera Mini'); // 5.0 (float)
 [...]
 ```
 
-### Projects that are using the class
+##### Projects that are using the class
 
 <table>
+
+<tr>
+    <td><a href="https://github.com/chronon/CakePHP-MobileDetectComponent-Plugin">CakePHP</a></td>
+    <td><p>MobileDetect <code>plugin</code> component for <code>CakePHP</code> 2.x. Made by <a href="https://github.com/chronon">Gregory Gaskill</a></p></td>
+</tr>
+
  <tr>
-  <td><a href="http://www.concrete5.org">concrete5</a></td>
-  <td><code>concrete5</code> is a CMS that is free and open source.</td>
+     <td><a href="http://www.magentocommerce.com/magento-connect/catalog/product/view/id/16835/">Magento</a></td>
+     <td>This <code>Magento helper</code> from Optimise Web enables the use of all functions provided by MobileDetect.net. Made by <a href="http://www.kathirvel.com">Kathir Vel</a>.</td>
  </tr>
- 
- <tr>
- <td><a href="http://www.magentocommerce.com/magento-connect/catalog/product/view/id/16835/">Magento</a></td>
- <td>This <code>Magento helper</code> from Optimise Web enables the use of all functions provided by MobileDetect.net. Made by <a href="http://www.kathirvel.com">Kathir Vel</a>.</td>
- </tr>
- 
+
  <tr>
     	<td><a href="http://pypi.python.org/pypi/pymobiledetect">pymobiledetect</a></td>
 	<td>Mobile detect <code>python package</code>. Made by Bas van Oostveen.</td>
@@ -134,8 +156,8 @@ $detect->version('Opera Mini'); // 5.0 (float)
 	<td><code>Symfony2</code> bundle for detect mobile devices, manage mobile view and redirect to the mobile and tablet version. Made by <a href="https://github.com/suncat2000">Nikolay Ivlev</a>.</td>
  </tr>
  <tr>
-	<td><a href="https://github.com/binfo/MobileDetectServiceProvider">Silex Mobile Detect Service Provider</a></td>
-	<td><code>Silex</code> service provider to interact with Mobile detect class methods. Made by <a href="https://github.com/binfo">Lhassan Baazzi</a>.</td>
+	<td><a href="https://github.com/jbinfo/MobileDetectServiceProvider">Silex Mobile Detect Service Provider</a></td>
+	<td><code>Silex</code> service provider to interact with Mobile detect class methods. Made by <a href="https://github.com/jbinfo">Lhassan Baazzi</a>.</td>
  </tr>
   <tr>
 	<td><a href="https://github.com/garethtdavies/detect-mobile">ExpressionEngine</a></td>
@@ -167,6 +189,21 @@ $detect->version('Opera Mini'); // 5.0 (float)
      <tr>
 	<td><a href="https://github.com/iamspacehead/responsage">Wordpress Responsage</a></td>
 	<td>A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</td>
+ </tr>
+
+<tr>
+<td><a href="https://github.com/sergeifilippov/statamic-mobile-detect">Statamic CMS</a></td>
+<td><p><code>Statamic</code> Mobile Detect <code>plugin</code>. Made by <a href="https://github.com/sergeifilippov">Sergei Filippov</a>.</p></td>
+</tr>
+
+ <tr>
+    <td><a href="https://sourceforge.net/p/memht/code/176/">MemHT Portal</a></td>
+    <td><p><code>MemHT</code> is a Free PHP CMS and Blog that permit the creation and the management online of websites with few and easy steps. It's completelly customizable, expandable and suitable for all needs.</p></td>
+ </tr>
+
+ <tr>
+  <td><a href="http://www.concrete5.org">concrete5 CMS</a></td>
+  <td><code>concrete5</code> is a CMS that is free and open source.</td>
  </tr>
 
     <tr>
