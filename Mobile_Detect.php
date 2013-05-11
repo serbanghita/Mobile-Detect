@@ -268,7 +268,7 @@ class Mobile_Detect {
 
     );
 
-    function __construct(){
+    public function __construct(){
 
         $this->setHttpHeaders();
         $this->setUserAgent();
@@ -431,7 +431,7 @@ class Mobile_Detect {
             isset($this->httpHeaders['HTTP_X_HUAWEI_USERID'])           ||
             isset($this->httpHeaders['HTTP_UA_OS'])                     || // Reported by Windows Smartphones.
             isset($this->httpHeaders['HTTP_X_MOBILE_GATEWAY'])          || // Reported by Verizon, Vodafone proxy system.
-            isset($this->httpHeaders['HTTP_X_ATT_DEVICEID'])            || // Seend this on HTC Sensation. @ref: SensationXE_Beats_Z715e
+            isset($this->httpHeaders['HTTP_X_ATT_DEVICEID'])            || // Seen this on HTC Sensation. @ref: SensationXE_Beats_Z715e
             //HTTP_X_NETWORK_TYPE = WIFI
             ( isset($this->httpHeaders['HTTP_UA_CPU']) &&
                     $this->httpHeaders['HTTP_UA_CPU'] == 'ARM'          // Seen this on a HTC.
@@ -640,6 +640,7 @@ class Mobile_Detect {
      * Will return a float number. (eg. 2_0 will return 2.0, 4.3.1 will return 4.31)
      *
      * @param string $propertyName
+     * @param string $type
      * @return mixed $version
      */
     function version($propertyName, $type = 'text'){

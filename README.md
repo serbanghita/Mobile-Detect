@@ -198,7 +198,7 @@ $detect->version('Opera Mini'); // 5.0 (float)
 
  <tr>
     <td><a href="https://sourceforge.net/p/memht/code/176/">MemHT Portal</a></td>
-    <td><p><code>MemHT</code> is a Free PHP CMS and Blog that permit the creation and the management online of websites with few and easy steps. It's completelly customizable, expandable and suitable for all needs.</p></td>
+    <td><p><code>MemHT</code> is a Free PHP CMS and Blog that permit the creation and the management online of websites with few and easy steps. It's completely customizable, expandable and suitable for all needs.</p></td>
  </tr>
 
  <tr>
