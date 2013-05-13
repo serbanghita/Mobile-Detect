@@ -185,6 +185,8 @@ class Mobile_Detect {
         //'Midori'          => 'midori',
         'Tizen'           => 'Tizen',
         'UCBrowser'       => 'UC.*Browser|UCWEB',
+        'MicroMessenger'  => 'MicroMessenger',
+        'MQQBrowser'      => 'MQQBrowser',
         // @ref: https://github.com/serbanghita/Mobile-Detect/issues/7
         'DiigoBrowser'    => 'DiigoBrowser',
         // http://www.puffinbrowser.com/index.php
@@ -240,6 +242,8 @@ class Mobile_Detect {
         'Opera Mini'    => 'Opera Mini/[VER]',
         'Opera Mobi'    => 'Version/[VER]',
         'UC Browser'    => 'UC Browser[VER]',
+        'MicroMessenger'=> 'MicroMessenger/[VER]',
+        'MQQBrowser'    => 'MQQBrowser/[VER]',
         'Safari'        => 'Version/[VER]',
         'Skyfire'       => 'Skyfire/[VER]',
         'Tizen'         => 'Tizen/[VER]',
