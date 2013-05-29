@@ -4,20 +4,20 @@
 
 ##### The lightweight PHP class for detecting mobile devices.
 
-<i>Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets). 
+<i>Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
 It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</i>
 
 You may consider this script as being part of the <b>RESS</b> (Responsive Web Design with Server-Side Component) movement. You can find out more on the topic by reading these articles: [Improve Mobile Support With Server-Side-Enhanced Responsive Design](http://mobile.smashingmagazine.com/2013/04/09/improve-mobile-support-with-server-side-enhanced-responsive-design/) and [RESS: Responsive Design + Server Side Components](http://www.lukew.com/ff/entry.asp?1392).
 
 ##### How reliable is this script?
 
-The script is as reliable as Server-Side detection can be. This is not a replacement for Responsive Web Design (media queries) 
+The script is as reliable as Server-Side detection can be. This is not a replacement for Responsive Web Design (media queries)
 or other forms of Client-Side detection. Read W3C's Mobile Web Application Best Practices [Prefer Server-Side Detection Where Possible](http://www.w3.org/TR/mwabp/#bp-devcap-detection) section.
 We're running [automated tests](./tests) to make sure the we don't break the detection every time we update it with new devices and also to avoid regex collisions.
 
 ##### How frequent do you update it?
 
-The script is updated on daily and weekly basis. 
+The script is updated on daily and weekly basis.
 Sometimes is hard to distinguish between a phone and a tablet, this is why we're constantly researching a lot of mobile vendors sites, checking product codes and new releases.
 
 We are working on a database and API that will automate this process.
@@ -62,14 +62,14 @@ $detect = new Mobile_Detect();
 Basic usage, looking for mobile devices or tablets:
 ```php
 <?php
-if ($detect->isMobile()) {
-    // Any mobile device.
+if ( $detect->isMobile() ) {
+    // Any mobile device (phones or tablets).
 }
 ```
 
 ```php
 <?php
-if($detect->isTablet()){
+if( $detect->isTablet() ){
     // Any tablet device.
 }
 ```
@@ -189,6 +189,11 @@ $detect->version('Opera Mini'); // 5.0 (float)
      <tr>
 	<td><a href="https://github.com/iamspacehead/responsage">Wordpress Responsage</a></td>
 	<td>A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</td>
+ </tr>
+
+ <tr>
+  <td><a href="http://wordpress.org/plugins/social-popup/">Social PopUP</a></td>
+  <td>This plugin will display a popup or splash screen when a new user visit your site showing a Google+, Twitter and Facebook follow links. It uses Mobile_Detect to detect mobile devices.</td>
  </tr>
 
 <tr>
