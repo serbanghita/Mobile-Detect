@@ -52,7 +52,8 @@ class VendorsTest extends PHPUnit_Framework_TestCase {
 
 		    	foreach($conditions as $condition => $assert){
 
-		    		if( $condition == 'version' ){ continue; }
+		    		// Currently not supporting version and model here. @todo: Maybe this condition should be different.
+		    		if( in_array($condition, array('version', 'model') ) ){ continue; }
 
 		    		$this->assertTrue( self::$detect->$condition() === $assert, 'UA ('.$condition.'): '.$userAgent);
 

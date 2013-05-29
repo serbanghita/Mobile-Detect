@@ -24,17 +24,17 @@
  *
  *
  * @author      Serban Ghita <serbanghita@gmail.com>
- *              Victor Stanciu <vic.stanciu@gmail.com> (until v1.0)
+ *              Victor Stanciu <vic.stanciu@gmail.com> (until v. 1.0)
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  * @link        Official page: http://mobiledetect.net
  *              GitHub Repository: https://github.com/serbanghita/Mobile-Detect
  *              Google Code Old Page: http://code.google.com/p/php-mobile-detect/
- * @version     2.6.0
+ * @version     2.6.1
  */
 
 class Mobile_Detect {
 
-    protected $scriptVersion = '2.6.0';
+    protected $scriptVersion = '2.6.1';
 
     // External info.
     protected $userAgent = null;
@@ -81,12 +81,12 @@ class Mobile_Detect {
         'Kindle'            => 'Kindle|Silk.*Accelerated',
         // Only the Surface tablets with Windows RT are considered mobile.
         // @ref: http://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
-        'SurfaceTablet'     => 'Windows NT [0-9.]+; ARM;',
+        'SurfaceTablet'     => 'Windows NT 5.2|Windows NT [0-9.]+; ARM;',
         'AsusTablet'        => 'Transformer|TF101',
         'BlackBerryTablet'  => 'PlayBook|RIM Tablet',
         'HTCtablet'         => 'HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200',
         'MotorolaTablet'    => 'xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617',
-        'NookTablet'        => 'Android.*Nook|NookColor|nook browser|BNTV250A|LogicPD Zoom2',
+        'NookTablet'        => 'Android.*Nook|NookColor|nook browser|BNRV200|BNRV200A|BNTV250|BNTV250A|LogicPD Zoom2',
         // @ref: http://www.acer.ro/ac/ro/RO/content/drivers
         // @ref: http://www.packardbell.co.uk/pb/en/GB/content/download (Packard Bell is part of Acer)
         'AcerTablet'        => 'Android.*\b(A100|A101|A110|A200|A210|A211|A500|A501|A510|A511|A700|A701|W500|W500P|W501|W501P|W510|W511|W700|G100|G100W|B1-A71)\b',
@@ -139,6 +139,7 @@ class Mobile_Detect {
         'PositivoTablet'    => 'TB07STA|TB10STA|TB07FTA|TB10FTA',
         // @ref: https://www.nabitablet.com/
         'NabiTablet'        => 'Android.*\bNabi',
+        'KoboTablet'        => 'Kobo Touch|\bK080\b|\bVox\b Build|\bArc\b Build',
         // @note: Avoid detecting 'PLAYSTATION 3' as mobile.
         'PlaystationTablet' => 'Playstation.*(Portable|Vita)',
         'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|MID7015|BNTV250A|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|hp-tablet',
@@ -208,7 +209,7 @@ class Mobile_Detect {
     );
     // Properties list.
     // @reference: http://user-agent-string.info/list-of-ua#Mobile Browser
-    const VER = '([\w._]+)';
+    const VER = '([\w._\+]+)';
     protected $properties = array(
 
         // Build
@@ -231,8 +232,7 @@ class Mobile_Detect {
         'Firefox'       => 'Firefox/[VER]',
         'Fennec'        => 'Fennec/[VER]',
         // @reference: http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
-        'IEMobile'      => array('IEMobile/[VER];', 'IEMobile [VER]'),
-        'MSIE'          => 'MSIE [VER];',
+        'IE'      => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];'),
         // http://en.wikipedia.org/wiki/NetFront
         'NetFront'      => 'NetFront/[VER]',
         'NokiaBrowser'  => 'NokiaBrowser/[VER]',
@@ -240,7 +240,9 @@ class Mobile_Detect {
         'Opera Mini'    => 'Opera Mini/[VER]',
         'Opera Mobi'    => 'Version/[VER]',
         'UC Browser'    => 'UC Browser[VER]',
-        'Safari'        => 'Version/[VER]',
+        // @note: Safari 7534.48.3 is actually Version 5.1.
+        // @note: On BlackBerry the Version is overwriten by the OS.
+        'Safari'        => array( 'Version/[VER]', 'Safari/[VER]' ),
         'Skyfire'       => 'Skyfire/[VER]',
         'Tizen'         => 'Tizen/[VER]',
         'Webkit'        => 'webkit[ /][VER]',
@@ -252,12 +254,12 @@ class Mobile_Detect {
 
         // OS
         'Android'          => 'Android [VER]',
-        'BlackBerry'       => array('BlackBerry[\w]+/[VER]', 'BlackBerry.*Version/[VER]'),
+        'BlackBerry'       => array('BlackBerry[\w]+/[VER]', 'BlackBerry.*Version/[VER]', 'Version/[VER]'),
         'BREW'             => 'BREW [VER]',
         'Java'             => 'Java/[VER]',
         // @reference: http://windowsteamblog.com/windows_phone/b/wpdev/archive/2011/08/29/introducing-the-ie9-on-windows-phone-mango-user-agent-string.aspx
         // @reference: http://en.wikipedia.org/wiki/Windows_NT#Releases
-        'Windows Phone OS' => 'Windows Phone OS [VER]',
+        'Windows Phone OS' => array( 'Windows Phone OS [VER]', 'Windows Phone [VER]'),
         'Windows Phone'    => 'Windows Phone [VER]',
         'Windows CE'       => 'Windows CE/[VER]',
         // http://social.msdn.microsoft.com/Forums/en-US/windowsdeveloperpreviewgeneral/thread/6be392da-4d2f-41b4-8354-8dcee20c85cd
