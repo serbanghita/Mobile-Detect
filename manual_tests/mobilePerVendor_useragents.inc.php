@@ -38,6 +38,7 @@ $mobilePerVendor_userAgents = array(
 		'Mozilla/5.0 (Linux; U; Android 4.0.3; de-de; A200 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'   => array( 'isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.0.3', 'Webkit' => '534.30', 'Safari' => '4.0', 'Build' => 'IML74K'), 'model' => 'A200' ),
 		'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; A500 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'   => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; A501 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'   => array('isMobile' => true, 'isTablet' => true),
+		'Mozilla/5.0 (Linux; Android 4.1.1; A701 Build/JRO03H) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19'   => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (Linux; Android 4.1.2; B1-A71 Build/JZO54K) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19' => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Acer; Allegro)'                                 => array('isMobile' => true, 'isTablet' => false),
 		),
@@ -73,6 +74,12 @@ $mobilePerVendor_userAgents = array(
 		'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25'                                                => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '6_0_1', 'Webkit' => '536.26', 'Safari' => '6.0', 'Mobile' => '10A523'), 'model' => 'iPhone' ),
 		'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X; ru-ru) AppleWebKit/536.26 (KHTML, like Gecko) CriOS/23.0.1271.100 Mobile/10B142 Safari/8536.25'                                   => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '6_1', 'Webkit' => '536.26', 'Chrome' => '23.0.1271.100', 'Mobile' => '10B142'), 'model' => 'iPhone' ),
 		'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25'                                                => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '6_1_3', 'Webkit' => '536.26', 'Safari' => '6.0', 'Mobile' => '10B329'), 'model' => 'iPhone' )
+	),
+
+	'Archos' => array(
+
+		'Mozilla/5.0 (Linux; Android 4.0.4; ARCHOS 80G9 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19' => array(),
+
 	),
 
 	'BlackBerry' => array(
@@ -635,6 +642,21 @@ $mobilePerVendor_userAgents = array(
 
 	'Zync' => array(
 			'Mozilla/5.0 (Linux; U; Android 2.3.3; en-us ; Z909 Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1/UCBrowser/8.4.1.204/145/444' => array('isMobile' => true, 'isTablet' => true),
+		),
+
+	'Other' => array(
+		'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.20 Safari/537.36  OPR/15.0.1147.18 (Edition Next)'                                             => array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.94 Safari/537.36'                                                                                     => array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/5.0 (Windows NT 5.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.94 Safari/537.36'                                                                              => array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/5.0 (Windows NT 5.2; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0'                                                                                                                  => array('isMobile' => false, 'isTablet' => false),
+		'Opera/9.80 (Windows NT 5.2; WOW64) Presto/2.12.388 Version/12.14'                                                                                                                          => array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0'                                                                                                                  => array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/5.0 (X11; FreeBSD amd64; rv:14.0) Gecko/20100101 Firefox/14.0.1'                                                                                                                   => array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Win64; x64; Trident/6.0; Touch; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Tablet PC 2.0; MASMJS)' => array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; MANMJS)'                                                                                                           => array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; MASMJS)'                                                                                                      => array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; Touch; MASMJS)'                                                                                                    => array('isMobile' => false, 'isTablet' => false),
+		'Opera/9.80 (Windows NT 6.2; WOW64; MRA 8.0 (build 5784)) Presto/2.12.388 Version/12.11'                                                                                                    => array('isMobile' => false, 'isTablet' => false),
 		),
 
 

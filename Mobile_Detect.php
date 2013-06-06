@@ -81,7 +81,7 @@ class Mobile_Detect {
         'Kindle'            => 'Kindle|Silk.*Accelerated',
         // Only the Surface tablets with Windows RT are considered mobile.
         // @ref: http://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
-        'SurfaceTablet'     => 'Windows NT 5.2|Windows NT [0-9.]+; ARM;',
+        'SurfaceTablet'     => 'Windows NT [0-9.]+; ARM;',
         'AsusTablet'        => 'Transformer|TF101',
         'BlackBerryTablet'  => 'PlayBook|RIM Tablet',
         'HTCtablet'         => 'HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200',
@@ -102,7 +102,7 @@ class Mobile_Detect {
         'MedionTablet'      => 'Android.*\bOYO\b|LIFE.*(P9212|P9514|P9516|S9512)|LIFETAB',
         'ArnovaTablet'      => 'AN10G2|AN7bG3|AN7fG3|AN8G3|AN8cG3|AN7G3|AN9G3|AN7dG3|AN7dG3ST|AN7dG3ChildPad|AN10bG3|AN10bG3DT',
         // @reference: http://wiki.archosfans.com/index.php?title=Main_Page
-        'ArchosTablet'      => 'Android.*ARCHOS|101G9|80G9',
+        'ArchosTablet'      => 'Android.*ARCHOS|\b101G9\b|\b80G9\b',
         // @reference: http://en.wikipedia.org/wiki/NOVO7
         'AinolTablet'       => 'NOVO7|Novo7Aurora|Novo7Basic|NOVO7PALADIN',
         // @todo: inspect http://esupport.sony.com/US/p/select-system.pl?DIRECTOR=DRIVER
