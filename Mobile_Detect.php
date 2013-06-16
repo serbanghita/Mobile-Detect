@@ -96,11 +96,15 @@ class Mobile_Detect {
         'ToshibaTablet'     => 'Android.*(AT100|AT105|AT200|AT205|AT270|AT275|AT300|AT305|AT1S5|AT500|AT570|AT700|AT830)|TOSHIBA.*FOLIO',
         // @ref: http://www.nttdocomo.co.jp/english/service/developer/smart_phone/technical_info/spec/index.html
         'LGTablet'          => '\bL-06C|LG-V900|LG-V909\b',
+        'FujitsuTablet'     => 'Android.*\b(F-01D|F-05E)\b',
         // Prestigio Tablets http://www.prestigio.com/support
         'PrestigioTablet'   => 'PMP3170B|PMP3270B|PMP3470B|PMP7170B|PMP3370B|PMP3570C|PMP5870C|PMP3670B|PMP5570C|PMP5770D|PMP3970B|PMP3870C|PMP5580C|PMP5880D|PMP5780D|PMP5588C|PMP7280C|PMP7280|PMP7880D|PMP5597D|PMP5597|PMP7100D|PER3464|PER3274|PER3574|PER3884|PER5274|PER5474',
         'YarvikTablet'      => 'Android.*(TAB210|TAB211|TAB224|TAB250|TAB260|TAB264|TAB310|TAB360|TAB364|TAB410|TAB411|TAB420|TAB424|TAB450|TAB460|TAB461|TAB464|TAB465|TAB467|TAB468)',
         'MedionTablet'      => 'Android.*\bOYO\b|LIFE.*(P9212|P9514|P9516|S9512)|LIFETAB',
         'ArnovaTablet'      => 'AN10G2|AN7bG3|AN7fG3|AN8G3|AN8cG3|AN7G3|AN9G3|AN7dG3|AN7dG3ST|AN7dG3ChildPad|AN10bG3|AN10bG3DT',
+        // IRU.ru Tablets http://www.iru.ru/catalog/soho/planetable/
+        'IRUTablet'         => 'M702pro',
+        'MegafonTablet'     => 'MegaFon V9|ZTE V9',
         // @reference: http://wiki.archosfans.com/index.php?title=Main_Page
         'ArchosTablet'      => 'Android.*ARCHOS|\b101G9\b|\b80G9\b',
         // @reference: http://en.wikipedia.org/wiki/NOVO7
