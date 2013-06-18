@@ -3,6 +3,7 @@
   <td width="120">
     <ol>
       <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#demo">Demo</a></li>
+      <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#download">Download</a></li>
       <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#help">Help!</a></li>
       <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#code-examples">Examples</li>
       <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#3rd-party-modules--submit-new">3<sup>rd</sup> party</a></li>
@@ -30,6 +31,10 @@ The script is updated on <b>daily</b> and <b>weekly</b> basis, so make sure you 
 Sometimes is hard to distinguish between a phone and a tablet, this is why we're constantly researching a lot of mobile vendors sites, checking product codes and new releases.
 
 We are working on a database and API that will automate this process.
+
+## Download
+
+<a href="https://github.com/serbanghita/Mobile-Detect/tags">Latest releases</a>, <a href="https://github.com/serbanghita/Mobile-Detect/blob/devel/Mobile_Detect.php">Latest dev branch</a>, <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib">composer package</a>
 
 ## Help
 
