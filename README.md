@@ -164,7 +164,7 @@ $detect->version('Opera Mini'); // 5.0 (float)
 
   <tr>
     <td>Joomla</td>
-    <td>No module submitted yet.</td>
+    <td><p><a href="http://www.yagendoo.com/en/blog/free-mobile-detection-plugin-for-joomla.html">yagendoo Joomla! Mobile Detection Plugin</a> - Lightweight PHP plugin for Joomla! that detects a mobile browser using the Mobile Detect class. Made by <a href="http://www.yagendoo.com/">yagendoo media</a>.</p></td>
  </tr>
 
  <tr>
