@@ -29,12 +29,12 @@
  * @link        Official page: http://mobiledetect.net
  *              GitHub Repository: https://github.com/serbanghita/Mobile-Detect
  *              Google Code Old Page: http://code.google.com/p/php-mobile-detect/
- * @version     2.6.2
+ * @version     2.6.3
  */
 
 class Mobile_Detect {
 
-    protected $scriptVersion = '2.6.2';
+    protected $scriptVersion = '2.6.3';
 
     // External info.
     protected $userAgent = null;
@@ -187,7 +187,7 @@ class Mobile_Detect {
         'Dolfin'          => '\bDolfin\b',
         'Opera'           => 'Opera.*Mini|Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+',
         'Skyfire'         => 'Skyfire',
-        'IE'              => 'IEMobile|MSIEMobile',
+        'IE'              => 'IEMobile|MSIEMobile', // |Trident/[.0-9]+
         'Firefox'         => 'fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile',
         'Bolt'            => 'bolt',
         'TeaShark'        => 'teashark',

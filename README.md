@@ -3,6 +3,7 @@
   <td width="120">
     <ol>
       <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#demo">Demo</a></li>
+      <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#download">Download</a></li>
       <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#help">Help!</a></li>
       <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#code-examples">Examples</li>
       <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#3rd-party-modules--submit-new">3<sup>rd</sup> party</a></li>
@@ -14,7 +15,9 @@
 <i>Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
 It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</i>
 
-You may consider this script as being part of the <b>RESS</b> (Responsive Web Design with Server-Side Component) movement. You can find out more on the topic by reading these articles: [Improve Mobile Support With Server-Side-Enhanced Responsive Design](http://mobile.smashingmagazine.com/2013/04/09/improve-mobile-support-with-server-side-enhanced-responsive-design/) and [RESS: Responsive Design + Server Side Components](http://www.lukew.com/ff/entry.asp?1392).
+You may consider this script as being part of the <b>RESS</b> (Responsive Web Design with Server-Side Component) movement. You can find out more on the topic by reading these articles: <a href="http://mobile.smashingmagazine.com/2013/04/09/improve-mobile-support-with-server-side-enhanced-responsive-design/">Improve Mobile Support With Server-Side-Enhanced Responsive Design</a> and <a href="http://www.lukew.com/ff/entry.asp?1392">RESS: Responsive Design + Server Side Components</a>.
+
+Related presentations: <a href="http://www.slideshare.net/pgodel/creating-mobile-apps-with-php-symfony2">Creating mobile apps with PHP &amp; Symfony2 (2013)</a>, <a href="http://www.w3.org/2013/Talks/responsive-design.pdf">Responsive Design (2013)</a>
 
 ## Demo
 
@@ -30,6 +33,10 @@ The script is updated on <b>daily</b> and <b>weekly</b> basis, so make sure you 
 Sometimes is hard to distinguish between a phone and a tablet, this is why we're constantly researching a lot of mobile vendors sites, checking product codes and new releases.
 
 We are working on a database and API that will automate this process.
+
+## Download
+
+<a href="https://github.com/serbanghita/Mobile-Detect/tags">Latest releases</a>, <a href="https://github.com/serbanghita/Mobile-Detect/blob/devel/Mobile_Detect.php">Latest dev branch</a>, <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib">composer package</a>
 
 ## Help
 
@@ -136,6 +143,8 @@ $detect->version('Opera Mini'); // 5.0 (float)
   <td>
     <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">Wordpress Mobile Detect</a> - Gives you the ability to wrap that infographic in a [notdevice][/notdevice] shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
 
+    <p><a href="http://wordpress.org/plugins/mobble/">mobble</a> - provides mobile related conditional functions for your site. e.g. is_iphone(), is_mobile() and is_tablet(). Made by Scott Evans.</p>
+
     <p><a href="https://github.com/iamspacehead/responsage">Wordpress Responsage</a> - A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</p>
 
     <p><a href="http://wordpress.org/plugins/social-popup/">Social PopUP</a> - This plugin will display a popup or splash screen when a new user visit your site showing a Google+, Twitter and Facebook follow links. It uses Mobile_Detect to detect mobile devices.</p>
@@ -157,7 +166,7 @@ $detect->version('Opera Mini'); // 5.0 (float)
 
   <tr>
     <td>Joomla</td>
-    <td>No module submitted yet.</td>
+    <td><p><a href="http://www.yagendoo.com/en/blog/free-mobile-detection-plugin-for-joomla.html">yagendoo Joomla! Mobile Detection Plugin</a> - Lightweight PHP plugin for Joomla! that detects a mobile browser using the Mobile Detect class. Made by <a href="http://www.yagendoo.com/">yagendoo media</a>.</p></td>
  </tr>
 
  <tr>
@@ -192,6 +201,12 @@ $detect->version('Opera Mini'); // 5.0 (float)
 <tr>
     <td>CakePHP</td>
     <td><p><a href="https://github.com/chronon/CakePHP-MobileDetectComponent-Plugin">CakePHP MobileDetect</a> - <code>plugin</code> component for <code>CakePHP</code> 2.x. Made by <a href="https://github.com/chronon">Gregory Gaskill</a></p></td>
+</tr>
+
+<tr>
+    <td>FuelPHP</td>
+    <td><a href="https://github.com/rob-bar/special_agent">Special Agent</a> is a FuelPHP package which uses php-mobile-detect to determine whether a device is mobile or not.
+It overrides the Fuelphp Agent class its methods. Made by <a href="https://github.com/rob-bar">Robbie Bardjin</a>.</td>
 </tr>
 
 <tr>
