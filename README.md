@@ -180,6 +180,11 @@ $detect->version('Opera Mini'); // 5.0 (float)
   <td><p>Free, secure and open source shopping cart platform. Included in the distribution since 1.5.x.</p></td>
  </tr>
 
+ <tr>
+  <td>Zend Framework</td>
+  <td><p><a href="https://github.com/neilime/zf2-mobile-detect.git">ZF2 Mobile-Detect</a> - Zend Framework 2 module that provides Mobile-Detect features (Mobile_Detect class as a service, helper for views and plugin controllers)</p></td>
+ </tr>
+
   <tr>
     <td>Symfony</td>
     <td><p><a href="https://github.com/suncat2000/MobileDetectBundle">Symfony2 Mobile Detect Bundle</a> - The bundle for detecting mobile devices, manage mobile view and redirect to the mobile and tablet version.
