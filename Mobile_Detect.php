@@ -48,7 +48,7 @@ class Mobile_Detect {
 
     // List of mobile devices (phones)
     protected $phoneDevices = array(
-        'iPhone'        => '\biPhone.*Mobile|\biPod|\biTunes',
+        'iPhone'        => '\biPhone.*Mobile|\biPod', // |\biTunes
         'BlackBerry'    => 'BlackBerry|\bBB10\b|rim[0-9]+',
         'HTC'           => 'HTC|HTC.*(Sensation|Evo|Vision|Explorer|6800|8100|8900|A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT|Qtek9090|APA9292KT|HD_mini|Sensation.*Z710e|PG86100|Z715e|Desire.*(A8181|HD)|ADR6200|ADR6425|001HT|Inspire 4G|Android.*\bEVO\b',
         'Nexus'         => 'Nexus One|Nexus S|Galaxy.*Nexus|Android.*Nexus.*Mobile',
@@ -281,7 +281,7 @@ class Mobile_Detect {
 
     );
 
-    function __construct(){
+    public function __construct(){
 
         $this->setHttpHeaders();
         $this->setUserAgent();
@@ -444,7 +444,7 @@ class Mobile_Detect {
             isset($this->httpHeaders['HTTP_X_HUAWEI_USERID'])           ||
             isset($this->httpHeaders['HTTP_UA_OS'])                     || // Reported by Windows Smartphones.
             isset($this->httpHeaders['HTTP_X_MOBILE_GATEWAY'])          || // Reported by Verizon, Vodafone proxy system.
-            isset($this->httpHeaders['HTTP_X_ATT_DEVICEID'])            || // Seend this on HTC Sensation. @ref: SensationXE_Beats_Z715e
+            isset($this->httpHeaders['HTTP_X_ATT_DEVICEID'])            || // Send this on HTC Sensation. @ref: SensationXE_Beats_Z715e
             //HTTP_X_NETWORK_TYPE = WIFI
             ( isset($this->httpHeaders['HTTP_UA_CPU']) &&
                     $this->httpHeaders['HTTP_UA_CPU'] == 'ARM'          // Seen this on a HTC.
@@ -653,6 +653,7 @@ class Mobile_Detect {
      * Will return a float number. (eg. 2_0 will return 2.0, 4.3.1 will return 4.31)
      *
      * @param string $propertyName
+     * @param string $type
      * @return mixed $version
      */
     function version($propertyName, $type = 'text'){

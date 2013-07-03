@@ -63,7 +63,9 @@ $mobilePerVendor_userAgents = array(
 		),
 
 	'Apple' => array(
-		'iTunes/9.1.1'                                                                                                                                                                           => array('isMobile' => true, 'isTablet' => false),
+		'iTunes/9.1.1'                                                                                                                                                                           => array('isMobile' => false, 'isTablet' => false),
+		'iTunes/11.0.2 (Windows; Microsoft Windows 8 x64 Business Edition (Build 9200)) AppleWebKit/536.27.1'                                                                                    => array('isMobile' => false, 'isTablet' => false),
+		'iTunes/9.0.3 (Macintosh; U; Intel Mac OS X 10_6_2; en-ca)'                                                                                                                              => array('isMobile' => false, 'isTablet' => false),
 		'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16'                                          => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '3_0', 'Webkit' => '528.18', 'Safari' => '4.0'), 'model' => 'iPhone' ),
 		'Mozilla/5.0 (iPhone; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B206 Safari/7534.48.3'                                               => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '5_1_1', 'Webkit' => '534.46', 'Mobile' => '9B206', 'Safari' => '5.1'), 'model' => 'iPhone' ),
 		'Mozilla/5.0 (iPod; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25'                                                    => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '6_0', 'Webkit' => '536.26', 'Mobile' => '10A403', 'Safari' => '6.0'), 'model' => 'iPod'),

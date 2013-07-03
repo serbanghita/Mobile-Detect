@@ -182,7 +182,7 @@ $detect->version('Opera Mini'); // 5.0 (float)
 
  <tr>
   <td>Zend Framework</td>
-  <td><p><a href="https://github.com/neilime/zf2-mobile-detect.git">ZF2 Mobile-Detect</a> - Zend Framework 2 module that provides Mobile-Detect features (Mobile_Detect class as a service, helper for views and plugin controllers)</p></td>
+  <td><p><a href="https://github.com/neilime/zf2-mobile-detect.git">ZF2 Mobile-Detect</a> - Zend Framework 2 module that provides Mobile-Detect features (Mobile_Detect class as a service, helper for views and plugin controllers). Made by <a href="https://github.com/neilime">neilime</a></p></td>
  </tr>
 
   <tr>
