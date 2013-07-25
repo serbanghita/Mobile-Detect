@@ -59,6 +59,7 @@ $mobilePerVendor_userAgents = array(
 
 	'Amazon' => array(
 		'Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600x800; rotate)' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Webkit' => '528.5+', 'Kindle' => '3.0', 'Safari' => '4.0'), 'model' => 'Kindle' ),
+		'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFOTE Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.0.3', 'Build' => 'IML74K', 'Webkit' => '534.30', 'Safari' => '4.0') ),
 		),
 
 	'Apple' => array(
@@ -673,7 +674,7 @@ $mobilePerVendor_userAgents = array(
 		),
 
 	'Other' => array(
-		'Mozilla/5.0 (X11; Linux) AppleWebKit/535.22+ Midori/0.4'=> array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/5.0 (X11; Linux) AppleWebKit/535.22+ Midori/0.4'                                                                                                                                   => array('isMobile' => false, 'isTablet' => false),
 		'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-us) AppleWebKit/535+ (KHTML, like Gecko) Version/5.0 Safari/535.20+ Midori/0.4'                                                              => array('isMobile' => false, 'isTablet' => false),
 		'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.20 Safari/537.36  OPR/15.0.1147.18 (Edition Next)'                                             => array('isMobile' => false, 'isTablet' => false),
 		'Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.94 Safari/537.36'                                                                                     => array('isMobile' => false, 'isTablet' => false),
@@ -687,6 +688,10 @@ $mobilePerVendor_userAgents = array(
 		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; MASMJS)'                                                                                                      => array('isMobile' => false, 'isTablet' => false),
 		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; Touch; MASMJS)'                                                                                                    => array('isMobile' => false, 'isTablet' => false),
 		'Opera/9.80 (Windows NT 6.2; WOW64; MRA 8.0 (build 5784)) Presto/2.12.388 Version/12.11'                                                                                                    => array('isMobile' => false, 'isTablet' => false),
+		// IE 10
+		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)'                                                                                                                   => array('isMobile' => false, 'isTablet' => false),
+		// IE 11
+		'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko'                                                                                                                             => array('isMobile' => false, 'isTablet' => false),
 		),
 
 
