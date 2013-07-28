@@ -23,7 +23,12 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * -----------------------------------------------------------------------
- * Run this in your browser to see the example.
+ *
+ *
+ * Run this in your browser to see the example!
+ *
+ *
+ *
  * IMPORTANT: Clear your sessions/cookies before running UA tests.
  *
  * This is a procedural approach example of how to switch your website layout

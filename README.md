@@ -234,4 +234,9 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
   <td><p><code>concrete5</code> is a CMS that is free and open source. The library is included in the core.</p></td>
  </tr>
 
+ <tr>
+  <td>engine7</td>
+  <td><p><a href="https://github.com/gchiappe/exengine7">ExEngine 7</a> PHP Open Source Framework. The Mobile_Detect class is included in the engine.</p></td>
+ </tr>
+
 </table>
