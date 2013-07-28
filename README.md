@@ -1,15 +1,5 @@
-<table width="100%" border="0">
-  <td><img src="http://demo.mobiledetect.net/logo-github.png"></td>
-  <td width="120">
-    <ol>
-      <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#demo">Demo</a></li>
-      <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#download">Download</a></li>
-      <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#help">Help!</a></li>
-      <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#code-examples">Examples</li>
-      <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/README.md#3rd-party-modules--submit-new">3<sup>rd</sup> party</a></li>
-    </ol>
-  </td>
-</table>
+<img src="http://demo.mobiledetect.net/logo-github.png">
+
 > Motto: "Every business should have a mobile detection script to detect mobile readers."
 
 <i>Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
@@ -32,8 +22,6 @@ We're running [automated tests](./tests) to make sure the we don't break the det
 The script is updated on <b>daily</b> and <b>weekly</b> basis, so make sure you keep following the updates!
 Sometimes is hard to distinguish between a phone and a tablet, this is why we're constantly researching a lot of mobile vendors sites, checking product codes and new releases.
 
-We are working on a database and API that will automate this process.
-
 ## Download
 
 <a href="https://github.com/serbanghita/Mobile-Detect/tags">Latest releases</a>, <a href="https://github.com/serbanghita/Mobile-Detect/blob/devel/Mobile_Detect.php">Latest dev branch</a>, <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib">composer package</a>
@@ -52,14 +40,20 @@ Special thanks to [Dragos Gavrila](https://twitter.com/grafician) who contribute
 
 <table>
   <tr>
-    <td width="20%"><a href="https://github.com/serbanghita/Mobile-Detect/wiki/Road-to-2.9.9">Road to 2.9.9 version</a> <img alt="Dev status" src="https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel" border="0"></td>
+    <td width="20%"><a href="https://github.com/serbanghita/Mobile-Detect/wiki/Road-to-2.9.9">2.9.9 version</a> <img alt="Dev status" src="https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel" border="0"></td>
     <td>Work scheduled on the <code>2.x.x</code> branch (currently in production).
-      <p>Contribute directly to <code>Mobile_Detect.php</code>, then write appropriate tests into <code>manual_tests/mobilePerVendor_useragents.inc.php</code>. Commit changes to the <code>devel</code> branch. I will merge the commits into <code>master</code> later.</p>
-      <p>Contribute by adding tests (User-Agent strings) to <code>manual_tests/mobilePerVendor_useragents.inc.php</code></p>
-    </td>
+      <ol>
+        <li>Clone the repository to your local drive.</li>
+        <li>Switch to <code>devel</code> branch.</li>
+        <li>Commit your changes to <code>Mobile_Detect.php</code>.</li>
+        <li>Commit tests (User-Agent strings) to<code>tests/UA_List.inc.php</code></li>
+        <li>Run the tests <code>php /path/to/phpunit.phar /path/to/mobiledetectlib/tests/phpunit.xml</code>. Check for errors.</li>
+        <li>Commit to <code>devel</code>. Push.</li>
+        <li>The commit will be reviewed and merged into <code>master</code></li>
+      </ol>
   </tr>
   <tr>
-    <td><a href="https://github.com/serbanghita/Mobile-Detect/wiki/Road-to-3.0.0">Road to 3.0.0 version</a></td>
+    <td><a href="https://github.com/serbanghita/Mobile-Detect/wiki/Road-to-3.0.0">3.0.0 version</a></td>
     <td>Work scheduled on the <code>3.x.x</code> branch. The new <code>3.0.0</code> version will feature: compatibility with <code>2.x</code>, array with devices details (including model name), device/os/browser version, browser grading utility, separate JSON regex.</td>
   </tr>
 </table>
@@ -237,6 +231,11 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
  <tr>
   <td>engine7</td>
   <td><p><a href="https://github.com/gchiappe/exengine7">ExEngine 7</a> PHP Open Source Framework. The Mobile_Detect class is included in the engine.</p></td>
+ </tr>
+
+ <tr>
+  <td>Zikula</td>
+  <td><p><a href="http://zikula.org/">Zikula</a> is a free and open-source Content Management Framework, which allows you to run impressive websites and build powerful online applications. The core uses Mobile-Detect to switch to a special Mobile theme, using jQueryMobile</p></td>
  </tr>
 
 </table>
