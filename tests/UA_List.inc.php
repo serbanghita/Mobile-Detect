@@ -69,7 +69,7 @@ $UA_List = array(
 		),
 
 	'Apple' => array(
-		'iTunes/9.1.1'                                                                                                                                                                           => array('isMobile' => true, 'isTablet' => false),
+		'iTunes/9.1.1'                                                                                                                                                                           => array('isMobile' => false, 'isTablet' => false),
 		'iTunes/11.0.2 (Windows; Microsoft Windows 8 x64 Business Edition (Build 9200)) AppleWebKit/536.27.1'                                                                                    => array('isMobile' => false, 'isTablet' => false),
 		'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543 Safari/419.3'                                                              => array('isMobile' => true, 'isTablet' => false, 'version' => array('Webkit' => '420+', 'Safari' => '3.0') ),
 		'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16'                                          => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '3_0', 'Webkit' => '528.18', 'Safari' => '4.0'), 'model' => 'iPhone', 'mobileGrade' => 'B' ),
