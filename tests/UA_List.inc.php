@@ -70,6 +70,7 @@ $UA_List = array(
 
 	'Apple' => array(
 		'iTunes/9.1.1'                                                                                                                                                                           => array('isMobile' => true, 'isTablet' => false),
+		'iTunes/11.0.2 (Windows; Microsoft Windows 8 x64 Business Edition (Build 9200)) AppleWebKit/536.27.1'                                                                                    => array('isMobile' => false, 'isTablet' => false),
 		'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543 Safari/419.3'                                                              => array('isMobile' => true, 'isTablet' => false, 'version' => array('Webkit' => '420+', 'Safari' => '3.0') ),
 		'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16'                                          => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '3_0', 'Webkit' => '528.18', 'Safari' => '4.0'), 'model' => 'iPhone', 'mobileGrade' => 'B' ),
 		'Mozilla/5.0 (iPhone; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B206 Safari/7534.48.3'                                               => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '5_1_1', 'Webkit' => '534.46', 'Mobile' => '9B206', 'Safari' => '5.1'), 'model' => 'iPhone' ),
@@ -307,6 +308,7 @@ $UA_List = array(
 			),
 
 	'Huwaei' => array(
+			'Mozilla/5.0 (Linux; U; Android 2.1-update1; bg-bg; Ideos S7 Build/ERE27) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2' => array('isMobile' => true, 'isTablet' => true),
 			'Mozilla/5.0 (Linux; U; Android 2.1; en-us; Ideos S7 Build/ERE27) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2'      => array('isMobile' => true, 'isTablet' => true),
 			'Mozilla/5.0 (Linux; U; Android 2.3.6; lt-lt; U8660 Build/HuaweiU8660) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'        => array('isMobile' => true, 'isTablet' => false),
 			'Mozilla/5.0 (Linux; U; Android 2.3.7; ru-ru; HUAWEI-U8850 Build/HuaweiU8850) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => array('isMobile' => true, 'isTablet' => false),
@@ -381,6 +383,21 @@ $UA_List = array(
 		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch; ARMBJS)'                            => array('isMobile' => true, 'isTablet' => true),
 		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; Touch; MASMJS)'                     => array('isMobile' => false, 'isTablet' => false),
 
+		// Thanks to Jonathan Donzallaz!
+		// Firefox (nightly) in metro mode on Dell XPS 12
+		'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:25.0) Gecko/20130626 Firefox/25.0' => array('isMobile' => false, 'isTablet' => false),
+		// Firefox in desktop mode on Dell XPS 12
+		'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0' => array('isMobile' => false, 'isTablet' => false),
+		// IE10 in metro mode on Dell XPS 12
+		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; MDDCJS)' => array('isMobile' => false, 'isTablet' => false),
+		// IE10 in desktop mode on Dell XPS 12
+		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; MDDCJS)' => array('isMobile' => false, 'isTablet' => false),
+		// Opera on Dell XPS 12
+		'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.130' => array('isMobile' => false, 'isTablet' => false),
+		// Chrome on Dell XPS 12
+		'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36' => array('isMobile' => false, 'isTablet' => false),
+		// Google search app from Windows Store
+		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; Touch; MDDCJS; WebView/1.0)' => array('isMobile' => false, 'isTablet' => false),
 		),
 
 	'Motorola' => array(
@@ -722,8 +739,14 @@ $UA_List = array(
 		'Opera/9.80 (Windows NT 6.2; WOW64; MRA 8.0 (build 5784)) Presto/2.12.388 Version/12.11'                                                                                                    => array('isMobile' => false, 'isTablet' => false),
 		// IE 10
 		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)'                                                                                                                   => array('isMobile' => false, 'isTablet' => false),
-		// IE 11
+		// IE 11 @todo: Trident(.*)rv.(\d+)\.(\d+)
 		'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko'                                                                                                                             => array('isMobile' => false, 'isTablet' => false),
+		'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko'=> array('isMobile' => false, 'isTablet' => false),
+
+		// TV
+		'Mozilla/5.0 (Unknown; Linux armv7l) AppleWebKit/537.1+ (KHTML, like Gecko) Safari/537.1+ HbbTV/1.1.1 ( ;LGE ;NetCast 4.0 ;03.20.30 ;1.0M ;)' => array('isMobile' => false, 'isTablet' => false),
+		'HbbTV/1.1.1 (;Panasonic;VIERA 2012;1.261;0071-3103 2000-0000;)' => array('isMobile' => false, 'isTablet' => false),
+		'Opera/9.80 (Linux armv7l; HbbTV/1.1.1 (; Sony; KDL32W650A; PKG3.211EUA; 2013;); ) Presto/2.12.362 Version/12.11' => array('isMobile' => false, 'isTablet' => false),
 		),
 
 
