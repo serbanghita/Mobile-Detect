@@ -66,7 +66,9 @@ class BasicTest extends PHPUnit_Framework_TestCase
 				'REMOTE_ADDR'           => '11.22.33.44',
 				'REQUEST_TIME'          => '01-10-2012 07:57'
 			));
-		$this->assertCount( 16, $this->detect->getHttpHeaders() );
+
+        //12 because only 12 start with HTTP_
+		$this->assertCount( 12, $this->detect->getHttpHeaders() );
 		$this->assertTrue( $this->detect->checkHttpHeadersForMobile() );
 
 		$this->detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25');
@@ -129,19 +131,20 @@ class BasicTest extends PHPUnit_Framework_TestCase
 	{
     	$md = new Mobile_Detect($headers);
     	
-    	//verify some of the headers work with the translated getter
-    	$this->assertEquals($headers['REMOTE_ADDR'], $md->getHttpHeader('Remote-Addr'));
-    	$this->assertEquals($headers['SERVER_SOFTWARE'], $md->getHttpHeader('Server-Software'));
-    	$this->assertEquals($headers['HTTP_USER_AGENT'], $md->getHttpHeader('User-Agent'));
+    	foreach ($headers as $header => $value) {
+        	if (substr($header, 0, 5) !== 'HTTP_') {
+            	//make sure it wasn't set
+            	$this->assertNull($md->getHttpHeader($value));
+        	} else {
+        	    //make sure it's equal
+        	    $this->assertEquals($value, $md->getHttpHeader($header));
+        	}
+    	}
     	
-    	//regular getter
     	//verify some of the headers work with the translated getter
-    	$this->assertEquals($headers['REMOTE_ADDR'], $md->getHttpHeader('REMOTE_ADDR'));
-    	$this->assertEquals($headers['SERVER_SOFTWARE'], $md->getHttpHeader('SERVER_SOFTWARE'));
-    	$this->assertEquals($headers['HTTP_USER_AGENT'], $md->getHttpHeader('HTTP_USER_AGENT'));
-
-    	//make sure all headers were properly loaded
-    	$this->assertEquals($headers, $md->getHttpHeaders());
+    	$this->assertNull($md->getHttpHeader('Remote-Addr'));
+    	$this->assertNull($md->getHttpHeader('Server-Software'));
+    	$this->assertEquals($headers['HTTP_USER_AGENT'], $md->getHttpHeader('User-Agent'));
 	}
 	
 	/**
@@ -151,14 +154,5 @@ class BasicTest extends PHPUnit_Framework_TestCase
 	{
     	$md = new Mobile_Detect($headers);
     	$this->assertNull($md->getHttpHeader('garbage_is_Garbage'));
-	}
-	
-	public function testHttpHeaderSetter()
-	{
-    	$headers = array('blah'=>'a', 'HTTP_blah'=>'b');
-    	$md = new Mobile_Detect();
-    	$md->setHttpHeaders($headers);
-    	$setHeaders = $md->getHttpHeaders();
-    	$this->assertEquals($headers, $setHeaders);
 	}
 }

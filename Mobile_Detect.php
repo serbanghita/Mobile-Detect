@@ -80,7 +80,7 @@ class Mobile_Detect
      * HTTP headers in the PHP-flavor. So HTTP_USER_AGENT and SERVER_SOFTWARE.
      * @var array
      */
-    protected $httpHeaders;
+    protected $httpHeaders = array();
 
     /**
      * All the rules combined.
@@ -422,13 +422,16 @@ class Mobile_Detect
      */
     public function setHttpHeaders($httpHeaders = null)
     {
-        if(!empty($httpHeaders)) {
-            $this->httpHeaders = $httpHeaders;
-        } else {
-            foreach($_SERVER as $key => $value) {
-                if(substr($key,0,5)=='HTTP_'){
-                    $this->httpHeaders[$key] = $value;
-                }
+        //use global _SERVER if $httpHeaders aren't defined
+        if (!is_array($httpHeaders) || !count($httpHeaders)) {
+            $httpHeaders = $_SERVER;
+        }
+        
+        //Only save HTTP headers. In PHP land, that means only _SERVER vars that
+        //start with HTTP_.
+        foreach($httpHeaders as $key => $value) {
+            if(substr($key,0,5) == 'HTTP_'){
+                $this->httpHeaders[$key] = $value;
             }
         }
     }
