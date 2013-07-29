@@ -361,23 +361,22 @@ class Mobile_Detect {
      *
      * @return string|null The value of the header.
      */
-    public function getHeader($header)
+    public function getHttpHeader($header)
     {
-        //making PHP-flavored headers.
-        if (strpos($header, 'HTTP_') !== 0) {
-            //replace - with _
+        //are we using PHP-flavored headers?
+        if (strpos($header, '_') === false) {
             $header = str_replace('-', '_', $header);
-
-            //add HTTP_ prefix
-            $header = 'HTTP_' . $header;
-
-            //SCREAM CASE
             $header = strtoupper($header);
         }
-
-        //return the value if it's set
-        if (isset($this->httpHeaders[$header])){
+        
+        //test the alternate, too
+        $altHeader = 'HTTP_' . $header;
+        
+        //Test both the regular and the HTTP_ prefix
+        if (isset($this->httpHeaders[$header])) {
             return $this->httpHeaders[$header];
+        } elseif (isset($this->httpHeaders[$altHeader])) {
+            return $this->httpHeaders[$altHeader];
         }
     }
 
