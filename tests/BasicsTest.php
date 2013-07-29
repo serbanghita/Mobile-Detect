@@ -187,7 +187,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 	{
     	$md = new Mobile_Detect(array());
     	$md->setUserAgent('hello world');
-    	$this->assertEquals('hello world', $md->getUserAgent());
+    	$this->assertSame('hello world', $md->getUserAgent());
 	}
 	
 	public function testSetDetectionType()
