@@ -38,11 +38,12 @@ class VendorsTest extends PHPUnit_Framework_TestCase {
 
 	}
 
-	public static function setUpBeforeClass(){
-
-		require_once dirname(__FILE__).'/UA_List.inc.php';
-		self::$items = $UA_List;
-
+	public static function setUpBeforeClass()
+	{
+	    //this method could be called multiple times
+	    if (!self::$items) {
+		    self::$items = include dirname(__FILE__).'/UA_List.inc.php';
+        }
 	}
 
 	public function testisMobileIsTablet(){
