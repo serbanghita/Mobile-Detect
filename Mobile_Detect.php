@@ -324,6 +324,36 @@ class Mobile_Detect {
 
     }
 
+    /**
+     * Retrieves a particular header. If it doesn't exist, no exception/error is caused.
+     * Simply null is returned.
+     *
+     * @param string $header The name of the header to retrieve. Can be HTTP compliant such as
+     *                       "User-Agent" or "X-Device-User-Agent" or can be php-esque with the
+     *                       all-caps, HTTP_ prefixed, underscore seperated awesomeness.
+     *
+     * @return string|null The value of the header.
+     */
+    public function getHeader($header)
+    {
+        //making PHP-flavored headers.
+        if (strpos($header, 'HTTP_') !== 0) {
+            //replace - with _
+            $header = str_replace('-', '_', $header);
+
+            //add HTTP_ prefix
+            $header = 'HTTP_' . $header;
+
+            //SCREAM CASE
+            $header = strtoupper($header);
+        }
+
+        //return the value if it's set
+        if (isset($this->httpHeaders[$header])){
+            return $this->httpHeaders[$header];
+        }
+    }
+
     public function setUserAgent($userAgent = null){
 
         if(!empty($userAgent)){
