@@ -29,14 +29,19 @@
  */
 class VendorsTest extends PHPUnit_Framework_TestCase {
 
-	protected static $detect;
+	protected $detect;
 	protected static $items;
+
+	public function setUp(){
+
+		$this->detect = new Mobile_Detect;
+
+	}
 
 	public static function setUpBeforeClass(){
 
-		require_once dirname(__FILE__).'/../manual_tests/mobilePerVendor_useragents.inc.php';
-		self::$detect = new Mobile_Detect;
-		self::$items = $mobilePerVendor_userAgents;
+		require_once dirname(__FILE__).'/UA_List.inc.php';
+		self::$items = $UA_List;
 
 	}
 
@@ -48,14 +53,33 @@ class VendorsTest extends PHPUnit_Framework_TestCase {
 
 		    	if(!is_array($conditions)){ continue; }
 
-		    	self::$detect->setUserAgent($userAgent);
+		    	$this->detect->setUserAgent($userAgent);
 
 		    	foreach($conditions as $condition => $assert){
 
-		    		// Currently not supporting version and model here. @todo: Maybe this condition should be different.
-		    		if( in_array($condition, array('version', 'model') ) ){ continue; }
+		    		// Currently not supporting version and model here.
+		    		// @todo: I need to split this tests!
+		    		if( in_array($condition, array('model') ) ){ continue; } // 'version',
 
-		    		$this->assertTrue( self::$detect->$condition() === $assert, 'UA ('.$condition.'): '.$userAgent);
+		    		switch( $condition ){
+
+		    			case 'version':
+		    				// Android, iOS, Chrome, Build, etc.
+		    				foreach( $assert as $assertKey => $assertValue){
+		    					//if( $brand == 'Apple'){
+		    					//	echo 'UA ('.$condition.'('.$assertKey.') === '.$assertValue.'): '.$userAgent . "\n";
+		    					//}
+		    					$this->assertTrue( $this->detect->$condition( $assertKey ) == $assertValue, 'UA ('.$condition.'('.$assertKey.') === '.$assertValue.'): '.$userAgent);
+		    				}
+
+		    			break;
+
+		    			default:
+		    				$this->assertTrue( $this->detect->$condition() === $assert, 'UA ('.$condition.'): '.$userAgent);
+		    			break;
+
+		    		}
+
 
 		    	}
 
@@ -74,11 +98,11 @@ class VendorsTest extends PHPUnit_Framework_TestCase {
 
 				if( !is_array($conditions) || !isset($conditions['version']) ){ continue; }
 
-				self::$detect->setUserAgent($userAgent);
+				$this->detect->setUserAgent($userAgent);
 
 				foreach( $conditions['version'] as $condition => $assertion ){
 
-					$this->assertEquals( self::$detect->version($condition), $assertion, 'UA (version("'.$condition.'")): '.$userAgent );
+					$this->assertEquals( $this->detect->version($condition), $assertion, 'UA (version("'.$condition.'")): '.$userAgent );
 
 				}
 

@@ -231,23 +231,23 @@ $scriptVersion = $detect->getScriptVersion();
             </tr>
             <tr>
                 <td>isiphone()</td>
-                <td><?php echo var_dump($detect->isiphone()); ?></td>
+                <td><?php var_dump($detect->isiphone()); ?></td>
             </tr>
             <tr>
                 <td>isIphone()</td>
-                <td><?php echo var_dump($detect->isIphone()); ?></td>
+                <td><?php var_dump($detect->isIphone()); ?></td>
             </tr>
             <tr>
                 <td>istablet()</td>
-                <td><?php echo var_dump($detect->istablet()); ?></td>
+                <td><?php var_dump($detect->istablet()); ?></td>
             </tr>
             <tr>
                 <td>isIOS()</td>
-                <td><?php echo var_dump($detect->isIOS()); ?></td>
+                <td><?php var_dump($detect->isIOS()); ?></td>
             </tr>
             <tr>
                 <td>isWhateverYouWant()</td>
-                <td class="randomcrap"><?php echo var_dump($detect->isWhateverYouWant()); ?></td>
+                <td class="randomcrap"><?php var_dump($detect->isWhateverYouWant()); ?></td>
             </tr>
         </tbody>
     </table>
