@@ -39,8 +39,26 @@ class UserAgentTest extends PHPUnit_Framework_TestCase {
             return self::$json;
         }
         
-        //uses the UA_List.inc.php to generate a json file
+        //the json and PHP formatted files
         $jsonFile = dirname(__FILE__) . '/ualist.json';
+        $phpFile = dirname(__FILE__) . '/UA_List.inc.php';
+        
+        //check recency of the file
+        if (file_exists($jsonFile) && is_readable($jsonFile)) {
+            //read the json file
+            $json = json_decode(file_get_contents($jsonFile), true);
+            
+            //check that the hash matches
+            $hash = isset($json['hash']) ? $json['hash'] : null;
+            
+            if ($hash == sha1_file($phpFile)) {
+                //file is up to date, just read the json file
+                self::$json = $json['user_agents'];
+                return self::$json;
+            }
+        }
+        
+        //uses the UA_List.inc.php to generate a json file
         if (file_exists($jsonFile) && !is_writable($jsonFile)) {
             throw new RuntimeException("Need to be able to create/update $jsonFile from UA_List.inc.php.");
         }
@@ -49,7 +67,8 @@ class UserAgentTest extends PHPUnit_Framework_TestCase {
             throw new RuntimeException("Insufficient permissions to create this file: $jsonFile");
         }
         
-        $list = include dirname(__FILE__).'/UA_List.inc.php';
+        //currently stored as a PHP array
+        $list = include $phpFile;
         
         $json = array();
         
@@ -86,6 +105,13 @@ class UserAgentTest extends PHPUnit_Framework_TestCase {
             }
         }
         
+        //save the hash
+        $hash = sha1_file($phpFile);
+        $json = array(
+            'hash' => $hash,
+            'user_agents' => $json
+        );
+        
         if (defined('JSON_PRETTY_PRINT')) {
             $jsonString = json_encode($json, JSON_PRETTY_PRINT);
         } else {
@@ -93,7 +119,8 @@ class UserAgentTest extends PHPUnit_Framework_TestCase {
         }
         
         file_put_contents($jsonFile, $jsonString);
-        self::$json = $json;
+        self::$json = $json['user_agents'];
+        return self::$json;
     }
     
     public static function setUpBeforeClass()
@@ -101,16 +128,8 @@ class UserAgentTest extends PHPUnit_Framework_TestCase {
         //generate json file first
         self::generateJson();
 
-        //read the list of known user agents and their tests
-        $jsonFile = dirname(__FILE__) . '/ualist.json';
-        if (!is_readable($jsonFile))
-        {
-            throw new RuntimeException("Could not run UserAgentTest tests due to lack of $jsonFile file.");
-        }
-
-        $json = json_decode(file_get_contents($jsonFile), true);
-        //include dirname(__FILE__) . '/UA_List.inc.php';
-        //$json = $UA_List;
+        //get the generated JSON data
+        $json = self::$json;
 
         //make a list that is usable by functions (THE ORDER OF THE KEYS MATTERS!)
         foreach ($json as $userAgent){
