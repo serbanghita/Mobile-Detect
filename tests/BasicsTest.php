@@ -152,4 +152,13 @@ class BasicTest extends PHPUnit_Framework_TestCase
     	$md = new Mobile_Detect($headers);
     	$this->assertNull($md->getHttpHeader('garbage_is_Garbage'));
 	}
+	
+	public function testHttpHeaderSetter()
+	{
+    	$headers = array('blah'=>'a', 'HTTP_blah'=>'b');
+    	$md = new Mobile_Detect();
+    	$md->setHttpHeaders($headers);
+    	$setHeaders = $md->getHttpHeaders();
+    	$this->assertEquals($headers, $setHeaders);
+	}
 }
