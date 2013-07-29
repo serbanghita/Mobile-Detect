@@ -408,10 +408,9 @@ class Mobile_Detect
     *
     * @return string The version number in "X.Y.Z" format.
     */
-    public function getScriptVersion(){
-
+    public function getScriptVersion()
+    {
         return $this->scriptVersion;
-
     }
 
     /**
@@ -637,10 +636,16 @@ class Mobile_Detect
      * @param string $name
      * @param array $arguments
      * @return mixed
+     * @throws BadMethodCallException when the method doesn't exist and doesn't start with 'is'
      */
     public function __call($name, $arguments)
     {
-        $this->setDetectionType('mobile');
+        //make sure the name starts with 'is', otherwise
+        if (substr($name, 0, 2) != 'is') {
+            throw new BadMethodCallException("No such method exists: $name");
+        }
+        
+        $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
         $key = substr($name, 2);
         return $this->matchUAAgainstKey($key);

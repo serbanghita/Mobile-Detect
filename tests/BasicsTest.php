@@ -155,4 +155,150 @@ class BasicTest extends PHPUnit_Framework_TestCase
     	$md = new Mobile_Detect($headers);
     	$this->assertNull($md->getHttpHeader('garbage_is_Garbage'));
 	}
+	
+	public function userAgentProvider()
+	{
+    	return array(
+    	    array(array(
+    	        'HTTP_USER_AGENT' => 'blah'
+    	    ), 'blah'),
+    	    array(array(
+    	        'HTTP_USER_AGENT' => 'iphone',
+    	        'HTTP_X_OPERAMINI_PHONE_UA' => 'some other stuff'
+    	    ), 'iphone some other stuff'),
+    	    array(array(
+    	        'HTTP_X_DEVICE_USER_AGENT' => 'hello world'
+    	    ), 'hello world'),
+    	    array(array(), null)
+    	);
+	}
+	
+	/**
+	 * @dataProvider userAgentProvider
+	 */
+	public function testGetUserAgent($headers, $expectedUserAgent)
+	{
+    	$md = new Mobile_Detect($headers);
+    	$md->setUserAgent();
+    	$this->assertSame($expectedUserAgent, $md->getUserAgent());
+	}
+	
+	public function testSetUserAgent()
+	{
+    	$md = new Mobile_Detect(array());
+    	$md->setUserAgent('hello world');
+    	$this->assertEquals('hello world', $md->getUserAgent());
+	}
+	
+	public function testSetDetectionType()
+	{
+    	$md = new Mobile_Detect(array());
+    	
+    	$md->setDetectionType('bskdfjhs');
+    	$this->assertAttributeEquals(
+    	    Mobile_Detect::DETECTION_TYPE_MOBILE,
+            'detectionType',
+            $md
+        );
+    	
+    	$md->setDetectionType();
+    	$this->assertAttributeEquals(
+    	    Mobile_Detect::DETECTION_TYPE_MOBILE,
+            'detectionType',
+            $md
+        );
+        
+        $md->setDetectionType(Mobile_Detect::DETECTION_TYPE_MOBILE);
+    	$this->assertAttributeEquals(
+    	    Mobile_Detect::DETECTION_TYPE_MOBILE,
+            'detectionType',
+            $md
+        );
+        
+        $md->setDetectionType(Mobile_Detect::DETECTION_TYPE_EXTENDED);
+    	$this->assertAttributeEquals(
+    	    Mobile_Detect::DETECTION_TYPE_EXTENDED,
+            'detectionType',
+            $md
+        );
+	}
+	
+	//special headers that give 'quick' indication that a device is mobile
+	public function quickHeadersData()
+	{
+    	return array(
+    	    array(array(
+    	        'HTTP_ACCEPT' => 'application/json; q=0.2, application/x-obml2d; q=0.8, image/gif; q=0.99, */*'
+    	    )),
+    	    array(array(
+    	        'HTTP_ACCEPT' => 'text/*; q=0.1, application/vnd.rim.html'
+    	    )),
+    	    array(array(
+    	        'HTTP_ACCEPT' => 'text/vnd.wap.wml',
+    	    )),
+    	    array(array(
+    	        'HTTP_ACCEPT' => 'application/vnd.wap.xhtml+xml',
+    	    )),
+    	    array(array(
+    	        'HTTP_X_WAP_PROFILE' => 'hello',
+    	    )),
+    	    array(array(
+    	        'HTTP_X_WAP_CLIENTID' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_WAP_CONNECTION' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_PROFILE' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_X_OPERAMINI_PHONE_UA' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_X_NOKIA_IPADDRESS' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_X_NOKIA_GATEWAY_ID' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_X_ORANGE_ID' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_X_VODAFONE_3GPDPCONTEXT' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_X_HUAWEI_USERID' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_UA_OS' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_X_MOBILE_GATEWAY' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_X_ATT_DEVICEID' => ''
+    	    )),
+    	    array(array(
+    	        'HTTP_UA_CPU' => 'ARM'
+    	    ))
+    	);
+	}
+	
+	/**
+	 * @dataProvider quickHeadersData
+	 */
+    public function testQuickHeaders($headers)
+    {
+        $md = new Mobile_Detect($headers);
+        $this->assertTrue($md->checkHttpHeadersForMobile());
+    }
+    
+    /**
+     * @expectedException BadMethodCallException
+     */
+    public function testBadMethodCall()
+    {
+        $md = new Mobile_Detect(array());
+        $md->badmethodthatdoesntexistatall();
+    }
 }
