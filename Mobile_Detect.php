@@ -710,7 +710,7 @@ class Mobile_Detect
             $this->setUserAgent($userAgent);
         }
 
-        $this->setDetectionType('mobile');
+        $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
         if ($this->checkHttpHeadersForMobile()) {
             return true;
