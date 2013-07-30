@@ -43,27 +43,27 @@ class Mobile_Detect
      * Extended detection type.
      */
     const DETECTION_TYPE_EXTENDED   = 'extended';
-    
+
     /**
      * A frequently used regular expression to extract version #s.
      */
     const VER                       = '([\w._\+]+)';
-    
+
     /**
      * Top-level device.
      */
     const MOBILE_GRADE_A            = 'A';
-    
+
     /**
      * Mid-level device.
      */
     const MOBILE_GRADE_B            = 'B';
-    
+
     /**
      * Low-level device.
      */
     const MOBILE_GRADE_C            = 'C';
-    
+
     /**
      * Stores the version number of the current release.
      * @var array
@@ -75,7 +75,7 @@ class Mobile_Detect
      * @var string
      */
     protected $userAgent = null;
-    
+
     /**
      * HTTP headers in the PHP-flavor. So HTTP_USER_AGENT and SERVER_SOFTWARE.
      * @var array
@@ -87,13 +87,13 @@ class Mobile_Detect
      * @var array
      */
     protected $mobileDetectionRules = null;
-    
+
     /**
      * The rules, but extended.
      * @var array
      */
     protected $mobileDetectionRulesExtended = null;
-    
+
     /**
      * The detection type, using self::DETECTION_TYPE_MOBILE or self::DETECTION_TYPE_EXTENDED.
      *
@@ -134,7 +134,7 @@ class Mobile_Detect
         // @Tapatalk is a mobile app; @ref: http://support.tapatalk.com/threads/smf-2-0-2-os-and-browser-detection-plugin-and-tapatalk.15565/#post-79039
         'GenericPhone'  => 'Tapatalk|PDA;|PPC;|SAGEM|mmp|pocket|psp|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|wap|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser|LG-P500'
     );
-    
+
     /**
      * List of tablet devices.
      *
@@ -236,7 +236,7 @@ class Mobile_Detect
         'GUTablet'          => 'TX-A1301|TX-M9002|Q702', // A12R|D75A|D77|D79|R83|A95|A106C|R15|A75|A76|D71|D72|R71|R73|R77|D82|R85|D92|A97|D92|R91|A10F|A77F|W71F|A78F|W78F|W81F|A97F|W91F|W97F|R16G|C72|C73E|K72|K73|R96G
         'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|BNTV250A|MID-WCDMA|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|hp-tablet|rk30sdk',
     );
-    
+
     /**
      * List of mobile Operating Systems.
      *
@@ -265,7 +265,7 @@ class Mobile_Detect
         'badaOS'            => '\bBada\b',
         'BREWOS'            => 'BREW',
     );
-    
+
     /**
      * List of mobile User Agents.
      *
@@ -298,7 +298,7 @@ class Mobile_Detect
         // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
         'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision'
     );
-    
+
     /**
      * Utilities.
      *
@@ -314,7 +314,7 @@ class Mobile_Detect
         'Bot'           => 'Googlebot|DoCoMo|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
         'MobileBot'     => 'Googlebot-Mobile|DoCoMo|YahooSeeker/M1A1-R2D2',
     );
-    
+
     /**
      * The individual segments that could exist in a User-Agent string. VER refers to the regular
      * expression defined in the constant self::VER.
@@ -399,7 +399,6 @@ class Mobile_Detect
         $this->setMobileDetectionRulesExtended();
     }
 
-
     /**
     * Get the current script version.
     * This is useful for the demo.php file,
@@ -425,11 +424,11 @@ class Mobile_Detect
         if (!is_array($httpHeaders) || !count($httpHeaders)) {
             $httpHeaders = $_SERVER;
         }
-        
+
         //Only save HTTP headers. In PHP land, that means only _SERVER vars that
         //start with HTTP_.
-        foreach($httpHeaders as $key => $value) {
-            if(substr($key,0,5) == 'HTTP_'){
+        foreach ($httpHeaders as $key => $value) {
+            if (substr($key,0,5) == 'HTTP_') {
                 $this->httpHeaders[$key] = $value;
             }
         }
@@ -462,10 +461,10 @@ class Mobile_Detect
             $header = str_replace('-', '_', $header);
             $header = strtoupper($header);
         }
-        
+
         //test the alternate, too
         $altHeader = 'HTTP_' . $header;
-        
+
         //Test both the regular and the HTTP_ prefix
         if (isset($this->httpHeaders[$header])) {
             return $this->httpHeaders[$header];
@@ -481,15 +480,15 @@ class Mobile_Detect
      */
     public function setUserAgent($userAgent = null)
     {
-        if(!empty($userAgent)) {
+        if (!empty($userAgent)) {
             $this->userAgent = $userAgent;
         } else {
             $this->userAgent = $this->getHttpHeader('User-Agent');
 
-            if(empty($this->userAgent)){
+            if (empty($this->userAgent)) {
                 $this->userAgent = $this->getHttpHeader('X-Device-User-Agent');
             }
-            
+
             //Header can occur on devices using Opera Mini (can expose the real device type).
             //Let's concatenate it (we need this extra info in the regexes).
             if ($operaMiniUa = $this->getHttpHeader('X-OperaMini-Phone-UA')) {
@@ -520,7 +519,7 @@ class Mobile_Detect
         if ($type === null) {
             $type = self::DETECTION_TYPE_MOBILE;
         }
-        
+
         if ($type != self::DETECTION_TYPE_MOBILE && $type != self::DETECTION_TYPE_EXTENDED) {
             return;
         }
@@ -551,7 +550,8 @@ class Mobile_Detect
     /**
      * Method sets the mobile detection rules. This method is used for the magic methods $detect->is*().
      */
-    public function setMobileDetectionRules(){
+    public function setMobileDetectionRules()
+    {
         // Merge all rules together.
         $this->mobileDetectionRules = array_merge(
             $this->phoneDevices,
@@ -568,8 +568,8 @@ class Mobile_Detect
      * don't necessary imply mobile. This method is used inside
      * the new $detect->is('stuff') method.
      */
-    public function setMobileDetectionRulesExtended(){
-
+    public function setMobileDetectionRulesExtended()
+    {
         // Merge all rules together.
         $this->mobileDetectionRulesExtended = array_merge(
             $this->phoneDevices,
@@ -588,7 +588,7 @@ class Mobile_Detect
      */
     public function getRules()
     {
-        if($this->detectionType == self::DETECTION_TYPE_EXTENDED){
+        if ($this->detectionType == self::DETECTION_TYPE_EXTENDED) {
             return $this->mobileDetectionRulesExtended;
         } else {
             return $this->mobileDetectionRules;
@@ -634,8 +634,8 @@ class Mobile_Detect
      * Magic overloading method.
      *
      * @method boolean is[...]()
-     * @param string $name
-     * @param array $arguments
+     * @param  string                 $name
+     * @param  array                  $arguments
      * @return mixed
      * @throws BadMethodCallException when the method doesn't exist and doesn't start with 'is'
      */
@@ -645,10 +645,11 @@ class Mobile_Detect
         if (substr($name, 0, 2) != 'is') {
             throw new BadMethodCallException("No such method exists: $name");
         }
-        
+
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
         $key = substr($name, 2);
+
         return $this->matchUAAgainstKey($key);
     }
 
@@ -661,11 +662,11 @@ class Mobile_Detect
     private function matchDetectionRulesAgainstUA($userAgent = null)
     {
         // Begin general search.
-        foreach($this->getRules() as $_regex) {
-            if(empty($_regex)) {
+        foreach ($this->getRules() as $_regex) {
+            if (empty($_regex)) {
                 continue;
             }
-            if($this->match($_regex, $userAgent)) {
+            if ($this->match($_regex, $userAgent)) {
                 return true;
             }
         }
@@ -686,15 +687,15 @@ class Mobile_Detect
     {
         // Make the keys lowercase so we can match: isIphone(), isiPhone(), isiphone(), etc.
         $key = strtolower($key);
-        
+
         //change the keys to lower case
         $_rules = array_change_key_case($this->getRules());
 
-        if(array_key_exists($key, $_rules)) {
-            if(empty($_rules[$key])) {
+        if (array_key_exists($key, $_rules)) {
+            if (empty($_rules[$key])) {
                 return null;
             }
-            
+
             return $this->match($_rules[$key], $userAgent);
         }
 
@@ -711,11 +712,11 @@ class Mobile_Detect
     public function isMobile($userAgent = null, $httpHeaders = null)
     {
 
-        if($httpHeaders) {
+        if ($httpHeaders) {
             $this->setHttpHeaders($httpHeaders);
         }
-        
-        if($userAgent) {
+
+        if ($userAgent) {
             $this->setUserAgent($userAgent);
         }
 
@@ -734,20 +735,20 @@ class Mobile_Detect
      * Return true if any type of tablet device is detected.
      *
      * @param  string $userAgent   deprecated
-     * @param  array $httpHeaders deprecated
+     * @param  array  $httpHeaders deprecated
      * @return bool
      */
     public function isTablet($userAgent = null, $httpHeaders = null)
     {
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
-        foreach($this->tabletDevices as $_regex){
-            if($this->match($_regex, $userAgent)){
+        foreach ($this->tabletDevices as $_regex) {
+            if ($this->match($_regex, $userAgent)) {
                 return true;
             }
         }
 
-	    return false;
+        return false;
     }
 
     /**
@@ -756,18 +757,18 @@ class Mobile_Detect
      * @todo: The httpHeaders part is not yet used.
      *
      * @param $key
-     * @param string $userAgent deprecated
-     * @param string $httpHeaders deprecated
+     * @param  string        $userAgent   deprecated
+     * @param  string        $httpHeaders deprecated
      * @return bool|int|null
      */
     public function is($key, $userAgent = null, $httpHeaders = null)
     {
         // Set the UA and HTTP headers only if needed (eg. batch mode).
-        if($httpHeaders) {
+        if ($httpHeaders) {
             $this->setHttpHeaders($httpHeaders);
         }
-        
-        if($userAgent) {
+
+        if ($userAgent) {
             $this->setUserAgent($userAgent);
         }
 
@@ -796,7 +797,7 @@ class Mobile_Detect
      * the User-Agent string.
      *
      * @param $regex
-     * @param string $userAgent
+     * @param  string $userAgent
      * @return bool
      *
      * @todo: search in the HTTP headers too.
@@ -828,46 +829,46 @@ class Mobile_Detect
      *
      * @return float
      */
-    public function prepareVersionNo($ver){
-
+    public function prepareVersionNo($ver)
+    {
         $ver = str_replace(array('_', ' ', '/'), array('.', '.', '.'), $ver);
         $arrVer = explode('.', $ver, 2);
-        
-        if(isset($arrVer[1])) {
+
+        if (isset($arrVer[1])) {
             $arrVer[1] = @str_replace('.', '', $arrVer[1]); // @todo: treat strings versions.
         }
-        
-        return (float)implode('.', $arrVer);
+
+        return (float) implode('.', $arrVer);
     }
 
     /**
      * Check the version of the given property in the User-Agent.
      * Will return a float number. (eg. 2_0 will return 2.0, 4.3.1 will return 4.31)
      *
-     * @param string $propertyName
-     * @param string $type
-     * @return mixed $version
+     * @param  string $propertyName
+     * @param  string $type
+     * @return mixed  $version
      */
     public function version($propertyName, $type = 'text')
     {
-        if(empty($propertyName)) {
+        if (empty($propertyName)) {
             return false;
         }
-        
-        if(!in_array($type, array('text', 'float'))) {
+
+        if (!in_array($type, array('text', 'float'))) {
             $type = 'text';
         }
 
         $properties = $this->getProperties();
 
         // Check if the property exists in the properties array.
-        if(array_key_exists($propertyName, $properties)) {
+        if (array_key_exists($propertyName, $properties)) {
 
             // Prepare the pattern to be matched.
             // Make sure we always deal with an array (string is converted).
-            $properties[$propertyName] = (array)$properties[$propertyName];
+            $properties[$propertyName] = (array) $properties[$propertyName];
 
-            foreach($properties[$propertyName] as $propertyMatchString) {
+            foreach ($properties[$propertyName] as $propertyMatchString) {
 
                 $propertyPattern = str_replace('[VER]', self::VER, $propertyMatchString);
 
@@ -877,8 +878,9 @@ class Mobile_Detect
                 // Identify and extract the version.
                 preg_match('/'.$propertyPattern.'/is', $this->userAgent, $match);
 
-                if(!empty($match[1])) {
+                if (!empty($match[1])) {
                     $version = ( $type == 'float' ? $this->prepareVersionNo($match[1]) : $match[1] );
+
                     return $version;
                 }
 
@@ -894,8 +896,8 @@ class Mobile_Detect
      *
      * @return string One of the self::MOBILE_GRADE_* constants.
      */
-    public function mobileGrade(){
-
+    public function mobileGrade()
+    {
         $isMobile = $this->isMobile();
 
         if (
