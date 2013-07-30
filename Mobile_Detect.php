@@ -29,7 +29,7 @@
  * @link        Official page: http://mobiledetect.net
  *              GitHub Repository: https://github.com/serbanghita/Mobile-Detect
  *              Google Code Old Page: http://code.google.com/p/php-mobile-detect/
- * @version     2.6.4
+ * @version     2.6.5
  */
 
 class Mobile_Detect
@@ -68,7 +68,7 @@ class Mobile_Detect
      * Stores the version number of the current release.
      * @var array
      */
-    protected $scriptVersion = '2.6.4';
+    protected $scriptVersion = '2.6.5';
 
     /**
      * The User-Agent HTTP header is stored in here.

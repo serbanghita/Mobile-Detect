@@ -134,7 +134,7 @@ $scriptVersion = $detect->getScriptVersion();
                         'source':         'demoVisitor'
                 },
                 success: function(r){
-                    try{ console.log(r); } catch(e){ }
+                    try { console.log(r); } catch (e) { }
                 }
             });
 
