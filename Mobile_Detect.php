@@ -512,7 +512,8 @@ class Mobile_Detect
      * Set the detection type. Must be one of self::DETECTION_TYPE_MOBILE or
      * self::DETECTION_TYPE_EXTENDED. Otherwise, nothing is set.
      *
-     * @param string $type The type. Must be a self::DETECTION_TYPE_* constant.
+     * @param string $type The type. Must be a self::DETECTION_TYPE_* constant. The default
+     *                     parameter is null which will default to self::DETECTION_TYPE_MOBILE.
      */
     public function setDetectionType($type = null)
     {
