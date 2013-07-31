@@ -36,27 +36,9 @@ I would highly appreciate any money donations that will keep the research going.
 Sponsored by the community and by [BrowserStack](http://www.browserstack.com) - the complete browser coverage tool (including mobile devices) for testing you web application.
 Special thanks to [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
 
-##### Roadmap and How to contribute to the code
+##### Contributing
 
-<table>
-  <tr>
-    <td width="20%"><a href="https://github.com/serbanghita/Mobile-Detect/wiki/Road-to-2.9.9">2.9.9 version</a> <img alt="Dev status" src="https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel" border="0"></td>
-    <td>Work scheduled on the <code>2.x.x</code> branch (currently in production).
-      <ol>
-        <li>Clone the repository to your local drive.</li>
-        <li>Switch to <code>devel</code> branch.</li>
-        <li>Commit your changes to <code>Mobile_Detect.php</code>.</li>
-        <li>Commit tests (User-Agent strings) to<code>tests/UA_List.inc.php</code></li>
-        <li>Run the tests <code>php /path/to/phpunit.phar /path/to/mobiledetectlib/tests/phpunit.xml</code>. Check for errors.</li>
-        <li>Commit to <code>devel</code>. Push.</li>
-        <li>The commit will be reviewed and merged into <code>master</code></li>
-      </ol>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/serbanghita/Mobile-Detect/wiki/Road-to-3.0.0">3.0.0 version</a></td>
-    <td>Work scheduled on the <code>3.x.x</code> branch. The new <code>3.0.0</code> version will feature: compatibility with <code>2.x</code>, array with devices details (including model name), device/os/browser version, browser grading utility, separate JSON regex.</td>
-  </tr>
-</table>
+<a href="CONTRIBUTE.md">How to contribute</a>
 
 ##### History
 
@@ -237,5 +219,11 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
   <td>Zikula</td>
   <td><p><a href="http://zikula.org/">Zikula</a> is a free and open-source Content Management Framework, which allows you to run impressive websites and build powerful online applications. The core uses Mobile-Detect to switch to a special Mobile theme, using jQueryMobile</p></td>
  </tr>
+
+<tr>
+    <td>UserAgentInfo</td>
+    <td><p><a href="https://github.com/quentin389/UserAgentInfo">UserAgentInfo</a> is a PHP class for parsing user agent strings (HTTP_USER_AGENT). Includes mobile checks, bot checks, browser types/versions and more. 
+Based on browscap, Mobile_Detect and ua-parser. Created for high traffic websites and fast batch processing. Made by <a href="https://github.com/quentin389">quentin389</a></p></td>
+</tr>
 
 </table>
