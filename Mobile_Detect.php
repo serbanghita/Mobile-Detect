@@ -29,7 +29,7 @@
  * @link        Official page: http://mobiledetect.net
  *              GitHub Repository: https://github.com/serbanghita/Mobile-Detect
  *              Google Code Old Page: http://code.google.com/p/php-mobile-detect/
- * @version     2.6.5
+ * @version     2.6.6
  */
 
 class Mobile_Detect
@@ -68,7 +68,7 @@ class Mobile_Detect
      * Stores the version number of the current release.
      * @var array
      */
-    protected $scriptVersion = '2.6.5';
+    protected $scriptVersion = '2.6.6';
 
     /**
      * The User-Agent HTTP header is stored in here.
@@ -143,7 +143,7 @@ class Mobile_Detect
     protected $tabletDevices = array(
         'iPad'              => 'iPad|iPad.*Mobile', // @todo: check for mobile friendly emails topic.
         'NexusTablet'       => '^.*Android.*Nexus(((?:(?!Mobile))|(?:(\s(7|10).+))).)*$',
-        'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|GT-P1000|GT-P1003|GT-P1010|GT-P3105|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P3100|GT-P3108|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7320|GT-P7511|GT-N8000|GT-P8510|SGH-I497|SPH-P500|SGH-T779|SCH-I705|SCH-I915|GT-N8013|GT-P3113|GT-P5113|GT-P8110|GT-N8010|GT-N8005|GT-N8020|GT-P1013|GT-P6201|GT-P7501|GT-N5100|GT-N5110|SHV-E140K|SHV-E140L|SHV-E140S|SHV-E150S|SHV-E230K|SHV-E230L|SHV-E230S|SHW-M180K|SHW-M180L|SHW-M180S|SHW-M180W|SHW-M300W|SHW-M305W|SHW-M380K|SHW-M380S|SHW-M380W|SHW-M430W|SHW-M480K|SHW-M480S|SHW-M480W|SHW-M485W|SHW-M486W|SHW-M500W|GT-I9228|SCH-P739|SCH-I925',
+        'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|GT-P1000|GT-P1003|GT-P1010|GT-P3105|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P3100|GT-P3108|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7320|GT-P7511|GT-N8000|GT-P8510|SGH-I497|SPH-P500|SGH-T779|SCH-I705|SCH-I915|GT-N8013|GT-P3113|GT-P5113|GT-P8110|GT-N8010|GT-N8005|GT-N8020|GT-P1013|GT-P6201|GT-P7501|GT-N5100|GT-N5110|SHV-E140K|SHV-E140L|SHV-E140S|SHV-E150S|SHV-E230K|SHV-E230L|SHV-E230S|SHW-M180K|SHW-M180L|SHW-M180S|SHW-M180W|SHW-M300W|SHW-M305W|SHW-M380K|SHW-M380S|SHW-M380W|SHW-M430W|SHW-M480K|SHW-M480S|SHW-M480W|SHW-M485W|SHW-M486W|SHW-M500W|GT-I9228|SCH-P739|SCH-I925|GT-I9200|GT-I9205|GT-P5200|GT-P5210|SM-T311|SM-T310|SM-T210|SM-T211|SM-P900',
         // @reference: http://www.labnol.org/software/kindle-user-agent-string/20378/
         'Kindle'            => 'Kindle|Silk.*Accelerated|Android.*\b(KFTT|KFOTE)\b',
         // Only the Surface tablets with Windows RT are considered mobile.
@@ -167,7 +167,7 @@ class Mobile_Detect
         'LGTablet'          => '\bL-06C|LG-V900|LG-V909\b',
         'FujitsuTablet'     => 'Android.*\b(F-01D|F-05E|F-10D|M532|Q572)\b',
         // Prestigio Tablets http://www.prestigio.com/support
-        'PrestigioTablet'   => 'PMP3170B|PMP3270B|PMP3470B|PMP7170B|PMP3370B|PMP3570C|PMP5870C|PMP3670B|PMP5570C|PMP5770D|PMP3970B|PMP3870C|PMP5580C|PMP5880D|PMP5780D|PMP5588C|PMP7280C|PMP7280|PMP7880D|PMP5597D|PMP5597|PMP7100D|PER3464|PER3274|PER3574|PER3884|PER5274|PER5474',
+        'PrestigioTablet'   => 'PMP3170B|PMP3270B|PMP3470B|PMP7170B|PMP3370B|PMP3570C|PMP5870C|PMP3670B|PMP5570C|PMP5770D|PMP3970B|PMP3870C|PMP5580C|PMP5880D|PMP5780D|PMP5588C|PMP7280C|PMP7280|PMP7880D|PMP5597D|PMP5597|PMP7100D|PER3464|PER3274|PER3574|PER3884|PER5274|PER5474|PMP5097CPRO|PMP5097|PMP7380D',
         // @ref: http://support.lenovo.com/en_GB/downloads/default.page?#
         'LenovoTablet'      => 'IdeaTab|S2110|S6000|K3011|A3000|A1000|A2107|A2109|A1107',
         'YarvikTablet'      => 'Android.*(TAB210|TAB211|TAB224|TAB250|TAB260|TAB264|TAB310|TAB360|TAB364|TAB410|TAB411|TAB420|TAB424|TAB450|TAB460|TAB461|TAB464|TAB465|TAB467|TAB468)',
@@ -176,6 +176,8 @@ class Mobile_Detect
         // IRU.ru Tablets http://www.iru.ru/catalog/soho/planetable/
         'IRUTablet'         => 'M702pro',
         'MegafonTablet'     => 'MegaFon V9|ZTE V9',
+        // @ref: http://www.allview.ro/produse/droseries/lista-tablete-pc/
+        'AllViewTablet'           => 'Allview.*(Viva|Alldro|City|Speed|All TV|Frenzy|Quasar|Shine|TX1|AX1|AX2)',
         // @reference: http://wiki.archosfans.com/index.php?title=Main_Page
         'ArchosTablet'      => 'Android.*ARCHOS|\b101G9\b|\b80G9\b',
         // @reference: http://en.wikipedia.org/wiki/NOVO7
@@ -309,11 +311,12 @@ class Mobile_Detect
         // Experimental. When a mobile device wants to switch to 'Desktop Mode'.
         // @ref: http://scottcate.com/technology/windows-phone-8-ie10-desktop-or-mobile/
         // @ref: https://github.com/serbanghita/Mobile-Detect/issues/57#issuecomment-15024011
-        'DesktopMode'   => 'WPDesktop',
-        'TV'            => 'SonyDTV|HbbTV', // experimental
-        'WebKit'        => '(webkit)[ /]([\w.]+)',
-        'Bot'           => 'Googlebot|DoCoMo|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
-        'MobileBot'     => 'Googlebot-Mobile|DoCoMo|YahooSeeker/M1A1-R2D2',
+        'DesktopMode' => 'WPDesktop',
+        'TV'          => 'SonyDTV|HbbTV', // experimental
+        'WebKit'      => '(webkit)[ /]([\w.]+)',
+        'Bot'         => 'Googlebot|DoCoMo|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
+        'MobileBot'   => 'Googlebot-Mobile|DoCoMo|YahooSeeker/M1A1-R2D2',
+        'Watch'       => 'SM-V700',
     );
 
     /**
