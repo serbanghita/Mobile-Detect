@@ -1,6 +1,6 @@
 <phpunit
   colors="true"
-  verbose="true"
+  verbose="false"
   bootstrap="bootstrap.php"
   convertErrorsToExceptions="true"
   convertNoticesToExceptions="true"
