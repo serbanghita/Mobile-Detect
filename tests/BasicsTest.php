@@ -126,6 +126,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider headersProvider
+     * @covers Mobile_Detect::getHttpHeader
      */
     public function testConstructorInjection(array $headers)
     {
@@ -149,6 +150,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider headersProvider
+     * @covers Mobile_Detect::getHttpHeader
      */
     public function testInvalidHeader($headers)
     {
@@ -175,6 +177,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider userAgentProvider
+     * @covers Mobile_Detect::setUserAgent, Mobile_Detect::getUserAgent
      */
     public function testGetUserAgent($headers, $expectedUserAgent)
     {
@@ -183,6 +186,9 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertSame($expectedUserAgent, $md->getUserAgent());
     }
 
+    /**
+     * @covers Mobile_Detect::setUserAgent, Mobile_Detect::getUserAgent
+     */
     public function testSetUserAgent()
     {
         $md = new Mobile_Detect(array());
@@ -190,6 +196,9 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertSame('hello world', $md->getUserAgent());
     }
 
+    /**
+     * @covers Mobile_Detect::setDetectionType
+     */
     public function testSetDetectionType()
     {
         $md = new Mobile_Detect(array());
@@ -286,6 +295,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider quickHeadersData
+     * @covers Mobile_Detect::checkHttpHeadersForMobile
      */
     public function testQuickHeaders($headers)
     {
@@ -295,10 +305,72 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException BadMethodCallException
+     * @coversNothing
      */
     public function testBadMethodCall()
     {
         $md = new Mobile_Detect(array());
         $md->badmethodthatdoesntexistatall();
+    }
+
+    public function versionDataProvider()
+    {
+        return array(
+            array(
+                'Mozilla/5.0 (Linux; Android 4.0.4; ARCHOS 80G9 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19',
+                'Android',
+                '4.0.4',
+                4.04
+            ),
+            array(
+                'Mozilla/5.0 (Linux; Android 4.0.4; ARCHOS 80G9 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19',
+                'Webkit',
+                '535.19',
+                535.19
+            ),
+            array(
+                'Mozilla/5.0 (Linux; Android 4.0.4; ARCHOS 80G9 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19',
+                'Chrome',
+                '18.0.1025.166',
+                18.01025166
+            ),
+            array(
+                'Mozilla/5.0 (BlackBerry; U; BlackBerry 9700; en-US) AppleWebKit/534.8  (KHTML, like Gecko) Version/6.0.0.448 Mobile Safari/534.8',
+                'BlackBerry',
+                '6.0.0.448',
+                6.00448
+            ),
+            array(
+                'Mozilla/5.0 (BlackBerry; U; BlackBerry 9700; en-US) AppleWebKit/534.8  (KHTML, like Gecko) Version/6.0.0.448 Mobile Safari/534.8',
+                'Webkit',
+                '534.8',
+                534.8
+            ),
+            array(
+                'Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; en-GB) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.546 Mobile Safari/534.8+',
+                'BlackBerry',
+                '6.0.0.546',
+                6.00546
+            )
+        );
+    }
+
+    /**
+     * @dataProvider versionDataProvider
+     * @covers Mobile_Detect::version
+     */
+    public function testVersionExtraction($userAgent, $property, $stringVersion, $floatVersion)
+    {
+        $md = new Mobile_Detect(array('HTTP_USER_AGENT' => $userAgent));
+        $prop = $md->version($property);
+
+        $this->assertSame($stringVersion, $prop);
+
+        $prop = $md->version($property, 'float');
+        $this->assertSame($floatVersion, $prop);
+
+        //assert that garbage data is always === false
+        $prop = $md->version('garbage input is always garbage');
+        $this->assertFalse($prop);
     }
 }
