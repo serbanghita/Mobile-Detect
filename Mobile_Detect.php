@@ -66,9 +66,8 @@ class Mobile_Detect
 
     /**
      * Stores the version number of the current release.
-     * @var array
      */
-    protected $scriptVersion = '2.6.6';
+    const VERSION                   = '2.6.6';
 
     /**
      * The User-Agent HTTP header is stored in here.
@@ -394,11 +393,11 @@ class Mobile_Detect
     * so people can check on what version they are testing
     * for mobile devices.
     *
-    * @return string The version number in "X.Y.Z" format.
+    * @return string The version number in semantic version format.
     */
-    public function getScriptVersion()
+    public static function getScriptVersion()
     {
-        return $this->scriptVersion;
+        return self::VERSION;
     }
 
     /**
