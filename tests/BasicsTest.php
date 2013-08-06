@@ -419,4 +419,29 @@ class BasicTest extends PHPUnit_Framework_TestCase
                 . ' does not match X.Y.Z pattern');
         }
     }
+
+    public function crazyVersionNumbers()
+    {
+        return array(
+            array('2.5.6', 2.56),
+            array('12142.2142.412521.24.152', 12142.214241252124152),
+            array('6_3', 6.3),
+            array('4_7  /7 7 12_9', 4.777129),
+            array('49', 49.0),
+            array('2.6.x', 2.6),
+            array('45.6.1.x.12', 45.61)
+        );
+    }
+
+    /**
+     * @dataProvider crazyVersionNumbers
+     * @covers Mobile_Detect::prepareVersionNo
+     */
+    public function testPrepareVersionNo($raw, $expected)
+    {
+        $md = new Mobile_Detect;
+        $actual = $md->prepareVersionNo($raw);
+        $this->assertSame($expected, $actual, "We expected " . var_export($raw, true) . " to convert to "
+            . var_export($expected, true) . ', but got ' . var_export($actual, true) . ' instead');
+    }
 }

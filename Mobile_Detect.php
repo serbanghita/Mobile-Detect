@@ -853,7 +853,7 @@ class Mobile_Detect
      */
     public function prepareVersionNo($ver)
     {
-        $ver = str_replace(array('_', ' ', '/'), array('.', '.', '.'), $ver);
+        $ver = str_replace(array('_', ' ', '/'), '.', $ver);
         $arrVer = explode('.', $ver, 2);
 
         if (isset($arrVer[1])) {
