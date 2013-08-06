@@ -32,6 +32,7 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
     protected static $ualist = array();
     protected static $json;
 
+    //@todo this should use the UAProvider class once we've deleted UA_List.inc.php
     public static function generateJson()
     {
         //in case this gets run multiple times
