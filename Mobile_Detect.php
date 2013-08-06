@@ -83,18 +83,6 @@ class Mobile_Detect
     protected $httpHeaders = array();
 
     /**
-     * All the rules combined.
-     * @var array
-     */
-    protected $mobileDetectionRules = null;
-
-    /**
-     * The rules, but extended.
-     * @var array
-     */
-    protected $mobileDetectionRulesExtended = null;
-
-    /**
      * The detection type, using self::DETECTION_TYPE_MOBILE or self::DETECTION_TYPE_EXTENDED.
      *
      * @var string
@@ -106,7 +94,7 @@ class Mobile_Detect
      *
      * @var array
      */
-    protected $phoneDevices = array(
+    protected static $phoneDevices = array(
         'iPhone'        => '\biPhone.*Mobile|\biPod', // |\biTunes
         'BlackBerry'    => 'BlackBerry|\bBB10\b|rim[0-9]+',
         'HTC'           => 'HTC|HTC.*(Sensation|Evo|Vision|Explorer|6800|8100|8900|A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT|Qtek9090|APA9292KT|HD_mini|Sensation.*Z710e|PG86100|Z715e|Desire.*(A8181|HD)|ADR6200|ADR6400L|ADR6425|001HT|Inspire 4G|Android.*\bEVO\b',
@@ -140,7 +128,7 @@ class Mobile_Detect
      *
      * @var array
      */
-    protected $tabletDevices = array(
+    protected static $tabletDevices = array(
         'iPad'              => 'iPad|iPad.*Mobile', // @todo: check for mobile friendly emails topic.
         'NexusTablet'       => '^.*Android.*Nexus(((?:(?!Mobile))|(?:(\s(7|10).+))).)*$',
         'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|GT-P1000|GT-P1003|GT-P1010|GT-P3105|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P3100|GT-P3108|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7320|GT-P7511|GT-N8000|GT-P8510|SGH-I497|SPH-P500|SGH-T779|SCH-I705|SCH-I915|GT-N8013|GT-P3113|GT-P5113|GT-P8110|GT-N8010|GT-N8005|GT-N8020|GT-P1013|GT-P6201|GT-P7501|GT-N5100|GT-N5110|SHV-E140K|SHV-E140L|SHV-E140S|SHV-E150S|SHV-E230K|SHV-E230L|SHV-E230S|SHW-M180K|SHW-M180L|SHW-M180S|SHW-M180W|SHW-M300W|SHW-M305W|SHW-M380K|SHW-M380S|SHW-M380W|SHW-M430W|SHW-M480K|SHW-M480S|SHW-M480W|SHW-M485W|SHW-M486W|SHW-M500W|GT-I9228|SCH-P739|SCH-I925|GT-I9200|GT-I9205|GT-P5200|GT-P5210|SM-T311|SM-T310|SM-T210|SM-T211|SM-P900',
@@ -245,7 +233,7 @@ class Mobile_Detect
      *
      * @var array
      */
-    protected $operatingSystems = array(
+    protected static $operatingSystems = array(
         'AndroidOS'         => 'Android',
         'BlackBerryOS'      => 'blackberry|\bBB10\b|rim tablet os',
         'PalmOS'            => 'PalmOS|avantgo|blazer|elaine|hiptop|palm|plucker|xiino',
@@ -274,7 +262,7 @@ class Mobile_Detect
      *
      * @var array
      */
-    protected $userAgents = array(
+    protected static $userAgents = array(
         // @reference: https://developers.google.com/chrome/mobile/docs/user-agent
         'Chrome'          => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
         'Dolfin'          => '\bDolfin\b',
@@ -307,7 +295,7 @@ class Mobile_Detect
      *
      * @var array
      */
-    protected $utilities = array(
+    protected static $utilities = array(
         // Experimental. When a mobile device wants to switch to 'Desktop Mode'.
         // @ref: http://scottcate.com/technology/windows-phone-8-ie10-desktop-or-mobile/
         // @ref: https://github.com/serbanghita/Mobile-Detect/issues/57#issuecomment-15024011
@@ -325,7 +313,7 @@ class Mobile_Detect
      *
      * @var array
      */
-    protected $properties = array(
+    protected static $properties = array(
 
         // Build
         'Mobile'        => 'Mobile/[VER]',
@@ -398,9 +386,6 @@ class Mobile_Detect
     ){
         $this->setHttpHeaders($headers);
         $this->setUserAgent($userAgent);
-
-        $this->setMobileDetectionRules();
-        $this->setMobileDetectionRulesExtended();
     }
 
     /**
@@ -536,9 +521,9 @@ class Mobile_Detect
      *
      * @return array List of phone devices.
      */
-    public function getPhoneDevices()
+    public static function getPhoneDevices()
     {
-        return $this->phoneDevices;
+        return self::$phoneDevices;
     }
 
     /**
@@ -546,43 +531,77 @@ class Mobile_Detect
      *
      * @return array List of tablet devices.
      */
-    public function getTabletDevices()
+    public static function getTabletDevices()
     {
-        return $this->tabletDevices;
+        return self::$tabletDevices;
     }
 
     /**
-     * Method sets the mobile detection rules. This method is used for the magic methods $detect->is*().
+     * Retrieve the list of known user agents.
+     *
+     * @return array List of user agents.
      */
-    public function setMobileDetectionRules()
+    public static function getUserAgents()
     {
-        // Merge all rules together.
-        $this->mobileDetectionRules = array_merge(
-            $this->phoneDevices,
-            $this->tabletDevices,
-            $this->operatingSystems,
-            $this->userAgents
-        );
+        return self::$userAgents;
+    }
+
+    /**
+     * Retrieve the list of known utilities.
+     *
+     * @return array List of utilities.
+     */
+    public static function getUtilities()
+    {
+        return self::$utilities;
+    }
+
+    /**
+     * Method gets the mobile detection rules. This method is used for the magic methods $detect->is*().
+     *
+     * @return array All the rules (but not extended).
+     */
+    public static function getMobileDetectionRules()
+    {
+        static $rules;
+
+        if (!$rules) {
+            $rules = array_merge(
+                self::$phoneDevices,
+                self::$tabletDevices,
+                self::$operatingSystems,
+                self::$userAgents
+            );
+        }
+
+        return $rules;
 
     }
 
     /**
-     * Method sets the mobile detection rules + utilities.
+     * Method gets the mobile detection rules + utilities.
      * The reason this is separate is because utilities rules
      * don't necessary imply mobile. This method is used inside
      * the new $detect->is('stuff') method.
+     *
+     * @return array All the rules + extended.
      */
-    public function setMobileDetectionRulesExtended()
+    public function getMobileDetectionRulesExtended()
     {
-        // Merge all rules together.
-        $this->mobileDetectionRulesExtended = array_merge(
-            $this->phoneDevices,
-            $this->tabletDevices,
-            $this->operatingSystems,
-            $this->userAgents,
-            $this->utilities
-        );
+        static $rules;
 
+        if (!$rules) {
+            // Merge all rules together.
+            $rules = array_merge(
+                self::$phoneDevices,
+                self::$tabletDevices,
+                self::$operatingSystems,
+                self::$userAgents,
+                self::$utilities
+            );
+        }
+
+        return $rules;
     }
 
     /**
@@ -593,9 +612,9 @@ class Mobile_Detect
     public function getRules()
     {
         if ($this->detectionType == self::DETECTION_TYPE_EXTENDED) {
-            return $this->mobileDetectionRulesExtended;
+            return self::getMobileDetectionRulesExtended();
         } else {
-            return $this->mobileDetectionRules;
+            return self::getMobileDetectionRules();
         }
     }
 
@@ -746,7 +765,7 @@ class Mobile_Detect
     {
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
-        foreach ($this->tabletDevices as $_regex) {
+        foreach (self::$tabletDevices as $_regex) {
             if ($this->match($_regex, $userAgent)) {
                 return true;
             }
@@ -786,9 +805,9 @@ class Mobile_Detect
      *
      * @return array The list of mobile operating systems.
      */
-    public function getOperatingSystems()
+    public static function getOperatingSystems()
     {
-        return $this->operatingSystems;
+        return self::$operatingSystems;
     }
 
     /**
@@ -819,9 +838,9 @@ class Mobile_Detect
      *
      * @return array
      */
-    public function getProperties()
+    public static function getProperties()
     {
-        return $this->properties;
+        return self::$properties;
     }
 
     /**
@@ -863,7 +882,7 @@ class Mobile_Detect
             $type = 'text';
         }
 
-        $properties = $this->getProperties();
+        $properties = self::getProperties();
 
         // Check if the property exists in the properties array.
         if (array_key_exists($propertyName, $properties)) {

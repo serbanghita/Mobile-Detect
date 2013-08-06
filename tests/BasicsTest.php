@@ -373,4 +373,38 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $prop = $md->version('garbage input is always garbage');
         $this->assertFalse($prop);
     }
+
+    /**
+     * @covers Mobile_Detect::getMobileDetectionRules
+     */
+    public function testRules()
+    {
+        $md = new Mobile_Detect;
+        $count = array_sum(array(
+            count(Mobile_Detect::getPhoneDevices()),
+            count(Mobile_Detect::getTabletDevices()),
+            count(Mobile_Detect::getOperatingSystems()),
+            count(Mobile_Detect::getUserAgents())
+        ));
+        $rules = $md->getRules();
+        $this->assertEquals($count, count($rules));
+    }
+
+    /**
+     * @covers Mobile_Detect::getMobileDetectionRulesExtended
+     */
+    public function testRulesExtended()
+    {
+        $md = new Mobile_Detect;
+        $count = array_sum(array(
+            count(Mobile_Detect::getPhoneDevices()),
+            count(Mobile_Detect::getTabletDevices()),
+            count(Mobile_Detect::getOperatingSystems()),
+            count(Mobile_Detect::getUserAgents()),
+            count(Mobile_Detect::getUtilities())
+        ));
+        $md->setDetectionType(Mobile_Detect::DETECTION_TYPE_EXTENDED);
+        $rules = $md->getRules();
+        $this->assertEquals($count, count($rules));
+    }
 }
