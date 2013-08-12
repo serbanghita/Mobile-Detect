@@ -411,7 +411,7 @@ class Mobile_Detect
     }
 
     /**
-     * Set the HTTP Headers. Must be PHP-flavored.
+     * Set the HTTP Headers. Must be PHP-flavored. This method will reset existing headers.
      *
      * @param array $httpHeaders The headers to set. If null, then using PHP's _SERVER to extract
      *                           the headers. The default null is left for backwards compatibilty.
@@ -422,6 +422,9 @@ class Mobile_Detect
         if (!is_array($httpHeaders) || !count($httpHeaders)) {
             $httpHeaders = $_SERVER;
         }
+
+        //clear existing headers
+        $this->httpHeaders = array();
 
         //Only save HTTP headers. In PHP land, that means only _SERVER vars that
         //start with HTTP_.
@@ -877,14 +880,14 @@ class Mobile_Detect
      * Check the version of the given property in the User-Agent.
      * Will return a float number. (eg. 2_0 will return 2.0, 4.3.1 will return 4.31)
      *
-     * @param  string $propertyName The name of the property. See self::getProperties() array
+     * @param string $propertyName The name of the property. See self::getProperties() array
      *                              keys for all possible properties.
-     * @param  string $type Either self::VERSION_TYPE_STRING to get a string value or
+     * @param string $type Either self::VERSION_TYPE_STRING to get a string value or
      *                      self::VERSION_TYPE_FLOAT indicating a float value. This parameter
      *                      is optional and defaults to self::VERSION_TYPE_STRING. Passing an
      *                      invalid parameter will default to the this type as well.
      *
-     * @return string|float  The version of the property we are trying to extract.
+     * @return string|float The version of the property we are trying to extract.
      */
     public function version($propertyName, $type = self::VERSION_TYPE_STRING)
     {
@@ -1012,7 +1015,6 @@ class Mobile_Detect
             // @reference: http://my.opera.com/community/openweb/idopera/
             $this->version('Opera', self::VERSION_TYPE_FLOAT)>=10 && !$isMobile
 
-
         ){
             return self::MOBILE_GRADE_A;
         }
@@ -1043,7 +1045,6 @@ class Mobile_Detect
             $this->version('BlackBerry', self::VERSION_TYPE_FLOAT)<5.0 ||
             // Windows Mobile - Tested on the HTC Leo (WinMo 5.2)
             $this->match('MSIEMobile|Windows CE.*Mobile') || $this->version('Windows Mobile', self::VERSION_TYPE_FLOAT)<=5.2
-
 
         ){
             return self::MOBILE_GRADE_C;

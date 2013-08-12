@@ -187,6 +187,22 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Headers should be reset when you use setHttpHeaders.
+     * @covers Mobile_Detect::setHttpHeaders
+     * @issue #144
+     */
+    public function testSetHttpHeaders()
+    {
+        $header1 = array('HTTP_PINK_PONY' => 'I secretly love ponies >_>');
+        $md = new Mobile_Detect($header1);
+        $this->assertSame($md->getHttpHeaders(), $header1);
+
+        $header2 = array('HTTP_FIRE_BREATHING_DRAGON' => 'yeah!');
+        $md->setHttpHeaders($header2);
+        $this->assertSame($md->getHttpHeaders(), $header2);
+    }
+
+    /**
      * @covers Mobile_Detect::setUserAgent, Mobile_Detect::getUserAgent
      */
     public function testSetUserAgent()
