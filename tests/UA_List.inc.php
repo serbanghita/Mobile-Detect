@@ -442,7 +442,9 @@ return array(
 
     'Nook' => array(
 
-        'Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; NOOK BNRV200 Build/ERD79 1.4.3) Apple WebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => array( 'isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '2.2.1', 'Webkit' => '533.1', 'Safari' => '4.0') ),
+        'Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; NOOK BNRV200 Build/ERD79 1.4.3) Apple WebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'                   => array( 'isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '2.2.1', 'Webkit' => '533.1', 'Safari' => '4.0') ),
+        'Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; NOOK BNTV400 Build/ICS) AppleWebKit/534.30 (KHTML like Gecko) Version/4.0 Safari/534.30'                                  => array( 'isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.0.4', 'Build' => 'ICS', 'Webkit' => '534.30', 'Safari' => '4.0') ),
+        'Mozilla/5.0 (Linux; Android 4.0.4; BNTV600 Build/IMM76L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.94 Safari/537.36 Hughes-PFB/CID5391275.AID1376709964' => array( 'isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.0.4', 'Build' => 'IMM76L', 'Webkit' => '537.36', 'Chrome' => '28.0.1500.94') ),
 
         ),
 
