@@ -1,5 +1,5 @@
 {
-    "hash": "77575334948522b56175d8332cba726071b6fe1a",
+    "hash": "317e6a3688fd38c6d487edbe0047217d984ff2b4",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -1813,6 +1813,30 @@
                 "Android": "2.2.1",
                 "Webkit": "533.1",
                 "Safari": "4.0"
+            }
+        },
+        {
+            "vendor": "Nook",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; en-us; NOOK BNTV400 Build\/ICS) AppleWebKit\/534.30 (KHTML like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true,
+            "version": {
+                "Android": "4.0.4",
+                "Build": "ICS",
+                "Webkit": "534.30",
+                "Safari": "4.0"
+            }
+        },
+        {
+            "vendor": "Nook",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; BNTV600 Build\/IMM76L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.94 Safari\/537.36 Hughes-PFB\/CID5391275.AID1376709964",
+            "mobile": true,
+            "tablet": true,
+            "version": {
+                "Android": "4.0.4",
+                "Build": "IMM76L",
+                "Webkit": "537.36",
+                "Chrome": "28.0.1500.94"
             }
         },
         {
