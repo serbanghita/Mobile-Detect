@@ -29,7 +29,7 @@
  * @link        Official page: http://mobiledetect.net
  *              GitHub Repository: https://github.com/serbanghita/Mobile-Detect
  *              Google Code Old Page: http://code.google.com/p/php-mobile-detect/
- * @version     2.6.6
+ * @version     2.6.7
  */
 
 class Mobile_Detect
@@ -67,7 +67,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.6.6';
+    const VERSION                   = '2.6.7';
 
     /**
      * A type for the version() method indicating a string return value.
