@@ -1,14 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <phpunit
   colors="true"
   verbose="false"
   bootstrap="bootstrap.php"
   convertErrorsToExceptions="true"
   convertNoticesToExceptions="true"
-  convertWarningsToExceptions="true"
-  >
+  convertWarningsToExceptions="true">
 
-  <testsuite name="All tests">
-    <directory>./</directory>
+  <testsuite name="All Mobile Detect tests">
+    <directory suffix="Test.php">./</directory>
   </testsuite>
 
 </phpunit>

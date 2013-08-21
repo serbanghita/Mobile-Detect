@@ -1,5 +1,5 @@
 {
-    "hash": "7e37669e51d1cd14ee9821500d1506627ae65517",
+    "hash": "317e6a3688fd38c6d487edbe0047217d984ff2b4",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -94,6 +94,12 @@
         },
         {
             "vendor": "ASUS",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; en-gb; PadFone 2 Build\/JRO03L) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "ASUS",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; en-gb; PadFone 2 Build\/JRO03L) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
             "mobile": true,
             "tablet": true,
@@ -112,6 +118,12 @@
             "version": [
 
             ]
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.7; en-in; MB525 Build\/GWK74; CyanogenMod-7.2.0) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": false
         },
         {
             "vendor": "Alcatel",
@@ -151,6 +163,30 @@
                 "Build": "ICECREAM"
             },
             "model": "ONE TOUCH 993D"
+        },
+        {
+            "vendor": "Allview",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; en-us; ALLVIEW P5 Build\/IML74K) AppleWebKit\/534.30 (KHTML like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Allview",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; en-us ; ALLVIEW SPEEDI Build\/IMM76D) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1\/UCBrowser\/8.5.3.246\/145\/355",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Allview",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; en-us; AllviewCity Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Allview",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; en-us; ALLVIEWSPEED Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
         },
         {
             "vendor": "Amazon",
@@ -666,13 +702,13 @@
         },
         {
             "vendor": "Fly",
-            "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.6; ru-ru; FLY IQ256 Build\/GRK39F) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; ru-ru; Fly IQ440; Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
             "mobile": true,
             "tablet": false
         },
         {
             "vendor": "Fly",
-            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; ru-ru; Fly IQ440; Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.6; ru-ru; FLY IQ256 Build\/GRK39F) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
             "mobile": true,
             "tablet": false
         },
@@ -1780,6 +1816,30 @@
             }
         },
         {
+            "vendor": "Nook",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; en-us; NOOK BNTV400 Build\/ICS) AppleWebKit\/534.30 (KHTML like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true,
+            "version": {
+                "Android": "4.0.4",
+                "Build": "ICS",
+                "Webkit": "534.30",
+                "Safari": "4.0"
+            }
+        },
+        {
+            "vendor": "Nook",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; BNTV600 Build\/IMM76L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.94 Safari\/537.36 Hughes-PFB\/CID5391275.AID1376709964",
+            "mobile": true,
+            "tablet": true,
+            "version": {
+                "Android": "4.0.4",
+                "Build": "IMM76L",
+                "Webkit": "537.36",
+                "Chrome": "28.0.1500.94"
+            }
+        },
+        {
             "vendor": "Nokia",
             "user_agent": "Nokia6303iclassic\/5.0 (06.61) Profile\/MIDP-2.1 Configuration\/CLDC-1.1 Mozilla\/5.0 AppleWebKit\/420+ (KHTML, like Gecko) Safari\/420+",
             "mobile": true,
@@ -2774,6 +2834,12 @@
         },
         {
             "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; GT-P5210 Build\/JDQ39) AppleWebKit\/537.36 (KHTML, Like Gecko) Chrome\/27.0.1453.90 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Samsung",
             "user_agent": "Mozilla\/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident\/5.0; IEMobile\/9.0; SAMSUNG; CETUS)",
             "mobile": true,
             "tablet": false
@@ -3202,6 +3268,18 @@
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.3; en-us ; Z909 Build\/GRI40) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1\/UCBrowser\/8.4.1.204\/145\/444",
             "mobile": true,
             "tablet": true
+        },
+        {
+            "vendor": "Other",
+            "user_agent": "Mozilla\/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko\/20100101 Firefox\/22.0",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Other",
+            "user_agent": "Mozilla\/5.0 (X11; Linux ppc; rv:17.0) Gecko\/20130626 Firefox\/17.0 Iceweasel\/17.0.7",
+            "mobile": false,
+            "tablet": false
         },
         {
             "vendor": "Other",

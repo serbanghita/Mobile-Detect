@@ -183,6 +183,19 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
             }
         }
 
-        //@todo test the model and vendor? Not sure how, exactly...
+        //version property tests
+        if (isset($version)) {
+            foreach ($version as $property => $stringVersion) {
+                $v = $md->version($property);
+                $this->assertSame($stringVersion, $v);
+            }
+        }
+
+        //@todo: model test, not sure how exactly yet
+        //@todo: vendor test. The below is theoretical, but fails 50% of the tests...
+        /*if (isset($vendor)) {
+            $method = "is$vendor";
+            $this->assertTrue($md->{$method}(), "Expected Mobile_Detect::{$method}() to be true.");
+        }*/
     }
 }

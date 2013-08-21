@@ -126,6 +126,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider headersProvider
+     * @covers Mobile_Detect::getHttpHeader
      */
     public function testConstructorInjection(array $headers)
     {
@@ -149,6 +150,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider headersProvider
+     * @covers Mobile_Detect::getHttpHeader
      */
     public function testInvalidHeader($headers)
     {
@@ -175,6 +177,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider userAgentProvider
+     * @covers Mobile_Detect::setUserAgent, Mobile_Detect::getUserAgent
      */
     public function testGetUserAgent($headers, $expectedUserAgent)
     {
@@ -183,6 +186,25 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertSame($expectedUserAgent, $md->getUserAgent());
     }
 
+    /**
+     * Headers should be reset when you use setHttpHeaders.
+     * @covers Mobile_Detect::setHttpHeaders
+     * @issue #144
+     */
+    public function testSetHttpHeaders()
+    {
+        $header1 = array('HTTP_PINK_PONY' => 'I secretly love ponies >_>');
+        $md = new Mobile_Detect($header1);
+        $this->assertSame($md->getHttpHeaders(), $header1);
+
+        $header2 = array('HTTP_FIRE_BREATHING_DRAGON' => 'yeah!');
+        $md->setHttpHeaders($header2);
+        $this->assertSame($md->getHttpHeaders(), $header2);
+    }
+
+    /**
+     * @covers Mobile_Detect::setUserAgent, Mobile_Detect::getUserAgent
+     */
     public function testSetUserAgent()
     {
         $md = new Mobile_Detect(array());
@@ -190,6 +212,9 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertSame('hello world', $md->getUserAgent());
     }
 
+    /**
+     * @covers Mobile_Detect::setDetectionType
+     */
     public function testSetDetectionType()
     {
         $md = new Mobile_Detect(array());
@@ -286,6 +311,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider quickHeadersData
+     * @covers Mobile_Detect::checkHttpHeadersForMobile
      */
     public function testQuickHeaders($headers)
     {
@@ -295,10 +321,143 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException BadMethodCallException
+     * @coversNothing
      */
     public function testBadMethodCall()
     {
         $md = new Mobile_Detect(array());
         $md->badmethodthatdoesntexistatall();
+    }
+
+    public function versionDataProvider()
+    {
+        return array(
+            array(
+                'Mozilla/5.0 (Linux; Android 4.0.4; ARCHOS 80G9 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19',
+                'Android',
+                '4.0.4',
+                4.04
+            ),
+            array(
+                'Mozilla/5.0 (Linux; Android 4.0.4; ARCHOS 80G9 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19',
+                'Webkit',
+                '535.19',
+                535.19
+            ),
+            array(
+                'Mozilla/5.0 (Linux; Android 4.0.4; ARCHOS 80G9 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19',
+                'Chrome',
+                '18.0.1025.166',
+                18.01025166
+            ),
+            array(
+                'Mozilla/5.0 (BlackBerry; U; BlackBerry 9700; en-US) AppleWebKit/534.8  (KHTML, like Gecko) Version/6.0.0.448 Mobile Safari/534.8',
+                'BlackBerry',
+                '6.0.0.448',
+                6.00448
+            ),
+            array(
+                'Mozilla/5.0 (BlackBerry; U; BlackBerry 9700; en-US) AppleWebKit/534.8  (KHTML, like Gecko) Version/6.0.0.448 Mobile Safari/534.8',
+                'Webkit',
+                '534.8',
+                534.8
+            ),
+            array(
+                'Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; en-GB) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.546 Mobile Safari/534.8+',
+                'BlackBerry',
+                '6.0.0.546',
+                6.00546
+            )
+        );
+    }
+
+    /**
+     * @dataProvider versionDataProvider
+     * @covers Mobile_Detect::version
+     */
+    public function testVersionExtraction($userAgent, $property, $stringVersion, $floatVersion)
+    {
+        $md = new Mobile_Detect(array('HTTP_USER_AGENT' => $userAgent));
+        $prop = $md->version($property);
+
+        $this->assertSame($stringVersion, $prop);
+
+        $prop = $md->version($property, 'float');
+        $this->assertSame($floatVersion, $prop);
+
+        //assert that garbage data is always === false
+        $prop = $md->version('garbage input is always garbage');
+        $this->assertFalse($prop);
+    }
+
+    /**
+     * @covers Mobile_Detect::getMobileDetectionRules
+     */
+    public function testRules()
+    {
+        $md = new Mobile_Detect;
+        $count = array_sum(array(
+            count(Mobile_Detect::getPhoneDevices()),
+            count(Mobile_Detect::getTabletDevices()),
+            count(Mobile_Detect::getOperatingSystems()),
+            count(Mobile_Detect::getUserAgents())
+        ));
+        $rules = $md->getRules();
+        $this->assertEquals($count, count($rules));
+    }
+
+    /**
+     * @covers Mobile_Detect::getMobileDetectionRulesExtended
+     */
+    public function testRulesExtended()
+    {
+        $md = new Mobile_Detect;
+        $count = array_sum(array(
+            count(Mobile_Detect::getPhoneDevices()),
+            count(Mobile_Detect::getTabletDevices()),
+            count(Mobile_Detect::getOperatingSystems()),
+            count(Mobile_Detect::getUserAgents()),
+            count(Mobile_Detect::getUtilities())
+        ));
+        $md->setDetectionType(Mobile_Detect::DETECTION_TYPE_EXTENDED);
+        $rules = $md->getRules();
+        $this->assertEquals($count, count($rules));
+    }
+
+    /**
+     * @covers Mobile_Detect::getScriptVersion
+     */
+    public function testScriptVersion()
+    {
+        $v = Mobile_Detect::getScriptVersion();
+        if (!preg_match('/^[0-9]+\.[0-9]+\.[0-9](-[a-zA-Z0-9])?$/', $v)) {
+            $this->fail("Fails the semantic version test. The version " . var_export($v, true)
+                . ' does not match X.Y.Z pattern');
+        }
+    }
+
+    public function crazyVersionNumbers()
+    {
+        return array(
+            array('2.5.6', 2.56),
+            array('12142.2142.412521.24.152', 12142.214241252124152),
+            array('6_3', 6.3),
+            array('4_7  /7 7 12_9', 4.777129),
+            array('49', 49.0),
+            array('2.6.x', 2.6),
+            array('45.6.1.x.12', 45.61)
+        );
+    }
+
+    /**
+     * @dataProvider crazyVersionNumbers
+     * @covers Mobile_Detect::prepareVersionNo
+     */
+    public function testPrepareVersionNo($raw, $expected)
+    {
+        $md = new Mobile_Detect;
+        $actual = $md->prepareVersionNo($raw);
+        $this->assertSame($expected, $actual, "We expected " . var_export($raw, true) . " to convert to "
+            . var_export($expected, true) . ', but got ' . var_export($actual, true) . ' instead');
     }
 }
