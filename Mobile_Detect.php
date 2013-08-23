@@ -279,7 +279,7 @@ class Mobile_Detect
      *
      * @var array
      */
-    protected static $userAgents = array(
+    protected static $browsers = array(
         // @reference: https://developers.google.com/chrome/mobile/docs/user-agent
         'Chrome'          => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
         'Dolfin'          => '\bDolfin\b',
@@ -560,13 +560,23 @@ class Mobile_Detect
     }
 
     /**
-     * Retrieve the list of known user agents.
+     * Alias for getBrowsers() method.
      *
      * @return array List of user agents.
      */
     public static function getUserAgents()
     {
-        return self::$userAgents;
+        return self::getBrowsers();
+    }
+
+    /**
+     * Retrieve the list of known browsers. Specifically, the user agents.
+     *
+     * @return array List of browsers / user agents.
+     */
+    public static function getBrowsers()
+    {
+        return self::$browsers;
     }
 
     /**
@@ -593,7 +603,7 @@ class Mobile_Detect
                 self::$phoneDevices,
                 self::$tabletDevices,
                 self::$operatingSystems,
-                self::$userAgents
+                self::$browsers
             );
         }
 
@@ -619,7 +629,7 @@ class Mobile_Detect
                 self::$phoneDevices,
                 self::$tabletDevices,
                 self::$operatingSystems,
-                self::$userAgents,
+                self::$browsers,
                 self::$utilities
             );
         }

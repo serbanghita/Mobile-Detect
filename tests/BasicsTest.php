@@ -400,7 +400,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
             count(Mobile_Detect::getPhoneDevices()),
             count(Mobile_Detect::getTabletDevices()),
             count(Mobile_Detect::getOperatingSystems()),
-            count(Mobile_Detect::getUserAgents())
+            count(Mobile_Detect::getBrowsers())
         ));
         $rules = $md->getRules();
         $this->assertEquals($count, count($rules));
@@ -416,7 +416,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
             count(Mobile_Detect::getPhoneDevices()),
             count(Mobile_Detect::getTabletDevices()),
             count(Mobile_Detect::getOperatingSystems()),
-            count(Mobile_Detect::getUserAgents()),
+            count(Mobile_Detect::getBrowsers()),
             count(Mobile_Detect::getUtilities())
         ));
         $md->setDetectionType(Mobile_Detect::DETECTION_TYPE_EXTENDED);
