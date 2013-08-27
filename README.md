@@ -38,7 +38,7 @@ Special thanks to [Dragos Gavrila](https://twitter.com/grafician) who contribute
 
 ##### Contributing
 
-<a href="CONTRIBUTE.md">How to contribute</a>
+<a href="https://github.com/serbanghita/Mobile-Detect/wiki/Become-a-contributor">Become a contributor</a>
 
 ##### History
 
