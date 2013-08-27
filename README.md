@@ -222,8 +222,13 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 
 <tr>
     <td>UserAgentInfo</td>
-    <td><p><a href="https://github.com/quentin389/UserAgentInfo">UserAgentInfo</a> is a PHP class for parsing user agent strings (HTTP_USER_AGENT). Includes mobile checks, bot checks, browser types/versions and more. 
+    <td><p><a href="https://github.com/quentin389/UserAgentInfo">UserAgentInfo</a> is a PHP class for parsing user agent strings (HTTP_USER_AGENT). Includes mobile checks, bot checks, browser types/versions and more.
 Based on browscap, Mobile_Detect and ua-parser. Created for high traffic websites and fast batch processing. Made by <a href="https://github.com/quentin389">quentin389</a></p></td>
+</tr>
+
+<tr>
+<td>RexBrowscap</td>
+<td><p><a href="https://github.com/jdlx/_rex_browscap">RexBrowscap</a> - Addon for Redaxo CMS - bundles phpbrowscap, mobile-detect and some client side funcs for detecting UA capabilities in one package. Made by <a href="https://github.com/jdlx">jdlx</a></p></td>
 </tr>
 
 </table>
