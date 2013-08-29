@@ -20,21 +20,21 @@ Sometimes is hard to distinguish between a phone and a tablet, this is why we're
 
 <a href="https://github.com/serbanghita/Mobile-Detect/tags">Latest releases</a>, <a href="https://github.com/serbanghita/Mobile-Detect/blob/devel/Mobile_Detect.php">Latest dev branch</a>, <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib">composer package</a>
 
-See also: <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Become-a-contributor">Become a contributor</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/History">History</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples">Code examples</a> / 
-<a href="http://is.gd/mobiletest">Live demo!</a> (point your device browser to this URL)
+See also: <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Become-a-contributor">:bulb: Become a contributor</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/History">:coffee: History</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples">:point_right: Code examples</a> / 
+<a href="http://is.gd/mobiletest">:iphone: Live demo!</a> (point your device browser to this URL)
 
 ##### Help
 
 <a href='http://www.pledgie.com/campaigns/18179'><img alt='Click here to lend your support to: Funding development of Mobile_Detect 3.0 and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/18179.png?skin_name=chrome' border='0' /></a>
 
-I'm currently paying for hosting and spend a lot of my family time to maintain the project and planning the future releases.
+I'm currently paying for hosting and spend a lot of my family time :family: to maintain the project and planning the future releases.
 I would highly appreciate any money donations that will keep the research going.
 
-Special thanks to the community for donations, [BrowserStack](http://browserstack.com) - for providing access to their great platform, [Zend](http://zend.com) - for donating licenses, [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
+Special thanks to the community :+1: for donations, [BrowserStack](http://browserstack.com) - for providing access to their great platform, [Zend](http://zend.com) - for donating licenses, [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
 
 ##### 3rd party modules / [Submit new](https://github.com/serbanghita/Mobile-Detect/issues/new?title=New%203rd%20party%20module&body=Name, Link and Description of the module.)
 
-The recommendation is that you keep Mobile_Detect.php class in a separate module and not include it in your script core because of the high frequency of updates.
+:point_right: The recommendation is that you keep Mobile_Detect.php class in a separate module and not include it in your script core because of the high frequency of updates.
 
 <table>
 
