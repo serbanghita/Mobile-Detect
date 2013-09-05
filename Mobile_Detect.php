@@ -147,7 +147,7 @@ class Mobile_Detect
         // @ref: http://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
         'SurfaceTablet'     => 'Windows NT [0-9.]+; ARM;',
         // @note: watch out for PadFone, see #132
-        'AsusTablet'        => 'Transformer|TF101|^.*PadFone((?!Mobile).)*$|ME301T|ME371MG',
+        'AsusTablet'        => 'Transformer|TF\d\d\d|^.*PadFone((?!Mobile).)*$|ME301T|ME371MG',
         'BlackBerryTablet'  => 'PlayBook|RIM Tablet',
         'HTCtablet'         => 'HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200',
         'MotorolaTablet'    => 'xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617',
