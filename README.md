@@ -25,7 +25,8 @@ See also: <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Become-a-co
 
 ##### Help
 
-<a href='http://www.pledgie.com/campaigns/18179'><img alt='Click here to lend your support to: Funding development of Mobile_Detect 3.0 and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/18179.png?skin_name=chrome' border='0' /></a>
+<a href="http://pledgie.com/campaigns/21856"><img alt='Click here to lend your support to: Research and development of Mobile Detect library!' src='http://www.pledgie.com/campaigns/21856.png?skin_name=chrome' border='0' /></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mobiledetectlib%40gmail%2ecom&lc=US&item_name=Mobile%20Detect&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0"></a>
 
 I'm currently paying for hosting and spend a lot of my family time :family: to maintain the project and planning the future releases.
 I would highly appreciate any money donations that will keep the research going.
