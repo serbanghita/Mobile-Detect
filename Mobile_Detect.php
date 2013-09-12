@@ -255,8 +255,13 @@ class Mobile_Detect
      * @var array
      */
     protected static $consoleDevices = array(
-        'Xbox'        => '\bXbox',
-        'Playstation' => 'PLAYSTATION|PlayStation'
+        'Microsoft Xbox 360'        => '\bXbox',
+        'Sony Playstation 3'        => 'PLAYSTATION 3|PlayStation 3',
+        'Sony Playstation Portable' => 'PlayStation Portable',
+        'Sony Playstation Vita'     => 'PlayStation Vita|Playstation Vita',
+        'Nintendo Wii'              => '\bWii;|\bWiiU',
+        'Nintendo 3DS'              => 'Nintendo 3DS',
+        'Nintendo DSi'              => 'Nintendo DSi'
     );
 
     /**
