@@ -34,7 +34,7 @@
 
 require_once '../Mobile_Detect.php';
 $detect = new Mobile_Detect;
-$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
+$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : ($detect->isConsole() ? 'video game console' : 'computer'));
 $scriptVersion = $detect->getScriptVersion();
 
 ?><!DOCTYPE html>
