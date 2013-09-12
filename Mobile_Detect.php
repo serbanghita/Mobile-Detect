@@ -250,6 +250,16 @@ class Mobile_Detect
     );
 
     /**
+     * List of console devices (video game consoles).
+     *
+     * @var array
+     */
+    protected static $consoleDevices = array(
+        'Xbox'        => '\bXbox',
+        'Playstation' => 'PLAYSTATION|PlayStation'
+    );
+
+    /**
      * List of mobile Operating Systems.
      *
      * @var array
@@ -803,6 +813,24 @@ class Mobile_Detect
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
         foreach (self::$tabletDevices as $_regex) {
+            if ($this->match($_regex, $userAgent)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if the device is a video game console.
+     * Return true if any type of video game console is detected.
+     *
+     * @param  string $userAgent   deprecated
+     * @return bool
+     */
+    public function isConsole($userAgent = null)
+    {
+        foreach (self::$consoleDevices as $_regex) {
             if ($this->match($_regex, $userAgent)) {
                 return true;
             }
