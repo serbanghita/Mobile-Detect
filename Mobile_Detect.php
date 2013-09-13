@@ -36,16 +36,22 @@ class Mobile_Detect
 {
     /**
      * Mobile detection type.
+     *
+     * @deprecated since version 2.6.9
      */
     const DETECTION_TYPE_MOBILE     = 'mobile';
 
     /**
      * Extended detection type.
+     *
+     * @deprecated since version 2.6.9
      */
     const DETECTION_TYPE_EXTENDED   = 'extended';
 
     /**
      * A frequently used regular expression to extract version #s.
+     *
+     * @deprecated since version 2.6.9
      */
     const VER                       = '([\w._\+]+)';
 
@@ -93,6 +99,8 @@ class Mobile_Detect
 
     /**
      * The detection type, using self::DETECTION_TYPE_MOBILE or self::DETECTION_TYPE_EXTENDED.
+     *
+     * @deprecated since version 2.6.9
      *
      * @var string
      */
@@ -527,6 +535,8 @@ class Mobile_Detect
      * Set the detection type. Must be one of self::DETECTION_TYPE_MOBILE or
      * self::DETECTION_TYPE_EXTENDED. Otherwise, nothing is set.
      *
+     * @deprecated since version 2.6.9
+     *
      * @param string $type The type. Must be a self::DETECTION_TYPE_* constant. The default
      *                     parameter is null which will default to self::DETECTION_TYPE_MOBILE.
      */
@@ -596,6 +606,8 @@ class Mobile_Detect
     /**
      * Method gets the mobile detection rules. This method is used for the magic methods $detect->is*().
      *
+     * @deprecated since version 2.6.9
+     *
      * @return array All the rules (but not extended).
      */
     public static function getMobileDetectionRules()
@@ -621,6 +633,8 @@ class Mobile_Detect
      * don't necessary imply mobile. This method is used inside
      * the new $detect->is('stuff') method.
      *
+     * @deprecated since version 2.6.9
+     *
      * @return array All the rules + extended.
      */
     public function getMobileDetectionRulesExtended()
@@ -643,6 +657,8 @@ class Mobile_Detect
 
     /**
      * Retrieve the current set of rules.
+     *
+     * @deprecated since version 2.6.9
      *
      * @return array
      */
