@@ -198,6 +198,13 @@ return array(
             'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; DELL; Venue Pro)'                                                          => array('isMobile' => true, 'isTablet' => false),
     ),
 
+    'Eboda' => array(
+            'Mozilla/5.0 (Linux; U; Android 4.1.1; ro-ro; E-Boda Supreme Dual Core X190 Build/JRO03C) AppleWebKit/534.30 (KHTML like Gecko) Version/4.0 Safari/534.30'                       => array('isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.1.1', 'Webkit' => '534.30', 'Safari' => '4.0')),
+            'Mozilla/5.0 (Linux; U; Android 4.1.1; ro-ro; E-Boda Essential A160 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'                              => array('isMobile' => true, 'isTablet' => true),
+            'Mozilla/5.0 (Linux; Android 4.0.3; E-Boda Supreme X80 Dual Core Build/ICS.g12refM806A1YBD.20120925) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19' => array('isMobile' => true, 'isTablet' => true),
+            'Mozilla/5.0 (Linux; U; Android 4.1.1; ro-ro; E-boda essential smile Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'                             => array('isMobile' => true, 'isTablet' => true),
+        ),
+
     'Fly'	=> array(
             'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; Fly IQ440; Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'         => array('isMobile' => true, 'isTablet' => false),
             'Mozilla/5.0 (Linux; U; Android 2.3.6; ru-ru; FLY IQ256 Build/GRK39F) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'			=> array('isMobile' => true, 'isTablet' => false),
@@ -564,6 +571,11 @@ return array(
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; Nokia)'                                                                                                 => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; SGH-i917)'                                                                                              => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Nokia; TITAN X310e)'                                                                                           => array('isMobile' => true, 'isTablet' => false, 'version' => array('Windows Phone OS' => '7.5', 'Trident' => '5.0'), 'model' => 'TITAN X310e' ),
+        ),
+
+    'OverMax' => array(
+            'OV-SteelCore(B) Mozilla/5.0 (iPad; CPU OS 5_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A405 Safari/7534.48.3' => array('isMobile' => true, 'isTablet' => true),
+            'Mozilla/5.0 (Linux; U; Android 4.0.4; pl-pl; OV-SteelCore Build/ICS.g08refem611.20121010) AppleWebKit/534.30 (KHTML like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
         ),
 
     'YONESTablet' => array(
