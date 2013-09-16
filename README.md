@@ -5,13 +5,7 @@
 <i>Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
 It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</i>
 
-You may consider this script as being part of the <b>RESS</b> (Responsive Web Design with Server-Side Component) movement. You can find out more on the topic by reading these articles: <a href="http://mobile.smashingmagazine.com/2013/04/09/improve-mobile-support-with-server-side-enhanced-responsive-design/">Improve Mobile Support With Server-Side-Enhanced Responsive Design</a> and <a href="http://www.lukew.com/ff/entry.asp?1392">RESS: Responsive Design + Server Side Components</a>.
-
-Related presentations: <a href="http://www.slideshare.net/pgodel/creating-mobile-apps-with-php-symfony2">Creating mobile apps with PHP &amp; Symfony2 (2013)</a>, <a href="http://www.w3.org/2013/Talks/responsive-design.pdf">Responsive Design (2013)</a>
-
-## Demo
-
-http://is.gd/mobiletest (redirects to demo.mobiledetect.net) - Point your device browser to this URL.
+You may consider this script as being part of the <b>RESS</b> (Responsive Web Design with Server-Side Component) movement. You can find out more on the topic by reading these articles: <a href="http://mobile.smashingmagazine.com/2013/04/09/improve-mobile-support-with-server-side-enhanced-responsive-design/">Improve Mobile Support With Server-Side-Enhanced Responsive Design</a> and <a href="http://www.lukew.com/ff/entry.asp?1392">RESS: Responsive Design + Server Side Components</a>. Related presentations: <a href="http://www.slideshare.net/pgodel/creating-mobile-apps-with-php-symfony2">Creating mobile apps with PHP &amp; Symfony2 (2013)</a>, <a href="http://www.w3.org/2013/Talks/responsive-design.pdf">Responsive Design (2013)</a>
 
 ##### How reliable is this script?
 
@@ -22,95 +16,26 @@ We're running [automated tests](./tests) to make sure the we don't break the det
 The script is updated on <b>daily</b> and <b>weekly</b> basis, so make sure you keep following the updates!
 Sometimes is hard to distinguish between a phone and a tablet, this is why we're constantly researching a lot of mobile vendors sites, checking product codes and new releases.
 
-## Download
+##### Download and demo
 
 <a href="https://github.com/serbanghita/Mobile-Detect/tags">Latest releases</a>, <a href="https://github.com/serbanghita/Mobile-Detect/blob/devel/Mobile_Detect.php">Latest dev branch</a>, <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib">composer package</a>
 
-## Help
+See also: <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Become-a-contributor">:bulb: Become a contributor</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/History">:coffee: History</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples">:point_right: Code examples</a> / 
+<a href="http://is.gd/mobiletest">:iphone: Live demo!</a> (point your device browser to this URL)
 
-<a href='http://www.pledgie.com/campaigns/18179'><img alt='Click here to lend your support to: Funding development of Mobile_Detect 3.0 and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/18179.png?skin_name=chrome' border='0' /></a>
+##### Help
 
-I'm currently paying for hosting and spend a lot of my family time to maintain the project and planning the future releases.
+<a href="http://pledgie.com/campaigns/21856"><img alt='Click here to lend your support to: Research and development of Mobile Detect library!' src='http://www.pledgie.com/campaigns/21856.png?skin_name=chrome' border='0' /></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mobiledetectlib%40gmail%2ecom&lc=US&item_name=Mobile%20Detect&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0"></a>
+
+I'm currently paying for hosting and spend a lot of my family time :family: to maintain the project and planning the future releases.
 I would highly appreciate any money donations that will keep the research going.
 
-Sponsored by the community and by [BrowserStack](http://www.browserstack.com) - the complete browser coverage tool (including mobile devices) for testing you web application.
-Special thanks to [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
+Special thanks to the community :+1: for donations, [BrowserStack](http://browserstack.com) - for providing access to their great platform, [Zend](http://zend.com) - for donating licenses, [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
 
-##### Contributing
+##### 3rd party modules / [Submit new](https://github.com/serbanghita/Mobile-Detect/issues/new?title=New%203rd%20party%20module&body=Name, Link and Description of the module.)
 
-<a href="CONTRIBUTE.md">How to contribute</a>
-
-##### History
-
-The first version of the script was developed by Victor Stanciu in 2010.
-In December 2011, [Serban Ghita](http://twitter.com/serbanghita) updated the first version and fixed all the bugs, then launched the 2.0 version which marks a new mindset and also featuring tablet detection.
-
-Throughout 2012, the script has been updated constantly and we have received tons of feedback and requests. In July 2012 we moved from [Google Code](http://code.google.com/p/php-mobile-detect/) to GitHub.com in order to quickly accommodate the frequent updates and to involve more people.
-
-## Code examples
-
-```php
-<?php
-// Include and instantiate the class.
-require_once 'Mobile_Detect.php';
-$detect = new Mobile_Detect;
-
-// Any mobile device (phones or tablets).
-if ( $detect->isMobile() ) {
-
-}
-
-// Any tablet device.
-if( $detect->isTablet() ){
-
-}
-
-// Exclude tablets.
-if( $detect->isMobile() && !$detect->isTablet() ){
-
-}
-
-// Check for a specific platform with the help of the magic methods:
-if( $detect->isiOS() ){
-
-}
-
-if( $detect->isAndroidOS() ){
-
-}
-
-// Alternative method is() for checking specific properties.
-// WARNING: this method is in BETA, some keyword properties will change in the future.
-$detect->is('Chrome')
-$detect->is('iOS')
-$detect->is('UC Browser')
-// [...]
-
-// Batch mode using setUserAgent():
-$userAgents = array(
-'Mozilla/5.0 (Linux; Android 4.0.4; Desire HD Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
-'BlackBerry7100i/4.1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103',
-// [...]
-);
-foreach($userAgents as $userAgent){
-
-  $detect->setUserAgent($userAgent);
-  $isMobile = $detect->isMobile();
-  $isTablet = $detect->isTablet();
-  // Use the force however you want.
-
-}
-
-// Get the version() of components.
-// WARNING: this method is in BETA, some keyword properties will change in the future.
-$detect->version('iPad'); // 4.3 (float)
-$detect->version('iPhone') // 3.1 (float)
-$detect->version('Android'); // 2.1 (float)
-$detect->version('Opera Mini'); // 5.0 (float)
-// [...]
-```
-
-## 3rd party modules / [Submit new](https://github.com/serbanghita/Mobile-Detect/issues/new?title=New%203rd%20party%20module&body=Name, Link and Description of the module.)
+:point_right: The recommendation is that you keep Mobile_Detect.php class in a separate module and not include it in your script core because of the high frequency of updates.
 
 <table>
 
