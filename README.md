@@ -20,7 +20,7 @@ Sometimes is hard to distinguish between a phone and a tablet, this is why we're
 
 <a href="https://github.com/serbanghita/Mobile-Detect/tags">Latest releases</a>, <a href="https://github.com/serbanghita/Mobile-Detect/blob/devel/Mobile_Detect.php">Latest dev branch</a>, <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib">composer package</a>
 
-See also: <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Become-a-contributor">:bulb: Become a contributor</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/History">:coffee: History</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples">:point_right: Code examples</a> / 
+See also: <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Become-a-contributor">:bulb: Become a contributor</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/History">:coffee: History</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples">:point_right: Code examples</a> /
 <a href="http://is.gd/mobiletest">:iphone: Live demo!</a> (point your device browser to this URL)
 
 ##### Help
@@ -120,6 +120,11 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
   <td><p><a href="https://github.com/sergeifilippov/statamic-mobile-detect">Statamic CMS Mobile Detect</a> - <code>plugin</code>. Made by <a href="https://github.com/sergeifilippov">Sergei Filippov</a>.</p></td>
 </tr>
 
+<tr>
+  <td>mobile-detect.js</td>
+  <td><p>A loose port of Mobile-Detect to JavaScript. Made by <a href="https://github.com/hgoebl">Heinrich Goebl</a></p></td>
+  </tr>
+
  <tr>
       <td>python</td>
       <td><p><a href="http://pypi.python.org/pypi/pymobiledetect">pymobiledetect</a> - Mobile detect <code>python package</code>. Made by Bas van Oostveen.</p></td>
@@ -154,6 +159,11 @@ Based on browscap, Mobile_Detect and ua-parser. Created for high traffic website
 <tr>
 <td>RexBrowscap</td>
 <td><p><a href="https://github.com/jdlx/_rex_browscap">RexBrowscap</a> - Addon for Redaxo CMS - bundles phpbrowscap, mobile-detect and some client side funcs for detecting UA capabilities in one package. Made by <a href="https://github.com/jdlx">jdlx</a></p></td>
+</tr>
+
+<tr>
+  <td>LJ Mobile Detect</td>
+  <td><p><a href="https://github.com/lewisjenkins/craft-lj-mobiledetect">LJ Mobile Detect</a> is a simple implementation of Mobile Detect for Craft CMS. Made by <a href="https://github.com/lewisjenkins">Lewis Jenkins</a></p></td>
 </tr>
 
 </table>
