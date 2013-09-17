@@ -121,8 +121,8 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 </tr>
 
 <tr>
-  <td><a href="https://github.com/hgoebl/mobile-detect.js">mobile-detect.js</a></td>
-  <td><p>A loose port of Mobile-Detect to JavaScript. Made by <a href="https://github.com/hgoebl">Heinrich Goebl</a></p></td>
+  <td>mobile-detect.js</td>
+  <td><p>A <a href="https://github.com/hgoebl/mobile-detect.js">JavaScript port</a> of Mobile-Detect class. Made by <a href="https://github.com/hgoebl">Heinrich Goebl</a></p></td>
   </tr>
 
  <tr>
@@ -162,8 +162,8 @@ Based on browscap, Mobile_Detect and ua-parser. Created for high traffic website
 </tr>
 
 <tr>
-  <td>LJ Mobile Detect</td>
-  <td><p><a href="https://github.com/lewisjenkins/craft-lj-mobiledetect">Craft CMS</a> is a simple implementation of Mobile Detect for Craft CMS. Made by <a href="https://github.com/lewisjenkins">Lewis Jenkins</a></p></td>
+  <td>Craft CMS</td>
+  <td><p><a href="https://github.com/lewisjenkins/craft-lj-mobiledetect">LJ Mobile Detect</a> is a simple implementation of Mobile Detect for Craft CMS. Made by <a href="https://github.com/lewisjenkins">Lewis Jenkins</a></p></td>
 </tr>
 
 </table>
