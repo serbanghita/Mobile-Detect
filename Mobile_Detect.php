@@ -877,6 +877,64 @@ class Mobile_Detect
     }
 
     /**
+     * getPropetyDetail()
+     * Returns the value of the property of the identified device
+     * @param string $method
+     * @return string
+     * @throws \UnexpectedValueException
+     */
+    protected function getPropetyDetail( $method) {
+        if ( ! method_exists($this, $method)) {
+            throw new UnexpectedValueException( 'Method name ' . $method .' was not expected' );
+        }
+        foreach($this->$method() as $name => $regex) {
+            $check = $this->{'is'.$name}();
+            if ($check) return $name;
+        }
+        return '';
+    }
+
+    /**
+     * getBrand()
+     * Returns the name of the "brand"
+     * @return string
+     * @throws \UnexpectedValueException
+     */
+    public function getBrand() {
+        return $this->getPropetyDetail('getRules');
+    }
+
+    /**
+     * getOs()
+     * Returns the name of the "OS"
+     * @return string
+     * @throws \UnexpectedValueException
+     */
+    public function getOs() {
+        return $this->getPropetyDetail('getOperatingSystems');
+    }
+
+    /**
+     * getTabletMake()
+     * Returns the make of the tablet
+     * @return string
+     * @throws \UnexpectedValueException
+     */
+    public function getTabletMake() {
+        return $this->getPropetyDetail('getTabletDevices');
+    }
+
+    /**
+     * getPhoneMake()
+     * Returns the make of the phone
+     * @return string
+     * @throws \UnexpectedValueException
+     */
+    public function getPhoneMake() {
+        return $this->getPropetyDetail('getPhoneDevices');
+    }
+
+    /**
      * Some detection rules are relative (not standard),
      * because of the diversity of devices, vendors and
      * their conventions in representing the User-Agent or
