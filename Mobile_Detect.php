@@ -1,35 +1,26 @@
 <?php
 /**
- * MIT License
- * ===========
+ * Mobile Detect Library
+ * =====================
  *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
+ * Motto: "Every business should have a mobile detection script to detect mobile readers"
  *
- * The above copyright notice and this permission notice shall be included
- * in all copies or substantial portions of the Software.
+ * Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
+ * It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
- * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
- * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
- * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
- * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * @author      Current authors: Serban Ghita <serbanghita@gmail.com>, Nick Ilyin <nick.ilyin@gmail.com>
+ *              Original author: Victor Stanciu <vic.stanciu@gmail.com>
  *
+ * @license     Code and contributions have 'MIT License'
+ *              More details: https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  *
- * @author      Serban Ghita <serbanghita@gmail.com>
- *              Victor Stanciu <vic.stanciu@gmail.com> (until v. 1.0)
- * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
- * @link        Official page: http://mobiledetect.net
- *              GitHub Repository: https://github.com/serbanghita/Mobile-Detect
- *              Google Code Old Page: http://code.google.com/p/php-mobile-detect/
- * @version     2.7.2
+ * @link        Homepage:     http://mobiledetect.net
+ *              GitHub Repo:  https://github.com/serbanghita/Mobile-Detect
+ *              Google Code:  http://code.google.com/p/php-mobile-detect/
+ *              README:       https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
+ *              HOWTO:        https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
+ *
+ * @version     2.7.3
  */
 
 class Mobile_Detect
@@ -73,7 +64,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.7.2';
+    const VERSION                   = '2.7.3';
 
     /**
      * A type for the version() method indicating a string return value.
@@ -105,6 +96,43 @@ class Mobile_Detect
      * @var string
      */
     protected $detectionType = self::DETECTION_TYPE_MOBILE;
+
+    /**
+     * HTTP headers that trigger the 'isMobile' detection
+     * to be true.
+     *
+     * @var array
+     */
+    protected static $mobileHeaders = array(
+
+            'HTTP_ACCEPT'                  => array('matches' => array(
+                                                                        // Opera Mini; @reference: http://dev.opera.com/articles/view/opera-binary-markup-language/
+                                                                        'application/x-obml2d',
+                                                                        // BlackBerry devices.
+                                                                        'application/vnd.rim.html',
+                                                                        'text/vnd.wap.wml',
+                                                                        'application/vnd.wap.xhtml+xml'
+                                            )),
+            'HTTP_X_WAP_PROFILE'           => null,
+            'HTTP_X_WAP_CLIENTID'          => null,
+            'HTTP_WAP_CONNECTION'          => null,
+            'HTTP_PROFILE'                 => null,
+            // Reported by Opera on Nokia devices (eg. C3).
+            'HTTP_X_OPERAMINI_PHONE_UA'    => null,
+            'HTTP_X_NOKIA_IPADDRESS'       => null,
+            'HTTP_X_NOKIA_GATEWAY_ID'      => null,
+            'HTTP_X_ORANGE_ID'             => null,
+            'HTTP_X_VODAFONE_3GPDPCONTEXT' => null,
+            'HTTP_X_HUAWEI_USERID'         => null,
+            // Reported by Windows Smartphones.
+            'HTTP_UA_OS'                   => null,
+            // Reported by Verizon, Vodafone proxy system.
+            'HTTP_X_MOBILE_GATEWAY'        => null,
+            // Seend this on HTC Sensation. @ref: SensationXE_Beats_Z715e.
+            'HTTP_X_ATT_DEVICEID'          => null,
+            // Seen this on a HTC.
+            'HTTP_UA_CPU'                  => array('matches' => 'ARM'),
+    );
 
     /**
      * List of mobile devices (phones).
@@ -150,14 +178,14 @@ class Mobile_Detect
         'NexusTablet'       => '^.*Android.*Nexus(((?:(?!Mobile))|(?:(\s(7|10).+))).)*$',
         'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|GT-P1000|GT-P1003|GT-P1010|GT-P3105|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P3100|GT-P3108|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7320|GT-P7511|GT-N8000|GT-P8510|SGH-I497|SPH-P500|SGH-T779|SCH-I705|SCH-I915|GT-N8013|GT-P3113|GT-P5113|GT-P8110|GT-N8010|GT-N8005|GT-N8020|GT-P1013|GT-P6201|GT-P7501|GT-N5100|GT-N5110|SHV-E140K|SHV-E140L|SHV-E140S|SHV-E150S|SHV-E230K|SHV-E230L|SHV-E230S|SHW-M180K|SHW-M180L|SHW-M180S|SHW-M180W|SHW-M300W|SHW-M305W|SHW-M380K|SHW-M380S|SHW-M380W|SHW-M430W|SHW-M480K|SHW-M480S|SHW-M480W|SHW-M485W|SHW-M486W|SHW-M500W|GT-I9228|SCH-P739|SCH-I925|GT-I9200|GT-I9205|GT-P5200|GT-P5210|SM-T311|SM-T310|SM-T210|SM-T210R|SM-T211|SM-P600|SM-P601|SM-P605|SM-P900|SM-T217|SM-T217A|SM-T217S|SM-P6000|SM-T3100|SGH-I467|XE500',
         // @reference: http://www.labnol.org/software/kindle-user-agent-string/20378/
-        'Kindle'            => 'Kindle|Silk.*Accelerated|Android.*\b(KFTT|KFOTE|WFJWAE)\b',
+        'Kindle'            => 'Kindle|Silk.*Accelerated|Android.*\b(KFOT|KFTT|KFJWI|KFJWA|KFOTE|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|WFJWAE)\b',
         // Only the Surface tablets with Windows RT are considered mobile.
         // @ref: http://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
         'SurfaceTablet'     => 'Windows NT [0-9.]+; ARM;',
         // @ref: http://shopping1.hp.com/is-bin/INTERSHOP.enfinity/WFS/WW-USSMBPublicStore-Site/en_US/-/USD/ViewStandardCatalog-Browse?CatalogCategoryID=JfIQ7EN5lqMAAAEyDcJUDwMT
         'HPTablet'          => 'HP Slate 7|HP ElitePad 900|hp-tablet|EliteBook.*Touch',
         // @note: watch out for PadFone, see #132
-        'AsusTablet'        => '^.*PadFone((?!Mobile).)*$|Transformer|TF101|TF101G|TF300T|TF300TG|TF300TL|TF700T|TF700KL|TF701T|TF810C|ME171|ME301T|ME371MG|ME370T|ME372MG|ME172V|ME173X|ME400C|Slider SL101',
+        'AsusTablet'        => '^.*PadFone((?!Mobile).)*$|Transformer|TF101|TF101G|TF300T|TF300TG|TF300TL|TF700T|TF700KL|TF701T|TF810C|ME171|ME301T|ME302C|ME371MG|ME370T|ME372MG|ME172V|ME173X|ME400C|Slider SL101',
         'BlackBerryTablet'  => 'PlayBook|RIM Tablet',
         'HTCtablet'         => 'HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200',
         'MotorolaTablet'    => 'xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617',
@@ -272,7 +300,7 @@ class Mobile_Detect
         'Hudl'              => 'Hudl HT7S3',
         // @ref: http://www.telstra.com.au/home-phone/thub-2/
         'TelstraTablet'     => 'T-Hub2',
-        'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|BNTV250A|MID-WCDMA|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|rk30sdk|\bEVOTAB\b|SmartTabII10',
+        'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|BNTV250A|MID-WCDMA|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|rk30sdk|\bEVOTAB\b|SmartTabII10|SmartTab10',
     );
 
     /**
@@ -353,6 +381,26 @@ class Mobile_Detect
         'MobileBot'   => 'Googlebot-Mobile|DoCoMo|YahooSeeker/M1A1-R2D2',
         'Console'     => '\b(Nintendo|Nintendo WiiU|PLAYSTATION|Xbox)\b',
         'Watch'       => 'SM-V700',
+    );
+
+    /**
+     * All possible HTTP headers that represent the
+     * User-Agent string.
+     *
+     * @var array
+     */
+    protected static $uaHttpHeaders = array(
+        // The default User-Agent string.
+        'HTTP_USER_AGENT',
+        // Header can occur on devices using Opera Mini.
+        'HTTP_X_OPERAMINI_PHONE_UA',
+        // Vodafone specific header: http://www.seoprinciple.com/mobile-web-community-still-angry-at-vodafone/24/
+        'HTTP_X_DEVICE_USER_AGENT',
+        'HTTP_X_ORIGINAL_USER_AGENT',
+        'HTTP_X_SKYFIRE_PHONE',
+        'HTTP_X_BOLT_PHONE_UA',
+        'HTTP_DEVICE_STOCK_UA',
+        'HTTP_X_UCBROWSER_DEVICE_UA'
     );
 
     /**
@@ -516,6 +564,22 @@ class Mobile_Detect
         }
     }
 
+    public function getMobileHeaders()
+    {
+        return self::$mobileHeaders;
+    }
+
+    /**
+     * Get all possible HTTP headers that
+     * can contain the User-Agent string.
+     *
+     * @return array List of HTTP headers.
+     */
+    public function getUaHttpHeaders()
+    {
+        return self::$uaHttpHeaders;
+    }
+
     /**
      * Set the User-Agent to be used.
      *
@@ -524,19 +588,19 @@ class Mobile_Detect
     public function setUserAgent($userAgent = null)
     {
         if (!empty($userAgent)) {
-            $this->userAgent = $userAgent;
+            return $this->userAgent = $userAgent;
         } else {
-            $this->userAgent = $this->getHttpHeader('User-Agent');
 
-            if (empty($this->userAgent)) {
-                $this->userAgent = $this->getHttpHeader('X-Device-User-Agent');
+            $this->userAgent = null;
+
+            foreach($this->getUaHttpHeaders() as $altHeader){
+                if(!empty($this->httpHeaders[$altHeader])){ // @todo: should use getHttpHeader(), but it would be slow. (Serban)
+                    $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
+                }
             }
 
-            //Header can occur on devices using Opera Mini (can expose the real device type).
-            //Let's concatenate it (we need this extra info in the regexes).
-            if ($operaMiniUa = $this->getHttpHeader('X-OperaMini-Phone-UA')) {
-                $this->userAgent .= ' ' . $operaMiniUa;
-            }
+            return $this->userAgent = (!empty($this->userAgent) ? trim($this->userAgent) : null);
+
         }
     }
 
@@ -691,6 +755,16 @@ class Mobile_Detect
     }
 
     /**
+     * Retrieve the list of mobile operating systems.
+     *
+     * @return array The list of mobile operating systems.
+     */
+    public static function getOperatingSystems()
+    {
+        return self::$operatingSystems;
+    }
+
+    /**
     * Check the HTTP headers for signs of mobile.
     * This is the fastest mobile check possible; it's used
     * inside isMobile() method.
@@ -699,30 +773,23 @@ class Mobile_Detect
     */
     public function checkHttpHeadersForMobile()
     {
-        return(
-            isset($this->httpHeaders['HTTP_ACCEPT']) &&
-                (strpos($this->httpHeaders['HTTP_ACCEPT'], 'application/x-obml2d') !== false || // Opera Mini; @reference: http://dev.opera.com/articles/view/opera-binary-markup-language/
-                 strpos($this->httpHeaders['HTTP_ACCEPT'], 'application/vnd.rim.html') !== false || // BlackBerry devices.
-                 strpos($this->httpHeaders['HTTP_ACCEPT'], 'text/vnd.wap.wml') !== false ||
-                 strpos($this->httpHeaders['HTTP_ACCEPT'], 'application/vnd.wap.xhtml+xml') !== false) ||
-            isset($this->httpHeaders['HTTP_X_WAP_PROFILE'])             || // @todo: validate
-            isset($this->httpHeaders['HTTP_X_WAP_CLIENTID'])            ||
-            isset($this->httpHeaders['HTTP_WAP_CONNECTION'])            ||
-            isset($this->httpHeaders['HTTP_PROFILE'])                   ||
-            isset($this->httpHeaders['HTTP_X_OPERAMINI_PHONE_UA'])      || // Reported by Nokia devices (eg. C3)
-            isset($this->httpHeaders['HTTP_X_NOKIA_IPADDRESS'])         ||
-            isset($this->httpHeaders['HTTP_X_NOKIA_GATEWAY_ID'])        ||
-            isset($this->httpHeaders['HTTP_X_ORANGE_ID'])               ||
-            isset($this->httpHeaders['HTTP_X_VODAFONE_3GPDPCONTEXT'])   ||
-            isset($this->httpHeaders['HTTP_X_HUAWEI_USERID'])           ||
-            isset($this->httpHeaders['HTTP_UA_OS'])                     || // Reported by Windows Smartphones.
-            isset($this->httpHeaders['HTTP_X_MOBILE_GATEWAY'])          || // Reported by Verizon, Vodafone proxy system.
-            isset($this->httpHeaders['HTTP_X_ATT_DEVICEID'])            || // Seen this on HTC Sensation. @ref: SensationXE_Beats_Z715e
-            //HTTP_X_NETWORK_TYPE = WIFI
-            ( isset($this->httpHeaders['HTTP_UA_CPU']) &&
-                    $this->httpHeaders['HTTP_UA_CPU'] == 'ARM'          // Seen this on a HTC.
-            )
-        );
+
+        foreach($this->getMobileHeaders() as $mobileHeader => $matchType){
+            if( isset($this->httpHeaders[$mobileHeader]) ){
+                if( is_array($matchType['matches']) ){
+                    foreach($matchType['matches'] as $_match){
+                        if( strpos($this->httpHeaders[$mobileHeader], $_match) !== false ){
+                            return true;
+                        }
+                    }
+                } else {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
     }
 
     /**
@@ -870,16 +937,6 @@ class Mobile_Detect
         $this->setDetectionType(self::DETECTION_TYPE_EXTENDED);
 
         return $this->matchUAAgainstKey($key);
-    }
-
-    /**
-     * Retrieve the list of mobile operating systems.
-     *
-     * @return array The list of mobile operating systems.
-     */
-    public static function getOperatingSystems()
-    {
-        return self::$operatingSystems;
     }
 
     /**
