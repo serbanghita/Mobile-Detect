@@ -7,7 +7,7 @@ It uses the User-Agent string combined with specific HTTP headers to detect the 
 
 Nowadays web site/app <b>content strategy</b> matters, this is why you need all the tools to deliver the best and the fastest experience for the small screens. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool, it is not a replacement for Responsive Web Design (media queries) or other forms of client-side feature detection.
 
-We're commited to make Mobile_Detect the best open-source mobile detection resource and this is why before each release we're running [unit tests](./tests), we also research and update the detection rules on <b>daily</b> and <b>weekly</b> basis. 
+We're commited to make Mobile_Detect the best open-source mobile detection resource and this is why before each release we're running [unit tests](./tests), we also research and update the detection rules on <b>daily</b> and <b>weekly</b> basis.
 
 ##### Download and demo
 
@@ -106,6 +106,11 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
     <td>FuelPHP</td>
     <td><a href="https://github.com/rob-bar/special_agent">Special Agent</a> is a FuelPHP package which uses php-mobile-detect to determine whether a device is mobile or not.
 It overrides the Fuelphp Agent class its methods. Made by <a href="https://github.com/rob-bar">Robbie Bardjin</a>.</td>
+</tr>
+
+<tr>
+  <td>Typo3</td>
+  <td><a href="http://docs.typo3.org/typo3cms/extensions/px_mobiledetect/1.0.2/">px_mobiledetect</a> is an extension that helps to detect visitor's mobile device class (if that’s tablet or mobile device like smartphone). Made by Alexander Tretyak.</td>
 </tr>
 
 <tr>
