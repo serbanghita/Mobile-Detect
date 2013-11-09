@@ -1,0 +1,3 @@
+[submodule "export/nicejson"]
+	path = export/nicejson
+	url = https://github.com/GerHobbelt/nicejson-php.git
