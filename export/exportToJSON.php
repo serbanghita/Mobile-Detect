@@ -17,9 +17,10 @@
 
 // Included nicejson function to beautify the result JSON file.
 // This library is not mandatory.
-include_once 'nicejson/nicejson.php';
+include_once dirname(__FILE__).'/nicejson/nicejson.php';
 
-require_once '../Mobile_Detect.php';
+// Include Mobile Detect.
+require_once dirname(__FILE__).'/../Mobile_Detect.php';
 $detect = new Mobile_Detect;
 
 $json = array(
@@ -53,13 +54,13 @@ $jsonString = function_exists('json_format') ? json_format($json) : json_encode(
 
 // Write the JSON file to disk.
 // You can import this file in your app.
-$fileName = 'export.json';
+$fileName = dirname(__FILE__).'/../Mobile_Detect.json';
 $handle = fopen($fileName, 'w');
 $fwrite = fwrite($handle, $jsonString);
 fclose($handle);
 
 if($fwrite){
-	echo 'Done. Check export/'.$fileName.' file.';
+	echo 'Done. Check '.realpath($fileName).' file.';
 } else {
-	echo 'Failed to write export/'.$fileName.' to disk.';
+	echo 'Failed to write '.realpath($fileName).' to disk.';
 }
