@@ -742,15 +742,15 @@ class Mobile_Detect
      * Retrieve the current set of rules.
      *
      * @deprecated since version 2.6.9
-     *
+     * @param  boolean                 $imp
      * @return array
      */
-    public function getRules()
+    public function getRules($imp = true)
     {
         if ($this->detectionType == self::DETECTION_TYPE_EXTENDED) {
-            return self::getMobileDetectionRulesExtended();
+            return $imp ? implode('|', self::getMobileDetectionRulesExtended()) : self::getMobileDetectionRulesExtended();
         } else {
-            return self::getMobileDetectionRules();
+            return $imp ? implode('|', self::getMobileDetectionRules()) : self::getMobileDetectionRules();
         }
     }
 
@@ -823,14 +823,8 @@ class Mobile_Detect
     */
     private function matchDetectionRulesAgainstUA($userAgent = null)
     {
-        // Begin general search.
-        foreach ($this->getRules() as $_regex) {
-            if (empty($_regex)) {
-                continue;
-            }
-            if ($this->match($_regex, $userAgent)) {
-                return true;
-            }
+        if ($this->match($this->getRules(), $userAgent)) {
+            return true;
         }
 
         return false;
@@ -851,7 +845,7 @@ class Mobile_Detect
         $key = strtolower($key);
 
         //change the keys to lower case
-        $_rules = array_change_key_case($this->getRules());
+        $_rules = array_change_key_case($this->getRules(false));
 
         if (array_key_exists($key, $_rules)) {
             if (empty($_rules[$key])) {
