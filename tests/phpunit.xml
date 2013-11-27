@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-  colors="true"
-  verbose="false"
-  bootstrap="bootstrap.php"
-  convertErrorsToExceptions="true"
-  convertNoticesToExceptions="true"
-  convertWarningsToExceptions="true">
+	backupGlobals="false"
+	strict="true"
+	colors="true"
+	verbose="false"
+	bootstrap="bootstrap.php"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	mapTestClassNameToCoveredClassName="true">
+
+	<php>
+		<ini name="error_reporting" value="-1"/>
+		<ini name="memory_limit" value="1G"/>
+	</php>
 
   <testsuite name="All Mobile Detect tests">
     <directory suffix="Test.php">./</directory>
   </testsuite>
+
+
 
 </phpunit>
