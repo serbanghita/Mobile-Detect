@@ -829,7 +829,7 @@ class Mobile_Detect
     * @param null $userAgent deprecated
     * @return boolean
     */
-    private function matchDetectionRulesAgainstUA($userAgent = null)
+    protected function matchDetectionRulesAgainstUA($userAgent = null)
     {
         // Begin general search.
         foreach ($this->getRules() as $_regex) {
@@ -853,7 +853,7 @@ class Mobile_Detect
     * @param null $userAgent deprecated
     * @return mixed
     */
-    private function matchUAAgainstKey($key, $userAgent = null)
+    protected function matchUAAgainstKey($key, $userAgent = null)
     {
         // Make the keys lowercase so we can match: isIphone(), isiPhone(), isiphone(), etc.
         $key = strtolower($key);
