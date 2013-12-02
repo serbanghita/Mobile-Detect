@@ -164,4 +164,9 @@ Based on browscap, Mobile_Detect and ua-parser. Created for high traffic website
   <td><p><a href="https://github.com/lewisjenkins/craft-lj-mobiledetect">LJ Mobile Detect</a> is a simple implementation of Mobile Detect for Craft CMS. Made by <a href="https://github.com/lewisjenkins">Lewis Jenkins</a></p></td>
 </tr>
 
+<tr>
+  <td>Laravel</td>
+  <td><p><a href="https://github.com/jenssegers/Laravel-Agent">Laravel-Agent</a> a user agent class for Laravel, based on Mobile Detect with some additional functionality. Made by <a href="https://github.com/jenssegers">Jens Segers</a></p></td>
+</tr>
+
 </table>
