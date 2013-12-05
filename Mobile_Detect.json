@@ -1,5 +1,5 @@
 {
-	"version": "2.7.5",
+	"version": "2.7.6",
 	"headerMatch": {
 		"HTTP_ACCEPT": {
 			"matches": [
@@ -23,7 +23,9 @@
 		"HTTP_X_MOBILE_GATEWAY": null,
 		"HTTP_X_ATT_DEVICEID": null,
 		"HTTP_UA_CPU": {
-			"matches": "ARM"
+			"matches": [
+				"ARM"
+			]
 		}
 	},
 	"uaHttpHeaders": [
@@ -78,7 +80,7 @@
 			"MedionTablet": "Android.*\\bOYO\\b|LIFE.*(P9212|P9514|P9516|S9512)|LIFETAB",
 			"ArnovaTablet": "AN10G2|AN7bG3|AN7fG3|AN8G3|AN8cG3|AN7G3|AN9G3|AN7dG3|AN7dG3ST|AN7dG3ChildPad|AN10bG3|AN10bG3DT",
 			"IRUTablet": "M702pro",
-			"MegafonTablet": "MegaFon V9|\\bZTE V9\\b",
+			"MegafonTablet": "MegaFon V9|\\bZTE V9\\b|Android.*\\bMT7A\\b",
 			"EbodaTablet": "E-Boda (Supreme|Impresspeed|Izzycomm|Essential)",
 			"AllViewTablet": "Allview.*(Viva|Alldro|City|Speed|All TV|Frenzy|Quasar|Shine|TX1|AX1|AX2)",
 			"ArchosTablet": "\\b(101G9|80G9|A101IT)\\b|Qilive 97R",
