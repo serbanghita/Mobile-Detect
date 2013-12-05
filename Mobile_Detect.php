@@ -20,7 +20,7 @@
  *              README:       https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
  *              HOWTO:        https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
  *
- * @version     2.7.5
+ * @version     2.7.6
  */
 
 class Mobile_Detect
@@ -64,7 +64,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.7.5';
+    const VERSION                   = '2.7.6';
 
     /**
      * A type for the version() method indicating a string return value.
@@ -131,7 +131,7 @@ class Mobile_Detect
             // Seend this on HTC Sensation. @ref: SensationXE_Beats_Z715e.
             'HTTP_X_ATT_DEVICEID'          => null,
             // Seen this on a HTC.
-            'HTTP_UA_CPU'                  => array('matches' => 'ARM'),
+            'HTTP_UA_CPU'                  => array('matches' => array('ARM')),
     );
 
     /**
@@ -211,7 +211,7 @@ class Mobile_Detect
         'ArnovaTablet'      => 'AN10G2|AN7bG3|AN7fG3|AN8G3|AN8cG3|AN7G3|AN9G3|AN7dG3|AN7dG3ST|AN7dG3ChildPad|AN10bG3|AN10bG3DT',
         // IRU.ru Tablets http://www.iru.ru/catalog/soho/planetable/
         'IRUTablet'         => 'M702pro',
-        'MegafonTablet'     => 'MegaFon V9|\bZTE V9\b',
+        'MegafonTablet'     => 'MegaFon V9|\bZTE V9\b|Android.*\bMT7A\b',
         // @ref: http://www.e-boda.ro/tablete-pc.html
         'EbodaTablet'       => 'E-Boda (Supreme|Impresspeed|Izzycomm|Essential)',
         // @ref: http://www.allview.ro/produse/droseries/lista-tablete-pc/
@@ -790,6 +790,7 @@ class Mobile_Detect
                             return true;
                         }
                     }
+                    return false;
                 } else {
                     return true;
                 }
