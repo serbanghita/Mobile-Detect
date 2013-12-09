@@ -88,6 +88,14 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
   </tr>
 
   <tr>
+    <td>Laravel</td>
+    <td>
+    <p><a href="https://github.com/jenssegers/Laravel-Agent">Laravel-Agent</a> a user agent class for Laravel, based on Mobile Detect with some additional functionality. Made by <a href="https://github.com/jenssegers">Jens Segers</a>.</p>
+    <p><a href="https://github.com/hisorange/browser-detect">BrowserDetect</a>is a browser &amp; mobile detection package, collects and wrap together the best user-agent identifiers for Laravel. Created by <a href="https://github.com/hisorange">Varga Zsolt</a>.</p>
+    </td>
+  </tr>
+
+  <tr>
     <td>ExpressionEngine</td>
     <td><p><a href="https://github.com/garethtdavies/detect-mobile">EE2 Detect Mobile</a> - Lightweight PHP plugin for <code>EE2</code> that detects a mobile browser using the Mobile Detect class. Made by <a href="https://github.com/garethtdavies">Gareth Davies</a>.</p></td>
  </tr>
@@ -162,11 +170,6 @@ Based on browscap, Mobile_Detect and ua-parser. Created for high traffic website
 <tr>
   <td>Craft CMS</td>
   <td><p><a href="https://github.com/lewisjenkins/craft-lj-mobiledetect">LJ Mobile Detect</a> is a simple implementation of Mobile Detect for Craft CMS. Made by <a href="https://github.com/lewisjenkins">Lewis Jenkins</a></p></td>
-</tr>
-
-<tr>
-  <td>Laravel</td>
-  <td><p><a href="https://github.com/jenssegers/Laravel-Agent">Laravel-Agent</a> a user agent class for Laravel, based on Mobile Detect with some additional functionality. Made by <a href="https://github.com/jenssegers">Jens Segers</a></p></td>
 </tr>
 
 </table>
