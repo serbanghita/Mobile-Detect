@@ -49,6 +49,10 @@ return array(
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Acer; Allegro)'                                 => array('isMobile' => true, 'isTablet' => false),
         ),
 
+    'AdvanDigital' => array(
+        'Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; E1C Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
+        ),
+
     'Ainol' => array(
 
         'Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Ainol Novo8 Advanced Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => array('isMobile' => true, 'isTablet' => true),
@@ -208,6 +212,10 @@ return array(
 
         'Mozilla/5.0 (Linux; U; Android 4.0.3; es-es; Dslide 700 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array( 'isMobile' => true, 'isTablet' => true, 'version' => array( 'Android' => '4.0.3', 'Build' => 'IML74K', 'Webkit' => '534.30', 'Safari' => '4.0' ), 'model' => 'Dslide 700' )
 
+        ),
+
+    'DanyTech' => array(
+        'Mozilla/5.0 (Linux; Android 4.2.2; Genius Tab Q4 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         ),
 
     'Dell' => array(
@@ -669,6 +677,11 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; PLT8088 Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.1.1', 'Build' => 'JRO03H', 'Webkit' => '534.30', 'Safari' => '4.0') ),
         ),
 
+    'PyleAudio' => array(
+        'Mozilla/5.0 (Linux; Android 4.0.4; PTBL92BC Build/IMM76D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.0.4', 'Build' => 'IMM76D', 'Webkit' => '537.36', 'Chrome' => '31.0.1650.59')),
+
+        ),
+
     'RockChip' => array(
         'Mozilla/5.0 (Linux; U; Android 2.2.1; hu-hu; RK2818, Build/MASTER) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'                   => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; U; Android Android 2.1-RK2818-1.0.0; zh-cn; MD701 Build/ECLAIR) AppleWebKit/530.17 (KHTML like Gecko) Version/4.0 Mobile Safari/530.17' => array('isMobile' => true, 'isTablet' => true),
@@ -845,6 +858,10 @@ return array(
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; TOSHIBA; TSUNAGI)' => array('isMobile' => true, 'isTablet' => false),
         // @ref: http://www.toshiba.co.uk/discontinued-products/folio-100/
         'Mozilla/5.0 (Linux; U; Android 2.2; it-it; TOSHIBA_FOLIO_AND_A Build/TOSHIBA_FOLIO_AND_A) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '2.2', 'Webkit' => '533.1', 'Safari' => '4.0') ),
+        ),
+
+    'Trekstor' => array(
+            'Mozilla/5.0 (Linux; Android 4.2.2; ST70408-1 Build/JDQ39) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.58 Safari/537.31' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.2.2', 'Build' => 'JDQ39', 'Webkit' => '537.31', 'Chrome' => '26.0.1410.58')),
         ),
 
     'Visture' => array(
