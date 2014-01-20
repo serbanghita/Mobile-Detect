@@ -28,7 +28,8 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 
 ##### 3rd party modules / [Submit new](https://github.com/serbanghita/Mobile-Detect/issues/new?title=New%203rd%20party%20module&body=Name, Link and Description of the module.)
 
-:point_right: The recommendation is that you keep Mobile_Detect.php class in a separate module and not include it in your script core because of the high frequency of updates.
+:point_right: Keep `Mobile_Detect.php` class in a separate `module` and do NOT include it in your script core because of the high frequency of updates.
+:point_right: When including the class into you `web application` or `module` always use `include_once '../path/to/Mobile_Detect.php` to prevent conflicts.
 
 <table>
 
@@ -76,7 +77,11 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 
  <tr>
   <td>Zend Framework</td>
-  <td><p><a href="https://github.com/neilime/zf2-mobile-detect.git">ZF2 Mobile-Detect</a> - Zend Framework 2 module that provides Mobile-Detect features (Mobile_Detect class as a service, helper for views and plugin controllers). Made by <a href="https://github.com/neilime">neilime</a></p></td>
+  <td>
+    <p><a href="https://github.com/neilime/zf2-mobile-detect.git">ZF2 Mobile-Detect</a> - Zend Framework 2 module that provides Mobile-Detect features (Mobile_Detect class as a service, helper for views and plugin controllers). Made by <a href="https://github.com/neilime">neilime</a></p>
+
+    <p><a href="https://github.com/nikolaposa/MobileDetectModule">ZF2 MobileDetectModule</a> - Facilitates integration of a PHP MobileDetect class with some ZF2-based application. Has similar idea like the existing ZF2 Mobile-Detect module, but differs in initialization and provision routine of the actual Mobile_Detect class. Appropriate view helper and controller plugin also have different conceptions. Made by <a href="https://github.com/nikolaposa/MobileDetectModule">Nikola Posa</a></p>
+  </td>
  </tr>
 
   <tr>
