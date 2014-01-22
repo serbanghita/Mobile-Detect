@@ -34,6 +34,11 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 <table>
 
 <tr>
+<td>Varnish Cache</td>
+<td><p><a href="https://github.com/willemk/varnish-mobiletranslate">Varnish Mobile Detect</a> - Drop-in varnish solution to mobile user detection based on the Mobile-Detect library. Made by <a href="https://github.com/willemk">willemk</a></p></td>
+</tr>
+
+<tr>
   <td>Wordpress</td>
   <td>
     <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">Wordpress Mobile Detect</a> - Gives you the ability to wrap that infographic in a [notdevice][/notdevice] shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
@@ -80,7 +85,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
   <td>
     <p><a href="https://github.com/neilime/zf2-mobile-detect.git">ZF2 Mobile-Detect</a> - Zend Framework 2 module that provides Mobile-Detect features (Mobile_Detect class as a service, helper for views and plugin controllers). Made by <a href="https://github.com/neilime">neilime</a></p>
 
-    <p><a href="https://github.com/nikolaposa/MobileDetectModule">ZF2 MobileDetectModule</a> - Facilitates integration of a PHP MobileDetect class with some ZF2-based application. Has similar idea like the existing ZF2 Mobile-Detect module, but differs in initialization and provision routine of the actual Mobile_Detect class. Appropriate view helper and controller plugin also have different conceptions. Made by <a href="https://github.com/nikolaposa/MobileDetectModule">Nikola Posa</a></p>
+    <p><a href="https://github.com/nikolaposa/MobileDetectModule">ZF2 MobileDetectModule</a> - Facilitates integration of a PHP MobileDetect class with some ZF2-based application. Has similar idea like the existing ZF2 Mobile-Detect module, but differs in initialization and provision routine of the actual Mobile_Detect class. Appropriate view helper and controller plugin also have different conceptions. Made by <a href="https://github.com/nikolaposa">Nikola Posa</a></p>
   </td>
  </tr>
 
