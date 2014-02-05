@@ -16,8 +16,6 @@ We're commited to make Mobile_Detect the best open-source mobile detection resou
 See also: <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Become-a-contributor">:bulb: Become a contributor</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/History">:coffee: History</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples">:point_right: Code examples</a> /
 <a href="http://is.gd/mobiletest">:iphone: Live demo!</a> (point your device browser to this URL)
 
-<img src="https://www.dropbox.com/s/8kw8e30v3mxig02/qrcode.png" width="96">
-
 ##### Help
 
 <a href="http://pledgie.com/campaigns/21856"><img alt='Click here to lend your support to: Research and development of Mobile Detect library!' src='http://www.pledgie.com/campaigns/21856.png?skin_name=chrome' border='0' /></a>
