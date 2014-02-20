@@ -39,13 +39,13 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 </tr>
 
 <tr>
-  <td>Wordpress</td>
+  <td>WordPress</td>
   <td>
-    <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">Wordpress Mobile Detect</a> - Gives you the ability to wrap that infographic in a [notdevice][/notdevice] shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
+    <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">WordPress Mobile Detect</a> - Gives you the ability to wrap that infographic in a [notdevice][/notdevice] shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
 
     <p><a href="http://wordpress.org/plugins/mobble/">mobble</a> - provides mobile related conditional functions for your site. e.g. is_iphone(), is_mobile() and is_tablet(). Made by Scott Evans.</p>
 
-    <p><a href="https://github.com/iamspacehead/responsage">Wordpress Responsage</a> - A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</p>
+    <p><a href="https://github.com/iamspacehead/responsage">WordPress Responsage</a> - A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</p>
 
     <p><a href="http://wordpress.org/plugins/social-popup/">Social PopUP</a> - This plugin will display a popup or splash screen when a new user visit your site showing a Google+, Twitter and Facebook follow links. It uses Mobile_Detect to detect mobile devices.</p>
   </td>
@@ -77,7 +77,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 
  <tr>
   <td>PrestaShop</td>
-  <td><p>Free, secure and open source shopping cart platform. Included in the distribution since 1.5.x.</p></td>
+  <td><p><a href="http://www.prestashop.com/">PrestaShop</a> is a free, secure and open source shopping cart platform. Mobile_Detect is included in the default package since 1.5.x.</p></td>
  </tr>
 
  <tr>
@@ -148,12 +148,12 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 
  <tr>
     <td>MemHT</td>
-    <td><p><code>MemHT</code> is a Free PHP CMS and Blog that permit the creation and the management online of websites with few and easy steps. Has the class included in the core.</p></td>
+    <td><p><a href="http://www.memht.com/">MemHT</a> is a Free PHP CMS and Blog that permit the creation and the management online of websites with few and easy steps. Has the class included in the core.</p></td>
  </tr>
 
  <tr>
   <td>concrete5</td>
-  <td><p><code>concrete5</code> is a CMS that is free and open source. The library is included in the core.</p></td>
+  <td><p><a href="https://www.concrete5.org/">concrete5</a> is a CMS that is free and open source. The library is included in the core.</p></td>
  </tr>
 
  <tr>
