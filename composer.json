@@ -14,15 +14,14 @@
         }
     ],
     "require": {
-        "php": ">=5.0.0"
+        "php": ">=5.3.9"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
     },
     "autoload": {
-        "classmap": ["Mobile_Detect.php"],
         "psr-0": {
-            "Detection": "namespaced/"
+            "DeviceLib\\": "lib/"
         }
     }
 }

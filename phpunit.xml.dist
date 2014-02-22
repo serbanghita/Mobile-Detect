@@ -2,13 +2,13 @@
 <phpunit
   colors="true"
   verbose="false"
-  bootstrap="bootstrap.php"
+  bootstrap="tests/bootstrap.php"
   convertErrorsToExceptions="true"
   convertNoticesToExceptions="true"
   convertWarningsToExceptions="true">
 
   <testsuite name="All Mobile Detect tests">
-    <directory suffix="Test.php">./</directory>
+      <directory suffix="Test.php">./tests/DeviceLibTest</directory>
   </testsuite>
 
 </phpunit>
