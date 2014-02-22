@@ -1,6 +1,6 @@
 <img src="http://demo.mobiledetect.net/logo-github.png">
 
-Build status for `devel-3`: ![Build status](//travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel-3)
+Develop (v3) build: [![Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel-3)](http://travis-ci.org/serbanghita/Mobile-Detect)
 
 > Motto: "Every business should have a mobile detection script to detect mobile readers."
 
