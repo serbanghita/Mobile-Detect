@@ -168,7 +168,7 @@ class Device
 
     public function getBrowserVersion()
     {
-        return $this->browser;
+        return $this->browserVersion;
     }
 
     public function getUserAgent()
@@ -194,5 +194,22 @@ class Device
     public function isBot()
     {
         return $this->type == static::TYPE_BOT;
+    }
+
+    public function toArray()
+    {
+        return array(
+            'isMobile' => $this->isMobile(),
+            'isTablet' => $this->isTablet(),
+            'isDesktop' => $this->isDesktop(),
+            'isBot' => $this->isBot(),
+            'browser' => $this->getBrowser(),
+            'browserVersion' => $this->getBrowserVersion(),
+            'model' => $this->getModel(),
+            'modelVersion' => $this->getModelVersion(),
+            'operatingSystem' => $this->getOperatingSystem(),
+            'operatingSystemVersion' => $this->getOperatingSystemVersion(),
+            'userAgent' => $this->getUserAgent()
+        );
     }
 }

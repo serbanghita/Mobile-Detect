@@ -1,10 +1,12 @@
 <?php
+//save my dir
+$dot = dirname(__FILE__);
 
-if (!file_exists($composer = dirname(__FILE__) . '/vendor/autoload.php')) {
-    throw new RuntimeException("Please run 'composer install' first to set up autoloading.");
+if (!file_exists($composer = dirname($dot) . '/vendor/autoload.php')) {
+    throw new RuntimeException("Please run 'composer install' first to set up autoloading. $composer");
 }
 
+/** @var \Composer\Autoload\ClassLoader $autoloader */
 $autoloader = include $composer;
 
-// @todo add the test namespace
-
+$autoloader->add('DeviceLibTest\\', $dot);

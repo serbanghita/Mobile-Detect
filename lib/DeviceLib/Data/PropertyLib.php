@@ -3,6 +3,12 @@
 namespace DeviceLib\Data;
 
 class PropertyLib {
+
+    /*
+     * @todo We need to automate the creation of this class from the 2.x branch.
+     */
+
+
     /**
      * HTTP headers that trigger the 'isMobile' detection
      * to be true.
