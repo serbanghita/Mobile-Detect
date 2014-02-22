@@ -1,5 +1,7 @@
 <img src="http://demo.mobiledetect.net/logo-github.png">
 
+Build status (`devel-3`): <img src="//travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel-3" />
+
 > Motto: "Every business should have a mobile detection script to detect mobile readers."
 
 <i>Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
