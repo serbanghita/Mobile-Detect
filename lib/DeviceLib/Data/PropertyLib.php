@@ -11,7 +11,7 @@ class PropertyLib {
      */
     protected static $mobileHeaders = array(
 
-        'HTTP_ACCEPT'                  => array('matches' => array(
+        'Accept'                  => array('matches' => array(
             // Opera Mini; @reference: http://dev.opera.com/articles/view/opera-binary-markup-language/
             'application/x-obml2d',
             // BlackBerry devices.
@@ -19,25 +19,25 @@ class PropertyLib {
             'text/vnd.wap.wml',
             'application/vnd.wap.xhtml+xml'
         )),
-        'HTTP_X_WAP_PROFILE'           => null,
-        'HTTP_X_WAP_CLIENTID'          => null,
-        'HTTP_WAP_CONNECTION'          => null,
-        'HTTP_PROFILE'                 => null,
+        'X-WAP-Profile'           => null,
+        'X-WAP-ClientId'          => null,
+        'WAP-Connection'          => null,
+        'Profile'                 => null,
         // Reported by Opera on Nokia devices (eg. C3).
-        'HTTP_X_OPERAMINI_PHONE_UA'    => null,
-        'HTTP_X_NOKIA_IPADDRESS'       => null,
-        'HTTP_X_NOKIA_GATEWAY_ID'      => null,
-        'HTTP_X_ORANGE_ID'             => null,
-        'HTTP_X_VODAFONE_3GPDPCONTEXT' => null,
-        'HTTP_X_HUAWEI_USERID'         => null,
+        'X-OperaMini-PHONE-UA'    => null,
+        'X-Nokia-IPAddress'       => null,
+        'X-Nokia-Gateway-ID'      => null,
+        'X-Orange-ID'             => null,
+        'X-Vodafone-3GPDPCONTEXT' => null,
+        'X-HUAWEI-USERID'         => null,
         // Reported by Windows Smartphones.
-        'HTTP_UA_OS'                   => null,
+        'UA-OS'                   => null,
         // Reported by Verizon, Vodafone proxy system.
-        'HTTP_X_MOBILE_GATEWAY'        => null,
+        'X-Mobile-Gateway'        => null,
         // Seend this on HTC Sensation. @ref: SensationXE_Beats_Z715e.
-        'HTTP_X_ATT_DEVICEID'          => null,
+        'X-ATT-DeviceId'          => null,
         // Seen this on a HTC.
-        'HTTP_UA_CPU'                  => array('matches' => array('ARM')),
+        'UA-CPU'                  => array('matches' => array('ARM')),
     );
 
     /**
