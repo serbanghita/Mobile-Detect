@@ -8,6 +8,29 @@ class PropertyLib {
      * @todo We need to automate the creation of this class from the 2.x branch.
      */
 
+    /**
+     * All possible HTTP headers that represent the
+     * User-Agent string.
+     * 
+     * Instead of looking just for HTTP_USER_AGENT 
+     * we will check multiple variants to extract as 
+     * much data as possible.
+     *
+     * @var array
+     */
+    protected static $uaHttpHeaders = array(
+        // The default User-Agent string.
+        'User-Agent',
+        // Header can occur on devices using Opera Mini.
+        'X-OperaMini-Phone-Ua',
+        // Vodafone specific header: http://www.seoprinciple.com/mobile-web-community-still-angry-at-vodafone/24/
+        'X-Device-User-Agent',
+        'X-Original-User-Agent',
+        'X-Skyfire-Phone',
+        'X-Bold-Phone-Ua',
+        'Device-Stock-Ua',
+        'X-UcBrowser-Device-Ua'
+    );
 
     /**
      * HTTP headers that trigger the 'isMobile' detection
@@ -1329,6 +1352,17 @@ class PropertyLib {
     public static function getBrowsers()
     {
         return static::$browsers;
+    }
+
+    /**
+     * Get all possible HTTP headers that
+     * can contain the User-Agent string.
+     *
+     * @return array List of HTTP headers.
+     */
+    public function getUaHttpHeaders()
+    {
+        return self::$uaHttpHeaders;
     }
 
     public static function getMobileHeaders()

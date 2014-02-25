@@ -25,6 +25,32 @@ class Detector {
         return static::$instance;
     }
 
+    /**
+     * Set the User-Agent to be used.
+     * @todo: do something with this method.
+     *
+     * @param string $userAgent The user agent string to set.
+     */
+    public function setUserAgent( $userAgent = null )
+    {
+        if (!empty($userAgent)) {
+            return $this->userAgent = $userAgent; // @todo: here!
+        } else {
+
+            $this->userAgent = null;
+
+            foreach($this->getUaHttpHeaders() as $altHeader){ // @todo: here!
+                if(!empty($this->httpHeaders[$altHeader])){
+                    $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
+                }
+            }
+
+            return $this->userAgent = (!empty($this->userAgent) ? trim($this->userAgent) : null);
+
+        }
+    }
+
+
     // boolean detection methods
     public static function isMobile()
     {
