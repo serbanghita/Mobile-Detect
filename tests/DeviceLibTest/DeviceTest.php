@@ -18,13 +18,13 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
     public function testFactorySetCorrectly()
     {
         $device = Device::create(array(
-            'type' => $type = Device::TYPE_DESKTOP,
-            'user_agent' => $ua = 'Blah',
-            'model' => $model = 'Samsung Galaxy',
-            'model_version' => $modelVer = 'S4',
-            'os' => $os = 'Android',
-            'os_version' => $osVer = '3.5',
-            'browser' => $browser = 'Chrome',
+            'type'            => $type = Device::TYPE_DESKTOP,
+            'user_agent'      => $ua = 'Blah',
+            'model'           => $model = 'Samsung Galaxy',
+            'model_version'   => $modelVer = 'S4',
+            'os'              => $os = 'Android',
+            'os_version'      => $osVer = '3.5',
+            'browser'         => $browser = 'Chrome',
             'browser_version' => $browserVer = '31.5.1245'
         ));
 
@@ -46,17 +46,17 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
 
         //check the toArray method
         $expectedArr = array(
-            'isMobile' => $device->isMobile(),
-            'isTablet' => $device->isTablet(),
-            'isDesktop' => $device->isDesktop(),
-            'isBot' => $device->isBot(),
-            'browser' => $device->getBrowser(),
-            'browserVersion' => $device->getBrowserVersion(),
-            'model' => $device->getModel(),
-            'modelVersion' => $device->getModelVersion(),
-            'operatingSystem' => $device->getOperatingSystem(),
+            'isMobile'               => $device->isMobile(),
+            'isTablet'               => $device->isTablet(),
+            'isDesktop'              => $device->isDesktop(),
+            'isBot'                  => $device->isBot(),
+            'browser'                => $device->getBrowser(),
+            'browserVersion'         => $device->getBrowserVersion(),
+            'model'                  => $device->getModel(),
+            'modelVersion'           => $device->getModelVersion(),
+            'operatingSystem'        => $device->getOperatingSystem(),
             'operatingSystemVersion' => $device->getOperatingSystemVersion(),
-            'userAgent' => $device->getUserAgent()
+            'userAgent'              => $device->getUserAgent()
         );
         $actualArr = $device->toArray();
         $this->assertSame($expectedArr, $actualArr);
