@@ -52,7 +52,7 @@ class Detector {
         'user-agent',
         'via',
         'warning',
-        //not so standard, but oh well
+        //not so standard, but since they don't start with 'x', they need to be present
         'device-stock-ua',
         'wap-connection',
         'profile',
@@ -226,9 +226,35 @@ class Detector {
      * Creates a device with all the necessary context to determine all the given
      * properties of a device, including OS, browser, and any other context-based properties.
      *
+     * @param string $class (optional) The class to use. It can be anything that's derived from Device class.
+     *
      * {@see Device}
      *
      * @return Device
+     *
+     * @throws Exception\InvalidArgumentException When an invalid class is used.
      */
-    public function detect(){}
+    public function detect($class = null)
+    {
+        if ($class && !is_subclass_of($class, __NAMESPACE__ . '\Device')) {
+            throw new Exception\InvalidArgumentException("Invalid class specified: $class");
+        } else {
+            //default class
+            $class = 'Device';
+        }
+
+        // @todo do the detection here
+
+        /*
+         * This would happen after the detection
+         *
+         * $device = $class::create(array(
+         *      'user_agent' => $this->getUserAgent(),
+         *      ...
+         *      ...
+         * ));
+         *
+         * return $device;
+         */
+    }
 }
