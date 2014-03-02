@@ -22,14 +22,14 @@ class PropertyLib {
         // The default User-Agent string.
         'User-Agent',
         // Header can occur on devices using Opera Mini.
-        'X-OperaMini-Phone-Ua',
+        'X-OperaMini-Phone-UA',
         // Vodafone specific header: http://www.seoprinciple.com/mobile-web-community-still-angry-at-vodafone/24/
         'X-Device-User-Agent',
         'X-Original-User-Agent',
         'X-Skyfire-Phone',
-        'X-Bold-Phone-Ua',
-        'Device-Stock-Ua',
-        'X-UcBrowser-Device-Ua'
+        'X-Bold-Phone-UA',
+        'Device-Stock-UA',
+        'X-UcBrowser-Device-UA'
     );
 
     /**
@@ -1360,7 +1360,7 @@ class PropertyLib {
      *
      * @return array List of HTTP headers.
      */
-    public function getUaHttpHeaders()
+    public static function getUaHttpHeaders()
     {
         return self::$uaHttpHeaders;
     }
