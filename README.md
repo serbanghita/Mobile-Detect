@@ -173,11 +173,6 @@ Based on browscap, Mobile_Detect and ua-parser. Created for high traffic website
 </tr>
 
 <tr>
-<td>RexBrowscap</td>
-<td><p><a href="https://github.com/jdlx/_rex_browscap">RexBrowscap</a> - Addon for Redaxo CMS - bundles phpbrowscap, mobile-detect and some client side funcs for detecting UA capabilities in one package. Made by <a href="https://github.com/jdlx">jdlx</a></p></td>
-</tr>
-
-<tr>
   <td>Craft CMS</td>
   <td><p><a href="https://github.com/lewisjenkins/craft-lj-mobiledetect">LJ Mobile Detect</a> is a simple implementation of Mobile Detect for Craft CMS. Made by <a href="https://github.com/lewisjenkins">Lewis Jenkins</a></p></td>
 </tr>
