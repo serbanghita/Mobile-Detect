@@ -1,6 +1,7 @@
 language: php
 php:
   - "5.2"
+  - "hhvm"
 
 branches:
   only:
