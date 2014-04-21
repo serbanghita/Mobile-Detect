@@ -20,7 +20,7 @@
  *              README:       https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
  *              HOWTO:        https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
  *
- * @version     2.7.9
+ * @version     2.8.0
  */
 
 class Mobile_Detect
@@ -64,7 +64,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.7.9';
+    const VERSION                   = '2.8.0';
 
     /**
      * A type for the version() method indicating a string return value.
@@ -204,7 +204,7 @@ class Mobile_Detect
         'LGTablet'          => '\bL-06C|LG-V900|LG-V500|LG-V909\b',
         'FujitsuTablet'     => 'Android.*\b(F-01D|F-05E|F-10D|M532|Q572)\b',
         // Prestigio Tablets http://www.prestigio.com/support
-        'PrestigioTablet'   => 'PMP3170B|PMP3270B|PMP3470B|PMP7170B|PMP3370B|PMP3570C|PMP5870C|PMP3670B|PMP5570C|PMP5770D|PMP3970B|PMP3870C|PMP5580C|PMP5880D|PMP5780D|PMP5588C|PMP7280C|PMP7280|PMP7880D|PMP5597D|PMP5597|PMP7100D|PER3464|PER3274|PER3574|PER3884|PER5274|PER5474|PMP5097CPRO|PMP5097|PMP7380D|PMP5297C|PMP5297C_QUAD',
+        'PrestigioTablet'   => 'PMP3170B|PMP3270B|PMP3470B|PMP7170B|PMP3370B|PMP3570C|PMP5870C|PMP3670B|PMP5570C|PMP5770D|PMP3970B|PMP3870C|PMP5580C|PMP5880D|PMP5780D|PMP5588C|PMP7280C|PMP7280C3G|PMP7280|PMP7880D|PMP5597D|PMP5597|PMP7100D|PER3464|PER3274|PER3574|PER3884|PER5274|PER5474|PMP5097CPRO|PMP5097|PMP7380D|PMP5297C|PMP5297C_QUAD',
         // @ref: http://support.lenovo.com/en_GB/downloads/default.page?#
         'LenovoTablet'      => 'IdeaTab|S2110|S6000|K3011|A3000|A1000|A2107|A2109|A1107|ThinkPad([ ]+)?Tablet',
         // @ref: http://www.yarvik.com/en/matrix/tablets/
@@ -273,7 +273,8 @@ class Mobile_Detect
         // @ref: http://www.pyleaudio.com/Products.aspx?%2fproducts%2fPersonal-Electronics%2fTablets
         'PyleAudioTablet'   => '\b(PTBL10CEU|PTBL10C|PTBL72BC|PTBL72BCEU|PTBL7CEU|PTBL7C|PTBL92BC|PTBL92BCEU|PTBL9CEU|PTBL9CUK|PTBL9C)\b',
         // @ref: http://www.advandigital.com/index.php?link=content-product&jns=JP001
-        'AdvanTablet'       => 'Android.* \b(S5G|S5K|T5B|T3E|T3C|T3B|T1J|T1F|S5D|T2A|T1H|E1C|T1i|S5E|T1-E|S5F|E1-B|T2Ci|T1-B|T1-D|T5-A|O1-A|E1-A|T1-A|T3A|S5|T4i)\b ',
+        // @Note: because of the short codenames we have to include whitespaces to reduce the possible conflicts.
+        'AdvanTablet'       => 'Android.* \b(E3A|T3X|T5C|T5B|T3E|T3C|T3B|T1J|T1F|T2A|T1H|T1i|E1C|T1-E|T5-A|T4|E1-B|T2Ci|T1-B|T1-D|O1-A|E1-A|T1-A|T3A|T4i)\b ',
         // @ref: http://www.danytech.com/category/tablet-pc
         'DanyTechTablet' => 'Genius Tab G3|Genius Tab S2|Genius Tab Q3|Genius Tab G4|Genius Tab Q4|Genius Tab G-II|Genius TAB GII|Genius TAB GIII|Genius Tab S1',
         // @ref: http://www.galapad.net/product.html
@@ -336,6 +337,20 @@ class Mobile_Detect
         'iMobileTablet'        => 'i-mobile i-note',
         // @ref: http://www.tolino.de/de/vergleichen/
         'TolinoTablet'  => 'tolino tab [0-9.]+|tolino shine',
+        // AudioSonic - a Kmart brand
+        // http://www.kmart.com.au/webapp/wcs/stores/servlet/Search?langId=-1&storeId=10701&catalogId=10001&categoryId=193001&pageSize=72&currentPage=1&searchCategory=193001%2b4294965664&sortBy=p_MaxPrice%7c1
+        'AudioSonicTablet' => '\bC-22Q|T7-QC|T-17B|T-17P\b',
+        // AMPE Tablets - http://www.ampe.com.my/product-category/tablets/
+        // @todo: add them gradually to avoid conflicts.
+        'AMPETablet' => 'Android.* A78 ',
+        // Skk Mobile - http://skkmobile.com.ph/product_tablets.php
+        'SkkTablet' => 'Android.* (SKYPAD|PHOENIX|CYCLOPS)',
+        // Tecno Mobile (only tablet) - http://www.tecno-mobile.com/index.php/product?filterby=smart&list_order=all&page=1
+        'TecnoTablet' => 'TECNO P9',
+        // JXD (consoles & tablets) - http://jxd.hk/products.asp?selectclassid=009008&clsid=3
+        'JXDTablet' => 'Android.*\b(F3000|A3300|JXD5000|JXD3000|JXD2000|JXD300B|JXD300|S5800|S7800|S602b|S5110b|S7300|S5300|S602|S603|S5100|S5110|S601|S7100a|P3000F|P3000s|P101|P200s|P1000m|P200m|P9100|P1000s|S6600b|S908|P1000|P300|S18|S6600|S9100)\b',
+        // i-Joy tablets - http://www.i-joy.es/en/cat/products/tablets/
+        'iJoyTablet' => 'Tablet (Spirit 7|Essentia|Galatea|Fusion|Onix 7|Landa|Titan|Scooby|Deox|Stella|Themis|Argon|Unique 7|Sygnus|Hexen|Finity 7|Cream|Cream X2|Jade|Neon 7|Neron 7|Kandy|Scape|Saphyr 7|Rebel|Biox|Rebel|Rebel 8GB|Myst|Draco 7|Myst|Tab7-004|Myst|Tadeo Jones|Tablet Boing|Arrow|Draco Dual Cam|Aurix|Mint|Amity|Revolution|Finity 9|Neon 9|T9w|Amity 4GB Dual Cam|Stone 4GB|Stone 8GB|Andromeda|Silken|X2|Andromeda II|Halley|Flame|Saphyr 9,7|Touch 8|Planet|Triton|Unique 10|Hexen 10|Memphis 4GB|Memphis 8GB|Onix 10)',
         // @ref: http://www.tesco.com/direct/hudl/
         'Hudl'              => 'Hudl HT7S3',
         // @ref: http://www.telstra.com.au/home-phone/thub-2/
@@ -419,6 +434,7 @@ class Mobile_Detect
         'WebKit'      => '(webkit)[ /]([\w.]+)',
         'Bot'         => 'Googlebot|DoCoMo|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
         'MobileBot'   => 'Googlebot-Mobile|DoCoMo|YahooSeeker/M1A1-R2D2',
+        // @todo: Include JXD consoles.
         'Console'     => '\b(Nintendo|Nintendo WiiU|PLAYSTATION|Xbox)\b',
         'Watch'       => 'SM-V700',
     );
