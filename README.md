@@ -152,6 +152,11 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
       <td><p><a href="http://pypi.python.org/pypi/pymobiledetect">pymobiledetect</a> - Mobile detect <code>python package</code>. Made by Bas van Oostveen.</p></td>
  </tr>
 
+<tr>
+	<td>GoMobileDetect</td>
+	<td><p><a href="https://github.com/Shaked/gomobiledetect">GoMobileDetect</a> - Go port of Mobile Detect class. Made by <a href="https://github.com/Shaked">Shaked</a>.</p></td>
+</tr>
+
  <tr>
     <td>MemHT</td>
     <td><p><a href="http://www.memht.com/">MemHT</a> is a Free PHP CMS and Blog that permit the creation and the management online of websites with few and easy steps. Has the class included in the core.</p></td>
