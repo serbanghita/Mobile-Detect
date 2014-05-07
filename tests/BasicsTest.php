@@ -280,9 +280,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
                 'HTTP_X_OPERAMINI_PHONE_UA' => ''
             )),
             array(array(
-                'HTTP_X_NOKIA_IPADDRESS' => ''
-            )),
-            array(array(
                 'HTTP_X_NOKIA_GATEWAY_ID' => ''
             )),
             array(array(

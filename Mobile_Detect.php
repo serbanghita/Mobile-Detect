@@ -119,7 +119,6 @@ class Mobile_Detect
             'HTTP_PROFILE'                 => null,
             // Reported by Opera on Nokia devices (eg. C3).
             'HTTP_X_OPERAMINI_PHONE_UA'    => null,
-            'HTTP_X_NOKIA_IPADDRESS'       => null,
             'HTTP_X_NOKIA_GATEWAY_ID'      => null,
             'HTTP_X_ORANGE_ID'             => null,
             'HTTP_X_VODAFONE_3GPDPCONTEXT' => null,
