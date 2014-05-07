@@ -1117,9 +1117,9 @@ class Mobile_Detect
 
         if (
             // Apple iOS 3.2-5.1 - Tested on the original iPad (4.3 / 5.0), iPad 2 (4.3), iPad 3 (5.1), original iPhone (3.1), iPhone 3 (3.2), 3GS (4.3), 4 (4.3 / 5.0), and 4S (5.1)
-            $this->version('iPad', self::VERSION_TYPE_FLOAT)>=4.3 ||
-            $this->version('iPhone', self::VERSION_TYPE_FLOAT)>=3.1 ||
-            $this->version('iPod', self::VERSION_TYPE_FLOAT)>=3.1 ||
+            $this->isIOS() && $this->version('iPad', self::VERSION_TYPE_FLOAT)>=4.3 ||
+            $this->isIOS() && $this->version('iPhone', self::VERSION_TYPE_FLOAT)>=3.1 ||
+            $this->isIOS() && $this->version('iPod', self::VERSION_TYPE_FLOAT)>=3.1 ||
 
             // Android 2.1-2.3 - Tested on the HTC Incredible (2.2), original Droid (2.2), HTC Aria (2.1), Google Nexus S (2.3). Functional on 1.5 & 1.6 but performance may be sluggish, tested on Google G1 (1.5)
             // Android 3.1 (Honeycomb)  - Tested on the Samsung Galaxy Tab 10.1 and Motorola XOOM
@@ -1194,9 +1194,9 @@ class Mobile_Detect
         }
 
         if (
-            $this->version('iPad', self::VERSION_TYPE_FLOAT)<4.3 ||
-            $this->version('iPhone', self::VERSION_TYPE_FLOAT)<3.1 ||
-            $this->version('iPod', self::VERSION_TYPE_FLOAT)<3.1 ||
+            $this->isIOS() && $this->version('iPad', self::VERSION_TYPE_FLOAT)<4.3 ||
+            $this->isIOS() && $this->version('iPhone', self::VERSION_TYPE_FLOAT)<3.1 ||
+            $this->isIOS() && $this->version('iPod', self::VERSION_TYPE_FLOAT)<3.1 ||
 
             // Blackberry 5.0: Tested on the Storm 2 9550, Bold 9770
             $this->is('Blackberry') && $this->version('BlackBerry', self::VERSION_TYPE_FLOAT)>=5 && $this->version('BlackBerry', self::VERSION_TYPE_FLOAT)<6 ||
