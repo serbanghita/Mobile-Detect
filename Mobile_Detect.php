@@ -166,7 +166,12 @@ class Mobile_Detect
         // @ref: http://www.simvalley.fr/telephonie---gps-_22_telephonie-mobile_telephones_.html
         'SimValley'     => '\b(SP-80|XT-930|SX-340|XT-930|SX-310|SP-360|SP60|SPT-800|SP-120|SPT-800|SP-140|SPX-5|SPX-8|SP-100|SPX-8|SPX-12)\b',
         // @Tapatalk is a mobile app; @ref: http://support.tapatalk.com/threads/smf-2-0-2-os-and-browser-detection-plugin-and-tapatalk.15565/#post-79039
-        'GenericPhone'  => 'Tapatalk|PDA;|SAGEM|\bmmp\b|pocket|\bpsp\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\bwap\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser'
+        'GenericPhone'  => 'Tapatalk|PDA;|SAGEM|\bmmp\b|pocket|\bpsp\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\bwap\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser',
+        'Alcatel'		=> 'Alcatel',
+        // @ref: http://en.wikipedia.org/wiki/Amoi
+        'Amoi'			=> 'Amoi',
+        // @ref: http://en.wikipedia.org/wiki/INQ
+        'INQ'			=> 'INQ',
     );
 
     /**
@@ -417,7 +422,11 @@ class Mobile_Detect
         'Mercury'          => '\bMercury\b',
         // @reference: http://en.wikipedia.org/wiki/Minimo
         // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
-        'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger'
+        'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger',
+        // @ref: http://en.wikipedia.org/wiki/Obigo_Browser
+        'ObigoBrowser' => 'Obigo',
+        // @ref: http://en.wikipedia.org/wiki/NetFront
+        'NetFront' => 'NF-Browser'
     );
 
     /**
@@ -530,15 +539,15 @@ class Mobile_Detect
     /**
      * Construct an instance of this class.
      *
-     * @param array $headers Specify the headers as injection. Should be PHP _SERVER flavored.
-     *                       If left empty, will use the global _SERVER['HTTP_*'] vars instead.
+     * @param array  $headers   Specify the headers as injection. Should be PHP _SERVER flavored.
+     *                          If left empty, will use the global _SERVER['HTTP_*'] vars instead.
      * @param string $userAgent Inject the User-Agent header. If null, will use HTTP_USER_AGENT
      *                          from the $headers array instead.
      */
     public function __construct(
         array $headers = null,
         $userAgent = null
-    ){
+    ) {
         $this->setHttpHeaders($headers);
         $this->setUserAgent($userAgent);
     }
@@ -649,8 +658,8 @@ class Mobile_Detect
 
             $this->userAgent = null;
 
-            foreach($this->getUaHttpHeaders() as $altHeader){
-                if(!empty($this->httpHeaders[$altHeader])){ // @todo: should use getHttpHeader(), but it would be slow. (Serban)
+            foreach ($this->getUaHttpHeaders() as $altHeader) {
+                if (!empty($this->httpHeaders[$altHeader])) { // @todo: should use getHttpHeader(), but it would be slow. (Serban)
                     $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
                 }
             }
@@ -830,14 +839,15 @@ class Mobile_Detect
     public function checkHttpHeadersForMobile()
     {
 
-        foreach($this->getMobileHeaders() as $mobileHeader => $matchType){
-            if( isset($this->httpHeaders[$mobileHeader]) ){
-                if( is_array($matchType['matches']) ){
-                    foreach($matchType['matches'] as $_match){
-                        if( strpos($this->httpHeaders[$mobileHeader], $_match) !== false ){
+        foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
+            if ( isset($this->httpHeaders[$mobileHeader]) ) {
+                if ( is_array($matchType['matches']) ) {
+                    foreach ($matchType['matches'] as $_match) {
+                        if ( strpos($this->httpHeaders[$mobileHeader], $_match) !== false ) {
                             return true;
                         }
                     }
+
                     return false;
                 } else {
                     return true;
@@ -1055,11 +1065,11 @@ class Mobile_Detect
      * Will return a float number. (eg. 2_0 will return 2.0, 4.3.1 will return 4.31)
      *
      * @param string $propertyName The name of the property. See self::getProperties() array
-     *                              keys for all possible properties.
-     * @param string $type Either self::VERSION_TYPE_STRING to get a string value or
-     *                      self::VERSION_TYPE_FLOAT indicating a float value. This parameter
-     *                      is optional and defaults to self::VERSION_TYPE_STRING. Passing an
-     *                      invalid parameter will default to the this type as well.
+     *                             keys for all possible properties.
+     * @param string $type         Either self::VERSION_TYPE_STRING to get a string value or
+     *                             self::VERSION_TYPE_FLOAT indicating a float value. This parameter
+     *                             is optional and defaults to self::VERSION_TYPE_STRING. Passing an
+     *                             invalid parameter will default to the this type as well.
      *
      * @return string|float The version of the property we are trying to extract.
      */
