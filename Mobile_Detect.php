@@ -420,13 +420,13 @@ class Mobile_Detect
         'Puffin'            => 'Puffin',
         // @ref: http://mercury-browser.com/index.html
         'Mercury'          => '\bMercury\b',
-        // @reference: http://en.wikipedia.org/wiki/Minimo
-        // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
-        'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger',
         // @ref: http://en.wikipedia.org/wiki/Obigo_Browser
         'ObigoBrowser' => 'Obigo',
         // @ref: http://en.wikipedia.org/wiki/NetFront
-        'NetFront' => 'NF-Browser'
+        'NetFront' => 'NF-Browser',
+        // @reference: http://en.wikipedia.org/wiki/Minimo
+        // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
+        'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger',
     );
 
     /**
