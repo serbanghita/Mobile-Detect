@@ -7,7 +7,7 @@ namespace DeviceLib;
  *
  * Defines properties for a particular device.
  */
-class Device
+class Device implements DeviceInterface
 {
     const TYPE_MOBILE           = 0;
     const TYPE_DESKTOP          = 1;

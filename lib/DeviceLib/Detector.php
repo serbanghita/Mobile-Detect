@@ -14,6 +14,19 @@ class Detector {
     protected static $instance;
 
     /**
+     * An instance of a device when using the static methods.
+     *
+     * @var DeviceInterface
+     */
+    protected static $device;
+
+    protected static $knownMatchTypes = array(
+        'regex', //regular expression
+        'strpos', //simple case-sensitive string within string check
+        'stripos', //simple case-insensitive string within string check
+    );
+
+    /**
      * A list of possible HTTP Request headers.
      *
      * @var array
@@ -207,41 +220,186 @@ class Detector {
         return $this->getHeader('User-Agent');
     }
 
-    // boolean detection methods
+    /**
+     * Check if the current device is mobile.
+     *
+     * @return bool
+     */
     public static function isMobile()
     {
-        $device = static::getInstance()->detect();
-        return $device->isMobile();
+        if (!static::$device) {
+            static::$device = static::getInstance()->detect();
+        }
+
+        return static::$device->isMobile();
     }
 
-    public static function isTablet(){}
-    // OR
-    public static function __callStatic($method, $args){}
+    /**
+     * Check if the current device is a tablet.
+     *
+     * @return bool
+     */
+    public static function isTablet()
+    {
+        if (!static::$device) {
+            static::$device = static::getInstance()->detect();
+        }
+
+        return static::$device->isTablet();
+    }
+
+    /**
+     * This method allows for static calling of methods that get proxied to the device methods. For example,
+     * when calling Detected::getOperatingSystem() it will be proxied to static::$device->getOperatingSystem().
+     * Since reflection is used in combination with call_user_func_array(), this method is relatively expensive
+     * and should not be used if the developer cares about performance. This is merely a convenience method
+     * for beginners using this detection library.
+     *
+     * @param string $method The method name being invoked.
+     * @param array $args Arguments for the called method.
+     *
+     * @return mixed
+     *
+     * @throws \BadMethodCallException
+     */
+    public static function __callStatic($method, array $args = array())
+    {
+        //this method must exist as an instance method on self::$device
+        if (!static::$device) {
+            static::$device = static::getInstance()->detect();
+        }
+
+        $refl = new \ReflectionObject(static::$device);
+        foreach ($refl->getMethods(\ReflectionMethod::IS_PUBLIC) as $deviceMethod) {
+            /** @var \ReflectionMethod $deviceMethod */
+            if ($method == $deviceMethod->getName()) {
+                return call_user_func_array(array(static::$device, $method), $args);
+            }
+        }
+
+        //no methods found, so throw
+        throw new \BadMethodCallException();
+    }
 
     // static getters for properties
     public static function getBrowser(){}
 
-    // Better, more advanced API
+    protected function prepareRegex($regex)
+    {
+        //add boundaries
+        $regex = sprintf('/%s/i', $regex);
+
+        //@todo str_replace all the pseudo variables
+
+        return $regex;
+    }
+
+    protected function matches($type, $test, $against)
+    {
+        if (!in_array($type, static::$knownMatchTypes)) {
+            throw new Exception\InvalidArgumentException(
+                sprintf('Unknown match type: %s', $type)
+            );
+        }
+
+        //always take an array
+        if (is_string($against)) {
+            $against = array($against);
+        }
+
+        if (!is_array($against)) {
+            throw new Exception\InvalidArgumentException('Invalid type passed: ' . gettype($against));
+        }
+
+        if ($type == 'regex') {
+            $test = $this->prepareRegex($test);
+        }
+
+        foreach ($against as $match) {
+            if ($type == 'regex') {
+                if (preg_match($test, $match)) {
+                    return true;
+                }
+            } elseif ($type == 'strpos') {
+                if (false !== strpos($match, $test)) {
+                    return true;
+                }
+            } elseif ($type == 'stripos') {
+                if (false !== stripos($match, $test)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    protected function modelMatch($modelMatch, $against)
+    {
+        //model match must be an array
+        if (!is_array($modelMatch) || !count($modelMatch)) {
+            return false;
+        }
+
+        foreach ($modelMatch as $test) {
+
+        }
+    }
+
+    protected function detectPhoneDevice()
+    {
+        $devices = Data\PropertyLib::getPhoneDevices();
+
+        foreach ($devices as $vendorKey => $vendor) {
+            //check type, and assume regex if not present
+            if (!isset($vendor['type'])) {
+                $vendor['type'] = 'regex';
+            }
+
+            if (!isset($vendor['match'])) {
+                throw new Exception\InvalidDeviceSpecificationException(
+                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'match')
+                );
+            }
+
+            if (!isset($vendor['vendor'])) {
+                throw new Exception\InvalidDeviceSpecificationException(
+                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'vendor')
+                );
+            }
+
+            if ($this->matches($vendor['type'], $vendor['match'], $this->getUserAgent())) {
+                //@todo use modelMatch method to extract model/version
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Creates a device with all the necessary context to determine all the given
      * properties of a device, including OS, browser, and any other context-based properties.
      *
-     * @param string $class (optional) The class to use. It can be anything that's derived from Device class.
+     * @param string $class (optional) The class to use. It can be anything that's derived from DeviceInterface.
      *
-     * {@see Device}
+     * {@see DeviceInterface}
      *
-     * @return Device
+     * @return DeviceInterface
      *
      * @throws Exception\InvalidArgumentException When an invalid class is used.
      */
     public function detect($class = null)
     {
-        if ($class && !is_subclass_of($class, __NAMESPACE__ . '\Device')) {
-            throw new Exception\InvalidArgumentException("Invalid class specified: $class");
+        if ($class && !is_subclass_of($class, __NAMESPACE__ . '\DeviceInterface')) {
+            throw new Exception\InvalidArgumentException(
+                sprintf('Invalid class specified: %s. Must', is_object($class) ? get_class($class) : $class)
+            );
         } else {
             //default class
             $class = 'Device';
         }
+
+        $props = array();
 
         // @todo do the detection here
 
@@ -256,5 +414,8 @@ class Detector {
          *
          * return $device;
          */
+
+        //@todo this is just for PHPStorm not to complain during dev
+        return $class::create($props);
     }
 }
