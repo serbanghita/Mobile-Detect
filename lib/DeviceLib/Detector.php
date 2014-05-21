@@ -341,9 +341,25 @@ class Detector {
             return false;
         }
 
-        foreach ($modelMatch as $test) {
+        $matchReturn = array();
 
+        foreach ($modelMatch as $test) {
+            $regex = $this->prepareRegex($test);
+            $regex = str_replace('[VER]', '(?<version>[0-9\.]+)', $regex);
+            $regex = str_replace('[MODEL]', '(?<model>[a-zA-Z0-9]+)', $regex);
+
+            if (preg_match($regex, $against, $matches)) {
+                if (isset($matches['version'])) {
+                    $matchReturn['model_version'] = $matches['version'];
+                }
+
+                if (isset($matches['model'])) {
+                    $matchReturn['model'] = $matches['model'];
+                }
+            }
         }
+
+        return $matchReturn;
     }
 
     protected function detectPhoneDevice()
@@ -369,7 +385,41 @@ class Detector {
             }
 
             if ($this->matches($vendor['type'], $vendor['match'], $this->getUserAgent())) {
-                //@todo use modelMatch method to extract model/version
+                if (isset($vendor['modelMatch'])) {
+                    return $this->modelMatch($vendor['modelMatch'], $this->getUserAgent());
+                }
+            }
+        }
+
+        return false;
+    }
+
+    protected function detectTabletDevice()
+    {
+        $devices = Data\PropertyLib::getTabletDevices();
+
+        foreach ($devices as $vendorKey => $vendor) {
+            //check type, and assume regex if not present
+            if (!isset($vendor['type'])) {
+                $vendor['type'] = 'regex';
+            }
+
+            if (!isset($vendor['match'])) {
+                throw new Exception\InvalidDeviceSpecificationException(
+                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'match')
+                );
+            }
+
+            if (!isset($vendor['vendor'])) {
+                throw new Exception\InvalidDeviceSpecificationException(
+                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'vendor')
+                );
+            }
+
+            if ($this->matches($vendor['type'], $vendor['match'], $this->getUserAgent())) {
+                if (isset($vendor['modelMatch'])) {
+                    return $this->modelMatch($vendor['modelMatch'], $this->getUserAgent());
+                }
             }
         }
 
@@ -402,6 +452,17 @@ class Detector {
         $props = array();
 
         // @todo do the detection here
+        $model = $this->detectPhoneDevice();
+        $type = Type::MOBILE;
+
+        if (!$model) {
+            $model = $this->detectTabletDevice();
+            $type = Type::TABLET;
+        }
+
+        //#1 detect: phone OR tablet OR ...?
+        //#2 detect: browser?
+        //#3 detect: OS
 
         /*
          * This would happen after the detection

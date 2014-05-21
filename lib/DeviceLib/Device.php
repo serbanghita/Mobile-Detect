@@ -9,11 +9,6 @@ namespace DeviceLib;
  */
 class Device implements DeviceInterface
 {
-    const TYPE_MOBILE           = 0;
-    const TYPE_DESKTOP          = 1;
-    const TYPE_TABLET           = 2;
-    const TYPE_BOT              = 3;
-
     /**
      * A list of required keys for the factory method.
      *
@@ -98,10 +93,10 @@ class Device implements DeviceInterface
         }
 
         // check that a valid type was passed
-        if ($props['type'] != static::TYPE_DESKTOP
-            && $props['type'] != static::TYPE_MOBILE
-            && $props['type'] != static::TYPE_TABLET
-            && $props['type'] != static::TYPE_BOT
+        if ($props['type'] != Type::DESKTOP
+            && $props['type'] != Type::MOBILE
+            && $props['type'] != Type::TABLET
+            && $props['type'] != Type::BOT
         ) {
             throw new Exception\InvalidDeviceSpecificationException("Unrecognized type: '{$props['type']}'");
         }
@@ -178,22 +173,22 @@ class Device implements DeviceInterface
 
     public function isMobile()
     {
-        return $this->type == static::TYPE_MOBILE;
+        return $this->type == Type::MOBILE;
     }
 
     public function isDesktop()
     {
-        return $this->type == static::TYPE_DESKTOP;
+        return $this->type == Type::DESKTOP;
     }
 
     public function isTablet()
     {
-        return $this->type == static::TYPE_TABLET;
+        return $this->type == Type::TABLET;
     }
 
     public function isBot()
     {
-        return $this->type == static::TYPE_BOT;
+        return $this->type == Type::BOT;
     }
 
     public function toArray()
