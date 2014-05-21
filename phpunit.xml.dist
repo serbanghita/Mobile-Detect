@@ -5,7 +5,8 @@
   bootstrap="tests/bootstrap.php"
   convertErrorsToExceptions="true"
   convertNoticesToExceptions="true"
-  convertWarningsToExceptions="true">
+  convertWarningsToExceptions="true"
+  strict="true">
 
   <testsuite name="All Mobile Detect tests">
       <directory suffix="Test.php">./tests/DeviceLibTest</directory>
