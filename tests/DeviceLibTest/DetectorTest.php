@@ -53,4 +53,28 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame('1 2 3 4 5 6 7 8', $detect->getUserAgent());
     }
+
+    public function testModelMatch()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('modelMatch');
+        $m->setAccessible(true);
+
+        $modelMatches = array('hello[VER]', 'whatever{[MODEL]}');
+        $against = 'thisishello1.2.3.4andwhatever{Spicy}more';
+
+        //test matches for full array
+        $ret = $m->invoke($detect, $modelMatches, $against);
+        $this->assertSame(
+            array(
+                'model_version' => '1.2.3.4',
+                'model' => 'Spicy'
+            ),
+            $ret
+        );
+
+        //test invalid params
+        $ret = $m->invoke($detect, 'hi', 'whatever');
+        $this->assertFalse($ret);
+    }
 }

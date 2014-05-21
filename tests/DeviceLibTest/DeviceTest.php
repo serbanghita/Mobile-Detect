@@ -3,6 +3,7 @@
 namespace DeviceLibTest;
 
 use DeviceLib\Device;
+use DeviceLib\Type;
 
 class DeviceTest extends \PHPUnit_Framework_TestCase
 {
@@ -18,7 +19,7 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
     public function testFactorySetCorrectly()
     {
         $device = Device::create(array(
-            'type'            => $type = Device::TYPE_DESKTOP,
+            'type'            => $type = Type::DESKTOP,
             'user_agent'      => $ua = 'Blah',
             'model'           => $model = 'Samsung Galaxy',
             'model_version'   => $modelVer = 'S4',
