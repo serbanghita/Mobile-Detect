@@ -35,6 +35,9 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeSame(array(), 'headers', $detect);
     }
 
+    /**
+     * @covers \DeviceLib\Detector::__construct, \DeviceLib\Detector::getUserAgent
+     */
     public function testMultipleUserAgentsAppended()
     {
         $headers = array(
@@ -54,6 +57,9 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('1 2 3 4 5 6 7 8', $detect->getUserAgent());
     }
 
+    /**
+     * @covers \DeviceLib\Detector::modelMatch
+     */
     public function testModelMatch()
     {
         $r = new \ReflectionObject($detect = new Detector());
@@ -77,4 +83,109 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $ret = $m->invoke($detect, 'hi', 'whatever');
         $this->assertFalse($ret);
     }
+
+    /**
+     * @expectedException \DeviceLib\Exception\InvalidArgumentException
+     * @expectedExceptionMessage Unknown match type: apples
+     * @covers \DeviceLib\Detector::matches
+     */
+    public function testMatchesInvalidType()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('matches');
+        $m->setAccessible(true);
+
+        $m->invoke($detect, 'apples', '', '');
+    }
+
+    /**
+     * @covers \DeviceLib\Detector::matches
+     */
+    public function testMatchesRegexActuallyMatches()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('matches');
+        $m->setAccessible(true);
+
+        $this->assertTrue($m->invoke($detect, 'regex','^st[u]+ff$', 'stuuuuuff'));
+    }
+
+    /**
+     * @covers \DeviceLib\Detector::matches
+     */
+    public function testMatchesRegexDoesNotMatch()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('matches');
+        $m->setAccessible(true);
+
+        $this->assertFalse($m->invoke($detect, 'regex', '^stuff[s]?$', 'horse stuff'));
+    }
+
+    /**
+     * @covers \DeviceLib\Detector::matches
+     */
+    public function testMatchesStrposDoesMatchSensitiveString()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('matches');
+        $m->setAccessible(true);
+
+        $this->assertTrue($m->invoke($detect, 'strpos', 'u', 'stuff'));
+    }
+
+    /**
+     * @covers \DeviceLib\Detector::matches
+     */
+    public function testMatchesStrposDoesNotMatchSensitiveString()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('matches');
+        $m->setAccessible(true);
+
+        $this->assertFalse($m->invoke($detect, 'strpos', 'F', 'stuff'));
+    }
+
+    /**
+     * @covers \DeviceLib\Detector::matches
+     */
+    public function testMatchesStrposDoesMatchInsensitiveString()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('matches');
+        $m->setAccessible(true);
+
+        $this->assertTrue($m->invoke($detect, 'stripos', 'u', 'STUFF'));
+    }
+
+    /**
+     * @covers \DeviceLib\Detector::matches
+     */
+    public function testMatchesStrposDoesNotMatchInsensitiveString()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('matches');
+        $m->setAccessible(true);
+
+        $this->assertFalse($m->invoke($detect, 'stripos', 'q', 'STuff'));
+    }
+
+    /**
+     * @covers \DeviceLib\Detector::matches
+     */
+    public function testPrepareRegex()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('prepareRegex');
+        $m->setAccessible(true);
+
+        $this->assertSame('/^yo$/i', $m->invoke($detect, '^yo$'));
+    }
+
+    /*public function testDetectPhoneDevice()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('detectPhoneDevice');
+        $m->setAccessible(true);
+    }*/
 }

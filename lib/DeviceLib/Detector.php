@@ -294,6 +294,15 @@ class Detector {
         return $regex;
     }
 
+    /**
+     * Given a type of match, this method will check if a valid match is found.
+     *
+     * @param string $type The type {{@see static::$knownMatchTypes}}.
+     * @param string $test The test subject.
+     * @param string $against The pattern (for regex) or substring (for str[i]pos).
+     * @return bool True if matched successfully.
+     * @throws Exception\InvalidArgumentException If $against isn't a string or $type is invalid.
+     */
     protected function matches($type, $test, $against)
     {
         if (!in_array($type, static::$knownMatchTypes)) {
@@ -303,31 +312,21 @@ class Detector {
         }
 
         //always take an array
-        if (is_string($against)) {
-            $against = array($against);
-        }
-
-        if (!is_array($against)) {
+        if (!is_string($against)) {
             throw new Exception\InvalidArgumentException('Invalid type passed: ' . gettype($against));
         }
 
         if ($type == 'regex') {
-            $test = $this->prepareRegex($test);
-        }
-
-        foreach ($against as $match) {
-            if ($type == 'regex') {
-                if (preg_match($test, $match)) {
-                    return true;
-                }
-            } elseif ($type == 'strpos') {
-                if (false !== strpos($match, $test)) {
-                    return true;
-                }
-            } elseif ($type == 'stripos') {
-                if (false !== stripos($match, $test)) {
-                    return true;
-                }
+            if (preg_match($this->prepareRegex($test), $against)) {
+                return true;
+            }
+        } elseif ($type == 'strpos') {
+            if (false !== strpos($against, $test)) {
+                return true;
+            }
+        } elseif ($type == 'stripos') {
+            if (false !== stripos($against, $test)) {
+                return true;
             }
         }
 
@@ -425,6 +424,8 @@ class Detector {
 
         return false;
     }
+
+
 
     /**
      * Creates a device with all the necessary context to determine all the given
