@@ -876,8 +876,116 @@ return array(
         'SonyEricssonU5i/R2CA; Mozilla/5.0 (SymbianOS/9.4; U; Series60/5.0 Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 Safari/525' => array('isMobile' => true, 'isTablet' => false),
         'SonyEricssonU5i/R2AA; Mozilla/5.0 (SymbianOS/9.4; U; Series60/5.0 Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 Safari/525' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/4.0 (PDA; PalmOS/sony/model prmr/Revision:1.1.54 (en)) NetFront/3.0'                                                                                           => array('isMobile' => true, 'isTablet' => false),
-        'Opera/9.80 (Linux mips; U; InettvBrowser/2.2 (00014A;SonyDTV115;0002;0100) KDL40EX720; CC/BEL; en) Presto/2.7.61 Version/11.00'                                        => array('isMobile' => false, 'isTablet' => false),
-        'Opera/9.80 (Linux armv7l; HbbTV/1.1.1 (; Sony; KDL32W650A; PKG3.211EUA; 2013;); ) Presto/2.12.362 Version/12.11'                                                       => array('isMobile' => false, 'isTablet' => false),
+        'Opera/9.80 (Linux mips; U; InettvBrowser/2.2 (00014A;SonyDTV115;0002;0100) KDL40EX720; CC/BEL; en) Presto/2.7.61 Version/11.00'                                        => array('isTv' => true),
+        'Opera/9.80 (Linux armv7l; HbbTV/1.1.1 (; Sony; KDL32W650A; PKG3.211EUA; 2013;); ) Presto/2.12.362 Version/12.11'                                                       => array('isTv' => true),
+        ),
+
+    'Apple' => array(
+        'iTunes-AppleTV/4.1' => array('isTv' => true),
+        ),
+
+    'Google' => array(
+        'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671' => array('isTv' => true),
+        'Mozilla/5.0 (X11; U: Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/b39389' => array('isTv' => true),
+        'CrKey' => array('isTv' => true),
+        ),
+
+    'LG' => array(
+        'Mozilla/5.0 (DirectFB; U; Linux 35230; en) AppleWebKit/531.2+ (KHTML, like Gecko) Safari/531.2+ LG Browser/4.1.4(+3D+SCREEN+TUNER; LGE; 42LW5700-SA; 04.02.28; 0x00000001;); LG NetCast.TV-2011' => array('isTv' => true),
+        'Mozilla/5.0 (DirectFB; U; Linux mips; en) AppleWebKit/531.2+ (KHTML, like Gecko) Safari/531.2+ LG Browser/4.0.10(+SCREEN+TUNER; LGE; 42LE5500-SA; 04.02.02; 0x00000001;); LG NetCast.TV-2010' => array('isTv' => true),
+        'Mozilla/5.0 (Unknown; Linux armv7l) AppleWebKit/537.1+ (KHTML, like Gecko) Safari/537.1+ LG Browser/6.00.00(+mouse+3D+SCREEN+TUNER; LGE; GLOBAL-PLAT5; 03.07.01; 0x00000001;); LG NetCast.TV-2013/03.17.01 (LG, GLOBAL-PLAT4, wired)' => array('isTv' => true),
+        'Mozilla/5.0 (DirectFB; Linux armv7l) AppleWebKit/534.26+ (KHTML, like Gecko) Version/5.0 Safari/534.26+ HbbTV/1.1.1 ( ;LGE ;NetCast 3.0 ;1.0 ;1.0M ;)' => array('isTv' => true),
+        'Mozilla/5.0 (Unknown; Linux armv7l) AppleWebKit/534.26+ (KHTML, like Gecko) Version/5.0 Safari/534.26+ HbbTV/1.1.1 ( ;LG Electronics ;NetCast 3.0 ;1.0 ;1.0M ;)' => array('isTv' => true),
+        'Mozilla/5.0 (Unknown; Linux armv7l) AppleWebKit/534.26+ (KHTML, like Gecko) Version/5.0 Safari/534.26+ HbbTV/1.1.1 ( ;LGE ;NetCast 3.0 ;1.0 ;1.0M ;)' => array('isTv' => true),
+        ),
+
+    'Panasonic' => array(
+        'Mozilla/5.0 (FreeBSD; U; Viera; ja-JP) AppleWebKit/535.1 (KHTML, like Gecko) Viera/1.2.4 Chrome/14.0.835.202 Safari/535.1'                                                       => array('isTv' => true),
+        ),
+
+    'Philips' => array(
+        'Opera/9.70 (Linux armv6l ; U; CE-HTML/1.0 NETTV/2.0.2; en) Presto/2.2.1'                                                       => array('isTv' => true),
+        'Opera/9.80 (Linux armv6l ; U; CE-HTML/1.0 NETTV/3.0.1;; en) Presto/2.6.33 Version/10.60'                                                       => array('isTv' => true),
+        'Opera/9.80 (Linux mips; HbbTV/1.2.1 (; Philips; ; ; ; ) CE-HTML/1.0 NETTV/4.2.0 PHILIPSTV/1.1.1 Firmware/171.56.0 (PhilipsTV, 1.1.1,) en) Presto/2.12.362 Version/12.11'                                                       => array('isTv' => true),
+        ),
+
+    'Roku' => array(
+        'Roku/DVP-5.2 (025.02E03197A)'                                                       => array('isTv' => true),
+        'Roku/DVP-5.0 (025.00E08043A)'                                                       => array('isTv' => true),
+        ),
+
+    'Samsung' => array(
+        'HbbTV/1.1.1 (;Samsung;SmartTV2013;T-FXPDEUC-1102.2;;) WebKit'                                                       => array('isTv' => true),
+        'Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV) AppleWebKit/531.2+ (KHTML, like Gecko) WebBrowser/1.0 SmartTV Safari/531.2+'                                                       => array('isTv' => true),
+        'Mozilla/5.0 (SMART-TV; X11; Linux i686) AppleWebKit/535.20+ (KHTML, like Gecko) Version/5.0 Safari/535.20+'                                                       => array('isTv' => true),
+        'Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV; Maple2012)'                                                       => array('isTv' => true),
+        ),
+
+    'Sharp' => array(
+        'Mozilla/5.0 (DTV) AppleWebKit/531.2  (KHTML, like Gecko) AQUOSBrowser/1.0 (US00DTV;V;0001;0001)' => array('isTv' => true),
+        'Mozilla/5.0 (DTV) AppleWebKit/531.2+ (KHTML, like Gecko) Espial/6.0.4 AQUOSBrowser/1.0 (CH00DTV;V;0001;0001)' => array('isTv' => true),
+        'Opera/9.80 (Linux armv6l; U; en) Presto/2.8.115 Version/11.10 AQUOS-AS/1.0 LC-40LE835X' => array('isTv' => true),
+        'Mozilla/5.0 (DTV) AppleWebKit/531.2+ (KHTML, like Gecko) Espial/6.1.5 AQUOSBrowser/2.0 (US01DTV;V;0001;0001)'                                                       => array('isTv' => true),
+        ),
+
+    'TechniSat' => array(
+        'Opera/9.80 (Linux sh4; U; HbbTV/1.1.1 (;;;;;); CE-HTML; TechniSat Digit ISIO S; de) Presto/2.9.167 Version/11.50'                                                       => array('isTv' => true),
+        ),
+
+    'Technicolor' => array(
+        'Technicolor_' => array('isTv' => true),
+        ),
+
+    'Toshiba' => array(
+        'Mozilla/5.0 (Linux mipsel; U; HbbTV/1.1.1 (; TOSHIBA; DTV_RL953; 56.7.66.7; t12; ) ; ToshibaTP/1.3.0 (+VIDEO_MP4+VIDEO_X_MS_ASF+AUDIO_MPEG+AUDIO_MP4+DRM+NATIVELAUNCH) ; en) AppleWebKit/534.1 (KHTML, like Gecko)' => array('isTv' => true),
+        'Mozilla/5.0 (DTV; TSBNetTV/T32013713.0203.7DD; TVwithVideoPlayer; like Gecko) NetFront/4.1 DTVNetBrowser/2.2 (000039;T32013713;0203;7DD) InettvBrowser/2.2 (000039;T32013713;0203;7DD)' => array('isTv' => true),
+        'Mozilla/5.0 (Linux mipsel; U; HbbTV/1.1.1 (; TOSHIBA; 40PX200; 0.7.3.0.; t12; ) ; Toshiba_TP/1.3.0 (+VIDEO_MP4+AUDIO_MPEG+AUDIO_MP4+VIDEO_X_MS_ASF+OFFLINEAPP) ; en) AppleWebKit/534.1 (KHTML, like Gec' => array('isTv' => true),
+        'Mozilla/5.0 (Linux mipsel; U; HbbTV/1.1.1 (; TOSHIBA; 40PX200; 0.7.3.0.; t12; ) ; (+VIDEO_MP4+AUDIO_MPEG+AUDIO_MP4+VIDEO_X_MS_ASF+OFFLINEAPP) ; en) AppleWebKit/534.1 (KHTML, like Gec' => array('isTv' => true),
+        ),
+
+    'Smart' => array(
+        'Mozilla/5.0 (Linux mipsel; U; HbbTV/1.1.1 (; smart; 40PX200; 0.7.3.0.; t12; ) ; AppleWebKit/534.1 (KHTML, like Gec' => array('isTv' => true),
+        ),
+
+    'TV2N' => array(
+        'Mozilla/5.0 (Linux mipsel; U; HbbTV/1.1.1 (; tv2n; 40PX200; 0.7.3.0.; t12; ) ; AppleWebKit/534.1 (KHTML, like Gec' => array('isTv' => true),
+        ),
+
+    'Motorola' => array(
+        'Motorola KreaTV STB' => array('isTv' => true),
+        ),
+
+    'Winbox' => array(
+        'Winbox Evo2' => array('isTv' => true),
+        ),
+
+    'Dune HD' => array(
+        'DuneHD/' => array('isTv' => true),
+        ),
+
+    'Bewatec' => array(
+        'MediStream' => array('isTv' => true),
+        ),
+
+    'Other' => array(
+        'NETRANGEMMH' => array('isTv' => true),
+        'mbxtWebKit/' => array('isTv' => true),
+        'MachBlue' => array('isTv' => true),
+        'POV_TV' => array('isTv' => true),
+        'Opera/9.80 (Linux sh4; U; ; en; CreNova Build) AppleWebKit/533.1 (KHTML like Gecko) Version/4.0 Mobile Safari/533.1 HbbTV/1.1 (;CreNova;CNV001;1.0;1.0; FXM-U2FsdGVkX19AfSGBrU5pNwqodai+lZp2xktKFNHDE46SbYGa7Wp+eG5Z56WMDCQu-END; en) Presto/2.9 Version' => array('isTv' => true),
+        'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.4 (KHTML, like Gecko) MWB/1.0 Safari/537.4 HbbTV/1.2.1 (; Mstar; MWB;;;)' => array('isTv' => true),
+        'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100222 Firefox/3.6 Kylo/0.6.1.70394' => array('isTv' => true),
+        'ADB;' => array('isTv' => true),
+        'Mstar;OWB' => array('isTv' => true),
+        'InettvBrowser' => array('isTv' => true),
+        'Opera TV' => array('isTv' => true),
+        'Opera-TV' => array('isTv' => true),
+        'Boxee' => array('isTv' => true),
+        'LG Browser' => array('isTv' => true),
+        'Espial/' => array('isTv' => true),
+        'ANTGalio/' => array('isTv' => true),
+        'Web0S dasd asd Large Screen' => array('isTv' => true),
+        'WebOS dasd asd Large Screen' => array('isTv' => true),
         ),
 
     'Skk' => array('Mozilla/5.0 (Linux; U; Android 4.1; en-us; CYCLOPS Build/F10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true)),

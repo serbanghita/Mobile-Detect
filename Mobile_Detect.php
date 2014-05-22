@@ -358,6 +358,33 @@ class Mobile_Detect
     );
 
     /**
+     * List of tv devices. Experimental.
+     *
+     * @var array
+     */
+    protected static $tvDevices = array(
+        'Apple'         => 'AppleTV',
+        'Google'        => 'GoogleTV|CrKey',
+        'LG'            => 'NetCast|LGSmartTV|HbbTV.+LGE?',
+        'Sony'          => 'SonyDTV|SonyBDP|SonyCEBrowser|HbbTV.+Sony',
+        'Samsung'       => 'SMART-?TV',
+        'Panasonic'     => 'Viera',
+        'Philips'       => 'NETTV/',
+        'Roku'          => 'Roku/DVP',
+        'Sharp'         => 'AQUOSBrowser|AQUOS-AS',
+        'Smart'         => 'HbbTV.+smart',
+        'Technicolor'   => 'Technicolor_',
+        'TechniSat'     => 'TechniSat',
+        'Toshiba'       => 'Toshiba_?TP|TSBNetTV/|HbbTV.+TOSHIBA',
+        'TV2N'          => 'HbbTV.+tv2n',
+        'Motorola'      => 'Motorola KreaTV STB',
+        'Winbox'        => 'Winbox Evo2',
+        'Dune HD'       => 'DuneHD/',
+        'Bewatec'       => 'MediStream',
+        'Other'         => 'NETRANGEMMH|mbxtWebKit/|MachBlue|POV_TV|HbbTV|Kylo/|ADB;|Mstar;OWB|InettvBrowser|Opera[ -]TV|Boxee|Espial/|ANTGalio/|Web[0O]S.+Large Screen',
+    );
+
+    /**
      * List of mobile Operating Systems.
      *
      * @var array
@@ -962,6 +989,25 @@ class Mobile_Detect
 
         foreach (self::$tabletDevices as $_regex) {
             if ($this->match($_regex, $userAgent)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if the device is a tv.
+     * Return true if any type of tv device is detected.
+     *
+     * @return bool
+     */
+    public function isTv()
+    {
+        $this->setDetectionType(self::DETECTION_TYPE_EXTENDED);
+
+        foreach (self::$tvDevices as $_regex) {
+            if ($this->match($_regex)) {
                 return true;
             }
         }

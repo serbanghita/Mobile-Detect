@@ -94,6 +94,10 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
                     $tmp['tablet'] = $props['isTablet'];
                 }
 
+                if (isset($props['isTv'])) {
+                    $tmp['tv'] = $props['isTv'];
+                }
+
                 if (isset($props['version'])) {
                     $tmp['version'] = $props['version'];
                 }
@@ -139,6 +143,7 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
             $tmp[] = isset($userAgent['user_agent']) ? $userAgent['user_agent'] : null;
             $tmp[] = isset($userAgent['mobile']) ? $userAgent['mobile'] : null;
             $tmp[] = isset($userAgent['tablet']) ? $userAgent['tablet'] : null;
+            $tmp[] = isset($userAgent['tv']) ? $userAgent['tv'] : null;
             $tmp[] = isset($userAgent['version']) ? $userAgent['version'] : null;
             $tmp[] = isset($userAgent['model']) ? $userAgent['model'] : null;
             $tmp[] = isset($userAgent['vendor']) ? $userAgent['vendor'] : null;
@@ -158,10 +163,12 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider userAgentData
      */
-    public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor)
+    public function testUserAgents($userAgent, $isMobile, $isTablet, $isTv, $version, $model, $vendor)
     {
         //make sure we're passed valid data
-        if (!is_string($userAgent) || !is_bool($isMobile) || !is_bool($isTablet)) {
+        if (!is_string($userAgent) ||
+          // We need either both isMobile and isTablet or isTv
+          (!(is_bool($isMobile) && is_bool($isTablet)) && !is_bool($isTv))) {
             $this->markTestIncomplete("The User-Agent $userAgent does not have sufficient information for testing.");
 
             return;
@@ -172,10 +179,13 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         $md->setUserAgent($userAgent);
 
         //is mobile?
-        $this->assertEquals($md->isMobile(), $isMobile);
+        if (!is_null($isMobile)) $this->assertEquals($md->isMobile(), $isMobile);
 
         //is tablet?
-        $this->assertEquals($md->isTablet(), $isTablet);
+        if (!is_null($isTablet)) $this->assertEquals($md->isTablet(), $isTablet);
+
+        //is tv?
+        if (!is_null($isTv)) $this->assertEquals($md->isTv(), $isTv);
 
         if (isset($version)) {
             foreach ($version as $condition => $assertion) {
