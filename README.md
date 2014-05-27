@@ -9,6 +9,12 @@ Nowadays web site/app <b>content strategy</b> matters, this is why you need all 
 
 We're commited to make Mobile_Detect the best open-source mobile detection resource and this is why before each release we're running [unit tests](./tests), we also research and update the detection rules on <b>daily</b> and <b>weekly</b> basis.
 
+<p>
+<img src="https://dl.dropboxusercontent.com/u/70897251/impress_ghita_460px.jpg"><br>
+<b>Thanks <a href="http://impresspages.org">ImpressPages</a> CMS for showing us some love!</b></p>
+
+
+
 ##### Download and demo
 
 <a href="https://github.com/serbanghita/Mobile-Detect/tags">Latest releases</a>, <a href="https://github.com/serbanghita/Mobile-Detect/blob/devel/Mobile_Detect.php">Latest dev branch</a>, <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib">composer package</a>
