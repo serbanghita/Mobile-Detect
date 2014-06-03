@@ -1,0 +1,15 @@
+{
+  "name": "mobiledetect",
+  "version": "2.8.0",
+  "description": "MobileDetect provides a JSON definition file and lightweight PHP class for detecting mobile and tablet devices based on User-Agent string and HTTP headers",
+  "homepage": "http://mobiledetect.net/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/serbanghita/Mobile-Detect.git"
+  },
+  "main": ["Mobile_Detect.json"],
+  "keywords": ["mobile", "tablet", "detect", "device", "user agent"],
+  "authors": ["Serban Ghita"],
+  "license": "MIT",
+  "devDependencies": {}
+}
