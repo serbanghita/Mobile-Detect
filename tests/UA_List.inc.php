@@ -280,11 +280,14 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 2.2; en-us; Nexus One Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'                        => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 4.2.2; Nexus 4 Build/JDQ39) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.40 Mobile Safari/537.31 OPR/14.0.1074.54070'    => array('isMobile' => true, 'isTablet' => false, 'version' => array('Android' => '4.2.2', 'Build' => 'JDQ39', 'Webkit' => '537.31', 'Opera' => '14.0.1074.54070') ),
         'Mozilla/5.0 (Linux; Android 4.2.2; Nexus 4 Build/JDQ39) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.58 Mobile Safari/537.31'                        => array('isMobile' => true, 'isTablet' => false, 'version' => array('Android' => '4.2.2', 'Chrome' => '26.0.1410.58')),
+        'Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; Google Nexus 4 - 4.1.1 - API 16 - 768x1280 Build/JRO03S) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; Google Galaxy Nexus - 4.1.1 - API 16 - 720x1280 Build/JRO03S) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19'                            => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 4.2; Nexus 7 Build/JOP40C) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19'                               => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 4.1.2; Nexus 7 Build/JZ054K) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19'                             => array('isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.1.2', 'Chrome' => '18.0.1025.166') ),
         'Mozilla/5.0 (Linux; U; Android 4.1.2; cs-cz; Nexus S Build/JZO54K; CyanogenMod-10.0.0) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 4.3; Nexus 10 Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.72 Safari/537.36'                               => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Android; en_us; Nexus 7 Build/) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 NetFrontLifeBrowser/2.3 Mobile (Dragonfruit)'         => array('isMobile' => true, 'isTablet' => true),
         ),
 
     'GU' => array(
@@ -801,7 +804,7 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.1.1; zh-hk; GT-N7105 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'                                                                           => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; U; Android 4.1.1; ru-ru; GT-N8000 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'                                                                                  => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 4.1.1; SGH-i747M Build/JRO03L) AppleWebKit/535.19(KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19'                                                                            => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (Linux; U; Android 4.1.1; en-gb; Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280 Build/JRO03S) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Android 4.1.1; en-gb; Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280 Build/JRO03S) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 4.1.2; GT-I8262 Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Mobile Safari/537.36'                                                                             => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; U; Android 4.1.2; it-it; Galaxy Nexus Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'                                                                       => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SGH-I777 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'                                                                           => array('isMobile' => true, 'isTablet' => false),
@@ -815,6 +818,7 @@ return array(
         'Mozilla/5.0 (Linux; Android 4.3; en-us; SAMSUNG SM-P600 Build/JSS15J) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
 
         'Mozilla/5.0 (Linux; U; Android 4.2.2; en-gb; GT-N5100 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 4.4.2; en-us; SAMSUNG SM-T530NU Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
 
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; CETUS)'                                                                                                                   => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; Focus I917 By TC)'                                                                                                        => array('isMobile' => true, 'isTablet' => false),
