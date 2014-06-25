@@ -1202,6 +1202,9 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.2.2; de-de; Endeavour 1010 Build/ONDA_MID) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array(
             'isMobile' => true, 'isTablet' => true,     // Blaupunkt Endeavour 1010
         ),
+        'Mozilla/5.0 (Linux; U; Android 4.0.4; de-de; Tablet-PC-4 Build/ICS.g08refem618.20121102) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array(
+            'isMobile' => true, 'isTablet' => true,
+        ),
         ),
 
     'Bot' => array(
