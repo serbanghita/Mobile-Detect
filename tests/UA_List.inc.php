@@ -1184,6 +1184,9 @@ return array(
         'Opera/9.80 (Linux armv7l; Maemo; Opera Mobi/14; U; en) Presto/2.9.201 Version/11.50',
         'Opera/9.80 (Android 2.2.1; Linux; Opera Mobi/ADR-1207201819; U; en) Presto/2.10.254 Version/12.00',
         'Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; sdk Build/JRO03E) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'Mozilla/5.0 (Linux; U; Android 4.2.2; de-de; Endeavour 1010 Build/ONDA_MID) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array(
+            'isMobile' => true, 'isTablet' => true,     // Blaupunkt Endeavour 1010
+        ),
         ),
 
     'Bot' => array(
