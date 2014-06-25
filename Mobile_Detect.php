@@ -358,6 +358,7 @@ class Mobile_Detect
         'XoroTablet'        => 'PAD 9720QR',
         'ViewsonicTablet'   => 'ViewPad 10e',
         'OdysTablet'        => 'LOOX|XENO10',
+        'CaptivaTablet'     => 'CAPTIVA PAD',
     );
 
     /**

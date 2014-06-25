@@ -188,6 +188,12 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.0.4; zh-tw; bq Maxwell Plus Build/1.0.0 20120913-10:39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
         ),
 
+    'Captiva' => array(
+        'Opera/9.80 (X11; Linux zvav; U; de) Presto/2.8.119 Version/11.10 Mozilla/5.0 (Linux; U; Android 4.1.1; de-de; CAPTIVA PAD 10.1 Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array(
+            'isMobile' => true, 'isTablet' => true,
+        ),
+    ),
+
     'Casio' => array(
             'Mozilla/5.0 (Linux; U; Android 2.3.3; en-us; C771 Build/C771M120) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'				=> array('isMobile' => true, 'isTablet' => false),
             ),
