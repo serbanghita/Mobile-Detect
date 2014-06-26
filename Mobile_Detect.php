@@ -183,7 +183,7 @@ class Mobile_Detect
         // @ref: http://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
         'SurfaceTablet'     => 'Windows NT [0-9.]+; ARM;',
         // @ref: http://shopping1.hp.com/is-bin/INTERSHOP.enfinity/WFS/WW-USSMBPublicStore-Site/en_US/-/USD/ViewStandardCatalog-Browse?CatalogCategoryID=JfIQ7EN5lqMAAAEyDcJUDwMT
-        'HPTablet'          => 'HP Slate 7|HP ElitePad 900|hp-tablet|EliteBook.*Touch',
+        'HPTablet'          => 'HP Slate 7|HP Slate 10|HP ElitePad 900|hp-tablet|EliteBook.*Touch',
         // @note: watch out for PadFone, see #132
         'AsusTablet'        => '^.*PadFone((?!Mobile).)*$|Transformer|TF101|TF101G|TF300T|TF300TG|TF300TL|TF700T|TF700KL|TF701T|TF810C|ME171|ME301T|ME302C|ME371MG|ME370T|ME372MG|ME172V|ME173X|ME400C|Slider SL101|\bK00F\b|TX201LA',
         'BlackBerryTablet'  => 'PlayBook|RIM Tablet',
