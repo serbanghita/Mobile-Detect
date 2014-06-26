@@ -456,6 +456,12 @@ return array(
 
         ),
 
+    'Jaytech' => array(
+        'Mozilla/5.0 (Linux; U; Android 4.2.2; de-de; TPC-PA762 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array(
+            'isMobile' => true, 'isTablet' => true,
+        ),
+    ),
+
     'JXD' => array('Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; F3000 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true)
         ),
 
