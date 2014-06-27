@@ -408,6 +408,8 @@ class Mobile_Detect
         //'Midori'          => 'midori',
         'Tizen'           => 'Tizen',
         'UCBrowser'       => 'UC.*Browser|UCWEB',
+        'baiduboxapp'     => 'baiduboxapp',
+        'baidubrowser'    => 'baidubrowser',
         // @ref: https://github.com/serbanghita/Mobile-Detect/issues/7
         'DiigoBrowser'    => 'DiigoBrowser',
         // http://www.puffinbrowser.com/index.php
@@ -497,6 +499,8 @@ class Mobile_Detect
         'UC Browser'    => 'UC Browser[VER]',
         'MQQBrowser'    => 'MQQBrowser/[VER]',
         'MicroMessenger' => 'MicroMessenger/[VER]',
+        'baiduboxapp'   => 'baiduboxapp/[VER]',
+        'baidubrowser'  => 'baidubrowser/[VER]',
         // @note: Safari 7534.48.3 is actually Version 5.1.
         // @note: On BlackBerry the Version is overwriten by the OS.
         'Safari'        => array( 'Version/[VER]', 'Safari/[VER]' ),
