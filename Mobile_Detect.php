@@ -543,13 +543,13 @@ class Mobile_Detect
     }
 
     /**
-    * Get the current script version.
-    * This is useful for the demo.php file,
-    * so people can check on what version they are testing
-    * for mobile devices.
-    *
-    * @return string The version number in semantic version format.
-    */
+     * Get the current script version.
+     * This is useful for the demo.php file,
+     * so people can check on what version they are testing
+     * for mobile devices.
+     *
+     * @return string The version number in semantic version format.
+     */
     public static function getScriptVersion()
     {
         return self::VERSION;
@@ -617,6 +617,8 @@ class Mobile_Detect
         } elseif (isset($this->httpHeaders[$altHeader])) {
             return $this->httpHeaders[$altHeader];
         }
+        
+        return null;
     }
 
     public function getMobileHeaders()
@@ -639,6 +641,8 @@ class Mobile_Detect
      * Set the User-Agent to be used.
      *
      * @param string $userAgent The user agent string to set.
+     * 
+     * @return string|null
      */
     public function setUserAgent($userAgent = null)
     {
@@ -820,12 +824,12 @@ class Mobile_Detect
     }
 
     /**
-    * Check the HTTP headers for signs of mobile.
-    * This is the fastest mobile check possible; it's used
-    * inside isMobile() method.
-    *
-    * @return bool
-    */
+     * Check the HTTP headers for signs of mobile.
+     * This is the fastest mobile check possible; it's used
+     * inside isMobile() method.
+     *
+     * @return bool
+     */
     public function checkHttpHeadersForMobile()
     {
 
@@ -872,11 +876,11 @@ class Mobile_Detect
     }
 
     /**
-    * Find a detection rule that matches the current User-agent.
-    *
-    * @param null $userAgent deprecated
-    * @return boolean
-    */
+     * Find a detection rule that matches the current User-agent.
+     *
+     * @param null $userAgent deprecated
+     * @return boolean
+     */
     protected function matchDetectionRulesAgainstUA($userAgent = null)
     {
         // Begin general search.
@@ -893,14 +897,14 @@ class Mobile_Detect
     }
 
     /**
-    * Search for a certain key in the rules array.
-    * If the key is found the try to match the corresponding
-    * regex agains the User-Agent.
-    *
-    * @param string $key
-    * @param null $userAgent deprecated
-    * @return mixed
-    */
+     * Search for a certain key in the rules array.
+     * If the key is found the try to match the corresponding
+     * regex agains the User-Agent.
+     *
+     * @param string $key
+     * @param null $userAgent deprecated
+     * @return mixed
+     */
     protected function matchUAAgainstKey($key, $userAgent = null)
     {
         // Make the keys lowercase so we can match: isIphone(), isiPhone(), isiphone(), etc.
@@ -921,12 +925,12 @@ class Mobile_Detect
     }
 
     /**
-    * Check if the device is mobile.
-    * Returns true if any type of mobile device detected, including special ones
-    * @param null $userAgent deprecated
-    * @param null $httpHeaders deprecated
-    * @return bool
-    */
+     * Check if the device is mobile.
+     * Returns true if any type of mobile device detected, including special ones
+     * @param null $userAgent deprecated
+     * @param null $httpHeaders deprecated
+     * @return bool
+     */
     public function isMobile($userAgent = null, $httpHeaders = null)
     {
 
@@ -974,9 +978,9 @@ class Mobile_Detect
      * userAgent.
      * @todo: The httpHeaders part is not yet used.
      *
-     * @param $key
-     * @param  string        $userAgent   deprecated
-     * @param  string        $httpHeaders deprecated
+     * @param string $key
+     * @param string        $userAgent   deprecated
+     * @param string        $httpHeaders deprecated
      * @return bool|int|null
      */
     public function is($key, $userAgent = null, $httpHeaders = null)
