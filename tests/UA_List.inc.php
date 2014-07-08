@@ -506,6 +506,9 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.2.2; de-de; Lenovo A7600-F Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array(
             'isMobile' => true, 'isTablet' => true,
         ),
+        'Mozilla/5.0 (Linux; Android 4.2.2; IdeaPadA10 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.94 Safari/537.36' => array(
+            'isMobile' => true, 'isTablet' => true,
+        ),
 
         ),
 
