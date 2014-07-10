@@ -1,2 +1,4 @@
 vendor/
 nbproject/
+.idea/
+*.iml
