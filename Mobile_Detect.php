@@ -362,6 +362,8 @@ class Mobile_Detect
         'OdysTablet'        => 'LOOX|XENO10|ODYS Space',
         // http://www.captiva-power.de/products.html#tablets-en
         'CaptivaTablet'     => 'CAPTIVA PAD',
+        // IconBIT - http://www.iconbit.com/products/tablets/
+        'IconbitTablet' => 'NetTAB|NT-3702|NT-3702S|NT-3702S|NT-3603P|NT-3603P|NT-0704S|NT-0704S|NT-3805C|NT-3805C|NT-0806C|NT-0806C|NT-0909T|NT-0909T|NT-0907S|NT-0907S|NT-0902S|NT-0902S',
         // @ref: http://www.tesco.com/direct/hudl/
         'Hudl'              => 'Hudl HT7S3',
         // @ref: http://www.telstra.com.au/home-phone/thub-2/
