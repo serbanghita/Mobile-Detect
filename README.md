@@ -13,8 +13,8 @@ Your website's _content strategy_ is important! You need a complete toolkit to d
 
 |Download|Docs|Examples|
 |-------------|-------------|-------------|
-|[Go to releases](./tags)|[Become a contributor](./wiki/Become-a-contributor)|[Code examples](./wiki/Code-examples)
-|[Mobile_Detect.php](./Mobile_Detect.php)|[History](./wiki/History)|[:iphone: Live demo!](http://is.gd/mobiletest)
+|[Go to releases](../../tags)|[Become a contributor](../../wiki/Become-a-contributor)|[Code examples](../../wiki/Code-examples)
+|[Mobile_Detect.php](./Mobile_Detect.php)|[History](../../wiki/History)|[:iphone: Live demo!](http://is.gd/mobiletest)
 |[Composer package](https://packagist.org/packages/mobiledetect/mobiledetectlib)|
 
 ##### Help
@@ -29,7 +29,7 @@ I would highly appreciate any money donations that will keep the research going.
 
 Special thanks to the community :+1: for donations, [BrowserStack](http://browserstack.com) - for providing access to their great platform, [Zend](http://zend.com) - for donating licenses, [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
 
-##### 3rd party modules / [Submit new](./issues/new?title=New%203rd%20party%20module&body=Name, Link and Description of the module.)
+##### 3rd party modules / [Submit new](../../issues/new?title=New%203rd%20party%20module&body=Name, Link and Description of the module.)
 
 :point_right: Keep `Mobile_Detect.php` class in a separate `module` and do NOT include it in your script core because of the high frequency of updates.
 :point_right: When including the class into you `web application` or `module` always use `include_once '../path/to/Mobile_Detect.php` to prevent conflicts.
