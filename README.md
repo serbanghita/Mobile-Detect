@@ -1,38 +1,35 @@
-<img src="http://demo.mobiledetect.net/logo-github.png">
+![Mobile Detect](http://demo.mobiledetect.net/logo-github.png)
 
 > Motto: "Every business should have a mobile detection script to detect mobile readers."
 
 <i>Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
 It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</i>
 
-Nowadays web site/app <b>content strategy</b> matters, this is why you need all the tools to deliver the best and the fastest experience for the small screens. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool, it is not a replacement for Responsive Web Design (media queries) or other forms of client-side feature detection.
+> We're commited to make Mobile_Detect the best open-source mobile detection resource and this is why before each release we're running [unit tests](./tests), we also research and update the detection rules on <b>daily</b> and <b>weekly</b> basis.
 
-We're commited to make Mobile_Detect the best open-source mobile detection resource and this is why before each release we're running [unit tests](./tests), we also research and update the detection rules on <b>daily</b> and <b>weekly</b> basis.
-
-<p>
-<img src="https://dl.dropboxusercontent.com/u/70897251/impress_ghita_460px.jpg"><br>
-<b>Thanks <a href="http://impresspages.org">ImpressPages</a> CMS for showing us some love!</b></p>
-
-
+Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is  _optimized_, _fast_ and _relevant_ to your users. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
 
 ##### Download and demo
 
-<a href="https://github.com/serbanghita/Mobile-Detect/tags">Latest releases</a>, <a href="https://github.com/serbanghita/Mobile-Detect/blob/devel/Mobile_Detect.php">Latest dev branch</a>, <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib">composer package</a>
-
-See also: <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Become-a-contributor">:bulb: Become a contributor</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/History">:coffee: History</a> / <a href="https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples">:point_right: Code examples</a> /
-<a href="http://is.gd/mobiletest">:iphone: Live demo!</a> (point your device browser to this URL)
+|Download|Docs|Examples|
+|-------------|-------------|-------------|
+|[Go to releases](../../tags)|[Become a contributor](../../wiki/Become-a-contributor)|[Code examples](../../wiki/Code-examples)
+|[Mobile_Detect.php](./Mobile_Detect.php)|[History](../../wiki/History)|[:iphone: Live demo!](http://is.gd/mobiletest)
+|[Composer package](https://packagist.org/packages/mobiledetect/mobiledetectlib)|
 
 ##### Help
 
-<a href="http://pledgie.com/campaigns/21856"><img alt='Click here to lend your support to: Research and development of Mobile Detect library!' src='http://www.pledgie.com/campaigns/21856.png?skin_name=chrome' border='0' /></a>
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mobiledetectlib%40gmail%2ecom&lc=US&item_name=Mobile%20Detect&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0"></a>
+|Pledgie|Paypal|
+|-------|------|
+|[Donate :+1:](http://pledgie.com/campaigns/21856)|[Donate :beer:](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mobiledetectlib%40gmail%2ecom&lc=US&item_name=Mobile%20Detect&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)|
 
-I'm currently paying for hosting and spend a lot of my family time :family: to maintain the project and planning the future releases.
+
+I'm currently paying for hosting and spend a lot of my family time to maintain the project and planning the future releases.
 I would highly appreciate any money donations that will keep the research going.
 
 Special thanks to the community :+1: for donations, [BrowserStack](http://browserstack.com) - for providing access to their great platform, [Zend](http://zend.com) - for donating licenses, [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
 
-##### 3rd party modules / [Submit new](https://github.com/serbanghita/Mobile-Detect/issues/new?title=New%203rd%20party%20module&body=Name, Link and Description of the module.)
+##### 3rd party modules / [Submit new](../../issues/new?title=New%203rd%20party%20module&body=Name, Link and Description of the module.)
 
 :point_right: Keep `Mobile_Detect.php` class in a separate `module` and do NOT include it in your script core because of the high frequency of updates.
 :point_right: When including the class into you `web application` or `module` always use `include_once '../path/to/Mobile_Detect.php` to prevent conflicts.

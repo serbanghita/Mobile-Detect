@@ -20,7 +20,7 @@
  *              README:       https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
  *              HOWTO:        https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
  *
- * @version     2.8.2
+ * @version     2.8.3
  */
 
 class Mobile_Detect
@@ -64,7 +64,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.8.2';
+    const VERSION                   = '2.8.3';
 
     /**
      * A type for the version() method indicating a string return value.
@@ -139,7 +139,7 @@ class Mobile_Detect
      * @var array
      */
     protected static $phoneDevices = array(
-        'iPhone'        => '\biPhone.*Mobile|\biPod', // |\biTunes
+        'iPhone'        => '\biPhone.*(Mobile|PhoneGap)|\biPod', // |\biTunes
         'BlackBerry'    => 'BlackBerry|\bBB10\b|rim[0-9]+',
         'HTC'           => 'HTC|HTC.*(Sensation|Evo|Vision|Explorer|6800|8100|8900|A7272|S510e|C110e|Legend|Desire|T8282)|APX515CKT|Qtek9090|APA9292KT|HD_mini|Sensation.*Z710e|PG86100|Z715e|Desire.*(A8181|HD)|ADR6200|ADR6400L|ADR6425|001HT|Inspire 4G|Android.*\bEVO\b|T-Mobile G1|Z520m',
         'Nexus'         => 'Nexus One|Nexus S|Galaxy.*Nexus|Android.*Nexus.*Mobile',
@@ -183,7 +183,7 @@ class Mobile_Detect
         // @ref: http://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
         'SurfaceTablet'     => 'Windows NT [0-9.]+; ARM;',
         // @ref: http://shopping1.hp.com/is-bin/INTERSHOP.enfinity/WFS/WW-USSMBPublicStore-Site/en_US/-/USD/ViewStandardCatalog-Browse?CatalogCategoryID=JfIQ7EN5lqMAAAEyDcJUDwMT
-        'HPTablet'          => 'HP Slate 7|HP Slate 10|HP ElitePad 900|hp-tablet|EliteBook.*Touch',
+        'HPTablet'          => 'HP Slate 7|HP Slate 10|HP ElitePad 900|hp-tablet|EliteBook.*Touch|HP 8',
         // @note: watch out for PadFone, see #132
         'AsusTablet'        => '^.*PadFone((?!Mobile).)*$|Transformer|TF101|TF101G|TF300T|TF300TG|TF300TL|TF700T|TF700KL|TF701T|TF810C|ME171|ME301T|ME302C|ME371MG|ME370T|ME372MG|ME172V|ME173X|ME400C|Slider SL101|\bK00F\b|TX201LA',
         'BlackBerryTablet'  => 'PlayBook|RIM Tablet',
@@ -194,13 +194,15 @@ class Mobile_Detect
         // @ref: http://www.packardbell.co.uk/pb/en/GB/content/download (Packard Bell is part of Acer)
         // @ref: http://us.acer.com/ac/en/US/content/group/tablets
         // @note: Can conflict with Micromax and Motorola phones codes.
-        'AcerTablet'        => 'Android.*; \b(A100|A101|A110|A200|A210|A211|A500|A501|A510|A511|A700|A701|W500|W500P|W501|W501P|W510|W511|W700|G100|G100W|B1-A71|B1-710|B1-711|A1-810|A1-811)\b|W3-810|\bA3-A10\b',
+        'AcerTablet'        => 'Android.*; \b(A100|A101|A110|A200|A210|A211|A500|A501|A510|A511|A700|A701|W500|W500P|W501|W501P|W510|W511|W700|G100|G100W|B1-A71|B1-710|B1-711|A1-810|A1-811|A1-830)\b|W3-810|\bA3-A10\b',
+        'AcerTablet'        => 'Android.*; \b(A100|A101|A110|A200|A210|A211|A500|A501|A510|A511|A700|A701|W500|W500P|W501|W501P|W510|W511|W700|G100|G100W|B1-A71|B1-710|B1-711|A1-810|A1-811|A1-830)\b|W3-810|\bA3-A10\b',
         // @ref: http://eu.computers.toshiba-europe.com/innovation/family/Tablets/1098744/banner_id/tablet_footerlink/
         // @ref: http://us.toshiba.com/tablets/tablet-finder
         // @ref: http://www.toshiba.co.jp/regza/tablet/
         'ToshibaTablet'     => 'Android.*(AT100|AT105|AT200|AT205|AT270|AT275|AT300|AT305|AT1S5|AT500|AT570|AT700|AT830)|TOSHIBA.*FOLIO',
         // @ref: http://www.nttdocomo.co.jp/english/service/developer/smart_phone/technical_info/spec/index.html
-        'LGTablet'          => '\bL-06C|LG-V900|LG-V500|LG-V909\b',
+        // @ref: http://www.lg.com/us/tablets
+        'LGTablet'          => '\bL-06C|LG-V900|LG-V500|LG-V909|LG-V500|LG-V510|LG-VK810\b',
         'FujitsuTablet'     => 'Android.*\b(F-01D|F-02F|F-05E|F-10D|M532|Q572)\b',
         // Prestigio Tablets http://www.prestigio.com/support
         'PrestigioTablet'   => 'PMP3170B|PMP3270B|PMP3470B|PMP7170B|PMP3370B|PMP3570C|PMP5870C|PMP3670B|PMP5570C|PMP5770D|PMP3970B|PMP3870C|PMP5580C|PMP5880D|PMP5780D|PMP5588C|PMP7280C|PMP7280C3G|PMP7280|PMP7880D|PMP5597D|PMP5597|PMP7100D|PER3464|PER3274|PER3574|PER3884|PER5274|PER5474|PMP5097CPRO|PMP5097|PMP7380D|PMP5297C|PMP5297C_QUAD',
@@ -221,7 +223,7 @@ class Mobile_Detect
         // @ref: http://www.allview.ro/produse/droseries/lista-tablete-pc/
         'AllViewTablet'           => 'Allview.*(Viva|Alldro|City|Speed|All TV|Frenzy|Quasar|Shine|TX1|AX1|AX2)',
         // @reference: http://wiki.archosfans.com/index.php?title=Main_Page
-        'ArchosTablet'      => '\b(101G9|80G9|A101IT)\b|Qilive 97R|ARCHOS (70b|79|80|101)(G10| Cobalt| TITANIUM| Xenon)',
+        'ArchosTablet'      => '\b(101G9|80G9|A101IT)\b|Qilive 97R|ARCHOS (70b|79|80|101)(G10| Cobalt| TITANIUM| Xenon| Neon)',
         // @ref: http://www.ainol.com/plugin.php?identifier=ainol&module=product
         'AinolTablet'       => 'NOVO7|NOVO8|NOVO10|Novo7Aurora|Novo7Basic|NOVO7PALADIN|novo9-Spark',
         // @todo: inspect http://esupport.sony.com/US/p/select-system.pl?DIRECTOR=DRIVER
@@ -268,7 +270,7 @@ class Mobile_Detect
         // @note: Avoid detecting 'PLAYSTATION 3' as mobile.
         'PlaystationTablet' => 'Playstation.*(Portable|Vita)',
         // @ref: http://www.trekstor.de/surftabs.html
-        'TrekstorTablet'    => 'ST10416-1|VT10416-1|ST70408-1|ST702xx-1|ST702xx-2|ST80208|ST97216|ST70104-2|SurfTab',
+        'TrekstorTablet'    => 'ST10416-1|VT10416-1|ST70408-1|ST702xx-1|ST702xx-2|ST80208|ST97216|ST70104-2|VT10416-2|ST10216-2A|SurfTab',
         // @ref: http://www.pyleaudio.com/Products.aspx?%2fproducts%2fPersonal-Electronics%2fTablets
         'PyleAudioTablet'   => '\b(PTBL10CEU|PTBL10C|PTBL72BC|PTBL72BCEU|PTBL7CEU|PTBL7C|PTBL92BC|PTBL92BCEU|PTBL9CEU|PTBL9CUK|PTBL9C)\b',
         // @ref: http://www.advandigital.com/index.php?link=content-product&jns=JP001
@@ -350,13 +352,26 @@ class Mobile_Detect
         'JXDTablet' => 'Android.*\b(F3000|A3300|JXD5000|JXD3000|JXD2000|JXD300B|JXD300|S5800|S7800|S602b|S5110b|S7300|S5300|S602|S603|S5100|S5110|S601|S7100a|P3000F|P3000s|P101|P200s|P1000m|P200m|P9100|P1000s|S6600b|S908|P1000|P300|S18|S6600|S9100)\b',
         // i-Joy tablets - http://www.i-joy.es/en/cat/products/tablets/
         'iJoyTablet' => 'Tablet (Spirit 7|Essentia|Galatea|Fusion|Onix 7|Landa|Titan|Scooby|Deox|Stella|Themis|Argon|Unique 7|Sygnus|Hexen|Finity 7|Cream|Cream X2|Jade|Neon 7|Neron 7|Kandy|Scape|Saphyr 7|Rebel|Biox|Rebel|Rebel 8GB|Myst|Draco 7|Myst|Tab7-004|Myst|Tadeo Jones|Tablet Boing|Arrow|Draco Dual Cam|Aurix|Mint|Amity|Revolution|Finity 9|Neon 9|T9w|Amity 4GB Dual Cam|Stone 4GB|Stone 8GB|Andromeda|Silken|X2|Andromeda II|Halley|Flame|Saphyr 9,7|Touch 8|Planet|Triton|Unique 10|Hexen 10|Memphis 4GB|Memphis 8GB|Onix 10)',
+        // http://www.intracon.eu/tablet
+        'FX2Tablet' => 'FX2 PAD7|FX2 PAD10',
+        // http://www.xoro.de/produkte/
+        // @note: Might be the same brand with 'Simply tablets'
+        'XoroTablet'        => 'KidsPAD 701|PAD[ ]?712|PAD[ ]?714|PAD[ ]?716|PAD[ ]?717|PAD[ ]?718|PAD[ ]?720|PAD[ ]?721|PAD[ ]?722|PAD[ ]?790|PAD[ ]?792|PAD[ ]?900|PAD[ ]?9715D|PAD[ ]?9716DR|PAD[ ]?9718DR|PAD[ ]?9719QR|PAD[ ]?9720QR|TelePAD1030|Telepad1032|TelePAD730|TelePAD731|TelePAD732|TelePAD735Q|TelePAD830|TelePAD9730|TelePAD795|MegaPAD 1331|MegaPAD 1851|MegaPAD 2151',
+        // http://www1.viewsonic.com/products/computing/tablets/
+        'ViewsonicTablet'   => 'ViewPad 10pi|ViewPad 10e|ViewPad 10s|ViewPad E72|ViewPad7|ViewPad E100|ViewPad 7e|ViewSonic VB733|VB100a',
+        // http://www.odys.de/web/internet-tablet_en.html
+        'OdysTablet'        => 'LOOX|XENO10|ODYS Space',
+        // http://www.captiva-power.de/products.html#tablets-en
+        'CaptivaTablet'     => 'CAPTIVA PAD',
+        // IconBIT - http://www.iconbit.com/products/tablets/
+        'IconbitTablet' => 'NetTAB|NT-3702|NT-3702S|NT-3702S|NT-3603P|NT-3603P|NT-0704S|NT-0704S|NT-3805C|NT-3805C|NT-0806C|NT-0806C|NT-0909T|NT-0909T|NT-0907S|NT-0907S|NT-0902S|NT-0902S',
         // @ref: http://www.tesco.com/direct/hudl/
         'Hudl'              => 'Hudl HT7S3',
         // @ref: http://www.telstra.com.au/home-phone/thub-2/
         'TelstraTablet'     => 'T-Hub2',
-        'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|BNTV250A|MID-WCDMA|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|rk30sdk|\bEVOTAB\b|M758A|ET904|ALUMIUM10|Smartfren Tab|Tagi Tab',
+        'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|BNTV250A|MID-WCDMA|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|rk30sdk|\bEVOTAB\b|M758A|ET904|ALUMIUM10|Smartfren Tab|Tablet-PC-4|Tagi Tab',
         'JaytechTablet'     => 'TPC-PA762',
-        'BlaupunktTablet'   => 'Endeavour 800NG',
+        'BlaupunktTablet'   => 'Endeavour 800NG|Endeavour 1010',
     );
 
     /**
@@ -545,13 +560,13 @@ class Mobile_Detect
     }
 
     /**
-    * Get the current script version.
-    * This is useful for the demo.php file,
-    * so people can check on what version they are testing
-    * for mobile devices.
-    *
-    * @return string The version number in semantic version format.
-    */
+     * Get the current script version.
+     * This is useful for the demo.php file,
+     * so people can check on what version they are testing
+     * for mobile devices.
+     *
+     * @return string The version number in semantic version format.
+     */
     public static function getScriptVersion()
     {
         return self::VERSION;
@@ -619,6 +634,8 @@ class Mobile_Detect
         } elseif (isset($this->httpHeaders[$altHeader])) {
             return $this->httpHeaders[$altHeader];
         }
+
+        return null;
     }
 
     public function getMobileHeaders()
@@ -641,6 +658,8 @@ class Mobile_Detect
      * Set the User-Agent to be used.
      *
      * @param string $userAgent The user agent string to set.
+     *
+     * @return string|null
      */
     public function setUserAgent($userAgent = null)
     {
@@ -822,12 +841,12 @@ class Mobile_Detect
     }
 
     /**
-    * Check the HTTP headers for signs of mobile.
-    * This is the fastest mobile check possible; it's used
-    * inside isMobile() method.
-    *
-    * @return bool
-    */
+     * Check the HTTP headers for signs of mobile.
+     * This is the fastest mobile check possible; it's used
+     * inside isMobile() method.
+     *
+     * @return bool
+     */
     public function checkHttpHeadersForMobile()
     {
 
@@ -874,11 +893,11 @@ class Mobile_Detect
     }
 
     /**
-    * Find a detection rule that matches the current User-agent.
-    *
-    * @param null $userAgent deprecated
-    * @return boolean
-    */
+     * Find a detection rule that matches the current User-agent.
+     *
+     * @param null $userAgent deprecated
+     * @return boolean
+     */
     protected function matchDetectionRulesAgainstUA($userAgent = null)
     {
         // Begin general search.
@@ -895,14 +914,14 @@ class Mobile_Detect
     }
 
     /**
-    * Search for a certain key in the rules array.
-    * If the key is found the try to match the corresponding
-    * regex agains the User-Agent.
-    *
-    * @param string $key
-    * @param null $userAgent deprecated
-    * @return mixed
-    */
+     * Search for a certain key in the rules array.
+     * If the key is found the try to match the corresponding
+     * regex agains the User-Agent.
+     *
+     * @param string $key
+     * @param null $userAgent deprecated
+     * @return mixed
+     */
     protected function matchUAAgainstKey($key, $userAgent = null)
     {
         // Make the keys lowercase so we can match: isIphone(), isiPhone(), isiphone(), etc.
@@ -923,12 +942,12 @@ class Mobile_Detect
     }
 
     /**
-    * Check if the device is mobile.
-    * Returns true if any type of mobile device detected, including special ones
-    * @param null $userAgent deprecated
-    * @param null $httpHeaders deprecated
-    * @return bool
-    */
+     * Check if the device is mobile.
+     * Returns true if any type of mobile device detected, including special ones
+     * @param null $userAgent deprecated
+     * @param null $httpHeaders deprecated
+     * @return bool
+     */
     public function isMobile($userAgent = null, $httpHeaders = null)
     {
 
@@ -976,9 +995,9 @@ class Mobile_Detect
      * userAgent.
      * @todo: The httpHeaders part is not yet used.
      *
-     * @param $key
-     * @param  string        $userAgent   deprecated
-     * @param  string        $httpHeaders deprecated
+     * @param string $key
+     * @param string        $userAgent   deprecated
+     * @param string        $httpHeaders deprecated
      * @return bool|int|null
      */
     public function is($key, $userAgent = null, $httpHeaders = null)
