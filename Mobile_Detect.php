@@ -222,7 +222,7 @@ class Mobile_Detect
         // @ref: http://www.allview.ro/produse/droseries/lista-tablete-pc/
         'AllViewTablet'           => 'Allview.*(Viva|Alldro|City|Speed|All TV|Frenzy|Quasar|Shine|TX1|AX1|AX2)',
         // @reference: http://wiki.archosfans.com/index.php?title=Main_Page
-        'ArchosTablet'      => '\b(101G9|80G9|A101IT)\b|Qilive 97R|ARCHOS (70b|79|80|101)(G10| Cobalt| TITANIUM| Xenon| Neon)',
+        'ArchosTablet'      => '\b(101G9|80G9|A101IT)\b|Qilive 97R|Archos5|\bARCHOS (70|79|80|90|97|101|FAMILYPAD|)(b|)(G10| Cobalt| TITANIUM(HD|)| Xenon| Neon|XSK| 2| XS 2| PLATINUM| CARBON|GAMEPAD)\b',
         // @ref: http://www.ainol.com/plugin.php?identifier=ainol&module=product
         'AinolTablet'       => 'NOVO7|NOVO8|NOVO10|Novo7Aurora|Novo7Basic|NOVO7PALADIN|novo9-Spark',
         // @todo: inspect http://esupport.sony.com/US/p/select-system.pl?DIRECTOR=DRIVER
