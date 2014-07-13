@@ -213,7 +213,7 @@ class Mobile_Detect
         'ArnovaTablet'      => 'AN10G2|AN7bG3|AN7fG3|AN8G3|AN8cG3|AN7G3|AN9G3|AN7dG3|AN7dG3ST|AN7dG3ChildPad|AN10bG3|AN10bG3DT',
         // http://www.intenso.de/kategorie_en.php?kategorie=33
         // @todo: http://www.nbhkdz.com/read/b8e64202f92a2df129126bff.html - investigate
-        'IntensoTablet'     => 'INM8002KP|INM1010FP|INM805ND|Intenso Tab',
+        'IntensoTablet'     => 'INM8002KP|INM1010FP|INM805ND|Intenso Tab|TAB1004',
         // IRU.ru Tablets http://www.iru.ru/catalog/soho/planetable/
         'IRUTablet'         => 'M702pro',
         'MegafonTablet'     => 'MegaFon V9|\bZTE V9\b|Android.*\bMT7A\b',
