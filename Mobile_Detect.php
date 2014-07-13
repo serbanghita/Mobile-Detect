@@ -359,7 +359,7 @@ class Mobile_Detect
         // http://www1.viewsonic.com/products/computing/tablets/
         'ViewsonicTablet'   => 'ViewPad 10pi|ViewPad 10e|ViewPad 10s|ViewPad E72|ViewPad7|ViewPad E100|ViewPad 7e|ViewSonic VB733|VB100a',
         // http://www.odys.de/web/internet-tablet_en.html
-        'OdysTablet'        => 'LOOX|XENO10|ODYS( Space|-EVO)|Xelio 10|NEO_QUAD10',
+        'OdysTablet'        => 'LOOX|XENO10|ODYS( Space|-EVO|-Xpress)|Xelio( |)(10|7|)( |)(Pro|EXTREME|PHONETAB|PT2|)|NEO_QUAD10',
         // http://www.captiva-power.de/products.html#tablets-en
         'CaptivaTablet'     => 'CAPTIVA PAD',
         // IconBIT - http://www.iconbit.com/products/tablets/
