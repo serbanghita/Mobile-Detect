@@ -359,7 +359,7 @@ class Detector {
 
             if (preg_match($regex, $against, $matches)) {
                 if (isset($matches['version'])) {
-                    $matchReturn['model_version'] = $this->versionPrepare($matches['version']);
+                    $matchReturn['version'] = $this->versionPrepare($matches['version']);
                 }
 
                 if (isset($matches['model'])) {
@@ -417,6 +417,43 @@ class Detector {
         return $this->detectDevice(Data\PropertyLib::getTabletDevices());
     }
 
+    protected function detectOperatingSystem()
+    {
+        $oslib = Data\PropertyLib::getOperatingSystems();
+        foreach ($oslib as $family => $operatingSystems) {
+            foreach ($operatingSystems as $osName => $os) {
+                //check type, and assume regex if not present
+                if (!isset($os['type'])) {
+                    $os['type'] = 'regex';
+                }
+
+                if (!isset($os['match'])) {
+                    throw new Exception\InvalidDeviceSpecificationException(
+                        sprintf('Invalid spec for %s. Missing %s key.', $osName, 'match')
+                    );
+                }
+
+                if (!isset($os['isMobile'])) {
+                    throw new Exception\InvalidDeviceSpecificationException(
+                        sprintf('Invalid spec for %s. Missing %s key.', $osName, 'isMobile')
+                    );
+                }
+
+                if ($this->matches($os['type'], $os['match'], $this->getUserAgent())) {
+                    $match = array();
+
+                    if (isset($os['versionMatch'])) {
+                        $match['version_match'] = $this->modelMatch($os['versionMatch'], $this->getUserAgent());
+                    }
+
+                    $match['family'] = $family;
+                    $match['os'] = $osName;
+                    $match['is_mobile'] = $os['isMobile'];
+                    return $match;
+                }
+            }
+        }
+    }
 
 
     /**

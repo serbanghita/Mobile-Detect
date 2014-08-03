@@ -111,7 +111,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $ret = $m->invoke($detect, $modelMatches, $against);
         $this->assertSame(
             array(
-                'model_version' => '1.2.3.4',
+                'version' => '1.2.3.4',
                 'model' => 'Spicy'
             ),
             $ret
@@ -279,7 +279,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('model', $detectVal);
         $this->assertArrayHasKey('vendor', $detectVal);
 
-        $this->assertSame($detectVal['model_match']['model_version'], '6.1.3');
+        $this->assertSame($detectVal['model_match']['version'], '6.1.3');
         $this->assertSame($detectVal['vendor'], 'Apple');
         $this->assertSame($detectVal['model'], 'iPhone');
     }
@@ -294,5 +294,26 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $detectVal = $m->invoke($detect);
 
         $this->assertFalse($detectVal);
+    }
+
+    public function testOperatingSystemMatches()
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('detectOperatingSystem');
+        $m->setAccessible(true);
+
+        $detect->setUserAgent("Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25");
+        $detectVal = $m->invoke($detect);
+
+        $expected = array(
+            'version_match' => array(
+                'version' => '6.1.3'
+            ),
+            'family' => 'iOS',
+            'os' => 'iOS',
+            'is_mobile' => true
+        );
+
+        $this->assertSame($expected, $detectVal);
     }
 }
