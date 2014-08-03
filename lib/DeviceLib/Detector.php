@@ -82,7 +82,7 @@ class Detector {
     protected $headers = array();
 
     /**
-     * Generates or gets a singleton for use with teh simple API.
+     * Generates or gets a singleton for use with the simple API.
      *
      * @return Detector A single instance for using with the simple static API.
      */
@@ -289,7 +289,8 @@ class Detector {
         //add boundaries
         $regex = sprintf('/%s/i', $regex);
 
-        //@todo str_replace all the pseudo variables
+        $regex = str_replace('[VER]', '(?<version>[0-9\._-]+)', $regex);
+        $regex = str_replace('[MODEL]', '(?<model>[a-zA-Z0-9]+)', $regex);
 
         return $regex;
     }
@@ -333,6 +334,17 @@ class Detector {
         return false;
     }
 
+    protected function versionPrepare($version, $asArray = false)
+    {
+        $version = str_replace('_', '.', $version);
+
+        if ($asArray) {
+            return explode('.', $version);
+        } else {
+            return $version;
+        }
+    }
+
     protected function modelMatch($modelMatch, $against)
     {
         //model match must be an array
@@ -344,12 +356,10 @@ class Detector {
 
         foreach ($modelMatch as $test) {
             $regex = $this->prepareRegex($test);
-            $regex = str_replace('[VER]', '(?<version>[0-9\.]+)', $regex);
-            $regex = str_replace('[MODEL]', '(?<model>[a-zA-Z0-9]+)', $regex);
 
             if (preg_match($regex, $against, $matches)) {
                 if (isset($matches['version'])) {
-                    $matchReturn['model_version'] = $matches['version'];
+                    $matchReturn['model_version'] = $this->versionPrepare($matches['version']);
                 }
 
                 if (isset($matches['model'])) {
@@ -361,10 +371,8 @@ class Detector {
         return $matchReturn;
     }
 
-    protected function detectPhoneDevice()
+    protected function detectDevice($devices)
     {
-        $devices = Data\PropertyLib::getPhoneDevices();
-
         foreach ($devices as $vendorKey => $vendor) {
             //check type, and assume regex if not present
             if (!isset($vendor['type'])) {
@@ -384,45 +392,29 @@ class Detector {
             }
 
             if ($this->matches($vendor['type'], $vendor['match'], $this->getUserAgent())) {
+                $match = array();
+
                 if (isset($vendor['modelMatch'])) {
-                    return $this->modelMatch($vendor['modelMatch'], $this->getUserAgent());
+                    $match['model_match'] = $this->modelMatch($vendor['modelMatch'], $this->getUserAgent());
                 }
+
+                $match['model'] = $vendorKey;
+                $match['vendor'] = $vendor['vendor'];
+                return $match;
             }
         }
 
         return false;
     }
 
+    protected function detectPhoneDevice()
+    {
+        return $this->detectDevice(Data\PropertyLib::getPhoneDevices());
+    }
+
     protected function detectTabletDevice()
     {
-        $devices = Data\PropertyLib::getTabletDevices();
-
-        foreach ($devices as $vendorKey => $vendor) {
-            //check type, and assume regex if not present
-            if (!isset($vendor['type'])) {
-                $vendor['type'] = 'regex';
-            }
-
-            if (!isset($vendor['match'])) {
-                throw new Exception\InvalidDeviceSpecificationException(
-                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'match')
-                );
-            }
-
-            if (!isset($vendor['vendor'])) {
-                throw new Exception\InvalidDeviceSpecificationException(
-                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'vendor')
-                );
-            }
-
-            if ($this->matches($vendor['type'], $vendor['match'], $this->getUserAgent())) {
-                if (isset($vendor['modelMatch'])) {
-                    return $this->modelMatch($vendor['modelMatch'], $this->getUserAgent());
-                }
-            }
-        }
-
-        return false;
+        return $this->detectDevice(Data\PropertyLib::getTabletDevices());
     }
 
 
@@ -459,6 +451,10 @@ class Detector {
         if (!$model) {
             $model = $this->detectTabletDevice();
             $type = Type::TABLET;
+        }
+
+        if (!$model) {
+            $type = Type::DESKTOP;
         }
 
         //#1 detect: phone OR tablet OR ...?

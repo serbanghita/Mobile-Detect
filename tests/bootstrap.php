@@ -10,3 +10,5 @@ if (!file_exists($composer = dirname($dot) . '/vendor/autoload.php')) {
 $autoloader = include $composer;
 
 $autoloader->add('DeviceLibTest\\', $dot);
+
+define('TEST_ROOT_PATH', $dot);
