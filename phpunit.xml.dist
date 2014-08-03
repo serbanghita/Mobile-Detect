@@ -12,4 +12,8 @@
       <directory suffix="Test.php">./tests/DeviceLibTest</directory>
   </testsuite>
 
+  <php>
+      <env name="fixture_path" value="/fixtures" />
+      <env name="ua_list_fixture" value="/ualist.json" />
+  </php>
 </phpunit>
