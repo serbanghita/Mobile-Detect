@@ -588,7 +588,7 @@ class Mobile_Detect
         //Only save HTTP headers. In PHP land, that means only _SERVER vars that
         //start with HTTP_.
         foreach ($httpHeaders as $key => $value) {
-            if (substr($key,0,5) == 'HTTP_') {
+            if (strpos($key, 'HTTP_') === 0) {
                 $this->httpHeaders[$key] = $value;
             }
         }
@@ -878,7 +878,7 @@ class Mobile_Detect
     public function __call($name, $arguments)
     {
         //make sure the name starts with 'is', otherwise
-        if (substr($name, 0, 2) != 'is') {
+        if (strpos($name, 'is') !== 0) {
             throw new BadMethodCallException("No such method exists: $name");
         }
 
