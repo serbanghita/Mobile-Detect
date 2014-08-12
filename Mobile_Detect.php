@@ -1030,10 +1030,7 @@ class Mobile_Detect
      */
     public function match($regex, $userAgent = null)
     {
-        // Escape the special character which is the delimiter.
-        $regex = str_replace('/', '\/', $regex);
-
-        return (bool) preg_match('/'.$regex.'/is', (!empty($userAgent) ? $userAgent : $this->userAgent));
+        return (bool) preg_match('#'.$regex.'#is', (!empty($userAgent) ? $userAgent : $this->userAgent));
     }
 
     /**
@@ -1104,11 +1101,8 @@ class Mobile_Detect
 
                 $propertyPattern = str_replace('[VER]', self::VER, $propertyMatchString);
 
-                // Escape the special character which is the delimiter.
-                $propertyPattern = str_replace('/', '\/', $propertyPattern);
-
                 // Identify and extract the version.
-                preg_match('/'.$propertyPattern.'/is', $this->userAgent, $match);
+                preg_match('#'.$propertyPattern.'#is', $this->userAgent, $match);
 
                 if (!empty($match[1])) {
                     $version = ( $type == self::VERSION_TYPE_FLOAT ? $this->prepareVersionNo($match[1]) : $match[1] );
