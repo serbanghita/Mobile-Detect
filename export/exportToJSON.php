@@ -47,7 +47,9 @@ $json = array(
 					// If match is found, triggers 'isMobile' to be true.
 					'browsers' => $detect->getBrowsers(),
 					// If match is found, triggers 'isMobile' to be true.
-					'os'       => $detect->getOperatingSystems()
+					'os'       => $detect->getOperatingSystems(),
+					// Various utilities. To be further discussed.
+					'utilities' => $detect->getUtilities()
 				)
 
 			);
