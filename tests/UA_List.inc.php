@@ -96,6 +96,7 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 2.3.5; it-it; ALCATEL ONE TOUCH 918D Build/GRJ90) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'      => array('isMobile' => true, 'isTablet' => false, 'version' => array('Android' => '2.3.5', 'Webkit' => '533.1', 'Safari' => '4.0', 'Build' => 'GRJ90'), 'model' => 'ONE TOUCH 918D' ),
         'Mozilla/5.0 (Linux; U; Android 2.3.6; ru-ru; ALCATEL ONE TOUCH 991 Build/GRJ90) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'       => array('isMobile' => true, 'isTablet' => false, 'version' => array('Android' => '2.3.6', 'Webkit' => '533.1', 'Safari' => '4.0', 'Build' => 'GRJ90'), 'model' => 'ONE TOUCH 991' ),
         'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; ALCATEL ONE TOUCH 993D Build/ICECREAM) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false, 'version' => array('Android' => '4.0.4', 'Webkit' => '534.30', 'Safari' => '4.0', 'Build' => 'ICECREAM'), 'model' => 'ONE TOUCH 993D' ),
+        'ALCATEL_A392G/1.0 ObigoInternetBrowser/Q05A[TF013513002719521000000013182904148]' => array('isMobile' => true, 'isTablet' => false, 'model' => 'A392G'),
         ),
 
     'Allview' => array(
@@ -112,6 +113,10 @@ return array(
         'Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600x800; rotate)' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Webkit' => '528.5+', 'Kindle' => '3.0', 'Safari' => '4.0'), 'model' => 'Kindle' ),
         'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFOTE Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'   => array('isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.0.3', 'Build' => 'IML74K', 'Webkit' => '534.30', 'Safari' => '4.0') ),
         'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; WFJWAE Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'  => array('isMobile' => true, 'isTablet' => true),
+        ),
+
+    'Amoi' => array(
+        'Amoi 8512/R18.0 NF-Browser/3.3' => array('isMobile' => true, 'isTable' => false, 'model' => '8512'),
         ),
 
     'Apple' => array(
@@ -549,6 +554,10 @@ return array(
             'isMobile' => true, 'isTablet' => true,
         ),
     ),
+
+    'INQ' => array(
+        'INQ1/R3.9.12 NF-Browser/3.5' => array('isMobile' => true, 'isTablet' => false, 'model' => 'INQ1'),
+        ),
 
     'IRU'	=> array(
 
