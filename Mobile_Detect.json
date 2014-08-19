@@ -150,6 +150,7 @@
 			"IconbitTablet": "NetTAB|NT-3702|NT-3702S|NT-3702S|NT-3603P|NT-3603P|NT-0704S|NT-0704S|NT-3805C|NT-3805C|NT-0806C|NT-0806C|NT-0909T|NT-0909T|NT-0907S|NT-0907S|NT-0902S|NT-0902S",
 			"Hudl": "Hudl HT7S3",
 			"TelstraTablet": "T-Hub2",
+			"Teclast": "\\(Linux; Android [\\d\\.]+; [PXGAT]\\d{2,}.*\\sBuild/.*?\\)",
 			"GenericTablet": "Android.*\\b97D\\b|Tablet(?!.*PC)|BNTV250A|MID-WCDMA|LogicPD Zoom2|\\bA7EB\\b|CatNova8|A1_07|CT704|CT1002|\\bM721\\b|rk30sdk|\\bEVOTAB\\b|M758A|ET904|ALUMIUM10|Smartfren Tab|Endeavour 1010|Tablet-PC-4"
 		},
 		"browsers": {
