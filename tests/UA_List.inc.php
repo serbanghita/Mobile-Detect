@@ -122,6 +122,7 @@ return array(
         'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X; ru-ru) AppleWebKit/536.26 (KHTML, like Gecko) CriOS/23.0.1271.100 Mobile/10B142 Safari/8536.25'                                   => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '6_1', 'Webkit' => '536.26', 'Chrome' => '23.0.1271.100', 'Mobile' => '10B142'), 'model' => 'iPhone', 'mobileGrade' => 'A' ),
         'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25'                                                => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '6_1_3', 'Webkit' => '536.26', 'Safari' => '6.0', 'Mobile' => '10B329'), 'model' => 'iPhone', 'mobileGrade' => 'A' ),
         'Mozilla/5.0 (iPad; CPU OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Coast/1.0.2.62956 Mobile/10B329 Safari/7534.48.3'                                                 => array('isMobile' => true, 'isTablet' => true, 'version' => array('Coast' => '1.0.2.62956')),
+        'CheckMyBus iOS mobile App 0.9.0 (iPhone; iPhone OS/7.1.1)'                                                                                                                              => array('isMobile' => true, 'isTablet' => false),
     ),
 
     'Archos' => array(
