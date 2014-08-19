@@ -368,6 +368,8 @@ class Mobile_Detect
         'Hudl'              => 'Hudl HT7S3',
         // @ref: http://www.telstra.com.au/home-phone/thub-2/
         'TelstraTablet'     => 'T-Hub2',
+        // @ref: http://www.teclast.com/topic.php?channelID=70&topicID=140&pid=63
+        'Teclast' => '\(Linux;\sAndroid\s[\d\.]+;\s[PXGAT]\d{2,}.*\sBuild/.*?\)',
         'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|BNTV250A|MID-WCDMA|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|rk30sdk|\bEVOTAB\b|M758A|ET904|ALUMIUM10|Smartfren Tab|Endeavour 1010|Tablet-PC-4',
     );
 
