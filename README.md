@@ -37,8 +37,11 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 <table>
 
 <tr>
-<td>Varnish Cache</td>
-<td><p><a href="https://github.com/willemk/varnish-mobiletranslate">Varnish Mobile Detect</a> - Drop-in varnish solution to mobile user detection based on the Mobile-Detect library. Made by <a href="https://github.com/willemk">willemk</a></p></td>
+  <td>Varnish Cache</td>
+  <td>
+    <p><a href="https://github.com/willemk/varnish-mobiletranslate">Varnish Mobile Detect</a> - Drop-in varnish solution to mobile user detection based on the Mobile-Detect library. Made by <a href="https://github.com/willemk">willemk</a></p>
+    <p><a href="https://github.com/carlosabalde/mobiledetect2vcl">mobiledetect2vcl</a> - Python script to transform the Mobile Detect JSON database into an UA-based mobile detection VCL subroutine easily integrable in any Varnish Cache configuration. Made by <a href="https://github.com/carlosabalde">Carlos Abalde</a></p>
+  </td>
 </tr>
 
 <tr>
