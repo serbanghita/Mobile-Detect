@@ -184,6 +184,15 @@
 			"webOS": "webOS|hpwOS",
 			"badaOS": "\\bBada\\b",
 			"BREWOS": "BREW"
-		}
+		},
+		"utilities":{
+            		'DesktopMode' : 'WPDesktop',
+            		'TV'          : 'SonyDTV|HbbTV', # experimental
+            		'WebKit'      : '(webkit)[ /]([\w.]+)',
+            		'Bot'         : 'Googlebot|DoCoMo|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
+            		'MobileBot'   : 'Googlebot-Mobile|DoCoMo|YahooSeeker/M1A1-R2D2',
+            		'Console'     : '\b(Nintendo|Nintendo WiiU|PLAYSTATION|Xbox)\b',
+            		'Watch'       : 'SM-V700'
+        	}
 	}
 }
