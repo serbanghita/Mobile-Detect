@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-  colors="true"
+  colors="false"
   verbose="false"
   bootstrap="tests/bootstrap.php"
   convertErrorsToExceptions="true"
@@ -11,6 +11,17 @@
   <testsuite name="All Mobile Detect tests">
       <directory suffix="Test.php">./tests/DeviceLibTest</directory>
   </testsuite>
+
+	<filter>
+	    <whitelist>
+	        <directory suffix=".php">./lib</directory>
+	        <exclude>
+	            <directory suffix=".php">./tests</directory>
+	            <directory suffix=".php">./vendor</directory>
+	            <directory suffix=".php">./examples</directory>
+	        </exclude>
+	    </whitelist>
+	</filter>	
 
   <php>
       <env name="fixture_path" value="/fixtures" />

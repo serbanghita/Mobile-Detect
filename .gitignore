@@ -1,3 +1,8 @@
 vendor/
 nbproject/
 .idea
+/*.buildpath
+/*.project
+/.settings
+/coverage
+/phpunit.phar
