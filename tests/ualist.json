@@ -1,5 +1,5 @@
 {
-    "hash": "208372db5a68f67e71196758292050153de93c80",
+    "hash": "169df1281f93c338cd53a857534bd28936282c33",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -293,6 +293,240 @@
             "mobile": true,
             "tablet": false,
             "model": "A392G"
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "ALCATEL_3020D\/1.0 ObigoInternetBrowser\/Q03C",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2; ALCATEL ONE TOUCH 5037A Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "ALCATEL_3020G\/1.0 ObigoInternetBrowser\/Q03C",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "ALCATEL_3041D\/1.0 ObigoInternetBrowser\/Q03C",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-us; ALCATEL ONE TOUCH 5037E Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 5037X Build\/JDQ39) AppleWebKit\/537.36 (KHTML like Gecko) Chrome\/31.0.1650.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-us; ALCATEL ONE TOUCH 5037X Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ONE TOUCH 6012A Build\/JDQ39) AppleWebKit\/537.36 (KHTML like Gecko) Chrome\/28.0.1500.94 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-nz; ONE TOUCH 6012A Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ONE TOUCH 6012D Build\/JDQ39) AppleWebKit\/537.36 (KHTML like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; de-de; ONE TOUCH 6012D Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; En-us; ONE TOUCH 6012E Build\/JDQ39) AppleWebKit\/534.30 (KHTML, Like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ONE TOUCH 6012X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.12975 YaBrowser\/13.12.1599.12975 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; bg-bg; ONE TOUCH 6012X Build\/JDQ39) AppleWebKit\/534.30 (KHTML like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 6012X_orange Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; fr-fr; ALCATEL ONE TOUCH 6012X_orange Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.3; fr-fr; 6016E Build\/JLS36C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.3; en-us; ALCATEL ONE TOUCH 6016E Build\/JLS36C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; 6016X Build\/JLS36C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; ALCATEL ONE TOUCH 6016X Build\/JLS36C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.122 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.3; ru-ru; 6016X Build\/JLS36C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 6032A Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.170 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; ru-ru; ALCATEL ONE TOUCH 6032X Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-nz; ALCATEL ONE TOUCH 7040A Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; th-th; ALCATEL ONE TOUCH 7040D Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 7040D Build\/JDQ39) AppleWebKit\/537.36 (KHTML like Gecko) Chrome\/28.0.1500.94 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 7040E Build\/JDQ39) AppleWebKit\/537.36 (KHTML like Gecko) Chrome\/28.0.1500.94 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; it-it; ALCATEL ONE TOUCH 7041D Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 7041D Build\/JDQ39) AppleWebKit\/537.36 (KHTML like Gecko) Chrome\/31.0.1650.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 7041X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.138 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; pt-pt; ALCATEL ONE TOUCH 7041X Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 8020A Build\/JDQ39) AppleWebKit\/537.36 (KHTML, Like Gecko) Chrome\/30.0.1599.92 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-us; ALCATEL ONE TOUCH 8020A Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 8020D Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; es-es; ALCATEL ONE TOUCH 8020D Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 8020E Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-us; ALCATEL ONE TOUCH 8020E Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ALCATEL ONE TOUCH 8020X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.136 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Alcatel",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-us; ALCATEL ONE TOUCH 8020X Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.2 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
         },
         {
             "vendor": "Allview",
@@ -1124,6 +1358,18 @@
         {
             "vendor": "Eboda",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; ro-ro; E-boda essential smile Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Eboda",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; ro-ro; E-Boda Supreme X80 Dual Core Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Eboda",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; ro-ro; E-Boda Supreme XL200IPS Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
             "mobile": true,
             "tablet": true
         },
@@ -3374,6 +3620,12 @@
             "tablet": true
         },
         {
+            "vendor": "Odys",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; nl-nl; ODYS-NOON Build\/JRO03H) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
             "vendor": "OverMax",
             "user_agent": "OV-SteelCore(B) Mozilla\/5.0 (iPad; CPU OS 5_0_1 like Mac OS X) AppleWebKit\/534.46 (KHTML, like Gecko) Version\/5.1 Mobile\/9A405 Safari\/7534.48.3",
             "mobile": true,
@@ -3417,9 +3669,87 @@
         },
         {
             "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; Philips W336 Build\/IMM76D) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.45 Mobile Safari\/537.36 OPR\/15.0.1162.59192",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Philips_T3500\/V1 Linux\/3.4.5 Android\/4.2.2 Release\/03.26.2013 Browser\/AppleWebKit534.30 Mobile Safari\/534.30 MBBMS\/2.2 System\/Android 4.2.2;",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; Philips W3568 Build\/Philips_W3568) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; ru-ru; Philips W832 Build\/IMM76D) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux;U;Android 4.2.2;es-us;Philips S388 Build\/JDQ39) AppleWebkit\/534.30 (HTML,like Gecko) Version\/4.0 Mobile Safari\/534.30;",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; Philips W536 Build\/IMM76D) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux;U;Android 4.2.2;es-us;Philips S308 Build\/JDQ39) AppleWebkit\/534.30 (HTML,like Gecko) Version\/4.0 Mobile Safari\/534.30;",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.2; ru-ru; Philips-W8500 Build\/JZO54K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; ru; Philips W8510 Build\/JDQ39) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 UCBrowser\/9.8.9.457 U3\/0.8.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; ru-RU; Philips W3568 Build\/Philips W3568) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.1 Mobile Safari\/534.30;",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; Philips S388 Build\/JDQ39) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; Build\/PI3100.00.00.24) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Philips",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; en-us; W732 Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
             "mobile": true,
             "tablet": false
+        },
+        {
+            "vendor": "Philips",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.1; PI7100_93 Build\/PI7100.C.00.00.11) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.92 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
         },
         {
             "vendor": "PocketBook",
@@ -4054,6 +4384,12 @@
         {
             "vendor": "Samsung",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; fr-fr; SAMSUNG SM-T800 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/1.5 Chrome\/28.0.1500.94 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; SM-T700 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.517 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
@@ -4972,6 +5308,12 @@
             "tablet": true
         },
         {
+            "vendor": "Wolfgang",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.1; nl-nl; AT-AS45q2 Build\/JOP40D) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
             "vendor": "Xoro",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; de-de; PAD 9720QR Build\/PAD 9719QR) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
             "mobile": true,
@@ -5036,6 +5378,10 @@
             "user_agent": "Mozilla\/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident\/5.0; Xbox)",
             "mobile": false,
             "tablet": false
+        },
+        {
+            "vendor": "Other",
+            "user_agent": "Mozilla\/5.0 (Windows NT 5.1) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/34.0.1847.137 Safari\/537.36 LBBROWSER"
         },
         {
             "vendor": "Other",
@@ -5186,6 +5532,16 @@
             "user_agent": "Opera\/9.80 (Linux armv7l; HbbTV\/1.1.1 (; Sony; KDL32W650A; PKG3.211EUA; 2013;); ) Presto\/2.12.362 Version\/12.11",
             "mobile": false,
             "tablet": false
+        },
+        {
+            "vendor": "TV",
+            "user_agent": "Opera\/9.80 (Linux mips ; U; HbbTV\/1.1.1 (; Philips; ; ; ; ) CE-HTML\/1.0 NETTV\/3.2.1; en) Presto\/2.6.33 Version\/10.70"
+        },
+        {
+            "vendor": "Generic",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; CT1020W Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.94 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
         },
         {
             "vendor": "Generic",
