@@ -439,4 +439,20 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame($expected, $detectVal);
     }
+
+    // @todo actually use the JSON file as a data source for this; perhaps move to a new test
+    public function testDetect()
+    {
+        $detect = new Detector();
+        $ua = "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Acer; Allegro)";
+        $detect->setUserAgent($ua);
+        $device = $detect->detect();
+
+        $this->assertInstanceOf('\DeviceLib\DeviceInterface', $device);
+        $this->assertTrue($device->isMobile());
+        $this->assertFalse($device->isTablet());
+        $this->assertFalse($device->isDesktop());
+        $this->assertFalse($device->isBot());
+        $this->assertSame($ua, $device->getUserAgent());
+    }
 }
