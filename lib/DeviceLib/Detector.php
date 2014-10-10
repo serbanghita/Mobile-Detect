@@ -432,42 +432,71 @@ class Detector {
         return $this->detectDevice(Data\PropertyLib::getTabletDevices());
     }
 
-    protected function detectOperatingSystem()
+    protected function detectFamily($families)
     {
-        $oslib = Data\PropertyLib::getOperatingSystems();
-        foreach ($oslib as $family => $operatingSystems) {
-            foreach ($operatingSystems as $osName => $os) {
+        foreach ($families as $family => $group) {
+            foreach ($group as $name => $item) {
                 //check type, and assume regex if not present
-                if (!isset($os['type'])) {
-                    $os['type'] = 'regex';
+                if (!isset($item['type'])) {
+                    $item['type'] = 'regex';
                 }
 
-                if (!isset($os['match'])) {
+                if (!isset($item['match'])) {
                     throw new Exception\InvalidDeviceSpecificationException(
-                        sprintf('Invalid spec for %s. Missing %s key.', $osName, 'match')
+                        sprintf('Invalid spec for %s. Missing %s key.', $name, 'match')
                     );
                 }
 
-                if (!isset($os['isMobile'])) {
+                if (!isset($item['isMobile'])) {
                     throw new Exception\InvalidDeviceSpecificationException(
-                        sprintf('Invalid spec for %s. Missing %s key.', $osName, 'isMobile')
+                        sprintf('Invalid spec for %s. Missing %s key.', $name, 'isMobile')
                     );
                 }
 
-                if ($this->matches($os['type'], $os['match'], $this->getUserAgent())) {
+                if ($this->matches($item['type'], $item['match'], $this->getUserAgent())) {
                     $match = array();
 
-                    if (isset($os['versionMatch'])) {
-                        $match['version_match'] = $this->modelMatch($os['versionMatch'], $this->getUserAgent());
+                    if (isset($item['versionMatch'])) {
+                        $match['version_match'] = $this->modelMatch($item['versionMatch'], $this->getUserAgent());
                     }
 
                     $match['family'] = $family;
-                    $match['os'] = $osName;
-                    $match['is_mobile'] = $os['isMobile'];
+                    $match['name'] = $name;
+                    $match['is_mobile'] = $item['isMobile'];
                     return $match;
                 }
             }
         }
+    }
+
+    protected function detectOperatingSystem()
+    {
+        $match = $this->detectFamily(Data\PropertyLib::getOperatingSystems());
+        if (!$match) {
+            return null;
+        }
+
+        if (isset($match['name'])) {
+            $match['os'] = $match['name'];
+            unset($match['name']);
+        }
+
+        return $match;
+    }
+
+    protected function detectBrowser()
+    {
+        $match = $this->detectFamily(Data\PropertyLib::getBrowsers());
+        if (!$match) {
+            return null;
+        }
+
+        if (isset($match['name'])) {
+            $match['browser'] = $match['name'];
+            unset($match['name']);
+        }
+
+        return $match;
     }
 
 
@@ -512,6 +541,12 @@ class Detector {
         }
 
         $os = $this->detectOperatingSystem();
+        $props['os'] = $os['os'];
+        $props['os_version'] = isset($os['version_match']['version']) ? $os['version_match']['version'] : null;
+
+        // $browser = $this->detectBrowser();
+        $props['browser'] = '@todo';
+        $props['browser_version'] = '@todo';
 
         //#1 detect: phone OR tablet OR ...?
         //#2 detect: browser?

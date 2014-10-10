@@ -361,8 +361,80 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
         $expected += array(
             'family' => $family,
-            'os' => $os,
-            'is_mobile' => $isMobile
+            'is_mobile' => $isMobile,
+            'os' => $os
+        );
+
+        $this->assertSame($expected, $detectVal);
+    }
+
+    public function browserDataProvider()
+    {
+        return [
+            [
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25",
+                '8536.25',
+                'Safari',
+                'Safari Mobile',
+                true
+            ],
+            [
+                "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Acer; Allegro)",
+                '9.0',
+                'IE',
+                'IE Mobile',
+                true
+            ],
+            [
+                "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; Touch; MASMJS)",
+                '10.0',
+                'IE',
+                'IE Desktop',
+                false
+            ],
+            [
+                "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.1+ (KHTML, like Gecko) Version/10.0.0.1337 Mobile Safari/537.1+",
+                '537.1',
+                'Safari',
+                'Safari Mobile',
+                true
+            ],
+            [
+                "Mozilla/4.0 (PDA; PalmOS/sony/model prmr/Revision:1.1.54 (en)) NetFront/3.0",
+                false,
+                'GenericBrowser',
+                'Generic Mobile Browser',
+                true
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider browserDataProvider
+     */
+    public function testBrowserMatches($ua, $version, $family, $browser, $isMobile)
+    {
+        $r = new \ReflectionObject($detect = new Detector());
+        $m = $r->getMethod('detectBrowser');
+        $m->setAccessible(true);
+
+        $detect->setUserAgent($ua);
+        $detectVal = $m->invoke($detect);
+
+        $expected = array();
+
+        if ($version) {
+            $expected['version_match'] = array(
+                'version' => $version
+            );
+        } else {
+            $expected['version_match'] = $version;
+        }
+
+        $expected += array(
+            'family' => $family,
+            'is_mobile' => $isMobile,
+            'browser' => $browser
         );
 
         $this->assertSame($expected, $detectVal);
