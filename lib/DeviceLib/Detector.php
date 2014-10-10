@@ -3,6 +3,7 @@
 namespace DeviceLib;
 
 use DeviceLib\Data\PropertyLib;
+use DeviceLib\Exception;
 
 class Detector {
 
@@ -286,9 +287,7 @@ class Detector {
 
     protected function prepareRegex($regex)
     {
-        //add boundaries
-        $regex = sprintf('/%s/i', $regex);
-
+        $regex = sprintf('/%s/i', addcslashes($regex, '/'));
         $regex = str_replace('[VER]', '(?<version>[0-9\._-]+)', $regex);
         $regex = str_replace('[MODEL]', '(?<model>[a-zA-Z0-9]+)', $regex);
 
@@ -345,12 +344,25 @@ class Detector {
         }
     }
 
+    public function regexErrorHandler($code, $msg, $file, $line, $context)
+    {
+        if (strpos($msg, 'preg_') !== 0) {
+            // we only want to deal with preg match errors
+            return false;
+        }
+
+        throw new Exception\RegexCompileException($msg, $code, $file, $line, $context);
+    }
+
     protected function modelMatch($modelMatch, $against)
     {
         //model match must be an array
         if (!is_array($modelMatch) || !count($modelMatch)) {
             return false;
         }
+
+        // graceful handling of pcre errors
+        set_error_handler(array($this, 'regexErrorHandler'));
 
         $matchReturn = array();
 
@@ -367,6 +379,9 @@ class Detector {
                 }
             }
         }
+
+        // restore previous
+        restore_error_handler();
 
         return $matchReturn;
     }
@@ -483,31 +498,39 @@ class Detector {
 
         // @todo do the detection here
         $model = $this->detectPhoneDevice();
-        $type = Type::MOBILE;
+        $props['type'] = Type::MOBILE;
 
         if (!$model) {
             $model = $this->detectTabletDevice();
-            $type = Type::TABLET;
+            $props['type'] = Type::TABLET;
         }
 
         if (!$model) {
-            $type = Type::DESKTOP;
+            $props['type'] = Type::DESKTOP;
         }
+
+        $os = $this->detectOperatingSystem();
 
         //#1 detect: phone OR tablet OR ...?
         //#2 detect: browser?
         //#3 detect: OS
 
+        //what about Type::BOT?
+
+        $props['model'] = $model['model'];
+        $props['model_version'] = $model['model_match']['version'];
+        // @todo what about $model['vendor'] ?
+
         /*
-         * This would happen after the detection
-         *
-         * $device = $class::create(array(
-         *      'user_agent' => $this->getUserAgent(),
-         *      ...
-         *      ...
-         * ));
-         *
-         * return $device;
+         * Expected in the properties for creation:
+            $props['user_agent'],
+            $props['type'],
+            $props['model'],
+            $props['model_version'],
+            $props['os'],
+            $props['os_version'],
+            $props['browser'],
+            $props['browser_version']
          */
 
         //@todo this is just for PHPStorm not to complain during dev
