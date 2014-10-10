@@ -485,12 +485,14 @@ class Detector {
      */
     public function detect($class = null)
     {
-        if ($class && !is_subclass_of($class, __NAMESPACE__ . '\DeviceInterface')) {
-            throw new Exception\InvalidArgumentException(
-                sprintf('Invalid class specified: %s. Must', is_object($class) ? get_class($class) : $class)
-            );
+        if ($class) {
+            if (!is_subclass_of($class, __NAMESPACE__ . '\DeviceInterface')) {
+                throw new Exception\InvalidArgumentException(
+                    sprintf('Invalid class specified: %s. Must', is_object($class) ? get_class($class) : $class)
+                );
+            }
         } else {
-            //default class
+            // default implementation
             $class = 'Device';
         }
 
