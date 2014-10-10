@@ -87,7 +87,7 @@ class Device implements DeviceInterface
     {
         // ensure that all the required keys are present
         foreach (static::$required as $key) {
-            if (!isset($props[$key])) {
+            if (!array_key_exists($key, $props)) {
                 throw new Exception\InvalidDeviceSpecificationException("The '$key' property is required.");
             }
         }
@@ -194,17 +194,17 @@ class Device implements DeviceInterface
     public function toArray()
     {
         return array(
-            'isMobile' => $this->isMobile(),
-            'isTablet' => $this->isTablet(),
-            'isDesktop' => $this->isDesktop(),
-            'isBot' => $this->isBot(),
-            'browser' => $this->getBrowser(),
-            'browserVersion' => $this->getBrowserVersion(),
-            'model' => $this->getModel(),
-            'modelVersion' => $this->getModelVersion(),
-            'operatingSystem' => $this->getOperatingSystem(),
-            'operatingSystemVersion' => $this->getOperatingSystemVersion(),
-            'userAgent' => $this->getUserAgent()
+            'isMobile'                  => $this->isMobile(),
+            'isTablet'                  => $this->isTablet(),
+            'isDesktop'                 => $this->isDesktop(),
+            'isBot'                     => $this->isBot(),
+            'browser'                   => $this->getBrowser(),
+            'browserVersion'            => $this->getBrowserVersion(),
+            'model'                     => $this->getModel(),
+            'modelVersion'              => $this->getModelVersion(),
+            'operatingSystem'           => $this->getOperatingSystem(),
+            'operatingSystemVersion'    => $this->getOperatingSystemVersion(),
+            'userAgent'                 => $this->getUserAgent()
         );
     }
 }

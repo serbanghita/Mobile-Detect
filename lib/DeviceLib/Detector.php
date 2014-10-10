@@ -218,7 +218,7 @@ class Detector {
             $this->headers['user-agent'] = implode(' ', $ua);
         }
 
-        return $this->getHeader('User-Agent');
+        return $this;
     }
 
     /**
@@ -522,7 +522,7 @@ class Detector {
             }
         } else {
             // default implementation
-            $class = 'Device';
+            $class = __NAMESPACE__ . '\\Device';
         }
 
         $props = array();
@@ -536,27 +536,26 @@ class Detector {
             $props['type'] = Type::TABLET;
         }
 
-        if (!$model) {
-            $props['type'] = Type::DESKTOP;
-        }
-
         $os = $this->detectOperatingSystem();
         $props['os'] = $os['os'];
         $props['os_version'] = isset($os['version_match']['version']) ? $os['version_match']['version'] : null;
 
-        // $browser = $this->detectBrowser();
-        $props['browser'] = '@todo';
-        $props['browser_version'] = '@todo';
+        $browser = $this->detectBrowser();
+        $props['browser'] = $browser['browser'];
+        $props['browser_version'] = isset($browser['version_match']['version']) ?
+            $browser['version_match']['version'] : null;
 
-        //#1 detect: phone OR tablet OR ...?
-        //#2 detect: browser?
-        //#3 detect: OS
-
-        //what about Type::BOT?
+        if ($os['is_mobile'] || $browser['is_mobile']) {
+            $props['type'] = Type::MOBILE;
+        } else {
+            $props['type'] = Type::DESKTOP;
+        }
 
         $props['model'] = $model['model'];
-        $props['model_version'] = $model['model_match']['version'];
+        $props['model_version'] = isset($model['model_match']['version']) ? $model['model_match']['version'] : null;
         // @todo what about $model['vendor'] ?
+
+        $props['user_agent'] = $this->getUserAgent();
 
         /*
          * Expected in the properties for creation:
