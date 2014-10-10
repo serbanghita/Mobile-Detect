@@ -296,22 +296,73 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($detectVal);
     }
 
-    public function testOperatingSystemMatches()
+    public function osDataProvider()
+    {
+        return [
+            [
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25",
+                '6.1.3',
+                'iOS',
+                'iOS',
+                true
+            ],
+            [
+                "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Acer; Allegro)",
+                '7.5',
+                'Windows',
+                'Windows Phone',
+                true
+            ],
+            [
+                "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; Touch; MASMJS)",
+                '6.2',
+                'Windows',
+                'Windows Classic',
+                false
+            ],
+            [
+                "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.1+ (KHTML, like Gecko) Version/10.0.0.1337 Mobile Safari/537.1+",
+                '10.0.0.1337',
+                'BlackBerry',
+                'BlackBerry',
+                true
+            ],
+            [
+                "Mozilla/4.0 (PDA; PalmOS/sony/model prmr/Revision:1.1.54 (en)) NetFront/3.0",
+                false,
+                'PalmOS',
+                'PalmOS',
+                true
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider osDataProvider
+     */
+    public function testOperatingSystemMatches($ua, $version, $family, $os, $isMobile)
     {
         $r = new \ReflectionObject($detect = new Detector());
         $m = $r->getMethod('detectOperatingSystem');
         $m->setAccessible(true);
 
-        $detect->setUserAgent("Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25");
+        $detect->setUserAgent($ua);
         $detectVal = $m->invoke($detect);
 
-        $expected = array(
-            'version_match' => array(
-                'version' => '6.1.3'
-            ),
-            'family' => 'iOS',
-            'os' => 'iOS',
-            'is_mobile' => true
+        $expected = array();
+
+        if ($version) {
+            $expected['version_match'] = array(
+                'version' => $version
+            );
+        } else {
+            $expected['version_match'] = $version;
+        }
+
+        $expected += array(
+            'family' => $family,
+            'os' => $os,
+            'is_mobile' => $isMobile
         );
 
         $this->assertSame($expected, $detectVal);
