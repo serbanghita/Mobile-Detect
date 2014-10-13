@@ -550,24 +550,13 @@ class Detector {
         } else {
             $props['type'] = Type::DESKTOP;
         }
+        // @todo there should be possible bot detection here
 
         $props['model'] = $model['model'];
         $props['model_version'] = isset($model['model_match']['version']) ? $model['model_match']['version'] : null;
-        // @todo what about $model['vendor'] ?
+        $props['vendor'] = $model['vendor'];
 
         $props['user_agent'] = $this->getUserAgent();
-
-        /*
-         * Expected in the properties for creation:
-            $props['user_agent'],
-            $props['type'],
-            $props['model'],
-            $props['model_version'],
-            $props['os'],
-            $props['os_version'],
-            $props['browser'],
-            $props['browser_version']
-         */
 
         //@todo this is just for PHPStorm not to complain during dev
         return $class::create($props);

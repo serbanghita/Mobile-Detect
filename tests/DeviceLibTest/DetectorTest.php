@@ -444,7 +444,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     public function testDetect()
     {
         $detect = new Detector();
-        $ua = "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Acer; Allegro)";
+        $ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25";
         $detect->setUserAgent($ua);
         $device = $detect->detect();
 
