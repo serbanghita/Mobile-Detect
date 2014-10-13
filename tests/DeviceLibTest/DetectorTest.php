@@ -455,4 +455,23 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($device->isBot());
         $this->assertSame($ua, $device->getUserAgent());
     }
+
+    public function testStaticMethodExistsOnDevice()
+    {
+        $_SERVER = array();
+        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25';
+        $this->assertTrue(Detector::isMobile());
+        $this->assertSame('Apple', Detector::getVendor());
+    }
+
+    /**
+     * @expectedException \BadMethodCallException
+     * @expectedExceptionMessage No such method "lollin" exists in Device class.
+     */
+    public function testStaticMethodNotExistsOnDevice()
+    {
+        $_SERVER = array();
+        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/1.0';
+        Detector::lollin();
+    }
 }

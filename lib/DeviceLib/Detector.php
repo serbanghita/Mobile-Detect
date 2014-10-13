@@ -270,16 +270,12 @@ class Detector {
             static::$device = static::getInstance()->detect();
         }
 
-        $refl = new \ReflectionObject(static::$device);
-        foreach ($refl->getMethods(\ReflectionMethod::IS_PUBLIC) as $deviceMethod) {
-            /** @var \ReflectionMethod $deviceMethod */
-            if ($method == $deviceMethod->getName()) {
-                return call_user_func_array(array(static::$device, $method), $args);
-            }
+        if (method_exists(static::$device, $method)) {
+            return call_user_func_array(array(static::$device, $method), $args);
         }
 
-        //no methods found, so throw
-        throw new \BadMethodCallException();
+        //method not found, so yeah...
+        throw new \BadMethodCallException(sprintf('No such method "%s" exists in Device class.', $method));
     }
 
     // static getters for properties
@@ -558,7 +554,6 @@ class Detector {
 
         $props['user_agent'] = $this->getUserAgent();
 
-        //@todo this is just for PHPStorm not to complain during dev
         return $class::create($props);
     }
 }
