@@ -180,6 +180,8 @@ return array(
         'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25'                                                => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '6_1_3', 'Webkit' => '536.26', 'Safari' => '6.0', 'Mobile' => '10B329'), 'model' => 'iPhone', 'mobileGrade' => 'A' ),
         'Mozilla/5.0 (iPad; CPU OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Coast/1.0.2.62956 Mobile/10B329 Safari/7534.48.3'                                                 => array('isMobile' => true, 'isTablet' => true, 'version' => array('Coast' => '1.0.2.62956')),
         'CheckMyBus iOS mobile App 0.9.0 (iPhone; iPhone OS/7.1.1)'                                                                                                                              => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) CriOS/38.0.2125.59 Mobile/12A405 Safari/600.1.4' => array('isMobile' => true, 'isTablet' => false),
     ),
 
     'Archos' => array(
@@ -354,12 +356,15 @@ return array(
             'Mozilla/5.0 (Linux; U; Android 1.6; en-gb; Dell Streak Build/Donut AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/ 525.20.1'               => array('isMobile' => true, 'isTablet' => false),
             'Mozilla/5.0 (Linux; U; Android 2.3.7; hd-us; Dell Venue Build/GWK74; CyanogenMod-7.2.0) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => array('isMobile' => true, 'isTablet' => false),
             'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; DELL; Venue Pro)'                                                          => array('isMobile' => true, 'isTablet' => false),
+            'Mozilla/5.0 (Linux; Android 4.4.2; Venue 8 3830 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Safari/537.36'                        => array('isMobile' => true, 'isTablet' => true),
+            'Mozilla/5.0 (Linux; Android 4.4.2; Venue 7 3730 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36'                => array('isMobile' => true, 'isTablet' => true),
+            'Mozilla/5.0 (Linux; Android 4.4.2; Venue 7 HSPA+ Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Safari/537.36'                      => array('isMobile' => true, 'isTablet' => true),
+            'Mozilla/5.0 (Linux; U; Android 4.3; en-us; Venue 8 3830 Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'                        => array('isMobile' => true, 'isTablet' => true),
+            'Mozilla/5.0 (Linux; U; Android 3.2; zh-cn; Dell Streak 10 Pro Build/HTJ85B) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13'                  => array('isMobile' => true, 'isTablet' => true),
     ),
 
     'Digma' => array(
-
             'Mozilla/5.0 (Linux; U; Android 4.0.3; ru-ru; iDx10 3G Build/ICS.b02ref.20120331) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
-
         ),
 
     'DPS' => array(
@@ -680,6 +685,7 @@ return array(
     ),
 
     'LG' => array(
+            'Mozilla/5.0 (Linux; U; Android 2.3.6; en-us; LG-VS410PP Build/GRK39F) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => array('isMobile' => true, 'isTablet' => false),
             'Mozilla/5.0 (Linux; U; Android 2.2; en-us; LG-P509 Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 MMS/LG-Android-MMS-V1.0/1.2'     => array('isMobile' => true, 'isTablet' => false),
             'Mozilla/5.0 (Linux; U; Android 2.2.2; pt-br; LG-P350f Build/FRG83G) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 MMS/LG-Android-MMS-V1.0/1.2' => array('isMobile' => true, 'isTablet' => false),
             'Mozilla/5.0 (Linux; U; Android 2.3.3; en-us; LG-P500 Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 MMS/LG-Android-MMS-V1.0/1.2'   => array('isMobile' => true, 'isTablet' => false),
@@ -706,6 +712,9 @@ return array(
             // @ref: http://ja.wikipedia.org/wiki/L-06C
             'Mozilla/5.0 (Linux; U; Android 3.0.1; ja-jp; L-06C Build/HRI66) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13'                                      => array('isMobile' => true, 'isTablet' => true),
             'Mozilla/5.0 (Linux; U; Android 3.0; en-us; LG-V900 Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13'                                      => array('isMobile' => true, 'isTablet' => true),
+            'Mozilla/5.0 (Linux; U; Android 4.4.2; en-gb; LG-V700 Build/KOT49I.A1403851714) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.1599.103 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+            'Mozilla/5.0 (Linux; Android 4.4.2; LG-V500 Build/KOT49I.V50020d) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.102 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+            'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; LG-V410/V41010d Build/KOT49I.V41010d) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.1599.103 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
             ),
 
     'Megafon' => array(
@@ -822,6 +831,13 @@ return array(
         // @ref: http://keitaiall.jp/N-08D.html aka MEDIAS TAB
         'Mozilla/5.0 (Linux; U; Android 4.0.4; ja-jp; N-08D Build/A5001911) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; U; Android AAA; BBB; N-06D Build/CCC) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'     => array('isMobile' => true, 'isTablet' => true),
+
+        ),
+
+    'Nexo' => array(
+
+        'Mozilla/5.0 (Linux; U; Android 4.1.1; pl-pl; NEXO 3G Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30 ACHEETAHI/2100050074' => array('isMobile' => true, 'isTablet' => true),
+
 
         ),
 
@@ -1142,7 +1158,7 @@ return array(
 
         'Mozilla/5.0 (Windows NT 6.2; ARM; Trident/7.0; Touch; rv:11.0; WPDesktop; SAMSUNG; GT-I8750) like Gecko' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Windows NT 6.2; ARM; Trident/7.0; Touch; rv:11.0; WPDesktop; GT-I8750) like Gecko' => array('isMobile' => true, 'isTablet' => false),
-
+        'Mozilla/5.0 (Linux; Android 4.2.2; en-gb; SAMSUNG GT-I9205 Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Version/1.0 Chrome/18.0.1025.308 Mobile Safari/535.19' => array('isMobile' => true, 'isTablet' => true),
         ),
 
     'simvalley' => array(
@@ -1230,6 +1246,8 @@ return array(
         'Mozilla/4.0 (PDA; PalmOS/sony/model prmr/Revision:1.1.54 (en)) NetFront/3.0'                                                                                           => array('isMobile' => true, 'isTablet' => false),
         'Opera/9.80 (Linux mips; U; InettvBrowser/2.2 (00014A;SonyDTV115;0002;0100) KDL40EX720; CC/BEL; en) Presto/2.7.61 Version/11.00'                                        => array('isMobile' => false, 'isTablet' => false),
         'Opera/9.80 (Linux armv7l; HbbTV/1.1.1 (; Sony; KDL32W650A; PKG3.211EUA; 2013;); ) Presto/2.12.362 Version/12.11'                                                       => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; U; Android 4.0.4; es-ve; SonyST21a2 Build/11.0.A.6.5) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 4.4.2; D2533 Build/19.2.A.0.391) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         ),
 
     'Skk' => array('Mozilla/5.0 (Linux; U; Android 4.1; en-us; CYCLOPS Build/F10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true)),
@@ -1282,6 +1300,10 @@ return array(
             'isMobile' => true, 'isTablet' => true
         ),
     ),
+
+    'Ubislate' => array(
+            'Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; UBISLATE7C+ Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => true)
+        ),
 
     'Visture' => array(
 
@@ -1349,11 +1371,16 @@ return array(
     'Console' => array(
 
         //Nintendo Wii:
+        'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.28 (KHTML, like Gecko) NX/3.0.3.12.14 NintendoBrowser/3.1.1.9577.EU' => array('isMobile' => false, 'isTablet' => false),
         'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/{Version No} NintendoBrowser/{Version No}.US' => array('isMobile' => false, 'isTablet' => false),
-
+        'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7567.US' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7498.US' => array('isMobile' => true, 'isTablet' => false),
+        
         //Sony PlayStation:
         'Mozilla/5.0 (PLAYSTATION 3 4.21) AppleWebKit/531.22.8 (KHTML, like Gecko)' => array('isMobile' => false, 'isTablet' => false),
 
+        
+        
         //Microsoft Xbox:
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)' => array('isMobile' => false, 'isTablet' => false),
         // WTF? Must investigate.
@@ -1448,7 +1475,7 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; TOUCHPAD 7 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30', // 7" Verso Android tablet
         'Mozilla/5.0 (iPhone; U; CPU OS 4_2_1 like Mac OS X) AppleWebKit/532.9 (KHTML, like Gecko) Version/5.0.3 Mobile/8B5097d Safari/6531.22.7',
         'Mozilla/5.0 (Linux; U; Android 4.0.3; en-gb; SGPT12 Build/TID0142) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30', // sony xperia tablet s unforts
-        'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7498.US',
+        
         'Mozilla/5.0 (Linux; U; Android 2.0.6_b1; ru-ru Build/ECLAIR) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17', // PocketBook IQ701 (tablet)
         'Mozilla/5.0 (Linux; Android 4.0.4; z1000 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19', // It is a tablet with calling
         'Mozilla/5.0 (Linux; Android 4.0.3; cm_tenderloin Build/GWK74) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19', // HP touch pad running android cyanogenmod

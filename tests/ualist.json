@@ -1,5 +1,5 @@
 {
-    "hash": "169df1281f93c338cd53a857534bd28936282c33",
+    "hash": "d18e0f50faad4bec6d62989b760821fc2db34263",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -780,6 +780,18 @@
             "tablet": false
         },
         {
+            "vendor": "Apple",
+            "user_agent": "Mozilla\/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit\/537.51.1 (KHTML, like Gecko) Version\/7.0 Mobile\/11A465 Safari\/9537.53",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Apple",
+            "user_agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit\/600.1.4 (KHTML, like Gecko) CriOS\/38.0.2125.59 Mobile\/12A405 Safari\/600.1.4",
+            "mobile": true,
+            "tablet": false
+        },
+        {
             "vendor": "Archos",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; Qilive 97R Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.92 Safari\/537.36",
             "mobile": true,
@@ -1308,6 +1320,36 @@
             "user_agent": "Mozilla\/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident\/5.0; IEMobile\/9.0; DELL; Venue Pro)",
             "mobile": true,
             "tablet": false
+        },
+        {
+            "vendor": "Dell",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; Venue 8 3830 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Dell",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; Venue 7 3730 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Dell",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; Venue 7 HSPA+ Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Dell",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.3; en-us; Venue 8 3830 Build\/JSS15Q) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Dell",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 3.2; zh-cn; Dell Streak 10 Pro Build\/HTJ85B) AppleWebKit\/534.13 (KHTML, like Gecko) Version\/4.0 Safari\/534.13",
+            "mobile": true,
+            "tablet": true
         },
         {
             "vendor": "Digma",
@@ -2588,6 +2630,12 @@
         },
         {
             "vendor": "LG",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.6; en-us; LG-VS410PP Build\/GRK39F) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "LG",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.2; en-us; LG-P509 Build\/FRF91) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1 MMS\/LG-Android-MMS-V1.0\/1.2",
             "mobile": true,
             "tablet": false
@@ -2727,6 +2775,24 @@
         {
             "vendor": "LG",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 3.0; en-us; LG-V900 Build\/HRI39) AppleWebKit\/534.13 (KHTML, like Gecko) Version\/4.0 Safari\/534.13",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "LG",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.4.2; en-gb; LG-V700 Build\/KOT49I.A1403851714) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.1599.103 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "LG",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; LG-V500 Build\/KOT49I.V50020d) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.102 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "LG",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.4.2; en-us; LG-V410\/V41010d Build\/KOT49I.V41010d) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.1599.103 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
@@ -2988,6 +3054,138 @@
             "tablet": false
         },
         {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; XT1022 Build\/KXC20.82-14) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/34.0.1847.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.4.4; en-in; XT1022 Build\/KXC21.5-40) AppleWebKit\/537.16 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/537.16",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; XT1025 Build\/KXC20.82-13) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/34.0.1847.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; XT1052 Build\/KLA20.16-2.16.2) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-gb; XT1052 Build\/13.9.0Q2.X_83) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; XT1053 Build\/13.9.0Q2.X_61) AppleWebKit\/537.31 (KHTML, like Gecko) Chrome\/26.0.1410.58 Mobile Safari\/537.31",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-us; XT1053 Build\/13.9.0Q2.X_55) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; XT1056 Build\/13.9.0Q2.X-116-MX-17-6-2) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.64 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; XT1031 Build\/KXB20.9-1.10-1.18-1.1) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; XT1032 Build\/KXB21.14-L1.40) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.4.2; de-de; XT1032 Build\/KLB20.9-1.10-1.24-1.1) AppleWebKit\/537.16 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/537.16",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; XT1034 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.3; en-us; XT1034 Build\/14.10.0Q3.X-84-16) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; XT1035 Build\/14.10.0Q3.X-23) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; XT1039 Build\/KXB21.14-L1.31) AppleWebKit\/537.36 (KHTML like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.2; en-us; XT919 Build\/2_290_2002) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; XT919 Build\/2_290_2004) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/27.0.1453.90 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.2; en-us; XT920 Build\/2_290_2014) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; XT920 Build\/2_310_2014) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; XT905 Build\/7.7.1Q_GCIRD-16) AppleWebKit\/537.22 (KHTML, like Gecko) Chrome\/25.0.1364.169 Mobile Safari\/537.22",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; XT908 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; en-us; XT897 Build\/7.7.1Q-6_SPR-ASANTI_LE-18) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
             "vendor": "MSI",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.5; el-gr; MSI Enjoy 10 Plus Build\/1.2) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
             "mobile": true,
@@ -3008,6 +3206,12 @@
         {
             "vendor": "NEC",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android AAA; BBB; N-06D Build\/CCC) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Nexo",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; pl-pl; NEXO 3G Build\/JRO03H) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30 ACHEETAHI\/2100050074",
             "mobile": true,
             "tablet": true
         },
@@ -4538,6 +4742,12 @@
             "tablet": false
         },
         {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; en-gb; SAMSUNG GT-I9205 Build\/JDQ39) AppleWebKit\/535.19 (KHTML, like Gecko) Version\/1.0 Chrome\/18.0.1025.308 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": true
+        },
+        {
             "vendor": "simvalley",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.4; de-de; SP-80 Build\/GRJ22) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
             "mobile": true,
@@ -5012,6 +5222,18 @@
             "tablet": false
         },
         {
+            "vendor": "Sony",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; es-ve; SonyST21a2 Build\/11.0.A.6.5) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Sony",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; D2533 Build\/19.2.A.0.391) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
             "vendor": "Skk",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1; en-us; CYCLOPS Build\/F10) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
             "mobile": true,
@@ -5160,6 +5382,12 @@
         {
             "vendor": "Trekstor",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; de-de; ST10216-2A Build\/JRO03H) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30;SurfTab_10.1",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Ubislate",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; en-us; UBISLATE7C+ Build\/IMM76D) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
             "mobile": true,
             "tablet": true
         },
@@ -5363,8 +5591,26 @@
         },
         {
             "vendor": "Console",
+            "user_agent": "Mozilla\/5.0 (Nintendo WiiU) AppleWebKit\/536.28 (KHTML, like Gecko) NX\/3.0.3.12.14 NintendoBrowser\/3.1.1.9577.EU",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Console",
             "user_agent": "Mozilla\/5.0 (Nintendo WiiU) AppleWebKit\/534.52 (KHTML, like Gecko) NX\/{Version No} NintendoBrowser\/{Version No}.US",
             "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Console",
+            "user_agent": "Mozilla\/5.0 (Nintendo 3DS; U; ; en) Version\/1.7567.US",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Console",
+            "user_agent": "Mozilla\/5.0 (Nintendo 3DS; U; ; en) Version\/1.7498.US",
+            "mobile": true,
             "tablet": false
         },
         {
@@ -5699,10 +5945,6 @@
         {
             "vendor": "Generic",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; en-gb; SGPT12 Build\/TID0142) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30"
-        },
-        {
-            "vendor": "Generic",
-            "user_agent": "Mozilla\/5.0 (Nintendo 3DS; U; ; en) Version\/1.7498.US"
         },
         {
             "vendor": "Generic",
