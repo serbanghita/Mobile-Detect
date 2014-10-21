@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.svg?branch=devel)](https://travis-ci.org/serbanghita/Mobile-Detect) [![Latest Stable Version](https://poser.pugx.org/mobiledetect/mobiledetectlib/v/stable.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) [![Total Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/downloads.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) [![Daily Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/d/daily.png)](https://packagist.org/packages/mobiledetect/mobiledetectlib) [![License](https://poser.pugx.org/mobiledetect/mobiledetectlib/license.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib)
+
 ![Mobile Detect](http://demo.mobiledetect.net/logo-github.png)
 
 > Motto: "Every business should have a mobile detection script to detect mobile readers."
