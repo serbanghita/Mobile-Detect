@@ -204,6 +204,7 @@ class Mobile_Detect
         // http://www.acer.ro/ac/ro/RO/content/drivers
         // http://www.packardbell.co.uk/pb/en/GB/content/download (Packard Bell is part of Acer)
         // http://us.acer.com/ac/en/US/content/group/tablets
+        // http://www.acer.de/ac/de/DE/content/models/tablets/
         // Can conflict with Micromax and Motorola phones codes.
         'AcerTablet'        => 'Android.*; \b(A100|A101|A110|A200|A210|A211|A500|A501|A510|A511|A700|A701|W500|W500P|W501|W501P|W510|W511|W700|G100|G100W|B1-A71|B1-710|B1-711|A1-810|A1-811|A1-830)\b|W3-810|\bA3-A10\b',
         // http://eu.computers.toshiba-europe.com/innovation/family/Tablets/1098744/banner_id/tablet_footerlink/
@@ -253,6 +254,10 @@ class Mobile_Detect
         // http://www.msi.com/support
         // @todo Research the Windows Tablets.
         'MSITablet' => 'MSI \b(Primo 73K|Primo 73L|Primo 81L|Primo 77|Primo 93|Primo 75|Primo 76|Primo 73|Primo 81|Primo 91|Primo 90|Enjoy 71|Enjoy 7|Enjoy 10)\b',
+        // @todo http://www.kyoceramobile.com/support/drivers/
+        'KyoceraTablet' => null,
+        // @todo http://intexuae.com/index.php/category/mobile-devices/tablets-products/
+        'IntextTablet' => null,
         // http://pdadb.net/index.php?m=pdalist&list=SMiT (NoName Chinese Tablets)
         // http://www.imp3.net/14/show.php?itemid=20454
         'SMiTTablet'        => 'Android.*(\bMID\b|MID-560|MTV-T1200|MTV-PND531|MTV-P1101|MTV-PND530)',
@@ -393,6 +398,10 @@ class Mobile_Detect
         // http://www.evolio.ro/support/downloads_static.html?cat=2
         // @todo: Research some more
         'EvolioTablet' => 'ARIA_Mini_wifi|Aria[ _]Mini|Evolio X10|Evolio X7|Evolio X8|\bEvotab\b|\bNeura\b',
+        // @todo http://www.lavamobiles.com/tablets-data-cards
+        'LavaTablet' => null,
+        // @todo https://www.celkonmobiles.com/
+        'CelkonTablet' => null,
         // http://navroad.com/products/produkty/tablety/
         'NexoTablet' => 'NEXO NOVA|NEXO 10|NEXO AVIO|NEXO FREE|NEXO GO|NEXO EVO|NEXO 3G|NEXO SMART|NEXO KIDDO|NEXO MOBI',
         // http://www.datawind.com/ubislate/
