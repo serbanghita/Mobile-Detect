@@ -1245,7 +1245,7 @@ class Mobile_Detect
             $this->version('Firefox', self::VERSION_TYPE_FLOAT)>=4.0 && !$isMobile ||
 
             // Internet Explorer 7-9 - Tested on Windows XP, Vista and 7
-            $this->version('MSIE', self::VERSION_TYPE_FLOAT)>=7.0 && !$isMobile ||
+            $this->version('IE', self::VERSION_TYPE_FLOAT)>=7.0 && !$isMobile ||
 
             // Opera Desktop 10-12 - Tested on OS X 10.7 and Windows 7
             // @reference: http://my.opera.com/community/openweb/idopera/
