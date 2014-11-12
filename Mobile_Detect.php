@@ -20,7 +20,7 @@
  *              README:       https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
  *              HOWTO:        https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
  *
- * @version     2.8.5
+ * @version     2.8.6
  */
 
 class Mobile_Detect
@@ -64,7 +64,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.8.5';
+    const VERSION                   = '2.8.6';
 
     /**
      * A type for the version() method indicating a string return value.
@@ -154,7 +154,7 @@ class Mobile_Detect
         // Added because the codes might conflict with Acer Tablets.
         'Micromax'      => 'Micromax.*\b(A210|A92|A88|A72|A111|A110Q|A115|A116|A110|A90S|A26|A51|A35|A54|A25|A27|A89|A68|A65|A57|A90)\b',
         // @todo Complete the regex.
-        'Palm'          => 'PalmSource|Palm', // avantgo|blazer|elaine|hiptop|plucker|xiino ; 
+        'Palm'          => 'PalmSource|Palm', // avantgo|blazer|elaine|hiptop|plucker|xiino ;
         'Vertu'         => 'Vertu|Vertu.*Ltd|Vertu.*Ascent|Vertu.*Ayxta|Vertu.*Constellation(F|Quest)?|Vertu.*Monika|Vertu.*Signature', // Just for fun ;)
         // http://www.pantech.co.kr/en/prod/prodList.do?gbrand=VEGA (PANTECH)
         // Most of the VEGA devices are legacy. PANTECH seem to be newer devices based on Android.
@@ -169,7 +169,7 @@ class Mobile_Detect
          // http://www.wolfgangmobile.com/
         'Wolfgang'      => 'AT-B24D|AT-AS50HD|AT-AS40W|AT-AS55HD|AT-AS45q2|AT-B26D|AT-AS50Q',
         'Alcatel'		=> 'Alcatel',
-        'Nintendo' => 'Nintendo 3DS',        
+        'Nintendo' => 'Nintendo 3DS',
         // http://en.wikipedia.org/wiki/Amoi
         'Amoi'			=> 'Amoi',
         // http://en.wikipedia.org/wiki/INQ
