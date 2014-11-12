@@ -168,12 +168,12 @@ class Mobile_Detect
          // Wolfgang - a brand that is sold by Aldi supermarkets.
          // http://www.wolfgangmobile.com/
         'Wolfgang'      => 'AT-B24D|AT-AS50HD|AT-AS40W|AT-AS55HD|AT-AS45q2|AT-B26D|AT-AS50Q',
-        'Alcatel'		=> 'Alcatel',
+        'Alcatel'       => 'Alcatel',
         'Nintendo' => 'Nintendo 3DS',
         // http://en.wikipedia.org/wiki/Amoi
-        'Amoi'			=> 'Amoi',
+        'Amoi'          => 'Amoi',
         // http://en.wikipedia.org/wiki/INQ
-        'INQ'			=> 'INQ',
+        'INQ'           => 'INQ',
         // @Tapatalk is a mobile app; http://support.tapatalk.com/threads/smf-2-0-2-os-and-browser-detection-plugin-and-tapatalk.15565/#post-79039
         'GenericPhone'  => 'Tapatalk|PDA;|SAGEM|\bmmp\b|pocket|\bpsp\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\bwap\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser',
     );
@@ -402,6 +402,7 @@ class Mobile_Detect
         'LavaTablet' => null,
         // @todo https://www.celkonmobiles.com/
         'CelkonTablet' => null,
+        'NibiruTablet' => 'Nibiru M1',
         // http://navroad.com/products/produkty/tablety/
         'NexoTablet' => 'NEXO NOVA|NEXO 10|NEXO AVIO|NEXO FREE|NEXO GO|NEXO EVO|NEXO 3G|NEXO SMART|NEXO KIDDO|NEXO MOBI',
         // http://www.datawind.com/ubislate/
@@ -1252,8 +1253,8 @@ class Mobile_Detect
             // Firefox Desktop 10-18 - Tested on OS X 10.7 and Windows 7
             $this->version('Firefox', self::VERSION_TYPE_FLOAT)>=10.0 && !$isMobile ||
 
-            // Internet Explorer 8-10 - Tested on Windows XP, Vista and 7
-            $this->version('MSIE', self::VERSION_TYPE_FLOAT)>=8.0 && !$isMobile ||
+            // Internet Explorer 7-9 - Tested on Windows XP, Vista and 7
+            $this->version('IE', self::VERSION_TYPE_FLOAT)>=7.0 && !$isMobile ||
 
             // Opera Desktop 10-12 - Tested on OS X 10.7 and Windows 7
             $this->version('Opera', self::VERSION_TYPE_FLOAT)>=10 && !$isMobile

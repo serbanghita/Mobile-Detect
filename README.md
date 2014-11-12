@@ -110,7 +110,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
     <td>Laravel</td>
     <td>
     <p><a href="https://github.com/jenssegers/Laravel-Agent">Laravel-Agent</a> a user agent class for Laravel, based on Mobile Detect with some additional functionality. Made by <a href="https://github.com/jenssegers">Jens Segers</a>.</p>
-    <p><a href="https://github.com/hisorange/browser-detect">BrowserDetect</a>is a browser &amp; mobile detection package, collects and wrap together the best user-agent identifiers for Laravel. Created by <a href="https://github.com/hisorange">Varga Zsolt</a>.</p>
+    <p><a href="https://github.com/hisorange/browser-detect">BrowserDetect</a> is a browser &amp; mobile detection package, collects and wrap together the best user-agent identifiers for Laravel. Created by <a href="https://github.com/hisorange">Varga Zsolt</a>.</p>
     </td>
   </tr>
 
