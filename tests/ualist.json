@@ -1,5 +1,5 @@
 {
-    "hash": "d18e0f50faad4bec6d62989b760821fc2db34263",
+    "hash": "68c72904db1dea17c90a25961d2a278442d99dae",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -926,6 +926,12 @@
         {
             "vendor": "Archos",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; de-de; ARCHOS GAMEPAD Build\/JRO03H) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Arnova",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; fr-fr; AN9G2I Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
             "mobile": true,
             "tablet": true
         },
