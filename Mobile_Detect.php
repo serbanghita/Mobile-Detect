@@ -399,10 +399,13 @@ class Mobile_Detect
         // @todo: Research some more
         'EvolioTablet' => 'ARIA_Mini_wifi|Aria[ _]Mini|Evolio X10|Evolio X7|Evolio X8|\bEvotab\b|\bNeura\b',
         // @todo http://www.lavamobiles.com/tablets-data-cards
-        'LavaTablet' => null,
+        'LavaTablet' => 'QPAD E704|\bIvoryS\b|E-TAB IVORY',
         // @todo https://www.celkonmobiles.com/
         'CelkonTablet' => null,
-        'NibiruTablet' => 'Nibiru M1',
+        // http://www.mi.com/en
+        'MiTablet' => '\bMI PAD\b|\bHM NOTE 1W\b',
+        // http://www.nbru.cn/index.html
+        'NibiruTablet' => 'Nibiru M1|Nibiru Jupiter One',
         // http://navroad.com/products/produkty/tablety/
         'NexoTablet' => 'NEXO NOVA|NEXO 10|NEXO AVIO|NEXO FREE|NEXO GO|NEXO EVO|NEXO 3G|NEXO SMART|NEXO KIDDO|NEXO MOBI',
         // http://www.datawind.com/ubislate/
