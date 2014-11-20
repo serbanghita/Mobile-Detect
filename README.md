@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.svg?branch=devel)](https://travis-ci.org/serbanghita/Mobile-Detect) [![Latest Stable Version](https://poser.pugx.org/mobiledetect/mobiledetectlib/v/stable.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) [![Total Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/downloads.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) [![Daily Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/d/daily.png)](https://packagist.org/packages/mobiledetect/mobiledetectlib) [![License](https://poser.pugx.org/mobiledetect/mobiledetectlib/license.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/serbanghita/Mobile-Detect?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 ![Mobile Detect](http://demo.mobiledetect.net/logo-github.png)
 
 > Motto: "Every business should have a mobile detection script to detect mobile readers."
@@ -63,10 +66,10 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
     <p><a href="http://drupal.org/project/mobile_switch">Drupal Mobile Switch</a> - The Mobile Switch <code>Drupal</code> module provides a automatic theme switch functionality for mobile devices,
     detected by Browscap or Mobile Detect. Made by <a href="http://drupal.org/user/45267">Siegfried Neumann</a>.</p>
 
-      <p><a href="http://drupal.org/project/context_mobile_detect">Drupal Context Mobile Detect</a> - This is a <code>Drupal context</code> module which integrates Context and PHP Mobile Detect library.
+   <p><a href="http://drupal.org/project/context_mobile_detect">Drupal Context Mobile Detect</a> - This is a <code>Drupal context</code> module which integrates Context and PHP Mobile Detect library.
       Created by <a href="http://drupal.org/user/432492">Artem Shymko</a>.</p>
 
-      <p><a href="http://drupal.org/project/mobile_detect">Drupal Mobile Detect</a> - Lightweight mobile detect module for <code>Drupal</code> created by <a href="http://drupal.org/user/325244">Matthew Donadio</a></p>
+   <p><a href="http://drupal.org/project/mobile_detect">Drupal Mobile Detect</a> - Lightweight mobile detect module for <code>Drupal</code> created by <a href="http://drupal.org/user/325244">Matthew Donadio</a></p>
   </td>
 </tr>
 
@@ -91,7 +94,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
   <td>
     <p><a href="https://github.com/neilime/zf2-mobile-detect.git">ZF2 Mobile-Detect</a> - Zend Framework 2 module that provides Mobile-Detect features (Mobile_Detect class as a service, helper for views and plugin controllers). Made by <a href="https://github.com/neilime">neilime</a></p>
 
-    <p><a href="https://github.com/nikolaposa/MobileDetectModule">ZF2 MobileDetectModule</a> - Facilitates integration of a PHP MobileDetect class with some ZF2-based application. Has similar idea like the existing ZF2 Mobile-Detect module, but differs in initialization and provision routine of the actual Mobile_Detect class. Appropriate view helper and controller plugin also have different conceptions. Made by <a href="https://github.com/nikolaposa">Nikola Posa</a></p>
+   <p><a href="https://github.com/nikolaposa/MobileDetectModule">ZF2 MobileDetectModule</a> - Facilitates integration of a PHP MobileDetect class with some ZF2-based application. Has similar idea like the existing ZF2 Mobile-Detect module, but differs in initialization and provision routine of the actual Mobile_Detect class. Appropriate view helper and controller plugin also have different conceptions. Made by <a href="https://github.com/nikolaposa">Nikola Posa</a></p>
   </td>
  </tr>
 
@@ -107,7 +110,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
     <td>Laravel</td>
     <td>
     <p><a href="https://github.com/jenssegers/Laravel-Agent">Laravel-Agent</a> a user agent class for Laravel, based on Mobile Detect with some additional functionality. Made by <a href="https://github.com/jenssegers">Jens Segers</a>.</p>
-    <p><a href="https://github.com/hisorange/browser-detect">BrowserDetect</a>is a browser &amp; mobile detection package, collects and wrap together the best user-agent identifiers for Laravel. Created by <a href="https://github.com/hisorange">Varga Zsolt</a>.</p>
+    <p><a href="https://github.com/hisorange/browser-detect">BrowserDetect</a> is a browser &amp; mobile detection package, collects and wrap together the best user-agent identifiers for Laravel. Created by <a href="https://github.com/hisorange">Varga Zsolt</a>.</p>
     </td>
   </tr>
 
@@ -140,6 +143,11 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 <tr>
   <td>Statamic</td>
   <td><p><a href="https://github.com/sergeifilippov/statamic-mobile-detect">Statamic CMS Mobile Detect</a> - <code>plugin</code>. Made by <a href="https://github.com/haikulab/statamic-mobile-detect">Sergei Filippov of Haiku Lab</a>.</p></td>
+</tr>
+
+<tr>
+  <td>Kohana</td>
+  <td><p><a href="https://github.com/madeinnordeste/kohana-mobile-detect">Kohana Mobile Detect</a> - an example of implementation of <code>Mobile_Detect</code> class with Kohana framework. Written by <a href="https://github.com/madeinnordeste">Luiz Alberto S. Ribeiro</a>.</p></td>
 </tr>
 
 <tr>

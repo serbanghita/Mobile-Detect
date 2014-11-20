@@ -177,7 +177,8 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider userAgentProvider
-     * @covers Mobile_Detect::setUserAgent, Mobile_Detect::getUserAgent
+     * @covers Mobile_Detect::setUserAgent
+     * @covers Mobile_Detect::getUserAgent
      */
     public function testGetUserAgent($headers, $expectedUserAgent)
     {
@@ -203,7 +204,8 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Mobile_Detect::setUserAgent, Mobile_Detect::getUserAgent
+     * @covers Mobile_Detect::setUserAgent
+     * @covers Mobile_Detect::getUserAgent
      */
     public function testSetUserAgent()
     {
