@@ -43,7 +43,10 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         $jsonFile = dirname(__FILE__) . '/ualist.json';
         $phpFile = dirname(__FILE__) . '/UA_List.inc.php';
 
-        //check recency of the file
+        //currently stored as a PHP array
+        $list = include $phpFile;
+
+        //check recency of the file        
         if (file_exists($jsonFile) && is_readable($jsonFile)) {
             //read the json file
             $json = json_decode(file_get_contents($jsonFile), true);
@@ -51,13 +54,14 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
             //check that the hash matches
             $hash = isset($json['hash']) ? $json['hash'] : null;
 
-            if ($hash == sha1_file($phpFile)) {
+            if ($hash == sha1(serialize($list))) {
                 //file is up to date, just read the json file
                 self::$json = $json['user_agents'];
 
                 return self::$json;
             }
         }
+        
 
         //uses the UA_List.inc.php to generate a json file
         if (file_exists($jsonFile) && !is_writable($jsonFile)) {
@@ -68,8 +72,9 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
             throw new RuntimeException("Insufficient permissions to create this file: $jsonFile");
         }
 
-        //currently stored as a PHP array
-        $list = include $phpFile;
+
+
+        //print_r($list['Acer']); exit;
 
         $json = array();
 
@@ -107,7 +112,7 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         }
 
         //save the hash
-        $hash = sha1_file($phpFile);
+        $hash = sha1(serialize($list));
         $json = array(
             'hash' => $hash,
             'user_agents' => $json
