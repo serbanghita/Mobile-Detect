@@ -255,9 +255,9 @@ class Mobile_Detect
         // @todo Research the Windows Tablets.
         'MSITablet' => 'MSI \b(Primo 73K|Primo 73L|Primo 81L|Primo 77|Primo 93|Primo 75|Primo 76|Primo 73|Primo 81|Primo 91|Primo 90|Enjoy 71|Enjoy 7|Enjoy 10)\b',
         // @todo http://www.kyoceramobile.com/support/drivers/
-        'KyoceraTablet' => null,
+    //    'KyoceraTablet' => null,
         // @todo http://intexuae.com/index.php/category/mobile-devices/tablets-products/
-        'IntextTablet' => null,
+    //    'IntextTablet' => null,
         // http://pdadb.net/index.php?m=pdalist&list=SMiT (NoName Chinese Tablets)
         // http://www.imp3.net/14/show.php?itemid=20454
         'SMiTTablet'        => 'Android.*(\bMID\b|MID-560|MTV-T1200|MTV-PND531|MTV-P1101|MTV-PND530)',
@@ -401,7 +401,7 @@ class Mobile_Detect
         // @todo http://www.lavamobiles.com/tablets-data-cards
         'LavaTablet' => 'QPAD E704|\bIvoryS\b|E-TAB IVORY',
         // @todo https://www.celkonmobiles.com/
-        'CelkonTablet' => null,
+    //    'CelkonTablet' => null,
         // http://www.mi.com/en
         'MiTablet' => '\bMI PAD\b|\bHM NOTE 1W\b',
         // http://www.nbru.cn/index.html
@@ -416,7 +416,7 @@ class Mobile_Detect
         'Hudl'              => 'Hudl HT7S3',
         // http://www.telstra.com.au/home-phone/thub-2/
         'TelstraTablet'     => 'T-Hub2',
-        'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|BNTV250A|MID-WCDMA|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|rk30sdk|\bEVOTAB\b|M758A|ET904|ALUMIUM10|Smartfren Tab|Endeavour 1010|Tablet-PC-4|Tagi Tab|\bM6pro\b|CT1020W|arc 10HD'
+        'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|BNTV250A|MID-WCDMA|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|rk30sdk|\bEVOTAB\b|M758A|ET904|ALUMIUM10|Smartfren Tab|Endeavour 1010|Tablet-PC-4|Tagi Tab|\bM6pro\b|CT1020W|arc 10HD|\bJolla\b'
     );
 
     /**
