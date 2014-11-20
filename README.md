@@ -50,7 +50,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 <tr>
   <td>WordPress</td>
   <td>
-    <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">WordPress Mobile Detect</a> - Gives you the ability to wrap that infographic in a [notdevice][/notdevice] shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
+    <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">WordPress Mobile Detect</a> - Gives you the ability to wrap that infographic in a `[notdevice][/notdevice]` shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
 
     <p><a href="http://wordpress.org/plugins/mobble/">mobble</a> - provides mobile related conditional functions for your site. e.g. is_iphone(), is_mobile() and is_tablet(). Made by Scott Evans.</p>
 
@@ -154,6 +154,11 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
   <td>mobile-detect.js</td>
   <td><p>A <a href="https://github.com/hgoebl/mobile-detect.js">JavaScript port</a> of Mobile-Detect class. Made by <a href="https://github.com/hgoebl">Heinrich Goebl</a></p></td>
   </tr>
+
+ <tr>
+      <td>Perl</td>
+      <td><p><a href="http://www.buzzerstar.com/development/">MobileDetect.pm</a> - <code>Perl module</code> for  Mobile Detect. Made by <a href="http://www.buzzerstar.com/">Sebastian Enger</a>.</p></td>
+ </tr>
 
  <tr>
       <td>python</td>
