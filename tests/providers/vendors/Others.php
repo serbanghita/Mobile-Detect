@@ -21,6 +21,10 @@ return array(
         'Amoi 8512/R18.0 NF-Browser/3.3' => array('isMobile' => true, 'isTable' => false, 'model' => '8512'),
         ),
 
+    'Arnova' => array(
+        'Mozilla/5.0 (Linux; U; Android 4.0.3; fr-fr; AN9G2I Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
+    ),
+
     'AudioSonic' => array(
         'Mozilla/5.0 (Linux; U; Android 4.1.1; en-au; T-17B Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
         ),

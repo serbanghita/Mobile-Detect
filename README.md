@@ -164,6 +164,11 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
       <td>python</td>
       <td><p><a href="http://pypi.python.org/pypi/pymobiledetect">pymobiledetect</a> - Mobile detect <code>python package</code>. Made by Bas van Oostveen.</p></td>
  </tr>
+ 
+ <tr>
+	 <td>Ruby</td>
+	 <td><p><a href="https://github.com/ktaragorn/mobile_detect">mobile_detect.rb</a> - A <code>Ruby gem</code> using the JSON data exposed by the php project and implementing a basic subset of the API (as much as can be done by the exposed data). Made by <a href="https://github.com/ktaragorn">Karthik T</a>.</p></td>
+ </tr>
 
 <tr>
 	<td>GoMobileDetect</td>

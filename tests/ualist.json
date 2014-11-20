@@ -1,5 +1,5 @@
 {
-    "hash": "6f952c8e69c65bf8b5b9832da9e4734f9388d393",
+    "hash": "397bdba520da25f9dd5a5f091df41ea5c94b4c7d",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -3405,6 +3405,12 @@
             "user_agent": "Amoi 8512\/R18.0 NF-Browser\/3.3",
             "mobile": true,
             "model": "8512"
+        },
+        {
+            "vendor": "Arnova",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; fr-fr; AN9G2I Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
         },
         {
             "vendor": "AudioSonic",

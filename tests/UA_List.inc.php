@@ -1,6 +1,5 @@
 <?php
 /**
- * @author      Serban Ghita <serbanghita@gmail.com>
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  * @link        http://mobiledetect.net
  *
