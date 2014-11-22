@@ -34,6 +34,7 @@
 
 require_once '../Mobile_Detect.php';
 $detect = new Mobile_Detect;
+
 $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
 $scriptVersion = $detect->getScriptVersion();
 
@@ -248,6 +249,19 @@ $scriptVersion = $detect->getScriptVersion();
             <tr>
                 <td>isWhateverYouWant()</td>
                 <td class="randomcrap"><?php var_dump($detect->isWhateverYouWant()); ?></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th colspan="2">Debug</th>
+            </tr>
+            <tr>
+                <td>Matching Regex</td>
+                <td><?php var_dump($detect->getMatchingRegex()); ?></td>
+            </tr>
+            <tr>
+                <td>Matching Array</td>
+                <td><?php var_dump($detect->getMatchesArray()); ?></td>
             </tr>
         </tbody>
     </table>

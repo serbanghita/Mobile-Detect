@@ -1,5 +1,5 @@
 {
-    "hash": "397bdba520da25f9dd5a5f091df41ea5c94b4c7d",
+    "hash": "c1feb8b9f9ddc8878a7d9e2641ee0d3d0547c084",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -441,6 +441,36 @@
         {
             "vendor": "Amazon",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; en-us; WFJWAE Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Amazon",
+            "user_agent": "Mozilla\/5.0 (Linux; U; en-us; KFTT Build\/IML74K) AppleWebKit\/535.19 (KHTML, like Gecko) Silk\/3.21 Safari\/535.19 Silk-Accelerated=true",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Amazon",
+            "user_agent": "Mozilla\/5.0 (Linux; U; en-us; KFTHWI Build\/JDQ39) AppleWebKit\/535.19 (KHTML, like Gecko) Silk\/3.21 Safari\/535.19 Silk-Accelerated=true",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Amazon",
+            "user_agent": "Mozilla\/5.0 (Linux; U; en-us; KFJWI Build\/IMM76D) AppleWebKit\/535.19 (KHTML, like Gecko) Silk\/3.21 Safari\/535.19 Silk-Accelerated=true",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Amazon",
+            "user_agent": "Mozilla\/5.0 (Linux; U; en-us; KFSOWI Build\/JDQ39) AppleWebKit\/535.19 (KHTML, like Gecko) Silk\/3.21 Safari\/535.19 Silk-Accelerated=true",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Amazon",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.1; xx-xx; T720-WIFI Build\/ECLAIR) AppleWebKit\/530.17 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/530.17",
             "mobile": true,
             "tablet": true
         },
@@ -3990,6 +4020,18 @@
             }
         },
         {
+            "vendor": "Oneplus",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; A0001 Build\/JLS36C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Oneplus",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.3; xx-xx; A0001 Build\/JLS36C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
             "vendor": "Odys",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; de-de; LOOX Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
             "mobile": true,
@@ -4332,6 +4374,42 @@
         {
             "vendor": "Teclast",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; P98 3G\\xE5\\x85\\xAB\\xE6\\xA0\\xB8(A3HY) Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Teclast",
+            "user_agent": "QQ\\xe9\\x9f\\xb3\\xe4\\xb9\\x90HD 4.0.1 (iPad; iPhone OS 8.0; zh_CN)",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Teclast",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0; xx-xx; A15(E6C2) Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Teclast",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3; xx-xx; A10 Build\/GRJ22) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Teclast",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; en-us; Teclast A10T Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Teclast",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; zh-cn; Teclast P85(A9D3) Build\/IMM76D) AppleWebKit\/534.30 (KHTML like Gecko) Version\/4.0 Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Teclast",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-us; A70H Build\/JDQ39) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 UCBrowser\/9.8.0.435 U3\/0.8.0 Mobile Safari\/533.1",
             "mobile": true,
             "tablet": true
         },

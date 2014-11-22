@@ -22,7 +22,7 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         //currently stored as a PHP array
         $list = include $phpFile;
 
-        //check recency of the file        
+        //check recency of the file
         if (file_exists($jsonFile) && is_readable($jsonFile)) {
             //read the json file
             $json = json_decode(file_get_contents($jsonFile), true);
@@ -37,7 +37,7 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
                 return self::$json;
             }
         }
-        
+
 
         //uses the UA_List.inc.php to generate a json file
         if (file_exists($jsonFile) && !is_writable($jsonFile)) {
@@ -130,8 +130,9 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
 
     public function userAgentData()
     {
-        if (!count(self::$ualist))
+        if (!count(self::$ualist)) {
             self::setUpBeforeClass();
+        }
 
         return self::$ualist;
     }
@@ -157,7 +158,7 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($md->isMobile(), $isMobile);
 
         //is tablet?
-        $this->assertEquals($md->isTablet(), $isTablet);
+        $this->assertEquals($md->isTablet(), $isTablet, 'FAILED: ' . $userAgent . ' isTablet: ' . $isTablet);
 
         if (isset($version)) {
             foreach ($version as $condition => $assertion) {

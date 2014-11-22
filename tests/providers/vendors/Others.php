@@ -292,6 +292,11 @@ return array(
 
         ),
 
+    'Oneplus' => array(
+        'Mozilla/5.0 (Linux; Android 4.3; A0001 Build/JLS36C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.141 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; U; Android 4.3; xx-xx; A0001 Build/JLS36C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
+        ),
+
     'Odys' => array(
         'Mozilla/5.0 (Linux; U; Android 4.0.3; de-de; LOOX Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'                                             => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; U; Android 4.0.3; de-de; LOOX Plus Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'                                        => array('isMobile' => true, 'isTablet' => true),
@@ -414,6 +419,12 @@ return array(
 
     'Teclast' => array(
         'Mozilla/5.0 (Linux; Android 4.4.2; P98 3G\xE5\x85\xAB\xE6\xA0\xB8(A3HY) Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'QQ\xe9\x9f\xb3\xe4\xb9\x90HD 4.0.1 (iPad; iPhone OS 8.0; zh_CN)' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Android 4.0; xx-xx; A15(E6C2) Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Android 2.3; xx-xx; A10 Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; Teclast A10T Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; Teclast P85(A9D3) Build/IMM76D) AppleWebKit/534.30 (KHTML like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; A70H Build/JDQ39) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 UCBrowser/9.8.0.435 U3/0.8.0 Mobile Safari/533.1' => array('isMobile' => true, 'isTablet' => true),
         ),
 
     'Tecno' => array('Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; TECNO P9 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true)),
