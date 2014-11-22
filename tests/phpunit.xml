@@ -18,7 +18,8 @@
 	</php>
 
   <testsuite name="All Mobile Detect tests">
-    <directory suffix="Test.php">./</directory>
+    <file>tests/BasicsTest.php</file>
+    <file>tests/UserAgentTest.php</file>
   </testsuite>
 
 	<listeners>
