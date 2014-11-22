@@ -17,7 +17,8 @@
         "php": ">=5.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "johnkary/phpunit-speedtrap": "~1.0@dev"
     },
     "autoload": {
         "classmap": ["Mobile_Detect.php"],

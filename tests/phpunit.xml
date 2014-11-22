@@ -21,6 +21,8 @@
     <directory suffix="Test.php">./</directory>
   </testsuite>
 
-
+	<listeners>
+	    <listener class="JohnKary\PHPUnit\Listener\SpeedTrapListener" />
+	</listeners>
 
 </phpunit>
