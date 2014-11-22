@@ -212,7 +212,7 @@ class Mobile_Detect
         // http://www.asus.com/de/Tablets_Mobile/Memo_Pad_Products/
         'AsusTablet'        => '^.*PadFone((?!Mobile).)*$|Transformer|TF101|TF101G|TF300T|TF300TG|TF300TL|TF700T|TF700KL|TF701T|TF810C|ME171|ME301T|ME302C|ME371MG|ME370T|ME372MG|ME172V|ME173X|ME400C|Slider SL101|\bK00F\b|\bK00C\b|\bK00E\b|\bK00L\b|TX201LA|ME176C|ME102A|\bM80TA\b|ME372CL|ME560CG|ME372CG',
         'BlackBerryTablet'  => 'PlayBook|RIM Tablet',
-        'HTCtablet'         => 'HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200|PG09410',
+        'HTCtablet'         => 'HTC_Flyer_P512|HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200|PG09410',
         'MotorolaTablet'    => 'xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617',
         'NookTablet'        => 'Android.*Nook|NookColor|nook browser|BNRV200|BNRV200A|BNTV250|BNTV250A|BNTV400|BNTV600|LogicPD Zoom2',
         // http://www.acer.ro/ac/ro/RO/content/drivers
@@ -414,8 +414,8 @@ class Mobile_Detect
         'EvolioTablet' => 'ARIA_Mini_wifi|Aria[ _]Mini|Evolio X10|Evolio X7|Evolio X8|\bEvotab\b|\bNeura\b',
         // @todo http://www.lavamobiles.com/tablets-data-cards
         'LavaTablet' => 'QPAD E704|\bIvoryS\b|E-TAB IVORY',
-        // @todo https://www.celkonmobiles.com/
-    //    'CelkonTablet' => null,
+        // https://www.celkonmobiles.com/?_a=categoryphones&sid=2
+        'CelkonTablet' => 'CT695|CT888|CT[\s]?910|CT7 Tab|CT9 Tab|CT3 Tab|CT2 Tab|CT1 Tab|C820|C720|\bCT-1\b',
         // http://www.mi.com/en
         'MiTablet' => '\bMI PAD\b|\bHM NOTE 1W\b',
         // http://www.nbru.cn/index.html

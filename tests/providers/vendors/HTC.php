@@ -54,6 +54,7 @@ return array(
             'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC 7 Mozart T8698; QSD8x50)'   => array(
                 'isMobile' => true, 'isTablet' => false, 'version' => array('IE' => '9.0', 'Windows Phone OS' => '7.5', 'Trident' => '5.0'), 'model' => '7 Mozart T8698',
             ),
+            'Mozilla/5.0 (Linux; U; Android 3.2.1; en-gb;HTC_Flyer_P512 Build/HTK75C) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13' => array('isMobile' => true, 'isTablet' => true),
 
             'Mozilla/5.0 (Linux; U; Android 3.1; zh-tw; HTC PG09410 Build/HMJ15) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13' => array('isMobile' => true, 'isTablet' => true),
 

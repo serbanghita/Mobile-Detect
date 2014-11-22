@@ -18,7 +18,7 @@ return array(
         ),
 
     'Amoi' => array(
-        'Amoi 8512/R18.0 NF-Browser/3.3' => array('isMobile' => true, 'isTable' => false, 'model' => '8512'),
+        'Amoi 8512/R18.0 NF-Browser/3.3' => array('isMobile' => true, 'isTablet' => false, 'model' => '8512'),
         ),
 
     'Arnova' => array(
@@ -67,12 +67,14 @@ return array(
 
         ),
 
-    // @todo Research
+
     'Celkon' => array(
-        'CELKON.C64/R2AE SEMC-Browser/4.0.3 Profile/MIDP-2.0 Configuration/CLDC-1.1',
-        'Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Celkon A125 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-        'Mozilla/5.0 (Linux; U; Android 2.3.6; en-US; Celkon*A86 Build/Celkon_A86) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1 UCBrowser/8.7.0.315 Mobile',
-        'Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Celkon A.R 40 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; Celkon CT 910+ Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Android 4.0.4; en-in; CT-1 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
+        'CELKON.C64/R2AE SEMC-Browser/4.0.3 Profile/MIDP-2.0 Configuration/CLDC-1.1' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Celkon A125 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; U; Android 2.3.6; en-US; Celkon*A86 Build/Celkon_A86) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1 UCBrowser/8.7.0.315 Mobile' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Celkon A.R 40 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
         ),
 
     // @ref: http://www.cobyusa.com/?p=pcat&pcat_id=3001
@@ -214,11 +216,9 @@ return array(
 
     // @todo: Test this
     'Intex' => array(
-
-        'Mozilla/5.0 (Linux; U; Android 2.3; en-US; Cloud_X2 Build/MocorDroid4.0.1) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1 UCBrowser/9.2.0.419 Mobile',
-        'Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Cloud Y2 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-        'Mozilla/5.0 (Linux; U; Android 4.2.2; en-in; Cloud X5 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-
+        'Mozilla/5.0 (Linux; U; Android 2.3; en-US; Cloud_X2 Build/MocorDroid4.0.1) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1 UCBrowser/9.2.0.419 Mobile' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Cloud Y2 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; U; Android 4.2.2; en-in; Cloud X5 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
         ),
 
     'IRU'   => array(
