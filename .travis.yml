@@ -3,13 +3,14 @@ php:
   - "5.2"
   - "5.3"
   - "5.4"
+  - "5.5"
 
 branches:
   only:
     - devel
 
 script:
-  - phpunit --configuration tests/phpunit.xml
+  - phpunit -v -c tests/phpunit.xml
 
 notifications:
   email: false
