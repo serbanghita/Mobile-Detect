@@ -13,7 +13,7 @@ $includeBasePath = dirname(__FILE__) . '/providers/vendors';
 $list = array();
 
 // Scan.
-$dir = new \DirectoryIterator($includeBasePath);
+$dir = new DirectoryIterator($includeBasePath);
 foreach ($dir as $fileInfo) {
     if ($fileInfo->isDot()) {
         continue;

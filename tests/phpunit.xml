@@ -18,8 +18,8 @@
 	</php>
 
   <testsuite name="All Mobile Detect tests">
-    <file>tests/BasicsTest.php</file>
-    <file>tests/UserAgentTest.php</file>
+    <file>./tests/BasicsTest.php</file>
+    <file>./tests/UserAgentTest.php</file>
   </testsuite>
 
 	<listeners>
