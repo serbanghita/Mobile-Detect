@@ -3,13 +3,14 @@
 	backupGlobals="false"
 	strict="true"
 	colors="false"
-	verbose="false"
+	verbose="true"
+	stopOnFailure="true"
+	stopOnIncomplete="false"
 	bootstrap="bootstrap.php"
 	convertErrorsToExceptions="true"
 	convertNoticesToExceptions="true"
 	convertWarningsToExceptions="true"
-	mapTestClassNameToCoveredClassName="true"
-	timeoutForSmallTests="2">
+	mapTestClassNameToCoveredClassName="true">
 
 	<php>
 		<ini name="error_reporting" value="-1"/>
