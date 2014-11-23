@@ -247,7 +247,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @ dataProvider userAgentData
+     * @dataProvider userAgentData
      *
      */
     public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor)
@@ -264,7 +264,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         } else {
             $this->assertFalse($detectVal, 'should have been false since test data isMobile !== true');
         }
-    }*/
+    }
 
     public function testUserAgentMatches()
     {
