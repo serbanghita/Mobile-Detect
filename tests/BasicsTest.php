@@ -439,7 +439,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
     public function testScriptVersion()
     {
         $v = Mobile_Detect::getScriptVersion();
-        $formatCheck = (bool)preg_match('/^[0-9]+\.[0-9]+\.[0-9](-[a-zA-Z0-9])?$/', $v);
+        $formatCheck = (bool)preg_match('/^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9])?$/', $v);
 
         $this->assertTrue($formatCheck, "Fails the semantic version test. The version " . var_export($v, true)
                 . ' does not match X.Y.Z pattern');
