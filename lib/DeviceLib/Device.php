@@ -15,7 +15,7 @@ class Device implements DeviceInterface
      * @var array
      */
     protected static $required = array(
-        'type', 'user_agent', 'model', 'model_version', 'os', 'os_version', 'browser', 'browser_version'
+        'type', 'user_agent', 'model', 'model_version', 'os', 'os_version', 'browser', 'browser_version', 'vendor'
     );
 
     /**
@@ -76,6 +76,13 @@ class Device implements DeviceInterface
     protected $browserVersion;
 
     /**
+     * The vendor name for this device.
+     *
+     * @var string
+     */
+    protected $vendor;
+
+    /**
      * @param array $props An array of properties to create this device from.
      *
      * @return Device The device instance.
@@ -87,7 +94,7 @@ class Device implements DeviceInterface
     {
         // ensure that all the required keys are present
         foreach (static::$required as $key) {
-            if (!isset($props[$key])) {
+            if (!array_key_exists($key, $props)) {
                 throw new Exception\InvalidDeviceSpecificationException("The '$key' property is required.");
             }
         }
@@ -110,11 +117,12 @@ class Device implements DeviceInterface
             $props['os'],
             $props['os_version'],
             $props['browser'],
-            $props['browser_version']
+            $props['browser_version'],
+            $props['vendor']
         );
     }
 
-    public function __construct($userAgent, $type, $model, $modelVer, $os, $osVer, $browser, $browserVer)
+    public function __construct($userAgent, $type, $model, $modelVer, $os, $osVer, $browser, $browserVer, $vendor)
     {
         $this->userAgent                = $userAgent;
         $this->type                     = $type;
@@ -124,6 +132,7 @@ class Device implements DeviceInterface
         $this->operatingSystemVersion   = $osVer;
         $this->browser                  = $browser;
         $this->browserVersion           = $browserVer;
+        $this->vendor                   = $vendor;
     }
 
     /**
@@ -166,6 +175,11 @@ class Device implements DeviceInterface
         return $this->browserVersion;
     }
 
+    public function getVendor()
+    {
+        return $this->vendor;
+    }
+
     public function getUserAgent()
     {
         return $this->userAgent;
@@ -194,17 +208,18 @@ class Device implements DeviceInterface
     public function toArray()
     {
         return array(
-            'isMobile' => $this->isMobile(),
-            'isTablet' => $this->isTablet(),
-            'isDesktop' => $this->isDesktop(),
-            'isBot' => $this->isBot(),
-            'browser' => $this->getBrowser(),
-            'browserVersion' => $this->getBrowserVersion(),
-            'model' => $this->getModel(),
-            'modelVersion' => $this->getModelVersion(),
-            'operatingSystem' => $this->getOperatingSystem(),
-            'operatingSystemVersion' => $this->getOperatingSystemVersion(),
-            'userAgent' => $this->getUserAgent()
+            'isMobile'                  => $this->isMobile(),
+            'isTablet'                  => $this->isTablet(),
+            'isDesktop'                 => $this->isDesktop(),
+            'isBot'                     => $this->isBot(),
+            'browser'                   => $this->getBrowser(),
+            'browserVersion'            => $this->getBrowserVersion(),
+            'model'                     => $this->getModel(),
+            'modelVersion'              => $this->getModelVersion(),
+            'operatingSystem'           => $this->getOperatingSystem(),
+            'operatingSystemVersion'    => $this->getOperatingSystemVersion(),
+            'userAgent'                 => $this->getUserAgent(),
+            'vendor'                    => $this->getVendor()
         );
     }
 }

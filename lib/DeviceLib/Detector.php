@@ -3,6 +3,7 @@
 namespace DeviceLib;
 
 use DeviceLib\Data\PropertyLib;
+use DeviceLib\Exception;
 
 class Detector
 {
@@ -218,7 +219,7 @@ class Detector
             $this->headers['user-agent'] = implode(' ', $ua);
         }
 
-        return $this->getHeader('User-Agent');
+        return $this;
     }
 
     /**
@@ -270,16 +271,12 @@ class Detector
             static::$device = static::getInstance()->detect();
         }
 
-        $refl = new \ReflectionObject(static::$device);
-        foreach ($refl->getMethods(\ReflectionMethod::IS_PUBLIC) as $deviceMethod) {
-            /** @var \ReflectionMethod $deviceMethod */
-            if ($method == $deviceMethod->getName()) {
-                return call_user_func_array(array(static::$device, $method), $args);
-            }
+        if (method_exists(static::$device, $method)) {
+            return call_user_func_array(array(static::$device, $method), $args);
         }
 
-        //no methods found, so throw
-        throw new \BadMethodCallException();
+        //method not found, so yeah...
+        throw new \BadMethodCallException(sprintf('No such method "%s" exists in Device class.', $method));
     }
 
     // static getters for properties
@@ -287,9 +284,7 @@ class Detector
 
     protected function prepareRegex($regex)
     {
-        //add boundaries
-        $regex = sprintf('/%s/i', $regex);
-
+        $regex = sprintf('/%s/i', addcslashes($regex, '/'));
         $regex = str_replace('[VER]', '(?<version>[0-9\._-]+)', $regex);
         $regex = str_replace('[MODEL]', '(?<model>[a-zA-Z0-9]+)', $regex);
 
@@ -346,12 +341,25 @@ class Detector
         }
     }
 
+    public function regexErrorHandler($code, $msg, $file, $line, $context)
+    {
+        if (strpos($msg, 'preg_') !== 0) {
+            // we only want to deal with preg match errors
+            return false;
+        }
+
+        throw new Exception\RegexCompileException($msg, $code, $file, $line, $context);
+    }
+
     protected function modelMatch($modelMatch, $against)
     {
         //model match must be an array
         if (!is_array($modelMatch) || !count($modelMatch)) {
             return false;
         }
+
+        // graceful handling of pcre errors
+        set_error_handler(array($this, 'regexErrorHandler'));
 
         $matchReturn = array();
 
@@ -368,6 +376,9 @@ class Detector
                 }
             }
         }
+
+        // restore previous
+        restore_error_handler();
 
         return $matchReturn;
     }
@@ -418,42 +429,71 @@ class Detector
         return $this->detectDevice(Data\PropertyLib::getTabletDevices());
     }
 
-    protected function detectOperatingSystem()
+    protected function detectFamily($families)
     {
-        $oslib = Data\PropertyLib::getOperatingSystems();
-        foreach ($oslib as $family => $operatingSystems) {
-            foreach ($operatingSystems as $osName => $os) {
+        foreach ($families as $family => $group) {
+            foreach ($group as $name => $item) {
                 //check type, and assume regex if not present
-                if (!isset($os['type'])) {
-                    $os['type'] = 'regex';
+                if (!isset($item['type'])) {
+                    $item['type'] = 'regex';
                 }
 
-                if (!isset($os['match'])) {
+                if (!isset($item['match'])) {
                     throw new Exception\InvalidDeviceSpecificationException(
-                        sprintf('Invalid spec for %s. Missing %s key.', $osName, 'match')
+                        sprintf('Invalid spec for %s. Missing %s key.', $name, 'match')
                     );
                 }
 
-                if (!isset($os['isMobile'])) {
+                if (!isset($item['isMobile'])) {
                     throw new Exception\InvalidDeviceSpecificationException(
-                        sprintf('Invalid spec for %s. Missing %s key.', $osName, 'isMobile')
+                        sprintf('Invalid spec for %s. Missing %s key.', $name, 'isMobile')
                     );
                 }
 
-                if ($this->matches($os['type'], $os['match'], $this->getUserAgent())) {
+                if ($this->matches($item['type'], $item['match'], $this->getUserAgent())) {
                     $match = array();
 
-                    if (isset($os['versionMatch'])) {
-                        $match['version_match'] = $this->modelMatch($os['versionMatch'], $this->getUserAgent());
+                    if (isset($item['versionMatch'])) {
+                        $match['version_match'] = $this->modelMatch($item['versionMatch'], $this->getUserAgent());
                     }
 
                     $match['family'] = $family;
-                    $match['os'] = $osName;
-                    $match['is_mobile'] = $os['isMobile'];
+                    $match['name'] = $name;
+                    $match['is_mobile'] = $item['isMobile'];
                     return $match;
                 }
             }
         }
+    }
+
+    protected function detectOperatingSystem()
+    {
+        $match = $this->detectFamily(Data\PropertyLib::getOperatingSystems());
+        if (!$match) {
+            return null;
+        }
+
+        if (isset($match['name'])) {
+            $match['os'] = $match['name'];
+            unset($match['name']);
+        }
+
+        return $match;
+    }
+
+    protected function detectBrowser()
+    {
+        $match = $this->detectFamily(Data\PropertyLib::getBrowsers());
+        if (!$match) {
+            return null;
+        }
+
+        if (isset($match['name'])) {
+            $match['browser'] = $match['name'];
+            unset($match['name']);
+        }
+
+        return $match;
     }
 
 
@@ -471,47 +511,50 @@ class Detector
      */
     public function detect($class = null)
     {
-        if ($class && !is_subclass_of($class, __NAMESPACE__ . '\DeviceInterface')) {
-            throw new Exception\InvalidArgumentException(
-                sprintf('Invalid class specified: %s. Must', is_object($class) ? get_class($class) : $class)
-            );
+        if ($class) {
+            if (!is_subclass_of($class, __NAMESPACE__ . '\DeviceInterface')) {
+                throw new Exception\InvalidArgumentException(
+                    sprintf('Invalid class specified: %s. Must', is_object($class) ? get_class($class) : $class)
+                );
+            }
         } else {
-            //default class
-            $class = 'Device';
+            // default implementation
+            $class = __NAMESPACE__ . '\\Device';
         }
 
         $props = array();
 
         // @todo do the detection here
         $model = $this->detectPhoneDevice();
-        $type = Type::MOBILE;
+        $props['type'] = Type::MOBILE;
 
         if (!$model) {
             $model = $this->detectTabletDevice();
-            $type = Type::TABLET;
+            $props['type'] = Type::TABLET;
         }
 
-        if (!$model) {
-            $type = Type::DESKTOP;
+        $os = $this->detectOperatingSystem();
+        $props['os'] = $os['os'];
+        $props['os_version'] = isset($os['version_match']['version']) ? $os['version_match']['version'] : null;
+
+        $browser = $this->detectBrowser();
+        $props['browser'] = $browser['browser'];
+        $props['browser_version'] = isset($browser['version_match']['version']) ?
+            $browser['version_match']['version'] : null;
+
+        if ($os['is_mobile'] || $browser['is_mobile']) {
+            $props['type'] = Type::MOBILE;
+        } else {
+            $props['type'] = Type::DESKTOP;
         }
+        // @todo there should be possible bot detection here
 
-        //#1 detect: phone OR tablet OR ...?
-        //#2 detect: browser?
-        //#3 detect: OS
+        $props['model'] = $model['model'];
+        $props['model_version'] = isset($model['model_match']['version']) ? $model['model_match']['version'] : null;
+        $props['vendor'] = $model['vendor'];
 
-        /*
-         * This would happen after the detection
-         *
-         * $device = $class::create(array(
-         *      'user_agent' => $this->getUserAgent(),
-         *      ...
-         *      ...
-         * ));
-         *
-         * return $device;
-         */
+        $props['user_agent'] = $this->getUserAgent();
 
-        //@todo this is just for PHPStorm not to complain during dev
         return $class::create($props);
     }
 }

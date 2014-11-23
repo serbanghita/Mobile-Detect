@@ -26,7 +26,8 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
             'os'              => $os = 'Android',
             'os_version'      => $osVer = '3.5',
             'browser'         => $browser = 'Chrome',
-            'browser_version' => $browserVer = '31.5.1245'
+            'browser_version' => $browserVer = '31.5.1245',
+            'vendor'          => $vendor = 'Samsung'
         ));
 
         // make sure everything was set correctly
@@ -38,6 +39,7 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($osVer, $device->getOperatingSystemVersion());
         $this->assertSame($browser, $device->getBrowser());
         $this->assertSame($browserVer, $device->getBrowserVersion());
+        $this->assertSame($vendor, $device->getVendor());
 
         //check the bool methods
         $this->assertTrue($device->isDesktop());
@@ -57,7 +59,8 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
             'modelVersion'           => $device->getModelVersion(),
             'operatingSystem'        => $device->getOperatingSystem(),
             'operatingSystemVersion' => $device->getOperatingSystemVersion(),
-            'userAgent'              => $device->getUserAgent()
+            'userAgent'              => $device->getUserAgent(),
+            'vendor'                 => $device->getVendor()
         );
         $actualArr = $device->toArray();
         $this->assertSame($expectedArr, $actualArr);
