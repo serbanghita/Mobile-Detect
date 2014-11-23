@@ -1327,7 +1327,7 @@ class Mobile_Detect
             $this->isIOS() && $this->version('iPod', self::VERSION_TYPE_FLOAT)<=3.2 ||
 
             // Internet Explorer 7 and older - Tested on Windows XP
-            $this->version('MSIE', self::VERSION_TYPE_FLOAT)<=7.0 && !$isMobile
+            $this->version('IE', self::VERSION_TYPE_FLOAT)<=7.0 && !$isMobile
         ){
             return self::MOBILE_GRADE_C;
         }
