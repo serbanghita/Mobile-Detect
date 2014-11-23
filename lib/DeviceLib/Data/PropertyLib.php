@@ -2,7 +2,8 @@
 
 namespace DeviceLib\Data;
 
-class PropertyLib {
+class PropertyLib
+{
 
     /*
      * @todo We need to automate the creation of this class from the 2.x branch.
@@ -11,9 +12,9 @@ class PropertyLib {
     /**
      * All possible HTTP headers that represent the
      * User-Agent string.
-     * 
-     * Instead of looking just for HTTP_USER_AGENT 
-     * we will check multiple variants to extract as 
+     *
+     * Instead of looking just for HTTP_USER_AGENT
+     * we will check multiple variants to extract as
      * much data as possible.
      *
      * @var array

@@ -4,7 +4,8 @@ namespace DeviceLib;
 
 use DeviceLib\Data\PropertyLib;
 
-class Detector {
+class Detector
+{
 
     /**
      * For static invocations of this class, this holds a singleton for those methods.

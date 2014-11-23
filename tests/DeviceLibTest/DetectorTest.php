@@ -249,6 +249,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     /**
      * @ dataProvider userAgentData
      *
+     */
     public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor)
     {
         $r = new \ReflectionObject($detect = new Detector());
