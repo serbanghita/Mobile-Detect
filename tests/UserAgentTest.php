@@ -5,8 +5,14 @@
  */
 class UserAgentTest extends PHPUnit_Framework_TestCase
 {
+    protected $detect;
     protected static $ualist = array();
     protected static $json;
+
+    public function setUp()
+    {
+        $this->detect = new Mobile_Detect;
+    }
 
     public static function generateJson()
     {
@@ -151,25 +157,24 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         }
 
         //setup
-        $md = new Mobile_Detect;
-        $md->setUserAgent($userAgent);
+        $this->detect->setUserAgent($userAgent);
 
         //is mobile?
-        $this->assertEquals($md->isMobile(), $isMobile);
+        $this->assertEquals($this->detect->isMobile(), $isMobile);
 
         //is tablet?
-        $this->assertEquals($md->isTablet(), $isTablet, 'FAILED: ' . $userAgent . ' isTablet: ' . $isTablet);
+        $this->assertEquals($this->detect->isTablet(), $isTablet, 'FAILED: ' . $userAgent . ' isTablet: ' . $isTablet);
 
         if (isset($version)) {
             foreach ($version as $condition => $assertion) {
-                $this->assertEquals($assertion, $md->version($condition), 'FAILED UA (version("'.$condition.'")): '.$userAgent);
+                $this->assertEquals($assertion, $this->detect->version($condition), 'FAILED UA (version("'.$condition.'")): '.$userAgent);
             }
         }
 
         //version property tests
         if (isset($version)) {
             foreach ($version as $property => $stringVersion) {
-                $v = $md->version($property);
+                $v = $this->detect->version($property);
                 $this->assertSame($stringVersion, $v);
             }
         }
@@ -178,7 +183,7 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         //@todo: vendor test. The below is theoretical, but fails 50% of the tests...
         /*if (isset($vendor)) {
             $method = "is$vendor";
-            $this->assertTrue($md->{$method}(), "Expected Mobile_Detect::{$method}() to be true.");
+            $this->assertTrue($this->detect->{$method}(), "Expected Mobile_Detect::{$method}() to be true.");
         }*/
     }
 }
