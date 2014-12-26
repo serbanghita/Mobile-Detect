@@ -187,7 +187,7 @@ class Device implements DeviceInterface
 
     public function isMobile()
     {
-        return $this->type == Type::MOBILE;
+        return $this->type == Type::MOBILE || $this->type == Type::TABLET;
     }
 
     public function isDesktop()

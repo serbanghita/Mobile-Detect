@@ -523,12 +523,10 @@ class Detector {
 
         $props = array();
 
-        // @todo do the detection here
-        $model = $this->detectPhoneDevice();
-        $props['type'] = Type::MOBILE;
-
-        if (!$model) {
-            $model = $this->detectTabletDevice();
+        if ($model = $this->detectPhoneDevice()) {
+            $props['type'] = Type::MOBILE;
+        }
+        if ($model = $this->detectTabletDevice()) {
             $props['type'] = Type::TABLET;
         }
 
@@ -536,17 +534,30 @@ class Detector {
         $props['os'] = $os['os'];
         $props['os_version'] = isset($os['version_match']['version']) ? $os['version_match']['version'] : null;
 
+        //sometimes only the OS tells us that this device is mobile IF we haven't previously detected this
+        if (!isset($props['type'])) {
+            if ($os['is_mobile']) {
+                $props['type'] = Type::MOBILE;
+            }
+            $props['os_fallback'] = true;//@todo this is just for debugging
+        }
+
         $browser = $this->detectBrowser();
         $props['browser'] = $browser['browser'];
         $props['browser_version'] = isset($browser['version_match']['version']) ?
             $browser['version_match']['version'] : null;
 
-        if ($os['is_mobile'] || $browser['is_mobile']) {
-            $props['type'] = Type::MOBILE;
-        } else {
+        //again, set the type if not already detected by mobile, tablet, or os detection
+        if (!isset($props['type'])) {
+            if ($browser['is_mobile']) {
+                $props['type'] = Type::MOBILE;
+            }
+            $props['browser_fallback'] = true;//@todo this is just for debugging
+        }
+
+        if (!isset($props['type'])) {
             $props['type'] = Type::DESKTOP;
         }
-        // @todo there should be possible bot detection here
 
         $props['model'] = $model['model'];
         $props['model_version'] = isset($model['model_match']['version']) ? $model['model_match']['version'] : null;
