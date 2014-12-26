@@ -1218,7 +1218,7 @@ class PropertyLib {
             // @docs http://en.wikipedia.org/wiki/Windows_NT#Releases
             'Windows Phone' => array(
                 'isMobile'     => true,
-                'match'        => 'Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7',
+                'match'        => 'Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7|Windows NT 6.[23]; ARM;',
                 'versionMatch' => array('Windows Phone OS [VER]', 'Windows Phone [VER]', 'Windows NT [VER]'),
             ),
             // @docs http://social.msdn.microsoft.com/Forums/en-US/windowsdeveloperpreviewgeneral/thread/6be392da-4d2f-41b4-8354-8dcee20c85cd
@@ -1422,7 +1422,7 @@ class PropertyLib {
         'Safari'         => array(
             'Safari Mobile' => array(
                 'isMobile'     => true,
-                'match'        => 'Version.*Mobile.*Safari|Safari.*Mobile',
+                'match'        => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari',
                 'versionMatch' => array('Version/[VER]', 'Safari/[VER]'),
             ),
             'Safari Desktop' => array(
