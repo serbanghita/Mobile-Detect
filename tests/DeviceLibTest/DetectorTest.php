@@ -6,44 +6,6 @@ use DeviceLib\Detector;
 
 class DetectorTest extends \PHPUnit_Framework_TestCase
 {
-    protected static $ualist = array();
-
-    public static function setUpBeforeClass()
-    {
-        parent::setUpBeforeClass();
-
-        if (!self::$ualist) {
-            $file = TEST_ROOT_PATH . getenv('fixture_path') . getenv('ua_list_fixture');
-            if (!is_readable($file)) {
-                throw new \RuntimeException('Missing the fixture path definitions from phpunit.xml');
-            }
-            $json = json_decode(file_get_contents($file), JSON_OBJECT_AS_ARRAY);
-            $json = $json['user_agents'];
-
-            //make a list that is usable by functions (THE ORDER OF THE KEYS MATTERS!)
-            foreach ($json as $userAgent) {
-                $tmp = array();
-                $tmp[] = isset($userAgent['user_agent']) ? $userAgent['user_agent'] : null;
-                $tmp[] = isset($userAgent['mobile']) ? $userAgent['mobile'] : null;
-                $tmp[] = isset($userAgent['tablet']) ? $userAgent['tablet'] : null;
-                $tmp[] = isset($userAgent['version']) ? $userAgent['version'] : null;
-                $tmp[] = isset($userAgent['model']) ? $userAgent['model'] : null;
-                $tmp[] = isset($userAgent['vendor']) ? $userAgent['vendor'] : null;
-
-                self::$ualist[] = $tmp;
-            }
-        }
-    }
-
-    public function userAgentData()
-    {
-        if (!self::$ualist) {
-            self::setUpBeforeClass();
-        }
-
-        return self::$ualist;
-    }
-
     public function testValidHeadersAssigned()
     {
         //legit headers
@@ -461,7 +423,6 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $_SERVER = array();
         $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25';
         $this->assertTrue(Detector::isMobile());
-        $this->assertSame('Apple', Detector::getVendor());
     }
 
     /**
