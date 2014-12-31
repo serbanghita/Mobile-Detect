@@ -1069,6 +1069,17 @@ class Mobile_Detect
 
         return false;
     }
+    
+    /**
+     * Check if the device is a phone.
+     * Returns true if any type of phone device detected
+     * @param null $userAgent deprecated
+     * @param null $httpHeaders deprecated
+     * @return bool
+     */
+    public function isPhone($userAgent = null, $httpHeaders = null) {
+        return $this->isMobile($userAgent, $httpHeaders) && !$this->isTablet($userAgent, $httpHeaders);
+    }
 
     /**
      * This method checks for a certain property in the
