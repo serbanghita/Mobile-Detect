@@ -519,11 +519,11 @@ class Mobile_Detect
         // Experimental. When a mobile device wants to switch to 'Desktop Mode'.
         // http://scottcate.com/technology/windows-phone-8-ie10-desktop-or-mobile/
         // https://github.com/serbanghita/Mobile-Detect/issues/57#issuecomment-15024011
+        'Bot'         => 'Googlebot|AdsBot-Google|Google Keyword Suggestion|Facebot|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
+        'MobileBot'   => 'Googlebot-Mobile|AdsBot-Google-Mobile|YahooSeeker/M1A1-R2D2',
         'DesktopMode' => 'WPDesktop',
         'TV'          => 'SonyDTV|HbbTV', // experimental
         'WebKit'      => '(webkit)[ /]([\w.]+)',
-        'Bot'         => 'Googlebot|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|facebookexternalhit',
-        'MobileBot'   => 'Googlebot-Mobile|YahooSeeker/M1A1-R2D2',
         // @todo: Include JXD consoles.
         'Console'     => '\b(Nintendo|Nintendo WiiU|Nintendo 3DS|PLAYSTATION|Xbox)\b',
         'Watch'       => 'SM-V700',
@@ -981,7 +981,7 @@ class Mobile_Detect
     /**
      * Find a detection rule that matches the current User-agent.
      *
-     * @param null $userAgent deprecated
+     * @param  null    $userAgent deprecated
      * @return boolean
      */
     protected function matchDetectionRulesAgainstUA($userAgent = null)
@@ -1005,7 +1005,7 @@ class Mobile_Detect
      * If the key is found the try to match the corresponding
      * regex against the User-Agent.
      *
-     * @param  string $key
+     * @param string $key
      *
      * @return boolean
      */
@@ -1033,8 +1033,8 @@ class Mobile_Detect
     /**
      * Check if the device is mobile.
      * Returns true if any type of mobile device detected, including special ones
-     * @param null $userAgent deprecated
-     * @param null $httpHeaders deprecated
+     * @param  null $userAgent   deprecated
+     * @param  null $httpHeaders deprecated
      * @return bool
      */
     public function isMobile($userAgent = null, $httpHeaders = null)
@@ -1084,9 +1084,9 @@ class Mobile_Detect
      * userAgent.
      * @todo: The httpHeaders part is not yet used.
      *
-     * @param string $key
-     * @param string        $userAgent   deprecated
-     * @param string        $httpHeaders deprecated
+     * @param  string        $key
+     * @param  string        $userAgent   deprecated
+     * @param  string        $httpHeaders deprecated
      * @return bool|int|null
      */
     public function is($key, $userAgent = null, $httpHeaders = null)
