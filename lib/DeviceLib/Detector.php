@@ -21,6 +21,28 @@ class Detector {
      */
     protected static $device;
 
+    /**
+     * An optionally callable cache setter for attaching a caching implementation for caching the detection of a device.
+     *
+     * The expected signature:
+     *      @param  $key        string      The key identifier (i.e. the User-Agent).
+     *      @param  $obj        DeviceInterface the device being saved.
+     *
+     * @var callable
+     */
+    protected $cacheSet;
+
+    /**
+     * An optionally callable cache getter for attaching a caching implementation for caching the detection of a device.
+     *
+     * The expected signature:
+     *     @param $key string The key identifier (i.e. the User-Agent).
+     *     @return DeviceInterface|null
+     *
+     * @var callable
+     */
+    protected $cacheGet;
+
     protected static $knownMatchTypes = array(
         'regex', //regular expression
         'strpos', //simple case-sensitive string within string check
@@ -521,6 +543,13 @@ class Detector {
             $class = __NAMESPACE__ . '\\Device';
         }
 
+        if (($cached = $this->getFromCache($this->getUserAgent()))) {
+            //make sure it's also of type that's requested
+            if (is_subclass_of($cached, $class) || (is_object($cached) && $cached instanceof DeviceInterface)) {
+                return $cached;
+            }
+        }
+
         $props = array();
 
         if ($model = $this->detectPhoneDevice()) {
@@ -565,6 +594,70 @@ class Detector {
 
         $props['user_agent'] = $this->getUserAgent();
 
-        return $class::create($props);
+        $device = $class::create($props);
+        $this->setCache($props['user_agent'], $device);
+
+        return $device;
+    }
+
+    /**
+     * Set the cache setter lambda.
+     *
+     * @param callable $cb
+     *
+     * @return Detector
+     */
+    public function setCacheSetter(callable $cb)
+    {
+        $this->cacheSet = $cb;
+        return $this;
+    }
+
+    /**
+     * Set the cache getter lambda.
+     *
+     * @param callable $cb
+     *
+     * @return $this
+     */
+    public function setCacheGetter(callable $cb)
+    {
+        $this->cacheGet = $cb;
+        return $this;
+    }
+
+    /**
+     * Try to get the device from cache if available.
+     *
+     * @param $key string The key.
+     *
+     * @return DeviceInterface|null
+     */
+    public function getFromCache($key)
+    {
+        if (is_callable($this->cacheGet)) {
+            $cb = $this->cacheGet;
+            return $cb($key);
+        }
+
+        return null;
+    }
+
+    /**
+     * Try to save the detected device in cache.
+     *
+     * @param $key string The key.
+     * @param DeviceInterface $obj The device.
+     *
+     * @return bool false if not succeeded.
+     */
+    public function setCache($key, DeviceInterface $obj)
+    {
+        if (is_callable($this->cacheSet)) {
+            $cb = $this->cacheSet;
+            return $cb($key, $obj);
+        }
+
+        return false;
     }
 }
