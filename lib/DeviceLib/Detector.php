@@ -27,7 +27,7 @@ class Detector
      *      @param  $key        string      The key identifier (i.e. the User-Agent).
      *      @param  $obj        DeviceInterface the device being saved.
      *
-     * @var callable
+     * @var \Closure
      */
     protected $cacheSet;
 
@@ -38,7 +38,7 @@ class Detector
      *     @param $key string The key identifier (i.e. the User-Agent).
      *     @return DeviceInterface|null
      *
-     * @var callable
+     * @var \Closure
      */
     protected $cacheGet;
 
@@ -608,11 +608,11 @@ class Detector
     /**
      * Set the cache setter lambda.
      *
-     * @param callable $cb
+     * @param \Closure $cb
      *
      * @return Detector
      */
-    public function setCacheSetter(callable $cb)
+    public function setCacheSetter(\Closure $cb)
     {
         $this->cacheSet = $cb;
 
@@ -622,11 +622,11 @@ class Detector
     /**
      * Set the cache getter lambda.
      *
-     * @param callable $cb
+     * @param \Closure $cb
      *
      * @return $this
      */
-    public function setCacheGetter(callable $cb)
+    public function setCacheGetter(\Closure $cb)
     {
         $this->cacheGet = $cb;
 
@@ -648,7 +648,7 @@ class Detector
             return $cb($key);
         }
 
-        return;
+        return null;
     }
 
     /**
