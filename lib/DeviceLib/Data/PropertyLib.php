@@ -2,8 +2,8 @@
 
 namespace DeviceLib\Data;
 
-class PropertyLib {
-
+class PropertyLib
+{
     /*
      * @todo We need to automate the creation of this class from the 2.x branch.
      */
@@ -11,9 +11,9 @@ class PropertyLib {
     /**
      * All possible HTTP headers that represent the
      * User-Agent string.
-     * 
-     * Instead of looking just for HTTP_USER_AGENT 
-     * we will check multiple variants to extract as 
+     *
+     * Instead of looking just for HTTP_USER_AGENT
+     * we will check multiple variants to extract as
      * much data as possible.
      *
      * @var array
@@ -29,7 +29,7 @@ class PropertyLib {
         'X-Skyfire-Phone',
         'X-Bold-Phone-UA',
         'Device-Stock-UA',
-        'X-UcBrowser-Device-UA'
+        'X-UcBrowser-Device-UA',
     );
 
     /**
@@ -46,7 +46,7 @@ class PropertyLib {
             // BlackBerry devices.
             'application/vnd.rim.html',
             'text/vnd.wap.wml',
-            'application/vnd.wap.xhtml+xml'
+            'application/vnd.wap.xhtml+xml',
         )),
         'X-WAP-Profile'           => null,
         'X-WAP-ClientId'          => null,
@@ -224,28 +224,28 @@ class PropertyLib {
             'vendor'        => 'Alcatel',
             'type'          => 'stripos',
             'match'         => 'Alcatel',
-            'modelMatch'    => ''
+            'modelMatch'    => '',
         ),
 
         'Nintendo'      => array(
             'vendor'        => 'Nintendo',
             'type'          => 'stripos',
             'match'         => 'Nintendo 3DS',
-            'modelMatch'    => ''
+            'modelMatch'    => '',
         ),
 
         'Amoi' => array(
             'vendor'        => 'Amoi',
             'type'          => 'stripos',
             'match'         => 'Amoi',
-            'modelMatch'    => ''
+            'modelMatch'    => '',
         ),
 
         'INQ' => array(
             'vendor'        => 'INQ',
             'type'          => 'stripos',
             'match'         => 'INQ',
-            'modelMatch'    => ''
+            'modelMatch'    => '',
         ),
 
         /**
@@ -255,8 +255,8 @@ class PropertyLib {
         'GenericPhone'  => array(
             'vendor' => 'Generic Phone',
             'match' => 'Tapatalk|PDA;|SAGEM|\bmmp\b|pocket|\bpsp\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\bwap\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser',
-            'modelMatch' => false
-        )
+            'modelMatch' => false,
+        ),
     );
 
     /**
@@ -1184,8 +1184,8 @@ class PropertyLib {
             'Android' => array(
                 'isMobile'     => true,
                 'match'        => 'Android',
-                'versionMatch' => array('Android [VER]')
-            )
+                'versionMatch' => array('Android [VER]'),
+            ),
         ),
 
         /**
@@ -1197,7 +1197,7 @@ class PropertyLib {
                 'isMobile'     => true,
                 'match'        => '\biPhone.*Mobile|\biPod|\biPad',
                 'versionMatch' => array(' \bOS\b [VER] '),
-            )
+            ),
         ),
 
         /**
@@ -1226,7 +1226,7 @@ class PropertyLib {
                 'isMobile'     => false,
                 'match'        => 'Windows|Win64',
                 'versionMatch' => array('Windows NT [VER]'),
-            )
+            ),
         ),
 
         'BlackBerry' => array(
@@ -1234,31 +1234,31 @@ class PropertyLib {
                 'isMobile'     => true,
                 'match'        => 'blackberry|\bBB10\b|rim tablet os',
                 'versionMatch' => array('BlackBerry[\w]+/[VER]', 'BlackBerry.*Version/[VER]', 'Version/[VER]'),
-            )
+            ),
         ),
 
         'PalmOS' => array(
             'PalmOS' => array(
                 'isMobile' => true,
                 'match' => 'PalmOS|avantgo|blazer|elaine|hiptop|palm|plucker|xiino',
-                'versionMatch' => false
-            )
+                'versionMatch' => false,
+            ),
         ),
 
         'Symbian' => array(
             'Symbian' => array(
                 'isMobile' => true,
                 'match' => 'Symbian|SymbOS|Series60|Series40|SYB-[0-9]+|\bS60\b',
-                'versionMatch' => array('SymbianOS/[VER]', 'Symbian/[VER]')
-            )
+                'versionMatch' => array('SymbianOS/[VER]', 'Symbian/[VER]'),
+            ),
         ),
 
         'JavaOS' => array(
             'JavaOS' => array(
                 'isMobile' => true,
                 'match' => 'J2ME/|\bMIDP\b|\bCLDC\b', // '|Java/' produces bug #135
-                'versionMatch' => array('Java/[VER]')
-            )
+                'versionMatch' => array('Java/[VER]'),
+            ),
         ),
 
         'webOS' => array(
@@ -1266,7 +1266,7 @@ class PropertyLib {
                 'isMobile' => true,
                 'match' => 'webOS|hpwOS',
                 'versionMatch' => array('webOS/[VER]', 'hpwOS/[VER];'),
-            )
+            ),
         ),
 
         /**
@@ -1279,8 +1279,8 @@ class PropertyLib {
             'MeeGoOS' => array(
                 'isMobile' => true,
                 'match' => 'MeeGo',
-                'versionMatch' => false
-            )
+                'versionMatch' => false,
+            ),
         ),
 
         /**
@@ -1293,24 +1293,24 @@ class PropertyLib {
             'OS' => array(
                 'isMobile'     => true,
                 'match'        => '\bMaemo\b',
-                'versionMatch' => false
-            )
+                'versionMatch' => false,
+            ),
         ),
 
         'badaOS' => array(
             'badaOS' => array(
                 'isMobile'     => true,
                 'match'        => '\bBada\b',
-                'versionMatch' => false
-            )
+                'versionMatch' => false,
+            ),
         ),
 
         'BREWOS' => array(
             'BREWOS' => array(
                 'isMobile'     => true,
                 'match'        => '\bBREW\b',
-                'versionMatch' => array('BREW [VER]')
-            )
+                'versionMatch' => array('BREW [VER]'),
+            ),
         ),
     );
 
@@ -1337,13 +1337,13 @@ class PropertyLib {
             'Chrome Mobile' => array(
                 'isMobile'     => true,
                 'match'        => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
-                'versionMatch' => array('Chrome/[VER]', 'CriOS/[VER]', 'CrMo/[VER]')
+                'versionMatch' => array('Chrome/[VER]', 'CriOS/[VER]', 'CrMo/[VER]'),
             ),
             'Chrome Desktop' => array(
                 'isMobile'     => false,
                 'match'        => '\bChrome\b/[.0-9]*',
-                'versionMatch' => array('Chrome/[VER]')
-            )
+                'versionMatch' => array('Chrome/[VER]'),
+            ),
         ),
 
         /**
@@ -1366,7 +1366,7 @@ class PropertyLib {
                 'isMobile'     => false,
                 'match'        => 'Firefox/[0-9.]+',
                 'versionMatch' => array('rv:[VER]', 'Firefox/[VER]'),
-            )
+            ),
         ),
         /**
          * Microsoft Internet Explorer family
@@ -1383,7 +1383,7 @@ class PropertyLib {
                 'isMobile'     => false,
                 'match'        => 'MSIE [0-9.]+;|Trident.*rv.[0-9.]+',
                 'versionMatch' => array('MSIE [VER];', 'Trident.*rv.[VER]'),
-            )
+            ),
         ),
 
         /**
@@ -1408,7 +1408,7 @@ class PropertyLib {
             'Opera Desktop' => array(
                 'isMobile'     => false,
                 'match'        => '\bOpera\b| OPR/',
-                'versionMatch' => array('Opera/[VER]', ' OPR/[VER]', 'Version/[VER]' )
+                'versionMatch' => array('Opera/[VER]', ' OPR/[VER]', 'Version/[VER]' ),
             ),
         ),
 
@@ -1439,8 +1439,8 @@ class PropertyLib {
             'UCBrowser Mobile' => array(
                 'isMobile'     => true,
                 'match'        => 'UC.*Browser|UCWEB',
-                'versionMatch' => array('UC Browser[VER]', 'UCBrowser/[VER]')
-            )
+                'versionMatch' => array('UC Browser[VER]', 'UCBrowser/[VER]'),
+            ),
         ),
 
         /**
@@ -1450,10 +1450,9 @@ class PropertyLib {
             'Dolfin Mobile' => array(
                 'isMobile'     => true,
                 'match'        => '\bDolfin\b',
-                'versionMatch' => array('Dolfin/[VER]')
-            )
+                'versionMatch' => array('Dolfin/[VER]'),
+            ),
         ),
-
 
         /**
          * Skyfire browser family.
@@ -1462,8 +1461,8 @@ class PropertyLib {
             'Skyfire Mobile' => array(
                 'isMobile'     => true,
                 'match'        => 'Skyfire',
-                'versionMatch' => array('Skyfire/[VER]')
-            )
+                'versionMatch' => array('Skyfire/[VER]'),
+            ),
         ),
 
         /**
@@ -1474,8 +1473,8 @@ class PropertyLib {
                 'isMobile'     => true,
                 'type'         => 'strpos',
                 'match'        => 'Tizen',
-                'versionMatch' => array('Tizen/[VER]')
-            )
+                'versionMatch' => array('Tizen/[VER]'),
+            ),
         ),
 
         /**
@@ -1488,8 +1487,8 @@ class PropertyLib {
             'PuffinMobile' => array(
                 'isMobile'     => true,
                 'match'        => 'Puffin',
-                'versionMatch' => array('Puffin/[VER]')
-            )
+                'versionMatch' => array('Puffin/[VER]'),
+            ),
         ),
 
         /**
@@ -1501,8 +1500,8 @@ class PropertyLib {
             'DiigoBrowser Mobile' => array(
                 'isMobile'     => true,
                 'match'        => 'DiigoBrowser',
-                'versionMatch' => array('rv:[VER]')
-            )
+                'versionMatch' => array('rv:[VER]'),
+            ),
         ),
 
         /**
@@ -1514,8 +1513,8 @@ class PropertyLib {
             'Mercury Mobile' => array(
                 'isMobile'     => true,
                 'match'        => '\bMercury\b',
-                'versionMatch' => array('Mercury/[VER]')
-            )
+                'versionMatch' => array('Mercury/[VER]'),
+            ),
         ),
 
         /**
@@ -1528,8 +1527,8 @@ class PropertyLib {
                 'isMobile'     => true,
                 'type'         => 'strpos',
                 'match'        => 'bolt',
-                'versionMatch' => array('BOLT/[VER]')
-            )
+                'versionMatch' => array('BOLT/[VER]'),
+            ),
         ),
 
         /**
@@ -1539,8 +1538,8 @@ class PropertyLib {
             'Blazer Mobile' => array(
                 'isMobile'     => true,
                 'match'        => 'Blazer',
-                'versionMatch' => array('Blazer/[VER]')
-            )
+                'versionMatch' => array('Blazer/[VER]'),
+            ),
         ),
 
         /**
@@ -1553,8 +1552,8 @@ class PropertyLib {
                 'isMobile'     => true,
                 'type'         => 'stripos',
                 'match'        => 'TeaShark',
-                'versionMatch' => array('TeaShark/[VER]')
-            )
+                'versionMatch' => array('TeaShark/[VER]'),
+            ),
         ),
 
         'baidu' => array(
@@ -1562,14 +1561,14 @@ class PropertyLib {
                 'isMobile' => true,
                 'type' => 'strpos',
                 'match' => 'baiduboxapp',
-                'versionMatch' => array('baiduboxapp/[VER]')
+                'versionMatch' => array('baiduboxapp/[VER]'),
             ),
             'baidubrowser' => array(
                 'isMobile' => true,
                 'type' => 'strpos',
                 'match' => 'baidubrowser',
-                'versionMatch' => array('baidubrowser/[VER]')
-            )
+                'versionMatch' => array('baidubrowser/[VER]'),
+            ),
         ),
 
         'ObigoBrowser' => array(
@@ -1577,8 +1576,8 @@ class PropertyLib {
                 'isMobile' => true,
                 'type' => 'strpos',
                 'match' => 'Obigo',
-                'versionMatch' => array()
-            )
+                'versionMatch' => array(),
+            ),
         ),
 
         'NetFront' => array(
@@ -1586,8 +1585,8 @@ class PropertyLib {
                 'isMobile' => true,
                 'type' => 'strpos',
                 'match' => 'NF-Browser',
-                'versionMatch' => array('NetFront/[VER]')
-            )
+                'versionMatch' => array('NetFront/[VER]'),
+            ),
         ),
 
         /**
@@ -1602,8 +1601,8 @@ class PropertyLib {
             'Generic Mobile Browser' => array(
                 'isMobile'     => true,
                 'match'        => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|NetFront|FlyFlow|Minimo|Novarra-Vision|MQQBrowser|MicroMessenger',
-                'versionMatch' => false
-            )
+                'versionMatch' => false,
+            ),
 
         ),
     );

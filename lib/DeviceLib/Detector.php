@@ -3,10 +3,9 @@
 namespace DeviceLib;
 
 use DeviceLib\Data\PropertyLib;
-use DeviceLib\Exception;
 
-class Detector {
-
+class Detector
+{
     /**
      * For static invocations of this class, this holds a singleton for those methods.
      *
@@ -93,7 +92,7 @@ class Detector {
         'wap-connection',
         'profile',
         'ua-os',
-        'ua-cpu'
+        'ua-cpu',
     );
 
     /**
@@ -112,7 +111,7 @@ class Detector {
     public static function getInstance()
     {
         if (!static::$instance) {
-            static::$instance = new static;
+            static::$instance = new static();
         }
 
         return static::$instance;
@@ -161,6 +160,7 @@ class Detector {
     {
         //normalized since access might be with a variety of cases
         $key = strtolower($key);
+
         return isset($this->headers[$key]) ? $this->headers[$key] : null;
     }
 
@@ -169,13 +169,14 @@ class Detector {
      *
      * @param $key
      * @param $value
-     * @return Detector Fluent interface.
+     * @return Detector                           Fluent interface.
      * @throws Exception\InvalidArgumentException When the $key isn't a valid HTTP request header name.
      */
     public function setHeader($key, $value)
     {
         $key = $this->standardizeHeader($key);
         $this->headers[$key] = trim($value);
+
         return $this;
     }
 
@@ -192,7 +193,7 @@ class Detector {
     /**
      * @param $headerName string
      * @param $force bool Forces the header set even if it's not standard or doesn't start with "X-"
-     * @return string The header, normalized, so HTTP_USER_AGENT becomes user-agent
+     * @return string                             The header, normalized, so HTTP_USER_AGENT becomes user-agent
      * @throws Exception\InvalidArgumentException When the $headerName isn't a valid HTTP request header name.
      */
     protected function standardizeHeader($headerName, $force = false)
@@ -226,6 +227,7 @@ class Detector {
     {
         if ($userAgent) {
             $this->headers['user-agent'] = trim($userAgent);
+
             return $this;
         }
 
@@ -279,7 +281,7 @@ class Detector {
      * for beginners using this detection library.
      *
      * @param string $method The method name being invoked.
-     * @param array $args Arguments for the called method.
+     * @param array  $args   Arguments for the called method.
      *
      * @return mixed
      *
@@ -301,7 +303,9 @@ class Detector {
     }
 
     // static getters for properties
-    public static function getBrowser(){}
+    public static function getBrowser()
+    {
+    }
 
     protected function prepareRegex($regex)
     {
@@ -315,10 +319,10 @@ class Detector {
     /**
      * Given a type of match, this method will check if a valid match is found.
      *
-     * @param string $type The type {{@see static::$knownMatchTypes}}.
-     * @param string $test The test subject.
-     * @param string $against The pattern (for regex) or substring (for str[i]pos).
-     * @return bool True if matched successfully.
+     * @param  string                             $type    The type {{@see static::$knownMatchTypes}}.
+     * @param  string                             $test    The test subject.
+     * @param  string                             $against The pattern (for regex) or substring (for str[i]pos).
+     * @return bool                               True if matched successfully.
      * @throws Exception\InvalidArgumentException If $against isn't a string or $type is invalid.
      */
     protected function matches($type, $test, $against)
@@ -331,7 +335,7 @@ class Detector {
 
         //always take an array
         if (!is_string($against)) {
-            throw new Exception\InvalidArgumentException('Invalid type passed: ' . gettype($against));
+            throw new Exception\InvalidArgumentException('Invalid type passed: '.gettype($against));
         }
 
         if ($type == 'regex') {
@@ -433,6 +437,7 @@ class Detector {
 
                 $match['model'] = $vendorKey;
                 $match['vendor'] = $vendor['vendor'];
+
                 return $match;
             }
         }
@@ -481,6 +486,7 @@ class Detector {
                     $match['family'] = $family;
                     $match['name'] = $name;
                     $match['is_mobile'] = $item['isMobile'];
+
                     return $match;
                 }
             }
@@ -491,7 +497,7 @@ class Detector {
     {
         $match = $this->detectFamily(Data\PropertyLib::getOperatingSystems());
         if (!$match) {
-            return null;
+            return;
         }
 
         if (isset($match['name'])) {
@@ -506,7 +512,7 @@ class Detector {
     {
         $match = $this->detectFamily(Data\PropertyLib::getBrowsers());
         if (!$match) {
-            return null;
+            return;
         }
 
         if (isset($match['name'])) {
@@ -516,7 +522,6 @@ class Detector {
 
         return $match;
     }
-
 
     /**
      * Creates a device with all the necessary context to determine all the given
@@ -533,14 +538,14 @@ class Detector {
     public function detect($class = null)
     {
         if ($class) {
-            if (!is_subclass_of($class, __NAMESPACE__ . '\DeviceInterface')) {
+            if (!is_subclass_of($class, __NAMESPACE__.'\DeviceInterface')) {
                 throw new Exception\InvalidArgumentException(
                     sprintf('Invalid class specified: %s. Must', is_object($class) ? get_class($class) : $class)
                 );
             }
         } else {
             // default implementation
-            $class = __NAMESPACE__ . '\\Device';
+            $class = __NAMESPACE__.'\\Device';
         }
 
         if (($cached = $this->getFromCache($this->getUserAgent()))) {
@@ -610,6 +615,7 @@ class Detector {
     public function setCacheSetter(callable $cb)
     {
         $this->cacheSet = $cb;
+
         return $this;
     }
 
@@ -623,6 +629,7 @@ class Detector {
     public function setCacheGetter(callable $cb)
     {
         $this->cacheGet = $cb;
+
         return $this;
     }
 
@@ -637,10 +644,11 @@ class Detector {
     {
         if (is_callable($this->cacheGet)) {
             $cb = $this->cacheGet;
+
             return $cb($key);
         }
 
-        return null;
+        return;
     }
 
     /**
@@ -655,6 +663,7 @@ class Detector {
     {
         if (is_callable($this->cacheSet)) {
             $cb = $this->cacheSet;
+
             return $cb($key, $obj);
         }
 

@@ -13,7 +13,7 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
         parent::setUpBeforeClass();
 
         if (!self::$ualist) {
-            $file = TEST_ROOT_PATH . getenv('fixture_path') . getenv('ua_list_fixture');
+            $file = TEST_ROOT_PATH.getenv('fixture_path').getenv('ua_list_fixture');
             if (!is_readable($file)) {
                 throw new \RuntimeException('Missing the fixture path definitions from phpunit.xml');
             }

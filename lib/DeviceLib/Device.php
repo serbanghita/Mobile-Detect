@@ -15,7 +15,7 @@ class Device implements DeviceInterface
      * @var array
      */
     protected static $required = array(
-        'type', 'user_agent', 'model', 'model_version', 'os', 'os_version', 'browser', 'browser_version', 'vendor'
+        'type', 'user_agent', 'model', 'model_version', 'os', 'os_version', 'browser', 'browser_version', 'vendor',
     );
 
     /**
@@ -219,7 +219,7 @@ class Device implements DeviceInterface
             'operatingSystem'           => $this->getOperatingSystem(),
             'operatingSystemVersion'    => $this->getOperatingSystemVersion(),
             'userAgent'                 => $this->getUserAgent(),
-            'vendor'                    => $this->getVendor()
+            'vendor'                    => $this->getVendor(),
         );
     }
 }

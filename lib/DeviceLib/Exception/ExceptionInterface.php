@@ -2,4 +2,6 @@
 
 namespace DeviceLib\Exception;
 
-interface ExceptionInterface {}
+interface ExceptionInterface
+{
+}

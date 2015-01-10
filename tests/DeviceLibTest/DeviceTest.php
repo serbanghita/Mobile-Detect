@@ -27,7 +27,7 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
             'os_version'      => $osVer = '3.5',
             'browser'         => $browser = 'Chrome',
             'browser_version' => $browserVer = '31.5.1245',
-            'vendor'          => $vendor = 'Samsung'
+            'vendor'          => $vendor = 'Samsung',
         ));
 
         // make sure everything was set correctly
@@ -60,7 +60,7 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
             'operatingSystem'        => $device->getOperatingSystem(),
             'operatingSystemVersion' => $device->getOperatingSystemVersion(),
             'userAgent'              => $device->getUserAgent(),
-            'vendor'                 => $device->getVendor()
+            'vendor'                 => $device->getVendor(),
         );
         $actualArr = $device->toArray();
         $this->assertSame($expectedArr, $actualArr);

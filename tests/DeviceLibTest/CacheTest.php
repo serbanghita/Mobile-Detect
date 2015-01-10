@@ -13,7 +13,7 @@ class CacheTest extends \PHPUnit_Framework_TestCase
         $detect = new Detector();
         $wasCalled = false;
 
-        $getter = function($key) use (&$wasCalled) {
+        $getter = function ($key) use (&$wasCalled) {
             $wasCalled = $key;
         };
 
@@ -30,7 +30,7 @@ class CacheTest extends \PHPUnit_Framework_TestCase
         $wasCalled = false;
         $savedObj = null;
 
-        $setter = function($key, $obj) use (&$wasCalled, &$savedObj) {
+        $setter = function ($key, $obj) use (&$wasCalled, &$savedObj) {
             $wasCalled = $key;
             $savedObj = $obj;
         };
@@ -46,8 +46,8 @@ class CacheTest extends \PHPUnit_Framework_TestCase
     {
         $detect = new Detector();
         $device = new Device('', Type::DESKTOP, '', '', '', '', '', '', '');
-        $setter = function($key, $obj) { /* does not matter here */ };
-        $getter = function($key) use (&$device) {
+        $setter = function ($key, $obj) { /* does not matter here */ };
+        $getter = function ($key) use (&$device) {
             return $device;
         };
         $detect->setCacheSetter($setter);
@@ -63,13 +63,15 @@ class CacheTest extends \PHPUnit_Framework_TestCase
         $cache = array();
         $setterCalled = 0;
         $getterCalled = 0;
-        $setter = function($key, $obj) use (&$cache, &$setterCalled) {
+        $setter = function ($key, $obj) use (&$cache, &$setterCalled) {
             $setterCalled++;
             $cache[$key] = serialize($obj);
+
             return true;
         };
-        $getter = function($key) use (&$cache, &$getterCalled) {
+        $getter = function ($key) use (&$cache, &$getterCalled) {
             $getterCalled++;
+
             return isset($cache[$key]) ? unserialize($cache[$key]) : null;
         };
 

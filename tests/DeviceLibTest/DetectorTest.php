@@ -12,7 +12,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $headers = array(
             'HTTP_USER_AGENT' => $ua = 'Whatever',
             'HTTP_HOST' => $host = 'whatever.com',
-            'HTTP_UA_CPU' => $cpu = 'ARM blah'
+            'HTTP_UA_CPU' => $cpu = 'ARM blah',
         );
 
         $detect = new Detector($headers);
@@ -27,7 +27,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $headers = array(
             'HTTP_GARBAGE' => true,
             'whatever' => true,
-            'HTTP_USER_AGENTS' => true
+            'HTTP_USER_AGENTS' => true,
         );
 
         $detect = new Detector($headers);
@@ -49,7 +49,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
             'X-Skyfire-Phone' => 5,
             'x-bold-Phone-UA' => 6,
             'Device-Stock-UA' => 7,
-            'X-UCBROWSER-Device-UA' => 8
+            'X-UCBROWSER-Device-UA' => 8,
         );
 
         $detect = new Detector($headers);
@@ -74,7 +74,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(
             array(
                 'version' => '1.2.3.4',
-                'model' => 'Spicy'
+                'model' => 'Spicy',
             ),
             $ret
         );
@@ -107,7 +107,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $m = $r->getMethod('matches');
         $m->setAccessible(true);
 
-        $this->assertTrue($m->invoke($detect, 'regex','^st[u]+ff$', 'stuuuuuff'));
+        $this->assertTrue($m->invoke($detect, 'regex', '^st[u]+ff$', 'stuuuuuff'));
     }
 
     /**
@@ -211,21 +211,21 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     /**
      * @ dataProvider userAgentData
      *
-    public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor)
-    {
-        $r = new \ReflectionObject($detect = new Detector());
-        $m = $r->getMethod('detectPhoneDevice');
-        $m->setAccessible(true);
+     public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor)
+     {
+     $r = new \ReflectionObject($detect = new Detector());
+     $m = $r->getMethod('detectPhoneDevice');
+     $m->setAccessible(true);
 
-        $detect->setUserAgent($userAgent);
-        $detectVal = $m->invoke($detect);
+     $detect->setUserAgent($userAgent);
+     $detectVal = $m->invoke($detect);
 
-        if ($isMobile === true) {
-            $this->assertInternalType('array', $detectVal, 'should have been an array!');
-        } else {
-            $this->assertFalse($detectVal, 'should have been false since test data isMobile !== true');
-        }
-    }*/
+     if ($isMobile === true) {
+     $this->assertInternalType('array', $detectVal, 'should have been an array!');
+     } else {
+     $this->assertFalse($detectVal, 'should have been false since test data isMobile !== true');
+     }
+     }*/
 
     public function testUserAgentMatches()
     {
@@ -266,7 +266,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
                 '6.1.3',
                 'iOS',
                 'iOS',
-                true
+                true,
             ],
             [
                 "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Acer; Allegro)",
@@ -315,7 +315,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
         if ($version) {
             $expected['version_match'] = array(
-                'version' => $version
+                'version' => $version,
             );
         } else {
             $expected['version_match'] = $version;
@@ -324,7 +324,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $expected += array(
             'family' => $family,
             'is_mobile' => $isMobile,
-            'os' => $os
+            'os' => $os,
         );
 
         $this->assertSame($expected, $detectVal);
@@ -338,7 +338,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
                 '8536.25',
                 'Safari',
                 'Safari Mobile',
-                true
+                true,
             ],
             [
                 "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Acer; Allegro)",
@@ -387,7 +387,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
         if ($version) {
             $expected['version_match'] = array(
-                'version' => $version
+                'version' => $version,
             );
         } else {
             $expected['version_match'] = $version;
@@ -396,7 +396,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $expected += array(
             'family' => $family,
             'is_mobile' => $isMobile,
-            'browser' => $browser
+            'browser' => $browser,
         );
 
         $this->assertSame($expected, $detectVal);
