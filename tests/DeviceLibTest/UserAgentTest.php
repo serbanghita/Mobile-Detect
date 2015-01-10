@@ -17,7 +17,7 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
             if (!is_readable($file)) {
                 throw new \RuntimeException('Missing the fixture path definitions from phpunit.xml');
             }
-            $json = json_decode(file_get_contents($file), JSON_OBJECT_AS_ARRAY);
+            $json = json_decode(file_get_contents($file), 1);
             $json = $json['user_agents'];
 
             //make a list that is usable by functions (THE ORDER OF THE KEYS MATTERS!)
