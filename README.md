@@ -152,7 +152,7 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 
 <tr>
   <td>Statamic</td>
-  <td><p><a href="https://github.com/sergeifilippov/statamic-mobile-detect">Statamic CMS Mobile Detect</a> - <code>plugin</code>. Made by <a href="https://github.com/haikulab/statamic-mobile-detect">Sergei Filippov of Haiku Lab</a>.</p></td>
+  <td><p><a href="https://github.com/haikulab/statamic-mobile-detect">Statamic CMS Mobile Detect</a> - <code>plugin</code>. Made by <a href="https://github.com/haikulab/statamic-mobile-detect">Sergei Filippov of Haiku Lab</a>.</p></td>
 </tr>
 
 <tr>
@@ -176,13 +176,13 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
  </tr>
  
  <tr>
-	 <td>Ruby</td>
-	 <td><p><a href="https://github.com/ktaragorn/mobile_detect">mobile_detect.rb</a> - A <code>Ruby gem</code> using the JSON data exposed by the php project and implementing a basic subset of the API (as much as can be done by the exposed data). Made by <a href="https://github.com/ktaragorn">Karthik T</a>.</p></td>
+     <td>Ruby</td>
+     <td><p><a href="https://github.com/ktaragorn/mobile_detect">mobile_detect.rb</a> - A <code>Ruby gem</code> using the JSON data exposed by the php project and implementing a basic subset of the API (as much as can be done by the exposed data). Made by <a href="https://github.com/ktaragorn">Karthik T</a>.</p></td>
  </tr>
 
 <tr>
-	<td>GoMobileDetect</td>
-	<td><p><a href="https://github.com/Shaked/gomobiledetect">GoMobileDetect</a> - Go port of Mobile Detect class. Made by <a href="https://github.com/Shaked">Shaked</a>.</p></td>
+    <td>GoMobileDetect</td>
+    <td><p><a href="https://github.com/Shaked/gomobiledetect">GoMobileDetect</a> - Go port of Mobile Detect class. Made by <a href="https://github.com/Shaked">Shaked</a>.</p></td>
 </tr>
 
  <tr>
