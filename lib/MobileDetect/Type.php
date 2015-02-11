@@ -1,6 +1,6 @@
 <?php
 
-namespace DeviceLib;
+namespace MobileDetect;
 
 abstract class Type
 {

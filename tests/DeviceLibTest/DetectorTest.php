@@ -1,8 +1,8 @@
 <?php
 
-namespace DeviceLibTest;
+namespace MobileDetectTest;
 
-use DeviceLib\Detector;
+use MobileDetect\MobileDetect;
 
 class DetectorTest extends \PHPUnit_Framework_TestCase
 {
@@ -15,7 +15,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
             'HTTP_UA_CPU' => $cpu = 'ARM blah',
         );
 
-        $detect = new Detector($headers);
+        $detect = new MobileDetect($headers);
 
         $this->assertSame($ua, $detect->getHeader('User-Agent'));
         $this->assertSame($host, $detect->getHeader('Host'));
@@ -30,7 +30,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
             'HTTP_USER_AGENTS' => true,
         );
 
-        $detect = new Detector($headers);
+        $detect = new MobileDetect($headers);
 
         $this->assertAttributeSame(array(), 'headers', $detect);
     }
@@ -52,7 +52,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
             'X-UCBROWSER-Device-UA' => 8,
         );
 
-        $detect = new Detector($headers);
+        $detect = new MobileDetect($headers);
 
         $this->assertSame('1 2 3 4 5 6 7 8', $detect->getUserAgent());
     }
@@ -62,7 +62,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testModelMatch()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('modelMatch');
         $m->setAccessible(true);
 
@@ -91,7 +91,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testMatchesInvalidType()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('matches');
         $m->setAccessible(true);
 
@@ -103,7 +103,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testMatchesRegexActuallyMatches()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('matches');
         $m->setAccessible(true);
 
@@ -115,7 +115,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testMatchesRegexDoesNotMatch()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('matches');
         $m->setAccessible(true);
 
@@ -127,7 +127,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testMatchesStrposDoesMatchSensitiveString()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('matches');
         $m->setAccessible(true);
 
@@ -139,7 +139,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testMatchesStrposDoesNotMatchSensitiveString()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('matches');
         $m->setAccessible(true);
 
@@ -151,7 +151,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testMatchesStrposDoesMatchInsensitiveString()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('matches');
         $m->setAccessible(true);
 
@@ -163,7 +163,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testMatchesStrposDoesNotMatchInsensitiveString()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('matches');
         $m->setAccessible(true);
 
@@ -175,7 +175,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testPrepareRegex()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('prepareRegex');
         $m->setAccessible(true);
 
@@ -187,7 +187,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testPrepareRegexWithPatternSubstitution()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('prepareRegex');
         $m->setAccessible(true);
 
@@ -199,7 +199,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testDetectPhoneDeviceMissing()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('detectPhoneDevice');
         $m->setAccessible(true);
 
@@ -213,7 +213,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      *
      public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor)
      {
-     $r = new \ReflectionObject($detect = new Detector());
+     $r = new \ReflectionObject($detect = new MobileDetect());
      $m = $r->getMethod('detectPhoneDevice');
      $m->setAccessible(true);
 
@@ -229,7 +229,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testUserAgentMatches()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('detectPhoneDevice');
         $m->setAccessible(true);
 
@@ -248,7 +248,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testUserAgentNoMatches()
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('detectPhoneDevice');
         $m->setAccessible(true);
 
@@ -304,7 +304,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testOperatingSystemMatches($ua, $version, $family, $os, $isMobile)
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('detectOperatingSystem');
         $m->setAccessible(true);
 
@@ -376,7 +376,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testBrowserMatches($ua, $version, $family, $browser, $isMobile)
     {
-        $r = new \ReflectionObject($detect = new Detector());
+        $r = new \ReflectionObject($detect = new MobileDetect());
         $m = $r->getMethod('detectBrowser');
         $m->setAccessible(true);
 
@@ -405,7 +405,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     // @todo actually use the JSON file as a data source for this; perhaps move to a new test
     public function testDetect()
     {
-        $detect = new Detector();
+        $detect = new MobileDetect();
         $ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25";
         $detect->setUserAgent($ua);
         $device = $detect->detect();

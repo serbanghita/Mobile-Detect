@@ -1,6 +1,6 @@
 <?php
 
-namespace DeviceLib\Exception;
+namespace MobileDetect\Exception;
 
 class RuntimeException extends \RuntimeException implements ExceptionInterface
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace DeviceLibTest;
+namespace MobileDetectTest;
 
-use DeviceLib\Detector;
+use MobileDetect\MobileDetect;
 
 class UserAgentTest extends \PHPUnit_Framework_TestCase
 {
@@ -49,7 +49,7 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
      */
     public function testAgents($ua, $isMobile, $isTablet, $version, $model, $vendor)
     {
-        $detector = new Detector($ua);
+        $detector = new MobileDetect($ua);
         $device = $detector->detect();
 
         if (is_bool($isMobile)) {

@@ -1,9 +1,9 @@
 <?php
 
-namespace DeviceLibTest;
+namespace MobileDetectTest;
 
-use DeviceLib\Device;
-use DeviceLib\Type;
+use MobileDetect\Device;
+use MobileDetect\Type;
 
 class DeviceTest extends \PHPUnit_Framework_TestCase
 {

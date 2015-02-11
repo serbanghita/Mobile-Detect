@@ -1,15 +1,15 @@
 <?php
 
-namespace DeviceLib;
+namespace MobileDetect;
 
-use DeviceLib\Data\PropertyLib;
+use MobileDetect\Data\PropertyLib;
 
-class Detector
+class MobileDetect
 {
     /**
      * For static invocations of this class, this holds a singleton for those methods.
      *
-     * @var Detector
+     * @var MobileDetect
      */
     protected static $instance;
 
@@ -106,7 +106,7 @@ class Detector
     /**
      * Generates or gets a singleton for use with the simple API.
      *
-     * @return Detector A single instance for using with the simple static API.
+     * @return MobileDetect A single instance for using with the simple static API.
      */
     public static function getInstance()
     {
@@ -169,7 +169,7 @@ class Detector
      *
      * @param $key
      * @param $value
-     * @return Detector                           Fluent interface.
+     * @return MobileDetect                           Fluent interface.
      * @throws Exception\InvalidArgumentException When the $key isn't a valid HTTP request header name.
      */
     public function setHeader($key, $value)
@@ -221,7 +221,7 @@ class Detector
      *
      * @param string $userAgent The user agent string to set.
      *
-     * @return Detector Fluent interface.
+     * @return MobileDetect Fluent interface.
      */
     public function setUserAgent($userAgent = null)
     {
@@ -243,34 +243,6 @@ class Detector
         }
 
         return $this;
-    }
-
-    /**
-     * Check if the current device is mobile.
-     *
-     * @return bool
-     */
-    public static function isMobile()
-    {
-        if (!static::$device) {
-            static::$device = static::getInstance()->detect();
-        }
-
-        return static::$device->isMobile();
-    }
-
-    /**
-     * Check if the current device is a tablet.
-     *
-     * @return bool
-     */
-    public static function isTablet()
-    {
-        if (!static::$device) {
-            static::$device = static::getInstance()->detect();
-        }
-
-        return static::$device->isTablet();
     }
 
     /**
@@ -302,11 +274,14 @@ class Detector
         throw new \BadMethodCallException(sprintf('No such method "%s" exists in Device class.', $method));
     }
 
-    // static getters for properties
-    public static function getBrowser()
-    {
-    }
-
+    /**
+     * Converts the quasi-regex into a full regex, replacing various common placeholders such
+     * as [VER] or [MODEL].
+     *
+     * @param $regex string
+     *
+     * @return string
+     */
     protected function prepareRegex($regex)
     {
         $regex = sprintf('/%s/i', addcslashes($regex, '/'));
@@ -355,6 +330,13 @@ class Detector
         return false;
     }
 
+    /**
+     * @param $version string The string to convert to a standard version.
+     *
+     * @param bool $asArray
+     *
+     * @return array|string A string or an array if $asArray is passed as true.
+     */
     protected function versionPrepare($version, $asArray = false)
     {
         $version = str_replace('_', '.', $version);
@@ -366,6 +348,20 @@ class Detector
         }
     }
 
+    /**
+     * An error handler that gets registered to watch only for regex errors and convert
+     * to an exception.
+     *
+     * @param $code int
+     * @param $msg string
+     * @param $file string
+     * @param $line int
+     * @param $context array
+     *
+     * @return bool False to indicate this is not a regex error to be handled.
+     *
+     * @throws Exception\RegexCompileException When there is a regex error.
+     */
     public function regexErrorHandler($code, $msg, $file, $line, $context)
     {
         if (strpos($msg, 'preg_') !== 0) {
@@ -376,6 +372,14 @@ class Detector
         throw new Exception\RegexCompileException($msg, $code, $file, $line, $context);
     }
 
+    /**
+     * Attempts to match the model.
+     *
+     * @param $modelMatch array Various tests.
+     * @param $against string The test.
+     *
+     * @return array|bool False if no match, hash of match data otherwise.
+     */
     protected function modelMatch($modelMatch, $against)
     {
         //model match must be an array
@@ -408,7 +412,16 @@ class Detector
         return $matchReturn;
     }
 
-    protected function detectDevice($devices)
+    /**
+     * Detect and retrieve a hash of data against an array of device specs..
+     *
+     * @param $devices array An array of device definitions.
+     *
+     * @return array|bool False if no match, hash of matched data otherwise.
+     *
+     * @throws Exception\InvalidDeviceSpecificationException If the device array is invalid.
+     */
+    protected function detectDevice(array $devices)
     {
         foreach ($devices as $vendorKey => $vendor) {
             //check type, and assume regex if not present
@@ -445,16 +458,37 @@ class Detector
         return false;
     }
 
+    /**
+     * Attempts to detect whether or not this is a phone device.
+     *
+     * @see MobileDetect::detectDevice
+     *
+     * @return array|bool
+     */
     protected function detectPhoneDevice()
     {
         return $this->detectDevice(Data\PropertyLib::getPhoneDevices());
     }
 
+    /**
+     * Attempts to detect whether or not this is a tablet device.
+     *
+     * @see MobileDetect::detectDevice
+     *
+     * @return array|bool
+     */
     protected function detectTabletDevice()
     {
         return $this->detectDevice(Data\PropertyLib::getTabletDevices());
     }
 
+    /**
+     * Detect a device based on a grouped spec.
+     *
+     * @param $families array Array of groups of device specs, such as OS's and browsers.
+     *
+     * @return array
+     */
     protected function detectFamily($families)
     {
         foreach ($families as $family => $group) {
@@ -493,6 +527,11 @@ class Detector
         }
     }
 
+    /**
+     * Detect the operating system.
+     *
+     * @return array|void A hash if matched.
+     */
     protected function detectOperatingSystem()
     {
         $match = $this->detectFamily(Data\PropertyLib::getOperatingSystems());
@@ -508,6 +547,11 @@ class Detector
         return $match;
     }
 
+    /**
+     * Detect the browser.
+     *
+     * @return array|void A hash if matched.
+     */
     protected function detectBrowser()
     {
         $match = $this->detectFamily(Data\PropertyLib::getBrowsers());
@@ -573,7 +617,6 @@ class Detector
             if ($os['is_mobile']) {
                 $props['type'] = Type::MOBILE;
             }
-            $props['os_fallback'] = true;//@todo this is just for debugging
         }
 
         $browser = $this->detectBrowser();
@@ -586,7 +629,6 @@ class Detector
             if ($browser['is_mobile']) {
                 $props['type'] = Type::MOBILE;
             }
-            $props['browser_fallback'] = true;//@todo this is just for debugging
         }
 
         if (!isset($props['type'])) {
@@ -610,7 +652,7 @@ class Detector
      *
      * @param \Closure $cb
      *
-     * @return Detector
+     * @return MobileDetect
      */
     public function setCacheSetter(\Closure $cb)
     {

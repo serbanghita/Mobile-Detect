@@ -1,6 +1,6 @@
 <?php
 
-namespace DeviceLib\Data;
+namespace MobileDetect\Data;
 
 class PropertyLib
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace DeviceLibTest;
+namespace MobileDetectTest;
 
-use DeviceLib\Detector;
-use DeviceLib\Device;
-use DeviceLib\Type;
+use MobileDetect\MobileDetect;
+use MobileDetect\Device;
+use MobileDetect\Type;
 
 class CacheTest extends \PHPUnit_Framework_TestCase
 {
     public function testInjectedCacheGetterAndIsCalledWhenDetecting()
     {
-        $detect = new Detector();
+        $detect = new MobileDetect();
         $wasCalled = false;
 
         $getter = function ($key) use (&$wasCalled) {
@@ -26,7 +26,7 @@ class CacheTest extends \PHPUnit_Framework_TestCase
 
     public function testInjectedCacheSetterAndIsCalledWhenDetecting()
     {
-        $detect = new Detector();
+        $detect = new MobileDetect();
         $wasCalled = false;
         $savedObj = null;
 
@@ -44,7 +44,7 @@ class CacheTest extends \PHPUnit_Framework_TestCase
 
     public function testCachedDeviceIsActuallyUsed()
     {
-        $detect = new Detector();
+        $detect = new MobileDetect();
         $device = new Device('', Type::DESKTOP, '', '', '', '', '', '', '');
         $setter = function ($key, $obj) { /* does not matter here */ };
         $getter = function ($key) use (&$device) {
@@ -59,7 +59,7 @@ class CacheTest extends \PHPUnit_Framework_TestCase
 
     public function testSimpleInMemoryCache()
     {
-        $detect = new Detector();
+        $detect = new MobileDetect();
         $cache = array();
         $setterCalled = 0;
         $getterCalled = 0;
