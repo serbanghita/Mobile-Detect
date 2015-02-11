@@ -9,7 +9,7 @@
   strict="true">
 
   <testsuite name="All Mobile Detect tests">
-      <directory suffix="Test.php">./tests/DeviceLibTest</directory>
+      <directory suffix="Test.php">./tests/MobileDetectTest</directory>
   </testsuite>
 
   <php>

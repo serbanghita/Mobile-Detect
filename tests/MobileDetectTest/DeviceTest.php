@@ -8,7 +8,7 @@ use MobileDetect\Type;
 class DeviceTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \DeviceLib\Exception\InvalidDeviceSpecificationException
+     * @expectedException \MobileDetect\Exception\InvalidDeviceSpecificationException
      * @expectedExceptionMessage The 'type' property is required.
      */
     public function testEmptyFactory()

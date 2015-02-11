@@ -36,7 +36,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \DeviceLib\Detector::__construct, \DeviceLib\Detector::getUserAgent
+     * @covers \MobileDetect\MobileDetect::__construct, \MobileDetect\MobileDetect::getUserAgent
      */
     public function testMultipleUserAgentsAppended()
     {
@@ -58,7 +58,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \DeviceLib\Detector::modelMatch
+     * @covers \MobileDetect\MobileDetect::modelMatch
      */
     public function testModelMatch()
     {
@@ -85,9 +85,9 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \DeviceLib\Exception\InvalidArgumentException
+     * @expectedException \MobileDetect\Exception\InvalidArgumentException
      * @expectedExceptionMessage Unknown match type: apples
-     * @covers \DeviceLib\Detector::matches
+     * @covers \MobileDetect\MobileDetect::matches
      */
     public function testMatchesInvalidType()
     {
@@ -99,7 +99,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \DeviceLib\Detector::matches
+     * @covers \MobileDetect\MobileDetect::matches
      */
     public function testMatchesRegexActuallyMatches()
     {
@@ -111,7 +111,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \DeviceLib\Detector::matches
+     * @covers \MobileDetect\MobileDetect::matches
      */
     public function testMatchesRegexDoesNotMatch()
     {
@@ -123,7 +123,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \DeviceLib\Detector::matches
+     * @covers \MobileDetect\MobileDetect::matches
      */
     public function testMatchesStrposDoesMatchSensitiveString()
     {
@@ -135,7 +135,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \DeviceLib\Detector::matches
+     * @covers \MobileDetect\MobileDetect::matches
      */
     public function testMatchesStrposDoesNotMatchSensitiveString()
     {
@@ -147,7 +147,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \DeviceLib\Detector::matches
+     * @covers \MobileDetect\MobileDetect::matches
      */
     public function testMatchesStrposDoesMatchInsensitiveString()
     {
@@ -159,7 +159,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \DeviceLib\Detector::matches
+     * @covers \MobileDetect\MobileDetect::matches
      */
     public function testMatchesStrposDoesNotMatchInsensitiveString()
     {
@@ -171,7 +171,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \DeviceLib\Detector::matches
+     * @covers \MobileDetect\MobileDetect::matches
      */
     public function testPrepareRegex()
     {
@@ -183,7 +183,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \DeviceLib\Detector::matches
+     * @covers \MobileDetect\MobileDetect::matches
      */
     public function testPrepareRegexWithPatternSubstitution()
     {
@@ -410,7 +410,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $detect->setUserAgent($ua);
         $device = $detect->detect();
 
-        $this->assertInstanceOf('\DeviceLib\DeviceInterface', $device);
+        $this->assertInstanceOf('\MobileDetect\DeviceInterface', $device);
         $this->assertTrue($device->isMobile());
         $this->assertFalse($device->isTablet());
         $this->assertFalse($device->isDesktop());
@@ -422,7 +422,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     {
         $_SERVER = array();
         $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25';
-        $this->assertTrue(Detector::isMobile());
+        $this->assertTrue(MobileDetect::isMobile());
     }
 
     /**
@@ -433,6 +433,6 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     {
         $_SERVER = array();
         $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/1.0';
-        Detector::lollin();
+        MobileDetect::lollin();
     }
 }
