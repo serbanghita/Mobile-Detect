@@ -1196,8 +1196,19 @@ class PropertyLib
             'iOS' => array(
                 'isMobile'     => true,
                 'match'        => '\biPhone.*Mobile|\biPod|\biPad',
-                'versionMatch' => array(' \bOS\b [VER] '),
+                'versionMatch' => array('\bOS\b [VER]'),
             ),
+        ),
+
+        /**
+         * Mac family.
+         */
+        'Mac' => array(
+            'OSX' => array(
+                'isMobile' => false,
+                'match' => 'Mac OS X',
+                'versionMatch' => array('Mac OS X [VER]')
+            )
         ),
 
         /**
@@ -1625,6 +1636,77 @@ class PropertyLib
         'Watch'       => 'SM-V700',
     );
 
+    /**
+     * The individual segments that could exist in a User-Agent string. VER refers to the regular
+     * expression defined in the constant self::VER.
+     *
+     * @var array
+     */
+    protected static $properties = array(
+
+        // Build
+        'Mobile'        => 'Mobile/[VER]',
+        'Build'         => 'Build/[VER]',
+        'Version'       => 'Version/[VER]',
+        'VendorID'      => 'VendorID/[VER]',
+
+        // Devices
+        'iPad'          => 'iPad.*CPU[a-z ]+[VER]',
+        'iPhone'        => 'iPhone.*CPU[a-z ]+[VER]',
+        'iPod'          => 'iPod.*CPU[a-z ]+[VER]',
+        //'BlackBerry'    => array('BlackBerry[VER]', 'BlackBerry [VER];'),
+        'Kindle'        => 'Kindle/[VER]',
+
+        // Browser
+        'Chrome'        => array('Chrome/[VER]', 'CriOS/[VER]', 'CrMo/[VER]'),
+        'Coast'         => array('Coast/[VER]'),
+        'Dolfin'        => 'Dolfin/[VER]',
+        // @reference: https://developer.mozilla.org/en-US/docs/User_Agent_Strings_Reference
+        'Firefox'       => 'Firefox/[VER]',
+        'Fennec'        => 'Fennec/[VER]',
+        // @reference: http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
+        'IE'      => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];'),
+        // http://en.wikipedia.org/wiki/NetFront
+        'NetFront'      => 'NetFront/[VER]',
+        'NokiaBrowser'  => 'NokiaBrowser/[VER]',
+        'Opera'         => array(' OPR/[VER]', 'Opera Mini/[VER]', 'Version/[VER]'),
+        'Opera Mini'    => 'Opera Mini/[VER]',
+        'Opera Mobi'    => 'Version/[VER]',
+        'UC Browser'    => 'UC Browser[VER]',
+        'MQQBrowser'    => 'MQQBrowser/[VER]',
+        'MicroMessenger' => 'MicroMessenger/[VER]',
+        'baiduboxapp'   => 'baiduboxapp/[VER]',
+        'baidubrowser'  => 'baidubrowser/[VER]',
+        'Iron'          => 'Iron/[VER]',
+        // @note: Safari 7534.48.3 is actually Version 5.1.
+        // @note: On BlackBerry the Version is overwriten by the OS.
+        'Safari'        => array('Version/[VER]', 'Safari/[VER]'),
+        'Skyfire'       => 'Skyfire/[VER]',
+        'Tizen'         => 'Tizen/[VER]',
+        'Webkit'        => array('webkit[ /][VER]', 'AppleWebKit/[VER]'),
+
+        // Engine
+        'Gecko'         => 'Gecko/[VER]',
+        'Trident'       => 'Trident/[VER]',
+        'Presto'        => 'Presto/[VER]',
+
+        // OS
+        'iOS'              => ' \bOS\b [VER] ',
+        'Android'          => 'Android [VER]',
+        'BlackBerry'       => array('BlackBerry[\w]+/[VER]', 'BlackBerry.*Version/[VER]', 'Version/[VER]'),
+        'BREW'             => 'BREW [VER]',
+        'Java'             => 'Java/[VER]',
+        // @reference: http://windowsteamblog.com/windows_phone/b/wpdev/archive/2011/08/29/introducing-the-ie9-on-windows-phone-mango-user-agent-string.aspx
+        // @reference: http://en.wikipedia.org/wiki/Windows_NT#Releases
+        'Windows Phone OS' => array( 'Windows Phone OS [VER]', 'Windows Phone [VER]'),
+        'Windows Phone'    => 'Windows Phone [VER]',
+        'Windows CE'       => 'Windows CE/[VER]',
+        // http://social.msdn.microsoft.com/Forums/en-US/windowsdeveloperpreviewgeneral/thread/6be392da-4d2f-41b4-8354-8dcee20c85cd
+        'Windows NT'       => 'Windows NT [VER]',
+        'Symbian'          => array('SymbianOS/[VER]', 'Symbian/[VER]'),
+        'webOS'            => array('webOS/[VER]', 'hpwOS/[VER];'),
+    );
+
     public static function getBrowsers()
     {
         return static::$browsers;
@@ -1664,5 +1746,10 @@ class PropertyLib
     public static function getUtilities()
     {
         return static::$utilities;
+    }
+
+    public static function getProperties()
+    {
+        return static::$properties;
     }
 }
