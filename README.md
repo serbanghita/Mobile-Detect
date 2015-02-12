@@ -19,3 +19,91 @@
   </tr>
 </table>
 
+## Installing
+
+Using composer.
+
+## Getting started
+
+When you want to detect information about a device, you simply need to detect it.
+
+```php
+$mobileDetect = new MobileDetect();
+$device = $mobileDetect->detect();
+
+if ($device->isMobile()) {
+  // hooray!
+}
+```
+
+Once you've detected your device, you have an array of methods available to you to retrieve various properties about your device, such as browser, operating system, vendor, model, and any version for these or any other properties.
+
+```php
+echo "You are using " . $device->getBrowser() . " browser with version "
+  . " with version " . $device->getBrowserVersion();
+```
+
+You may also be looking for a very specific version in your device:
+
+```php
+echo "You are using WebKit version: " . $device->getVersion('WebKit');
+```
+
+Here's a list of all the methods on the `Device` class that you can utilize:
+
+ * @todo plz list me
+ * list
+ * it
+
+@ todo user apache_get_headers
+
+## Shortcuts
+
+There are static shortcuts available for quick usage.
+
+```php
+use MobileDetect\MobileDetect;
+
+if (MobileDetect::isMobile() || MobileDetect::isTablet()) {
+  $browser        = MobileDetect::getBrowser();
+  $browserVersion = MobileDetect::getBrowserVersion();
+  $os             = MobileDetect::getOperatingSystem();
+  $osver          = MobileDetect::getOperatingSystemVersion();
+  $model          = MobileDetect::getModel();
+  $modelVersion   = MobileDetect::getModelVersion();
+  $vendor         = MobileDetect::getVendor();
+}
+```
+
+These methods aren't particularly performant, but are offered for simpler usage if the developer so desires.
+
+## Caching
+
+As of Mobile Detect version 3, caching is supported and can be utilized with any caching library by utilizing closures that you set in your bootstraps. You need to provide a cache setter and a cache getter. Here's a simple example where you write the object to disk:
+
+```php
+$mobileDetect = new MobileDetect();
+$mobileDetect->setCacheSetter(function($key, $obj){
+  $ser = serialize($obj);
+  file_put_contents('/tmp/' . $key, $ser);
+  return true;
+});
+
+$mobileDetect->setCacheGetter(function($key){
+  $file = '/tmp/' . $key;
+  
+  if (file_exists($file) && is_readable($file)) {
+    $raw = file_get_contents($file);
+    return unserialize($raw);
+  }
+});
+```
+
+The key that is used in caching is the user agent header, which is either automatically detected using the `S_SERVER` suberglobal or can be injected into the constructor during initialization.
+
+## Frequently asked questions
+
+**Why does my device not have a model version?**
+
+Detection is based off of known or popular patterns in user agent strings. Not all devices or user agents are known, nor do all types get reported in the user agent. We encourage you to report user agents that you find may be not fully detectable with the device class. Please open a Github issue and provide the user agent to us.
+  
