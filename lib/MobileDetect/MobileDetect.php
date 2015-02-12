@@ -169,7 +169,7 @@ class MobileDetect
      *
      * @param $key
      * @param $value
-     * @return MobileDetect                           Fluent interface.
+     * @return MobileDetect                       Fluent interface.
      * @throws Exception\InvalidArgumentException When the $key isn't a valid HTTP request header name.
      */
     public function setHeader($key, $value)
@@ -690,7 +690,7 @@ class MobileDetect
             return $cb($key);
         }
 
-        return null;
+        return;
     }
 
     /**

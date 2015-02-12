@@ -1207,8 +1207,8 @@ class PropertyLib
             'OSX' => array(
                 'isMobile' => false,
                 'match' => 'Mac OS X',
-                'versionMatch' => array('Mac OS X [VER]')
-            )
+                'versionMatch' => array('Mac OS X [VER]'),
+            ),
         ),
 
         /**

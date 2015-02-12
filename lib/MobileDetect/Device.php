@@ -1,6 +1,7 @@
 <?php
 
 namespace MobileDetect;
+
 use MobileDetect\Data\PropertyLib;
 
 /**
@@ -255,6 +256,6 @@ class Device implements DeviceInterface
             }
         }
 
-        return null;
+        return;
     }
 }

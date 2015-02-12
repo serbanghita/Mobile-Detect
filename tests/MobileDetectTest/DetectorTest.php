@@ -273,29 +273,29 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
                 '7.5',
                 'Windows',
                 'Windows Phone',
-                true
+                true,
             ),
             array(
                 "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; Touch; MASMJS)",
                 '6.2',
                 'Windows',
                 'Windows Classic',
-                false
+                false,
             ),
             array(
                 "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.1+ (KHTML, like Gecko) Version/10.0.0.1337 Mobile Safari/537.1+",
                 '10.0.0.1337',
                 'BlackBerry',
                 'BlackBerry',
-                true
+                true,
             ),
             array(
                 "Mozilla/4.0 (PDA; PalmOS/sony/model prmr/Revision:1.1.54 (en)) NetFront/3.0",
                 false,
                 'PalmOS',
                 'PalmOS',
-                true
-            )
+                true,
+            ),
         );
     }
 
@@ -345,29 +345,29 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
                 '9.0',
                 'IE',
                 'IE Mobile',
-                true
+                true,
             ),
             array(
                 "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; Touch; MASMJS)",
                 '10.0',
                 'IE',
                 'IE Desktop',
-                false
+                false,
             ),
             array(
                 "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.1+ (KHTML, like Gecko) Version/10.0.0.1337 Mobile Safari/537.1+",
                 '537.1',
                 'Safari',
                 'Safari Mobile',
-                true
+                true,
             ),
             array(
                 "Mozilla/4.0 (PDA; PalmOS/sony/model prmr/Revision:1.1.54 (en)) NetFront/3.0",
                 false,
                 'GenericBrowser',
                 'Generic Mobile Browser',
-                true
-            )
+                true,
+            ),
         );
     }
 
