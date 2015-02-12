@@ -31,4 +31,6 @@ interface DeviceInterface
     public function isBot();
 
     public function toArray();
+
+    public function getVersion($key);
 }

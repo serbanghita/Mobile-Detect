@@ -282,7 +282,7 @@ class MobileDetect
      *
      * @return string
      */
-    protected function prepareRegex($regex)
+    public static function prepareRegex($regex)
     {
         $regex = sprintf('/%s/i', addcslashes($regex, '/'));
         $regex = str_replace('[VER]', '(?<version>[0-9\._-]+)', $regex);
@@ -314,7 +314,7 @@ class MobileDetect
         }
 
         if ($type == 'regex') {
-            if (preg_match($this->prepareRegex($test), $against)) {
+            if (preg_match(static::prepareRegex($test), $against)) {
                 return true;
             }
         } elseif ($type == 'strpos') {
@@ -393,7 +393,7 @@ class MobileDetect
         $matchReturn = array();
 
         foreach ($modelMatch as $test) {
-            $regex = $this->prepareRegex($test);
+            $regex = static::prepareRegex($test);
 
             if (preg_match($regex, $against, $matches)) {
                 if (isset($matches['version'])) {

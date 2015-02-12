@@ -3,6 +3,7 @@
 namespace MobileDetectTest;
 
 use MobileDetect\Device;
+use MobileDetect\MobileDetect;
 use MobileDetect\Type;
 
 class DeviceTest extends \PHPUnit_Framework_TestCase
@@ -64,5 +65,16 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
         );
         $actualArr = $device->toArray();
         $this->assertSame($expectedArr, $actualArr);
+    }
+
+    public function testUserAgentIsPassedForPropertyVersions()
+    {
+        $ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.363 ' .
+            '(KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36';
+        $md = new MobileDetect($ua);
+        $device = $md->detect();
+
+        $this->assertSame('537.363', $device->getVersion('WebKit'));
+        $this->assertSame('537.36', $device->getVersion('Safari'));
     }
 }
