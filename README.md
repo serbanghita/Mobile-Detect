@@ -99,11 +99,23 @@ $mobileDetect->setCacheGetter(function($key){
 });
 ```
 
-The key that is used in caching is the user agent header, which is either automatically detected using the `S_SERVER` suberglobal or can be injected into the constructor during initialization.
+The key that is used in caching is the user agent header, which is either automatically detected using the `$_SERVER` suberglobal or can be injected into the constructor during initialization.
 
-## Frequently asked questions
+## Questions
 
 **Why does my device not have a model version?**
 
 Detection is based off of known or popular patterns in user agent strings. Not all devices or user agents are known, nor do all types get reported in the user agent. We encourage you to report user agents that you find may be not fully detectable with the device class. Please open a Github issue and provide the user agent to us.
   
+ **Why can I not get version by float anymore?**
+ 
+ The `version_compare` method in PHP uses strings and provides any type of version comparison necessary. The ability to convert to floats is unnecessary given this method.
+ 
+ **Why are there no more device grades?**
+ 
+ Device grades are very expensive to detect and can add significant overhead and this type of detection is on-par with browser-specific code versus capability-detection in JavaScript.
+ 
+ **Why are there no more quick detection methods based off of some special headers?**
+ 
+ They don't provide the big picture and their usefulness is dependent on their popularity. However, it's unclear that these headers were ever ubiquitous enough to warrant the additional runtime necessary for inspecting them. Regardless, device information cannot be built with these headers and so their usefulness is very limted.
+
