@@ -9,11 +9,16 @@ branches:
   only:
     - devel-3
 
+before_script:
+ - wget http://getcomposer.org/composer.phar
+ - php composer.phar require satooshi/php-coveralls:dev-master
+ - php composer.phar install --dev --no-interaction
+ 
 script:
-  - phpunit --configuration phpunit.xml.dist --coverage-text
+  - phpunit -v -c phpunit.xml.dist --coverage-text --coverage-clover clover.xml
+
+after_script:
+ - php vendor/bin/coveralls -v
 
 notifications:
   email: false
-
-install:
-  - composer install
