@@ -15,7 +15,7 @@ before_script:
  - php composer.phar install --dev --no-interaction
  
 script:
-  - phpunit -v -c phpunit.xml.dist --coverage-text --coverage-clover tests/clover.xml
+  - phpunit -v -c phpunit.xml.dist --coverage-clover tests/clover.xml
 
 after_script:
  - php vendor/bin/coveralls -v
