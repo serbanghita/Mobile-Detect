@@ -13,7 +13,7 @@
   </testsuite>
   
   <logging>
-    <log type="coverage-clover" target="tests/clover.xml"/>
+    <log type="coverage-clover" target="./tests/clover.xml"/>
   </logging>
 
   <php>
