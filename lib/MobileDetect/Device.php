@@ -1,26 +1,23 @@
 <?php
 
-namespace DeviceLib;
+namespace MobileDetect;
+
+use MobileDetect\Data\PropertyLib;
 
 /**
  * Class Device
  *
  * Defines properties for a particular device.
  */
-class Device
+class Device implements DeviceInterface
 {
-    const TYPE_MOBILE           = 0;
-    const TYPE_DESKTOP          = 1;
-    const TYPE_TABLET           = 2;
-    const TYPE_BOT              = 3;
-
     /**
      * A list of required keys for the factory method.
      *
      * @var array
      */
     protected static $required = array(
-        'type', 'user_agent', 'model', 'model_version', 'os', 'os_version', 'browser', 'browser_version'
+        'type', 'user_agent', 'model', 'model_version', 'os', 'os_version', 'browser', 'browser_version', 'vendor',
     );
 
     /**
@@ -81,6 +78,13 @@ class Device
     protected $browserVersion;
 
     /**
+     * The vendor name for this device.
+     *
+     * @var string
+     */
+    protected $vendor;
+
+    /**
      * @param array $props An array of properties to create this device from.
      *
      * @return Device The device instance.
@@ -92,16 +96,16 @@ class Device
     {
         // ensure that all the required keys are present
         foreach (static::$required as $key) {
-            if (!isset($props[$key])) {
+            if (!array_key_exists($key, $props)) {
                 throw new Exception\InvalidDeviceSpecificationException("The '$key' property is required.");
             }
         }
 
         // check that a valid type was passed
-        if ($props['type'] != static::TYPE_DESKTOP
-            && $props['type'] != static::TYPE_MOBILE
-            && $props['type'] != static::TYPE_TABLET
-            && $props['type'] != static::TYPE_BOT
+        if ($props['type'] != Type::DESKTOP
+            && $props['type'] != Type::MOBILE
+            && $props['type'] != Type::TABLET
+            && $props['type'] != Type::BOT
         ) {
             throw new Exception\InvalidDeviceSpecificationException("Unrecognized type: '{$props['type']}'");
         }
@@ -115,11 +119,12 @@ class Device
             $props['os'],
             $props['os_version'],
             $props['browser'],
-            $props['browser_version']
+            $props['browser_version'],
+            $props['vendor']
         );
     }
 
-    public function __construct($userAgent, $type, $model, $modelVer, $os, $osVer, $browser, $browserVer)
+    public function __construct($userAgent, $type, $model, $modelVer, $os, $osVer, $browser, $browserVer, $vendor)
     {
         $this->userAgent                = $userAgent;
         $this->type                     = $type;
@@ -129,6 +134,7 @@ class Device
         $this->operatingSystemVersion   = $osVer;
         $this->browser                  = $browser;
         $this->browserVersion           = $browserVer;
+        $this->vendor                   = $vendor;
     }
 
     /**
@@ -171,6 +177,11 @@ class Device
         return $this->browserVersion;
     }
 
+    public function getVendor()
+    {
+        return $this->vendor;
+    }
+
     public function getUserAgent()
     {
         return $this->userAgent;
@@ -178,38 +189,73 @@ class Device
 
     public function isMobile()
     {
-        return $this->type == static::TYPE_MOBILE;
+        return $this->type == Type::MOBILE || $this->type == Type::TABLET;
     }
 
     public function isDesktop()
     {
-        return $this->type == static::TYPE_DESKTOP;
+        return $this->type == Type::DESKTOP;
     }
 
     public function isTablet()
     {
-        return $this->type == static::TYPE_TABLET;
+        return $this->type == Type::TABLET;
     }
 
     public function isBot()
     {
-        return $this->type == static::TYPE_BOT;
+        return $this->type == Type::BOT;
     }
 
     public function toArray()
     {
         return array(
-            'isMobile' => $this->isMobile(),
-            'isTablet' => $this->isTablet(),
-            'isDesktop' => $this->isDesktop(),
-            'isBot' => $this->isBot(),
-            'browser' => $this->getBrowser(),
-            'browserVersion' => $this->getBrowserVersion(),
-            'model' => $this->getModel(),
-            'modelVersion' => $this->getModelVersion(),
-            'operatingSystem' => $this->getOperatingSystem(),
-            'operatingSystemVersion' => $this->getOperatingSystemVersion(),
-            'userAgent' => $this->getUserAgent()
+            'isMobile'                  => $this->isMobile(),
+            'isTablet'                  => $this->isTablet(),
+            'isDesktop'                 => $this->isDesktop(),
+            'isBot'                     => $this->isBot(),
+            'browser'                   => $this->getBrowser(),
+            'browserVersion'            => $this->getBrowserVersion(),
+            'model'                     => $this->getModel(),
+            'modelVersion'              => $this->getModelVersion(),
+            'operatingSystem'           => $this->getOperatingSystem(),
+            'operatingSystemVersion'    => $this->getOperatingSystemVersion(),
+            'userAgent'                 => $this->getUserAgent(),
+            'vendor'                    => $this->getVendor(),
         );
+    }
+
+    /**
+     * Retrieve a version for a specific property.
+     *
+     * @param $key string The version key, such as WebKey.
+     *
+     * @return string|null A string if the version if found, null otherwise.
+     */
+    public function getVersion($key)
+    {
+        $version = null;
+        $cmp = strtolower($key);
+
+        foreach (PropertyLib::getProperties() as $name => $patterns) {
+            if ($cmp == strtolower($name)) {
+                if (!is_array($patterns)) {
+                    $patterns = array($patterns);
+                }
+
+                foreach ($patterns as $pattern) {
+                    $pattern = MobileDetect::prepareRegex($pattern);
+                    if (preg_match($pattern, $this->userAgent, $matches)) {
+                        if (isset($matches['version'])) {
+                            $version = $matches['version'];
+                        }
+                    }
+                }
+
+                return $version;
+            }
+        }
+
+        return;
     }
 }

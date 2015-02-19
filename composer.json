@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-0": {
-            "DeviceLib\\": "lib/"
+            "MobileDetect\\": "lib/"
         }
     }
 }
