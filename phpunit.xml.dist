@@ -11,9 +11,19 @@
   <testsuite name="All Mobile Detect tests">
       <directory suffix="Test.php">./tests/MobileDetectTest</directory>
   </testsuite>
-  
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./lib</directory>
+        </whitelist>
+        <exclude>
+            <directory>./vendor</directory>
+        </exclude>
+    </filter>
+
   <logging>
     <log type="coverage-clover" target="./tests/clover.xml"/>
+    <log type="coverage-html" target="./tests/coverage"/>
   </logging>
 
   <php>
