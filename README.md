@@ -182,7 +182,12 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 
 <tr>
 	<td>GoMobileDetect</td>
-	<td><p><a href="https://github.com/Shaked/gomobiledetect">GoMobileDetect</a> - Go port of Mobile Detect class. Made by <a href="https://github.com/Shaked">Shaked</a>.</p></td>
+	<td><p><a href="https://github.com/Shaked/gomobiledetect">GoMobileDetect</a> - <code>Go</code> port of Mobile Detect class. Made by <a href="https://github.com/Shaked">Shaked</a>.</p></td>
+</tr>
+
+<tr>
+	<td>LUA</td>
+	<td><p><a href="https://github.com/robinef/ua-lua">ua-lua</a> is a small lib written in <code>LUA</code> providing device type detection. ua-lua is detecting mobile or tablet devices based on user-agent inside nginx daemon. Made by <a href="https://github.com/robinef">Frédéric Robinet</a>.</p></td>
 </tr>
 
  <tr>
