@@ -1,5 +1,5 @@
 {
-    "hash": "b34233ce7993e29a98d9cf239fe1b77c71eda955",
+    "hash": "a883d665275c8b6a54e10293e8eaf08078b868ca",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -676,6 +676,16 @@
             "user_agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit\/600.1.4 (KHTML, like Gecko) CriOS\/38.0.2125.59 Mobile\/12A405 Safari\/600.1.4",
             "mobile": true,
             "tablet": false
+        },
+        {
+            "vendor": "Apple",
+            "user_agent": "VendorAppName\/1.7.0 (iPhone; iOS 8.1.2; Scale\/3.00)",
+            "mobile": true,
+            "tablet": false,
+            "version": {
+                "iOS": "8.1.2"
+            },
+            "model": "iPhone"
         },
         {
             "vendor": "Archos",
