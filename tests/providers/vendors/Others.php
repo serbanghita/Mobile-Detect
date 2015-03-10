@@ -503,6 +503,11 @@ return array(
 
         ),
 
+    'Wolder' => array(
+        'Mozilla/5.0 (Linux; Android 4.4; miTab LIVE Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Android 4.0.4; pt-pt; miTab FUNK Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
+    ),
+
     'Wolfgang' => array(
         'Mozilla/5.0 (Linux; U; Android 4.2.1; nl-nl; AT-AS45q2 Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false)
         ),

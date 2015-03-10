@@ -17,6 +17,9 @@ return array(
         ),
 
     'Other' => array(
+        // Unknown
+        'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SV1; [eburo v4.0]; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; InfoPath.3; .NET4.0C; .NET4.0E)' => array('isMobile' => false, 'isTablet' => false),
+
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit/600.1.25 (KHTML, like Gecko) Version/8.0 Safari/600.1.25' => array('isMobile' => false, 'isTablet' => false),
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36' => array('isMobile' => false, 'isTablet' => false),
 

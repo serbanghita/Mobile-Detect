@@ -420,7 +420,8 @@ class Mobile_Detect
         'LavaTablet' => 'QPAD E704|\bIvoryS\b|E-TAB IVORY',
         // https://www.celkonmobiles.com/?_a=categoryphones&sid=2
         'CelkonTablet' => 'CT695|CT888|CT[\s]?910|CT7 Tab|CT9 Tab|CT3 Tab|CT2 Tab|CT1 Tab|C820|C720|\bCT-1\b',
-        'WolderTablet' => '',
+        // http://www.wolderelectronics.com/productos/manuales-y-guias-rapidas/categoria-2-miTab
+        'WolderTablet' => 'miTab \b(DIAMOND|SPACE|BROOKLYN|NEO|FLY|MANHATTAN|FUNK|EVOLUTION|SKY|GOCAR|IRON|GENIUS|POP|MINT|EPSILON|BROADWAY|JUMP|HOP|LEGEND|NEW AGE|LINE|ADVANCE|FEEL|FOLLOW|LIKE|LINK|LIVE|THINK|FREEDOM|CHICAGO|CLEVELAND|BALTIMORE-GH|IOWA|BOSTON|SEATTLE|PHOENIX|DALLAS|IN 101|MasterChef)\b',
         // http://www.mi.com/en
         'MiTablet' => '\bMI PAD\b|\bHM NOTE 1W\b',
         // http://www.nbru.cn/index.html
