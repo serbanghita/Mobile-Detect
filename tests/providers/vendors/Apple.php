@@ -20,5 +20,6 @@ return array(
         'CheckMyBus iOS mobile App 0.9.0 (iPhone; iPhone OS/7.1.1)'                                                                                                                              => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53'                                                         => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) CriOS/38.0.2125.59 Mobile/12A405 Safari/600.1.4'                                        => array('isMobile' => true, 'isTablet' => false),
+        'VendorAppName/1.7.0 (iPhone; iOS 8.1.2; Scale/3.00)'                                                                                                                                    => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '8.1.2'), 'model' => 'iPhone', 'mobileGrade' => 'A' ),
     ),
 );
