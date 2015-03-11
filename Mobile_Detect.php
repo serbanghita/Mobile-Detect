@@ -953,8 +953,8 @@ class Mobile_Detect
      * Magic overloading method.
      *
      * @method boolean is[...]()
-     * @param  string                 $name
-     * @param  array                  $arguments
+     * @param  string $name
+     * @param  array $arguments
      * @return mixed
      * @throws BadMethodCallException when the method doesn't exist and doesn't start with 'is'
      */
@@ -975,7 +975,7 @@ class Mobile_Detect
     /**
      * Find a detection rule that matches the current User-agent.
      *
-     * @param null $userAgent deprecated
+     * @param string $userAgent (optional)
      * @return boolean
      */
     protected function matchDetectionRulesAgainstUA($userAgent = null)
@@ -999,7 +999,7 @@ class Mobile_Detect
      * regex agains the User-Agent.
      *
      * @param string $key
-     * @param null $userAgent deprecated
+     * @param string $userAgent (optional)
      * @return mixed
      */
     protected function matchUAAgainstKey($key, $userAgent = null)
@@ -1024,13 +1024,12 @@ class Mobile_Detect
     /**
      * Check if the device is mobile.
      * Returns true if any type of mobile device detected, including special ones
-     * @param null $userAgent deprecated
+     * @param string $userAgent (optional)
      * @param null $httpHeaders deprecated
      * @return bool
      */
     public function isMobile($userAgent = null, $httpHeaders = null)
     {
-
         if ($httpHeaders) {
             $this->setHttpHeaders($httpHeaders);
         }
@@ -1053,12 +1052,16 @@ class Mobile_Detect
      * Check if the device is a tablet.
      * Return true if any type of tablet device is detected.
      *
-     * @param  string $userAgent   deprecated
+     * @param  string $userAgent (optional)
      * @param  array  $httpHeaders deprecated
      * @return bool
      */
     public function isTablet($userAgent = null, $httpHeaders = null)
     {
+        if ($userAgent) {
+            $this->setUserAgent($userAgent);
+        }
+
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
         foreach (self::$tabletDevices as $_regex) {
@@ -1076,8 +1079,8 @@ class Mobile_Detect
      * @todo: The httpHeaders part is not yet used.
      *
      * @param string $key
-     * @param string        $userAgent   deprecated
-     * @param string        $httpHeaders deprecated
+     * @param string $userAgent (optional)
+     * @param string $httpHeaders deprecated
      * @return bool|int|null
      */
     public function is($key, $userAgent = null, $httpHeaders = null)
@@ -1106,7 +1109,7 @@ class Mobile_Detect
      * the User-Agent string.
      *
      * @param $regex
-     * @param  string $userAgent
+     * @param  string $userAgent (optional)
      * @return bool
      *
      * @todo: search in the HTTP headers too.
@@ -1214,11 +1217,14 @@ class Mobile_Detect
 
     /**
      * Retrieve the mobile grading, using self::MOBILE_GRADE_* constants.
-     *
+     * @param string $userAgent (optional)
      * @return string One of the self::MOBILE_GRADE_* constants.
      */
-    public function mobileGrade()
+    public function mobileGrade($userAgent = null)
     {
+        if ($userAgent) {
+            $this->setUserAgent($userAgent);
+        }
         $isMobile = $this->isMobile();
 
         if (
