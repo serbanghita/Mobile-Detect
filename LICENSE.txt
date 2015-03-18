@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) <2011-2014> <Serban Ghita> <serbanghita@gmail.com>
+Copyright (c) <2011-2015> Serban Ghita, Nick Ilyin and contributors.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
