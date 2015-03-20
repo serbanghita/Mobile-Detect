@@ -9,6 +9,6 @@ if (!file_exists($composer = dirname($dot) . '/vendor/autoload.php')) {
 /** @var \Composer\Autoload\ClassLoader $autoloader */
 $autoloader = include $composer;
 
-$autoloader->add('DeviceLib\\', $dot);
+
 
 define('TEST_ROOT_PATH', $dot);

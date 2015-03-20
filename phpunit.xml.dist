@@ -8,9 +8,13 @@
   convertWarningsToExceptions="true"
   strict="true">
 
-  <testsuite name="All Mobile Detect tests">
-      <directory suffix="Test.php">./tests/DeviceLibTest</directory>
+  <testsuite name="All UnitTests">
+      <directory suffix="Test.php">./tests/UnitTests/DeviceLib</directory>
   </testsuite>
+
+    <testsuite name="All IntegrationTests">
+        <directory suffix="Test.php">./tests/IntegrationTests/DeviceLib</directory>
+    </testsuite>
 
 	<filter>
 	    <whitelist>
@@ -24,7 +28,7 @@
 	</filter>	
 
   <php>
-      <env name="fixture_path" value="/fixtures" />
-      <env name="fixture_path_perVendor" value="/fixtures/perVendor" />
+      <env name="fixture_path" value="/IntegrationTests/fixtures" />
+      <env name="fixture_path_perVendor" value="/IntegrationTests/fixtures/perVendor" />
   </php>
 </phpunit>
