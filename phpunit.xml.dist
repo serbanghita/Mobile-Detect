@@ -25,6 +25,6 @@
 
   <php>
       <env name="fixture_path" value="/fixtures" />
-      <env name="ua_list_fixture" value="/ualist.json" />
+      <env name="fixture_path_perVendor" value="/fixtures/perVendor" />
   </php>
 </phpunit>

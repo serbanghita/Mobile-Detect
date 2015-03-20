@@ -12,26 +12,29 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
     {
         parent::setUpBeforeClass();
 
+        // Get all User-Agents grouped by vendor.
         if (!self::$ualist) {
-            $file = TEST_ROOT_PATH . getenv('fixture_path') . getenv('ua_list_fixture');
-            if (!is_readable($file)) {
+            // Setup.
+            $includeBasePath = TEST_ROOT_PATH . getenv('fixture_path_perVendor');
+            if (!is_dir($includeBasePath)) {
                 throw new \RuntimeException('Missing the fixture path definitions from phpunit.xml');
             }
-            $json = json_decode(file_get_contents($file), JSON_OBJECT_AS_ARRAY);
-            $json = $json['user_agents'];
+            $list = array();
 
-            //make a list that is usable by functions (THE ORDER OF THE KEYS MATTERS!)
-            foreach ($json as $userAgent) {
-                $tmp = array();
-                $tmp[] = isset($userAgent['user_agent']) ? $userAgent['user_agent'] : null;
-                $tmp[] = isset($userAgent['mobile']) ? $userAgent['mobile'] : null;
-                $tmp[] = isset($userAgent['tablet']) ? $userAgent['tablet'] : null;
-                $tmp[] = isset($userAgent['version']) ? $userAgent['version'] : null;
-                $tmp[] = isset($userAgent['model']) ? $userAgent['model'] : null;
-                $tmp[] = isset($userAgent['vendor']) ? $userAgent['vendor'] : null;
-
-                self::$ualist[] = $tmp;
+            // Scan.
+            $dir = new \DirectoryIterator($includeBasePath);
+            foreach ($dir as $fileInfo) {
+                if ($fileInfo->isDot()) {
+                    continue;
+                }
+                $listNew = include $includeBasePath . '/' . $fileInfo->getFilename();
+                if (is_array($listNew)) {
+                    $list = array_merge($list, $listNew);
+                }
             }
+
+            self::$ualist = $list;
+            unset($list);
         }
     }
 
@@ -250,6 +253,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
      * @dataProvider userAgentData
      *
      */
+    /*
     public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor)
     {
         $r = new \ReflectionObject($detect = new Detector());
@@ -265,6 +269,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
             $this->assertFalse($detectVal, 'should have been false since test data isMobile !== true');
         }
     }
+    */
 
     public function testUserAgentMatches()
     {
@@ -296,6 +301,8 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($detectVal);
     }
+
+    /*
 
     public function osDataProvider()
     {
@@ -337,10 +344,13 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
             ]
         ];
     }
+    */
+
 
     /**
      * @dataProvider osDataProvider
      */
+    /*
     public function testOperatingSystemMatches($ua, $version, $family, $os, $isMobile)
     {
         $r = new \ReflectionObject($detect = new Detector());
@@ -409,10 +419,12 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
             ]
         ];
     }
+    */
 
     /**
      * @dataProvider browserDataProvider
      */
+    /*
     public function testBrowserMatches($ua, $version, $family, $browser, $isMobile)
     {
         $r = new \ReflectionObject($detect = new Detector());
@@ -441,7 +453,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $detectVal);
     }
 
-    // @todo actually use the JSON file as a data source for this; perhaps move to a new test
+
     public function testDetect()
     {
         $detect = new Detector();
@@ -464,6 +476,7 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(Detector::isMobile());
         $this->assertSame('Apple', Detector::getVendor());
     }
+    */
 
     /**
      * @expectedException \BadMethodCallException
