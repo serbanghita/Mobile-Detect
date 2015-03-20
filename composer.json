@@ -20,9 +20,9 @@
         "phpunit/phpunit": "*"
     },
     "autoload": {
-        "psr-4": {
-            "DeviceLib\\": "lib/",
-            "DeviceLibTest\\": "tests/"
+        "psr-0": {
+            "MobileDetect\\": "lib/",
+            "MobileDetectTest\\": "tests/"
         }
     }
 }

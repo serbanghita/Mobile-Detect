@@ -1,6 +1,8 @@
 <?php
 
-namespace DeviceLib;
+namespace MobileDetect;
+
+use MobileDetect\Data\PropertyLib;
 
 /**
  * Class Device
@@ -15,7 +17,7 @@ class Device implements DeviceInterface
      * @var array
      */
     protected static $required = array(
-        'type', 'user_agent', 'model', 'model_version', 'os', 'os_version', 'browser', 'browser_version', 'vendor'
+        'type', 'user_agent', 'model', 'model_version', 'os', 'os_version', 'browser', 'browser_version', 'vendor',
     );
 
     /**
@@ -187,7 +189,7 @@ class Device implements DeviceInterface
 
     public function isMobile()
     {
-        return $this->type == Type::MOBILE;
+        return $this->type == Type::MOBILE || $this->type == Type::TABLET;
     }
 
     public function isDesktop()
@@ -219,7 +221,41 @@ class Device implements DeviceInterface
             'operatingSystem'           => $this->getOperatingSystem(),
             'operatingSystemVersion'    => $this->getOperatingSystemVersion(),
             'userAgent'                 => $this->getUserAgent(),
-            'vendor'                    => $this->getVendor()
+            'vendor'                    => $this->getVendor(),
         );
+    }
+
+    /**
+     * Retrieve a version for a specific property.
+     *
+     * @param $key string The version key, such as WebKey.
+     *
+     * @return string|null A string if the version if found, null otherwise.
+     */
+    public function getVersion($key)
+    {
+        $version = null;
+        $cmp = strtolower($key);
+
+        foreach (PropertyLib::getProperties() as $name => $patterns) {
+            if ($cmp == strtolower($name)) {
+                if (!is_array($patterns)) {
+                    $patterns = array($patterns);
+                }
+
+                foreach ($patterns as $pattern) {
+                    $pattern = MobileDetect::prepareRegex($pattern);
+                    if (preg_match($pattern, $this->userAgent, $matches)) {
+                        if (isset($matches['version'])) {
+                            $version = $matches['version'];
+                        }
+                    }
+                }
+
+                return $version;
+            }
+        }
+
+        return;
     }
 }

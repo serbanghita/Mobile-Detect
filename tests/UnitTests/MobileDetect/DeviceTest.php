@@ -1,14 +1,15 @@
 <?php
 
-namespace DeviceLibTest;
+namespace MobileDetectTest;
 
-use DeviceLib\Device;
-use DeviceLib\Type;
+use MobileDetect\Device;
+use MobileDetect\MobileDetect;
+use MobileDetect\Type;
 
 class DeviceTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \DeviceLib\Exception\InvalidDeviceSpecificationException
+     * @expectedException \MobileDetect\Exception\InvalidDeviceSpecificationException
      * @expectedExceptionMessage The 'type' property is required.
      */
     public function testEmptyFactory()
@@ -27,7 +28,7 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
             'os_version'      => $osVer = '3.5',
             'browser'         => $browser = 'Chrome',
             'browser_version' => $browserVer = '31.5.1245',
-            'vendor'          => $vendor = 'Samsung'
+            'vendor'          => $vendor = 'Samsung',
         ));
 
         // make sure everything was set correctly
@@ -60,9 +61,20 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
             'operatingSystem'        => $device->getOperatingSystem(),
             'operatingSystemVersion' => $device->getOperatingSystemVersion(),
             'userAgent'              => $device->getUserAgent(),
-            'vendor'                 => $device->getVendor()
+            'vendor'                 => $device->getVendor(),
         );
         $actualArr = $device->toArray();
         $this->assertSame($expectedArr, $actualArr);
+    }
+
+    public function testUserAgentIsPassedForPropertyVersions()
+    {
+        $ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.363 '.
+            '(KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36';
+        $md = new MobileDetect($ua);
+        $device = $md->detect();
+
+        $this->assertSame('537.363', $device->getVersion('WebKit'));
+        $this->assertSame('537.36', $device->getVersion('Safari'));
     }
 }

@@ -6,3 +6,5 @@ nbproject/
 /.settings
 /coverage
 /phpunit.phar
+/composer.lock
+/*.phar

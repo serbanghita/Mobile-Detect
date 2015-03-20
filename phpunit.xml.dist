@@ -9,11 +9,11 @@
   strict="true">
 
   <testsuite name="All UnitTests">
-      <directory suffix="Test.php">./tests/UnitTests/DeviceLib</directory>
+      <directory suffix="Test.php">./tests/UnitTests/MobileDetect</directory>
   </testsuite>
 
     <testsuite name="All IntegrationTests">
-        <directory suffix="Test.php">./tests/IntegrationTests/DeviceLib</directory>
+        <directory suffix="Test.php">./tests/IntegrationTests/MobileDetect</directory>
     </testsuite>
 
 	<filter>
