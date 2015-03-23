@@ -1,11 +1,40 @@
 <?php
 
-namespace MobileDetectTest;
+namespace MobileDetectTest\UnitTests;
 
 use MobileDetect\MobileDetect;
 
 class DetectorTest extends \PHPUnit_Framework_TestCase
 {
+
+    protected function tearDown()
+    {
+        MobileDetect::destroy();
+    }
+
+    /**
+     * new instance is different from a static declared instance
+     */
+    public function testNewInstanceIsDifferentFromAStaticDeclaredInstance()
+    {
+        $newInstance = new MobileDetect(
+            array('HTTP_USER_AGENT' => 'Mozilla/5.0 AppleWebKit/537.36')
+        );
+        $this->assertNotSame($newInstance, $newInstance::getInstance());
+    }
+
+
+    /**
+     * new instance is an instance of mobile detect
+     */
+    public function testNewInstanceIsAnInstanceOfMobileDetect()
+    {
+        $newInstance = new MobileDetect(
+            array('HTTP_USER_AGENT' => 'Mozilla/5.0 AppleWebKit/537.36')
+        );
+        $this->assertInstanceOf('MobileDetect\\MobileDetect', $newInstance);
+    }
+
     public function testValidHeadersAssigned()
     {
         //legit headers
@@ -35,8 +64,27 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeSame(array(), 'headers', $detect);
     }
 
+
     /**
-     * @covers \MobileDetect\MobileDetect::__construct, \MobileDetect\MobileDetect::getUserAgent
+     * constructor converts the headers from an iterator object
+     */
+    public function testConstructorConvertsTheHeadersFromAnIteratorObject()
+    {
+        $iterator = new \ArrayIterator(
+            array(
+                'User-Agent' => 1,
+                'Content-type' => 2
+            )
+        );
+        $detect = new MobileDetect($iterator);
+        $this->assertEquals(1, $detect->getUserAgent());
+        $this->assertEquals(2, $detect->getHeader('Content-type'));
+    }
+
+
+    /**
+     * @covers \MobileDetect\MobileDetect::__construct
+     * @covers \MobileDetect\MobileDetect::getUserAgent
      */
     public function testMultipleUserAgentsAppended()
     {
@@ -56,6 +104,34 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame('1 2 3 4 5 6 7 8', $detect->getUserAgent());
     }
+
+
+    /**
+     * set header sets and standardizes the name of the header
+     */
+    public function testSetHeaderSetsAndStandardizesTheNameOfTheHeader()
+    {
+        $detect = new MobileDetect();
+        $detect->setHeader('Authorization', 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==');
+        $detect->setHeader('Content-Type', 'application/x-www-form-urlencoded  ');
+        $detect->setHeader('Warning', '199 Miscellaneous warning');
+
+        $this->assertEquals($detect->getHeader('authorization'), 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==');
+        $this->assertEquals($detect->getHeader('content-type'), 'application/x-www-form-urlencoded');
+        $this->assertEquals($detect->getHeader('warning'), '199 Miscellaneous warning');
+    }
+
+
+    /**
+     * setting an unknown header returns null
+     */
+    public function testSettingAnUnknownHeaderReturnsNull()
+    {
+        $detect = new MobileDetect();
+        $detect->setHeader('Warning', '199 Miscellaneous warning');
+        $this->assertEquals($detect->getHeader('warning'), '199 Miscellaneous warning');
+    }
+
 
     /**
      * @covers \MobileDetect\MobileDetect::modelMatch

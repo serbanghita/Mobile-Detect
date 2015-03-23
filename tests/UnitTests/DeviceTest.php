@@ -1,6 +1,6 @@
 <?php
 
-namespace MobileDetectTest;
+namespace MobileDetectTest\UnitTests;
 
 use MobileDetect\Device;
 use MobileDetect\MobileDetect;

@@ -117,6 +117,11 @@ class MobileDetect
         return static::$instance;
     }
 
+    public static function destroy()
+    {
+        static::$instance = null;
+    }
+
     /**
      * @param $headers \Iterator|array|string When it's a string, it's assumed to be User-Agent.
      */

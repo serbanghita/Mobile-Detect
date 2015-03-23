@@ -12,26 +12,29 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
     {
         parent::setUpBeforeClass();
 
+        // Get all User-Agents grouped by vendor.
         if (!self::$ualist) {
-            $file = TEST_ROOT_PATH.getenv('fixture_path').getenv('ua_list_fixture');
-            if (!is_readable($file)) {
+            // Setup.
+            $includeBasePath = TEST_ROOT_PATH . getenv('fixture_path_perVendor');
+            if (!is_dir($includeBasePath)) {
                 throw new \RuntimeException('Missing the fixture path definitions from phpunit.xml');
             }
-            $json = json_decode(file_get_contents($file), 1);
-            $json = $json['user_agents'];
+            $list = array();
 
-            //make a list that is usable by functions (THE ORDER OF THE KEYS MATTERS!)
-            foreach ($json as $userAgent) {
-                $tmp = array();
-                $tmp[] = isset($userAgent['user_agent']) ? $userAgent['user_agent'] : null;
-                $tmp[] = isset($userAgent['mobile']) ? $userAgent['mobile'] : null;
-                $tmp[] = isset($userAgent['tablet']) ? $userAgent['tablet'] : null;
-                $tmp[] = isset($userAgent['version']) ? $userAgent['version'] : null;
-                $tmp[] = isset($userAgent['model']) ? $userAgent['model'] : null;
-                $tmp[] = isset($userAgent['vendor']) ? $userAgent['vendor'] : null;
-
-                self::$ualist[] = $tmp;
+            // Scan.
+            $dir = new \DirectoryIterator($includeBasePath);
+            foreach ($dir as $fileInfo) {
+                if ($fileInfo->isDot()) {
+                    continue;
+                }
+                $listNew = include $includeBasePath . '/' . $fileInfo->getFilename();
+                if (is_array($listNew)) {
+                    $list = array_merge($list, $listNew);
+                }
             }
+
+            self::$ualist = $list;
+            unset($list);
         }
     }
 
