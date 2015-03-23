@@ -66,7 +66,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 
     <p><a href="https://github.com/iamspacehead/responsage">WordPress Responsage</a> - A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</p>
     
-    <p><a href="https://wordpress.org/plugins/wp247-body-classes/">WP247 Body Classes</a> - Add unique classes to the <body> tag for easy styling based on various attributes (archive, user, post, mobile) and various WordPress "is" functions. Mobile attributes include type of device, Operating System, Browser, etc. Examples: .is-mobile, .is-not-mobile, .is-tablet, .is-ios, .is-not-ios, .is-androidos, .is-chromebrowser. Made by <a href="https://github.com/wescleveland56">wescleveland56</a></p>
+    <p><a href="https://wordpress.org/plugins/wp247-body-classes/">WP247 Body Classes</a> - Add unique classes to the <code>body</code> tag for easy styling based on various attributes (archive, user, post, mobile) and various WordPress "is" functions. Mobile attributes include type of device, Operating System, Browser, etc. Examples: .is-mobile, .is-not-mobile, .is-tablet, .is-ios, .is-not-ios, .is-androidos, .is-chromebrowser. Made by <a href="https://github.com/wescleveland56">wescleveland56</a></p>
   </td>
 </tr>
 
