@@ -369,12 +369,13 @@ class MobileDetect
      */
     public function regexErrorHandler($code, $msg, $file, $line, $context)
     {
-        if (strpos($msg, 'preg_') !== 0) {
+        if (strpos($msg, 'preg_') !== false) {
             // we only want to deal with preg match errors
-            return false;
+            throw new Exception\RegexCompileException($msg, $code, $file, $line, $context);
+
         }
 
-        throw new Exception\RegexCompileException($msg, $code, $file, $line, $context);
+        return false;
     }
 
     /**

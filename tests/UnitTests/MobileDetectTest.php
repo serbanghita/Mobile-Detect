@@ -149,6 +149,27 @@ class MobileDetectTest extends \PHPUnit_Framework_TestCase
 
 
     /**
+     * regex error handler used with preg throws an exception
+     * @expectedException \MobileDetect\Exception\RegexCompileException
+     */
+    public function testRegexErrorHandlerUsedWithPregThrowsAnException()
+    {
+        $detect = new MobileDetect();
+        $detect->regexErrorHandler(111, 'Whatever preg_match error', 'stuff.txt', 11, array());
+    }
+
+    /**
+     * regex error handler used with a regular php error returns false
+     */
+    public function testRegexErrorHandlerUsedWithARegularPhpErrorReturnsFalse()
+    {
+        $detect = new MobileDetect();
+        $ret = $detect->regexErrorHandler(111, 'Whatever php error', 'stuff.txt', 11, array());
+
+        $this->assertFalse($ret);
+    }
+
+    /**
      * @covers \MobileDetect\MobileDetect::modelMatch
      */
     public function testModelMatch()
@@ -174,6 +195,89 @@ class MobileDetectTest extends \PHPUnit_Framework_TestCase
         $ret = $m->invoke($detect, 'hi', 'whatever');
         $this->assertFalse($ret);
     }
+
+
+    /**
+     * detecting a device with a missing match key throws an exception
+     * @expectedException \MobileDetect\Exception\InvalidDeviceSpecificationException
+     * @expectedExceptionMessage Invalid spec for iPhone. Missing match key.
+     */
+    public function testDetectingADeviceWithAMissingMatchKeyThrowsAnException()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('detectDevice');
+        $m->setAccessible(true);
+
+        $ret = $m->invoke($detect, array(
+            'iPhone' => array(
+                'type' => 'regex'
+            )
+        ));
+    }
+
+
+    /**
+     * detecting a device with a missing vendor key throws an exception
+     * @expectedException \MobileDetect\Exception\InvalidDeviceSpecificationException
+     * @expectedExceptionMessage Invalid spec for iPhone. Missing vendor key.
+     */
+    public function testDetectingADeviceWithAMissingVendorKeyThrowsAnException()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('detectDevice');
+        $m->setAccessible(true);
+
+        $ret = $m->invoke($detect, array(
+            'iPhone' => array(
+                'type' => 'regex',
+                'match' => '\biPhone\b|\biPod\b'
+            )
+        ));
+    }
+
+
+    /**
+     * detecting a device family with a missing match key throws an exception
+     * @expectedException \MobileDetect\Exception\InvalidDeviceSpecificationException
+     * @expectedExceptionMessage Invalid spec for Android. Missing match key.
+     */
+    public function testDetectingADeviceFamilyWithAMissingMatchKeyThrowsAnException()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('detectFamily');
+        $m->setAccessible(true);
+
+        $ret = $m->invoke($detect, array(
+            'Android'         => array(
+                'Android' => array(
+                    'type' => 'strpos'
+                ),
+            )
+        ));
+    }
+
+
+    /**
+     * detecting a device family with a missing isMobile key throws an exception
+     * @expectedException \MobileDetect\Exception\InvalidDeviceSpecificationException
+     * @expectedExceptionMessage Invalid spec for Android. Missing isMobile key.
+     */
+    public function testDetectingADeviceFamilyWithAMissingIsMobileKeyThrowsAnException()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('detectFamily');
+        $m->setAccessible(true);
+
+        $ret = $m->invoke($detect, array(
+            'Android'         => array(
+                'Android' => array(
+                    'type' => 'strpos',
+                    'match'        => 'Android',
+                ),
+            )
+        ));
+    }
+
 
     /**
      * @expectedException \MobileDetect\Exception\InvalidArgumentException
