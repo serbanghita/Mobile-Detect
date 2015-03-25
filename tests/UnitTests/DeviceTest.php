@@ -5,6 +5,7 @@ namespace MobileDetectTest\UnitTests;
 use MobileDetect\Device;
 use MobileDetect\MobileDetect;
 use MobileDetect\Type;
+use MobileDetect\Exception;
 
 class DeviceTest extends \PHPUnit_Framework_TestCase
 {
@@ -15,6 +16,28 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
     public function testEmptyFactory()
     {
         Device::create();
+    }
+
+
+    /**
+     * a device instance created with an invalid type will throw an exception
+     *
+     * @expectedException \MobileDetect\Exception\InvalidDeviceSpecificationException
+     * @expectedExceptionMessage Unrecognized type: '-999'
+     */
+    public function testADeviceInstanceCreatedWithAnInvalidTypeWillThrowAnException()
+    {
+        Device::create(array(
+            'type' => -999,
+            'user_agent' => '',
+            'model' => '',
+            'model_version' => '',
+            'os' => '',
+            'os_version' => '',
+            'browser' => '',
+            'browser_version' => '',
+            'vendor' => '',
+        ));
     }
 
     public function testFactorySetCorrectly()
@@ -77,4 +100,7 @@ class DeviceTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('537.363', $device->getVersion('WebKit'));
         $this->assertSame('537.36', $device->getVersion('Safari'));
     }
+
+
+
 }

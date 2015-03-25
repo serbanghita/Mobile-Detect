@@ -4,7 +4,7 @@ namespace MobileDetectTest\UnitTests;
 
 use MobileDetect\MobileDetect;
 
-class DetectorTest extends \PHPUnit_Framework_TestCase
+class MobileDetectTest extends \PHPUnit_Framework_TestCase
 {
 
     protected function tearDown()
@@ -134,6 +134,21 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
 
     /**
+     * preparing a version in semver format as an array returns an array with three elements
+     */
+    public function testPreparingAVersionInSemverFormatAsAnArrayReturnsAnArrayWithThreeElements()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('versionPrepare');
+        $m->setAccessible(true);
+
+        $ret = $m->invoke($detect, '2.1.10', true);
+
+        $this->assertSame($ret, array('2','1','10'));
+    }
+
+
+    /**
      * @covers \MobileDetect\MobileDetect::modelMatch
      */
     public function testModelMatch()
@@ -173,6 +188,22 @@ class DetectorTest extends \PHPUnit_Framework_TestCase
 
         $m->invoke($detect, 'apples', '', '');
     }
+
+
+    /**
+     * matching against an invalid pattern type throws an exception
+     * @expectedException \MobileDetect\Exception\InvalidArgumentException
+     * @expectedExceptionMessage Invalid type passed: array
+     */
+    public function testMatchingAgainstAnInvalidPatternTypeThrowsAnException()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('matches');
+        $m->setAccessible(true);
+
+        $m->invoke($detect, 'regex', 'whatever', array('regex1', 'regex2'));
+    }
+
 
     /**
      * @covers \MobileDetect\MobileDetect::matches
