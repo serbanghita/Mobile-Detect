@@ -180,6 +180,54 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Read response from cloudfront, if the cloudfront headers are detected
+     * @covers Mobile_Detect::setCfHeaders
+     */
+    public function testSetCfHeaders()
+    {
+        // Test mobile detected
+        $header1 = array(
+            'HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER' => 'false',
+            'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'  => 'true',
+            'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'false'
+        );
+        $md = new Mobile_Detect($header1);
+        $this->assertSame($md->getCfHeaders(), $header1);
+        $this->assertSame($md->getUserAgent(), 'Amazon CloudFront');
+        $this->assertSame($md->isTablet(), false);
+        $this->assertSame($md->isMobile(), true);
+
+        // Test neither mobile nor tablet (desktop)
+        $header2 = array(
+            'HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER' => 'true',
+            'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'  => 'false',
+            'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'false'
+        );
+        $md->setHttpHeaders($header2);
+        $this->assertSame($md->getCfHeaders(), $header2);
+        $this->assertSame($md->getUserAgent(), 'Amazon CloudFront');
+        $this->assertSame($md->isTablet(), false);
+        $this->assertSame($md->isMobile(), false);
+
+        // Test tablet detected
+        $header3 = array(
+            'HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER' => 'false',
+            'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'  => 'false',
+            'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'true'
+        );
+        $md->setCfHeaders($header3);
+        $this->assertSame($md->getCfHeaders(), $header3);
+        $this->assertSame($md->getUserAgent(), 'Amazon CloudFront');
+        $this->assertSame($md->isTablet(), true);
+        $this->assertSame($md->isMobile(), false);
+
+        // Check if the headers are cleared
+        $header4 = array();
+        $md->setHttpHeaders($header4);
+        $this->assertSame($md->getCfHeaders(), $header4);
+    }
+
+    /**
      * @covers Mobile_Detect::setUserAgent
      * @covers Mobile_Detect::getUserAgent
      */
