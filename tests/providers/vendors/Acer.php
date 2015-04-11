@@ -23,5 +23,6 @@ return array(
         'Mozilla/5.0 (Linux; Android 4.2.2; A1-830 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.141 Safari/537.36' => array(
             'isMobile' => true, 'isTablet' => true,
         ),
+        'Mozilla/5.0 (Linux; Android 4.2.2; A3-A11 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36'=> array('isMobile' => true, 'isTablet' => true)
     ),
 );

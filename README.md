@@ -60,13 +60,13 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 <tr>
   <td>WordPress</td>
   <td>
-    <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">WordPress Mobile Detect</a> - Gives you the ability to wrap that infographic in a `[notdevice][/notdevice]` shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
+    <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">WordPress Mobile Detect</a> - Gives you the ability to wrap that infographic in a <code>[notdevice][/notdevice]</code> shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
 
     <p><a href="http://wordpress.org/plugins/mobble/">mobble</a> - provides mobile related conditional functions for your site. e.g. is_iphone(), is_mobile() and is_tablet(). Made by Scott Evans.</p>
 
     <p><a href="https://github.com/iamspacehead/responsage">WordPress Responsage</a> - A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</p>
-
-    <p><a href="http://wordpress.org/plugins/social-popup/">Social PopUP</a> - This plugin will display a popup or splash screen when a new user visit your site showing a Google+, Twitter and Facebook follow links. It uses Mobile_Detect to detect mobile devices.</p>
+    
+    <p><a href="https://wordpress.org/plugins/wp247-body-classes/">WP247 Body Classes</a> - Add unique classes to the <code>body</code> tag for easy styling based on various attributes (archive, user, post, mobile) and various WordPress "is" functions. Mobile attributes include type of device, Operating System, Browser, etc. Examples: .is-mobile, .is-not-mobile, .is-tablet, .is-ios, .is-not-ios, .is-androidos, .is-chromebrowser. Made by <a href="https://github.com/wescleveland56">wescleveland56</a></p>
   </td>
 </tr>
 
@@ -152,7 +152,7 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 
 <tr>
   <td>Statamic</td>
-  <td><p><a href="https://github.com/sergeifilippov/statamic-mobile-detect">Statamic CMS Mobile Detect</a> - <code>plugin</code>. Made by <a href="https://github.com/haikulab/statamic-mobile-detect">Sergei Filippov of Haiku Lab</a>.</p></td>
+  <td><p><a href="https://github.com/haikulab/statamic-mobile-detect">Statamic CMS Mobile Detect</a> - <code>plugin</code>. Made by <a href="https://github.com/haikulab/statamic-mobile-detect">Sergei Filippov of Haiku Lab</a>.</p></td>
 </tr>
 
 <tr>
@@ -176,13 +176,18 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
  </tr>
  
  <tr>
-	 <td>Ruby</td>
-	 <td><p><a href="https://github.com/ktaragorn/mobile_detect">mobile_detect.rb</a> - A <code>Ruby gem</code> using the JSON data exposed by the php project and implementing a basic subset of the API (as much as can be done by the exposed data). Made by <a href="https://github.com/ktaragorn">Karthik T</a>.</p></td>
+     <td>Ruby</td>
+     <td><p><a href="https://github.com/ktaragorn/mobile_detect">mobile_detect.rb</a> - A <code>Ruby gem</code> using the JSON data exposed by the php project and implementing a basic subset of the API (as much as can be done by the exposed data). Made by <a href="https://github.com/ktaragorn">Karthik T</a>.</p></td>
  </tr>
 
 <tr>
 	<td>GoMobileDetect</td>
-	<td><p><a href="https://github.com/Shaked/gomobiledetect">GoMobileDetect</a> - Go port of Mobile Detect class. Made by <a href="https://github.com/Shaked">Shaked</a>.</p></td>
+	<td><p><a href="https://github.com/Shaked/gomobiledetect">GoMobileDetect</a> - <code>Go</code> port of Mobile Detect class. Made by <a href="https://github.com/Shaked">Shaked</a>.</p></td>
+</tr>
+
+<tr>
+	<td>LUA</td>
+	<td><p><a href="https://github.com/robinef/ua-lua">ua-lua</a> is a small lib written in <code>LUA</code> providing device type detection. ua-lua is detecting mobile or tablet devices based on user-agent inside nginx daemon. Made by <a href="https://github.com/robinef">Frédéric Robinet</a>.</p></td>
 </tr>
 
  <tr>

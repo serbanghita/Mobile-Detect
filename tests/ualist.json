@@ -1,5 +1,5 @@
 {
-    "hash": "e191dfaeb5649de03ebf6dd97d0e9ac76ba847d8",
+    "hash": "a883d665275c8b6a54e10293e8eaf08078b868ca",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -95,6 +95,12 @@
         {
             "vendor": "Acer",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; A1-830 Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Acer",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; A3-A11 Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/34.0.1847.114 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
@@ -672,6 +678,16 @@
             "tablet": false
         },
         {
+            "vendor": "Apple",
+            "user_agent": "VendorAppName\/1.7.0 (iPhone; iOS 8.1.2; Scale\/3.00)",
+            "mobile": true,
+            "tablet": false,
+            "version": {
+                "iOS": "8.1.2"
+            },
+            "model": "iPhone"
+        },
+        {
             "vendor": "Archos",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; Qilive 97R Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.92 Safari\/537.36",
             "mobile": true,
@@ -914,6 +930,12 @@
         {
             "vendor": "ASUS",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; K00L Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.131 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "ASUS",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ME302KL Build\/JDQ39) AppleWebKit\/537.31 (KHTML, like Gecko) Chrome\/26.0.1410.58 Safari\/537.31",
             "mobile": true,
             "tablet": true
         },
@@ -3492,6 +3514,12 @@
             "tablet": true
         },
         {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; Aquaris E10 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
             "vendor": "Captiva",
             "user_agent": "Opera\/9.80 (X11; Linux zvav; U; de) Presto\/2.8.119 Version\/11.10 Mozilla\/5.0 (Linux; U; Android 4.1.1; de-de; CAPTIVA PAD 10.1 Build\/JRO03H) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
             "mobile": true,
@@ -4676,6 +4704,18 @@
         {
             "vendor": "Vonino",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; en-gb; Q8 Build\/JRO03H) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Wolder",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4; miTab LIVE Build\/KVT49L) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Wolder",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; pt-pt; miTab FUNK Build\/IMM76D) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
             "mobile": true,
             "tablet": true
         },
@@ -5970,6 +6010,12 @@
         },
         {
             "vendor": "Other",
+            "user_agent": "Mozilla\/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident\/4.0; SV1; [eburo v4.0]; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; InfoPath.3; .NET4.0C; .NET4.0E)",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Other",
             "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit\/600.1.25 (KHTML, like Gecko) Version\/8.0 Safari\/600.1.25",
             "mobile": false,
             "tablet": false
@@ -6433,6 +6479,30 @@
         {
             "vendor": "Bot",
             "user_agent": "facebookexternalhit\/1.0 (+http:\/\/www.facebook.com\/externalhit_uatext.php)",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Bot",
+            "user_agent": "AdsBot-Google (+http:\/\/www.google.com\/adsbot.html)",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Bot",
+            "user_agent": "AdsBot-Google-Mobile (+http:\/\/www.google.com\/mobile\/adsbot.html) Mozilla (iPhone; U; CPU iPhone OS 3 0 like Mac OS X) AppleWebKit (KHTML, like Gecko) Mobile Safari",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Bot",
+            "user_agent": "Mozilla\/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit\/534.16 (KHTML, like Gecko, Google Keyword Suggestion) Chrome\/10.0.648.127 Safari\/534.16",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Bot",
+            "user_agent": "Facebot",
             "mobile": false,
             "tablet": false
         },

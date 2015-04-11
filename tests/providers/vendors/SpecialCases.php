@@ -2,21 +2,24 @@
 return array(
     'Console' => array(
 
-		//Nintendo Wii:
-		'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.28 (KHTML, like Gecko) NX/3.0.3.12.14 NintendoBrowser/3.1.1.9577.EU'    => array('isMobile' => false, 'isTablet' => false),
-		'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/{Version No} NintendoBrowser/{Version No}.US' => array('isMobile' => false, 'isTablet' => false),
-		'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7567.US'                                                              => array('isMobile' => true, 'isTablet' => false),
-		'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7498.US'                                                              => array('isMobile' => true, 'isTablet' => false),
-		//Sony PlayStation:
-		'Mozilla/5.0 (PLAYSTATION 3 4.21) AppleWebKit/531.22.8 (KHTML, like Gecko)'                                          => array('isMobile' => false, 'isTablet' => false),
-		//Microsoft Xbox:
-		'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)'                                              => array('isMobile' => false, 'isTablet' => false),
-		// WTF? Must investigate.
-		//'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Xbox)'                        => array('isMobile' => false, 'isTablet' => false),
+        //Nintendo Wii:
+        'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.28 (KHTML, like Gecko) NX/3.0.3.12.14 NintendoBrowser/3.1.1.9577.EU'    => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/{Version No} NintendoBrowser/{Version No}.US' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7567.US'                                                              => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7498.US'                                                              => array('isMobile' => true, 'isTablet' => false),
+        //Sony PlayStation:
+        'Mozilla/5.0 (PLAYSTATION 3 4.21) AppleWebKit/531.22.8 (KHTML, like Gecko)'                                          => array('isMobile' => false, 'isTablet' => false),
+        //Microsoft Xbox:
+        'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)'                                              => array('isMobile' => false, 'isTablet' => false),
+        // WTF? Must investigate.
+        //'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Xbox)'                        => array('isMobile' => false, 'isTablet' => false),
 
         ),
 
     'Other' => array(
+        // Unknown
+        'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SV1; [eburo v4.0]; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; InfoPath.3; .NET4.0C; .NET4.0E)' => array('isMobile' => false, 'isTablet' => false),
+
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit/600.1.25 (KHTML, like Gecko) Version/8.0 Safari/600.1.25' => array('isMobile' => false, 'isTablet' => false),
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36' => array('isMobile' => false, 'isTablet' => false),
 
@@ -93,7 +96,6 @@ return array(
         // To be researched.
         'MobileSafari/9537.53 CFNetwork/672.1.13 Darwin/13.1.0' => array('isMobile' => true, 'isTablet' => false),
         'Appcelerator Titanium/3.2.2.GA (iPod touch/6.1.6; iPhone OS; en_US;)' => array('isMobile' => true, 'isTablet' => false),
-
 
         'Opera Coast/3.0.3.78307 CFNetwork/672.1.15 Darwin/14.0.0' => array('isMobile' => true, 'isTablet' => false),
 
@@ -190,6 +192,10 @@ return array(
         'grub-client-1.5.3; (grub-client-1.5.3; Crawl your own stuff with http://grub.org)' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
         'Googlebot-Image/1.0' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
         'Python-urllib/2.5' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
-        'facebookexternalhit/1.0 (+http://www.facebook.com/externalhit_uatext.php)' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/)
+        'facebookexternalhit/1.0 (+http://www.facebook.com/externalhit_uatext.php)' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
+        'AdsBot-Google (+http://www.google.com/adsbot.html)' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
+        'AdsBot-Google-Mobile (+http://www.google.com/mobile/adsbot.html) Mozilla (iPhone; U; CPU iPhone OS 3 0 like Mac OS X) AppleWebKit (KHTML, like Gecko) Mobile Safari' => array('isMobile' => true, 'isTablet' => false, /*'isBot' => true*/),
+        'Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.16 (KHTML, like Gecko, Google Keyword Suggestion) Chrome/10.0.648.127 Safari/534.16' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
+        'Facebot' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/)
         ),
 );
