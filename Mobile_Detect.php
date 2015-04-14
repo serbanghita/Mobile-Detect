@@ -583,7 +583,7 @@ class Mobile_Detect
         'Firefox'       => 'Firefox/[VER]',
         'Fennec'        => 'Fennec/[VER]',
         // @reference: http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
-        'IE'      => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];'),
+        'IE'      => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'Trident/[VER]'),
         // http://en.wikipedia.org/wiki/NetFront
         'NetFront'      => 'NetFront/[VER]',
         'NokiaBrowser'  => 'NokiaBrowser/[VER]',
