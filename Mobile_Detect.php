@@ -439,7 +439,7 @@ class Mobile_Detect
         // http://www.pocketbook-int.com/ru/support
         'PocketBookTablet' => 'Pocketbook',
         // http://www.tesco.com/direct/hudl/
-        'Hudl'              => 'Hudl HT7S3',
+        'Hudl'              => 'Hudl HT7S3|Hudl 2',
         // http://www.telstra.com.au/home-phone/thub-2/
         'TelstraTablet'     => 'T-Hub2',
         'GenericTablet'     => 'Android.*\b97D\b|Tablet(?!.*PC)|BNTV250A|MID-WCDMA|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|rk30sdk|\bEVOTAB\b|M758A|ET904|ALUMIUM10|Smartfren Tab|Endeavour 1010|Tablet-PC-4|Tagi Tab|\bM6pro\b|CT1020W|arc 10HD|\bJolla\b'
