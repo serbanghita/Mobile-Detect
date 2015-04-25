@@ -158,7 +158,7 @@ $scriptVersion = $detect->getScriptVersion();
     <p>This is a <b><?php echo $deviceType; ?></b>. Your UA is <b class="<?php echo $deviceType; ?>"><?php echo htmlentities($_SERVER['HTTP_USER_AGENT']); ?></b></p>
 
     <p class="infoText">Please help us improve the mobile detection by choosing the correct answer.<br>
-    Before sending an answer double check if you are using the browser in 'Desktop mode'.<br>
+        Before sending an answer double check that you are using the browser in its normal mode, not in 'Desktop mode'.<br>
     You can contribute by:<br>
      1. <a href="https://github.com/serbanghita/Mobile-Detect">forking</a> the project<br>
      2. <a href="https://github.com/serbanghita/Mobile-Detect/issues/new?body=Please%20specify%20the%20User-Agent.%20Go%20to%20http://is.gd/mobiletest%20and%20copy-paste%20it%20here.">submiting an issue</a><br>
