@@ -584,8 +584,9 @@ class Mobile_Detect
         // @reference: https://developer.mozilla.org/en-US/docs/User_Agent_Strings_Reference
         'Firefox'       => 'Firefox/[VER]',
         'Fennec'        => 'Fennec/[VER]',
-        // @reference: http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
-        'IE'      => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];'),
+        // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
+        // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
+        'IE'      => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'Trident/[0-9.]+;.*rv:[VER]'),
         // http://en.wikipedia.org/wiki/NetFront
         'NetFront'      => 'NetFront/[VER]',
         'NokiaBrowser'  => 'NokiaBrowser/[VER]',
