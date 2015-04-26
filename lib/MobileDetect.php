@@ -402,11 +402,11 @@ class MobileDetect
             $regex = static::prepareRegex($test);
 
             if (preg_match($regex, $against, $matches)) {
-                if (isset($matches['version'])) {
+                if (isset($matches['version']) && !isset($matchReturn['version'])) {
                     $matchReturn['version'] = $this->versionPrepare($matches['version']);
                 }
 
-                if (isset($matches['model'])) {
+                if (isset($matches['model']) && !isset($matchReturn['model'])) {
                     $matchReturn['model'] = $matches['model'];
                 }
             }
@@ -454,6 +454,7 @@ class MobileDetect
                     $match['model_match'] = $this->modelMatch($vendor['modelMatch'], $this->getUserAgent());
                 }
 
+                // @todo Serban - extend this beyond vendor key.
                 $match['model'] = $vendorKey;
                 $match['vendor'] = $vendor['vendor'];
 
@@ -609,8 +610,7 @@ class MobileDetect
 
         if ($model = $this->detectPhoneDevice()) {
             $props['type'] = Type::MOBILE;
-        }
-        if ($model = $this->detectTabletDevice()) {
+        } else if ($model = $this->detectTabletDevice()) {
             $props['type'] = Type::TABLET;
         }
 
