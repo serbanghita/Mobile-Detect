@@ -6,51 +6,44 @@ use MobileDetect\MobileDetect;
 
 class UserAgentTest extends \PHPUnit_Framework_TestCase
 {
-    protected static $ualist = array();
-
-    public static function setUpBeforeClass()
-    {
-        parent::setUpBeforeClass();
-
-        // Get all User-Agents grouped by vendor.
-        if (!self::$ualist) {
-            // Setup.
-            $includeBasePath = TEST_ROOT_PATH . getenv('fixture_path_perVendor');
-            if (!is_dir($includeBasePath)) {
-                throw new \RuntimeException('Missing the fixture path definitions from phpunit.xml');
-            }
-            $list = array();
-
-            // Scan.
-            $dir = new \DirectoryIterator($includeBasePath);
-            foreach ($dir as $fileInfo) {
-                if ($fileInfo->isDot()) {
-                    continue;
-                }
-                $listNew = include $includeBasePath . '/' . $fileInfo->getFilename();
-                if (is_array($listNew)) {
-                    $list = array_merge($list, $listNew);
-                }
-            }
-
-            self::$ualist = $list;
-            unset($list);
-        }
-    }
-
     public function userAgentData()
     {
-        if (!self::$ualist) {
-            self::setUpBeforeClass();
+        // Setup.
+        $includeBasePath = TEST_ROOT_PATH . getenv('fixture_path_perVendor');
+        if (!is_dir($includeBasePath)) {
+            throw new \RuntimeException('Missing the fixture path definitions from phpunit.xml');
+        }
+        $list = array();
+
+        // Scan.
+        $dir = new \DirectoryIterator($includeBasePath);
+        foreach ($dir as $fileInfo) {
+            if ($fileInfo->isDot()) {
+                continue;
+            }
+            $listNew = include $includeBasePath . '/' . $fileInfo->getFilename();
+            if (is_array($listNew)) {
+                $list = array_merge($list, $listNew);
+            }
         }
 
-        return self::$ualist;
+        return $list;
     }
 
     /**
      * @dataProvider userAgentData
+     *
+     * @param $ua
+     * @param $isMobile
+     * @param $isTablet
+     * @param $browser
+     * @param $browserVersion
+     * @param $operatingSystem
+     * @param $operatingSystemVersion
+     * @param $model
+     * @param $modelVersion
      */
-    public function testAgents($ua, $isMobile, $isTablet, $version, $model, $vendor)
+    public function testAgents($ua, $isMobile, $isTablet, $browser, $browserVersion, $operatingSystem, $operatingSystemVersion, $model, $modelVersion)
     {
         $detector = new MobileDetect($ua);
         $device = $detector->detect();
@@ -63,7 +56,32 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
             $this->assertSame($isTablet, $device->isTablet(), 'The isTablet() assertion is not correct.');
         }
 
-        // so that phpunit doesn't complain on incomplete tests
+        if (isset($browser)) {
+            $this->assertSame($browser, $device->getBrowser(), 'The getBrowser() assertion is not correct.');
+        }
+
+        if (isset($browserVersion)) {
+            $this->assertSame($browserVersion, $device->getBrowserVersion(), 'The getBrowserVersion() assertion is not correct.');
+        }
+
+        if (isset($operatingSystem)) {
+            $this->assertSame($operatingSystem, $device->getOperatingSystem(), 'The getOperatingSystem() assertion is not correct.');
+        }
+
+        if (isset($operatingSystemVersion)) {
+            $this->assertSame($operatingSystemVersion, $device->getOperatingSystemVersion(), 'The getOperatingSystemVersion() assertion is not correct.');
+        }
+
+        if (isset($model)) {
+            $this->assertSame($model, $device->getModel(), 'The getModel() assertion is not correct.');
+        }
+
+        if (isset($modelVersion)) {
+            $this->assertSame($modelVersion, $device->getModelVersion(), 'The getModelVersion() assertion is not correct.');
+        }
+
+
         $this->assertSame($ua, $device->getUserAgent());
     }
+
 }
