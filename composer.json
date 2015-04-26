@@ -16,13 +16,9 @@
     "require": {
         "php": ">=5.3.9"
     },
-    "require-dev": {
-        "phpunit/phpunit": "*"
-    },
     "autoload": {
         "psr-4": {
-            "MobileDetect\\": "lib/",
-            "MobileDetectTest\\": "tests/"
+            "MobileDetect\\": "lib/"
         }
     }
 }
