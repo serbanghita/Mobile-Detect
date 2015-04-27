@@ -6,12 +6,16 @@
     "homepage": "https://github.com/serbanghita/Mobile-Detect",
     "license": "MIT",
     "authors": [
-        {
-            "name": "Serban Ghita",
-            "email": "serbanghita@gmail.com",
-            "homepage": "http://mobiledetect.net",
-            "role": "Developer"
-        }
+      {
+        "name": "Nick Ilyin",
+        "email": "nick.ilyin@gmail.com",
+        "role": "Development"
+      },
+      {
+          "name": "Serban Ghita",
+          "email": "serbanghita@gmail.com",
+          "role": "Developer & Detection research"
+      }
     ],
     "require": {
         "php": ">=5.3.9"

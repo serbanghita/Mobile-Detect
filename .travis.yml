@@ -7,7 +7,7 @@ php:
 
 branches:
   only:
-    - devel-3
+    - devel-3-refactoring
 
 before_script:
  - wget http://getcomposer.org/composer.phar
@@ -15,7 +15,8 @@ before_script:
  - php composer.phar install --dev --no-interaction
  
 script:
-  - phpunit -v -c phpunit.xml.dist --coverage-clover tests/clover.xml
+  - mkdir -p build/logs
+  - phpunit -v -c tests/phpunit.xml --coverage-clover build/logs/clover.xml
 
 after_script:
  - php vendor/bin/coveralls -v
