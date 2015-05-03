@@ -1,7 +1,7 @@
 <?php
 namespace MobileDetect\Data;
 
-class OperatingSystemData extends AbstractData
+class OperatingSystemsData extends AbstractData
 {
     /**
      * List of mobile Operating Systems.

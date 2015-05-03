@@ -24,14 +24,14 @@ class BrowsersData extends AbstractData
          */
         'Chrome'         => array(
             'Chrome Mobile' => array(
-                'isMobile'     => true,
-                'match'        => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
-                'versionMatch' => array('Chrome/[VER]', 'CriOS/[VER]', 'CrMo/[VER]'),
+                'isMobile' => true,
+                'identityMatches' => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
+                'versionMatches' => array('Chrome/[VER]', 'CriOS/[VER]', 'CrMo/[VER]'),
             ),
             'Chrome Desktop' => array(
-                'isMobile'     => false,
-                'match'        => '\bChrome\b/[.0-9]*',
-                'versionMatch' => array('Chrome/[VER]'),
+                'isMobile' => false,
+                'identityMatches' => '\bChrome\b/[.0-9]*',
+                'versionMatches' => array('Chrome/[VER]'),
             ),
         ),
 
@@ -43,18 +43,18 @@ class BrowsersData extends AbstractData
         'Firefox'        => array(
             'Firefox Mobile' => array(
                 'isMobile'     => true,
-                'match'        => '(Mobile|Tablet).*Firefox|Firefox.*Mobile|firefox.*maemo',
-                'versionMatch' => array('Firefox/[VER]', 'rv:[VER]'),
+                'identityMatches'        => '(Mobile|Tablet).*Firefox|Firefox.*Mobile|firefox.*maemo',
+                'versionMatches' => array('Firefox/[VER]', 'rv:[VER]'),
             ),
             'Fennec' => array(
                 'isMobile'     => true,
-                'match'        => '\bfennec\b',
-                'versionMatch' => array('Fennec/[VER]'),
+                'identityMatches'        => '\bfennec\b',
+                'versionMatches' => array('Fennec/[VER]'),
             ),
             'Firefox Desktop' => array(
                 'isMobile'     => false,
-                'match'        => 'Firefox/[0-9.]+',
-                'versionMatch' => array('rv:[VER]', 'Firefox/[VER]'),
+                'identityMatches'        => 'Firefox/[0-9.]+',
+                'versionMatches' => array('rv:[VER]', 'Firefox/[VER]'),
             ),
         ),
         /**
@@ -65,13 +65,13 @@ class BrowsersData extends AbstractData
         'IE'             => array(
             'IE Mobile' => array(
                 'isMobile'     => true,
-                'match'        => 'IEMobile|MSIEMobile',
-                'versionMatch' => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'Trident.*rv.[VER]'),
+                'identityMatches'        => 'IEMobile|MSIEMobile',
+                'versionMatches' => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'Trident.*rv.[VER]'),
             ),
             'IE Desktop' => array(
                 'isMobile'     => false,
-                'match'        => 'MSIE [0-9.]+;|Trident.*rv.[0-9.]+',
-                'versionMatch' => array('MSIE [VER];', 'Trident.*rv.[VER]'),
+                'identityMatches'        => 'MSIE [0-9.]+;|Trident.*rv.[0-9.]+',
+                'versionMatches' => array('MSIE [VER];', 'Trident.*rv.[VER]'),
             ),
         ),
 
@@ -81,23 +81,23 @@ class BrowsersData extends AbstractData
         'Opera'          => array(
             'Opera Mini' => array(
                 'isMobile'     => true,
-                'match'        => 'Opera.*Mini',
-                'versionMatch' => array('Opera Mini/[VER]'),
+                'identityMatches'        => 'Opera.*Mini',
+                'versionMatches' => array('Opera Mini/[VER]'),
             ),
             'Opera Mobi' => array(
                 'isMobile'     => true,
-                'match'        => 'Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+',
-                'versionMatch' => array('Opera Mobi/[VER]', ' OPR/[VER]', 'Version/[VER]'),
+                'identityMatches'        => 'Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+',
+                'versionMatches' => array('Opera Mobi/[VER]', ' OPR/[VER]', 'Version/[VER]'),
             ),
             'Opera Coast' => array(
                 'isMobile'     => true,
-                'match'        => 'Coast/[0-9.]+',
-                'versionMatch' => array('Coast/[VER]'),
+                'identityMatches'        => 'Coast/[0-9.]+',
+                'versionMatches' => array('Coast/[VER]'),
             ),
             'Opera Desktop' => array(
                 'isMobile'     => false,
-                'match'        => '\bOpera\b| OPR/',
-                'versionMatch' => array('Opera/[VER]', ' OPR/[VER]', 'Version/[VER]' ),
+                'identityMatches'        => '\bOpera\b| OPR/',
+                'versionMatches' => array('Opera/[VER]', ' OPR/[VER]', 'Version/[VER]' ),
             ),
         ),
 
@@ -111,13 +111,13 @@ class BrowsersData extends AbstractData
         'Safari'         => array(
             'Safari Mobile' => array(
                 'isMobile'     => true,
-                'match'        => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari',
-                'versionMatch' => array('Version/[VER]', 'Safari/[VER]'),
+                'identityMatches'        => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari',
+                'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
             ),
             'Safari Desktop' => array(
                 'isMobile'     => false,
-                'match'        => 'Safari/[0-9.]+',
-                'versionMatch' => array('Version/[VER]', 'Safari/[VER]'),
+                'identityMatches'        => 'Safari/[0-9.]+',
+                'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
             ),
         ),
 

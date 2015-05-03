@@ -8,9 +8,11 @@ use MobileDetect\Properties\RecognizedHeadersProperties;
 use MobileDetect\Properties\MobileHeadersProperties;
 
 use MobileDetect\Data\BrowsersData;
-use MobileDetect\Data\OperatingSystemData;
-use MobileDetect\Data\PhoneData;
-use MobileDetect\Data\TabletData;
+use MobileDetect\Data\OperatingSystemsData;
+use MobileDetect\Data\PhonesData;
+use MobileDetect\Data\TabletsData;
+
+use MobileDetect\Device\DeviceType;
 
 class MobileDetect
 {
@@ -25,6 +27,12 @@ class MobileDetect
     protected $factory;
     protected $uaHeadersProperties;
     protected $recognizedHeadersProperties;
+
+    // Database.
+    protected $browsersData;
+    protected $operatingSystemsData;
+    protected $phonesData;
+    protected $tabletsData;
 
     protected $knownMatchTypes = array(
         'regex', //regular expression
@@ -45,6 +53,11 @@ class MobileDetect
 
         $this->uaHeadersProperties = $this->factory->createUaHeadersProperties();
         $this->recognizedHeadersProperties = $this->factory->createRecognizedHeadersProperties();
+
+        $this->browsersData = $this->factory->createBrowsersData();
+        $this->operatingSystemsData = $this->factory->createOperatingSystemsData();
+        $this->phonesData = $this->factory->createPhonesData();
+        $this->tabletsData = $this->factory->createTabletsData();
 
         if (is_string($headers)) {
             $headers = array('User-Agent' => $headers);
@@ -186,6 +199,22 @@ class MobileDetect
     }
 
     /**
+     * @param $version string The string to convert to a standard version.
+     * @param bool $asArray
+     * @return array|string A string or an array if $asArray is passed as true.
+     */
+    protected function prepareVersion($version, $asArray = false)
+    {
+        $version = str_replace('_', '.', $version);
+
+        if ($asArray) {
+            return explode('.', $version);
+        } else {
+            return $version;
+        }
+    }
+
+    /**
      * Converts the quasi-regex into a full regex, replacing various common placeholders such
      * as [VER] or [MODEL].
      *
@@ -211,7 +240,7 @@ class MobileDetect
      * @return bool                               True if matched successfully.
      * @throws Exception\InvalidArgumentException If $against isn't a string or $type is invalid.
      */
-    protected function matches($type, $test, $against)
+    protected function identityMatch($type, $test, $against)
     {
         if (!in_array($type, $this->getKnownMatches())) {
             throw new Exception\InvalidArgumentException(
@@ -225,7 +254,7 @@ class MobileDetect
         }
 
         if ($type == 'regex') {
-            if (preg_match($this->prepareRegex($test), $against)) {
+            if ($this->regexMatch($this->prepareRegex($test), $against)) {
                 return true;
             }
         } elseif ($type == 'strpos') {
@@ -241,4 +270,200 @@ class MobileDetect
         return false;
     }
 
+    /**
+     * Attempts to match the model and extracts
+     * the version and model if available.
+     *
+     * @param $tests array Various tests.
+     * @param $against string The test.
+     *
+     * @return array|bool False if no match, hash of match data otherwise.
+     */
+    protected function modelMatch($tests, $against)
+    {
+        // Model match must be an array.
+        if (!is_array($tests) || !count($tests)) {
+            return false;
+        }
+
+        $this->setRegexErrorHandler();
+
+        $matchReturn = array();
+
+        foreach ($tests as $test) {
+            $regex = $this->prepareRegex($test);
+
+            if ($this->regexMatch($regex, $against, $matches)) {
+                // If the match contained a version, save it.
+                if (isset($matches['version'])) {
+                    $matchReturn['version'] = $this->prepareVersion($matches['version']);
+                }
+
+                // If the match contained a model, save it.
+                if (isset($matches['model'])) {
+                    $matchReturn['model'] = $matches['model'];
+                }
+
+                $this->restoreRegexErrorHandler();
+                return $matchReturn;
+            }
+        }
+
+        $this->restoreRegexErrorHandler();
+        return false;
+    }
+
+    public function detect()
+    {
+        $props = array();
+
+        // Search the entire database.
+        // Assign properties when found.
+
+        $deviceType = DeviceType::DESKTOP;
+        if ($deviceResult = $this->searchForPhoneInDb()) {
+            $deviceType = DeviceType::MOBILE;
+        } elseif ($deviceResult = $this->searchForTabletInDb()) {
+            $deviceType = DeviceType::TABLET;
+        }
+
+        if ($deviceResult && isset($deviceResult['modelMatches'])) {
+            $deviceModelResult = $this->modelMatch($deviceResult['modelMatches'], $this->getUserAgent());
+        }
+
+        $browserResults = $this->searchForBrowserInDb();
+        if ($browserResults && isset($browserResults['versionMatches'])) {
+            $browserVersionResult = $this->modelMatch($browserResults['versionMatches'], $this->getUserAgent());
+        }
+
+        $osResults = $this->searchForOperatingSystemInDb();
+        if ($osResults && isset($osResults['versionMatches'])) {
+            $osVersionResults = $this->modelMatch($osResults['versionMatches'], $this->getUserAgent());
+        }
+
+
+        if (!$deviceResult && ($browserResults || $osResults)) {
+            $deviceType = DeviceType::MOBILE;
+        } else if (!$deviceResult && !$browserResults && !$osResults) {
+            $deviceType = DeviceType::DESKTOP;
+        }
+
+
+        $props['type'] = $deviceType;
+        $props['model'] = $deviceModelResult['model'];
+        $props['modelVersion'] = $deviceModelResult['version'];
+        $props['browser'] = null;
+        $props['browserVersion'] = null;
+        $props['os'] = null;
+        $props['osVersion'] = null;
+
+        return $props;
+
+    }
+
+    private function searchForItemInDb(array $itemsData)
+    {
+        foreach ($itemsData as $vendorKey => $item) {
+            // Check matching type, and assume regex if not present.
+            if (!isset($item['matchType'])) {
+                $item['matchType'] = 'regex';
+            }
+
+            if (!isset($item['vendor'])) {
+                throw new Exception\InvalidDeviceSpecificationException(
+                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'vendor')
+                );
+            }
+
+            if (!isset($item['identityMatches'])) {
+                throw new Exception\InvalidDeviceSpecificationException(
+                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'match')
+                );
+            }
+
+            if ($this->identityMatch($item['type'], $item['identityMatches'], $this->getUserAgent())) {
+                // Found the matching item.
+                return $item;
+            }
+        }
+
+        return false;
+    }
+
+    protected function searchForPhoneInDb()
+    {
+        return $this->searchForItemInDb($this->phonesData->getAll());
+    }
+
+    protected function searchForTabletInDb()
+    {
+        return $this->searchForItemInDb($this->tabletsData->getAll());
+    }
+
+    protected function searchForBrowserInDb()
+    {
+        foreach ($this->browsersData->getAll() as $browserFamilyName => $browserFamilyData) {
+            $result = $this->searchForItemInDb($browserFamilyData);
+            if ($result !== false) {
+                return $result;
+            }
+        }
+
+        return false;
+    }
+
+    protected function searchForOperatingSystemInDb()
+    {
+        return $this->searchForItemInDb($this->operatingSystemsData->getAll());
+    }
+
+
+
+    /**
+     * @param $regex
+     * @param $against
+     * @param null $matches
+     * @return int
+     */
+    private function regexMatch($regex, $against, &$matches = null)
+    {
+        return preg_match($regex, $against, $matches);
+    }
+
+    /**
+     * An error handler that gets registered to watch only for regex errors and convert
+     * to an exception.
+     *
+     * @param $code int
+     * @param $msg string
+     * @param $file string
+     * @param $line int
+     * @param $context array
+     *
+     * @return bool False to indicate this is not a regex error to be handled.
+     *
+     * @throws Exception\RegexCompileException When there is a regex error.
+     */
+    private function regexErrorHandler($code, $msg, $file, $line, $context)
+    {
+        if (strpos($msg, 'preg_') !== false) {
+            // we only want to deal with preg match errors
+            throw new Exception\RegexCompileException($msg, $code, $file, $line, $context);
+
+        }
+
+        return false;
+    }
+
+    private function setRegexErrorHandler()
+    {
+        // graceful handling of pcre errors
+        set_error_handler(array($this, 'regexErrorHandler'));
+    }
+
+    private function restoreRegexErrorHandler()
+    {
+        // restore previous
+        restore_error_handler();
+    }
 }
