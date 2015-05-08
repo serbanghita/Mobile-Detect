@@ -13,12 +13,10 @@ class TabletsData extends AbstractData
         /**
          * iPad tablets family.
          */
-        'iPad'              => array(
-            'vendor'     => 'Apple',
-            'match'      => 'iPad|iPad.*Mobile',
-            'modelMatch' => array('iPad.*CPU[a-z ]+[VER]'),
+        'iPad' => array(
+            'vendor' => 'Apple',
+            'identityMatches' => 'iPad|iPad.*Mobile',
+            'modelMatches' => array('iPad.*CPU[a-z ]+(?<version>[0-9\._-]+)'),
         ),
-
-
     );
 }

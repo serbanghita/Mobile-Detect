@@ -66,5 +66,27 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('6.0', $ret['version']);
     }
 
+    /**
+     * Matching a non existent set of matches return false.
+     */
+    public function testMatchingANonExistentSetOfMatchesReturnFalse()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('modelMatch');
+        $m->setAccessible(true);
+
+        $inputModelMatches = array(
+            'Test1',
+            'Test2'
+        );
+        $inputAgainst = 'Mozilla/5.0';
+        $outputMatches = array();
+        $ret = $m->invoke($detect, $inputModelMatches, $inputAgainst, $outputMatches);
+
+        $this->assertFalse($ret);
+        $this->assertEmpty($outputMatches);
+    }
+
+
 
 }

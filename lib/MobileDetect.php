@@ -320,6 +320,8 @@ class MobileDetect
         // Search the entire database.
         // Assign properties when found.
 
+        // Search phone OR tablet database.
+        // Tag the device type.
         $deviceType = DeviceType::DESKTOP;
         if ($deviceResult = $this->searchForPhoneInDb()) {
             $deviceType = DeviceType::MOBILE;
@@ -327,38 +329,42 @@ class MobileDetect
             $deviceType = DeviceType::TABLET;
         }
 
+        // Get model and version of the physical device (if possible).
         if ($deviceResult && isset($deviceResult['modelMatches'])) {
             $deviceModelResult = $this->modelMatch($deviceResult['modelMatches'], $this->getUserAgent());
         }
 
+        // Search browser.
+        // Get model and version of the browser matched.
         $browserResults = $this->searchForBrowserInDb();
         if ($browserResults && isset($browserResults['versionMatches'])) {
             $browserVersionResult = $this->modelMatch($browserResults['versionMatches'], $this->getUserAgent());
         }
 
+        // Search operating system.
+        // Get model and version of the operating system.
         $osResults = $this->searchForOperatingSystemInDb();
         if ($osResults && isset($osResults['versionMatches'])) {
             $osVersionResults = $this->modelMatch($osResults['versionMatches'], $this->getUserAgent());
         }
 
-
+        // Fallback.
+        // Tag the device type if searching phones OR tablets didn't match anything.
         if (!$deviceResult && ($browserResults || $osResults)) {
             $deviceType = DeviceType::MOBILE;
         } else if (!$deviceResult && !$browserResults && !$osResults) {
             $deviceType = DeviceType::DESKTOP;
         }
 
-
         $props['type'] = $deviceType;
-        $props['model'] = $deviceModelResult['model'];
-        $props['modelVersion'] = $deviceModelResult['version'];
+        $props['model'] = isset($deviceModelResult) ? $deviceModelResult['model'] : null;
+        $props['modelVersion'] = isset($deviceModelResult) ? $deviceModelResult['version'] : null;
         $props['browser'] = null;
         $props['browserVersion'] = null;
         $props['os'] = null;
         $props['osVersion'] = null;
 
         return $props;
-
     }
 
     private function searchForItemInDb(array $itemsData)
@@ -416,8 +422,6 @@ class MobileDetect
     {
         return $this->searchForItemInDb($this->operatingSystemsData->getAll());
     }
-
-
 
     /**
      * @param $regex
