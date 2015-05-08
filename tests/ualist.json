@@ -1,5 +1,5 @@
 {
-    "hash": "a883d665275c8b6a54e10293e8eaf08078b868ca",
+    "hash": "c65bfdcdeedde6295ce7fe3bca1f256b48e9378b",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -1993,6 +1993,1482 @@
             "model": "T8788"
         },
         {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; HTC One S Build\/IMM76D) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; de-de; HTC One X Build\/IMM76D) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; en-th; HTC One V Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; HTC One X Build\/IMM76D) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; en-id; HTC One X Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One S Build\/IML74K) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One X Build\/IML74K) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; de-at; HTC One S Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03L) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; en-gb; HTC One S Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03C) AppleWebKit\/537.22 (KHTML, like Gecko) Chrome\/25.0.1364.123 Mobile Safari\/537.22",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.22 (KHTML, like Gecko) Chrome\/25.0.1364.123 Mobile Safari\/537.22",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03C) AppleWebKit\/537.22 (KHTML, like Gecko) Chrome\/25.0.1364.169 Mobile Safari\/537.22",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One X Build\/JZO54K) AppleWebKit\/537.22 (KHTML, like Gecko) Chrome\/25.0.1364.169 Mobile Safari\/537.22",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; es-pe; HTC One V Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.22 (KHTML, like Gecko) Chrome\/25.0.1364.169 Mobile Safari\/537.22",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One V Build\/IML74K) AppleWebKit\/537.31 (KHTML, like Gecko) Chrome\/26.0.1410.58 Mobile Safari\/537.31",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; de-de; HTC One X Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30 Maxthon\/4.0.4.1000",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One X Build\/IML74K) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.133 Mobile Safari\/535.19 AlexaToolbar\/alxf-2.17",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03C) AppleWebKit\/537.31 (KHTML, like Gecko) Chrome\/26.0.1410.58 Mobile Safari\/537.31",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One Build\/JZO54K) AppleWebKit\/537.31 (KHTML, like Gecko) Chrome\/26.0.1410.58 Mobile Safari\/537.31",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One S Build\/IML74K) AppleWebKit\/537.31 (KHTML, like Gecko) Chrome\/26.0.1410.58 Mobile Safari\/537.31",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.31 (KHTML, like Gecko) Chrome\/26.0.1410.58 Mobile Safari\/537.31",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/27.0.1453.90 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/27.0.1453.90 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One Build\/JZO54K) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One Build\/JZO54K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/27.0.1453.90 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.2; de-de; HTC One Build\/JZO54K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.31 (KHTML, like Gecko) Chrome\/26.0.1410.58 Mobile Safari\/537.31 OPR\/14.0.1074.58201",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; es-es; HTC One S Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One Build\/JZO54K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.64 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.64 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One V Build\/IML74K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.64 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39E) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One XL Build\/JRO03C) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.63 Mobile Safari\/537.36 OPR\/15.0.1162.60140",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.94 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; de-de; HTC One S Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One Build\/JZO54K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.94 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.94 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One X Build\/IML74K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.94 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.94 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One Build\/JZO54K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.24 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "HTC One X Linux\/3.0.13 Android\/4.1.9 Release\/10.12.2012 Browser\/AppleWebKit534.30 Profile\/MIDP-2.0 Configuration\/CLDC-1.1 Mobile Safari\/534.30 Android 4.0.1;",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; zh-tw; HTC One 801e Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; HTC One X Build\/IMM76D) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/28.0.1500.63 Mobile Safari\/537.36 OPR\/15.0.1162.61541",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.72 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One XL Build\/IML74K) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One Build\/JZO54K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.72 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.72 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X+ Build\/JRO03C) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; en-us; HTC One X Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30\/4.05d.1002.m7",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; en-in; HTC One V Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.72 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One V Build\/IML74K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.72 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; ru-ru; HTC One X Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30 MicroMessenger\/5.0.1.352",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; en-us; HTC One X Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-gb; HTC One Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.72 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One SV Build\/JZO54K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.82 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.82 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One V Build\/IML74K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.82 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.82 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.82 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.92 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One mini Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.82 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; en-us; HTC One Build\/IMM76D) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.82 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One 801e Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/29.0.1547.72 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.92 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.92 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.92 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; de-ch; HTC One Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; nl-nl; HTC One X Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.92 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/31.0.1650.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/31.0.1650.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/31.0.1650.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; zh-cn; HTC One S Build\/IML74K) AppleWebKit\/530.17 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/530.17 T5\/2.0 baidubrowser\/3.1.6.4 (Baidu; P1 4.0.3)",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/31.0.1650.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X+ Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/31.0.1650.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.3; en-us; HTC One 801e Build\/JSS15J) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 UCBrowser\/9.4.1.362 U3\/0.8.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4; HTC One Build\/KRT16S.H5) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/31.0.1650.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/31.0.1650.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.94 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One SV Build\/JZO54K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/31.0.1650.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.1; ru-ru; HTC One Build\/JOP40D) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; ru-ru; HTC One 801e Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One 801e Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One mini Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/30.0.1599.12975 YaBrowser\/13.12.1599.12975 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4; HTC One Build\/KRT16S) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.3; en-us; HTC One Build\/JSS15J) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One X Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One X Build\/JZO54K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JWR66Y.H1) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.93 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.3; de-at; HTC One Build\/JSS15J) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.136 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.135 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X+ Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.136 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One dual sim Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.136 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; HTC One S Build\/IMM76D) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.136 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One max Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.132 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.136 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One mini Build\/JSS15Q) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.136 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One 801e Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.136 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; zh-cn; HTC One Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30 MicroMessenger\/5.2.380",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.136 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.166 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One X Build\/IML74K) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.133 Mobile Safari\/535.19",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.166 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.166 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X+ Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.166 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.132 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/34.0.1847.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/34.0.1847.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; HTC One X Build\/IMM76D) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.99 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; it-it; HTC One S Build\/IMM76D) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-kw; HTC One X+ Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/34.0.1847.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One max Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36 MicroMessenger\/5.3.0.49_r693790.420",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/34.0.1847.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.122 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.122 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.122 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; ru; HTC One V Build\/IML74K) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 UCBrowser\/9.7.5.418 U3\/0.8.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.138 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36 MicroMessenger\/5.2.1.381",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.122 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One mini Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.138 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.4.2; ru-ru; HTC One mini Build\/KOT49H) AppleWebKit\/537.16 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/537.16",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; ru; HTC One V Build\/IML74K) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 UCBrowser\/9.8.0.435 U3\/0.8.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One 801e Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/34.0.1847.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-us; HTC One X - 4.2.2 - API 17 - 720x1280 Build\/JDQ39E) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One_M8 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One V Build\/IML74K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.138 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.94 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X+ Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.128 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One_M8 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.128 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.128 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One_M8 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.131 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.131 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.131 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One_M8 Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.131 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.2; HTC One VX Build\/JZO54K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.131 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.76 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One_M8 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.135 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.135 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One V Build\/IML74K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/34.0.1847.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One dual sim Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.135 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One dual sim Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.138 Mobile Safari\/537.36 OPR\/22.0.1485.78487",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X+ Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.135 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.131 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One_M8 Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.135 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.135 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.135 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One 801e Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/33.0.0.0 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One 801e Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.3; HTC One X Build\/IML74K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.138 Mobile Safari\/537.36 OPR\/22.0.1485.81203",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One 801e Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One mini Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.135 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.1.1; HTC One S Build\/JRO03C) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; zh-tw; HTC One S Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One_M8 Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; en-us; HTC One V Build\/IML74K) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 UCBrowser\/9.9.2.467 U3\/0.8.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One mini Build\/JSS15Q) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.4.2; en-us; HTC One_M8 Build\/KOT49H) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One dual sim Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/37.0.2062.117 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/32.0.1700.72 Mobile Safari\/537.36 OPR\/19.0.1340.69721",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.102 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.102 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One_M8 Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.102 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One_M8 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.102 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One SV Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.102 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/33.0.0.0 Mobile Safari\/537.36 ACHEETAHI\/2100050056",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; HTC One_M8 Build\/KTU84P) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.102 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.102 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One_M8 Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/33.0.0.0 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JWR66Y.H1) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; zh-tw; HTC One SV Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One mini Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/38.0.2125.114 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; HTC One_M8 Build\/KTU84P) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/33.0.0.0 Mobile Safari\/537.36 [FBAN\/FB4A;FBAV\/21.0.0.23.12;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; zh-tw; HTC One X Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; HTC One_M8 Build\/KTU84P) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; ru-si; HTC One X Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30 MicroMessenger\/6.0.0.67_r853700.483 NetType\/WIFI",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One_M8 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36 [FBAN\/FB4A;FBAV\/22.0.0.15.13;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; en-US; HTC One X Build\/JRO03C) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 UCBrowser\/10.0.1.512 U3\/0.8.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; HTC One Build\/KTU84P.H1) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/33.0.0.0 Mobile Safari\/537.36 [FBAN\/FB4A;FBAV\/22.0.0.15.13;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One mini Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36 [FBAN\/FB4A;FBAV\/22.0.0.15.13;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One SV Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.59 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; HTC One_M8 Build\/KTU84P) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/33.0.0.0 Mobile Safari\/537.36 [FBAN\/FB4A;FBAV\/22.0.0.15.13;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One_M8 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; zh-tw; HTC One X+ Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; HTC One_M8 Build\/KTU84P) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/33.0.0.0 Mobile Safari\/537.36 BingWeb\/5.2.0.20140710",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; HTC One Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; es-mx; HTC One S Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30 [FBAN\/FB4A;FBAV\/23.0.0.22.14;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One mini Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.4.3; es-es; HTC One 801e Build\/KTU84L) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One mini Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X+ Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One_M8 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/40.0.2214.69 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; ru-ru; HTC One S Build\/JRO03C) AppleWebKit\/537.16 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/537.16",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/33.0.0.0 Mobile Safari\/537.36 [FB_IAB\/FB4A;FBAV\/24.0.0.30.15;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.4.2; en-th; HTC One Build\/KOT49H) AppleWebKit\/537.16 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/537.16",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; es-ar; HTC One X Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30 [FB_IAB\/FB4A;FBAV\/24.0.0.30.15;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One_M8 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36 [FB_IAB\/FB4A;FBAV\/24.0.0.30.15;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.1.1; es-us; HTC One X+ Build\/JRO03C) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30 [FB_IAB\/FB4A;FBAV\/24.0.0.30.15;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.3; es-mx; HTC One S Build\/IML74K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30 [FB_IAB\/FB4A;FBAV\/24.0.0.30.15;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36 [FB_IAB\/FB4A;FBAV\/24.0.0.30.15;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.136 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.3; HTC One Build\/KTU84L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/40.0.2214.89 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One dual sim Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/40.0.2214.89 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36 [FB_IAB\/FB4A;FBAV\/25.0.0.19.30;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.1; HTC One_M8 Build\/LRX22C) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/37.0.0.0 Mobile Safari\/537.36 [FB_IAB\/FB4A;FBAV\/25.0.0.19.30;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/40.0.2214.89 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; HTC One_M8 Build\/KTU84P) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/40.0.2214.109 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; HTC One X Build\/JDQ39) AppleWebKit\/537.31 (KHTML, like Gecko) Chrome\/26.0.1410.58 Mobile Safari\/537.31",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; HTC One mini Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/40.0.2214.109 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.1; HTC One_M8 Build\/LRX22C.H5) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/40.0.2214.109 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
             "vendor": "Huwaei",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.1-update1; bg-bg; Ideos S7 Build\/ERE27) AppleWebKit\/525.10+ (KHTML, like Gecko) Version\/3.0.4 Mobile Safari\/523.12.2",
             "mobile": true,
@@ -3423,6 +4899,42 @@
             "tablet": false
         },
         {
+            "vendor": "Onda",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; V975i Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/42.0.2311.108 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Onda",
+            "user_agent": "Mozilla\/5.0 (Android; Tablet; rv:37.0) Gecko\/37.0 Firefox\/37.0",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Onda",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; V975m Core4 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/35.0.1916.141 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Onda",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.3; fr-fr; V975m Core4 Build\/JSS15J) AppleWebKit\/537.16 (KHTML, like Gecko) Version\/4.0 Safari\/537.16",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Onda",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; V975m Core4 Build\/JSS15J) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/41.0.2272.96 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Onda",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; V812 Core4 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
             "vendor": "AdvanDigital",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-us; E1C Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
             "mobile": true,
@@ -4739,31 +6251,7 @@
         },
         {
             "vendor": "ZTE",
-            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.1;zh-cn; ZTE V987 Build\/JZO54K) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30;",
-            "mobile": true,
-            "tablet": false
-        },
-        {
-            "vendor": "ZTE",
-            "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.5; pt-pt; Blade Build\/tejosunhsine) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
-            "mobile": true,
-            "tablet": false
-        },
-        {
-            "vendor": "ZTE",
-            "user_agent": "Mozilla\/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident\/5.0; IEMobile\/9.0; ZTE; N880e_Dawoer_Fulllock; China Telecom)",
-            "mobile": true,
-            "tablet": false
-        },
-        {
-            "vendor": "ZTE",
-            "user_agent": "Mozilla\/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident\/5.0; IEMobile\/9.0; ZTE; V965W)",
-            "mobile": true,
-            "tablet": false
-        },
-        {
-            "vendor": "ZTE",
-            "user_agent": "Mozilla\/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident\/5.0; IEMobile\/9.0; ZTE; Windows Phone - Internet 7; SFR)",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; V8200plus Build\/IMM76I) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/33.0.1750.166 Mobile Safari\/537.36",
             "mobile": true,
             "tablet": false
         },
@@ -5487,6 +6975,12 @@
             "tablet": true
         },
         {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; en-us; SHV-E160K\/VI10.1802 Build\/IMM76D) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
             "vendor": "Sony",
             "user_agent": "SonyEricssonK800i\/R1AA Browser\/NetFront\/3.3 Profile\/MIDP-2.0 Configuration\/CLDC-1.1",
             "mobile": true,
@@ -5969,6 +7463,12 @@
         {
             "vendor": "Sony",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; D2533 Build\/19.2.A.0.391) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/30.0.0.0 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Sony",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; Xperia SP Build\/KTU84Q) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/41.0.2272.96 Mobile Safari\/537.36",
             "mobile": true,
             "tablet": false
         },
