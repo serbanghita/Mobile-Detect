@@ -10,14 +10,29 @@ class OperatingSystemsData extends AbstractData
      */
     protected $data = array(
         /**
+         * Android OS family.
+         *
+         */
+        'Android' => array(
+            'Android' => array(
+                'vendor' => 'Google',
+                'model' => 'Android',
+                'isMobile' => true,
+                'identityMatches' => 'Android',
+                'matchType' => 'strpos',
+                'versionMatches' => array('Android [VER]'),
+            ),
+        ),
+        /**
          * Apple's iOS family.
          *
          */
         'iOS' => array(
             'iOS' => array(
+                'vendor' => 'Apple',
                 'isMobile' => true,
-                'match' => '\biPhone.*(Mobile|OS)|\biPod|\biPad',
-                'versionMatch' => array('\bOS\b [VER]', 'iPhone OS/[VER]', 'iOS [VER];'),
+                'identityMatches' => '\biPhone.*(Mobile|OS)|\biPod|\biPad',
+                'versionMatches' => array('\bOS\b [VER]', 'iPhone OS/[VER]', 'iOS [VER];'),
             ),
         ),
 
@@ -26,9 +41,10 @@ class OperatingSystemsData extends AbstractData
          */
         'Mac' => array(
             'OSX' => array(
+                'vendor' => 'Apple',
                 'isMobile' => false,
-                'match' => 'Mac OS X',
-                'versionMatch' => array('Mac OS X [VER]'),
+                'identityMatches' => 'Mac OS X',
+                'versionMatches' => array('Mac OS X [VER]'),
             ),
         ),
     );

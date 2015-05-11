@@ -22,23 +22,31 @@ class BrowsersData extends AbstractData
          */
         'Opera' => array(
             'Opera Mini' => array(
-                'isMobile'     => true,
-                'identityMatches'        => 'Opera.*Mini',
+                'vendor' => 'Opera',
+                'model' => 'Opera Mini',
+                'isMobile' => true,
+                'identityMatches' => 'Opera.*Mini',
                 'versionMatches' => array('Opera Mini/[VER]'),
             ),
             'Opera Mobi' => array(
-                'isMobile'     => true,
-                'identityMatches'        => 'Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+',
+                'vendor' => 'Opera',
+                'model' => 'Opera Mobi',
+                'isMobile' => true,
+                'identityMatches' => 'Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+',
                 'versionMatches' => array('Opera Mobi/[VER]', ' OPR/[VER]', 'Version/[VER]'),
             ),
             'Opera Coast' => array(
-                'isMobile'     => true,
-                'identityMatches'        => 'Coast/[0-9.]+',
+                'vendor' => 'Opera',
+                'model' => 'Opera Coast',
+                'isMobile' => true,
+                'identityMatches' => 'Coast/[0-9.]+',
                 'versionMatches' => array('Coast/[VER]'),
             ),
             'Opera Desktop' => array(
-                'isMobile'     => false,
-                'identityMatches'        => '\bOpera\b| OPR/',
+                'vendor' => 'Opera',
+                'model' => 'Opera Desktop',
+                'isMobile' => false,
+                'identityMatches' => '\bOpera\b| OPR/',
                 'versionMatches' => array('Opera/[VER]', ' OPR/[VER]', 'Version/[VER]' ),
             ),
         ),
@@ -49,11 +57,15 @@ class BrowsersData extends AbstractData
          */
         'Chrome' => array(
             'Chrome Mobile' => array(
+                'vendor' => 'Google',
+                'model' => 'Chrome Mobile',
                 'isMobile' => true,
                 'identityMatches' => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
                 'versionMatches' => array('Chrome/[VER]', 'CriOS/[VER]', 'CrMo/[VER]'),
             ),
             'Chrome Desktop' => array(
+                'vendor' => 'Google',
+                'model' => 'Chrome Desktop',
                 'isMobile' => false,
                 'identityMatches' => '\bChrome\b/[.0-9]*',
                 'versionMatches' => array('Chrome/[VER]'),

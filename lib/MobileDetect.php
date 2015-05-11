@@ -313,6 +313,31 @@ class MobileDetect
         return false;
     }
 
+    protected function versionMatch($tests, $against)
+    {
+        // Model match must be an array.
+        if (!is_array($tests) || !count($tests)) {
+            return false;
+        }
+
+        $this->setRegexErrorHandler();
+
+        foreach ($tests as $test) {
+            $regex = $this->prepareRegex($test);
+
+            if ($this->regexMatch($regex, $against, $matches)) {
+                // If the match contained a version, save it.
+                if (isset($matches['version'])) {
+                    $this->restoreRegexErrorHandler();
+                    return $this->prepareVersion($matches['version']);
+                }
+            }
+        }
+
+        $this->restoreRegexErrorHandler();
+        return false;
+    }
+
     public function detect()
     {
         $props = array();
@@ -336,61 +361,72 @@ class MobileDetect
 
         // Search browser.
         // Get model and version of the browser matched.
-        $browserResults = $this->searchForBrowserInDb();
-        if ($browserResults && isset($browserResults['versionMatches'])) {
-            $browserVersionResult = $this->modelMatch($browserResults['versionMatches'], $this->getUserAgent());
+        $browser = $this->searchForBrowserInDb();
+        if ($browser && isset($browser['versionMatches'])) {
+            $browserVersion = $this->versionMatch($browser['versionMatches'], $this->getUserAgent());
         }
 
         // Search operating system.
         // Get model and version of the operating system.
-        $osResults = $this->searchForOperatingSystemInDb();
-        if ($osResults && isset($osResults['versionMatches'])) {
-            $osVersionResults = $this->modelMatch($osResults['versionMatches'], $this->getUserAgent());
+        $os = $this->searchForOperatingSystemInDb();
+        if ($os && isset($os['versionMatches'])) {
+            $osVersion = $this->versionMatch($os['versionMatches'], $this->getUserAgent());
         }
 
         // Fallback.
         // Tag the device type if searching phones OR tablets didn't match anything.
-        if (!$deviceResult && ($browserResults || $osResults)) {
+        if (
+                !$deviceResult &&
+                (
+                    (
+                        $browser &&
+                        isset($browser['isMobile']) &&
+                        $browser['isMobile']
+                    )
+                        ||
+                    (
+                        $os &&
+                        isset($os['isMobile']) &&
+                        $os['isMobile']
+                    )
+                )
+        ) {
             $deviceType = DeviceType::MOBILE;
-        } else if (!$deviceResult && !$browserResults && !$osResults) {
-            $deviceType = DeviceType::DESKTOP;
         }
 
         $props['type'] = $deviceType;
         $props['model'] = isset($deviceModelResult) ? $deviceModelResult['model'] : null;
         $props['modelVersion'] = isset($deviceModelResult) ? $deviceModelResult['version'] : null;
-        $props['browser'] = null;
-        $props['browserVersion'] = null;
-        $props['os'] = null;
-        $props['osVersion'] = null;
+        $props['browser'] = $browser ? $browser['model'] : null;
+        $props['browserVersion'] = isset($browserVersion) ? $browserVersion : null;
+        $props['os'] = $os ? $os['model'] : null;
+        $props['osVersion'] = isset($osVersion) ? $osVersion : null;
 
         return $props;
     }
 
-    private function searchForItemInDb(array $itemsData)
+    private function searchForItemInDb(array $itemData)
     {
-        foreach ($itemsData as $vendorKey => $item) {
-            // Check matching type, and assume regex if not present.
-            if (!isset($item['matchType'])) {
-                $item['matchType'] = 'regex';
-            }
+        // Check matching type, and assume regex if not present.
+        if (!isset($itemData['matchType'])) {
+            $itemData['matchType'] = 'regex';
+        }
 
-            if (!isset($item['vendor'])) {
-                throw new Exception\InvalidDeviceSpecificationException(
-                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'vendor')
-                );
-            }
+        if (!isset($itemData['vendor'])) {
+            throw new Exception\InvalidDeviceSpecificationException(
+                sprintf('Invalid spec for item. Missing %s key.', 'vendor')
+            );
+        }
 
-            if (!isset($item['identityMatches'])) {
-                throw new Exception\InvalidDeviceSpecificationException(
-                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'match')
-                );
-            }
+        if (!isset($itemData['identityMatches'])) {
+            throw new Exception\InvalidDeviceSpecificationException(
+                sprintf('Invalid spec for item. Missing %s key.', 'match')
+            );
+        }
 
-            if ($this->identityMatch($item['type'], $item['identityMatches'], $this->getUserAgent())) {
-                // Found the matching item.
-                return $item;
-            }
+        if ($this->identityMatch($itemData['matchType'], $itemData['identityMatches'], $this->getUserAgent())) {
+            // Found the matching item.
+            return $itemData;
         }
 
         return false;
@@ -398,18 +434,8 @@ class MobileDetect
 
     protected function searchForPhoneInDb()
     {
-        return $this->searchForItemInDb($this->phonesData->getAll());
-    }
-
-    protected function searchForTabletInDb()
-    {
-        return $this->searchForItemInDb($this->tabletsData->getAll());
-    }
-
-    protected function searchForBrowserInDb()
-    {
-        foreach ($this->browsersData->getAll() as $browserFamilyName => $browserFamilyData) {
-            $result = $this->searchForItemInDb($browserFamilyData);
+        foreach ($this->phonesData->getAll() as $vendorKey => $itemData) {
+            $result = $this->searchForItemInDb($itemData);
             if ($result !== false) {
                 return $result;
             }
@@ -418,9 +444,44 @@ class MobileDetect
         return false;
     }
 
+    protected function searchForTabletInDb()
+    {
+        foreach ($this->tabletsData->getAll() as $vendorKey => $itemData) {
+            $result = $this->searchForItemInDb($itemData);
+            if ($result !== false) {
+                return $result;
+            }
+        }
+
+        return false;
+    }
+
+    protected function searchForBrowserInDb()
+    {
+        foreach ($this->browsersData->getAll() as $familyName => $items) {
+            foreach ($items as $itemName => $itemData) {
+                $result = $this->searchForItemInDb($itemData);
+                if ($result !== false) {
+                    return $result;
+                }
+            }
+        }
+
+        return false;
+    }
+
     protected function searchForOperatingSystemInDb()
     {
-        return $this->searchForItemInDb($this->operatingSystemsData->getAll());
+        foreach ($this->operatingSystemsData->getAll() as $familyName => $items) {
+            foreach ($items as $itemName => $itemData) {
+                $result = $this->searchForItemInDb($itemData);
+                if ($result !== false) {
+                    return $result;
+                }
+            }
+        }
+
+        return false;
     }
 
     /**
