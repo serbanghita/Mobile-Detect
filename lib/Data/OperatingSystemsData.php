@@ -30,6 +30,7 @@ class OperatingSystemsData extends AbstractData
         'iOS' => array(
             'iOS' => array(
                 'vendor' => 'Apple',
+                'model' => 'iOS',
                 'isMobile' => true,
                 'identityMatches' => '\biPhone.*(Mobile|OS)|\biPod|\biPad',
                 'versionMatches' => array('\bOS\b [VER]', 'iPhone OS/[VER]', 'iOS [VER];'),

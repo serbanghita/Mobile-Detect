@@ -279,7 +279,7 @@ class MobileDetect
      *
      * @return array|bool False if no match, hash of match data otherwise.
      */
-    protected function modelMatch($tests, $against)
+    protected function modelAndVersionMatch($tests, $against)
     {
         // Model match must be an array.
         if (!is_array($tests) || !count($tests)) {
@@ -355,8 +355,15 @@ class MobileDetect
         }
 
         // Get model and version of the physical device (if possible).
+        $deviceModel = null;
+        $deviceVersion = null;
         if ($deviceResult && isset($deviceResult['modelMatches'])) {
-            $deviceModelResult = $this->modelMatch($deviceResult['modelMatches'], $this->getUserAgent());
+            $deviceModelResult = $this->modelAndVersionMatch($deviceResult['modelMatches'], $this->getUserAgent());
+            if ($deviceModelResult && isset($deviceModelResult['model'])) {
+                $deviceModel = $deviceModelResult['model'];
+            } elseif (isset($deviceResult['model'])) {
+                $deviceModel = $deviceResult['model'];
+            }
         }
 
         // Search browser.
@@ -394,15 +401,20 @@ class MobileDetect
             $deviceType = DeviceType::MOBILE;
         }
 
-        $props['type'] = $deviceType;
-        $props['model'] = isset($deviceModelResult) ? $deviceModelResult['model'] : null;
-        $props['modelVersion'] = isset($deviceModelResult) ? $deviceModelResult['version'] : null;
-        $props['browser'] = $browser ? $browser['model'] : null;
-        $props['browserVersion'] = isset($browserVersion) ? $browserVersion : null;
-        $props['os'] = $os ? $os['model'] : null;
-        $props['osVersion'] = isset($osVersion) ? $osVersion : null;
+        // var_dump($deviceResult);
 
-        return $props;
+        $props['type'] = $deviceType;
+        $props['model'] = $deviceModel;
+        $props['modelVersion'] = isset($deviceModelResult) ? $deviceModelResult['version'] : null;
+        $props['browser'] = $browser && isset($browser['model']) ? $browser['model'] : null;
+        $props['browserVersion'] = isset($browserVersion) ? $browserVersion : null;
+        $props['operatingSystem'] = $os && isset($os['model']) ? $os['model'] : null;
+        $props['operatingSystemVersion'] = isset($osVersion) ? $osVersion : null;
+
+        $props['vendor'] = $deviceResult && isset($deviceResult['vendor']) ? $deviceResult['vendor'] : null;
+        $props['userAgent'] = $this->getUserAgent();
+
+        return $this->factory->createDeviceFromProperties($props);
     }
 
     private function searchForItemInDb(array $itemData)

@@ -15,6 +15,7 @@ class TabletsData extends AbstractData
          */
         'iPad' => array(
             'vendor' => 'Apple',
+            'model' => 'iPad',
             'identityMatches' => 'iPad|iPad.*Mobile',
             'modelMatches' => array('iPad.*CPU[a-z ]+(?<version>[0-9\._-]+)'),
         ),

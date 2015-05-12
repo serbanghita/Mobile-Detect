@@ -48,10 +48,11 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
         $detector = new MobileDetect($ua);
         $device = $detector->detect();
 
-        /*
+
         if (is_bool($isMobile)) {
             $this->assertSame($isMobile, $device->isMobile(), 'The isMobile() assertion is not correct.');
         }
+        /*
 
         if (is_bool($isTablet)) {
             $this->assertSame($isTablet, $device->isTablet(), 'The isTablet() assertion is not correct.');
@@ -83,7 +84,7 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
         */
 
 
-        $this->assertSame($ua, $device->getUserAgent());
+        $this->assertSame($ua, $detector->getUserAgent());
     }
 
 }

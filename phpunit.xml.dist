@@ -7,7 +7,13 @@
   convertNoticesToExceptions="true"
   convertWarningsToExceptions="true"
   checkForUnintentionallyCoveredCode="true"
-  beStrictAboutTestsThatDoNotTestAnything="true">
+  beStrictAboutTestsThatDoNotTestAnything="true"
+  stopOnError="true"
+  stopOnFailure="true">
+
+    <testsuite name="All">
+        <directory suffix="Test.php">./tests</directory>
+    </testsuite>
 
     <testsuite name="UnitTests">
       <directory suffix="Test.php">./tests/UnitTests</directory>

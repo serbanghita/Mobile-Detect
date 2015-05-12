@@ -6,7 +6,7 @@ use MobileDetect\Device\DeviceType;
 class DetectingTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * If the User-Agent is found in the phones DB then deviceType is MOBILE.
+     * If the User-Agent is found in the phones DB then device type is MOBILE.
      */
     public function testIfTheUserAgentIsFoundInThePhonesDBThenDeviceTypeIsMOBILE()
     {
@@ -38,10 +38,13 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
                         ->method('searchForOperatingSystemInDb')
                         ->willReturn(false);
 
-        $props = $mobileDetect->detect();
+        $device = $mobileDetect->detect();
+        $props = $device->toArray();
 
-        $this->assertArrayHasKey('type', $props);
+        $this->assertInstanceOf('\MobileDetect\Device\Device', $device);
+        $this->assertTrue($device->isMobile());
         $this->assertSame($props['type'], DeviceType::MOBILE);
+
     }
 
     /**
@@ -77,14 +80,16 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
             ->method('searchForOperatingSystemInDb')
             ->willReturn(false);
 
-        $props = $mobileDetect->detect();
+        $device = $mobileDetect->detect();
+        $props = $device->toArray();
 
-        $this->assertArrayHasKey('type', $props);
+        $this->assertInstanceOf('\MobileDetect\Device\Device', $device);
+        $this->assertTrue($device->isTablet());
         $this->assertSame($props['type'], DeviceType::TABLET);
     }
 
     /**
-     * If the User-Agent is not found in the phones and tablets DB but it matches only the mobile browser then deviceType is MOBILE.
+     * If the User-Agent is not found in the phones and tablets DB but it matches only the mobile browser then device type is MOBILE.
      */
     public function testIfTheUserAgentIsNotFoundInThePhonesAndTabletsDBButItMatchesOnlyTheMobileBrowserThenDeviceTypeIsMOBILE()
     {
@@ -124,14 +129,17 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
             ->method('searchForOperatingSystemInDb')
             ->willReturn(false);
 
-        $props = $mobileDetect->detect();
+        $device = $mobileDetect->detect();
+        $props = $device->toArray();
 
+        $this->assertInstanceOf('\MobileDetect\Device\Device', $device);
         $this->assertArrayHasKey('type', $props);
         $this->assertSame($props['type'], DeviceType::MOBILE);
+        $this->assertTrue($device->isMobile());
     }
 
     /**
-     * If the User-Agent is not found in the phones and tablets DB but it matches only the mobile operating system then deviceType is MOBILE.
+     * If the User-Agent is not found in the phones and tablets DB but it matches only the mobile operating system then device type is MOBILE.
      */
     public function testIfTheUserAgentIsNotFoundInThePhonesAndTabletsDBButItMatchesOnlyTheMobileOperatingSystemThenDeviceTypeIsMOBILE()
     {
@@ -171,14 +179,17 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
                 'versionMatches' => array('c', 'd'),
             ));
 
-        $props = $mobileDetect->detect();
+        $device = $mobileDetect->detect();
+        $props = $device->toArray();
 
+        $this->assertInstanceOf('\MobileDetect\Device\Device', $device);
         $this->assertArrayHasKey('type', $props);
         $this->assertSame($props['type'], DeviceType::MOBILE);
+        $this->assertTrue($device->isMobile());
     }
 
     /**
-     * If the User-Agent is not found in the phones and tablets database or mobile browsers or mobile operating systems then deviceType is DESKTOP.
+     * If the User-Agent is not found in the phones and tablets database or mobile browsers or mobile operating systems then device type is DESKTOP.
      */
     public function testIfTheUserAgentIsNotFoundInThePhonesAndTabletsDatabaseOrMobileBrowsersOrMobileOperatingSystemsThenDeviceTypeIsDESKTOP()
     {
@@ -213,9 +224,13 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
             ->method('searchForOperatingSystemInDb')
             ->willReturn(false);
 
-        $props = $mobileDetect->detect();
+        $device = $mobileDetect->detect();
+        $props = $device->toArray();
 
+        $this->assertInstanceOf('\MobileDetect\Device\Device', $device);
         $this->assertArrayHasKey('type', $props);
         $this->assertSame($props['type'], DeviceType::DESKTOP);
+        $this->assertFalse($device->isMobile());
+        $this->assertTrue($device->isDesktop());
     }
 }
