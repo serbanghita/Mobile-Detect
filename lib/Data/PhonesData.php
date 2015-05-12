@@ -16,8 +16,11 @@ class PhonesData extends AbstractData
             'vendor' => 'Apple',
             'identityMatches' => '\b(iPhone|iPod)\b',
             'modelMatches' => array(
-                '(?<model>iPhone).*CPU[a-z ]+(?<version>[0-9\._-]+)',
-                '(?<model>iPod).*CPU[a-z ]+(?<version>[0-9\._-]+)'
+                '(?<model>iP[a-z]+).*CPU[a-z ]+(?<version>[0-9\._-]+)',
+                '(?<model>iP[a-z]+).*CPU[a-z ]+(?<version>[0-9\._-]+)',
+                '(?<model>iP[a-z]+); U; (.* OS (?<version>[0-9\._-]+))?',
+                '(?<model>iP[a-z]+); iPhone OS/(?<version>[0-9\._-]+)',
+                '(?<model>iP[a-z]+); iOS (?<version>[0-9\._-]+);',
             ),
         ),
         'Nexus' => array(

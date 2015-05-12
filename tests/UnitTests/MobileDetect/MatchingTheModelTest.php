@@ -7,6 +7,41 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
+     * Matching an array of empty matches returns false.
+     */
+    public function testMatchingAnArrayOfEmptyMatchesReturnsFalse()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('modelAndVersionMatch');
+        $m->setAccessible(true);
+
+        $inputModelMatches = array();
+        $inputAgainst = 'Whatever user agent here.';
+        $outputMatches = array();
+        $ret = $m->invoke($detect, $inputModelMatches, $inputAgainst, $outputMatches);
+
+        $this->assertFalse($ret);
+    }
+
+    /**
+     * Matching a null set of matches returns false.
+     */
+    public function testMatchingANullSetOfMatchesReturnsFalse()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('modelAndVersionMatch');
+        $m->setAccessible(true);
+
+        $inputModelMatches = null;
+        $inputAgainst = 'Whatever user agent here.';
+        $outputMatches = array();
+        $ret = $m->invoke($detect, $inputModelMatches, $inputAgainst, $outputMatches);
+
+        $this->assertFalse($ret);
+    }
+
+
+    /**
      * Matching an array of matches that contain MODEL keyword stops at the first matched regex.
      */
     public function testMatchingAnArrayOfMatchesThatContainMODELKeywordStopsAtTheFirstMatchedRegex()

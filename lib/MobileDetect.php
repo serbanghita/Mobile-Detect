@@ -405,7 +405,7 @@ class MobileDetect
 
         $props['type'] = $deviceType;
         $props['model'] = $deviceModel;
-        $props['modelVersion'] = isset($deviceModelResult) ? $deviceModelResult['version'] : null;
+        $props['modelVersion'] = isset($deviceModelResult) && isset($deviceModelResult['version']) ? $deviceModelResult['version'] : null;
         $props['browser'] = $browser && isset($browser['model']) ? $browser['model'] : null;
         $props['browserVersion'] = isset($browserVersion) ? $browserVersion : null;
         $props['operatingSystem'] = $os && isset($os['model']) ? $os['model'] : null;
@@ -432,7 +432,7 @@ class MobileDetect
 
         if (!isset($itemData['identityMatches'])) {
             throw new Exception\InvalidDeviceSpecificationException(
-                sprintf('Invalid spec for item. Missing %s key.', 'match')
+                sprintf('Invalid spec for item. Missing %s key.', 'identityMatches')
             );
         }
 
