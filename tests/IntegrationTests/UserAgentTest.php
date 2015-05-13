@@ -74,7 +74,7 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
         }
 
         if (isset($model)) {
-            $this->assertSame($model, $device->getModel(), 'The getModel() assertion is not correct.');
+            $this->assertSame($model, $device->getModel(), sprintf('The getModel() assertion on %s is not correct.', $detector->getUserAgent()));
         }
 
         if (isset($modelVersion)) {

@@ -95,5 +95,19 @@ class BrowsersData extends AbstractData
             ),
         ),
 
+        /**
+         * NetFront browsers family.
+         * @todo Should I split this into NetFront and NetFrontLife? Maybe it's overkill.
+         */
+        'NetFront' => array(
+            'NetFront' => array(
+                'vendor' => 'NetFront',
+                'model' => 'NetFront',
+                'isMobile' => true,
+                'identityMatches' => 'NetFront/[.0-9]+|NetFrontLifeBrowser',
+                'versionMatches' => array('NetFront/[VER]', 'NetFrontLifeBrowser/[VER]', 'Version/[VER]'),
+            )
+        )
+
     );
 }
