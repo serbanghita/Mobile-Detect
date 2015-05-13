@@ -27,6 +27,7 @@ class PhonesData extends AbstractData
             'vendor' => 'Google',
             'identityMatches' => 'Nexus One|Nexus S|Galaxy.*Nexus|Android.*Nexus.*Mobile|Nexus 4|Nexus 5|Nexus 6',
             'modelMatches' => array(
+                'Google (?<model>[a-zA-Z]+ (?<version>[a-zA-Z0-9]+))',
                 '(?<model>Nexus (?<version>[a-zA-Z0-9]+)) Build',
                 '(?<model>[a-zA-Z0-9]+ Nexus)'
             ),

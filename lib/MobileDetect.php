@@ -348,10 +348,15 @@ class MobileDetect
         // Search phone OR tablet database.
         // Tag the device type.
         $deviceType = DeviceType::DESKTOP;
-        if ($deviceResult = $this->searchForPhoneInDb()) {
+        $deviceResult = null;
+        if ($phoneResult = $this->searchForPhoneInDb()) {
             $deviceType = DeviceType::MOBILE;
-        } elseif ($deviceResult = $this->searchForTabletInDb()) {
+            $deviceResult = $phoneResult;
+        }
+
+        if ($tabletResult = $this->searchForTabletInDb()) {
             $deviceType = DeviceType::TABLET;
+            $deviceResult = $tabletResult;
         }
 
         // Get model and version of the physical device (if possible).
@@ -401,7 +406,7 @@ class MobileDetect
             $deviceType = DeviceType::MOBILE;
         }
 
-        // var_dump($deviceResult);
+        // var_dump($deviceType);
 
         $props['type'] = $deviceType;
         $props['model'] = $deviceModel;
