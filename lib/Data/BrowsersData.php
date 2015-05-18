@@ -18,6 +18,27 @@ class BrowsersData extends AbstractData
      */
     protected $data = array(
         /**
+         * Microsoft Internet Explorer family
+         *
+         * @docs http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
+         */
+        'IE' => array(
+            'IE Mobile' => array(
+                'vendor' => 'Microsoft',
+                'model' => 'IE Mobile',
+                'isMobile' => true,
+                'identityMatches' => 'IEMobile|MSIEMobile',
+                'versionMatches' => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'Trident.*rv.[VER]'),
+            ),
+            'IE Desktop' => array(
+                'vendor' => 'Microsoft',
+                'model' => 'IE Desktop',
+                'isMobile' => false,
+                'identityMatches' => 'MSIE [0-9.]+;|Trident.*rv.[0-9.]+',
+                'versionMatches' => array('MSIE [VER];', 'Trident.*rv.[VER]'),
+            ),
+        ),
+        /**
          * Opera family
          */
         'Opera' => array(
@@ -83,7 +104,7 @@ class BrowsersData extends AbstractData
                 'vendor' => 'Apple',
                 'model' => 'Safari Mobile',
                 'isMobile' => true,
-                'identityMatches' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari',
+                'identityMatches' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari',
                 'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
             ),
             'Safari Desktop' => array(
