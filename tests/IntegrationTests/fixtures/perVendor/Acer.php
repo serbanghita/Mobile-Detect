@@ -128,7 +128,7 @@ return array(
         'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
-        'model' => null, //'Allegro',
+        'model' => null,//'Allegro',
         'modelVersion' => null
     ),
 

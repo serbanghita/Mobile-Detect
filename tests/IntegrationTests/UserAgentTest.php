@@ -58,7 +58,7 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
         }
 
         if (isset($browser)) {
-            $this->assertSame($browser, $device->getBrowser(), 'The getBrowser() assertion is not correct.');
+            $this->assertSame($browser, $device->getBrowser(), sprintf('The getBrowser() assertion on %s is not correct.' ,$detector->getUserAgent()));
         }
 
         if (isset($browserVersion)) {

@@ -27,7 +27,7 @@ class BrowsersData extends AbstractData
                 'vendor' => 'Microsoft',
                 'model' => 'IE Mobile',
                 'isMobile' => true,
-                'identityMatches' => 'IEMobile|MSIEMobile',
+                'identityMatches' => 'IEMobile|MSIEMobile|Trident/[0-9.]+; Touch; rv:[0-9.]+;',
                 'versionMatches' => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'Trident.*rv.[VER]'),
             ),
             'IE Desktop' => array(

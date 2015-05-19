@@ -218,12 +218,19 @@ class MobileDetect
      * Converts the quasi-regex into a full regex, replacing various common placeholders such
      * as [VER] or [MODEL].
      *
-     * @param $regex string
+     * @param $regex string|array
      *
      * @return string
      */
     protected function prepareRegex($regex)
     {
+        // Regex can be an array, because we have some really long
+        // expressions (eg. Samsung) and other programming languages
+        // cannot cope with the length. See #352
+        if (is_array($regex)) {
+            $regex = implode('', $regex);
+        }
+
         $regex = sprintf('/%s/i', addcslashes($regex, '/'));
         $regex = str_replace('[VER]', '(?<version>[0-9\._-]+)', $regex);
         $regex = str_replace('[MODEL]', '(?<model>[a-zA-Z0-9]+)', $regex);
@@ -439,6 +446,11 @@ class MobileDetect
             throw new Exception\InvalidDeviceSpecificationException(
                 sprintf('Invalid spec for item. Missing %s key.', 'identityMatches')
             );
+        } else if ($itemData['identityMatches'] === false) {
+            // This is often case with vendors of phones that we
+            // do not want to specifically detect, but we keep the record
+            // for vendor matches purposes. (eg. Acer)
+            return false;
         }
 
         if ($this->identityMatch($itemData['matchType'], $itemData['identityMatches'], $this->getUserAgent())) {
