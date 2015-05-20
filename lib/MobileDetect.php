@@ -360,9 +360,24 @@ class MobileDetect
         return $this->matchEntity('model', $deviceInfoFromDb['modelMatches'], $this->getUserAgent());
     }
 
-    protected function detectBrowserModel()
+    protected function detectBrowserModel(array $browserInfoFromDb)
     {
-        
+        return ($browserInfoFromDb && isset($browserInfoFromDb['model']) ? $browserInfoFromDb['model'] : null);
+    }
+
+    protected function detectBrowserVersion(array $browserInfoFromDb)
+    {
+        return $this->matchEntity('version', $browserInfoFromDb['versionMatches'], $this->getUserAgent());
+    }
+
+    protected function detectOperatingSystemModel(array $operatingSystemInfoFromDb)
+    {
+        return ($operatingSystemInfoFromDb && isset($operatingSystemInfoFromDb['model']) ? $operatingSystemInfoFromDb['model'] : null);
+    }
+
+    protected function detectOperatingSystemVersion(array $operatingSystemInfoFromDb)
+    {
+        return $this->matchEntity('version', $operatingSystemInfoFromDb['versionMatches'], $this->getUserAgent());
     }
 
     public function detect()
@@ -390,16 +405,22 @@ class MobileDetect
         $deviceModel = $this->detectDeviceModel($deviceResult);
 
         // Get model and version of the browser matched.
-        $browser = $this->searchForBrowserInDb();
-        if ($browser && isset($browser['versionMatches'])) {
-            $browserVersion = $this->versionMatch($browser['versionMatches'], $this->getUserAgent());
+        $browserInfoFromDb = $this->searchForBrowserInDb();
+        $browserModel = null;
+        $browserVersion = null;
+        if ($browserInfoFromDb) {
+            $browserModel = $this->detectBrowserModel($browserInfoFromDb);
+            $browserVersion = $this->detectBrowserVersion($browserInfoFromDb);
         }
 
         // Search operating system.
         // Get model and version of the operating system.
-        $os = $this->searchForOperatingSystemInDb();
-        if ($os && isset($os['versionMatches'])) {
-            $osVersion = $this->versionMatch($os['versionMatches'], $this->getUserAgent());
+        $operatingSystemInfoFromDb = $this->searchForOperatingSystemInDb();
+        $operatingSystemModel = null;
+        $operatingSystemVersion = null;
+        if ($operatingSystemInfoFromDb) {
+            $operatingSystemModel = $this->detectOperatingSystemModel($operatingSystemInfoFromDb);
+            $operatingSystemVersion = $this->detectOperatingSystemVersion($operatingSystemInfoFromDb);
         }
 
         // Fallback.
@@ -408,15 +429,15 @@ class MobileDetect
                 !$deviceResult &&
                 (
                     (
-                        $browser &&
-                        isset($browser['isMobile']) &&
-                        $browser['isMobile']
+                        $browserInfoFromDb &&
+                        isset($browserInfoFromDb['isMobile']) &&
+                        $browserInfoFromDb['isMobile']
                     )
                         ||
                     (
-                        $os &&
-                        isset($os['isMobile']) &&
-                        $os['isMobile']
+                        $operatingSystemInfoFromDb &&
+                        isset($operatingSystemInfoFromDb['isMobile']) &&
+                        $operatingSystemInfoFromDb['isMobile']
                     )
                 )
         ) {
@@ -427,12 +448,10 @@ class MobileDetect
 
         $props['type'] = $deviceType;
         $props['model'] = $deviceModel;
-        $props['modelVersion'] = isset($deviceModelResult) && isset($deviceModelResult['version']) ? $deviceModelResult['version'] : null;
-        $props['browser'] = $browser && isset($browser['model']) ? $browser['model'] : null;
-        $props['browserVersion'] = isset($browserVersion) ? $browserVersion : null;
-        $props['operatingSystem'] = $os && isset($os['model']) ? $os['model'] : null;
-        $props['operatingSystemVersion'] = isset($osVersion) ? $osVersion : null;
-
+        $props['browser'] = $browserModel;
+        $props['browserVersion'] = $browserVersion;
+        $props['operatingSystem'] = $operatingSystemModel;
+        $props['operatingSystemVersion'] = $operatingSystemVersion;
         $props['vendor'] = $deviceResult && isset($deviceResult['vendor']) ? $deviceResult['vendor'] : null;
         $props['userAgent'] = $this->getUserAgent();
 
