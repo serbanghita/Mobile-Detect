@@ -345,6 +345,26 @@ class MobileDetect
         return false;
     }
 
+    protected function matchEntity($entity, $tests, $against)
+    {
+        return 'modelName';
+    }
+
+    // @todo: Reduce scope of $deviceInfoFromDb
+    protected function detectDeviceModel(array $deviceInfoFromDb)
+    {
+        if (!isset($deviceInfoFromDb['modelMatches'])) {
+            return null;
+        }
+
+        return $this->matchEntity('model', $deviceInfoFromDb['modelMatches'], $this->getUserAgent());
+    }
+
+    protected function detectBrowserModel()
+    {
+        
+    }
+
     public function detect()
     {
         $props = array();
@@ -367,18 +387,8 @@ class MobileDetect
         }
 
         // Get model and version of the physical device (if possible).
-        $deviceModel = null;
-        $deviceVersion = null;
-        if ($deviceResult && isset($deviceResult['modelMatches'])) {
-            $deviceModelResult = $this->modelAndVersionMatch($deviceResult['modelMatches'], $this->getUserAgent());
-            if ($deviceModelResult && isset($deviceModelResult['model'])) {
-                $deviceModel = $deviceModelResult['model'];
-            } elseif (isset($deviceResult['model'])) {
-                $deviceModel = $deviceResult['model'];
-            }
-        }
+        $deviceModel = $this->detectDeviceModel($deviceResult);
 
-        // Search browser.
         // Get model and version of the browser matched.
         $browser = $this->searchForBrowserInDb();
         if ($browser && isset($browser['versionMatches'])) {
