@@ -1,9 +1,9 @@
 <?php
-namespace MobileDetect\Data;
+namespace MobileDetect;
 
-abstract class AbstractData
+abstract class AbstractStack
 {
-    protected $data = array();
+    protected $data = [];
 
     public function set($key, $value)
     {
@@ -12,7 +12,7 @@ abstract class AbstractData
 
     public function get($key)
     {
-        return $this->data[$key];
+        return isset($this->data[$key]) ? $this->data[$key] : null;
     }
 
     public function setAll($data = array())
@@ -23,5 +23,10 @@ abstract class AbstractData
     public function getAll()
     {
         return $this->data;
+    }
+
+    public function destroy()
+    {
+        $this->data = [];
     }
 }

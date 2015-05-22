@@ -1,8 +1,5 @@
 <?php
-
 namespace MobileDetect\Device;
-
-use MobileDetect\Exception\InvalidDeviceSpecificationException;
 
 /**
  * Class Device

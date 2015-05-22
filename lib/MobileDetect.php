@@ -7,10 +7,10 @@ use MobileDetect\Properties\UaHeadersProperties;
 use MobileDetect\Properties\RecognizedHeadersProperties;
 use MobileDetect\Properties\MobileHeadersProperties;
 
-use MobileDetect\Data\BrowsersData;
-use MobileDetect\Data\OperatingSystemsData;
-use MobileDetect\Data\PhonesData;
-use MobileDetect\Data\TabletsData;
+use MobileDetect\Data\Browsers;
+use MobileDetect\Data\OperatingSystems;
+use MobileDetect\Data\Phones;
+use MobileDetect\Data\Tablets;
 
 use MobileDetect\Device\DeviceType;
 
@@ -34,6 +34,13 @@ class MobileDetect
     protected $phonesData;
     protected $tabletsData;
 
+    /**
+     * Current context in which we are performing
+     * the detection of elements.
+     * @var MobileDetectContext
+     */
+    protected $context;
+
     protected $knownMatchTypes = array(
         'regex', //regular expression
         'strpos', //simple case-sensitive string within string check
@@ -44,8 +51,10 @@ class MobileDetect
      * @param $headers \Iterator|array|string When it's a string, it's assumed to be User-Agent.
      * @param MobileDetectFactory $factory
      */
-    public function __construct($headers = null, MobileDetectFactory $factory = null)
-    {
+    public function __construct(
+        $headers = null,
+        MobileDetectFactory $factory = null
+    ) {
         // Create the factory class instance if none is passed.
         if ($factory === null) {
             $this->factory = new MobileDetectFactory();
@@ -382,66 +391,61 @@ class MobileDetect
 
     public function detect()
     {
-        $props = array();
-
         // Search the entire database.
-        // Assign properties when found.
 
         // Search phone OR tablet database.
-        // Tag the device type.
-        $deviceType = DeviceType::DESKTOP;
-        $deviceResult = null;
+        // Get the device type.
+        $this->setContext('deviceType', DeviceType::DESKTOP);
+
         if ($phoneResult = $this->searchForPhoneInDb()) {
-            $deviceType = DeviceType::MOBILE;
-            $deviceResult = $phoneResult;
+            $this->setContext('deviceType', DeviceType::MOBILE);
+            $this->setContext('deviceResult', $phoneResult);
         }
 
         if ($tabletResult = $this->searchForTabletInDb()) {
-            $deviceType = DeviceType::TABLET;
-            $deviceResult = $tabletResult;
+            $this->setContext('deviceType', DeviceType::TABLET);
+            $this->setContext('deviceResult', $tabletResult);
         }
 
         // Get model and version of the physical device (if possible).
-        $deviceModel = $this->detectDeviceModel($deviceResult);
+        $this->setContext('deviceModel', $this->detectDeviceModel($this->getContext('deviceResult')));
 
-        // Get model and version of the browser matched.
-        $browserInfoFromDb = $this->searchForBrowserInDb();
-        $browserModel = null;
-        $browserVersion = null;
-        if ($browserInfoFromDb) {
-            $browserModel = $this->detectBrowserModel($browserInfoFromDb);
-            $browserVersion = $this->detectBrowserVersion($browserInfoFromDb);
+        // Get model and version of the browser (if possible).
+        $browserResult = $this->searchForBrowserInDb();
+        $this->setContext('browserResult', $browserResult);
+
+        if ($browserResult) {
+            $this->setContext('browserModel', $this->detectBrowserModel($browserResult));
+            $this->setContext('browserVersion', $this->detectBrowserVersion($browserResult));
         }
 
-        // Search operating system.
-        // Get model and version of the operating system.
-        $operatingSystemInfoFromDb = $this->searchForOperatingSystemInDb();
-        $operatingSystemModel = null;
-        $operatingSystemVersion = null;
-        if ($operatingSystemInfoFromDb) {
-            $operatingSystemModel = $this->detectOperatingSystemModel($operatingSystemInfoFromDb);
-            $operatingSystemVersion = $this->detectOperatingSystemVersion($operatingSystemInfoFromDb);
+        // Get model and version of the operating system (if possible).
+        $operatingSystemResult = $this->searchForOperatingSystemInDb();
+        $this->setContext('operatingSystemResult', $operatingSystemResult);
+
+        if ($operatingSystemResult) {
+            $this->setContext('operatingSystemModel', $this->detectOperatingSystemModel($operatingSystemResult));
+            $this->setContext('operatingSystemVersion', $this->detectOperatingSystemVersion($operatingSystemResult));
         }
 
-        // Fallback.
-        // Tag the device type if searching phones OR tablets didn't match anything.
+        // Fallback if no device was found (phone or tablet)
+        // and try to set the device type if the found browser
+        // or operating system are mobile.
         if (
-                !$deviceResult &&
+                null === $this->getContext('deviceResult') &&
                 (
                     (
-                        $browserInfoFromDb &&
-                        isset($browserInfoFromDb['isMobile']) &&
-                        $browserInfoFromDb['isMobile']
+                        $browserResult &&
+                        isset($browserResult['isMobile']) && $browserResult['isMobile']
                     )
                         ||
                     (
-                        $operatingSystemInfoFromDb &&
-                        isset($operatingSystemInfoFromDb['isMobile']) &&
-                        $operatingSystemInfoFromDb['isMobile']
+                        $operatingSystemResult &&
+                        isset($operatingSystemResult['isMobile']) && $operatingSystemResult['isMobile']
                     )
                 )
         ) {
-            $deviceType = DeviceType::MOBILE;
+            $this->setContext('deviceType', DeviceType::MOBILE);
         }
 
         // var_dump($deviceType);
@@ -455,7 +459,7 @@ class MobileDetect
         $props['vendor'] = $deviceResult && isset($deviceResult['vendor']) ? $deviceResult['vendor'] : null;
         $props['userAgent'] = $this->getUserAgent();
 
-        return $this->factory->createDeviceFromProperties($props);
+        return $this->factory->createDeviceFromContext($this->getContext());
     }
 
     private function searchForItemInDb(array $itemData)

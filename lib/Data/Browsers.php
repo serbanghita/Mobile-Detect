@@ -1,7 +1,9 @@
 <?php
 namespace MobileDetect\Data;
 
-class BrowsersData extends AbstractData
+use MobileDetect\AbstractStack;
+
+class Browsers extends AbstractStack
 {
     /**
      * List of browsers.
