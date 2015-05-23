@@ -1,7 +1,9 @@
 <?php
 namespace MobileDetect\Data;
 
-class PhonesData extends AbstractData
+use MobileDetect\AbstractStack;
+
+class Phones extends AbstractStack
 {
     /**
      * List of mobile devices (phones).

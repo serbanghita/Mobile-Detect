@@ -1,17 +1,19 @@
 <?php
 namespace MobileDetect;
 
-use MobileDetect\Data\BrowsersData;
-use MobileDetect\Data\OperatingSystemsData;
-use MobileDetect\Data\PhonesData;
-use MobileDetect\Data\TabletsData;
 use MobileDetect\Device\Device;
 use MobileDetect\Properties\RecognizedHeadersProperties;
 use MobileDetect\Properties\UaHeadersProperties;
 
+use MobileDetect\Data\Browsers;
+use MobileDetect\Data\OperatingSystems;
+use MobileDetect\Data\Phones;
+use MobileDetect\Data\Tablets;
+
 use MobileDetect\Device\DeviceType;
 
 use MobileDetect\Exception\InvalidDeviceSpecificationException;
+
 
 class MobileDetectFactory
 {
@@ -27,22 +29,27 @@ class MobileDetectFactory
 
     public function createBrowsersData()
     {
-        return new BrowsersData();
+        return new Browsers();
     }
 
     public function createOperatingSystemsData()
     {
-        return new OperatingSystemsData();
+        return new OperatingSystems();
     }
 
     public function createPhonesData()
     {
-        return new PhonesData();
+        return new Phones();
     }
 
     public function createTabletsData()
     {
-        return new TabletsData();
+        return new Tablets();
+    }
+
+    public function createContext()
+    {
+        return new MobileDetectContext();
     }
 
     /**
@@ -53,7 +60,7 @@ class MobileDetectFactory
      * @throws InvalidDeviceSpecificationException When insufficient properties are present to
      *                                                       identify this device.
      */
-    public function createDeviceFromProperties(array $props = array())
+    public function createDeviceFromContext(array $props = array())
     {
         // ensure that all the required keys are present
         foreach (Device::$required as $key) {

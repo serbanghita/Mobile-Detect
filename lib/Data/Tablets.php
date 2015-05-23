@@ -1,7 +1,9 @@
 <?php
 namespace MobileDetect\Data;
 
-class TabletsData extends AbstractData
+use MobileDetect\AbstractStack;
+
+class Tablets extends AbstractStack
 {
     /**
      * List of tablet devices.
