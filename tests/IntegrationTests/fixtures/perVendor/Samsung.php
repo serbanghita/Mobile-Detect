@@ -60,6 +60,66 @@ return array(
         'modelVersion' => null
     ),
 
+
+    //
+
+    array(
+        'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; CETUS)',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
+        'operatingSystem' => 'Windows Phone',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'CETUS',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; Focus I917 By TC)',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
+        'operatingSystem' => 'Windows Phone',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'Focus I917',
+        'modelVersion' => null
+    ),
+
+    array(
+        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; Focus i917)',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
+        'operatingSystem' => 'Windows Phone',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'Focus I917',
+        'modelVersion' => null
+    ),
+
+    /*
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; FOCUS S)'                                                                                                                 => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; GT-I8350)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; GT-i8700)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; GT-S7530)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; Hljchm\'s Wp)'                                                                                                            => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; I917)'                                                                                                                    => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA 7)'                                                                                                                 => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7 By MWP_HS)'                                                                                                        => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7)'                                                                                                                  => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7; Orange)'                                                                                                          => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i677)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917.)'                                                                                                               => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917R)'                                                                                                               => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i937)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SMG-917R)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG_blocked_blocked_blocked; OMNIA7; Orange)'                                                                                  => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG_blocked_blocked_blocked_blocked; OMNIA7; Orange)'                                                                          => array('isMobile' => true, 'isTablet' => false),
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SUMSUNG; OMNIA 7)'
+    */
     /*
     array(
         'MQQBrowser/4.0/Mozilla/5.0 (Linux; U; Android 3.2; zh-cn; GT-P6800 Build/HTJ85B) AppleWebKit/533.1 (KHTML, like Gecko) Mobile Safari/533.1'                                                                            => array('isMobile' => true, 'isTablet' => true, 'version' => array('MQQBrowser' => '4.0')),
@@ -153,28 +213,7 @@ return array(
         'Mozilla/5.0 (Linux; Android 4.4.2; fr-fr; SAMSUNG SM-T800 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 4.4.2; SM-T700 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.517 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
 
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; CETUS)'                                                                                                                   => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; Focus I917 By TC)'                                                                                                        => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; Focus i917)'                                                                                                              => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; FOCUS S)'                                                                                                                 => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; GT-I8350)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; GT-i8700)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; GT-S7530)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; Hljchm\'s Wp)'                                                                                                            => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; I917)'                                                                                                                    => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA 7)'                                                                                                                 => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7 By MWP_HS)'                                                                                                        => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7)'                                                                                                                  => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7; Orange)'                                                                                                          => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i677)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917.)'                                                                                                               => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917R)'                                                                                                               => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i937)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SMG-917R)'                                                                                                                => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG_blocked_blocked_blocked; OMNIA7; Orange)'                                                                                  => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG_blocked_blocked_blocked_blocked; OMNIA7; Orange)'                                                                          => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SUMSUNG; OMNIA 7)'
+
     ),
     */
 );
