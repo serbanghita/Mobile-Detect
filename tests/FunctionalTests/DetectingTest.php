@@ -24,7 +24,7 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('operatingSystem', $props);
         $this->assertArrayHasKey('operatingSystemVersion', $props);
 
-        $this->assertSame(DeviceType::MOBILE, $props['type']);
+        $this->assertSame(DeviceType::TABLET, $props['type']);
         $this->assertSame('Chrome Mobile', $props['browser']);
         $this->assertSame('18.0.1025.308', $props['browserVersion']);
         $this->assertSame('Android', $props['operatingSystem']);
