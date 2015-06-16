@@ -1,5 +1,5 @@
 {
-    "hash": "c65bfdcdeedde6295ce7fe3bca1f256b48e9378b",
+    "hash": "116438c15d073a323a62bc21b42a0d35e6a95a42",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -936,6 +936,18 @@
         {
             "vendor": "ASUS",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; ME302KL Build\/JDQ39) AppleWebKit\/537.31 (KHTML, like Gecko) Chrome\/26.0.1410.58 Safari\/537.31",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "ASUS",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; K010 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/42.0.2311.111 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "ASUS",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; K017 Build\/KVT49L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/42.0.2311.111 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
@@ -3637,6 +3649,12 @@
             "tablet": true
         },
         {
+            "vendor": "Lava",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.4; tr-tr; E-TAB Build\/GRJ22) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
+            "mobile": true,
+            "tablet": true
+        },
+        {
             "vendor": "Lenovo",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; es-es; IdeaTab_A1107 Build\/MR1) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Safari\/534.30",
             "mobile": true,
@@ -3797,6 +3815,12 @@
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; Lenovo A5500-F Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.131 Safari\/537.36",
             "mobile": true,
             "tablet": true
+        },
+        {
+            "vendor": "Lenovo",
+            "user_agent": "Lenovo A390 Linux\/3.0.13 Android\/4.4.2 Release\/04.03.2013 Browser\/AppleWebKit534.30 Profile\/MIDP-2.0 Configuration\/CLDC-1.1 Mobile Safari\/534.30 Android 4.0.1;",
+            "mobile": true,
+            "tablet": false
         },
         {
             "vendor": "LG",
@@ -4400,6 +4424,12 @@
         {
             "vendor": "Motorola",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; en-us; XT897 Build\/7.7.1Q-6_SPR-ASANTI_LE-18) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Motorola",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.2; XT1032 Build\/LXB22.46-28.1) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/43.0.2357.92 Mobile Safari\/537.36",
             "mobile": true,
             "tablet": false
         },
@@ -6966,7 +6996,7 @@
             "vendor": "Samsung",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; en-gb; SAMSUNG GT-I9205 Build\/JDQ39) AppleWebKit\/535.19 (KHTML, like Gecko) Version\/1.0 Chrome\/18.0.1025.308 Mobile Safari\/535.19",
             "mobile": true,
-            "tablet": true
+            "tablet": false
         },
         {
             "vendor": "Samsung",
@@ -6977,6 +7007,36 @@
         {
             "vendor": "Samsung",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.0.4; en-us; SHV-E160K\/VI10.1802 Build\/IMM76D) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.2; SM-T805 Build\/LRX22G) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/43.0.2357.92 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; SM-T116NQ Build\/KTU84P) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/43.0.2357.92 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.2; SM-G9250 Build\/LRX22G; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/43.0.2357.121 Mobile Safari\/537.36 [FB_IAB\/FB4A;FBAV\/35.0.0.48.273;]",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; SM-T705Y Build\/KOT49H) AppleWebKit\/537.36(KHTML, like Gecko) Chrome\/42.0.2311.111 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; GT-I9505 Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/1.5 Chrome\/28.0.1500.94 Mobile Safari\/537.36",
             "mobile": true,
             "tablet": false
         },

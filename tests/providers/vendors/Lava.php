@@ -18,5 +18,6 @@ return array(
         'Mozilla/5.0 (Linux; Android 4.2.2; QPAD E704 Build/JDQ39) AppleWebKit/537.36 (KHTML like Gecko) Chrome/36.0.1985.131 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; U; Android 4.2; xx-xx; IvoryS Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; U; Android 4.1.2; en-US; E-TAB IVORY Build/E702) AppleWebKit/534.31 (KHTML, like Gecko) UCBrowser/9.3.0.321 U3/0.8.0 Mobile Safari/534.31' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Android 2.3.4; tr-tr; E-TAB Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => array('isMobile' => true, 'isTablet' => true)
         ),
 );
