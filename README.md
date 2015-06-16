@@ -27,7 +27,7 @@ Thank you all and we're excited for the new release!
 |Download|Docs|Examples|
 |-------------|-------------|-------------|
 |[Go to releases](../../tags)|[Become a contributor](../../wiki/Become-a-contributor)|[Code examples](../../wiki/Code-examples)
-|[Mobile_Detect.php](./Mobile_Detect.php)|[History](../../wiki/History)|[:iphone: Live demo!](http://is.gd/mobiletest)
+|[Mobile_Detect.php](./Mobile_Detect.php)|[History](../../wiki/History)|[:iphone: Live demo!](http://demo.mobiledetect.net)
 |[Composer package](https://packagist.org/packages/mobiledetect/mobiledetectlib)|
 
 ##### Help
