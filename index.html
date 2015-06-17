@@ -35,7 +35,7 @@
 
         <p class="downloadBtn">
             <a href="http://demo.mobiledetect.net" class="btn btn-primary btn-large btn-info" onclick="_gaq.push(['_trackEvent', 'Page actions', 'Demo', 'Demo']);"><i class="icon-signal icon-white"></i>Demo</a>
-            <a href="https://github.com/serbanghita/Mobile-Detect/archive/2.8.14.zip" class="btn btn-success btn-large" onclick="_gaq.push(['_trackEvent', 'Page actions', 'Download', 'Download 2.8.14']);"><i class="icon-download icon-white"></i>Download <span class="label label-success">Version 2.8.14</span></a>
+            <a href="https://github.com/serbanghita/Mobile-Detect/archive/latest.zip" class="btn btn-success btn-large" onclick="_gaq.push(['_trackEvent', 'Page actions', 'Download', 'Download latest']);" id="version"><i class="icon-download icon-white"></i>Download <span class="label label-success">Version latest</span></a>
             <a href="http://pledgie.com/campaigns/21856" class="btn btn-warning btn-large"><i class="icon-thumbs-up icon-white"></i>Donate</a>
         </p>
 
@@ -171,6 +171,13 @@ $detect->version('Opera Mini'); // 5.0 (float)
         // make code pretty
         window.prettyPrint && prettyPrint()
 
+        // get latest version from GitHub API
+        $.getJSON("https://api.github.com/repos/serbanghita/Mobile-Detect/git/refs/tags", function(data) {
+            var version = $(data).get(-1).ref.substring(10);
+            $("#version").attr('href', "https://github.com/serbanghita/Mobile-Detect/archive/" + version + ".zip");
+            $("#version").attr('onclick', "_gaq.push(['_trackEvent', 'Page actions', 'Download', 'Download " + version + "']);");
+            $("#version span").text("Version " + version);
+        });
 
     });
 </script>
