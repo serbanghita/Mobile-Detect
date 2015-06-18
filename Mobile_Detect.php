@@ -751,6 +751,7 @@ class Mobile_Detect
     
     /**
      * Set CloudFront headers
+     * http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html#header-caching-web-device
      * 
      * @param array $cfHeaders List of HTTP headers
      *
