@@ -5,22 +5,24 @@
 
 > Motto: "Every business should have a mobile detection script to detect mobile readers."
 
-<i>Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
-It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</i>
+*Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
+It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.*
 
-> We're commited to make Mobile_Detect the best open-source mobile detection resource and this is why before each release we're running [unit tests](./tests), we also research and update the detection rules on <b>daily</b> and <b>weekly</b> basis.
+We're committed to make Mobile_Detect the best open-source mobile detection resource and this is why before 
+each release we're running [unit tests](./tests), we also research and update the detection rules on **daily** 
+and **weekly** basis.
 
-Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is  _optimized_, _fast_ and _relevant_ to your users. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
+Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is _optimized_, _fast_ and _relevant_ to your users. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
 
 ##### This month updates
 
-First of all a **BIG THANK YOU** to our growing community for your continuous support and for all the feedback received! I'm still working my way with the current issues and all the emails. 
+**THANK YOU** for your continuous support and feedback!
 
-Nick is almost done with all the code for the upcoming `3.0.0` so that I only have to integrate the new parsing engine. We will release minor `2.8.xx` versions until a feature freeze where we will switch to the new branch. You will all be announced before this and hopefully we can make the transition smooth for everyone.
+Still working on `3.0.0` branch to provide you with device detection! We're really excited on this one!
+We would like to speed this up, but life and family gets in the way ;)
 
-<a href="http://trycatch.us/"><img align="left" src="http://assets.mobiledetect.net/img/try_catch_logo_80px.jpg" hspace="20"></a> Last but not least, special thanks for supporting us to our friends from [TryCatch.us](http://trycatch.us/) who _are set to carefully curate the most talented developers in Europe_!
-
-Thank you all and we're excited for the new release!
+Special thanks to **JetBrains** for providing licenses for **PHPStorm**. In case you never heard or tried PHPStorm, you're
+clearly missing out! [Check PHPStorm](https://www.jetbrains.com/phpstorm/) out!
 
 ##### Download and demo
 
@@ -29,6 +31,22 @@ Thank you all and we're excited for the new release!
 |[Go to releases](../../tags)|[Become a contributor](../../wiki/Become-a-contributor)|[Code examples](../../wiki/Code-examples)
 |[Mobile_Detect.php](./Mobile_Detect.php)|[History](../../wiki/History)|[:iphone: Live demo!](http://is.gd/mobiletest)
 |[Composer package](https://packagist.org/packages/mobiledetect/mobiledetectlib)|
+
+#### Continuous updates
+
+You can use [composer](https://getcomposer.org/doc/00-intro.md) in your release and update process to make sure you have the latest Mobile_Detect version.
+
+```
+composer require mobiledetect/mobiledetectlib
+```
+
+```json
+{
+    "require": {
+        "mobiledetect/mobiledetectlib": "^2.8"
+    }
+}
+```
 
 ##### Help
 
