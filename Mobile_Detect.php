@@ -97,6 +97,12 @@ class Mobile_Detect
     protected $httpHeaders = array();
 
     /**
+     * CloudFront headers. E.g. CloudFront-Is-Desktop-Viewer, CloudFront-Is-Mobile-Viewer & CloudFront-Is-Tablet-Viewer.
+     * @var array
+     */
+    protected $cloudfrontHeaders = array();
+
+    /**
      * The matching Regex.
      * This is good for debug.
      * @var string
@@ -680,6 +686,9 @@ class Mobile_Detect
                 $this->httpHeaders[$key] = $value;
             }
         }
+
+        // In case we're dealing with CloudFront, we need to know.
+        $this->setCfHeaders($httpHeaders);
     }
 
     /**
@@ -739,6 +748,46 @@ class Mobile_Detect
         return self::$uaHttpHeaders;
     }
 
+    
+    /**
+     * Set CloudFront headers
+     * 
+     * @param array $cfHeaders List of HTTP headers
+     *
+     * @return  boolean If there were CloudFront headers to be set
+     */
+    public function setCfHeaders($cfHeaders = null) {
+        // use global _SERVER if $cfHeaders aren't defined
+        if (!is_array($cfHeaders) || !count($cfHeaders)) {
+            $cfHeaders = $_SERVER;
+        }
+
+        // clear existing headers
+        $this->cloudfrontHeaders = array();
+
+        // Only save CLOUDFRONT headers. In PHP land, that means only _SERVER vars that
+        // start with cloudfront-.
+        $response = false;
+        foreach ($cfHeaders as $key => $value) {
+            if (substr(strtolower($key), 0, 16) === 'http_cloudfront_') {
+                $this->cloudfrontHeaders[strtoupper($key)] = $value;
+                $response = true;
+            }
+        }
+
+        return $response;
+    }
+
+    /**
+     * Retrieves the cloudfront headers.
+     *
+     * @return array
+     */
+    public function getCfHeaders()
+    {
+        return $this->cloudfrontHeaders;
+    }
+
     /**
      * Set the User-Agent to be used.
      *
@@ -761,9 +810,15 @@ class Mobile_Detect
                 }
             }
 
-            return $this->userAgent = (!empty($this->userAgent) ? trim($this->userAgent) : null);
-
+            if (!empty($this->userAgent)) {
+                return $this->userAgent = trim($this->userAgent);
+            }
         }
+
+        if (count($this->getCfHeaders()) > 0) {
+            return $this->userAgent = 'Amazon CloudFront';
+        }
+        return $this->userAgent = null;
     }
 
     /**
@@ -1059,6 +1114,14 @@ class Mobile_Detect
             $this->setUserAgent($userAgent);
         }
 
+        // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
+        if ($this->getUserAgent() === 'Amazon CloudFront') {
+            $cfHeaders = $this->getCfHeaders();
+            if(array_key_exists('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER', $cfHeaders) && $cfHeaders['HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'] === 'true') {
+                return true;
+            }
+        }
+
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
         if ($this->checkHttpHeadersForMobile()) {
@@ -1079,6 +1142,14 @@ class Mobile_Detect
      */
     public function isTablet($userAgent = null, $httpHeaders = null)
     {
+        // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
+        if ($this->getUserAgent() === 'Amazon CloudFront') {
+            $cfHeaders = $this->getCfHeaders();
+            if(array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) && $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true') {
+                return true;
+            }
+        }
+
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
         foreach (self::$tabletDevices as $_regex) {
