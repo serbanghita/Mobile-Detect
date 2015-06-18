@@ -8,14 +8,11 @@
 *Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
 It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.*
 
-> We're committed to make Mobile_Detect the best open-source mobile detection resource and this is why before 
+We're committed to make Mobile_Detect the best open-source mobile detection resource and this is why before 
 each release we're running [unit tests](./tests), we also research and update the detection rules on **daily** 
 and **weekly** basis.
 
-Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is  
-_optimized_, _fast_ and _relevant_ to your users. Mobile_Detect class is a 
-[server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, 
-it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
+Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is _optimized_, _fast_ and _relevant_ to your users. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
 
 ##### This month updates
 
