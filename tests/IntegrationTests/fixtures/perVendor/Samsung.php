@@ -83,7 +83,7 @@ return array(
         'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
-        'model' => 'Focus I917',
+        'model' => 'Focus I917 By TC',
         'modelVersion' => null
     ),
 
@@ -95,7 +95,7 @@ return array(
         'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
-        'model' => 'Focus I917',
+        'model' => 'Focus i917',
         'modelVersion' => null
     ),
 

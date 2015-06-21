@@ -53,42 +53,34 @@ class MobileDetectFactory
     }
 
     /**
-     * @param array $props An array of properties to create this device from.
+     * @param MobileDetectContext $context An array of properties to create this device from.
      *
      * @return Device The device instance.
      *
      * @throws InvalidDeviceSpecificationException When insufficient properties are present to
      *                                                       identify this device.
      */
-    public function createDeviceFromContext(array $props = array())
+    public function createDeviceFromContext(MobileDetectContext $context)
     {
         // ensure that all the required keys are present
-        foreach (Device::$required as $key) {
-            if (!array_key_exists($key, $props)) {
+        foreach ($context::$required as $key) {
+            if (null === $context->get($key)) {
                 throw new InvalidDeviceSpecificationException(sprintf('The %s property is required.', $key));
             }
         }
 
         // check that a valid type was passed
-        if ($props['type'] != DeviceType::DESKTOP
-            && $props['type'] != DeviceType::MOBILE
-            && $props['type'] != DeviceType::TABLET
-            && $props['type'] != DeviceType::BOT
+        if ($context->get('deviceType') != DeviceType::DESKTOP
+            && $context->get('deviceType') != DeviceType::MOBILE
+            && $context->get('deviceType') != DeviceType::TABLET
+            && $context->get('deviceType') != DeviceType::BOT
         ) {
-            throw new InvalidDeviceSpecificationException(sprintf("Unrecognized type: '%s'", $props['type']));
+            throw new InvalidDeviceSpecificationException(
+                sprintf("Unrecognized type: '%s'", $context->get('deviceType'))
+            );
         }
 
         // create a new instance
-        return new Device(
-            $props['userAgent'],
-            $props['type'],
-            $props['model'],
-            $props['modelVersion'],
-            $props['operatingSystem'],
-            $props['operatingSystemVersion'],
-            $props['browser'],
-            $props['browserVersion'],
-            $props['vendor']
-        );
+        return new Device($context);
     }
 }

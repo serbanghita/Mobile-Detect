@@ -1,7 +1,9 @@
 <?php
 namespace MobileDetect\Properties;
 
-class UaHeadersProperties extends AbstractProperties
+use MobileDetect\AbstractStack;
+
+class UaHeadersProperties extends AbstractStack
 {
     /**
      * All possible HTTP headers that represent the
@@ -13,7 +15,7 @@ class UaHeadersProperties extends AbstractProperties
      *
      * @var array
      */
-    protected $properties = array(
+    protected $data = array(
         // The default User-Agent string.
         'User-Agent',
         // Header can occur on devices using Opera Mini.

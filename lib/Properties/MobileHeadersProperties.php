@@ -1,7 +1,9 @@
 <?php
 namespace MobileDetect\Properties;
 
-class MobileHeadersProperties extends AbstractProperties
+use MobileDetect\AbstractStack;
+
+class MobileHeadersProperties extends AbstractStack
 {
     /**
      * HTTP headers that trigger the 'isMobile' detection
@@ -9,7 +11,7 @@ class MobileHeadersProperties extends AbstractProperties
      *
      * @var array
      */
-    protected $properties = array(
+    protected $data = array(
 
         'Accept' => array('matches' => array(
             // Opera Mini; @reference: http://dev.opera.com/articles/view/opera-binary-markup-language/

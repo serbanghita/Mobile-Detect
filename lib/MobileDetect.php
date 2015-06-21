@@ -264,9 +264,11 @@ class MobileDetect
             );
         }
 
-        //always take an array
+        // Always take a string.
         if (!is_string($against)) {
-            throw new Exception\InvalidArgumentException('Invalid type passed: '.gettype($against));
+            throw new Exception\InvalidArgumentException(
+                sprintf('Invalid %s pattern passed %s for %s', $type, gettype($against), $test)
+            );
         }
 
         if ($type == 'regex') {
@@ -329,6 +331,31 @@ class MobileDetect
         return false;
     }
 
+    protected function modelMatch($tests, $against)
+    {
+        // Model match must be an array.
+        if (!is_array($tests) || !count($tests)) {
+            return false;
+        }
+
+        $this->setRegexErrorHandler();
+
+        foreach ($tests as $test) {
+            $regex = $this->prepareRegex($test);
+
+            if ($this->regexMatch($regex, $against, $matches)) {
+                // If the match contained a model, save it.
+                if (isset($matches['model'])) {
+                    $this->restoreRegexErrorHandler();
+                    return $matches['model'];
+                }
+            }
+        }
+
+        $this->restoreRegexErrorHandler();
+        return false;
+    }
+
     protected function versionMatch($tests, $against)
     {
         // Model match must be an array.
@@ -356,7 +383,13 @@ class MobileDetect
 
     protected function matchEntity($entity, $tests, $against)
     {
-        return 'modelName';
+        if ($entity == 'version') {
+            return $this->versionMatch($tests, $against);
+        }
+
+        if ($entity == 'model') {
+            return $this->modelMatch($tests, $against);
+        }
     }
 
     // @todo: Reduce scope of $deviceInfoFromDb
@@ -367,6 +400,16 @@ class MobileDetect
         }
 
         return $this->matchEntity('model', $deviceInfoFromDb['modelMatches'], $this->getUserAgent());
+    }
+
+    // @todo: temporary duplicated code
+    protected function detectDeviceModelVersion(array $deviceInfoFromDb)
+    {
+        if (!isset($deviceInfoFromDb['modelMatches'])) {
+            return null;
+        }
+
+        return $this->matchEntity('version', $deviceInfoFromDb['modelMatches'], $this->getUserAgent());
     }
 
     protected function detectBrowserModel(array $browserInfoFromDb)
@@ -391,75 +434,76 @@ class MobileDetect
 
     public function detect()
     {
-        // Search the entire database.
+        $this->context = $this->factory->createContext();
 
         // Search phone OR tablet database.
         // Get the device type.
-        $this->setContext('deviceType', DeviceType::DESKTOP);
+        $this->context->set('deviceType', DeviceType::DESKTOP);
 
         if ($phoneResult = $this->searchForPhoneInDb()) {
-            $this->setContext('deviceType', DeviceType::MOBILE);
-            $this->setContext('deviceResult', $phoneResult);
+            $this->context->set('deviceType', DeviceType::MOBILE);
+            $this->context->set('deviceResult', $phoneResult);
         }
 
         if ($tabletResult = $this->searchForTabletInDb()) {
-            $this->setContext('deviceType', DeviceType::TABLET);
-            $this->setContext('deviceResult', $tabletResult);
+            $this->context->set('deviceType', DeviceType::TABLET);
+            $this->context->set('deviceResult', $tabletResult);
         }
 
-        // Get model and version of the physical device (if possible).
-        $this->setContext('deviceModel', $this->detectDeviceModel($this->getContext('deviceResult')));
+        // If we know the device,
+        // get model and version of the physical device (if possible).
+        $deviceResult = $this->context->get('deviceResult');
+        if (!is_null($deviceResult)) {
+            if (isset($deviceResult['model'])) {
+                // Device model is already known from the DB.
+                $this->context->set('deviceModel', $deviceResult['model']);
+            } else {
+                $this->context->set('deviceModel', $this->detectDeviceModel($deviceResult));
+                $this->context->set('deviceModelVersion', $this->detectDeviceModelVersion($deviceResult));
+            }
+        }
 
         // Get model and version of the browser (if possible).
         $browserResult = $this->searchForBrowserInDb();
-        $this->setContext('browserResult', $browserResult);
+        $this->context->set('browserResult', $browserResult);
 
         if ($browserResult) {
-            $this->setContext('browserModel', $this->detectBrowserModel($browserResult));
-            $this->setContext('browserVersion', $this->detectBrowserVersion($browserResult));
+            $this->context->set('browserModel', $this->detectBrowserModel($browserResult));
+            $this->context->set('browserVersion', $this->detectBrowserVersion($browserResult));
         }
 
         // Get model and version of the operating system (if possible).
         $operatingSystemResult = $this->searchForOperatingSystemInDb();
-        $this->setContext('operatingSystemResult', $operatingSystemResult);
+        $this->context->set('operatingSystemResult', $operatingSystemResult);
 
         if ($operatingSystemResult) {
-            $this->setContext('operatingSystemModel', $this->detectOperatingSystemModel($operatingSystemResult));
-            $this->setContext('operatingSystemVersion', $this->detectOperatingSystemVersion($operatingSystemResult));
+            $this->context->set('operatingSystemModel', $this->detectOperatingSystemModel($operatingSystemResult));
+            $this->context->set('operatingSystemVersion', $this->detectOperatingSystemVersion($operatingSystemResult));
         }
 
         // Fallback if no device was found (phone or tablet)
         // and try to set the device type if the found browser
         // or operating system are mobile.
-        if (
-                null === $this->getContext('deviceResult') &&
+        if (null === $this->context->get('deviceResult') &&
+            (
                 (
-                    (
-                        $browserResult &&
-                        isset($browserResult['isMobile']) && $browserResult['isMobile']
-                    )
-                        ||
-                    (
-                        $operatingSystemResult &&
-                        isset($operatingSystemResult['isMobile']) && $operatingSystemResult['isMobile']
-                    )
+                    $browserResult &&
+                    isset($browserResult['isMobile']) && $browserResult['isMobile']
                 )
+                    ||
+                (
+                    $operatingSystemResult &&
+                    isset($operatingSystemResult['isMobile']) && $operatingSystemResult['isMobile']
+                )
+            )
         ) {
-            $this->setContext('deviceType', DeviceType::MOBILE);
+            $this->context->set('deviceType', DeviceType::MOBILE);
         }
 
-        // var_dump($deviceType);
+        $this->context->set('vendor', $this->context->get('deviceResult')['vendor']);
+        $this->context->set('userAgent', $this->getUserAgent());
 
-        $props['type'] = $deviceType;
-        $props['model'] = $deviceModel;
-        $props['browser'] = $browserModel;
-        $props['browserVersion'] = $browserVersion;
-        $props['operatingSystem'] = $operatingSystemModel;
-        $props['operatingSystemVersion'] = $operatingSystemVersion;
-        $props['vendor'] = $deviceResult && isset($deviceResult['vendor']) ? $deviceResult['vendor'] : null;
-        $props['userAgent'] = $this->getUserAgent();
-
-        return $this->factory->createDeviceFromContext($this->getContext());
+        return $this->factory->createDeviceFromContext($this->context);
     }
 
     private function searchForItemInDb(array $itemData)
@@ -479,7 +523,7 @@ class MobileDetect
             throw new Exception\InvalidDeviceSpecificationException(
                 sprintf('Invalid spec for item. Missing %s key.', 'identityMatches')
             );
-        } else if ($itemData['identityMatches'] === false) {
+        } elseif ($itemData['identityMatches'] === false) {
             // This is often case with vendors of phones that we
             // do not want to specifically detect, but we keep the record
             // for vendor matches purposes. (eg. Acer)

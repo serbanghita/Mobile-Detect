@@ -1,5 +1,6 @@
 <?php
 namespace MobileDetect\Device;
+use MobileDetect\MobileDetectContext;
 
 /**
  * Class Device
@@ -8,23 +9,6 @@ namespace MobileDetect\Device;
  */
 class Device implements DeviceInterface
 {
-    /**
-     * A list of required keys for the factory method.
-     *
-     * @var array
-     */
-    public static $required = array(
-        'type',
-        'userAgent',
-        'model',
-        'modelVersion',
-        'operatingSystem',
-        'operatingSystemVersion',
-        'browser',
-        'browserVersion',
-        'vendor',
-    );
-
     /**
      * One of the TYPE_* constants.
      *
@@ -89,26 +73,17 @@ class Device implements DeviceInterface
      */
     protected $vendor;
 
-    public function __construct(
-        $userAgent,
-        $type,
-        $model,
-        $modelVersion,
-        $operatingSystem,
-        $operatingSystemVersion,
-        $browser,
-        $browserVersion,
-        $vendor
-    ) {
-        $this->userAgent = $userAgent;
-        $this->type = $type;
-        $this->model = $model;
-        $this->modelVersion = $modelVersion;
-        $this->operatingSystem = $operatingSystem;
-        $this->operatingSystemVersion = $operatingSystemVersion;
-        $this->browser = $browser;
-        $this->browserVersion = $browserVersion;
-        $this->vendor = $vendor;
+    public function __construct(MobileDetectContext $context)
+    {
+        $this->userAgent = $context->get('userAgent');
+        $this->type = $context->get('deviceType');
+        $this->model = $context->get('deviceModel');
+        $this->modelVersion = $context->get('deviceModelVersion');
+        $this->operatingSystem = $context->get('operatingSystemModel');
+        $this->operatingSystemVersion = $context->get('operatingSystemVersion');
+        $this->browser = $context->get('browserModel');
+        $this->browserVersion = $context->get('browserVersion');
+        $this->vendor = $context->get('vendor');
     }
 
     /**

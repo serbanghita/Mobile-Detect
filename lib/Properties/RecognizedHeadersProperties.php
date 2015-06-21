@@ -1,14 +1,16 @@
 <?php
 namespace MobileDetect\Properties;
 
-class RecognizedHeadersProperties extends AbstractProperties
+use MobileDetect\AbstractStack;
+
+class RecognizedHeadersProperties extends AbstractStack
 {
     /**
      * A list of possible HTTP Request headers.
      *
      * @var array
      */
-    protected $properties = array(
+    protected $data = array(
         'accept', // HTTP_ACCEPT
         'accept-charset',
         'accept-encoding', // HTTP_ACCEPT_ENCODING
