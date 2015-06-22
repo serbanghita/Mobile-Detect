@@ -98,7 +98,7 @@ class MatchingTheIdentityTest extends \PHPUnit_Framework_TestCase
     /**
      * matching against an invalid pattern type throws an exception
      * @expectedException \MobileDetect\Exception\InvalidArgumentException
-     * @expectedExceptionMessage Invalid type passed: array
+     * @expectedExceptionMessage Invalid regex pattern of type "array" passed for "whatever"
      */
     public function testMatchingAgainstAnInvalidPatternTypeThrowsAnException()
     {

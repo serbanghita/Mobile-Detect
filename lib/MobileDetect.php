@@ -267,7 +267,7 @@ class MobileDetect
         // Always take a string.
         if (!is_string($against)) {
             throw new Exception\InvalidArgumentException(
-                sprintf('Invalid %s pattern passed %s for %s', $type, gettype($against), $test)
+                sprintf('Invalid %s pattern of type "%s" passed for "%s"', $type, gettype($against), $test)
             );
         }
 
@@ -414,7 +414,7 @@ class MobileDetect
 
     protected function detectBrowserModel(array $browserInfoFromDb)
     {
-        return ($browserInfoFromDb && isset($browserInfoFromDb['model']) ? $browserInfoFromDb['model'] : null);
+        return (isset($browserInfoFromDb['model']) ? $browserInfoFromDb['model'] : null);
     }
 
     protected function detectBrowserVersion(array $browserInfoFromDb)
@@ -424,7 +424,7 @@ class MobileDetect
 
     protected function detectOperatingSystemModel(array $operatingSystemInfoFromDb)
     {
-        return ($operatingSystemInfoFromDb && isset($operatingSystemInfoFromDb['model']) ? $operatingSystemInfoFromDb['model'] : null);
+        return (isset($operatingSystemInfoFromDb['model']) ? $operatingSystemInfoFromDb['model'] : null);
     }
 
     protected function detectOperatingSystemVersion(array $operatingSystemInfoFromDb)
