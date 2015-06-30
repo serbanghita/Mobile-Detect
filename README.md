@@ -103,9 +103,14 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 
   <tr>
     <td>Joomla</td>
-    <td><p><a href="http://www.yagendoo.com/en/blog/free-mobile-detection-plugin-for-joomla.html">yagendoo Joomla! Mobile Detection Plugin</a> - Lightweight PHP plugin for Joomla! that detects a mobile browser using the Mobile Detect class. Made by <a href="http://www.yagendoo.com/">yagendoo media</a>.</p>
+    <td>
+        <p><a href="http://www.yagendoo.com/en/blog/free-mobile-detection-plugin-for-joomla.html">yagendoo Joomla! Mobile Detection Plugin</a> - Lightweight PHP plugin for Joomla! 
+        that detects a mobile browser using the Mobile Detect class. Made by <a href="http://www.yagendoo.com/">yagendoo media</a>.</p>
     
-    <p><a href="https://github.com/renekreijveld/UserAgentDetector">User Agent Detector plugin</a> by @ReneKreijveld. This system plugin detects the user agent of your website visitor and sets a session variable accordingly. Based on the user agent, the plugin detects if the site is running on a desktop pc, tablet or smartphone. It can also detect if the visitor is a spider bot (search engine). Session variable that is set: ualayout. Possible values: desktop, tablet, mobile, bot..</p></td>
+        <p><a href="https://github.com/renekreijveld/UserAgentDetector">User Agent Detector plugin</a> by @ReneKreijveld. This system plugin detects the user agent of your 
+        website visitor and sets a session variable accordingly. Based on the user agent, the plugin detects if the site is running on a desktop pc, tablet or smartphone. 
+        It can also detect if the visitor is a spider bot (search engine). Session variable that is set: ualayout. Possible values: desktop, tablet, mobile, bot..</p>
+    </td>
  </tr>
 
  <tr>
