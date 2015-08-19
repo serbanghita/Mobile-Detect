@@ -7,7 +7,7 @@ class ConstructorTests extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * When no factory object is passed it creates a new factory instance
+     * When no factory object is passed it creates a new factory instance.
      */
     public function testWhenNoFactoryObjectIsPassedItCreatesANewFactoryInstance()
     {
@@ -16,7 +16,7 @@ class ConstructorTests extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * When factory object is created it also creates all the needed properties classes
+     * When factory object is created it also creates all the needed properties classes.
      */
     public function testWhenFactoryObjectIsCreatedItAlsoCreatesAllTheNeededPropertiesClasses()
     {

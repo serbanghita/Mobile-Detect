@@ -93,4 +93,12 @@ interface DeviceInterface
      * @return array A hash of properties.
      */
     public function toArray();
+
+    /**
+     * Factory method to create a Device instance.
+     * 
+     * @param array $prop
+     * @return mixed
+     */
+    public static function create(array $prop);
 }

@@ -1,6 +1,7 @@
 <?php
 namespace MobileDetect;
 
+use MobileDetect\Device\DeviceInterface;
 use MobileDetect\MobileDetectFactory;
 
 use MobileDetect\Properties\UaHeadersProperties;
@@ -12,6 +13,7 @@ use MobileDetect\Data\OperatingSystems;
 use MobileDetect\Data\Phones;
 use MobileDetect\Data\Tablets;
 
+use MobileDetect\Device\Device;
 use MobileDetect\Device\DeviceType;
 
 class MobileDetect
@@ -33,13 +35,6 @@ class MobileDetect
     protected $operatingSystemsData;
     protected $phonesData;
     protected $tabletsData;
-
-    /**
-     * Current context in which we are performing
-     * the detection of elements.
-     * @var MobileDetectContext
-     */
-    protected $context;
 
     protected $knownMatchTypes = array(
         'regex', //regular expression
@@ -432,59 +427,90 @@ class MobileDetect
         return $this->matchEntity('version', $operatingSystemInfoFromDb['versionMatches'], $this->getUserAgent());
     }
 
-    public function detect()
+    /**
+     * Creates a device with all the necessary context to determine all the given
+     * properties of a device, including OS, browser, and any other context-based properties.
+     *
+     * @param DeviceInterface $deviceClass (optional) The class to use. It can be anything that's derived from DeviceInterface.
+     *
+     * {@see DeviceInterface}
+     *
+     * @return DeviceInterface
+     *
+     * @throws Exception\InvalidArgumentException When an invalid class is used.
+     */
+    public function detect(DeviceInterface $deviceClass = null)
     {
-        $this->context = $this->factory->createContext();
+        if (is_null($deviceClass)) {
+            /**
+             * @var Device Default implementation.
+             */
+            $deviceClass = __NAMESPACE__.'\\Device\\Device';
+        }
+        
+        // @todo: Add cache after all tests pass.
+        
+        $prop = [
+            'userAgent' => null,
+            'deviceType' => null,
+            'deviceModel' => null,
+            'deviceModelVersion' => null,
+            'operatingSystemModel' => null,
+            'operatingSystemVersion' => null,
+            'browserModel' => null,
+            'browserVersion' => null,
+            'vendor' => null
+        ];
 
         // Search phone OR tablet database.
         // Get the device type.
-        $this->context->set('deviceType', DeviceType::DESKTOP);
+        $prop['deviceType'] = DeviceType::DESKTOP;
 
         if ($phoneResult = $this->searchForPhoneInDb()) {
-            $this->context->set('deviceType', DeviceType::MOBILE);
-            $this->context->set('deviceResult', $phoneResult);
+            $prop['deviceType'] = DeviceType::MOBILE;
+            $prop['deviceResult'] = $phoneResult;
         }
 
         if ($tabletResult = $this->searchForTabletInDb()) {
-            $this->context->set('deviceType', DeviceType::TABLET);
-            $this->context->set('deviceResult', $tabletResult);
+            $prop['deviceType'] = DeviceType::TABLET;
+            $prop['deviceResult'] = $tabletResult;
         }
 
         // If we know the device,
         // get model and version of the physical device (if possible).
-        $deviceResult = $this->context->get('deviceResult');
+        $deviceResult = isset($prop['deviceResult']) ? $prop['deviceResult'] : null;
         if (!is_null($deviceResult)) {
             if (isset($deviceResult['model'])) {
                 // Device model is already known from the DB.
-                $this->context->set('deviceModel', $deviceResult['model']);
+                $prop['deviceModel'] = $deviceResult['model'];
             } else {
-                $this->context->set('deviceModel', $this->detectDeviceModel($deviceResult));
-                $this->context->set('deviceModelVersion', $this->detectDeviceModelVersion($deviceResult));
+                $prop['deviceModel'] = $this->detectDeviceModel($deviceResult);
+                $prop['deviceModelVersion'] = $this->detectDeviceModelVersion($deviceResult);
             }
         }
 
         // Get model and version of the browser (if possible).
         $browserResult = $this->searchForBrowserInDb();
-        $this->context->set('browserResult', $browserResult);
+        $prop['browserResult'] = $browserResult;
 
         if ($browserResult) {
-            $this->context->set('browserModel', $this->detectBrowserModel($browserResult));
-            $this->context->set('browserVersion', $this->detectBrowserVersion($browserResult));
+            $prop['browserModel'] = $this->detectBrowserModel($browserResult);
+            $prop['browserVersion'] = $this->detectBrowserVersion($browserResult);
         }
 
         // Get model and version of the operating system (if possible).
         $operatingSystemResult = $this->searchForOperatingSystemInDb();
-        $this->context->set('operatingSystemResult', $operatingSystemResult);
+        $prop['operatingSystemResult'] = $operatingSystemResult;
 
         if ($operatingSystemResult) {
-            $this->context->set('operatingSystemModel', $this->detectOperatingSystemModel($operatingSystemResult));
-            $this->context->set('operatingSystemVersion', $this->detectOperatingSystemVersion($operatingSystemResult));
+            $prop['operatingSystemModel'] = $this->detectOperatingSystemModel($operatingSystemResult);
+            $prop['operatingSystemVersion'] = $this->detectOperatingSystemVersion($operatingSystemResult);
         }
 
         // Fallback if no device was found (phone or tablet)
         // and try to set the device type if the found browser
         // or operating system are mobile.
-        if (null === $this->context->get('deviceResult') &&
+        if (null === $deviceResult &&
             (
                 (
                     $browserResult &&
@@ -497,13 +523,15 @@ class MobileDetect
                 )
             )
         ) {
-            $this->context->set('deviceType', DeviceType::MOBILE);
+            $prop['deviceType'] = DeviceType::MOBILE;
         }
 
-        $this->context->set('vendor', $this->context->get('deviceResult')['vendor']);
-        $this->context->set('userAgent', $this->getUserAgent());
+        $prop['vendor'] = !is_null($deviceResult) ? $deviceResult['vendor'] : null;
+        $prop['userAgent'] = $this->getUserAgent();
 
-        return $this->factory->createDeviceFromContext($this->context);
+        // @todo: Add cache after all tests pass.
+        
+        return $deviceClass::create($prop);
     }
 
     private function searchForItemInDb(array $itemData)

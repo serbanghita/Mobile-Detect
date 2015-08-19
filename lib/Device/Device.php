@@ -1,6 +1,6 @@
 <?php
 namespace MobileDetect\Device;
-use MobileDetect\MobileDetectContext;
+use MobileDetect\Exception\InvalidDeviceSpecificationException;
 
 /**
  * Class Device
@@ -9,6 +9,17 @@ use MobileDetect\MobileDetectContext;
  */
 class Device implements DeviceInterface
 {
+
+    /**
+     * A list of required keys for the factory method.
+     *
+     * @var array
+     */
+    public static $requiredFields = array(
+        'deviceType',
+        'userAgent'
+    );    
+    
     /**
      * One of the TYPE_* constants.
      *
@@ -72,18 +83,24 @@ class Device implements DeviceInterface
      * @var string
      */
     protected $vendor;
-
-    public function __construct(MobileDetectContext $context)
+    
+    public function __construct(
+        $userAgent,
+        $deviceType, $deviceModel, $deviceModelVersion,
+        $operatingSystemModel, $operatingSystemVersion,
+        $browserModel, $browserVersion,
+        $vendor
+    )
     {
-        $this->userAgent = $context->get('userAgent');
-        $this->type = $context->get('deviceType');
-        $this->model = $context->get('deviceModel');
-        $this->modelVersion = $context->get('deviceModelVersion');
-        $this->operatingSystem = $context->get('operatingSystemModel');
-        $this->operatingSystemVersion = $context->get('operatingSystemVersion');
-        $this->browser = $context->get('browserModel');
-        $this->browserVersion = $context->get('browserVersion');
-        $this->vendor = $context->get('vendor');
+        $this->userAgent = $userAgent;
+        $this->type = $deviceType;
+        $this->model = $deviceModel;
+        $this->modelVersion = $deviceModelVersion;
+        $this->operatingSystem = $operatingSystemModel;
+        $this->operatingSystemVersion = $operatingSystemVersion;
+        $this->browser = $browserModel;
+        $this->browserVersion = $browserVersion;
+        $this->vendor = $vendor;
     }
 
     /**
@@ -172,6 +189,42 @@ class Device implements DeviceInterface
             'operatingSystemVersion'    => $this->getOperatingSystemVersion(),
             'userAgent'                 => $this->getUserAgent(),
             'vendor'                    => $this->getVendor(),
+        );
+    }
+
+    /**
+     * @param array $prop   An array of properties to create this device from.
+     * @return Device The device instance.
+     * @throws InvalidDeviceSpecificationException When insufficient properties are present to
+     *                                                       identify this device.
+     */
+    public static function create(array $prop)
+    {
+        // ensure that all the required keys are present
+        foreach (self::$requiredFields as $key) {
+            if (!isset($prop[$key])) {
+                throw new InvalidDeviceSpecificationException(sprintf('The %s property is required.', $key));
+            }
+        }
+
+        // check that a valid type was passed
+        if ($prop['deviceType'] != DeviceType::DESKTOP
+            && $prop['deviceType'] != DeviceType::MOBILE
+            && $prop['deviceType'] != DeviceType::TABLET
+            && $prop['deviceType'] != DeviceType::BOT
+        ) {
+            throw new InvalidDeviceSpecificationException(
+                sprintf("Unrecognized type: '%s'", $prop['deviceType'])
+            );
+        }
+
+        // create a new instance
+        return new static(
+            $prop['userAgent'],
+            $prop['deviceType'], $prop['deviceModel'], $prop['deviceModelVersion'],
+            $prop['operatingSystemModel'], $prop['operatingSystemVersion'],
+            $prop['browserModel'], $prop['browserVersion'],
+            $prop['vendor']
         );
     }
 }
