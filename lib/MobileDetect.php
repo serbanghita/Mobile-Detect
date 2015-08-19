@@ -4,14 +4,14 @@ namespace MobileDetect;
 use MobileDetect\Device\DeviceInterface;
 use MobileDetect\MobileDetectFactory;
 
-use MobileDetect\Properties\UaHeadersProperties;
-use MobileDetect\Properties\RecognizedHeadersProperties;
-use MobileDetect\Properties\MobileHeadersProperties;
+use MobileDetect\Providers\UserAgentHeaders;
+use MobileDetect\Providers\HttpHeaders;
+use MobileDetect\Providers\MobileHeaders;
 
-use MobileDetect\Data\Browsers;
-use MobileDetect\Data\OperatingSystems;
-use MobileDetect\Data\Phones;
-use MobileDetect\Data\Tablets;
+use MobileDetect\Providers\Browsers;
+use MobileDetect\Providers\OperatingSystems;
+use MobileDetect\Providers\Phones;
+use MobileDetect\Providers\Tablets;
 
 use MobileDetect\Device\Device;
 use MobileDetect\Device\DeviceType;
@@ -26,42 +26,59 @@ class MobileDetect
      * @var array
      */
     protected $headers = array();
-    protected $factory;
-    protected $uaHeadersProperties;
-    protected $recognizedHeadersProperties;
 
     // Database.
-    protected $browsersData;
-    protected $operatingSystemsData;
-    protected $phonesData;
-    protected $tabletsData;
+    protected $userAgentHeaders;
+    protected $recognizedHttpHeaders;
+    protected $phonesProvider;
+    protected $tabletsProvider;
+    protected $browsersProvider;
+    protected $operatingSystemsProvider;
 
     protected $knownMatchTypes = array(
         'regex', //regular expression
         'strpos', //simple case-sensitive string within string check
         'stripos', //simple case-insensitive string within string check
     );
-
+    
     /**
      * @param $headers \Iterator|array|string When it's a string, it's assumed to be User-Agent.
-     * @param MobileDetectFactory $factory
+     * @param Phones|null $phonesProvider
+     * @param Tablets|null $tabletsProvider
+     * @param Browsers|null $browsersProvider
+     * @param OperatingSystems|null $operatingSystemsProvider
      */
     public function __construct(
         $headers = null,
-        MobileDetectFactory $factory = null
+        Phones $phonesProvider = null,
+        Tablets $tabletsProvider = null,
+        Browsers $browsersProvider = null,
+        OperatingSystems $operatingSystemsProvider = null
     ) {
-        // Create the factory class instance if none is passed.
-        if ($factory === null) {
-            $this->factory = new MobileDetectFactory();
+        if (!$phonesProvider) {
+            $phonesProvider = new Phones;
         }
+        
+        if (!$tabletsProvider) {
+            $tabletsProvider = new Tablets;
+        }
+        
+        if (!$browsersProvider) {
+            $browsersProvider = new Browsers;
+        }
+        
+        if (!$operatingSystemsProvider) {
+            $operatingSystemsProvider = new OperatingSystems;
+        }
+        
+        $this->phonesProvider = $phonesProvider;
+        $this->tabletsProvider = $tabletsProvider;
+        $this->browsersProvider = $browsersProvider;
+        $this->operatingSystemsProvider = $operatingSystemsProvider;
 
-        $this->uaHeadersProperties = $this->factory->createUaHeadersProperties();
-        $this->recognizedHeadersProperties = $this->factory->createRecognizedHeadersProperties();
-
-        $this->browsersData = $this->factory->createBrowsersData();
-        $this->operatingSystemsData = $this->factory->createOperatingSystemsData();
-        $this->phonesData = $this->factory->createPhonesData();
-        $this->tabletsData = $this->factory->createTabletsData();
+        // @todo: Put these into the constructor as properties?
+        $this->userAgentHeaders = new UserAgentHeaders;
+        $this->recognizedHttpHeaders = new HttpHeaders;
 
         if (is_string($headers)) {
             $headers = array('User-Agent' => $headers);
@@ -108,7 +125,7 @@ class MobileDetect
 
         $ua = array();
 
-        foreach ($this->uaHeadersProperties->getAll() as $altHeader) {
+        foreach ($this->userAgentHeaders->getAll() as $altHeader) {
             if ($header = $this->getHeader($altHeader)) {
                 $ua[] = $header;
             }
@@ -174,7 +191,7 @@ class MobileDetect
         $headerName = strtolower($headerName);
 
         //check for non-extension headers that are not standard
-        if (!$force && $headerName[0] != 'x' && !in_array($headerName, $this->recognizedHeadersProperties->getAll())) {
+        if (!$force && $headerName[0] != 'x' && !in_array($headerName, $this->recognizedHttpHeaders->getAll())) {
             throw new Exception\InvalidArgumentException(
                 sprintf("The request header %s isn't a recognized HTTP header name", $headerName)
             );
@@ -190,11 +207,6 @@ class MobileDetect
     public function getUserAgent()
     {
         return $this->getHeader('User-Agent');
-    }
-
-    public function getFactory()
-    {
-        return $this->factory;
     }
 
     protected function getKnownMatches()
@@ -466,12 +478,12 @@ class MobileDetect
         // Get the device type.
         $prop['deviceType'] = DeviceType::DESKTOP;
 
-        if ($phoneResult = $this->searchForPhoneInDb()) {
+        if ($phoneResult = $this->searchPhonesProvider()) {
             $prop['deviceType'] = DeviceType::MOBILE;
             $prop['deviceResult'] = $phoneResult;
         }
 
-        if ($tabletResult = $this->searchForTabletInDb()) {
+        if ($tabletResult = $this->searchTabletsProvider()) {
             $prop['deviceType'] = DeviceType::TABLET;
             $prop['deviceResult'] = $tabletResult;
         }
@@ -490,7 +502,7 @@ class MobileDetect
         }
 
         // Get model and version of the browser (if possible).
-        $browserResult = $this->searchForBrowserInDb();
+        $browserResult = $this->searchBrowsersProvider();
         $prop['browserResult'] = $browserResult;
 
         if ($browserResult) {
@@ -499,7 +511,7 @@ class MobileDetect
         }
 
         // Get model and version of the operating system (if possible).
-        $operatingSystemResult = $this->searchForOperatingSystemInDb();
+        $operatingSystemResult = $this->searchOperatingSystemsProvider();
         $prop['operatingSystemResult'] = $operatingSystemResult;
 
         if ($operatingSystemResult) {
@@ -566,9 +578,9 @@ class MobileDetect
         return false;
     }
 
-    protected function searchForPhoneInDb()
+    protected function searchPhonesProvider()
     {
-        foreach ($this->phonesData->getAll() as $vendorKey => $itemData) {
+        foreach ($this->phonesProvider->getAll() as $vendorKey => $itemData) {
             $result = $this->searchForItemInDb($itemData);
             if ($result !== false) {
                 return $result;
@@ -578,9 +590,9 @@ class MobileDetect
         return false;
     }
 
-    protected function searchForTabletInDb()
+    protected function searchTabletsProvider()
     {
-        foreach ($this->tabletsData->getAll() as $vendorKey => $itemData) {
+        foreach ($this->tabletsProvider->getAll() as $vendorKey => $itemData) {
             $result = $this->searchForItemInDb($itemData);
             if ($result !== false) {
                 return $result;
@@ -590,9 +602,9 @@ class MobileDetect
         return false;
     }
 
-    protected function searchForBrowserInDb()
+    protected function searchBrowsersProvider()
     {
-        foreach ($this->browsersData->getAll() as $familyName => $items) {
+        foreach ($this->browsersProvider->getAll() as $familyName => $items) {
             foreach ($items as $itemName => $itemData) {
                 $result = $this->searchForItemInDb($itemData);
                 if ($result !== false) {
@@ -604,9 +616,9 @@ class MobileDetect
         return false;
     }
 
-    protected function searchForOperatingSystemInDb()
+    protected function searchOperatingSystemsProvider()
     {
-        foreach ($this->operatingSystemsData->getAll() as $familyName => $items) {
+        foreach ($this->operatingSystemsProvider->getAll() as $familyName => $items) {
             foreach ($items as $itemName => $itemData) {
                 $result = $this->searchForItemInDb($itemData);
                 if ($result !== false) {

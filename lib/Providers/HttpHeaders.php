@@ -1,9 +1,7 @@
 <?php
-namespace MobileDetect\Properties;
+namespace MobileDetect\Providers;
 
-use MobileDetect\AbstractStack;
-
-class RecognizedHeadersProperties extends AbstractStack
+class HttpHeaders
 {
     /**
      * A list of possible HTTP Request headers.
@@ -52,4 +50,9 @@ class RecognizedHeadersProperties extends AbstractStack
         'ua-os',
         'ua-cpu', // HTTP_UA_CPU
     );
+    
+    public function getAll()
+    {
+        return $this->data;
+    }
 }

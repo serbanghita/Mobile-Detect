@@ -1,9 +1,7 @@
 <?php
-namespace MobileDetect\Data;
+namespace MobileDetect\Providers;
 
-use MobileDetect\AbstractStack;
-
-class Browsers extends AbstractStack
+class Browsers
 {
     /**
      * List of browsers.
@@ -133,4 +131,15 @@ class Browsers extends AbstractStack
         )
 
     );
+    
+    
+    public function getFamily($familyName)
+    {
+        return $this->data[$familyName];
+    }
+    
+    public function getAll()
+    {
+        return $this->data;
+    }
 }

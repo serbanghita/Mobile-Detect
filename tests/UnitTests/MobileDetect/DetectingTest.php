@@ -18,24 +18,24 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
                             'An user agent string'
                         ))
                         ->setMethods(array(
-                            'searchForPhoneInDb',
-                            'searchForBrowserInDb',
-                            'searchForOperatingSystemInDb'
+                            'searchPhonesProvider',
+                            'searchBrowsersProvider',
+                            'searchOperatingSystemsProvider'
                         ))
                         ->getMock();
 
         $mobileDetect->expects($this->any())
-                        ->method('searchForPhoneInDb')
+                        ->method('searchPhonesProvider')
                         ->willReturn(array(
                             'vendor' => 'a',
                             'identityMatches' => 'b',
                             'modelMatches' => array('c','d')
         ));
         $mobileDetect->expects($this->any())
-                        ->method('searchForBrowserInDb')
+                        ->method('searchBrowsersProvider')
                         ->willReturn(false);
         $mobileDetect->expects($this->any())
-                        ->method('searchForOperatingSystemInDb')
+                        ->method('searchOperatingSystemsProvider')
                         ->willReturn(false);
 
         $device = $mobileDetect->detect();
@@ -60,24 +60,24 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
                 'An user agent string'
             ))
             ->setMethods(array(
-                'searchForTabletInDb',
-                'searchForBrowserInDb',
-                'searchForOperatingSystemInDb'
+                'searchTabletsProvider',
+                'searchBrowsersProvider',
+                'searchOperatingSystemsProvider'
             ))
             ->getMock();
 
         $mobileDetect->expects($this->any())
-            ->method('searchForTabletInDb')
+            ->method('searchTabletsProvider')
             ->willReturn(array(
                 'vendor' => 'a',
                 'identityMatches' => 'b',
                 'modelMatches' => array('c','d')
             ));
         $mobileDetect->expects($this->any())
-            ->method('searchForBrowserInDb')
+            ->method('searchBrowsersProvider')
             ->willReturn(false);
         $mobileDetect->expects($this->any())
-            ->method('searchForOperatingSystemInDb')
+            ->method('searchOperatingSystemsProvider')
             ->willReturn(false);
 
         $device = $mobileDetect->detect();
@@ -101,23 +101,23 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
                 'An user agent string'
             ))
             ->setMethods(array(
-                'searchForPhoneInDb',
-                'searchForTabletInDb',
-                'searchForBrowserInDb',
-                'searchForOperatingSystemInDb'
+                'searchPhonesProvider',
+                'searchTabletsProvider',
+                'searchBrowsersProvider',
+                'searchOperatingSystemsProvider'
             ))
             ->getMock();
 
         $mobileDetect->expects($this->any())
-            ->method('searchForPhoneInDb')
+            ->method('searchPhonesProvider')
             ->willReturn(false);
 
         $mobileDetect->expects($this->any())
-            ->method('searchForTabletInDb')
+            ->method('searchTabletsProvider')
             ->willReturn(false);
 
         $mobileDetect->expects($this->any())
-            ->method('searchForBrowserInDb')
+            ->method('searchBrowsersProvider')
             ->willReturn(array(
                 'vendor' => 'a',
                 'isMobile' => true,
@@ -126,7 +126,7 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
             ));
 
         $mobileDetect->expects($this->any())
-            ->method('searchForOperatingSystemInDb')
+            ->method('searchOperatingSystemsProvider')
             ->willReturn(false);
 
         $device = $mobileDetect->detect();
@@ -151,27 +151,27 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
                 'An user agent string'
             ))
             ->setMethods(array(
-                'searchForPhoneInDb',
-                'searchForTabletInDb',
-                'searchForBrowserInDb',
-                'searchForOperatingSystemInDb'
+                'searchPhonesProvider',
+                'searchTabletsProvider',
+                'searchBrowsersProvider',
+                'searchOperatingSystemsProvider'
             ))
             ->getMock();
 
         $mobileDetect->expects($this->any())
-            ->method('searchForPhoneInDb')
+            ->method('searchPhonesProvider')
             ->willReturn(false);
 
         $mobileDetect->expects($this->any())
-            ->method('searchForTabletInDb')
+            ->method('searchTabletsProvider')
             ->willReturn(false);
 
         $mobileDetect->expects($this->any())
-            ->method('searchForBrowserInDb')
+            ->method('searchBrowsersProvider')
             ->willReturn(false);
 
         $mobileDetect->expects($this->any())
-            ->method('searchForOperatingSystemInDb')
+            ->method('searchOperatingSystemsProvider')
             ->willReturn(array(
                 'vendor' => 'a',
                 'isMobile' => true,
@@ -201,27 +201,27 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
                 'An user agent string'
             ))
             ->setMethods(array(
-                'searchForPhoneInDb',
-                'searchForTabletInDb',
-                'searchForBrowserInDb',
-                'searchForOperatingSystemInDb'
+                'searchPhonesProvider',
+                'searchTabletsProvider',
+                'searchBrowsersProvider',
+                'searchOperatingSystemsProvider'
             ))
             ->getMock();
 
         $mobileDetect->expects($this->any())
-            ->method('searchForPhoneInDb')
+            ->method('searchPhonesProvider')
             ->willReturn(false);
 
         $mobileDetect->expects($this->any())
-            ->method('searchForTabletInDb')
+            ->method('searchTabletsProvider')
             ->willReturn(false);
 
         $mobileDetect->expects($this->any())
-            ->method('searchForBrowserInDb')
+            ->method('searchBrowsersProvider')
             ->willReturn(false);
 
         $mobileDetect->expects($this->any())
-            ->method('searchForOperatingSystemInDb')
+            ->method('searchOperatingSystemsProvider')
             ->willReturn(false);
 
         $device = $mobileDetect->detect();

@@ -1,9 +1,7 @@
 <?php
-namespace MobileDetect\Data;
+namespace MobileDetect\Providers;
 
-use MobileDetect\AbstractStack;
-
-class OperatingSystems extends AbstractStack
+class OperatingSystems
 {
     /**
      * List of mobile Operating Systems.
@@ -88,4 +86,14 @@ class OperatingSystems extends AbstractStack
         ),
 
     );
+
+    public function getFamily($familyName)
+    {
+        return $this->data[$familyName];
+    }
+
+    public function getAll()
+    {
+        return $this->data;
+    }
 }

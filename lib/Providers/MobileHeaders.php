@@ -1,9 +1,7 @@
 <?php
-namespace MobileDetect\Properties;
+namespace MobileDetect\Providers;
 
-use MobileDetect\AbstractStack;
-
-class MobileHeadersProperties extends AbstractStack
+class MobileHeaders
 {
     /**
      * HTTP headers that trigger the 'isMobile' detection
@@ -41,4 +39,9 @@ class MobileHeadersProperties extends AbstractStack
         // Seen this on a HTC.
         'UA-CPU' => array('matches' => array('ARM')),
     );
+
+    public function getAll()
+    {
+        return $this->data;
+    }
 }

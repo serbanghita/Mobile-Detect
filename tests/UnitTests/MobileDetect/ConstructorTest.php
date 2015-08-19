@@ -9,11 +9,13 @@ class ConstructorTests extends \PHPUnit_Framework_TestCase
     /**
      * When no factory object is passed it creates a new factory instance.
      */
+    /*
     public function testWhenNoFactoryObjectIsPassedItCreatesANewFactoryInstance()
     {
         $md = new MobileDetect();
         $this->assertInstanceOf('MobileDetect\\MobileDetectFactory', $md->getFactory());
     }
+    */
 
     /**
      * When factory object is created it also creates all the needed properties classes.
@@ -21,8 +23,8 @@ class ConstructorTests extends \PHPUnit_Framework_TestCase
     public function testWhenFactoryObjectIsCreatedItAlsoCreatesAllTheNeededPropertiesClasses()
     {
         $md = new MobileDetect();
-        \PHPUnit_Framework_Assert::assertAttributeInstanceOf('MobileDetect\\Properties\\UaHeadersProperties', 'uaHeadersProperties', $md);
-        \PHPUnit_Framework_Assert::assertAttributeInstanceOf('MobileDetect\\Properties\\RecognizedHeadersProperties', 'recognizedHeadersProperties', $md);
+        \PHPUnit_Framework_Assert::assertAttributeInstanceOf('MobileDetect\\Providers\\UserAgentHeaders', 'userAgentHeaders', $md);
+        \PHPUnit_Framework_Assert::assertAttributeInstanceOf('MobileDetect\\Providers\\HttpHeaders', 'recognizedHttpHeaders', $md);
     }
 
 

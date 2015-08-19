@@ -1,9 +1,7 @@
 <?php
-namespace MobileDetect\Properties;
+namespace MobileDetect\Providers;
 
-use MobileDetect\AbstractStack;
-
-class UaHeadersProperties extends AbstractStack
+class UserAgentHeaders
 {
     /**
      * All possible HTTP headers that represent the
@@ -28,4 +26,9 @@ class UaHeadersProperties extends AbstractStack
         'Device-Stock-UA',
         'X-UcBrowser-Device-UA',
     );
+    
+    public function getAll()
+    {
+        return $this->data;
+    }
 }
