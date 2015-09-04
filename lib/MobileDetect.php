@@ -2,7 +2,6 @@
 namespace MobileDetect;
 
 use MobileDetect\Device\DeviceInterface;
-use MobileDetect\MobileDetectFactory;
 
 use MobileDetect\Providers\UserAgentHeaders;
 use MobileDetect\Providers\HttpHeaders;
