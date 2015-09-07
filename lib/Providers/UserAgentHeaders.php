@@ -1,7 +1,7 @@
 <?php
 namespace MobileDetect\Providers;
 
-class UserAgentHeaders
+class UserAgentHeaders extends AbstractProvider
 {
     /**
      * All possible HTTP headers that represent the
@@ -26,9 +26,4 @@ class UserAgentHeaders
         'Device-Stock-UA',
         'X-UcBrowser-Device-UA',
     );
-    
-    public function getAll()
-    {
-        return $this->data;
-    }
 }

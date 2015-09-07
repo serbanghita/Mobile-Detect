@@ -1,7 +1,7 @@
 <?php
 namespace MobileDetect\Providers;
 
-class OperatingSystems
+class OperatingSystems extends AbstractProvider
 {
     /**
      * List of mobile Operating Systems.
@@ -90,10 +90,5 @@ class OperatingSystems
     public function getFamily($familyName)
     {
         return $this->data[$familyName];
-    }
-
-    public function getAll()
-    {
-        return $this->data;
     }
 }

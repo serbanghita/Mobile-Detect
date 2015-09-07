@@ -1,7 +1,7 @@
 <?php
 namespace MobileDetect\Providers;
 
-class HttpHeaders
+class HttpHeaders extends AbstractProvider
 {
     /**
      * A list of possible HTTP Request headers.
@@ -50,9 +50,4 @@ class HttpHeaders
         'ua-os',
         'ua-cpu', // HTTP_UA_CPU
     );
-    
-    public function getAll()
-    {
-        return $this->data;
-    }
 }

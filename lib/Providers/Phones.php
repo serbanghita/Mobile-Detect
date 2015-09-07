@@ -1,7 +1,7 @@
 <?php
 namespace MobileDetect\Providers;
 
-class Phones
+class Phones extends AbstractProvider
 {
     /**
      * List of mobile devices (phones).
@@ -10,17 +10,17 @@ class Phones
      */
     protected $data = array(
 
-        'iPhone' => array(
+        'iPhone' => [
             'vendor' => 'Apple',
             'identityMatches' => '\b(iPhone|iPod)\b',
-            'modelMatches' => array(
+            'modelMatches' => [
                 '(?<model>iP[a-z]+).*CPU[a-z ]+(?<version>[0-9\._-]+)',
                 '(?<model>iP[a-z]+).*CPU[a-z ]+(?<version>[0-9\._-]+)',
                 '(?<model>iP[a-z]+); U; (.* OS (?<version>[0-9\._-]+))?',
                 '(?<model>iP[a-z]+); iPhone OS/(?<version>[0-9\._-]+)',
                 '(?<model>iP[a-z]+); iOS (?<version>[0-9\._-]+);',
-            ),
-        ),
+            ],
+        ],
 
         'Nexus' => array(
             'vendor' => 'Google',
@@ -93,10 +93,5 @@ class Phones
     public function getDataFromVendor($vendorName)
     {
         return $this->data[$vendorName];
-    }
-
-    public function getAll()
-    {
-        return $this->data;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 namespace MobileDetect\Providers;
 
-class Tablets
+class Tablets extends AbstractProvider
 {
     /**
      * List of tablet devices.
@@ -73,10 +73,5 @@ class Tablets
     public function getDataFromVendor($vendorName)
     {
         return $this->data[$vendorName];
-    }
-
-    public function getAll()
-    {
-        return $this->data;
     }
 }

@@ -39,45 +39,36 @@ class MobileDetect
         'strpos', //simple case-sensitive string within string check
         'stripos', //simple case-insensitive string within string check
     );
-    
+
     /**
      * @param $headers \Iterator|array|string When it's a string, it's assumed to be User-Agent.
      * @param Phones|null $phonesProvider
      * @param Tablets|null $tabletsProvider
      * @param Browsers|null $browsersProvider
      * @param OperatingSystems|null $operatingSystemsProvider
+     * @param UserAgentHeaders $userAgentHeaders
+     * @param HttpHeaders $recognizedHttpHeaders
      */
     public function __construct(
         $headers = null,
         Phones $phonesProvider = null,
         Tablets $tabletsProvider = null,
         Browsers $browsersProvider = null,
-        OperatingSystems $operatingSystemsProvider = null
+        OperatingSystems $operatingSystemsProvider = null,
+        UserAgentHeaders $userAgentHeaders = null,
+        HttpHeaders $recognizedHttpHeaders = null
     ) {
-        if (!$phonesProvider) {
-            $phonesProvider = new Phones;
-        }
-        
-        if (!$tabletsProvider) {
-            $tabletsProvider = new Tablets;
-        }
-        
-        if (!$browsersProvider) {
-            $browsersProvider = new Browsers;
-        }
-        
-        if (!$operatingSystemsProvider) {
-            $operatingSystemsProvider = new OperatingSystems;
-        }
-        
-        $this->phonesProvider = $phonesProvider;
-        $this->tabletsProvider = $tabletsProvider;
-        $this->browsersProvider = $browsersProvider;
-        $this->operatingSystemsProvider = $operatingSystemsProvider;
 
-        // @todo: Put these into the constructor as properties?
-        $this->userAgentHeaders = new UserAgentHeaders;
-        $this->recognizedHttpHeaders = new HttpHeaders;
+        if (!$userAgentHeaders) {
+            $userAgentHeaders = new UserAgentHeaders;
+        }
+
+        if (!$recognizedHttpHeaders) {
+            $recognizedHttpHeaders = new HttpHeaders;
+        }
+
+        $this->userAgentHeaders = $userAgentHeaders;
+        $this->recognizedHttpHeaders = $recognizedHttpHeaders;
 
         if (is_string($headers)) {
             $headers = array('User-Agent' => $headers);
@@ -107,6 +98,31 @@ class MobileDetect
         // When no param is passed, it is detected
         // based on all available headers.
         $this->setUserAgent();
+
+
+        if (!$phonesProvider) {
+            $phonesProvider = new Phones;
+        }
+        
+        if (!$tabletsProvider) {
+            $tabletsProvider = new Tablets;
+        }
+        
+        if (!$browsersProvider) {
+            $browsersProvider = new Browsers;
+        }
+        
+        if (!$operatingSystemsProvider) {
+            $operatingSystemsProvider = new OperatingSystems;
+        }
+
+
+
+        $this->phonesProvider = $phonesProvider;
+        $this->tabletsProvider = $tabletsProvider;
+        $this->browsersProvider = $browsersProvider;
+        $this->operatingSystemsProvider = $operatingSystemsProvider;
+
     }
 
     /**

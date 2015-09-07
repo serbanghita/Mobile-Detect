@@ -1,7 +1,7 @@
 <?php
 namespace MobileDetect\Providers;
 
-class Browsers
+class Browsers extends AbstractProvider
 {
     /**
      * List of browsers.
@@ -136,10 +136,5 @@ class Browsers
     public function getFamily($familyName)
     {
         return $this->data[$familyName];
-    }
-    
-    public function getAll()
-    {
-        return $this->data;
     }
 }

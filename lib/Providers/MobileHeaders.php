@@ -1,7 +1,7 @@
 <?php
 namespace MobileDetect\Providers;
 
-class MobileHeaders
+class MobileHeaders extends AbstractProvider
 {
     /**
      * HTTP headers that trigger the 'isMobile' detection
@@ -39,9 +39,4 @@ class MobileHeaders
         // Seen this on a HTC.
         'UA-CPU' => array('matches' => array('ARM')),
     );
-
-    public function getAll()
-    {
-        return $this->data;
-    }
 }
