@@ -1,18 +1,8 @@
 <?php
-
-namespace MobileDetect;
+namespace MobileDetect\Device;
 
 interface DeviceInterface
 {
-    /**
-     * A factory definition.
-     *
-     * @param array $props An array of properties to create an instance.
-     *
-     * @return DeviceInterface
-     */
-    public static function create(array $props = array());
-
     /**
      * Retrieves the type of device. See the Type class for possible values.
      *
@@ -105,11 +95,10 @@ interface DeviceInterface
     public function toArray();
 
     /**
-     * Retrieve the version for a particular property in the user agent.
-     *
-     * @param $key string The key to retrieve the version for.
-     *
-     * @return string|null A string if the version exists for the key.
+     * Factory method to create a Device instance.
+     * 
+     * @param array $prop
+     * @return mixed
      */
-    public function getVersion($key);
+    public static function create(array $prop);
 }

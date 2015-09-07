@@ -1,10 +1,9 @@
 <?php
-
-namespace MobileDetectTest\UnitTests;
+namespace MobileDetectTests\UnitTests\MobileDetect;
 
 use MobileDetect\MobileDetect;
-use MobileDetect\Device;
-use MobileDetect\Type;
+use MobileDetect\Device\DeviceType;
+use MobileDetect\Device\Device;
 
 class CacheTest extends \PHPUnit_Framework_TestCase
 {
@@ -45,8 +44,10 @@ class CacheTest extends \PHPUnit_Framework_TestCase
     public function testCachedDeviceIsActuallyUsed()
     {
         $detect = new MobileDetect();
-        $device = new Device('', Type::DESKTOP, '', '', '', '', '', '', '');
-        $setter = function ($key, $obj) { /* does not matter here */ };
+        $device = new Device('', DeviceType::DESKTOP, '', '', '', '', '', '', '');
+        $setter = function ($key, $obj) {
+            /* does not matter here */
+        };
         $getter = function ($key) use (&$device) {
             return $device;
         };

@@ -32,7 +32,7 @@ return array(
             'browserVersion' => '7.0',
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '7.0',
-            'model' => 'iPhone',
+            'model' => 'iPod',
             'modelVersion' => null
         ),
 
@@ -80,7 +80,7 @@ return array(
             'browserVersion' => '6.0',
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '6.0',
-            'model' => 'iPhone',
+            'model' => 'iPod',
             'modelVersion' => null
         ),
 

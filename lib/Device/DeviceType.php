@@ -1,8 +1,7 @@
 <?php
+namespace MobileDetect\Device;
 
-namespace MobileDetect;
-
-abstract class Type
+class DeviceType
 {
     const MOBILE           = 0;
     const DESKTOP          = 1;

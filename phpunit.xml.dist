@@ -6,10 +6,21 @@
   convertErrorsToExceptions="true"
   convertNoticesToExceptions="true"
   convertWarningsToExceptions="true"
-  checkForUnintentionallyCoveredCode="true">
+  checkForUnintentionallyCoveredCode="true"
+  beStrictAboutTestsThatDoNotTestAnything="true"
+  stopOnError="true"
+  stopOnFailure="true">
+
+    <testsuite name="All">
+        <directory suffix="Test.php">./tests</directory>
+    </testsuite>
 
     <testsuite name="UnitTests">
       <directory suffix="Test.php">./tests/UnitTests</directory>
+    </testsuite>
+
+    <testsuite name="FunctionalTests">
+        <directory suffix="Test.php">./tests/FunctionalTests</directory>
     </testsuite>
 
     <testsuite name="IntegrationTests">

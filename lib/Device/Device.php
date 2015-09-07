@@ -1,8 +1,7 @@
 <?php
+namespace MobileDetect\Device;
 
-namespace MobileDetect;
-
-use MobileDetect\Data\PropertyLib;
+use MobileDetect\Exception\InvalidDeviceSpecificationException;
 
 /**
  * Class Device
@@ -11,15 +10,17 @@ use MobileDetect\Data\PropertyLib;
  */
 class Device implements DeviceInterface
 {
+
     /**
      * A list of required keys for the factory method.
      *
      * @var array
      */
-    protected static $required = array(
-        'type', 'user_agent', 'model', 'model_version', 'os', 'os_version', 'browser', 'browser_version', 'vendor',
-    );
-
+    public static $requiredFields = array(
+        'deviceType',
+        'userAgent'
+    );    
+    
     /**
      * One of the TYPE_* constants.
      *
@@ -85,56 +86,36 @@ class Device implements DeviceInterface
     protected $vendor;
 
     /**
-     * @param array $props An array of properties to create this device from.
-     *
-     * @return Device The device instance.
-     *
-     * @throws Exception\InvalidDeviceSpecificationException When insufficient properties are present to
-     *                                                       identify this device.
+     * @param $userAgent
+     * @param $deviceType
+     * @param $deviceModel
+     * @param $deviceModelVersion
+     * @param $operatingSystemModel
+     * @param $operatingSystemVersion
+     * @param $browserModel
+     * @param $browserVersion
+     * @param $vendor
      */
-    public static function create(array $props = array())
-    {
-        // ensure that all the required keys are present
-        foreach (static::$required as $key) {
-            if (!array_key_exists($key, $props)) {
-                throw new Exception\InvalidDeviceSpecificationException("The '$key' property is required.");
-            }
-        }
-
-        // check that a valid type was passed
-        if ($props['type'] != Type::DESKTOP
-            && $props['type'] != Type::MOBILE
-            && $props['type'] != Type::TABLET
-            && $props['type'] != Type::BOT
-        ) {
-            throw new Exception\InvalidDeviceSpecificationException("Unrecognized type: '{$props['type']}'");
-        }
-
-        // create a new instance
-        return new static(
-            $props['user_agent'],
-            $props['type'],
-            $props['model'],
-            $props['model_version'],
-            $props['os'],
-            $props['os_version'],
-            $props['browser'],
-            $props['browser_version'],
-            $props['vendor']
-        );
-    }
-
-    public function __construct($userAgent, $type, $model, $modelVer, $os, $osVer, $browser, $browserVer, $vendor)
-    {
-        $this->userAgent                = $userAgent;
-        $this->type                     = $type;
-        $this->model                    = $model;
-        $this->modelVersion             = $modelVer;
-        $this->operatingSystem          = $os;
-        $this->operatingSystemVersion   = $osVer;
-        $this->browser                  = $browser;
-        $this->browserVersion           = $browserVer;
-        $this->vendor                   = $vendor;
+    public function __construct(
+        $userAgent,
+        $deviceType,
+        $deviceModel,
+        $deviceModelVersion,
+        $operatingSystemModel,
+        $operatingSystemVersion,
+        $browserModel,
+        $browserVersion,
+        $vendor
+    ) {
+        $this->userAgent = $userAgent;
+        $this->type = $deviceType;
+        $this->model = $deviceModel;
+        $this->modelVersion = $deviceModelVersion;
+        $this->operatingSystem = $operatingSystemModel;
+        $this->operatingSystemVersion = $operatingSystemVersion;
+        $this->browser = $browserModel;
+        $this->browserVersion = $browserVersion;
+        $this->vendor = $vendor;
     }
 
     /**
@@ -189,27 +170,28 @@ class Device implements DeviceInterface
 
     public function isMobile()
     {
-        return $this->type == Type::MOBILE || $this->type == Type::TABLET;
+        return $this->type == DeviceType::MOBILE || $this->type == DeviceType::TABLET;
     }
 
     public function isDesktop()
     {
-        return $this->type == Type::DESKTOP;
+        return $this->type == DeviceType::DESKTOP;
     }
 
     public function isTablet()
     {
-        return $this->type == Type::TABLET;
+        return $this->type == DeviceType::TABLET;
     }
 
     public function isBot()
     {
-        return $this->type == Type::BOT;
+        return $this->type == DeviceType::BOT;
     }
 
     public function toArray()
     {
         return array(
+            'type'                      => $this->getType(),
             'isMobile'                  => $this->isMobile(),
             'isTablet'                  => $this->isTablet(),
             'isDesktop'                 => $this->isDesktop(),
@@ -226,36 +208,38 @@ class Device implements DeviceInterface
     }
 
     /**
-     * Retrieve a version for a specific property.
-     *
-     * @param $key string The version key, such as WebKey.
-     *
-     * @return string|null A string if the version if found, null otherwise.
+     * @param array $prop   An array of properties to create this device from.
+     * @return Device The device instance.
+     * @throws InvalidDeviceSpecificationException When insufficient properties are present to
+     *                                                       identify this device.
      */
-    public function getVersion($key)
+    public static function create(array $prop)
     {
-        $version = null;
-        $cmp = strtolower($key);
-
-        foreach (PropertyLib::getProperties() as $name => $patterns) {
-            if ($cmp == strtolower($name)) {
-                if (!is_array($patterns)) {
-                    $patterns = array($patterns);
-                }
-
-                foreach ($patterns as $pattern) {
-                    $pattern = MobileDetect::prepareRegex($pattern);
-                    if (preg_match($pattern, $this->userAgent, $matches)) {
-                        if (isset($matches['version'])) {
-                            $version = $matches['version'];
-                        }
-                    }
-                }
-
-                return $version;
+        // ensure that all the required keys are present
+        foreach (self::$requiredFields as $key) {
+            if (!isset($prop[$key])) {
+                throw new InvalidDeviceSpecificationException(sprintf("The '%s' property is required.", $key));
             }
         }
 
-        return;
+        // check that a valid type was passed
+        if ($prop['deviceType'] != DeviceType::DESKTOP
+            && $prop['deviceType'] != DeviceType::MOBILE
+            && $prop['deviceType'] != DeviceType::TABLET
+            && $prop['deviceType'] != DeviceType::BOT
+        ) {
+            throw new InvalidDeviceSpecificationException(
+                sprintf("Unrecognized type: '%s'", $prop['deviceType'])
+            );
+        }
+
+        // create a new instance
+        return new static(
+            $prop['userAgent'],
+            $prop['deviceType'], $prop['deviceModel'], $prop['deviceModelVersion'],
+            $prop['operatingSystemModel'], $prop['operatingSystemVersion'],
+            $prop['browserModel'], $prop['browserVersion'],
+            $prop['vendor']
+        );
     }
 }

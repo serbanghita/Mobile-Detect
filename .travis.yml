@@ -1,22 +1,22 @@
 language: php
 php:
-  - "5.3"
   - "5.4"
   - "5.5"
   - "5.6"
 
 branches:
   only:
-    - devel-3
+    - devel-3-refactoring
 
 before_script:
  - wget http://getcomposer.org/composer.phar
  - php composer.phar require satooshi/php-coveralls:dev-master
  - php composer.phar install --dev --no-interaction
+ - wget https://phar.phpunit.de/phpunit.phar
  
 script:
   - mkdir -p build/logs
-  - phpunit -v -c tests/phpunit.xml --coverage-clover build/logs/clover.xml
+  - php phpunit.phar -v -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
 
 after_script:
  - php vendor/bin/coveralls -v

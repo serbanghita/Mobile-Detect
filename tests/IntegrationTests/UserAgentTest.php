@@ -48,6 +48,7 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
         $detector = new MobileDetect($ua);
         $device = $detector->detect();
 
+
         if (is_bool($isMobile)) {
             $this->assertSame($isMobile, $device->isMobile(), 'The isMobile() assertion is not correct.');
         }
@@ -57,31 +58,54 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
         }
 
         if (isset($browser)) {
-            $this->assertSame($browser, $device->getBrowser(), 'The getBrowser() assertion is not correct.');
+            $this->assertSame(
+                $browser,
+                $device->getBrowser(),
+                sprintf('The getBrowser() assertion on %s is not correct.', $detector->getUserAgent())
+            );
         }
 
         if (isset($browserVersion)) {
-            $this->assertSame($browserVersion, $device->getBrowserVersion(), 'The getBrowserVersion() assertion is not correct.');
+            $this->assertSame(
+                $browserVersion,
+                $device->getBrowserVersion(),
+                'The getBrowserVersion() assertion is not correct.'
+            );
         }
 
         if (isset($operatingSystem)) {
-            $this->assertSame($operatingSystem, $device->getOperatingSystem(), 'The getOperatingSystem() assertion is not correct.');
+            $this->assertSame(
+                $operatingSystem,
+                $device->getOperatingSystem(),
+                'The getOperatingSystem() assertion is not correct.'
+            );
         }
 
         if (isset($operatingSystemVersion)) {
-            $this->assertSame($operatingSystemVersion, $device->getOperatingSystemVersion(), 'The getOperatingSystemVersion() assertion is not correct.');
+            $this->assertSame(
+                $operatingSystemVersion,
+                $device->getOperatingSystemVersion(),
+                'The getOperatingSystemVersion() assertion is not correct.'
+            );
         }
 
         if (isset($model)) {
-            $this->assertSame($model, $device->getModel(), 'The getModel() assertion is not correct.');
+            $this->assertSame(
+                $model,
+                $device->getModel(),
+                sprintf('The getModel() assertion on %s is not correct.', $detector->getUserAgent())
+            );
         }
 
         if (isset($modelVersion)) {
-            $this->assertSame($modelVersion, $device->getModelVersion(), 'The getModelVersion() assertion is not correct.');
+            $this->assertSame(
+                $modelVersion,
+                $device->getModelVersion(),
+                'The getModelVersion() assertion is not correct.'
+            );
         }
 
-
-        $this->assertSame($ua, $device->getUserAgent());
+        $this->assertSame($ua, $detector->getUserAgent());
     }
 
 }

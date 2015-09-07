@@ -1,11 +1,45 @@
 <?php
-
 namespace MobileDetect;
 
-use MobileDetect\Data\PropertyLib;
+use MobileDetect\Device\DeviceInterface;
+
+use MobileDetect\Providers\UserAgentHeaders;
+use MobileDetect\Providers\HttpHeaders;
+use MobileDetect\Providers\MobileHeaders;
+
+use MobileDetect\Providers\Browsers;
+use MobileDetect\Providers\OperatingSystems;
+use MobileDetect\Providers\Phones;
+use MobileDetect\Providers\Tablets;
+
+use MobileDetect\Device\Device;
+use MobileDetect\Device\DeviceType;
 
 class MobileDetect
 {
+    /**
+     * An associative array of headers in standard format.
+     * So the keys will be "User-Agent", and "Accepts" versus
+     * the all caps PHP format.
+     *
+     * @var array
+     */
+    protected $headers = array();
+
+    // Database.
+    protected $userAgentHeaders;
+    protected $recognizedHttpHeaders;
+    protected $phonesProvider;
+    protected $tabletsProvider;
+    protected $browsersProvider;
+    protected $operatingSystemsProvider;
+
+    protected $knownMatchTypes = array(
+        'regex', //regular expression
+        'strpos', //simple case-sensitive string within string check
+        'stripos', //simple case-insensitive string within string check
+    );
+
     /**
      * For static invocations of this class, this holds a singleton for those methods.
      *
@@ -42,67 +76,6 @@ class MobileDetect
      */
     protected $cacheGet;
 
-    protected static $knownMatchTypes = array(
-        'regex', //regular expression
-        'strpos', //simple case-sensitive string within string check
-        'stripos', //simple case-insensitive string within string check
-    );
-
-    /**
-     * A list of possible HTTP Request headers.
-     *
-     * @var array
-     */
-    protected static $requestHeaders = array(
-        'accept',
-        'accept-charset',
-        'accept-encoding',
-        'accept-language',
-        'accept-datetime',
-        'authorization',
-        'cache-control',
-        'connection',
-        'cookie',
-        'content-length',
-        'content-md5',
-        'content-type',
-        'date',
-        'expect',
-        'from',
-        'host',
-        'permanent',
-        'if-match',
-        'if-modified-since',
-        'if-none-match',
-        'if-range',
-        'if-unmodified-since',
-        'max-forwards',
-        'origin',
-        'pragma',
-        'proxy-authorization',
-        'range',
-        'referer',
-        'te',
-        'upgrade',
-        'user-agent',
-        'via',
-        'warning',
-        //not so standard, but since they don't start with 'x', they need to be present
-        'device-stock-ua',
-        'wap-connection',
-        'profile',
-        'ua-os',
-        'ua-cpu',
-    );
-
-    /**
-     * An associative array of headers in standard format. So the keys will be "User-Agent", and "Accepts" versus
-     * the all caps PHP format.
-     *
-     * @var array
-     */
-    protected $headers = array();
-
     /**
      * Generates or gets a singleton for use with the simple API.
      *
@@ -124,14 +97,40 @@ class MobileDetect
 
     /**
      * @param $headers \Iterator|array|string When it's a string, it's assumed to be User-Agent.
+     * @param Phones|null $phonesProvider
+     * @param Tablets|null $tabletsProvider
+     * @param Browsers|null $browsersProvider
+     * @param OperatingSystems|null $operatingSystemsProvider
+     * @param UserAgentHeaders $userAgentHeaders
+     * @param HttpHeaders $recognizedHttpHeaders
      */
-    public function __construct($headers = null)
-    {
+    public function __construct(
+        $headers = null,
+        Phones $phonesProvider = null,
+        Tablets $tabletsProvider = null,
+        Browsers $browsersProvider = null,
+        OperatingSystems $operatingSystemsProvider = null,
+        UserAgentHeaders $userAgentHeaders = null,
+        HttpHeaders $recognizedHttpHeaders = null
+    ) {
+
+        if (!$userAgentHeaders) {
+            $userAgentHeaders = new UserAgentHeaders;
+        }
+
+        if (!$recognizedHttpHeaders) {
+            $recognizedHttpHeaders = new HttpHeaders;
+        }
+
+        $this->userAgentHeaders = $userAgentHeaders;
+        $this->recognizedHttpHeaders = $recognizedHttpHeaders;
+
         if (is_string($headers)) {
             $headers = array('User-Agent' => $headers);
         }
 
-        //when no headers are provided, get them from _SERVER super global
+        // When no headers are provided,
+        // get them from _SERVER super global.
         if ($headers === null) {
             $headers = $_SERVER;
         }
@@ -151,22 +150,62 @@ class MobileDetect
             }
         }
 
-        //when no param is passed, it is detected based on all available headers
+        // When no param is passed, it is detected
+        // based on all available headers.
         $this->setUserAgent();
+
+
+        if (!$phonesProvider) {
+            $phonesProvider = new Phones;
+        }
+        
+        if (!$tabletsProvider) {
+            $tabletsProvider = new Tablets;
+        }
+        
+        if (!$browsersProvider) {
+            $browsersProvider = new Browsers;
+        }
+        
+        if (!$operatingSystemsProvider) {
+            $operatingSystemsProvider = new OperatingSystems;
+        }
+
+
+
+        $this->phonesProvider = $phonesProvider;
+        $this->tabletsProvider = $tabletsProvider;
+        $this->browsersProvider = $browsersProvider;
+        $this->operatingSystemsProvider = $operatingSystemsProvider;
+
     }
 
     /**
-     * Retrieves a header.
-     *
-     * @param $key string The header.
-     * @return string|null If the header is available, it's returned. Null otherwise.
+     * Set the User-Agent to be used.
+     * @param string $userAgent The user agent string to set.
+     * @return MobileDetect Fluent interface.
      */
-    public function getHeader($key)
+    public function setUserAgent($userAgent = null)
     {
-        //normalized since access might be with a variety of cases
-        $key = strtolower($key);
+        if ($userAgent) {
+            $this->headers['user-agent'] = trim($userAgent);
 
-        return isset($this->headers[$key]) ? $this->headers[$key] : null;
+            return $this;
+        }
+
+        $ua = array();
+
+        foreach ($this->userAgentHeaders->getAll() as $altHeader) {
+            if ($header = $this->getHeader($altHeader)) {
+                $ua[] = $header;
+            }
+        }
+
+        if (count($ua)) {
+            $this->headers['user-agent'] = implode(' ', $ua);
+        }
+
+        return $this;
     }
 
     /**
@@ -186,19 +225,28 @@ class MobileDetect
     }
 
     /**
-     * Retrieves the user agent header.
+     * Retrieves a header.
      *
-     * @return null|string The value or null if it doesn't exist.
+     * @param $key string The header.
+     * @return string|null If the header is available, it's returned. Null otherwise.
      */
-    public function getUserAgent()
+    public function getHeader($key)
     {
-        return $this->getHeader('User-Agent');
+        //normalized since access might be with a variety of cases
+        $key = strtolower($key);
+
+        return isset($this->headers[$key]) ? $this->headers[$key] : null;
+    }
+
+    public function getHeaders()
+    {
+        return $this->headers;
     }
 
     /**
      * @param $headerName string
      * @param $force bool Forces the header set even if it's not standard or doesn't start with "X-"
-     * @return string                             The header, normalized, so HTTP_USER_AGENT becomes user-agent
+     * @return string The header, normalized, so HTTP_USER_AGENT becomes user-agent
      * @throws Exception\InvalidArgumentException When the $headerName isn't a valid HTTP request header name.
      */
     protected function standardizeHeader($headerName, $force = false)
@@ -206,7 +254,6 @@ class MobileDetect
         if (strpos($headerName, 'HTTP_') === 0) {
             $headerName = substr($headerName, 5);
             $headerBits = explode('_', $headerName);
-
             $headerName = implode('-', $headerBits);
         }
 
@@ -214,40 +261,22 @@ class MobileDetect
         $headerName = strtolower($headerName);
 
         //check for non-extension headers that are not standard
-        if (!$force && $headerName[0] != 'x' && !in_array($headerName, static::$requestHeaders)) {
-            throw new Exception\InvalidArgumentException("The request header $headerName isn't a recognized HTTP header name");
+        if (!$force && $headerName[0] != 'x' && !in_array($headerName, $this->recognizedHttpHeaders->getAll())) {
+            throw new Exception\InvalidArgumentException(
+                sprintf("The request header %s isn't a recognized HTTP header name", $headerName)
+            );
         }
 
         return $headerName;
     }
 
     /**
-     * Set the User-Agent to be used.
-     *
-     * @param string $userAgent The user agent string to set.
-     *
-     * @return MobileDetect Fluent interface.
+     * Retrieves the user agent header.
+     * @return null|string The value or null if it doesn't exist.
      */
-    public function setUserAgent($userAgent = null)
+    public function getUserAgent()
     {
-        if ($userAgent) {
-            $this->headers['user-agent'] = trim($userAgent);
-
-            return $this;
-        }
-
-        $ua = array();
-        foreach (PropertyLib::getUaHttpHeaders() as $altHeader) {
-            if ($header = $this->getHeader($altHeader)) {
-                $ua[] = $header;
-            }
-        }
-
-        if (count($ua)) {
-            $this->headers['user-agent'] = implode(' ', $ua);
-        }
-
-        return $this;
+        return $this->getHeader('User-Agent');
     }
 
     /**
@@ -279,16 +308,44 @@ class MobileDetect
         throw new \BadMethodCallException(sprintf('No such method "%s" exists in Device class.', $method));
     }
 
+    protected function getKnownMatches()
+    {
+        return $this->knownMatchTypes;
+    }
+
+    /**
+     * @param $version string The string to convert to a standard version.
+     * @param bool $asArray
+     * @return array|string A string or an array if $asArray is passed as true.
+     */
+    protected function prepareVersion($version, $asArray = false)
+    {
+        $version = str_replace('_', '.', $version);
+
+        if ($asArray) {
+            return explode('.', $version);
+        } else {
+            return $version;
+        }
+    }
+
     /**
      * Converts the quasi-regex into a full regex, replacing various common placeholders such
      * as [VER] or [MODEL].
      *
-     * @param $regex string
+     * @param $regex string|array
      *
      * @return string
      */
-    public static function prepareRegex($regex)
+    protected function prepareRegex($regex)
     {
+        // Regex can be an array, because we have some really long
+        // expressions (eg. Samsung) and other programming languages
+        // cannot cope with the length. See #352
+        if (is_array($regex)) {
+            $regex = implode('', $regex);
+        }
+
         $regex = sprintf('/%s/i', addcslashes($regex, '/'));
         $regex = str_replace('[VER]', '(?<version>[0-9\._-]+)', $regex);
         $regex = str_replace('[MODEL]', '(?<model>[a-zA-Z0-9]+)', $regex);
@@ -299,27 +356,29 @@ class MobileDetect
     /**
      * Given a type of match, this method will check if a valid match is found.
      *
-     * @param  string                             $type    The type {{@see static::$knownMatchTypes}}.
+     * @param  string                             $type    The type {{@see $this->knownMatchTypes}}.
      * @param  string                             $test    The test subject.
      * @param  string                             $against The pattern (for regex) or substring (for str[i]pos).
      * @return bool                               True if matched successfully.
      * @throws Exception\InvalidArgumentException If $against isn't a string or $type is invalid.
      */
-    protected function matches($type, $test, $against)
+    protected function identityMatch($type, $test, $against)
     {
-        if (!in_array($type, static::$knownMatchTypes)) {
+        if (!in_array($type, $this->getKnownMatches())) {
             throw new Exception\InvalidArgumentException(
                 sprintf('Unknown match type: %s', $type)
             );
         }
 
-        //always take an array
+        // Always take a string.
         if (!is_string($against)) {
-            throw new Exception\InvalidArgumentException('Invalid type passed: '.gettype($against));
+            throw new Exception\InvalidArgumentException(
+                sprintf('Invalid %s pattern of type "%s" passed for "%s"', $type, gettype($against), $test)
+            );
         }
 
         if ($type == 'regex') {
-            if (preg_match(static::prepareRegex($test), $against)) {
+            if ($this->regexMatch($this->prepareRegex($test), $against)) {
                 return true;
             }
         } elseif ($type == 'strpos') {
@@ -336,21 +395,365 @@ class MobileDetect
     }
 
     /**
-     * @param $version string The string to convert to a standard version.
+     * Attempts to match the model and extracts
+     * the version and model if available.
      *
-     * @param bool $asArray
+     * @param $tests array Various tests.
+     * @param $against string The test.
      *
-     * @return array|string A string or an array if $asArray is passed as true.
+     * @return array|bool False if no match, hash of match data otherwise.
      */
-    protected function versionPrepare($version, $asArray = false)
+    protected function modelAndVersionMatch($tests, $against)
     {
-        $version = str_replace('_', '.', $version);
-
-        if ($asArray) {
-            return explode('.', $version);
-        } else {
-            return $version;
+        // Model match must be an array.
+        if (!is_array($tests) || !count($tests)) {
+            return false;
         }
+
+        $this->setRegexErrorHandler();
+
+        $matchReturn = array();
+
+        foreach ($tests as $test) {
+            $regex = $this->prepareRegex($test);
+
+            if ($this->regexMatch($regex, $against, $matches)) {
+                // If the match contained a version, save it.
+                if (isset($matches['version'])) {
+                    $matchReturn['version'] = $this->prepareVersion($matches['version']);
+                }
+
+                // If the match contained a model, save it.
+                if (isset($matches['model'])) {
+                    $matchReturn['model'] = $matches['model'];
+                }
+
+                $this->restoreRegexErrorHandler();
+                return $matchReturn;
+            }
+        }
+
+        $this->restoreRegexErrorHandler();
+        return false;
+    }
+
+    protected function modelMatch($tests, $against)
+    {
+        // Model match must be an array.
+        if (!is_array($tests) || !count($tests)) {
+            return false;
+        }
+
+        $this->setRegexErrorHandler();
+
+        foreach ($tests as $test) {
+            $regex = $this->prepareRegex($test);
+
+            if ($this->regexMatch($regex, $against, $matches)) {
+                // If the match contained a model, save it.
+                if (isset($matches['model'])) {
+                    $this->restoreRegexErrorHandler();
+                    return $matches['model'];
+                }
+            }
+        }
+
+        $this->restoreRegexErrorHandler();
+        return false;
+    }
+
+    protected function versionMatch($tests, $against)
+    {
+        // Model match must be an array.
+        if (!is_array($tests) || !count($tests)) {
+            return false;
+        }
+
+        $this->setRegexErrorHandler();
+
+        foreach ($tests as $test) {
+            $regex = $this->prepareRegex($test);
+
+            if ($this->regexMatch($regex, $against, $matches)) {
+                // If the match contained a version, save it.
+                if (isset($matches['version'])) {
+                    $this->restoreRegexErrorHandler();
+                    return $this->prepareVersion($matches['version']);
+                }
+            }
+        }
+
+        $this->restoreRegexErrorHandler();
+        return false;
+    }
+
+    protected function matchEntity($entity, $tests, $against)
+    {
+        if ($entity == 'version') {
+            return $this->versionMatch($tests, $against);
+        }
+
+        if ($entity == 'model') {
+            return $this->modelMatch($tests, $against);
+        }
+    }
+
+    // @todo: Reduce scope of $deviceInfoFromDb
+    protected function detectDeviceModel(array $deviceInfoFromDb)
+    {
+        if (!isset($deviceInfoFromDb['modelMatches'])) {
+            return null;
+        }
+
+        return $this->matchEntity('model', $deviceInfoFromDb['modelMatches'], $this->getUserAgent());
+    }
+
+    // @todo: temporary duplicated code
+    protected function detectDeviceModelVersion(array $deviceInfoFromDb)
+    {
+        if (!isset($deviceInfoFromDb['modelMatches'])) {
+            return null;
+        }
+
+        return $this->matchEntity('version', $deviceInfoFromDb['modelMatches'], $this->getUserAgent());
+    }
+
+    protected function detectBrowserModel(array $browserInfoFromDb)
+    {
+        return (isset($browserInfoFromDb['model']) ? $browserInfoFromDb['model'] : null);
+    }
+
+    protected function detectBrowserVersion(array $browserInfoFromDb)
+    {
+        return $this->matchEntity('version', $browserInfoFromDb['versionMatches'], $this->getUserAgent());
+    }
+
+    protected function detectOperatingSystemModel(array $operatingSystemInfoFromDb)
+    {
+        return (isset($operatingSystemInfoFromDb['model']) ? $operatingSystemInfoFromDb['model'] : null);
+    }
+
+    protected function detectOperatingSystemVersion(array $operatingSystemInfoFromDb)
+    {
+        return $this->matchEntity('version', $operatingSystemInfoFromDb['versionMatches'], $this->getUserAgent());
+    }
+
+    /**
+     * Creates a device with all the necessary context to determine all the given
+     * properties of a device, including OS, browser, and any other context-based properties.
+     *
+     * @param DeviceInterface $deviceClass (optional)
+     *        The class to use. It can be anything that's derived from DeviceInterface.
+     *
+     * {@see DeviceInterface}
+     *
+     * @return DeviceInterface
+     *
+     * @throws Exception\InvalidArgumentException When an invalid class is used.
+     */
+    public function detect($deviceClass = null)
+    {
+        if ($deviceClass) {
+            if (!is_subclass_of($deviceClass, __NAMESPACE__ . '\Device\DeviceInterface')) {
+                throw new Exception\InvalidArgumentException(
+                    sprintf(
+                        'Invalid class specified: %s.',
+                        is_object($deviceClass) ? get_class($deviceClass) : $deviceClass
+                    )
+                );
+            }
+        } else {
+            // default implementation
+            $deviceClass = __NAMESPACE__ . '\Device\Device';
+        }
+
+        // Cache check.
+        if (($cached = $this->getFromCache($this->getUserAgent()))) {
+            //make sure it's also of type that's requested
+            if (is_subclass_of($cached, $deviceClass) || (is_object($cached) && $cached instanceof DeviceInterface)) {
+                return $cached;
+            }
+        }
+        
+        $prop = [
+            'userAgent' => null,
+            'deviceType' => null,
+            'deviceModel' => null,
+            'deviceModelVersion' => null,
+            'operatingSystemModel' => null,
+            'operatingSystemVersion' => null,
+            'browserModel' => null,
+            'browserVersion' => null,
+            'vendor' => null
+        ];
+
+        // Search phone OR tablet database.
+        // Get the device type.
+        $prop['deviceType'] = DeviceType::DESKTOP;
+
+        if ($phoneResult = $this->searchPhonesProvider()) {
+            $prop['deviceType'] = DeviceType::MOBILE;
+            $prop['deviceResult'] = $phoneResult;
+        }
+
+        if ($tabletResult = $this->searchTabletsProvider()) {
+            $prop['deviceType'] = DeviceType::TABLET;
+            $prop['deviceResult'] = $tabletResult;
+        }
+
+        // If we know the device,
+        // get model and version of the physical device (if possible).
+        $deviceResult = isset($prop['deviceResult']) ? $prop['deviceResult'] : null;
+        if (!is_null($deviceResult)) {
+            if (isset($deviceResult['model'])) {
+                // Device model is already known from the DB.
+                $prop['deviceModel'] = $deviceResult['model'];
+            } else {
+                $prop['deviceModel'] = $this->detectDeviceModel($deviceResult);
+                $prop['deviceModelVersion'] = $this->detectDeviceModelVersion($deviceResult);
+            }
+        }
+
+        // Get model and version of the browser (if possible).
+        $browserResult = $this->searchBrowsersProvider();
+        $prop['browserResult'] = $browserResult;
+
+        if ($browserResult) {
+            $prop['browserModel'] = $this->detectBrowserModel($browserResult);
+            $prop['browserVersion'] = $this->detectBrowserVersion($browserResult);
+        }
+
+        // Get model and version of the operating system (if possible).
+        $operatingSystemResult = $this->searchOperatingSystemsProvider();
+        $prop['operatingSystemResult'] = $operatingSystemResult;
+
+        if ($operatingSystemResult) {
+            $prop['operatingSystemModel'] = $this->detectOperatingSystemModel($operatingSystemResult);
+            $prop['operatingSystemVersion'] = $this->detectOperatingSystemVersion($operatingSystemResult);
+        }
+
+        // Fallback if no device was found (phone or tablet)
+        // and try to set the device type if the found browser
+        // or operating system are mobile.
+        if (null === $deviceResult &&
+            (
+                (
+                    $browserResult &&
+                    isset($browserResult['isMobile']) && $browserResult['isMobile']
+                )
+                    ||
+                (
+                    $operatingSystemResult &&
+                    isset($operatingSystemResult['isMobile']) && $operatingSystemResult['isMobile']
+                )
+            )
+        ) {
+            $prop['deviceType'] = DeviceType::MOBILE;
+        }
+
+        $prop['vendor'] = !is_null($deviceResult) ? $deviceResult['vendor'] : null;
+        $prop['userAgent'] = $this->getUserAgent();
+
+        // Add to cache.
+        $device = $deviceClass::create($prop);
+        $this->setCache($prop['userAgent'], $device);
+        
+        return $device;
+    }
+
+    private function searchForItemInDb(array $itemData)
+    {
+        // Check matching type, and assume regex if not present.
+        if (!isset($itemData['matchType'])) {
+            $itemData['matchType'] = 'regex';
+        }
+
+        if (!isset($itemData['vendor'])) {
+            throw new Exception\InvalidDeviceSpecificationException(
+                sprintf('Invalid spec for item. Missing %s key.', 'vendor')
+            );
+        }
+
+        if (!isset($itemData['identityMatches'])) {
+            throw new Exception\InvalidDeviceSpecificationException(
+                sprintf('Invalid spec for item. Missing %s key.', 'identityMatches')
+            );
+        } elseif ($itemData['identityMatches'] === false) {
+            // This is often case with vendors of phones that we
+            // do not want to specifically detect, but we keep the record
+            // for vendor matches purposes. (eg. Acer)
+            return false;
+        }
+
+        if ($this->identityMatch($itemData['matchType'], $itemData['identityMatches'], $this->getUserAgent())) {
+            // Found the matching item.
+            return $itemData;
+        }
+
+        return false;
+    }
+
+    protected function searchPhonesProvider()
+    {
+        foreach ($this->phonesProvider->getAll() as $vendorKey => $itemData) {
+            $result = $this->searchForItemInDb($itemData);
+            if ($result !== false) {
+                return $result;
+            }
+        }
+
+        return false;
+    }
+
+    protected function searchTabletsProvider()
+    {
+        foreach ($this->tabletsProvider->getAll() as $vendorKey => $itemData) {
+            $result = $this->searchForItemInDb($itemData);
+            if ($result !== false) {
+                return $result;
+            }
+        }
+
+        return false;
+    }
+
+    protected function searchBrowsersProvider()
+    {
+        foreach ($this->browsersProvider->getAll() as $familyName => $items) {
+            foreach ($items as $itemName => $itemData) {
+                $result = $this->searchForItemInDb($itemData);
+                if ($result !== false) {
+                    return $result;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    protected function searchOperatingSystemsProvider()
+    {
+        foreach ($this->operatingSystemsProvider->getAll() as $familyName => $items) {
+            foreach ($items as $itemName => $itemData) {
+                $result = $this->searchForItemInDb($itemData);
+                if ($result !== false) {
+                    return $result;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $regex
+     * @param $against
+     * @param null $matches
+     * @return int
+     */
+    private function regexMatch($regex, $against, &$matches = null)
+    {
+        return preg_match($regex, $against, $matches);
     }
 
     /**
@@ -378,279 +781,16 @@ class MobileDetect
         return false;
     }
 
-    /**
-     * Attempts to match the model.
-     *
-     * @param $modelMatch array Various tests.
-     * @param $against string The test.
-     *
-     * @return array|bool False if no match, hash of match data otherwise.
-     */
-    protected function modelMatch($modelMatch, $against)
+    private function setRegexErrorHandler()
     {
-        //model match must be an array
-        if (!is_array($modelMatch) || !count($modelMatch)) {
-            return false;
-        }
-
         // graceful handling of pcre errors
         set_error_handler(array($this, 'regexErrorHandler'));
+    }
 
-        $matchReturn = array();
-
-        foreach ($modelMatch as $test) {
-            $regex = static::prepareRegex($test);
-
-            if (preg_match($regex, $against, $matches)) {
-                if (isset($matches['version']) && !isset($matchReturn['version'])) {
-                    $matchReturn['version'] = $this->versionPrepare($matches['version']);
-                }
-
-                if (isset($matches['model']) && !isset($matchReturn['model'])) {
-                    $matchReturn['model'] = $matches['model'];
-                }
-            }
-        }
-
+    private function restoreRegexErrorHandler()
+    {
         // restore previous
         restore_error_handler();
-
-        return $matchReturn;
-    }
-
-    /**
-     * Detect and retrieve a hash of data against an array of device specs..
-     *
-     * @param $devices array An array of device definitions.
-     *
-     * @return array|bool False if no match, hash of matched data otherwise.
-     *
-     * @throws Exception\InvalidDeviceSpecificationException If the device array is invalid.
-     */
-    protected function detectDevice(array $devices)
-    {
-        foreach ($devices as $vendorKey => $vendor) {
-            //check type, and assume regex if not present
-            if (!isset($vendor['type'])) {
-                $vendor['type'] = 'regex';
-            }
-
-            if (!isset($vendor['match'])) {
-                throw new Exception\InvalidDeviceSpecificationException(
-                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'match')
-                );
-            }
-
-            if (!isset($vendor['vendor'])) {
-                throw new Exception\InvalidDeviceSpecificationException(
-                    sprintf('Invalid spec for %s. Missing %s key.', $vendorKey, 'vendor')
-                );
-            }
-
-            if ($this->matches($vendor['type'], $vendor['match'], $this->getUserAgent())) {
-                $match = array();
-
-                if (isset($vendor['modelMatch'])) {
-                    $match['model_match'] = $this->modelMatch($vendor['modelMatch'], $this->getUserAgent());
-                }
-
-                // @todo Serban - extend this beyond vendor key.
-                $match['model'] = $vendorKey;
-                $match['vendor'] = $vendor['vendor'];
-
-                return $match;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Attempts to detect whether or not this is a phone device.
-     *
-     * @see MobileDetect::detectDevice
-     *
-     * @return array|bool
-     */
-    protected function detectPhoneDevice()
-    {
-        return $this->detectDevice(Data\PropertyLib::getPhoneDevices());
-    }
-
-    /**
-     * Attempts to detect whether or not this is a tablet device.
-     *
-     * @see MobileDetect::detectDevice
-     *
-     * @return array|bool
-     */
-    protected function detectTabletDevice()
-    {
-        return $this->detectDevice(Data\PropertyLib::getTabletDevices());
-    }
-
-    /**
-     * Detect a device based on a grouped spec.
-     *
-     * @param $families array Array of groups of device specs, such as OS's and browsers.
-     *
-     * @return array
-     */
-    protected function detectFamily($families)
-    {
-        foreach ($families as $family => $group) {
-            foreach ($group as $name => $item) {
-                //check type, and assume regex if not present
-                if (!isset($item['type'])) {
-                    $item['type'] = 'regex';
-                }
-
-                if (!isset($item['match'])) {
-                    throw new Exception\InvalidDeviceSpecificationException(
-                        sprintf('Invalid spec for %s. Missing %s key.', $name, 'match')
-                    );
-                }
-
-                if (!isset($item['isMobile'])) {
-                    throw new Exception\InvalidDeviceSpecificationException(
-                        sprintf('Invalid spec for %s. Missing %s key.', $name, 'isMobile')
-                    );
-                }
-
-                if ($this->matches($item['type'], $item['match'], $this->getUserAgent())) {
-                    $match = array();
-
-                    if (isset($item['versionMatch'])) {
-                        $match['version_match'] = $this->modelMatch($item['versionMatch'], $this->getUserAgent());
-                    }
-
-                    $match['family'] = $family;
-                    $match['name'] = $name;
-                    $match['is_mobile'] = $item['isMobile'];
-
-                    return $match;
-                }
-            }
-        }
-    }
-
-    /**
-     * Detect the operating system.
-     *
-     * @return array|void A hash if matched.
-     */
-    protected function detectOperatingSystem()
-    {
-        $match = $this->detectFamily(Data\PropertyLib::getOperatingSystems());
-        if (!$match) {
-            return;
-        }
-
-        if (isset($match['name'])) {
-            $match['os'] = $match['name'];
-            unset($match['name']);
-        }
-
-        return $match;
-    }
-
-    /**
-     * Detect the browser.
-     *
-     * @return array|void A hash if matched.
-     */
-    protected function detectBrowser()
-    {
-        $match = $this->detectFamily(Data\PropertyLib::getBrowsers());
-        if (!$match) {
-            return;
-        }
-
-        if (isset($match['name'])) {
-            $match['browser'] = $match['name'];
-            unset($match['name']);
-        }
-
-        return $match;
-    }
-
-    /**
-     * Creates a device with all the necessary context to determine all the given
-     * properties of a device, including OS, browser, and any other context-based properties.
-     *
-     * @param string $class (optional) The class to use. It can be anything that's derived from DeviceInterface.
-     *
-     * {@see DeviceInterface}
-     *
-     * @return DeviceInterface
-     *
-     * @throws Exception\InvalidArgumentException When an invalid class is used.
-     */
-    public function detect($class = null)
-    {
-        if ($class) {
-            if (!is_subclass_of($class, __NAMESPACE__.'\DeviceInterface')) {
-                throw new Exception\InvalidArgumentException(
-                    sprintf('Invalid class specified: %s. Must', is_object($class) ? get_class($class) : $class)
-                );
-            }
-        } else {
-            // default implementation
-            $class = __NAMESPACE__.'\\Device';
-        }
-
-        if (($cached = $this->getFromCache($this->getUserAgent()))) {
-            //make sure it's also of type that's requested
-            if (is_subclass_of($cached, $class) || (is_object($cached) && $cached instanceof DeviceInterface)) {
-                return $cached;
-            }
-        }
-
-        $props = array();
-
-        if ($model = $this->detectPhoneDevice()) {
-            $props['type'] = Type::MOBILE;
-        } else if ($model = $this->detectTabletDevice()) {
-            $props['type'] = Type::TABLET;
-        }
-
-        $os = $this->detectOperatingSystem();
-        $props['os'] = $os['os'];
-        $props['os_version'] = isset($os['version_match']['version']) ? $os['version_match']['version'] : null;
-
-        //sometimes only the OS tells us that this device is mobile IF we haven't previously detected this
-        if (!isset($props['type'])) {
-            if ($os['is_mobile']) {
-                $props['type'] = Type::MOBILE;
-            }
-        }
-
-        $browser = $this->detectBrowser();
-        $props['browser'] = $browser['browser'];
-        $props['browser_version'] = isset($browser['version_match']['version']) ?
-            $browser['version_match']['version'] : null;
-
-        //again, set the type if not already detected by mobile, tablet, or os detection
-        if (!isset($props['type'])) {
-            if ($browser['is_mobile']) {
-                $props['type'] = Type::MOBILE;
-            }
-        }
-
-        if (!isset($props['type'])) {
-            $props['type'] = Type::DESKTOP;
-        }
-
-        $props['model'] = $model['model'];
-        $props['model_version'] = isset($model['model_match']['version']) ? $model['model_match']['version'] : null;
-        $props['vendor'] = $model['vendor'];
-
-        $props['user_agent'] = $this->getUserAgent();
-
-        $device = $class::create($props);
-        $this->setCache($props['user_agent'], $device);
-
-        return $device;
     }
 
     /**
@@ -696,7 +836,7 @@ class MobileDetect
             return $cb($key);
         }
 
-        return;
+        return null;
     }
 
     /**
