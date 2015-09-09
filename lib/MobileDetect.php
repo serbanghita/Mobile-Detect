@@ -6,14 +6,10 @@ use MobileDetect\Exception\InvalidArgumentException;
 use Psr\Http\Message\MessageInterface as HttpMessageInterface;
 use MobileDetect\Providers\UserAgentHeaders;
 use MobileDetect\Providers\HttpHeaders;
-use MobileDetect\Providers\MobileHeaders;
-
 use MobileDetect\Providers\Browsers;
 use MobileDetect\Providers\OperatingSystems;
 use MobileDetect\Providers\Phones;
 use MobileDetect\Providers\Tablets;
-
-use MobileDetect\Device\Device;
 use MobileDetect\Device\DeviceType;
 
 class MobileDetect
