@@ -8,3 +8,5 @@ nbproject/
 /phpunit.phar
 /composer.lock
 /*.phar
+/tests/clover.xml
+/tests/coverage
