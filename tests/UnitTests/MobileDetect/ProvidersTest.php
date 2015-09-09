@@ -2,31 +2,10 @@
 namespace MobileDetectTests\UnitTests\MobileDetect;
 
 use MobileDetect\MobileDetect;
+use MobileDetect\Providers;
 
-class PropertyLibTest extends \PHPUnit_Framework_TestCase
+class ProvidersTest extends \PHPUnit_Framework_TestCase
 {
-    protected static $validMatchTypes = array('regex', 'strpos', 'stripos');
-
-    protected function assertPattern($pattern, $name)
-    {
-        $detect = new MobileDetect();
-
-        // prepare method so that we can access it
-        $class = new \ReflectionClass(get_class($detect));
-        $method = $class->getMethod('prepareRegex');
-        $method->setAccessible(true);
-        $pattern = $method->invokeArgs($detect, array($pattern));
-
-        $res = @preg_match($pattern, 'garbagestringdoesnotmatter');
-        if ($res === false) {
-            $this->fail(
-                sprintf('Not a valid regex: %s in %s [REGEX FAIL]', $pattern, $name)
-            );
-        }
-        //this is for assertion counts
-        $this->assertInternalType('integer', $res);
-    }
-
     /**
      * @return array
      */
@@ -35,13 +14,13 @@ class PropertyLibTest extends \PHPUnit_Framework_TestCase
         $this->markTestSkipped('must be revisited.');
 
         $data = array();
-        $phones = PropertyLib::getPhoneDevices();
+        $phones = new Providers\Phones();
 
         foreach ($phones as $type => $spec) {
             $data[] = array($type, $spec);
         }
 
-        $tablets = PropertyLib::getTabletDevices();
+        $tablets = new Providers\Tablets();
 
         foreach ($tablets as $type => $spec) {
             $data[] = array($type, $spec);
@@ -51,26 +30,25 @@ class PropertyLibTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Phone and Tablets devices have a valid format.
      * @dataProvider phoneAndTabledDevicesProvider
      */
-    public function testPhoneAndTabledDevicesAreValidFormat($device, $spec)
+    public function testPhoneAndTabletsDevicesHaveAValidFormat($device, $spec)
     {
-        $this->markTestSkipped('must be revisited.');
-
         $this->assertInternalType('string', $device, 'The key should be a string');
         $this->assertArrayHasKey('vendor', $spec);
-        $this->assertArrayHasKey('match', $spec);
-        $this->assertArrayHasKey('modelMatch', $spec);
+        $this->assertArrayHasKey('identityMatches', $spec);
+        $this->assertArrayHasKey('modelMatches', $spec);
 
         if (array_key_exists('type', $spec)) {
-            if (!in_array($spec['type'], self::$validMatchTypes)) {
+            if (!in_array($spec['type'], MobileDetect::getKnownMatches())) {
                 $this->fail(
                     sprintf('Not a valid "match" type: %s in %s', $spec['type'], $device)
                 );
             }
         }
 
-        $modelMatch = $spec['modelMatch'];
+        $modelMatch = $spec['modelMatches'];
         if (!is_array($modelMatch) && $modelMatch != '') {
             $this->fail(
                 sprintf('Not a valid "modelMatch": %s in %s', $spec['modelMatch'], $device)

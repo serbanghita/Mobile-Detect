@@ -34,7 +34,7 @@ class MobileDetect
     protected $browsersProvider;
     protected $operatingSystemsProvider;
 
-    protected $knownMatchTypes = array(
+    protected static $knownMatchTypes = array(
         'regex', //regular expression
         'strpos', //simple case-sensitive string within string check
         'stripos', //simple case-insensitive string within string check
@@ -308,9 +308,9 @@ class MobileDetect
         throw new \BadMethodCallException(sprintf('No such method "%s" exists in Device class.', $method));
     }
 
-    protected function getKnownMatches()
+    public static function getKnownMatches()
     {
-        return $this->knownMatchTypes;
+        return self::$knownMatchTypes;
     }
 
     /**
