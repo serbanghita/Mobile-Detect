@@ -1,11 +1,15 @@
 <?php
-
-namespace MobileDetectTest\UnitTests;
+namespace MobileDetectTests\UnitTests\MobileDetect;
 
 use MobileDetect\MobileDetect;
 
 class MobileDetectTest extends \PHPUnit_Framework_TestCase
 {
+
+    protected function setUp()
+    {
+        $this->markTestIncomplete('Needs review. Some of the tests here belong to Integration Tests.');
+    }
 
     protected function tearDown()
     {
