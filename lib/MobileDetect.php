@@ -573,12 +573,15 @@ class MobileDetect
     {
         if ($deviceClass) {
             if (!is_subclass_of($deviceClass, __NAMESPACE__ . '\Device\DeviceInterface')) {
-                throw new Exception\InvalidArgumentException(
-                    sprintf(
-                        'Invalid class specified: %s.',
-                        is_object($deviceClass) ? get_class($deviceClass) : $deviceClass
-                    )
-                );
+                $type = gettype($deviceClass);
+                if ($type == 'object') {
+                    $type = get_class($deviceClass);
+                } elseif ($type == 'string') {
+                    $type = $deviceClass;
+                } else {
+                    $type = sprintf('Invalid type %s', $type);
+                }
+                throw new Exception\InvalidArgumentException(sprintf('Invalid class specified: %s.', $type));
             }
         } else {
             // default implementation
