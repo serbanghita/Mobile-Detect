@@ -18,11 +18,15 @@
       }
     ],
     "require": {
-        "php": ">=5.3.9"
+        "php": ">=5.3.9",
+        "psr/http-message": "^1.0"
     },
     "autoload": {
         "psr-4": {
             "MobileDetect\\": "lib/"
         }
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.4"
     }
 }
