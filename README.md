@@ -1,9 +1,9 @@
 <img src="http://demo.mobiledetect.net/logo-github.png">
 > Motto: "Every business should have a mobile detection script to detect mobile readers."
 
-[![Coverage Status](https://coveralls.io/repos/serbanghita/Mobile-Detect/badge.svg?branch=devel-3-refactoring)](https://coveralls.io/r/serbanghita/Mobile-Detect?branch=devel-3-refactoring)
-[![Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel-3-refactoring)](https://travis-ci.org/serbanghita/Mobile-Detect)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/serbanghita/Mobile-Detect/badges/quality-score.png?b=devel-3-refactoring)](https://scrutinizer-ci.com/g/serbanghita/Mobile-Detect/?branch=devel-3-refactoring)
+[![Coverage Status](https://coveralls.io/repos/serbanghita/Mobile-Detect/badge.svg?branch=devel-3)](https://coveralls.io/r/serbanghita/Mobile-Detect?branch=devel-3)
+[![Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel-3)](https://travis-ci.org/serbanghita/Mobile-Detect)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/serbanghita/Mobile-Detect/badges/quality-score.png?b=devel-3)](https://scrutinizer-ci.com/g/serbanghita/Mobile-Detect/?branch=devel-3)
 
 ## Installing
 
