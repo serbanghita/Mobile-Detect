@@ -5,18 +5,6 @@ use MobileDetect\MobileDetect;
 
 class ConstructorTests extends \PHPUnit_Framework_TestCase
 {
-
-    /**
-     * When no factory object is passed it creates a new factory instance.
-     */
-    /*
-    public function testWhenNoFactoryObjectIsPassedItCreatesANewFactoryInstance()
-    {
-        $md = new MobileDetect();
-        $this->assertInstanceOf('MobileDetect\\MobileDetectFactory', $md->getFactory());
-    }
-    */
-
     /**
      * When factory object is created it also creates all the needed properties classes.
      */
@@ -26,7 +14,6 @@ class ConstructorTests extends \PHPUnit_Framework_TestCase
         \PHPUnit_Framework_Assert::assertAttributeInstanceOf('MobileDetect\\Providers\\UserAgentHeaders', 'userAgentHeaders', $md);
         \PHPUnit_Framework_Assert::assertAttributeInstanceOf('MobileDetect\\Providers\\HttpHeaders', 'recognizedHttpHeaders', $md);
     }
-
 
     /**
      * When headers are passed like string they are treated like a User-Agent.
@@ -134,5 +121,63 @@ class ConstructorTests extends \PHPUnit_Framework_TestCase
         ), $detect->getHeaders());
     }
 
+    /**
+     * constructor converts the headers from an iterator object
+     */
+    public function testConstructorConvertsTheHeadersFromAnIteratorObject()
+    {
+        $iterator = new \ArrayIterator(
+            array(
+                'User-Agent' => 1,
+                'Content-type' => 2
+            )
+        );
+        $detect = new MobileDetect($iterator);
+        $this->assertEquals(1, $detect->getUserAgent());
+        $this->assertEquals(2, $detect->getHeader('Content-type'));
+    }
 
+    public function testMultipleUserAgentsAppended()
+    {
+        $headers = array(
+            'User-Agent' => 1,
+            'X-OperaMini-Phone-UA' => 2,
+            'X-DEVICE-User-Agent' => 3,
+            'X-Original-USER-Agent' => 4,
+            'Host' => 'kfjshdkfshldfkjshd',
+            'X-Skyfire-Phone' => 5,
+            'x-bold-Phone-UA' => 6,
+            'Device-Stock-UA' => 7,
+            'X-UCBROWSER-Device-UA' => 8,
+        );
+
+        $detect = new MobileDetect($headers);
+
+        $this->assertSame('1 2 3 4 5 6 7 8', $detect->getUserAgent());
+    }
+
+    /**
+     * set header sets and standardizes the name of the header
+     */
+    public function testSetHeaderSetsAndStandardizesTheNameOfTheHeader()
+    {
+        $detect = new MobileDetect();
+        $detect->setHeader('Authorization', 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==');
+        $detect->setHeader('Content-Type', 'application/x-www-form-urlencoded  ');
+        $detect->setHeader('Warning', '199 Miscellaneous warning');
+
+        $this->assertEquals($detect->getHeader('authorization'), 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==');
+        $this->assertEquals($detect->getHeader('content-type'), 'application/x-www-form-urlencoded');
+        $this->assertEquals($detect->getHeader('warning'), '199 Miscellaneous warning');
+    }
+
+    /**
+     * setting an unknown header returns null
+     */
+    public function testSettingAnUnknownHeaderReturnsNull()
+    {
+        $detect = new MobileDetect();
+        $detect->setHeader('Warning', '199 Miscellaneous warning');
+        $this->assertEquals($detect->getHeader('warning'), '199 Miscellaneous warning');
+    }
 }

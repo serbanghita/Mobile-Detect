@@ -1,6 +1,7 @@
 <?php
 namespace MobileDetectTests\UnitTests;
 
+use MobileDetect\MobileDetect;
 use MobileDetect\Device\DeviceType;
 
 class DetectingTest extends \PHPUnit_Framework_TestCase

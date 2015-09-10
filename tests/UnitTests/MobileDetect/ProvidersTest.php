@@ -11,18 +11,16 @@ class ProvidersTest extends \PHPUnit_Framework_TestCase
      */
     public function phoneAndTabledDevicesProvider()
     {
-        $this->markTestSkipped('must be revisited.');
-
         $data = array();
         $phones = new Providers\Phones();
 
-        foreach ($phones as $type => $spec) {
+        foreach ($phones->getAll() as $type => $spec) {
             $data[] = array($type, $spec);
         }
 
         $tablets = new Providers\Tablets();
 
-        foreach ($tablets as $type => $spec) {
+        foreach ($tablets->getAll() as $type => $spec) {
             $data[] = array($type, $spec);
         }
 
@@ -54,28 +52,20 @@ class ProvidersTest extends \PHPUnit_Framework_TestCase
                 sprintf('Not a valid "modelMatch": %s in %s', $spec['modelMatch'], $device)
             );
         }
-
-        // validate regex, if that's the type
-        if ((array_key_exists('type', $spec) && $spec['type'] == 'regex') ||
-            !array_key_exists('type', $spec)
-        ) {
-            //try to regex match to validate the regex
-            $this->assertPattern($spec['match'], $device);
-        }
     }
-    /*
+
     public function osBrowserProvider()
     {
         $data = array();
 
-        $osgroup = PropertyLib::getOperatingSystems();
-        foreach ($osgroup as $group => $os) {
+        $osGroup = new Providers\OperatingSystems();
+        foreach ($osGroup->getAll() as $group => $os) {
             foreach ($os as $name => $spec) {
                 $data[] = array($name, $spec);
             }
         }
 
-        $browsers = PropertyLib::getBrowsers();
+        $browsers = new Providers\Browsers();
         foreach ($browsers as $group => $browser) {
             foreach ($browser as $name => $spec) {
                 $data[] = array($name, $spec);
@@ -84,55 +74,17 @@ class ProvidersTest extends \PHPUnit_Framework_TestCase
 
         return $data;
     }
-    */
+
     /**
+     * OS and Browsers have a valid format.
      * @dataProvider osBrowserProvider
      */
-    /*
     public function testOsAndBrowserIsValidFormat($name, $spec)
     {
-        $this->markTestSkipped('must be revisited.');
-
         $this->assertInternalType('array', $spec);
         $this->assertArrayHasKey('isMobile', $spec);
         $this->assertInternalType('boolean', $spec['isMobile']);
-        $this->assertArrayHasKey('match', $spec);
-        $this->assertArrayHasKey('versionMatch', $spec);
-        $this->assertPattern($spec['match'], $name);
-
-        if (is_array($spec['versionMatch'])) {
-            foreach ($spec['versionMatch'] as $regex) {
-                $this->assertPattern($regex, $name);
-            }
-        }
+        $this->assertArrayHasKey('identityMatches', $spec);
+        $this->assertArrayHasKey('versionMatches', $spec);
     }
-    */
-    /*
-    public function propertiesProvider()
-    {
-        $props = PropertyLib::getProperties();
-        $data = array();
-        foreach ($props as $name => $matches) {
-            $data[] = array($name, $matches);
-        }
-        return $data;
-    }
-    */
-    /**
-     * @dataProvider propertiesProvider
-     */
-    /*
-    public function testProperties($name, $spec)
-    {
-        $this->markTestSkipped('must be revisited.');
-
-        if (!is_array($spec)) {
-            $spec = array($spec);
-        }
-
-        foreach ($spec as $match) {
-            $this->assertPattern($match, $name);
-        }
-    }
-    */
 }

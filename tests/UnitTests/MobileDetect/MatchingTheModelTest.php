@@ -5,7 +5,6 @@ use MobileDetect\MobileDetect;
 
 class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * Matching an array of empty matches returns false.
      */
@@ -39,7 +38,6 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($ret);
     }
-
 
     /**
      * Matching an array of matches that contain MODEL keyword stops at the first matched regex.
@@ -122,6 +120,27 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
         $this->assertEmpty($outputMatches);
     }
 
+    public function testModelMatch()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('modelAndVersionMatch');
+        $m->setAccessible(true);
 
+        $modelMatches = array('hello[VER].*whatever{[MODEL]}');
+        $against = 'thisishello1.2.3.4andwhatever{Spicy}more';
 
+        //test matches for full array
+        $ret = $m->invoke($detect, $modelMatches, $against);
+        $this->assertSame(
+            array(
+                'version' => '1.2.3.4',
+                'model' => 'Spicy',
+            ),
+            $ret
+        );
+
+        //test invalid params
+        $ret = $m->invoke($detect, 'hi', 'whatever');
+        $this->assertFalse($ret);
+    }
 }

@@ -49,4 +49,18 @@ class PreparingTheVersion extends \PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * preparing a version in semver format as an array returns an array with three elements
+     */
+    public function testPreparingAVersionInSemverFormatAsAnArrayReturnsAnArrayWithThreeElements()
+    {
+        $r = new \ReflectionObject($detect = new MobileDetect());
+        $m = $r->getMethod('prepareVersion');
+        $m->setAccessible(true);
+
+        $ret = $m->invoke($detect, '2.1.10', true);
+
+        $this->assertSame($ret, array('2','1','10'));
+    }
+
 }

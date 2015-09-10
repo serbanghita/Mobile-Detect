@@ -26,8 +26,6 @@ class PreparingTheRegex extends \PHPUnit_Framework_TestCase
         );
     }
 
-    
-
     protected function assertPattern($pattern, $name)
     {
         $detect = new MobileDetect();
@@ -46,5 +44,26 @@ class PreparingTheRegex extends \PHPUnit_Framework_TestCase
         }
         //this is for assertion counts
         $this->assertInternalType('integer', $res);
+    }
+
+    /**
+     * regex error handler used with preg throws an exception
+     * @expectedException \MobileDetect\Exception\RegexCompileException
+     */
+    public function testRegexErrorHandlerUsedWithPregThrowsAnException()
+    {
+        $detect = new MobileDetect();
+        $detect->regexErrorHandler(111, 'Whatever preg_match error', 'stuff.txt', 11, array());
+    }
+
+    /**
+     * regex error handler used with a regular php error returns false
+     */
+    public function testRegexErrorHandlerUsedWithARegularPhpErrorReturnsFalse()
+    {
+        $detect = new MobileDetect();
+        $ret = $detect->regexErrorHandler(111, 'Whatever php error', 'stuff.txt', 11, array());
+
+        $this->assertFalse($ret);
     }
 }
