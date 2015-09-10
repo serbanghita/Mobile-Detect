@@ -6,7 +6,7 @@ php:
 
 branches:
   only:
-    - devel-3-refactoring
+    - devel-3
 
 before_script:
  - wget http://getcomposer.org/composer.phar
