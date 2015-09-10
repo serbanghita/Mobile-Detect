@@ -1,6 +1,57 @@
 #!/usr/bin/env php
 <?php
 
-echo "Will export to JSON here\n";
+if ($argc != 2) {
+    echo "Usage {$argv[0]} <version>\n";
+    exit(1);
+}
 
+$autoloader = dirname(__DIR__) . '/vendor/autoload.php';
+if (!file_exists($autoloader)) {
+    echo "Please run composer install first. $autoloader\n";
+    exit(2);
+}
 
+require_once $autoloader;
+
+$version = $argv[1];
+$dest = dirname(__DIR__) . '/lib/MobileDetect/Data/PropertyLib.json';
+if (!is_writable($dest)) {
+    echo "File needs to be writable: $dest\n";
+    exit(3);
+}
+
+use MobileDetect\Data\PropertyLib;
+
+$obj = array(
+    'version' => $version,
+    'date' => gmdate('Y-m-d\TH:i:sO'),
+    // @deprecated
+    'headerMatch' => false,
+
+    // @deprecated
+    'uaHttpHeaders' => false,
+
+    // All the regexes that trigger 'isMobile' or 'isTablet'
+    // to be true.
+    'uaMatch' => array(
+        // If match is found, triggers 'isMobile' to be true.
+        'phones'   => PropertyLib::getPhoneDevices(),
+        // Triggers 'isTablet' to be true.
+        'tablets'  => PropertyLib::getTabletDevices(),
+        // If match is found, triggers 'isMobile' to be true.
+        'browsers' => PropertyLib::getBrowsers(),
+        // If match is found, triggers 'isMobile' to be true.
+        'os'       => PropertyLib::getOperatingSystems()
+    )
+
+);
+
+if (defined('JSON_PRETTY_PRINT')) {
+    $json = json_encode($obj, JSON_PRETTY_PRINT);
+} else {
+    $json = json_encode($obj);
+}
+
+file_put_contents($dest, $json);
+echo sprintf("Wrote %s bytes to %s.\n", strlen($json), $dest);

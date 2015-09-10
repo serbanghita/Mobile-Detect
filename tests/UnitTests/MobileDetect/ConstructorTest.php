@@ -2,17 +2,34 @@
 namespace MobileDetectTests\UnitTests\MobileDetect;
 
 use MobileDetect\MobileDetect;
+use Mockery;
 
 class ConstructorTests extends \PHPUnit_Framework_TestCase
 {
+    public function tearDown()
+    {
+        Mockery::close();
+        parent::tearDown();
+    }
+    /**
+     * When no factory object is passed it creates a new factory instance.
+     */
+    /*
+    public function testWhenNoFactoryObjectIsPassedItCreatesANewFactoryInstance()
+    {
+        $md = new MobileDetect();
+        $this->assertInstanceOf('MobileDetect\\MobileDetectFactory', $md->getFactory());
+    }
+    */
+
     /**
      * When factory object is created it also creates all the needed properties classes.
      */
     public function testWhenFactoryObjectIsCreatedItAlsoCreatesAllTheNeededPropertiesClasses()
     {
         $md = new MobileDetect();
-        \PHPUnit_Framework_Assert::assertAttributeInstanceOf('MobileDetect\\Providers\\UserAgentHeaders', 'userAgentHeaders', $md);
-        \PHPUnit_Framework_Assert::assertAttributeInstanceOf('MobileDetect\\Providers\\HttpHeaders', 'recognizedHttpHeaders', $md);
+        $this->assertAttributeInstanceOf('MobileDetect\\Providers\\UserAgentHeaders', 'userAgentHeaders', $md);
+        $this->assertAttributeInstanceOf('MobileDetect\\Providers\\HttpHeaders', 'recognizedHttpHeaders', $md);
     }
 
     /**
@@ -90,7 +107,7 @@ class ConstructorTests extends \PHPUnit_Framework_TestCase
     /**
      * Setting an array of mixed valid and invalid headers doesn't throw any exception and getHeaders returns only the valid headers
      */
-    public function testSettingAnArrayOfMixedValidAndInvalidHeadersDoesnTThrowAnyExceptionAndGetHeadersReturnsOnlyTheValidHeaders()
+    public function testSettingAnArrayOfMixedValidAndInvalidHeadersDoesntThrowAnyExceptionAndGetHeadersReturnsOnlyTheValidHeaders()
     {
         $inputHeaders = array(
             'HTTP_ACCEPT_LANGUAGE' => 'en-GB',
@@ -179,5 +196,23 @@ class ConstructorTests extends \PHPUnit_Framework_TestCase
         $detect = new MobileDetect();
         $detect->setHeader('Warning', '199 Miscellaneous warning');
         $this->assertEquals($detect->getHeader('warning'), '199 Miscellaneous warning');
+    }
+    
+    public function testThatAPsr7HttpMessageIsAValidType()
+    {
+        $httpMessage = Mockery::mock('\\Psr\\Http\\Message\\MessageInterface');
+        $httpMessage->shouldReceive('getHeaders')->andReturn(array('user-agent' => 'hello'));
+        $md = new MobileDetect($httpMessage);
+        $this->assertSame('hello', $md->getUserAgent());
+    }
+
+    /**
+     * @expectedException \MobileDetect\Exception\InvalidArgumentException
+     * @expectedExceptionMessage Unexpected headers argument type=object
+     */
+    public function testThatAnUnknownHeaderTypeFails()
+    {
+        $headers = new \stdClass();
+        new MobileDetect($headers);
     }
 }

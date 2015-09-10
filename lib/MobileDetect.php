@@ -2,17 +2,14 @@
 namespace MobileDetect;
 
 use MobileDetect\Device\DeviceInterface;
-
+use MobileDetect\Exception\InvalidArgumentException;
+use Psr\Http\Message\MessageInterface as HttpMessageInterface;
 use MobileDetect\Providers\UserAgentHeaders;
 use MobileDetect\Providers\HttpHeaders;
-use MobileDetect\Providers\MobileHeaders;
-
 use MobileDetect\Providers\Browsers;
 use MobileDetect\Providers\OperatingSystems;
 use MobileDetect\Providers\Phones;
 use MobileDetect\Providers\Tablets;
-
-use MobileDetect\Device\Device;
 use MobileDetect\Device\DeviceType;
 
 class MobileDetect
@@ -96,7 +93,7 @@ class MobileDetect
     }
 
     /**
-     * @param $headers \Iterator|array|string When it's a string, it's assumed to be User-Agent.
+     * @param $headers \Iterator|array|HttpMessageInterface|string When it's a string, it's assumed to be User-Agent.
      * @param Phones|null $phonesProvider
      * @param Tablets|null $tabletsProvider
      * @param Browsers|null $browsersProvider
@@ -125,18 +122,17 @@ class MobileDetect
         $this->userAgentHeaders = $userAgentHeaders;
         $this->recognizedHttpHeaders = $recognizedHttpHeaders;
 
-        if (is_string($headers)) {
-            $headers = array('User-Agent' => $headers);
-        }
-
-        // When no headers are provided,
-        // get them from _SERVER super global.
-        if ($headers === null) {
-            $headers = $_SERVER;
-        }
-
-        if ($headers instanceof \Iterator) {
+        //parse the various types of headers we could receive
+        if ($headers instanceof HttpMessageInterface) {
+            $headers = $headers->getHeaders();
+        } elseif ($headers instanceof \Iterator) {
             $headers = iterator_to_array($headers, true);
+        } elseif (is_string($headers)) {
+            $headers = array('User-Agent' => $headers);
+        } elseif ($headers === null) {
+            $headers = static::getHttpHeadersFromEnv();
+        } elseif (!is_array($headers)) {
+            throw new InvalidArgumentException(sprintf('Unexpected headers argument type=%s', gettype($headers)));
         }
 
         //load up the headers
@@ -178,6 +174,24 @@ class MobileDetect
         $this->browsersProvider = $browsersProvider;
         $this->operatingSystemsProvider = $operatingSystemsProvider;
 
+    }
+
+    /**
+     * Makes a best attempt at extracting headers, starting with Apache then trying $_SERVER super global.
+     *
+     * @return array
+     */
+    public static function getHttpHeadersFromEnv()
+    {
+        if (function_exists('getallheaders')) {
+            return getallheaders();
+        } elseif (function_exists('apache_request_headers')) {
+            return apache_request_headers();
+        } elseif (isset($_SERVER)) {
+            return $_SERVER;
+        }
+
+        return array();
     }
 
     /**
@@ -555,12 +569,15 @@ class MobileDetect
     {
         if ($deviceClass) {
             if (!is_subclass_of($deviceClass, __NAMESPACE__ . '\Device\DeviceInterface')) {
-                throw new Exception\InvalidArgumentException(
-                    sprintf(
-                        'Invalid class specified: %s.',
-                        is_object($deviceClass) ? get_class($deviceClass) : $deviceClass
-                    )
-                );
+                $type = gettype($deviceClass);
+                if ($type == 'object') {
+                    $type = get_class($deviceClass);
+                } elseif ($type == 'string') {
+                    $type = $deviceClass;
+                } else {
+                    $type = sprintf('Invalid type %s', $type);
+                }
+                throw new Exception\InvalidArgumentException(sprintf('Invalid class specified: %s.', $type));
             }
         } else {
             // default implementation
