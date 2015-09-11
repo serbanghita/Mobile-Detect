@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/serbanghita/Mobile-Detect/badge.svg?branch=devel-3)](https://coveralls.io/r/serbanghita/Mobile-Detect?branch=devel-3)
 [![Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel-3)](https://travis-ci.org/serbanghita/Mobile-Detect)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/serbanghita/Mobile-Detect/badges/quality-score.png?b=devel-3)](https://scrutinizer-ci.com/g/serbanghita/Mobile-Detect/?branch=devel-3)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.3-8892BF.svg?style=flat)](https://php.net/)
 
 ## Installing
 
