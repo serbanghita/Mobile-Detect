@@ -84,6 +84,33 @@ class OperatingSystems extends AbstractProvider
                 'versionMatches' => array('Windows NT [VER]'),
             ),
         ),
+        
+        /**
+         * JAVA OS family.
+         *
+         * @docs https://en.wikipedia.org/wiki/Java_Platform,_Micro_Edition
+         * @docs https://en.wikipedia.org/wiki/Mobile_Information_Device_Profile
+         */
+        'Java' => array(
+            'Java Mobile' => array(
+                'vendor' => 'Oracle',
+                'model' => 'Java Mobile',
+                'isMobile' => true,
+                // '|Java/' produces bug #135
+                'identityMatches' => 'J2ME/|\bMIDP\b|\bCLDC\b',
+                'versionMatches' => array('MIDP-[VER]', 'MMP/[VER]', 'J2ME/[VER]')
+            )
+        ),
+
+        'Bada' => array(
+            'Bada Mobile' => array(
+                'vendor' => 'Bada',
+                'model' => 'Bada Mobile',
+                'isMobile' => true,
+                'identityMatches' => '\bBada\b',
+                'versionMatches' => array('Bada/[VER]')
+            )
+        )
 
     );
 

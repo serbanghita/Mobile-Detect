@@ -128,6 +128,39 @@ class Browsers extends AbstractProvider
                 'identityMatches' => 'NetFront/[.0-9]+|NetFrontLifeBrowser',
                 'versionMatches' => array('NetFront/[VER]', 'NetFrontLifeBrowser/[VER]', 'Version/[VER]'),
             )
+        ),
+        
+        'Generic' => array(
+            'Dolfin' => array(
+                'vendor' => 'Dolfin',
+                'model' => 'Dolfin Mobile',
+                'isMobile' => true,
+                'identityMatches' => '\bDolfin\b',
+                'versionMatches' => array('Dolfin/[VER]')
+            ),
+            'UCBrowser' => array(
+                'vendor' => 'UCWeb',
+                'model' => 'UCBrowser',
+                'isMobile' => true,
+                'identityMatches' => 'UC.*Browser|UCWEB',
+                'versionMatches' => array('UCWEB[VER]', 'UCBrowser/[VER]')
+            ),
+            // http://en.wikipedia.org/wiki/NetFront
+            'NetFront' => array(
+                'vendor' => 'NetFront',
+                'model' => 'NetFront Mobile',
+                'isMobile' => true,
+                'identityMatches' => 'NetFront|NF-Browser',
+                'versionMatches' => array('NetFront/[VER]')
+            ),
+            'Generic Mobile' => array(
+                'vendor' => 'Generic',
+                'model' => 'Generic Mobile',
+                'isMobile' => true,
+                'identityMatches' => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger|UP.Browser',
+                // @todo If this grows, then split into multiple generic browsers as they become important.
+                'versionMatches' => array('Version/[VER]', 'Safari/[VER]', 'Browser/[VER]'),
+            )
         )
 
     );
