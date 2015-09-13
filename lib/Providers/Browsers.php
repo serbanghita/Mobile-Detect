@@ -97,7 +97,7 @@ class Browsers extends AbstractProvider
          *
          * @docs http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/OptimizingforSafarioniPhone/OptimizingforSafarioniPhone.html#//apple_ref/doc/uid/TP40006517-SW3
          * @note Safari 7534.48.3 is actually Version 5.1.
-         * @note On BlackBerry the Version is overwriten by the OS.
+         * @note On BlackBerry the Version is overwritten by the OS.
          */
         'Safari'         => array(
             'Safari Mobile' => array(
@@ -118,22 +118,27 @@ class Browsers extends AbstractProvider
 
         /**
          * NetFront browsers family.
-         * @todo Should I split this into NetFront and NetFrontLife? Maybe it's overkill.
+         * @todo (Serban) Should we split this into NetFront and NetFrontLife? Mobile/Desktop
+         * @docs http://en.wikipedia.org/wiki/NetFront
          */
         'NetFront' => array(
-            'NetFront' => array(
+            'NetFront Mobile' => array(
                 'vendor' => 'NetFront',
-                'model' => 'NetFront',
+                'model' => 'NetFront Mobile',
                 'isMobile' => true,
-                'identityMatches' => 'NetFront/[.0-9]+|NetFrontLifeBrowser',
+                'identityMatches' => 'NetFront/[.0-9]+|NetFrontLifeBrowser|NF-Browser',
                 'versionMatches' => array('NetFront/[VER]', 'NetFrontLifeBrowser/[VER]', 'Version/[VER]'),
             )
         ),
-        
+
         'Generic' => array(
+            /**
+             * Dolfin family has only mobile browsers.
+             * @docs https://en.wikipedia.org/wiki/Dolphin_Browser
+             */
             'Dolfin' => array(
                 'vendor' => 'Dolfin',
-                'model' => 'Dolfin Mobile',
+                'model' => 'Dolfin',
                 'isMobile' => true,
                 'identityMatches' => '\bDolfin\b',
                 'versionMatches' => array('Dolfin/[VER]')
@@ -144,14 +149,6 @@ class Browsers extends AbstractProvider
                 'isMobile' => true,
                 'identityMatches' => 'UC.*Browser|UCWEB',
                 'versionMatches' => array('UCWEB[VER]', 'UCBrowser/[VER]')
-            ),
-            // http://en.wikipedia.org/wiki/NetFront
-            'NetFront' => array(
-                'vendor' => 'NetFront',
-                'model' => 'NetFront Mobile',
-                'isMobile' => true,
-                'identityMatches' => 'NetFront|NF-Browser',
-                'versionMatches' => array('NetFront/[VER]')
             ),
             'Generic Mobile' => array(
                 'vendor' => 'Generic',

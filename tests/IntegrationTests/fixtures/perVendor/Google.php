@@ -123,7 +123,7 @@ return array(
         'ua' => 'Mozilla/5.0 (Linux; U; Android; en_us; Nexus 7 Build/) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 NetFrontLifeBrowser/2.3 Mobile (Dragonfruit)',
         'isMobile' => true,
         'isTablet' => true,
-        'browser' => 'NetFront',
+        'browser' => 'NetFront Mobile',
         'browserVersion' => '2.3',
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => null,

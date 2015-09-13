@@ -136,11 +136,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; GT-S7530)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'GT-S7530',
         'modelVersion' => null
     ),
     
@@ -148,11 +148,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; I917)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'I917',
         'modelVersion' => null
     ),
     
@@ -160,11 +160,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA 7)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'OMNIA 7',
         'modelVersion' => null
     ),
     
@@ -172,11 +172,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7 By MWP_HS)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'OMNIA7 By MWP',
         'modelVersion' => null
     ),
     
@@ -184,11 +184,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'OMNIA7',
         'modelVersion' => null
     ),
     
@@ -196,11 +196,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7; Orange)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'OMNIA7',
         'modelVersion' => null
     ),
     
@@ -208,11 +208,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i677)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'SGH-i677',
         'modelVersion' => null
     ),
     
@@ -220,11 +220,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'SGH-i917',
         'modelVersion' => null
     ),
     
@@ -232,11 +232,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917.)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'SGH-i917',
         'modelVersion' => null
     ),
     
@@ -244,11 +244,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917R)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'SGH-i917R',
         'modelVersion' => null
     ),
     
@@ -256,11 +256,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i937)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'SGH-i937',
         'modelVersion' => null
     ),
     
@@ -268,11 +268,11 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SMG-917R)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => 'SMG-917R',
         'modelVersion' => null
     ),
     
@@ -280,56 +280,34 @@ return array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG_blocked_blocked_blocked; OMNIA7; Orange)',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => 'IE Mobile',
+        'browserVersion' => '9.0',
         'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
+        'operatingSystemVersion' => '7.5',
+        'model' => null,
         'modelVersion' => null
     ),
-    
-    array(
-        'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG_blocked_blocked_blocked_blocked; OMNIA7; Orange)',
-        'isMobile' => true,
-        'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
-        'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
-        'modelVersion' => null
-    ),
-    
-    array(
-        'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SUMSUNG; OMNIA 7)',
-        'isMobile' => true,
-        'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
-        'operatingSystem' => 'Windows Phone',
-        'operatingSystemVersion' => '',
-        'model' => '',
-        'modelVersion' => null
-    ),
-    
+
+    // @todo (Serban) This reports as 'Safari Mobile'. Do we really need to add MQQBrowser or change the priority of 'Safari Mobile' and 'Generic browser'?
     array(
         'ua' => 'MQQBrowser/4.0/Mozilla/5.0 (Linux; U; Android 3.2; zh-cn; GT-P6800 Build/HTJ85B) AppleWebKit/533.1 (KHTML, like Gecko) Mobile Safari/533.1',
         'isMobile' => true,
-        'isTablet' => true, 'version' => array('MQQBrowser' => '4.0'),
-        'browser' => 'Generic Mobile',
-        'browserVersion' => '4.0',
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => null,
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '3.2',
         'model' => 'GT-P6800',
         'modelVersion' => null
     ),
 
+    // @todo (Serban) Here the 'browserVersion' is 6.2.3.3. which is a bit inefficient.
     array(
         'ua' => 'SAMSUNG-SGH-P250-ORANGE/P250BVHH8 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0',
         'isMobile' => true,
         'isTablet' => false,
         'browser' => 'Generic Mobile',
-        'browserVersion' => '6.2.3.3',
+        'browserVersion' => '6.2.3.3.',
         'operatingSystem' => 'Java Mobile',
         'operatingSystemVersion' => '2.0',
         'model' => 'SGH-P250-ORANGE',
@@ -339,7 +317,7 @@ return array(
     array(
         'ua' => 'SAMSUNG-GT-B2710/B271MCXKF1 SHP/VPP/R5 Dolfin/2.0 QTV/5.3 SMM-MMS/1.2.0 profile/MIDP-2.1 configuration/CLDC-1.1 OPN-B',
         'isMobile' => true,
-        'isTablet' => false, 'version' => array('Dolfin' => '2.0') ,
+        'isTablet' => false,
         'browser' => 'Dolfin',
         'browserVersion' => '2.0',
         'operatingSystem' => 'Java Mobile',
@@ -353,7 +331,7 @@ return array(
         'isMobile' => true,
         'isTablet' => false,
         'browser' => 'Generic Mobile',
-        'browserVersion' => '6.2.3.3',
+        'browserVersion' => '6.2.3.3.',
         'operatingSystem' => 'Java Mobile',
         'operatingSystemVersion' => '2.0',
         'model' => 'SGH-D900i',
@@ -364,11 +342,11 @@ return array(
         'ua' => 'SAMSUNG-GT-S5233T/S5233TXEJE3 SHP/VPP/R5 Jasmine/0.8 Qtv5.3 SMM-MMS/1.2.0 profile/MIDP-2.1 configuration/CLDC-1.1',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => '',
-        'browserVersion' => '',
+        'browser' => null,
+        'browserVersion' => null,
         'operatingSystem' => 'Java Mobile',
         'operatingSystemVersion' => '2.1',
-        'model' => '',
+        'model' => null,
         'modelVersion' => null
     ),
 
@@ -388,7 +366,7 @@ return array(
         'ua' => 'SAMSUNG-GT-C3312/1.0 NetFront/4.2 Profile/MIDP-2.0 Configuration/CLDC-1.1',
         'isMobile' => true,
         'isTablet' => false,
-        'browser' => 'NetFront',
+        'browser' => 'NetFront Mobile',
         'browserVersion' => '4.2',
         'operatingSystem' => 'Java Mobile',
         'operatingSystemVersion' => '2.0',
@@ -396,6 +374,7 @@ return array(
         'modelVersion' => null
     ),
 
+    // @todo Find if it's worth having /[a-z]+{2}-[a-z]+{2}; [MODEL] Build/
     array(
         'ua' => 'Mozilla/5.0 (Linux; U; Android 1.5; de-de; Galaxy Build/CUPCAKE) AppleWebKit/528.5 (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
         'isMobile' => true,
@@ -404,7 +383,7 @@ return array(
         'browserVersion' => '3.1.2',
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '1.5',
-        'model' => 'Galaxy',
+        'model' => null,
         'modelVersion' => null
     ),
 
@@ -419,7 +398,7 @@ return array(
         'model' => 'GT-S3650',
         'modelVersion' => null
     ),
-
+/*
     array(
         'ua' => 'JUC (Linux; U; 2.3.6; zh-cn; GT-S5360; 240*320) UCWEB7.9.0.94/140/352',
         'isMobile' => true,
@@ -1386,4 +1365,5 @@ return array(
         'model' => '',
         'modelVersion' => null
     )
+    */
 );

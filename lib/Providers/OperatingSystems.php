@@ -103,9 +103,13 @@ class OperatingSystems extends AbstractProvider
         ),
 
         'Bada' => array(
-            'Bada Mobile' => array(
+            /**
+             * Bada was developed only for mobile devices.
+             * @docs https://en.wikipedia.org/wiki/Bada
+             */
+            'Bada' => array(
                 'vendor' => 'Bada',
-                'model' => 'Bada Mobile',
+                'model' => 'Bada',
                 'isMobile' => true,
                 'identityMatches' => '\bBada\b',
                 'versionMatches' => array('Bada/[VER]')

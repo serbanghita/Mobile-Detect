@@ -451,11 +451,16 @@ class MobileDetect
         return false;
     }
 
+    /**
+     * @param $tests
+     * @param $against
+     * @return null
+     */
     protected function modelMatch($tests, $against)
     {
         // Model match must be an array.
         if (!is_array($tests) || !count($tests)) {
-            return false;
+            return null;
         }
 
         $this->setRegexErrorHandler();
@@ -473,14 +478,14 @@ class MobileDetect
         }
 
         $this->restoreRegexErrorHandler();
-        return false;
+        return null;
     }
 
     protected function versionMatch($tests, $against)
     {
         // Model match must be an array.
         if (!is_array($tests) || !count($tests)) {
-            return false;
+            return null;
         }
 
         $this->setRegexErrorHandler();
@@ -498,7 +503,7 @@ class MobileDetect
         }
 
         $this->restoreRegexErrorHandler();
-        return false;
+        return null;
     }
 
     protected function matchEntity($entity, $tests, $against)
