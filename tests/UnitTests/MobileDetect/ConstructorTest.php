@@ -189,13 +189,19 @@ class ConstructorTests extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * setting an unknown header returns null
+     * @expectedException \MobileDetect\Exception\InvalidArgumentException
      */
     public function testSettingAnUnknownHeaderReturnsNull()
     {
         $detect = new MobileDetect();
+        $detect->setHeader('Blah-Blah', 'stuff');
+    }
+
+    public function testSettingKnownHeaderIsProperlySet()
+    {
+        $detect = new MobileDetect();
         $detect->setHeader('Warning', '199 Miscellaneous warning');
-        $this->assertEquals($detect->getHeader('warning'), '199 Miscellaneous warning');
+        $this->assertEquals($detect->getHeader('WaRNinG'), '199 Miscellaneous warning');
     }
     
     public function testThatAPsr7HttpMessageIsAValidType()
