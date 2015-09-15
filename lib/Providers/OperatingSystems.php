@@ -84,6 +84,20 @@ class OperatingSystems extends AbstractProvider
                 'versionMatches' => array('Windows NT [VER]'),
             ),
         ),
+
+        'Bada' => array(
+            /**
+             * Bada was developed only for mobile devices.
+             * @docs https://en.wikipedia.org/wiki/Bada
+             */
+            'Bada' => array(
+                'vendor' => 'Bada',
+                'model' => 'Bada',
+                'isMobile' => true,
+                'identityMatches' => '\bBada\b',
+                'versionMatches' => array('Bada/[VER]')
+            )
+        ),
         
         /**
          * JAVA OS family.
@@ -100,22 +114,7 @@ class OperatingSystems extends AbstractProvider
                 'identityMatches' => 'J2ME/|\bMIDP\b|\bCLDC\b',
                 'versionMatches' => array('MIDP-[VER]', 'MMP/[VER]', 'J2ME/[VER]')
             )
-        ),
-
-        'Bada' => array(
-            /**
-             * Bada was developed only for mobile devices.
-             * @docs https://en.wikipedia.org/wiki/Bada
-             */
-            'Bada' => array(
-                'vendor' => 'Bada',
-                'model' => 'Bada',
-                'isMobile' => true,
-                'identityMatches' => '\bBada\b',
-                'versionMatches' => array('Bada/[VER]')
-            )
         )
-
     );
 
     public function getFamily($familyName)

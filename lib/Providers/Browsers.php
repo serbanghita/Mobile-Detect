@@ -143,6 +143,9 @@ class Browsers extends AbstractProvider
                 'identityMatches' => '\bDolfin\b',
                 'versionMatches' => array('Dolfin/[VER]')
             ),
+            /**
+             * @docs http://www.ucweb.com/
+             */
             'UCBrowser' => array(
                 'vendor' => 'UCWeb',
                 'model' => 'UCBrowser',

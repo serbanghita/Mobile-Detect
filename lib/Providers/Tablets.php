@@ -47,9 +47,10 @@ class Tablets extends AbstractProvider
             'modelMatches' => [
                 'SAMSUNG (?<model>[a-zA-Z0-9-]+)',
                 '; SAMSUNG; (?<model>[a-zA-Z0-9-]+)',
-                '; (?<model>[a-zA-Z0-9-]+) Build',
+                '; (?<model>[a-zA-Z0-9-_]+) Build',
                 '; (?<model>[a-zA-Z0-9-]+)\) like Gecko',
-                '; (?<model>[a-zA-Z0-9-]+)/[a-zA-Z0-9-.]+ Build'
+                '; (?<model>[a-zA-Z0-9-]+)/[a-zA-Z0-9-.]+ Build',
+                '[a-z]{2}-[a-z]{2}; (?<model>[a-z]{2}-[a-z0-9]+);'
             ]
         ),
 

@@ -35,7 +35,8 @@ class Phones extends AbstractProvider
         'Samsung' => [
             'vendor' => 'Samsung',
             'identityMatches' => [
-                'Samsung|SGH-I337|BGT-S5230|GT-B2100|GT-B2700|GT-B2710|GT-B3210|GT-B3310|GT-B3410|GT-B3730|GT-B3740|GT-B5510|GT-B5512|GT-B5722|GT-B6520|GT-B7300|GT-B7320',
+                // @todo Merge the regex manually by diff.
+                'Samsung|\bGalaxy\b|SGH-I337|BGT-S5230|GT-B2100|GT-B2700|GT-B2710|GT-B3210|GT-B3310|GT-B3410|GT-B3730|GT-B3740|GT-B5510|GT-B5512|GT-B5722|GT-B6520|GT-B7300|GT-B7320',
                 '|GT-B7330|GT-B7350|GT-B7510|GT-B7722|GT-B7800|GT-C3010|GT-C3011|GT-C3060|GT-C3200|GT-C3212|GT-C3212I|GT-C3262|GT-C3222|GT-C3300|GT-C3300K|GT-C3303|GT-C3303K',
                 '|GT-C3310|GT-C3322|GT-C3330|GT-C3350|GT-C3500|GT-C3510|GT-C3530|GT-C3630|GT-C3780|GT-C5010|GT-C5212|GT-C6620|GT-C6625|GT-C6712|GT-E1050|GT-E1070|GT-E1075',
                 '|GT-E1080|GT-E1081|GT-E1085|GT-E1087|GT-E1100|GT-E1107|GT-E1110|GT-E1120|GT-E1125|GT-E1130|GT-E1160|GT-E1170|GT-E1175|GT-E1180|GT-E1182|GT-E1200|GT-E1210',
@@ -77,7 +78,9 @@ class Phones extends AbstractProvider
                 'SAMSUNG-(?<model>[a-zA-Z0-9- ]+)',
                 '; (?<model>[a-zA-Z0-9-]+) Build',
                 '; (?<model>[a-zA-Z0-9-]+)\) like Gecko',
-                '; (?<model>[a-zA-Z0-9-]+)/[a-zA-Z0-9-.]+ Build'
+                '; (?<model>[a-zA-Z0-9-]+)/[a-zA-Z0-9-.]+ Build',
+                //'[a-z]{2}-[a-z]{2}; (?<model>[a-zA-Z0-9-]+) Build',
+                '[a-z]{2}-[a-z]{2}; (?<model>[a-z]{2}-[a-z0-9]+);'
             ]
         ],
 

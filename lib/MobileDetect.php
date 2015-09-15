@@ -335,7 +335,8 @@ class MobileDetect
     protected function prepareVersion($version, $asArray = false)
     {
         $version = str_replace('_', '.', $version);
-
+        // @todo Need to remove extra characters from resulting
+        // versions like '2.1-' or '2.1.'
         if ($asArray) {
             return explode('.', $version);
         } else {
