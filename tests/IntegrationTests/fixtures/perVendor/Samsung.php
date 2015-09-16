@@ -1365,5 +1365,77 @@ return array(
         'operatingSystemVersion' => '4.4.2',
         'model' => 'SM-T700',
         'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 5.0.2; SM-T805 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.92 Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '43.0.2357.92',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '5.0.2',
+        'model' => 'SM-T805',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.4.4; SM-T116NQ Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.92 Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '43.0.2357.92',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.4.4',
+        'model' => 'SM-T116NQ',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 5.0.2; SM-G9250 Build/LRX22G; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.121 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/35.0.0.48.273;]',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '43.0.2357.121',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '5.0.2',
+        'model' => 'SM-G9250',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; SM-T705Y Build/KOT49H) AppleWebKit/537.36(KHTML, like Gecko) Chrome/42.0.2311.111 Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '42.0.2311.111',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.4.2',
+        'model' => 'SM-T705Y',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9505 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '28.0.1500.94',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.4.2',
+        'model' => 'GT-I9505',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; SM-T705 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.45 Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '41.0.2272.45',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.4.2',
+        'model' => 'SM-T705',
+        'modelVersion' => null
     )
 );
