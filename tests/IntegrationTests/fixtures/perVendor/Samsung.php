@@ -293,7 +293,7 @@ return array(
         'ua' => 'MQQBrowser/4.0/Mozilla/5.0 (Linux; U; Android 3.2; zh-cn; GT-P6800 Build/HTJ85B) AppleWebKit/533.1 (KHTML, like Gecko) Mobile Safari/533.1',
         'isMobile' => true,
         'isTablet' => true,
-        'browser' => 'Safari Mobile',
+        'browser' => 'Generic Mobile',
         'browserVersion' => null,
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '3.2',
@@ -628,742 +628,742 @@ return array(
         'model' => 'GT-S5839i',
         'modelVersion' => null
     ),
-    /*
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; en-gb; GT-S7500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; en-gb; GT-S5830 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; es-us; GT-B5510L Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; pl-pl; GT-I9001-ORANGE/I9001BVKPC Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; en-us; GT-I8150 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; nl-nl; GT-I9070 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; en-gb; GT-S5360 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; es-us; GT-S6102B Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; en-us; GT-S5830i Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; ru-ru; GT-I8160 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; ru-ru; GT-S6802 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.7; ru-ru; GT-S5830 Build/GRWK74; LeWa_ROM_Cooper_12.09.21) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; ru-ru; GT-N7000 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 3.0.1; en-us; GT-P7100 Build/HRI83) AppleWebkit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 3.2; he-il; GT-P7300 Build/HTJ85B) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 3.2; en-gb; GT-P6200 Build/HTJ85B) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.3; en-gb; GT-I9100 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; GT-I9100G Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.3; nl-nl; GT-P5100 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android-4.0.3; en-us; Galaxy Nexus Build/IML74K) AppleWebKit/535.7 (KHTML, like Gecko) CrMo/16.0.912.75 Mobile Safari/535.7',
-            'isMobile' => true,
-            'isTablet' => false,
-            'version' => array('Chrome' => '16.0.912.75'),
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.0.3; SGH-T989 Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
-            'isMobile' => true,
-            'isTablet' => false,
-            'version' => array('Chrome' => '18.0.1025.166'),
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; GT-P5100 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.0.4; GT-I9300 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.0.4; SPH-D710 Build/IMM76I) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; GT-I9300-ORANGE/I9300BVBLG2 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; th-th; GT-I9300T Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; GT-I9100 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-us ; GT-I9100 Build/IMM76D) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1/UCBrowser/8.4.1.204/145/355',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; GT-N7000 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; th-th; GT-P6800 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.0.4; SAMSUNG-SGH-I747 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.3; es-es; GT-P5110 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.0.4; GT-P5110 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; SAMSUNG-GT-S7568_TD/1.0 Android/4.0.4 Release/07.15.2012 Browser/AppleWebKit534.30 Build/IMM76D) ApplelWebkit/534.30 (KHTML,like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'version' => array('Android' => '4.0.4'),
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; GT-P3100 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; tr-tr; GT-P3105 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-ca; GT-N8010 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; GT-S7562 Build/IMM76I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; GT-N7100 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.1.2; GT-N7100 Build/JZO54K) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.123 Mobile Safari/537.22 OPR/14.0.1025.52315',
-            'isMobile' => true,
-            'isTablet' => false, 
-            'version' => array( 'Build' => 'JZO54K', 'Webkit' => '537.22', 'Opera' => '14.0.1025.52315' ),
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.1; zh-hk; GT-N7105 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.1; ru-ru; GT-N8000 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.1.1; SGH-i747M Build/JRO03L) AppleWebKit/535.19(KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.1; en-gb; Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280 Build/JRO03S) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.1.2; GT-I8262 Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Mobile Safari/537.36',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.2; it-it; Galaxy Nexus Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SGH-I777 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; GT-S7710 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; GT-I9082 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SGH-T999L Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.2.2; GT-P5210 Build/JDQ39) AppleWebKit/537.36 (KHTML, Like Gecko) Chrome/27.0.1453.90 Safari/537.36',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.2.2; en-us; SAMSUNG GT-I9200 Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Version/1.0 Chrome/18.0.1025.308 Mobile Safari/535.19',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.2.2; zh-cn; SCH-I959 Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Version/1.0 Chrome/18.0.1025.308 Mobile Safari/535.19',
-            'isMobile' => true,
-            'isTablet' => false,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.2.2; nl-nl; SM-T310 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.3; en-us; SAMSUNG SM-P600 Build/JSS15J) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; U; Android 4.2.2; en-gb; GT-N5100 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; en-us; SAMSUNG SM-T530NU Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-    
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; SM-T800 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.135 Safari/537.36',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; fr-fr; SAMSUNG SM-T800 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        ),
-    
-        array(
-            'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; SM-T700 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.517 Safari/537.36',
-            'isMobile' => true,
-            'isTablet' => true,
-            'browser' => '',
-            'browserVersion' => '',
-            'operatingSystem' => '',
-            'operatingSystemVersion' => '',
-            'model' => '',
-            'modelVersion' => null
-        )
-        */
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; en-gb; GT-S7500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-S7500',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; en-gb; GT-S5830 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-S5830',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; es-us; GT-B5510L Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-B5510L',
+        'modelVersion' => null
+    ),
+
+    // @todo Maybe in the future decide if we strip 'ORANGE' or 'VODAFONE' from models.
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; pl-pl; GT-I9001-ORANGE/I9001BVKPC Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-I9001-ORANGE',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; en-us; GT-I8150 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-I8150',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; nl-nl; GT-I9070 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-I9070',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; en-gb; GT-S5360 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-S5360',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; es-us; GT-S6102B Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-S6102B',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; en-us; GT-S5830i Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-S5830i',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; ru-ru; GT-I8160 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-I8160',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; ru-ru; GT-S6802 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-S6802',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.7; ru-ru; GT-S5830 Build/GRWK74; LeWa_ROM_Cooper_12.09.21) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.7',
+        'model' => 'GT-S5830',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.3.6; ru-ru; GT-N7000 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '2.3.6',
+        'model' => 'GT-N7000',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 3.0.1; en-us; GT-P7100 Build/HRI83) AppleWebkit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '3.0.1',
+        'model' => 'GT-P7100',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 3.2; he-il; GT-P7300 Build/HTJ85B) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '3.2',
+        'model' => 'GT-P7300',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 3.2; en-gb; GT-P6200 Build/HTJ85B) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '3.2',
+        'model' => 'GT-P6200',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.3; en-gb; GT-I9100 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.3',
+        'model' => 'GT-I9100',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; GT-I9100G Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.3',
+        'model' => 'GT-I9100G',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.3; nl-nl; GT-P5100 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.3',
+        'model' => 'GT-P5100',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android-4.0.3; en-us; Galaxy Nexus Build/IML74K) AppleWebKit/535.7 (KHTML, like Gecko) CrMo/16.0.912.75 Mobile Safari/535.7',
+        'isMobile' => true,
+        'isTablet' => false,
+        // 'version' => array('Chrome' => '16.0.912.75'),
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '16.0.912.75',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.3',
+        'model' => 'Galaxy Nexus',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.0.3; SGH-T989 Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
+        'isMobile' => true,
+        'isTablet' => false,
+        // 'version' => array('Chrome' => '18.0.1025.166'),
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '18.0.1025.166',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.3',
+        'model' => 'SGH-T989',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; GT-P5100 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-P5100',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.0.4; GT-I9300 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '18.0.1025.166',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-I9300',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.0.4; SPH-D710 Build/IMM76I) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '18.0.1025.166',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'SPH-D710',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-I9300',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; GT-I9300-ORANGE/I9300BVBLG2 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-I9300-ORANGE',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; th-th; GT-I9300T Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-I9300T',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; GT-I9100 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-I9100',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-us ; GT-I9100 Build/IMM76D) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1/UCBrowser/8.4.1.204/145/355',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'UCBrowser',
+        'browserVersion' => '8.4.1.204',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-I9100',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; GT-N7000 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-N7000',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; th-th; GT-P6800 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-P6800',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.0.4; SAMSUNG-SGH-I747 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '18.0.1025.166',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'SGH-I747',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.3; es-es; GT-P5110 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.3',
+        'model' => 'GT-P5110',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.0.4; GT-P5110 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '18.0.1025.166',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-P5110',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; SAMSUNG-GT-S7568_TD/1.0 Android/4.0.4 Release/07.15.2012 Browser/AppleWebKit534.30 Build/IMM76D) ApplelWebkit/534.30 (KHTML,like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        //'version' => array('Android' => '4.0.4'),
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-S7568',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; GT-P3100 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-P3100',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; tr-tr; GT-P3105 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-P3105',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-ca; GT-N8010 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-N8010',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; GT-S7562 Build/IMM76I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.0.4',
+        'model' => 'GT-S7562',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; GT-N7100 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.1',
+        'model' => 'GT-N7100',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.1.2; GT-N7100 Build/JZO54K) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.123 Mobile Safari/537.22 OPR/14.0.1025.52315',
+        'isMobile' => true,
+        'isTablet' => false,
+        // 'version' => array( 'Build' => 'JZO54K', 'Webkit' => '537.22', 'Opera' => '14.0.1025.52315' ),
+        'browser' => 'Opera Mobi',
+        'browserVersion' => '14.0.1025.52315',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.2',
+        'model' => 'GT-N7100',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.1; zh-hk; GT-N7105 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.1',
+        'model' => 'GT-N7105',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.1; ru-ru; GT-N8000 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.1',
+        'model' => 'GT-N8000',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.1.1; SGH-i747M Build/JRO03L) AppleWebKit/535.19(KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '18.0.1025.166',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.1',
+        'model' => 'SGH-i747M',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.1; en-gb; Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280 Build/JRO03S) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.1',
+        'model' => 'Galaxy Nexus',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.1.2; GT-I8262 Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Mobile Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '32.0.1700.99',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.2',
+        'model' => 'GT-I8262',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.2; it-it; Galaxy Nexus Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.2',
+        'model' => 'Galaxy Nexus',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SGH-I777 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.2',
+        'model' => 'SGH-I777',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; GT-S7710 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.2',
+        'model' => 'GT-S7710',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; GT-I9082 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.2',
+        'model' => 'GT-I9082',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SGH-T999L Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.1.2',
+        'model' => 'SGH-T999L',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.2.2; GT-P5210 Build/JDQ39) AppleWebKit/537.36 (KHTML, Like Gecko) Chrome/27.0.1453.90 Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '27.0.1453.90',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.2.2',
+        'model' => 'GT-P5210',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.2.2; en-us; SAMSUNG GT-I9200 Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Version/1.0 Chrome/18.0.1025.308 Mobile Safari/535.19',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '18.0.1025.308',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.2.2',
+        'model' => 'GT-I9200',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.2.2; zh-cn; SCH-I959 Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Version/1.0 Chrome/18.0.1025.308 Mobile Safari/535.19',
+        'isMobile' => true,
+        'isTablet' => false,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '18.0.1025.308',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.2.2',
+        'model' => 'SCH-I959',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.2.2; nl-nl; SM-T310 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.2.2',
+        'model' => 'SM-T310',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.3; en-us; SAMSUNG SM-P600 Build/JSS15J) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '28.0.1500.94',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.3',
+        'model' => 'SM-P600',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 4.2.2; en-gb; GT-N5100 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '4.0',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.2.2',
+        'model' => 'GT-N5100',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; en-us; SAMSUNG SM-T530NU Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '28.0.1500.94',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.4.2',
+        'model' => 'SM-T530NU',
+        'modelVersion' => null
+
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; SM-T800 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.135 Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '36.0.1985.135',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.4.2',
+        'model' => 'SM-T800',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; fr-fr; SAMSUNG SM-T800 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '28.0.1500.94',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.4.2',
+        'model' => 'SM-T800',
+        'modelVersion' => null
+    ),
+
+    array(
+        'ua' => 'Mozilla/5.0 (Linux; Android 4.4.2; SM-T700 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.517 Safari/537.36',
+        'isMobile' => true,
+        'isTablet' => true,
+        'browser' => 'Chrome Mobile',
+        'browserVersion' => '33.0.1750.517',
+        'operatingSystem' => 'Android',
+        'operatingSystemVersion' => '4.4.2',
+        'model' => 'SM-T700',
+        'modelVersion' => null
+    )
 );

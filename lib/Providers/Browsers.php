@@ -92,29 +92,6 @@ class Browsers extends AbstractProvider
                 'versionMatches' => array('Chrome/[VER]'),
             ),
         ),
-        /**
-         * Apple Safari family
-         *
-         * @docs http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/OptimizingforSafarioniPhone/OptimizingforSafarioniPhone.html#//apple_ref/doc/uid/TP40006517-SW3
-         * @note Safari 7534.48.3 is actually Version 5.1.
-         * @note On BlackBerry the Version is overwritten by the OS.
-         */
-        'Safari'         => array(
-            'Safari Mobile' => array(
-                'vendor' => 'Apple',
-                'model' => 'Safari Mobile',
-                'isMobile' => true,
-                'identityMatches' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari',
-                'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
-            ),
-            'Safari Desktop' => array(
-                'vendor' => 'Apple',
-                'model' => 'Safari Desktop',
-                'isMobile' => false,
-                'identityMatches' => 'Safari/[0-9.]+',
-                'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
-            ),
-        ),
 
         /**
          * NetFront browsers family.
@@ -157,11 +134,35 @@ class Browsers extends AbstractProvider
                 'vendor' => 'Generic',
                 'model' => 'Generic Mobile',
                 'isMobile' => true,
-                'identityMatches' => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger|UP.Browser',
+                'identityMatches' => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|UP.Browser',
                 // @todo If this grows, then split into multiple generic browsers as they become important.
                 'versionMatches' => array('Version/[VER]', 'Safari/[VER]', 'Browser/[VER]'),
             )
-        )
+        ),
+
+        /**
+         * Apple Safari family
+         *
+         * @docs http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/OptimizingforSafarioniPhone/OptimizingforSafarioniPhone.html#//apple_ref/doc/uid/TP40006517-SW3
+         * @note Safari 7534.48.3 is actually Version 5.1.
+         * @note On BlackBerry the Version is overwritten by the OS.
+         */
+        'Safari'         => array(
+            'Safari Mobile' => array(
+                'vendor' => 'Apple',
+                'model' => 'Safari Mobile',
+                'isMobile' => true,
+                'identityMatches' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari',
+                'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
+            ),
+            'Safari Desktop' => array(
+                'vendor' => 'Apple',
+                'model' => 'Safari Desktop',
+                'isMobile' => false,
+                'identityMatches' => 'Safari/[0-9.]+',
+                'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
+            ),
+        ),
 
     );
     

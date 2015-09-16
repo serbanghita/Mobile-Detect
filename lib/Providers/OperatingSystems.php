@@ -20,7 +20,7 @@ class OperatingSystems extends AbstractProvider
                 'isMobile' => true,
                 'identityMatches' => 'Android',
                 'matchType' => 'strpos',
-                'versionMatches' => array('Android [VER]'),
+                'versionMatches' => array('Android[ -][VER]'),
             ),
         ),
         /**
