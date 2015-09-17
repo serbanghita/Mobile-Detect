@@ -1,5 +1,10 @@
 <?php
 return array(
+    'Avant' => array(
+        'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; Avant Browser; rv:11.0) like Gecko' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 6.1; WOW64; Avant TriCore) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 5.1; rv:27.0; Avant TriCore) Gecko/20100101 Firefox/27.0' => array('isMobile' => false, 'isTablet' => false),
+    ),
     'Console' => array(
 
         //Nintendo Wii:
