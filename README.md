@@ -30,6 +30,21 @@ echo "You are using " . $device->getBrowser() . " browser with version "
   . " with version " . $device->getBrowserVersion();
 ```
 
+Let's see all the methods in action:
+
+```php
+$ua = 'Mozilla/5.0 (Linux; U; Android 4.0.4; ru-ru; GT-P5100 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30';
+$mobileDetect = new MobileDetect($ua);
+$device = $mobileDetect->detect();
+$device->isMobile(); // (bool) true
+$device->isTablet(); // (bool) true
+$device->getBrowser() // (string) 'Safari Mobile'
+$device->getBrowserVersion() // (string) '4.0'
+$device->getOperatingSystem() // (string) 'Android'
+$device->getOperatingSystemVersion() // (string) '4.0.4'
+$device->getModel() // (string) 'GT-P5100'
+```
+
 You may also be looking for a very specific version in your device:
 
 ```php
