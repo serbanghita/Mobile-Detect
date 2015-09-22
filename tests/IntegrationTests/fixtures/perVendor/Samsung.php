@@ -1,4 +1,5 @@
 <?php
+
 return array(
     array(
         'ua' => 'Mozilla/5.0 (Windows NT 6.2; ARM; Trident/7.0; Touch; rv:11.0; WPDesktop; SAMSUNG; GT-I8750) like Gecko',
@@ -9,7 +10,7 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '6.2',
         'model' => 'GT-I8750',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -21,7 +22,7 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '6.2',
         'model' => 'GT-I8750',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -33,7 +34,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'GT-I9205',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -45,7 +46,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-P7510',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -57,7 +58,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'SHV-E160K',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -69,7 +70,7 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'CETUS',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -81,7 +82,7 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'Focus I917 By TC',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -93,7 +94,7 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'Focus i917',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -105,9 +106,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'FOCUS S',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; GT-I8350)',
         'isMobile' => true,
@@ -117,9 +118,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'GT-I8350',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; GT-i8700)',
         'isMobile' => true,
@@ -129,9 +130,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'GT-i8700',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; GT-S7530)',
         'isMobile' => true,
@@ -141,9 +142,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'GT-S7530',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; I917)',
         'isMobile' => true,
@@ -153,9 +154,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'I917',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA 7)',
         'isMobile' => true,
@@ -165,9 +166,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'OMNIA 7',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7 By MWP_HS)',
         'isMobile' => true,
@@ -177,9 +178,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'OMNIA7 By MWP',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7)',
         'isMobile' => true,
@@ -189,9 +190,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'OMNIA7',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; OMNIA7; Orange)',
         'isMobile' => true,
@@ -201,9 +202,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'OMNIA7',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i677)',
         'isMobile' => true,
@@ -213,9 +214,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'SGH-i677',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917)',
         'isMobile' => true,
@@ -225,9 +226,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'SGH-i917',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917.)',
         'isMobile' => true,
@@ -237,9 +238,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'SGH-i917',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i917R)',
         'isMobile' => true,
@@ -249,9 +250,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'SGH-i917R',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SGH-i937)',
         'isMobile' => true,
@@ -261,9 +262,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'SGH-i937',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG; SMG-917R)',
         'isMobile' => true,
@@ -273,9 +274,9 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => 'SMG-917R',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-    
+
     array(
         'ua' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG_blocked_blocked_blocked; OMNIA7; Orange)',
         'isMobile' => true,
@@ -285,7 +286,7 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => null,
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     // @todo (Serban) This reports as 'Safari Mobile'. Do we really need to add MQQBrowser or change the priority of 'Safari Mobile' and 'Generic browser'?
@@ -298,7 +299,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '3.2',
         'model' => 'GT-P6800',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     // @todo (Serban) Here the 'browserVersion' is 6.2.3.3. which is a bit inefficient.
@@ -311,7 +312,7 @@ return array(
         'operatingSystem' => 'Java Mobile',
         'operatingSystemVersion' => '2.0',
         'model' => 'SGH-P250-ORANGE',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -323,7 +324,7 @@ return array(
         'operatingSystem' => 'Java Mobile',
         'operatingSystemVersion' => '2.1',
         'model' => 'GT-B2710',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -335,7 +336,7 @@ return array(
         'operatingSystem' => 'Java Mobile',
         'operatingSystemVersion' => '2.0',
         'model' => 'SGH-D900i',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -347,7 +348,7 @@ return array(
         'operatingSystem' => 'Java Mobile',
         'operatingSystemVersion' => '2.1',
         'model' => null,
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -359,7 +360,7 @@ return array(
         'operatingSystem' => 'Bada',
         'operatingSystemVersion' => '2.0',
         'model' => 'GT-S5380D',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -371,7 +372,7 @@ return array(
         'operatingSystem' => 'Java Mobile',
         'operatingSystemVersion' => '2.0',
         'model' => 'GT-C3312',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -383,7 +384,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '1.5',
         'model' => 'Galaxy',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -395,7 +396,7 @@ return array(
         'operatingSystem' => 'Java Mobile',
         'operatingSystemVersion' => '2.1',
         'model' => 'GT-S3650',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -407,7 +408,7 @@ return array(
         'operatingSystem' => null,
         'operatingSystemVersion' => null,
         'model' => 'GT-S5360',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -419,7 +420,7 @@ return array(
         'operatingSystem' => 'Bada',
         'operatingSystemVersion' => '1.0',
         'model' => 'GT-S5250',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -431,7 +432,7 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.0',
         'model' => 'SGH-i917',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -443,7 +444,7 @@ return array(
         'operatingSystem' => 'Bada',
         'operatingSystemVersion' => '1.2',
         'model' => 'GT-S8530',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -455,7 +456,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '1.6',
         'model' => 'Galaxy',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -467,7 +468,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.1-', // @todo: Redo this in MobileDetect::prepareVersion
         'model' => 'GT-I5500',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -479,7 +480,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.2',
         'model' => 'GALAXY_Tab',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -491,7 +492,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.2',
         'model' => 'SC-01C',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     // @about FROYO: http://gizmodo.com/5543853/what-is-froyo
@@ -504,7 +505,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.2',
         'model' => 'GT-I9000',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     // @todo This might be UC Browser
@@ -517,7 +518,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.2.1',
         'model' => 'SCH-i909',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -529,7 +530,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.3',
         'model' => 'SC-01C',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -541,7 +542,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.3',
         'model' => 'GT-P1000',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -553,7 +554,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.3',
         'model' => 'GT-I9001',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -565,7 +566,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.3',
         'model' => 'SGH-I896',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -578,7 +579,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.4',
         'model' => 'GT-S5660L',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -590,7 +591,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-S5660',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -602,7 +603,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-S6102',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -614,7 +615,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-S5367',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -626,7 +627,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-S5839i',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -638,7 +639,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-S7500',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -650,7 +651,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-S5830',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -662,7 +663,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-B5510L',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     // @todo Maybe in the future decide if we strip 'ORANGE' or 'VODAFONE' from models.
@@ -675,7 +676,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-I9001-ORANGE',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -687,7 +688,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-I8150',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -699,7 +700,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-I9070',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -711,7 +712,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-S5360',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -723,7 +724,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-S6102B',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -735,7 +736,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-S5830i',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -747,7 +748,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-I8160',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -759,7 +760,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-S6802',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -771,7 +772,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.7',
         'model' => 'GT-S5830',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -783,7 +784,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.3.6',
         'model' => 'GT-N7000',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -795,7 +796,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '3.0.1',
         'model' => 'GT-P7100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -807,7 +808,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '3.2',
         'model' => 'GT-P7300',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -819,7 +820,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '3.2',
         'model' => 'GT-P6200',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -831,7 +832,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.3',
         'model' => 'GT-I9100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -843,7 +844,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.3',
         'model' => 'GT-I9100G',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -855,7 +856,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.3',
         'model' => 'GT-P5100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -868,7 +869,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.3',
         'model' => 'Galaxy Nexus',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -881,7 +882,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.3',
         'model' => 'SGH-T989',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -893,7 +894,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-P5100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -905,7 +906,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-I9300',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -917,7 +918,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'SPH-D710',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -929,7 +930,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-I9300',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -941,7 +942,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-I9300-ORANGE',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -953,7 +954,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-I9300T',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -965,7 +966,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-I9100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -977,7 +978,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-I9100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -989,7 +990,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-N7000',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1001,7 +1002,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-P6800',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1013,7 +1014,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'SGH-I747',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1025,7 +1026,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.3',
         'model' => 'GT-P5110',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1037,7 +1038,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-P5110',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1050,7 +1051,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-S7568',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1062,7 +1063,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-P3100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1074,7 +1075,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-P3105',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1086,7 +1087,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-N8010',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1098,7 +1099,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.4',
         'model' => 'GT-S7562',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1110,7 +1111,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.1',
         'model' => 'GT-N7100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1123,7 +1124,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'GT-N7100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1135,7 +1136,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.1',
         'model' => 'GT-N7105',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1147,7 +1148,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.1',
         'model' => 'GT-N8000',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1159,7 +1160,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.1',
         'model' => 'SGH-i747M',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1171,7 +1172,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.1',
         'model' => 'Galaxy Nexus',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1183,7 +1184,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'GT-I8262',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1195,7 +1196,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'Galaxy Nexus',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1207,7 +1208,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'SGH-I777',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1219,7 +1220,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'GT-S7710',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1231,7 +1232,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'GT-I9082',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1243,7 +1244,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'SGH-T999L',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1255,7 +1256,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'GT-P5210',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1267,7 +1268,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'GT-I9200',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1279,7 +1280,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'SCH-I959',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1291,7 +1292,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'SM-T310',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1303,7 +1304,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.3',
         'model' => 'SM-P600',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1315,7 +1316,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'GT-N5100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1327,7 +1328,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.4.2',
         'model' => 'SM-T530NU',
-        'modelVersion' => null
+        'modelVersion' => null,
 
     ),
 
@@ -1340,7 +1341,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.4.2',
         'model' => 'SM-T800',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1352,7 +1353,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.4.2',
         'model' => 'SM-T800',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1364,7 +1365,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.4.2',
         'model' => 'SM-T700',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1376,7 +1377,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '5.0.2',
         'model' => 'SM-T805',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1388,7 +1389,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.4.4',
         'model' => 'SM-T116NQ',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1400,7 +1401,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '5.0.2',
         'model' => 'SM-G9250',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1412,7 +1413,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.4.2',
         'model' => 'SM-T705Y',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1424,7 +1425,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.4.2',
         'model' => 'GT-I9505',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -1436,6 +1437,6 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.4.2',
         'model' => 'SM-T705',
-        'modelVersion' => null
-    )
+        'modelVersion' => null,
+    ),
 );

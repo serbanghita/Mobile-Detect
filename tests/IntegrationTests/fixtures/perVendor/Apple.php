@@ -1,4 +1,5 @@
 <?php
+
 return array(
         array(
             'ua' => 'iTunes/9.1.1',
@@ -9,7 +10,7 @@ return array(
             'operatingSystem' => null,
             'operatingSystemVersion' => null,
             'model' => null,
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -21,7 +22,7 @@ return array(
             'operatingSystem' => null,
             'operatingSystemVersion' => null,
             'model' => null,
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -33,7 +34,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '7.0',
             'model' => 'iPod',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -45,7 +46,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => null,
             'model' => 'iPhone',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -57,7 +58,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '3.0',
             'model' => 'iPhone',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -69,7 +70,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '5.1.1',
             'model' => 'iPhone',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -81,7 +82,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '6.0',
             'model' => 'iPod',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -93,7 +94,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '5.1.1',
             'model' => 'iPad',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -105,7 +106,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '6.0',
             'model' => 'iPad',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -118,7 +119,7 @@ return array(
             'operatingSystemVersion' => '4.2.1',
             'model' => 'iPad',
             'modelVersion' => null,
-            'mobileGrade' => 'B'
+            'mobileGrade' => 'B',
         ),
 
         array(
@@ -131,7 +132,7 @@ return array(
             'operatingSystemVersion' => '3.2',
             'model' => 'iPad',
             'modelVersion' => null,
-            'mobileGrade' => 'B'
+            'mobileGrade' => 'B',
         ),
 
         array(
@@ -143,7 +144,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '6.0.1',
             'model' => 'iPhone',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -156,7 +157,7 @@ return array(
             'operatingSystemVersion' => '6.0.1',
             'model' => 'iPhone',
             'modelVersion' => null,
-            'mobileGrade' => 'A'
+            'mobileGrade' => 'A',
         ),
 
         array(
@@ -169,7 +170,7 @@ return array(
             'operatingSystemVersion' => '6.1',
             'model' => 'iPhone',
             'modelVersion' => null,
-            'mobileGrade' => 'A'
+            'mobileGrade' => 'A',
         ),
 
         array(
@@ -182,7 +183,7 @@ return array(
             'operatingSystemVersion' => '6.1.3',
             'model' => 'iPhone',
             'modelVersion' => null,
-            'mobileGrade' => 'A'
+            'mobileGrade' => 'A',
         ),
 
         array(
@@ -194,7 +195,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '6.1.3',
             'model' => 'iPad',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -206,7 +207,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '7.1.1',
             'model' => 'iPhone',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -218,7 +219,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '7.0',
             'model' => 'iPad',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -230,7 +231,7 @@ return array(
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '8.0.2',
             'model' => 'iPhone',
-            'modelVersion' => null
+            'modelVersion' => null,
         ),
 
         array(
@@ -243,6 +244,6 @@ return array(
             'operatingSystemVersion' => '8.1.2',
             'model' => 'iPhone',
             'modelVersion' => null,
-            'mobileGrade' => 'A'
+            'mobileGrade' => 'A',
         ),
 );
