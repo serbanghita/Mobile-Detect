@@ -130,11 +130,18 @@ class Browsers extends AbstractProvider
                 'identityMatches' => 'UC.*Browser|UCWEB',
                 'versionMatches' => array('UCWEB[VER]', 'UCBrowser/[VER]')
             ),
+            'Silk' => array(
+                'vendor' => 'Amazon',
+                'model' => 'Silk',
+                'isMobile' => true,
+                'identityMatches' => '\bSilk\b',
+                'versionMatches' => 'Silk\[VER]'
+            ),
             'Generic Mobile' => array(
                 'vendor' => 'Generic',
                 'model' => 'Generic Mobile',
                 'isMobile' => true,
-                'identityMatches' => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|UP.Browser',
+                'identityMatches' => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|UP.Browser|ObigoInternetBrowser',
                 // @todo If this grows, then split into multiple generic browsers as they become important.
                 'versionMatches' => array('Version/[VER]', 'Safari/[VER]', 'Browser/[VER]'),
             )
