@@ -1,4 +1,5 @@
 <?php
+
 return array(
     array(
         'ua' => 'Mozilla/5.0 (Linux; U; Android 3.2.1; en-us; A100 Build/HTK55D) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13',
@@ -9,7 +10,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '3.2.1',
         'model' => 'A100',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -21,7 +22,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1',
         'model' => 'A110',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -33,7 +34,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.3',
         'model' => 'A200',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -45,7 +46,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.3',
         'model' => 'A500',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -57,7 +58,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.0.3',
         'model' => 'A501',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -69,7 +70,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.1',
         'model' => 'A701',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -81,7 +82,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'B1-A71',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -93,7 +94,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'B1-710',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -105,7 +106,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'A1-810',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -117,7 +118,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'A1-810',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -129,7 +130,7 @@ return array(
         'operatingSystem' => 'Windows Phone',
         'operatingSystemVersion' => '7.5',
         'model' => null,//'Allegro',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -141,7 +142,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'A3-A10',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -153,7 +154,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'A1-811',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -165,7 +166,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'A1-830',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -177,6 +178,6 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'A3-A11',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 );

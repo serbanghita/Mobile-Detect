@@ -1,7 +1,8 @@
 <?php
+
 return array(
     array(
-		'ua' => 'Mozilla/5.0 (Linux; U; Android 2.2; en-us; Nexus One Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'ua' => 'Mozilla/5.0 (Linux; U; Android 2.2; en-us; Nexus One Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
         'isMobile' => true,
         'isTablet' => false,
         'browser' => 'Safari Mobile',
@@ -9,9 +10,9 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '2.2',
         'model' => 'Nexus One',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
-	array(
+    array(
         'ua' => 'Mozilla/5.0 (Linux; Android 4.2.2; Nexus 4 Build/JDQ39) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.40 Mobile Safari/537.31 OPR/14.0.1074.54070',
         'isMobile' => true,
         'isTablet' => false,
@@ -20,7 +21,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'Nexus 4',
-        'modelVersion' => '4'
+        'modelVersion' => '4',
     ),
 
     array(
@@ -32,7 +33,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2.2',
         'model' => 'Nexus 4',
-        'modelVersion' => '4'
+        'modelVersion' => '4',
     ),
 
     array(
@@ -44,7 +45,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.1',
         'model' => 'Nexus 4',
-        'modelVersion' => '4'
+        'modelVersion' => '4',
     ),
 
     array(
@@ -56,7 +57,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.1',
         'model' => 'Galaxy Nexus',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -68,7 +69,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.1',
         'model' => 'Nexus 7',
-        'modelVersion' => '7'
+        'modelVersion' => '7',
     ),
 
     array(
@@ -80,7 +81,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.2',
         'model' => 'Nexus 7',
-        'modelVersion' => '7'
+        'modelVersion' => '7',
     ),
 
     array(
@@ -92,7 +93,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'Nexus 7',
-        'modelVersion' => '7'
+        'modelVersion' => '7',
     ),
 
     array(
@@ -104,7 +105,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.1.2',
         'model' => 'Nexus S',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 
     array(
@@ -116,7 +117,7 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => '4.3',
         'model' => 'Nexus 10',
-        'modelVersion' => '10'
+        'modelVersion' => '10',
     ),
 
     array(
@@ -128,6 +129,6 @@ return array(
         'operatingSystem' => 'Android',
         'operatingSystemVersion' => null,
         'model' => 'Nexus 7',
-        'modelVersion' => null
+        'modelVersion' => null,
     ),
 );
