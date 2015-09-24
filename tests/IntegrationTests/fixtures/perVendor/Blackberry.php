@@ -4,16 +4,18 @@ return array(
     array(
       'isMobile' => true,
       'isTablet' => false,
+      /*
       'version' => array(
         'Webkit' => '534.8+',
         'BlackBerry' => '6.0.0.546',
       ),
-      'model' => 'BlackBerry 9300',
+      */
       'ua' => 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9300; en) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.546 Mobile Safari/534.8+',
-      'browser' => null,
-      'browserVersion' => null,
+      'browser' => 'Safari Mobile',
+      'browserVersion' => '4.0',
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
+      'model' => 'BlackBerry 9300',
       'modelVersion' => null,
     ),
     array(
@@ -24,10 +26,8 @@ return array(
       'browserVersion' => null,
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
-      'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'model' => 'BlackBerry 9360',
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -37,10 +37,8 @@ return array(
       'browserVersion' => null,
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
-      'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'model' => 'BlackBerry 9700',
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -50,24 +48,24 @@ return array(
       'browserVersion' => null,
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
-      'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'model' => 'BlackBerry 9700',
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
       'isTablet' => false,
+      /*
       'version' => array(
         'Webkit' => '534.11+',
         'BlackBerry' => '7.1.0.714',
       ),
-      'model' => 'BlackBerry 9790',
+      */
       'ua' => 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9790; en-GB) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.714 Mobile Safari/534.11+',
       'browser' => null,
       'browserVersion' => null,
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
+      'model' => 'BlackBerry 9790',
       'modelVersion' => null,
     ),
     array(
@@ -79,9 +77,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -92,9 +88,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -105,9 +99,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -118,9 +110,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -131,9 +121,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -144,9 +132,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -157,9 +143,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -170,9 +154,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -183,9 +165,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -211,9 +191,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -224,9 +202,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -237,9 +213,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,
@@ -250,9 +224,7 @@ return array(
       'operatingSystem' => null,
       'operatingSystemVersion' => null,
       'model' => null,
-      'modelVersion' => null,
-      'version' => array(
-      ),
+      'modelVersion' => null
     ),
     array(
       'isMobile' => true,

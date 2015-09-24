@@ -160,6 +160,8 @@ class Browsers extends AbstractProvider
                 'model' => 'Safari Mobile',
                 'isMobile' => true,
                 'identityMatches' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari',
+                // @note: Safari 7534.48.3 is actually Version 5.1.
+                // On BlackBerry the Version is overwritten by the OS.
                 'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
             ),
             'Safari Desktop' => array(

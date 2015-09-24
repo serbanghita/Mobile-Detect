@@ -84,6 +84,16 @@ class OperatingSystems extends AbstractProvider
                 'versionMatches' => array('Windows NT [VER]'),
             ),
         ),
+        
+        'BlackBerry' => array(
+            'BlackBerry' => array(
+                'vendor' => 'BlackBerry',
+                'model' => 'BlackBerry',
+                'isMobile' => true,
+                'identityMatches' => 'blackberry|\bBB10\b|rim tablet os',
+                'versionMatches' => array('Version/[VER]', 'BlackBerry[VER]', 'BlackBerry [VER];')
+            )
+        ),
 
         'Bada' => array(
             /**
