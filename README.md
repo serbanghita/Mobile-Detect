@@ -5,22 +5,24 @@
 
 > Motto: "Every business should have a mobile detection script to detect mobile readers."
 
-<i>Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
-It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</i>
+*Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
+It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.*
 
-> We're commited to make Mobile_Detect the best open-source mobile detection resource and this is why before each release we're running [unit tests](./tests), we also research and update the detection rules on <b>daily</b> and <b>weekly</b> basis.
+We're committed to make Mobile_Detect the best open-source mobile detection resource and this is why before 
+each release we're running [unit tests](./tests), we also research and update the detection rules on **daily** 
+and **weekly** basis.
 
-Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is  _optimized_, _fast_ and _relevant_ to your users. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
+Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is _optimized_, _fast_ and _relevant_ to your users. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
 
 ##### This month updates
 
-First of all a **BIG THANK YOU** to our growing community for your continuous support and for all the feedback received! I'm still working my way with the current issues and all the emails. 
+**THANK YOU** for your continuous support and feedback!
 
-Nick is almost done with all the code for the upcoming `3.0.0` so that I only have to integrate the new parsing engine. We will release minor `2.8.xx` versions until a feature freeze where we will switch to the new branch. You will all be announced before this and hopefully we can make the transition smooth for everyone.
+Still working on `3.0.0` branch to provide you with device detection! We're really excited on this one!
+We would like to speed this up, but life and family gets in the way ;)
 
-<a href="http://trycatch.us/"><img align="left" src="http://assets.mobiledetect.net/img/try_catch_logo_80px.jpg" hspace="20"></a> Last but not least, special thanks for supporting us to our friends from [TryCatch.us](http://trycatch.us/) who _are set to carefully curate the most talented developers in Europe_!
-
-Thank you all and we're excited for the new release!
+Special thanks to **JetBrains** for providing licenses for **PHPStorm**. In case you never heard or tried PHPStorm, you're
+clearly missing out! [Check PHPStorm](https://www.jetbrains.com/phpstorm/) out!
 
 ##### Download and demo
 
@@ -29,6 +31,22 @@ Thank you all and we're excited for the new release!
 |[Go to releases](../../tags)|[Become a contributor](../../wiki/Become-a-contributor)|[Code examples](../../wiki/Code-examples)
 |[Mobile_Detect.php](./Mobile_Detect.php)|[History](../../wiki/History)|[:iphone: Live demo!](http://is.gd/mobiletest)
 |[Composer package](https://packagist.org/packages/mobiledetect/mobiledetectlib)|
+
+#### Continuous updates
+
+You can use [composer](https://getcomposer.org/doc/00-intro.md) in your release and update process to make sure you have the latest Mobile_Detect version.
+
+```
+composer require mobiledetect/mobiledetectlib
+```
+
+```json
+{
+    "require": {
+        "mobiledetect/mobiledetectlib": "^2.8"
+    }
+}
+```
 
 ##### Help
 
@@ -60,13 +78,13 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 <tr>
   <td>WordPress</td>
   <td>
-    <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">WordPress Mobile Detect</a> - Gives you the ability to wrap that infographic in a `[notdevice][/notdevice]` shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
+    <p><a href="http://wordpress.org/extend/plugins/wp-mobile-detect/">WordPress Mobile Detect</a> - Gives you the ability to wrap that infographic in a <code>[notdevice][/notdevice]</code> shortcode so at the server level <code>WordPress</code> will decide to show that content only if the user is NOT on a phone or tablet. Made by <a href="http://profiles.wordpress.org/professor44/">Jesse Friedman</a>.</p>
 
     <p><a href="http://wordpress.org/plugins/mobble/">mobble</a> - provides mobile related conditional functions for your site. e.g. is_iphone(), is_mobile() and is_tablet(). Made by Scott Evans.</p>
 
     <p><a href="https://github.com/iamspacehead/responsage">WordPress Responsage</a> - A small <code>WordPress</code> theme plugin that allows you to make your images responsive. Made by <a href="https://github.com/iamspacehead">Adrian Ciaschetti</a>.</p>
-
-    <p><a href="http://wordpress.org/plugins/social-popup/">Social PopUP</a> - This plugin will display a popup or splash screen when a new user visit your site showing a Google+, Twitter and Facebook follow links. It uses Mobile_Detect to detect mobile devices.</p>
+    
+    <p><a href="https://wordpress.org/plugins/wp247-body-classes/">WP247 Body Classes</a> - Add unique classes to the <code>body</code> tag for easy styling based on various attributes (archive, user, post, mobile) and various WordPress "is" functions. Mobile attributes include type of device, Operating System, Browser, etc. Examples: .is-mobile, .is-not-mobile, .is-tablet, .is-ios, .is-not-ios, .is-androidos, .is-chromebrowser. Made by <a href="https://github.com/wescleveland56">wescleveland56</a></p>
   </td>
 </tr>
 
@@ -85,7 +103,14 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 
   <tr>
     <td>Joomla</td>
-    <td><p><a href="http://www.yagendoo.com/en/blog/free-mobile-detection-plugin-for-joomla.html">yagendoo Joomla! Mobile Detection Plugin</a> - Lightweight PHP plugin for Joomla! that detects a mobile browser using the Mobile Detect class. Made by <a href="http://www.yagendoo.com/">yagendoo media</a>.</p></td>
+    <td>
+        <p><a href="http://www.yagendoo.com/en/blog/free-mobile-detection-plugin-for-joomla.html">yagendoo Joomla! Mobile Detection Plugin</a> - Lightweight PHP plugin for Joomla! 
+        that detects a mobile browser using the Mobile Detect class. Made by <a href="http://www.yagendoo.com/">yagendoo media</a>.</p>
+    
+        <p><a href="https://github.com/renekreijveld/UserAgentDetector">User Agent Detector plugin</a> by @ReneKreijveld. This system plugin detects the user agent of your 
+        website visitor and sets a session variable accordingly. Based on the user agent, the plugin detects if the site is running on a desktop pc, tablet or smartphone. 
+        It can also detect if the visitor is a spider bot (search engine). Session variable that is set: ualayout. Possible values: desktop, tablet, mobile, bot..</p>
+    </td>
  </tr>
 
  <tr>
@@ -119,7 +144,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
   <tr>
     <td>Laravel</td>
     <td>
-    <p><a href="https://github.com/jenssegers/Laravel-Agent">Laravel-Agent</a> a user agent class for Laravel, based on Mobile Detect with some additional functionality. Made by <a href="https://github.com/jenssegers">Jens Segers</a>.</p>
+    <p><a href="https://github.com/jenssegers/agent">Agent</a> a user agent class for Laravel, based on Mobile Detect with some additional functionality. Made by <a href="https://github.com/jenssegers">Jens Segers</a>.</p>
     <p><a href="https://github.com/hisorange/browser-detect">BrowserDetect</a> is a browser &amp; mobile detection package, collects and wrap together the best user-agent identifiers for Laravel. Created by <a href="https://github.com/hisorange">Varga Zsolt</a>.</p>
     </td>
   </tr>
@@ -131,7 +156,13 @@ Special thanks to the community :+1: for donations, [BrowserStack](http://browse
 
  <tr>
   <td>Yii Framework</td>
-  <td><p><a href="https://github.com/iamsalnikov/MobileDetect">Yii Extension</a> - Mobile detect plugin for Yii framework. Made by <a href="https://github.com/iamsalnikov">Alexey Salnikov</a>.</p></td>
+  <td>
+  <p><a href="https://github.com/iamsalnikov/MobileDetect">Yii Extension</a> - Mobile detect plugin for Yii framework.
+  Made by <a href="https://github.com/iamsalnikov">Alexey Salnikov</a>.</p>
+
+  <p><a href="https://github.com/alexandernst/yii2-device-detect/">Yii2 Device Detect</a> - Yii2 extension for Mobile-Detect library. Made by <a href="https://github.com/alexandernst">Alexander Nestorov</a></p>
+
+  </td>
  </tr>
 
 <tr>
@@ -152,7 +183,7 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 
 <tr>
   <td>Statamic</td>
-  <td><p><a href="https://github.com/sergeifilippov/statamic-mobile-detect">Statamic CMS Mobile Detect</a> - <code>plugin</code>. Made by <a href="https://github.com/haikulab/statamic-mobile-detect">Sergei Filippov of Haiku Lab</a>.</p></td>
+  <td><p><a href="https://github.com/haikulab/statamic-mobile-detect">Statamic CMS Mobile Detect</a> - <code>plugin</code>. Made by <a href="https://github.com/haikulab/statamic-mobile-detect">Sergei Filippov of Haiku Lab</a>.</p></td>
 </tr>
 
 <tr>
@@ -176,13 +207,18 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
  </tr>
  
  <tr>
-	 <td>Ruby</td>
-	 <td><p><a href="https://github.com/ktaragorn/mobile_detect">mobile_detect.rb</a> - A <code>Ruby gem</code> using the JSON data exposed by the php project and implementing a basic subset of the API (as much as can be done by the exposed data). Made by <a href="https://github.com/ktaragorn">Karthik T</a>.</p></td>
+     <td>Ruby</td>
+     <td><p><a href="https://github.com/ktaragorn/mobile_detect">mobile_detect.rb</a> - A <code>Ruby gem</code> using the JSON data exposed by the php project and implementing a basic subset of the API (as much as can be done by the exposed data). Made by <a href="https://github.com/ktaragorn">Karthik T</a>.</p></td>
  </tr>
 
 <tr>
 	<td>GoMobileDetect</td>
-	<td><p><a href="https://github.com/Shaked/gomobiledetect">GoMobileDetect</a> - Go port of Mobile Detect class. Made by <a href="https://github.com/Shaked">Shaked</a>.</p></td>
+	<td><p><a href="https://github.com/Shaked/gomobiledetect">GoMobileDetect</a> - <code>Go</code> port of Mobile Detect class. Made by <a href="https://github.com/Shaked">Shaked</a>.</p></td>
+</tr>
+
+<tr>
+	<td>LUA</td>
+	<td><p><a href="https://github.com/robinef/ua-lua">ua-lua</a> is a small lib written in <code>LUA</code> providing device type detection. ua-lua is detecting mobile or tablet devices based on user-agent inside nginx daemon. Made by <a href="https://github.com/robinef">Frédéric Robinet</a>.</p></td>
 </tr>
 
  <tr>

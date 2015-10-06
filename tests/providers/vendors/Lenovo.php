@@ -41,5 +41,6 @@ return array(
             'isMobile' => true, 'isTablet' => true,
         ),
         'Mozilla/5.0 (Linux; Android 4.4.2; Lenovo A5500-F Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.131 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Lenovo A390 Linux/3.0.13 Android/4.4.2 Release/04.03.2013 Browser/AppleWebKit534.30 Profile/MIDP-2.0 Configuration/CLDC-1.1 Mobile Safari/534.30 Android 4.0.1;' => array('isMobile' => true, 'isTablet' => false),
     ),
 );
