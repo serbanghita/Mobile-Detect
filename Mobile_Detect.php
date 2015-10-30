@@ -1016,8 +1016,6 @@ class Mobile_Detect
                             return true;
                         }
                     }
-
-                    return false;
                 } else {
                     return true;
                 }
