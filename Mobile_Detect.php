@@ -435,6 +435,7 @@ class Mobile_Detect
         'EvolioTablet' => 'ARIA_Mini_wifi|Aria[ _]Mini|Evolio X10|Evolio X7|Evolio X8|\bEvotab\b|\bNeura\b',
         // @todo http://www.lavamobiles.com/tablets-data-cards
         'LavaTablet' => 'QPAD E704|\bIvoryS\b|E-TAB IVORY|\bE-TAB\b',
+        'AocTablet' => 'MW0811|MW0812|MW0922|MTK8382',
         // https://www.celkonmobiles.com/?_a=categoryphones&sid=2
         'CelkonTablet' => 'CT695|CT888|CT[\s]?910|CT7 Tab|CT9 Tab|CT3 Tab|CT2 Tab|CT1 Tab|C820|C720|\bCT-1\b',
         // http://www.wolderelectronics.com/productos/manuales-y-guias-rapidas/categoria-2-miTab

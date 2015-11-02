@@ -1,5 +1,5 @@
 {
-    "hash": "7089120218a29628a463ca0b4540b993683a28e7",
+    "hash": "5d9412222f807ea86d7af89101d7379cd0c2a130",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -477,6 +477,12 @@
         {
             "vendor": "Amazon",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.1; xx-xx; T720-WIFI Build\/ECLAIR) AppleWebKit\/530.17 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/530.17",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "AOC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; MW0922 Build\/IMM76D) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/42.0.2311.111 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
@@ -4971,6 +4977,12 @@
             "tablet": false
         },
         {
+            "vendor": "Nokia",
+            "user_agent": "Mozilla\/5.0 (Windows Phone 10.0; Android 4.2.1; NOKIA; Lumia 635) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/42.0.2311.135 Mobile Safari\/537.36 Edge\/12.10166",
+            "mobile": true,
+            "tablet": false
+        },
+        {
             "vendor": "Onda",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.2.2; V975i Build\/JDQ39) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/42.0.2311.108 Safari\/537.36",
             "mobile": true,
@@ -7627,6 +7639,12 @@
             "user_agent": "Mozilla \/ 5.0 (Linux; Android 5.0.2; SOT31 Build \/ 28.0.D.6.71) AppleWebKit \/ 537.36 (KHTML, like Gecko) Chrome \/ 39.0.2171.93 Safari \/ 537.36",
             "mobile": true,
             "tablet": true
+        },
+        {
+            "vendor": "Sony",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.1.1; E5823 Build\/32.0.A.4.11) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/46.0.2490.76 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
         },
         {
             "vendor": "Avant",
