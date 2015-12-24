@@ -475,7 +475,8 @@ class Mobile_Detect
         // http://wifeng.cn/?r=blog&a=view&id=106
         // http://nicksnettravels.builttoroam.com/post/2011/01/10/Bogus-Windows-Phone-7-User-Agent-String.aspx
         // http://msdn.microsoft.com/library/ms537503.aspx
-        'WindowsPhoneOS'   => 'Windows Phone 8.1|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7|Windows NT 6.[23]; ARM;',
+        // https://msdn.microsoft.com/en-us/library/hh869301(v=vs.85).aspx
+        'WindowsPhoneOS'   => 'Windows Phone 10.0|Windows Phone 8.1|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7|Windows NT 6.[23]; ARM;',
         'iOS'               => '\biPhone.*Mobile|\biPod|\biPad',
         // http://en.wikipedia.org/wiki/MeeGo
         // @todo: research MeeGo in UAs
