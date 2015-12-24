@@ -1,6 +1,5 @@
 language: php
 php:
-  - "5.2"
   - "5.3"
   - "5.4"
   - "5.5"
@@ -9,9 +8,16 @@ php:
 branches:
   only:
     - devel
+    - master
 
 script:
   - phpunit -v -c tests/phpunit.xml
 
 notifications:
   email: false
+  irc:
+    channels:
+      - "asimov.freenode.net#mobiledetect"
+    template:
+      - "%{repository} (%{commit}): %{message}. Build details: %{build_url}"
+      - "%{author} said %{commit_subject}. See %{compare_url}"
