@@ -1075,7 +1075,7 @@ class Mobile_Detect
 
     /**
      * Search for a certain key in the rules array.
-     * If the key is found the try to match the corresponding
+     * If the key is found then try to match the corresponding
      * regex against the User-Agent.
      *
      * @param string $key
