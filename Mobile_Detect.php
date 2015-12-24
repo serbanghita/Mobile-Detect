@@ -22,7 +22,7 @@
  *              README:       https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
  *              HOWTO:        https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
  *
- * @version     2.8.17
+ * @version     2.8.18
  */
 
 class Mobile_Detect
@@ -66,7 +66,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.8.17';
+    const VERSION                   = '2.8.18';
 
     /**
      * A type for the version() method indicating a string return value.
