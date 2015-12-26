@@ -574,7 +574,14 @@ class MobileDetect
 
     protected function detectBrowserVersion(array $browserInfoFromDb)
     {
-        return $this->matchEntity('version', $browserInfoFromDb['versionMatches'], $this->getUserAgent());
+        $browserVersionRaw = $this->matchEntity('version', $browserInfoFromDb['versionMatches'], $this->getUserAgent());
+        if ($browserInfoFromDb['versionHelper']) {
+            $funcName = $browserInfoFromDb['versionHelper'];
+            if ($browserVersionDataFound = $this->browsersProvider->$funcName($browserVersionRaw)) {
+                return $browserVersionDataFound['version'];
+            }
+        }
+        return $browserVersionRaw;
     }
 
     protected function detectOperatingSystemModel(array $operatingSystemInfoFromDb)

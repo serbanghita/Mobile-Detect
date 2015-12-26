@@ -34,17 +34,26 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
      * @dataProvider userAgentData
      *
      * @param $ua
-     * @param $isMobile
-     * @param $isTablet
      * @param $browser
      * @param $browserVersion
      * @param $operatingSystem
      * @param $operatingSystemVersion
      * @param $model
      * @param $modelVersion
+     * @param $isMobile
+     * @param $isTablet
      */
-    public function testAgents($ua, $isMobile, $isTablet, $browser, $browserVersion, $operatingSystem, $operatingSystemVersion, $model, $modelVersion)
-    {
+    public function testAgents(
+        $ua,
+        $browser,
+        $browserVersion,
+        $operatingSystem,
+        $operatingSystemVersion,
+        $model,
+        $modelVersion,
+        $isMobile,
+        $isTablet
+    ) {
         $detector = new MobileDetect($ua);
         $device = $detector->detect();
 

@@ -162,144 +162,9 @@ class Browsers extends AbstractProvider
                 'identityMatches' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari',
                 // @note: Safari 7534.48.3 is actually Version 5.1.
                 // On BlackBerry the Version is overwritten by the OS.
-                'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
-                // Updated from https://en.wikipedia.org/wiki/Safari_version_history
-                'versionHistory' => array(
-                    // On Max OS.
-                    '0.8' => '48',
-                    '73' => '0.9',
-                    // v. 1.0
-                    '85' => '1.0',
-                    '85.8.5' => '1.0.3',
-                    '100' => '1.1',
-                    '125' => '1.2',
-                    '312' => '1.3',
-                    '312.3' => '1.3.1',
-                    '312.5' => '1.3.2',
-                    '312.6' => '1.3.2',
-                    '412' => '2.0',
-                    '416.11' => '2.0.2',
-                    '419.3' => '2.0.4',
-                    '522.11' => '3.0',
-                    '522.12' => '3.0.2',
-                    '522.12.1' => '3.0.3',
-                    '523.10' => '3.0.4',
-                    '525.13' => '3.1',
-                    '525.17' => '3.1.1',
-                    '525.20' => '3.1.1',
-                    '525.21' => '3.1.2',
-                    '525.26' => '3.2',
-                    '525.27' => '3.2.1',
-                    '525.28' => '3.2.3',
-                    '526.11.2' => '4.0 Beta',
-                    '528.16' => '4.0 Beta',
-                    '528.17' => '4.0 Beta',
-                    '530.17' => '4.0',
-                    '530.18' => '4.0.1',
-                    '530.19' => '4.0.2',
-                    '531.9' => '4.0.3',
-                    '531.21.10' => '4.0.4',
-                    '531.22.7' => '4.0.5',
-                    '533.16' => '4.1',
-                    '533.17.8' => '4.1.1',
-                    '533.18.5' => '4.1.2',
-                    '533.19.4' => '4.1.3',
-                    '533.16' => '5.0',
-                    '533.17.8' => '5.0.1',
-                    '533.18.5' => '5.0.2',
-                    '533.19.4' => '5.0.3',
-                    '533.20.27' => '5.0.4',
-                    '533.21.1' => '5.0.5',
-                    '533.22.3' => '5.0.6',
+                'versionMatches' => array('Safari/[VER]', 'Version/[VER]'),
+                'versionHelper' => 'getSafariVersion'
 
-                    // From https://bugs.webkit.org/show_bug.cgi?id=44230
-                    '534.6+' => '5.0.1',
-                    // From https://bugs.webkit.org/show_bug.cgi?id=45632
-                    '534.8' => '5.0.2',
-                    '534.8+' => '5.0.2',
-                    // From https://bugs.webkit.org/show_bug.cgi?id=48312
-                    '534.11' => '5.0.2',
-                    '534.11+' => '5.0.2',
-                    '534.48.3' => '5.1',
-                    '534.51.22' => '5.1.1',
-                    '534.52.7' => '5.1.2',
-                    '534.53.10' => '5.1.3',
-                    '534.54.16' => '5.1.4',
-                    '534.55.3' => '5.1.5',
-                    '534.56.5' => '5.1.6',
-                    '534.57.2' => '5.1.7',
-                    '534.58.2' => '5.1.8',
-                    '534.59.8' => '5.1.9',
-                    '534.59.10' => '5.1.10',
-                    '536.2+' => '5.1.2',
-                    '536.25' => '6.0',
-                    '536.26' => '6.0.1',
-                    '536.26.17' => '6.0.2',
-                    '536.28.10' => '6.0.3',
-                    '536.29.13' => '6.0.4',
-                    '536.30.1' => '6.0.5',
-                    // From https://gist.github.com/rniwa/2721861
-                    '537.1+' => '5.1.5',
-                    '537.10+' => '5.1',
-                    '537.43.58' => '6.1',
-                    '537.73.11' => '6.1.1',
-                    // @todo fill gaps here from 6.1.2 to 6.2.7
-                    '537.85.17' => '6.2.8',
-                    '537.71' => '7.0',
-                    '537.73.11' => '7.0.1',
-                    // @todo fill gaps here for 7.0.2
-                    '537.75.14' => '7.0.3',
-                    '537.76.4' => '7.0.4',
-                    '537.77.4' => '7.0.5',
-                    '537.78.2' => '7.0.6',
-                    // @todo fill gaps here for 7.1 to 7.1.7
-                    '537.85.17' => '7.1.8',
-                    '538.35.8' => '8.0',
-                    // @todo fill gaps here for 8.0.1 to 8.0.5
-                    '600.6.3' => '8.0.6',
-                    '600.7.12' => '8.0.7',
-                    // @todo fill gap here for 8.0.8
-                    
-                    // On Windows
-                    '522.11.3' => '3.0',
-                    '522.12.2' => '3.0.1',
-                    '522.13.1' => '3.0.2',
-                    '522.15.5' => '3.0.3',
-                    '523.12.9' => '3.0.4',
-                    '523.13' => '3.0.4',
-                    '523.15' => '3.0.4',
-                    '525.13' => '3.1',
-                    '525.17' => '3.1.1',
-                    '525.21' => '3.1.2',
-                    '525.26.13' => '3.2',
-                    '525.27.1' => '3.2.1',
-                    '525.28.1' => '3.2.2',
-                    '525.29.1' => '3.2.3',
-                    '526.12.2' => '4.0',
-                    '528.1.1' => '4.0',
-                    '528.16' => '4.0',
-                    '528.17' => '4.0',
-                    '530.17' => '4.0.1',
-                    '530.19.1' => '4.0.2',
-                    '531.9.1' => '4.0.3',
-                    '531.21.10' => '4.0.4',
-                    '531.22.7' => '4.0.5',
-                    '533.16' => '5.0',
-                    '533.17.8' => '5.0.1',
-                    '533.18.5' => '5.0.2',
-                    '533.19.4' => '5.0.3',
-                    '533.20.27' => '5.0.4',
-                    '533.21.1' => '5.0.5',
-                    
-                    '534.30' => '5.1',
-                    '534.50' => '5.1',
-                    '534.51.22' => '5.1.1',
-                    '534.52.7' => '5.1.2',
-                    '534.54.16' => '5.1.4',
-                    '534.55.3' => '5.1.5',
-                    '534.57.2' => '5.1.7'
-
-                )
             ),
             'Safari Desktop' => array(
                 'vendor' => 'Apple',
@@ -307,10 +172,135 @@ class Browsers extends AbstractProvider
                 'isMobile' => false,
                 'identityMatches' => 'Safari/[0-9.]+',
                 'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
+                'versionHelper' => 'getSafariVersion'
             ),
         ),
 
     );
+
+    public function getSafariVersion($versionMatch)
+    {
+        $versions = $this->getSafariVersions();
+        if (isset($versions[$versionMatch])) {
+            return $versions[$versionMatch];
+        } else {
+            return null;
+        }
+    }
+
+    // Updated from https://en.wikipedia.org/wiki/Safari_version_history
+    public function getSafariVersions()
+    {
+          return array(
+              // On Mac OS.
+              '0.8' => array('version' => '48', 'codename' => ''),
+              '73' => array('version' => '0.9', 'codename' => ''),
+              // v. 1.0
+              '85' => array('version' => '1.0', 'codename' => ''),
+              '85.8.5' => array('version' => '1.0.3', 'codename' => ''),
+              '100' => array('version' => '1.1', 'codename' => ''),
+              '125' => array('version' => '1.2', 'codename' => ''),
+              '312' => array('version' => '1.3', 'codename' => ''),
+              '312.3' => array('version' => '1.3.1', 'codename' => ''),
+              '312.5' => array('version' => '1.3.2', 'codename' => ''),
+              '312.6' => array('version' => '1.3.2', 'codename' => ''),
+              '412' => array('version' => '2.0', 'codename' => ''),
+              '416.11' => array('version' => '2.0.2', 'codename' => ''),
+              '419.3' => array('version' => '2.0.4', 'codename' => ''),
+              '522.11' => array('version' => '3.0', 'codename' => ''),
+              '522.12' => array('version' => '3.0.2', 'codename' => ''),
+              '522.12.1' => array('version' => '3.0.3', 'codename' => ''),
+              '523.10' => array('version' => '3.0.4', 'codename' => ''),
+              '525.13' => array('version' => '3.1', 'codename' => ''),
+              '525.17' => array('version' => '3.1.1', 'codename' => ''),
+              '525.20' => array('version' => '3.1.1', 'codename' => ''),
+              '525.21' => array('version' => '3.1.2', 'codename' => ''),
+              '525.26' => array('version' => '3.2', 'codename' => ''),
+              '525.27' => array('version' => '3.2.1', 'codename' => ''),
+              '525.28' => array('version' => '3.2.3', 'codename' => ''),
+              '526.11.2' => array('version' => '4.0 Beta', 'codename' => ''),
+              '528.16' => array('version' => array('4.0', '4.0 Beta'), 'codename' => ''),
+              '528.17' => array('version' => array('4.0', '4.0 Beta'), 'codename' => ''),
+              '530.17' => array('version' => array('4.0', '4.0.1'), 'codename' => ''),
+              '530.18' => array('version' => '4.0.1', 'codename' => ''),
+              '530.19' => array('version' => '4.0.2', 'codename' => ''),
+              '531.9' => array('version' => '4.0.3', 'codename' => ''),
+              '531.21.10' => array('version' => '4.0.4', 'codename' => ''),
+              '531.22.7' => array('version' => '4.0.5', 'codename' => ''),
+              '533.16' => array('version' => array('4.1', '5.0'), 'codename' => ''),
+              '533.17.8' => array('version' => array('4.1.1', '5.0.1'), 'codename' => ''),
+              '533.18.5' => array('version' => array('4.1.2', '5.0.2'), 'codename' => ''),
+              '533.19.4' => array('version' => array('4.1.3', '5.0.3'), 'codename' => ''),
+              '533.20.27' => array('version' => '5.0.4', 'codename' => ''),
+              '533.21.1' => array('version' => '5.0.5', 'codename' => ''),
+              '533.22.3' => array('version' => '5.0.6', 'codename' => ''),
+
+              // From https://bugs.webkit.org/show_bug.cgi?id=44230
+              '534.6+' => array('version' => '5.0.1', 'codename' => ''),
+              // From https://bugs.webkit.org/show_bug.cgi?id=45632
+              '534.8' => array('version' => '5.0.2', 'codename' => ''),
+              '534.8+' => array('version' => '5.0.2', 'codename' => ''),
+              // From https://bugs.webkit.org/show_bug.cgi?id=48312
+              '534.11' => array('version' => '5.0.2', 'codename' => ''),
+              '534.11+' => array('version' => '5.0.2', 'codename' => ''),
+              '534.48.3' => array('version' => '5.1', 'codename' => ''),
+              '534.51.22' => array('version' => '5.1.1', 'codename' => ''),
+              '534.52.7' => array('version' => '5.1.2', 'codename' => ''),
+              '534.53.10' => array('version' => '5.1.3', 'codename' => ''),
+              '534.54.16' => array('version' => '5.1.4', 'codename' => ''),
+              '534.55.3' => array('version' => '5.1.5', 'codename' => ''),
+              '534.56.5' => array('version' => '5.1.6', 'codename' => ''),
+              '534.57.2' => array('version' => '5.1.7', 'codename' => ''),
+              '534.58.2' => array('version' => '5.1.8', 'codename' => ''),
+              '534.59.8' => array('version' => '5.1.9', 'codename' => ''),
+              '534.59.10' => array('version' => '5.1.10', 'codename' => ''),
+              '536.2+' => array('version' => '5.1.2', 'codename' => ''),
+              '536.25' => array('version' => '6.0', 'codename' => ''),
+              '536.26' => array('version' => '6.0.1', 'codename' => ''),
+              '536.26.17' => array('version' => '6.0.2', 'codename' => ''),
+              '536.28.10' => array('version' => '6.0.3', 'codename' => ''),
+              '536.29.13' => array('version' => '6.0.4', 'codename' => ''),
+              '536.30.1' => array('version' => '6.0.5', 'codename' => ''),
+              // From https://gist.github.com/rniwa/2721861
+              '537.1+' => array('version' => '5.1.5', 'codename' => ''),
+              '537.10+' => array('version' => '5.1', 'codename' => ''),
+              '537.43.58' => array('version' => '6.1', 'codename' => ''),
+              '537.73.11' => array('version' => array('6.1.1', '7.0.1'), 'codename' => ''),
+              // @todo fill gaps here from 6.1.2 to 6.2.7
+              '537.85.17' => array('version' => array('6.2.8', '7.1.8'), 'codename' => ''),
+              '537.71' => array('version' => '7.0', 'codename' => ''),
+              // @todo fill gaps here for 7.0.2
+              '537.75.14' => array('version' => '7.0.3', 'codename' => ''),
+              '537.76.4' => array('version' => '7.0.4', 'codename' => ''),
+              '537.77.4' => array('version' => '7.0.5', 'codename' => ''),
+              '537.78.2' => array('version' => '7.0.6', 'codename' => ''),
+              // @todo fill gaps here for 7.1 to 7.1.7
+              '538.35.8' => array('version' => '8.0', 'codename' => ''),
+              // @todo fill gaps here for 8.0.1 to 8.0.5
+              '600.6.3' => array('version' => '8.0.6', 'codename' => ''),
+              '600.7.12' => array('version' => '8.0.7', 'codename' => ''),
+              // @todo fill gap here for 8.0.8
+
+              // On Windows
+              '522.11.3' => array('version' => '3.0', 'codename' => ''),
+              '522.12.2' => array('version' => '3.0.1', 'codename' => ''),
+              '522.13.1' => array('version' => '3.0.2', 'codename' => ''),
+              '522.15.5' => array('version' => '3.0.3', 'codename' => ''),
+              '523.12.9' => array('version' => '3.0.4', 'codename' => ''),
+              '523.13' => array('version' => '3.0.4', 'codename' => ''),
+              '523.15' => array('version' => '3.0.4', 'codename' => ''),
+              '525.26.13' => array('version' => '3.2', 'codename' => ''),
+              '525.27.1' => array('version' => '3.2.1', 'codename' => ''),
+              '525.28.1' => array('version' => '3.2.2', 'codename' => ''),
+              '525.29.1' => array('version' => '3.2.3', 'codename' => ''),
+              '526.12.2' => array('version' => '4.0', 'codename' => ''),
+              '528.1.1' => array('version' => '4.0', 'codename' => ''),
+              '530.19.1' => array('version' => '4.0.2', 'codename' => ''),
+              '531.9.1' => array('version' => '4.0.3', 'codename' => ''),
+              '534.30' => array('version' => '5.1', 'codename' => ''),
+              '534.50' => array('version' => '5.1', 'codename' => ''),
+          );
+    }
     
     
     public function getFamily($familyName)

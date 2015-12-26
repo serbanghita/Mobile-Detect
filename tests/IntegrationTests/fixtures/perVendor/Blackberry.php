@@ -2,22 +2,17 @@
 
 return array(
     array(
-      'isMobile' => true,
-      'isTablet' => false,
-      /*
-      'version' => array(
-        'Webkit' => '534.8+',
-        'BlackBerry' => '6.0.0.546',
-      ),
-      */
-      'ua' => 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9300; en) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.546 Mobile Safari/534.8+',
-      'browser' => 'Safari Mobile',
-      'browserVersion' => '5.0.1',
-      'operatingSystem' => 'BlackBerry',
-      'operatingSystemVersion' => '6.0.0.546',
-      'model' => '9300',
-      'modelVersion' => null,
+        'ua' => 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9300; en) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.546 Mobile Safari/534.8+',
+        'browser' => 'Safari Mobile',
+        'browserVersion' => '5.0.2',
+        'operatingSystem' => 'BlackBerry',
+        'operatingSystemVersion' => '6.0.0.546',
+        'model' => '9300',
+        'modelVersion' => null,
+        'isMobile' => true,
+        'isTablet' => false,
     ),
+    /*
     array(
       'isMobile' => true,
       'isTablet' => false,
@@ -54,12 +49,6 @@ return array(
     array(
       'isMobile' => true,
       'isTablet' => false,
-      /*
-      'version' => array(
-        'Webkit' => '534.11+',
-        'BlackBerry' => '7.1.0.714',
-      ),
-      */
       'ua' => 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9790; en-GB) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.714 Mobile Safari/534.11+',
       'browser' => 'Safari Mobile',
       'browserVersion' => '5.0.2',
@@ -170,13 +159,6 @@ return array(
     array(
       'isMobile' => true,
       'isTablet' => false,
-      /*
-      'version' => array(
-        'BlackBerry' => '5.0.0.1036',
-        'VendorID' => '611',
-      ),
-      */
-
       'ua' => 'BlackBerry8520/5.0.0.1036 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/611',
       'browser' => null,
       'browserVersion' => null,
@@ -354,4 +336,5 @@ return array(
       'operatingSystemVersion' => null,
       'modelVersion' => null,
     ),
+    */
 );

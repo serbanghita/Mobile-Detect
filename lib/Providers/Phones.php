@@ -84,6 +84,15 @@ class Phones extends AbstractProvider
             ]
         ],
 
+        'BlackBerry' => array(
+            'vendor' => 'BlackBerry',
+            'identityMatches' => 'BlackBerry|\bBB10\b|rim[0-9]+',
+            'modelMatches' => [
+                'BlackBerry (?<model>[a-zA-Z0-9-]+);',
+                'BlackBerry(?<model>[a-zA-Z0-9-]+)'
+            ]
+        ),
+
         'Acer' => array(
             'vendor' => 'Acer',
             'identityMatches' => false,
