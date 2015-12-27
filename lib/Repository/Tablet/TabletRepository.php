@@ -1,7 +1,9 @@
 <?php
-namespace MobileDetect\Providers;
+namespace MobileDetect\Repository\Tablet;
 
-class Tablets extends AbstractProvider
+use MobileDetect\MobileDetect;
+
+class TabletRepository
 {
     /**
      * List of tablet devices.
@@ -54,6 +56,12 @@ class Tablets extends AbstractProvider
             ]
         ),
 
+        'BlackBerry' => array(
+            'vendor' => 'BlackBerry',
+            'identityMatches' => 'PlayBook|RIM Tablet',
+            'modelMatches' => false
+        ),
+
         // http://www.acer.ro/ac/ro/RO/content/drivers
         // http://www.packardbell.co.uk/pb/en/GB/content/download (Packard Bell is part of Acer)
         // http://us.acer.com/ac/en/US/content/group/tablets
@@ -74,5 +82,52 @@ class Tablets extends AbstractProvider
     public function getDataFromVendor($vendorName)
     {
         return $this->data[$vendorName];
+    }
+
+    public function getAll()
+    {
+        return $this->data;
+    }
+
+    public function matchItemByUA($userAgent, Tablet $item)
+    {
+        if (is_null($item->getVendor())) {
+            throw new \Exception(
+                sprintf('Invalid spec for item. Missing %s key.', 'vendor')
+            );
+        }
+
+        if (is_null($item->getIdentityMatches())) {
+            throw new \Exception(
+                sprintf('Invalid spec for item. Missing %s key.', 'identityMatches')
+            );
+        } elseif ($item->getIdentityMatches() === false) {
+            // This is often case with vendors of phones that we
+            // do not want to specifically detect, but we keep the record
+            // for vendor matches purposes. (eg. Acer)
+            return false;
+        }
+
+        if (MobileDetect::match($item->getMatchType(), $item->getIdentityMatches(), $userAgent)) {
+            // Found the matching item.
+            return $item;
+        }
+
+        return false;
+    }
+
+    public function searchByUA($userAgent)
+    {
+        $phone = new Tablet();
+
+        foreach ($this->getAll() as $vendorKey => $itemData) {
+            $phone->reload($itemData);
+            $result = $this->matchItemByUA($userAgent, $phone);
+            if ($result !== false) {
+                return $result;
+            }
+        }
+
+        return false;
     }
 }

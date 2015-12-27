@@ -1,6 +1,21 @@
 <?php
 
 return array(
+        /*
+
+        array(
+            'ua' => 'VendorAppName/1.7.0 (iPhone; iOS 8.1.2; Scale/3.00)',
+            'isMobile' => true,
+            'isTablet' => false,
+            'browser' => null,
+            'browserVersion' => null,
+            'operatingSystem' => 'iOS',
+            'operatingSystemVersion' => '8.1.2',
+            'model' => 'iPhone',
+            'modelVersion' => null,
+            'mobileGrade' => 'A',
+        ),
+
         array(
             'ua' => 'iTunes/9.1.1',
             'isMobile' => false,
@@ -36,19 +51,19 @@ return array(
             'model' => 'iPod',
             'modelVersion' => null,
         ),
-
+*/
         array(
             'ua' => 'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543 Safari/419.3',
-            'isMobile' => true,
-            'isTablet' => false,
             'browser' => 'Safari Mobile',
-            'browserVersion' => '3.0',
+            'browserVersion' => '2.0.4',
             'operatingSystem' => 'iOS',
-            'operatingSystemVersion' => null,
+            'operatingSystemVersion' => '3.0',
             'model' => 'iPhone',
             'modelVersion' => null,
+            'isMobile' => true,
+            'isTablet' => false,
         ),
-
+/*
         array(
             'ua' => 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16',
             'isMobile' => true,
@@ -209,41 +224,27 @@ return array(
             'model' => 'iPhone',
             'modelVersion' => null,
         ),
-
+*/
         array(
             'ua' => 'Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53',
-            'isMobile' => true,
-            'isTablet' => true,
             'browser' => 'Safari Mobile',
-            'browserVersion' => '7.0',
+            'browserVersion' => '9537.53',
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '7.0',
             'model' => 'iPad',
             'modelVersion' => null,
+            'isMobile' => true,
+            'isTablet' => true,
         ),
-
         array(
             'ua' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) CriOS/38.0.2125.59 Mobile/12A405 Safari/600.1.4',
-            'isMobile' => true,
-            'isTablet' => false,
             'browser' => 'Chrome Mobile',
             'browserVersion' => '38.0.2125.59',
             'operatingSystem' => 'iOS',
             'operatingSystemVersion' => '8.0.2',
             'model' => 'iPhone',
             'modelVersion' => null,
-        ),
-
-        array(
-            'ua' => 'VendorAppName/1.7.0 (iPhone; iOS 8.1.2; Scale/3.00)',
             'isMobile' => true,
             'isTablet' => false,
-            'browser' => null,
-            'browserVersion' => null,
-            'operatingSystem' => 'iOS',
-            'operatingSystemVersion' => '8.1.2',
-            'model' => 'iPhone',
-            'modelVersion' => null,
-            'mobileGrade' => 'A',
         ),
 );

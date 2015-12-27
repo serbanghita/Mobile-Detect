@@ -18,7 +18,7 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
         // Scan.
         $dir = new \DirectoryIterator($includeBasePath);
         foreach ($dir as $fileInfo) {
-            if ($fileInfo->isDot() || $fileInfo->getFilename() !== 'Blackberry.php') {
+            if ($fileInfo->isDot() || !in_array($fileInfo->getFilename(), ['Blackberry.php', 'Apple.php'])) {
                 continue;
             }
             $listNew = include $includeBasePath . '/' . $fileInfo->getFilename();

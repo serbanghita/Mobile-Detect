@@ -1,7 +1,7 @@
 <?php
-namespace MobileDetect\Providers;
+namespace MobileDetect\Repository\Browser;
 
-class Browsers extends AbstractProvider
+class BrowserRepository
 {
     /**
      * List of browsers.
@@ -159,7 +159,10 @@ class Browsers extends AbstractProvider
                 'vendor' => 'Apple',
                 'model' => 'Safari Mobile',
                 'isMobile' => true,
-                'identityMatches' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari',
+                'identityMatches' => [
+                    'default' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari',
+                    'isMobile' => 'Safari/[0-9.]+'
+                ],
                 // @note: Safari 7534.48.3 is actually Version 5.1.
                 // On BlackBerry the Version is overwritten by the OS.
                 'versionMatches' => array('Safari/[VER]', 'Version/[VER]'),
@@ -229,6 +232,7 @@ class Browsers extends AbstractProvider
               '531.22.7' => array('version' => '4.0.5', 'codename' => ''),
               '533.16' => array('version' => array('4.1', '5.0'), 'codename' => ''),
               '533.17.8' => array('version' => array('4.1.1', '5.0.1'), 'codename' => ''),
+              '533.17.9' => array('version' => '5.0.2', 'codename' => ''),
               '533.18.5' => array('version' => array('4.1.2', '5.0.2'), 'codename' => ''),
               '533.19.4' => array('version' => array('4.1.3', '5.0.3'), 'codename' => ''),
               '533.20.27' => array('version' => '5.0.4', 'codename' => ''),
@@ -254,6 +258,7 @@ class Browsers extends AbstractProvider
               '534.58.2' => array('version' => '5.1.8', 'codename' => ''),
               '534.59.8' => array('version' => '5.1.9', 'codename' => ''),
               '534.59.10' => array('version' => '5.1.10', 'codename' => ''),
+              '536.2' => array('version' => '5.1.2', 'codename' => ''),
               '536.2+' => array('version' => '5.1.2', 'codename' => ''),
               '536.25' => array('version' => '6.0', 'codename' => ''),
               '536.26' => array('version' => '6.0.1', 'codename' => ''),
@@ -263,8 +268,10 @@ class Browsers extends AbstractProvider
               '536.30.1' => array('version' => '6.0.5', 'codename' => ''),
               // From https://gist.github.com/rniwa/2721861
               '537.1+' => array('version' => '5.1.5', 'codename' => ''),
+              '537.10' => array('version' => '5.1', 'codename' => ''),
               '537.10+' => array('version' => '5.1', 'codename' => ''),
               '537.43.58' => array('version' => '6.1', 'codename' => ''),
+              '537.51.1' => array('version' => '', 'codename' => ''),
               '537.73.11' => array('version' => array('6.1.1', '7.0.1'), 'codename' => ''),
               // @todo fill gaps here from 6.1.2 to 6.2.7
               '537.85.17' => array('version' => array('6.2.8', '7.1.8'), 'codename' => ''),
@@ -299,6 +306,20 @@ class Browsers extends AbstractProvider
               '531.9.1' => array('version' => '4.0.3', 'codename' => ''),
               '534.30' => array('version' => '5.1', 'codename' => ''),
               '534.50' => array('version' => '5.1', 'codename' => ''),
+
+              // According to http://www.somegeekintn.com/blog/stuff/iosvers/
+              '600.1.4' => array('version' => '600.1.4', 'codename' => 'Safari Mobile for iOS 8.x'),
+              '9537.53' => array('version' => '9537.53', 'codename' => 'Safari Mobile for iOS 7.x'),
+              '8536.25' => array('version' => '8536.25', 'codename' => 'Safari Mobile for iOS 6.x'),
+              // Found this with iOS 6_1_3
+              '7534.48.3' => array('version' => '7534.48.3', 'codename' => 'Safari Mobile for iOS 5.x'),
+              // According to http://www.useragentstring.com/Safari5.0.2_id_18120.php
+              '6533.18.5' => array('version' => '6533.18.5', 'codename' => 'Safari Mobile 5.0.2'),
+              '6531.22.7' => array('version' => '6531.22.7', 'codename' => 'Safari Mobile'),
+              '531.21.10' => array('version' => '531.21.10', 'codename' => 'Safari Mobile for iOS 3.2'),
+              '528.16' => array('version' => '528.16', 'codename' => 'Safari Mobile'),
+              '525.18.1' => array('version' => '525.18.1', 'codename' => 'Safari Mobile'),
+              '525.20' => array('version' => '525.20', 'codename' => 'Safari Mobile')
           );
     }
     

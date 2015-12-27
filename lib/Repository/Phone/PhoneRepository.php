@@ -1,7 +1,9 @@
 <?php
-namespace MobileDetect\Providers;
+namespace MobileDetect\Repository\Phone;
 
-class Phones extends AbstractProvider
+use MobileDetect\MobileDetect;
+
+class PhoneRepository
 {
     /**
      * List of mobile devices (phones).
@@ -106,5 +108,52 @@ class Phones extends AbstractProvider
     public function getDataFromVendor($vendorName)
     {
         return $this->data[$vendorName];
+    }
+
+    public function getAll()
+    {
+        return $this->data;
+    }
+
+    public function matchItemByUA($userAgent, Phone $item)
+    {
+        if (is_null($item->getVendor())) {
+            throw new \Exception(
+                sprintf('Invalid spec for item. Missing %s key.', 'vendor')
+            );
+        }
+
+        if (is_null($item->getIdentityMatches())) {
+            throw new \Exception(
+                sprintf('Invalid spec for item. Missing %s key.', 'identityMatches')
+            );
+        } elseif ($item->getIdentityMatches() === false) {
+            // This is often case with vendors of phones that we
+            // do not want to specifically detect, but we keep the record
+            // for vendor matches purposes. (eg. Acer)
+            return false;
+        }
+
+        if (MobileDetect::match($item->getMatchType(), $item->getIdentityMatches(), $userAgent)) {
+            // Found the matching item.
+            return $item;
+        }
+
+        return false;
+    }
+
+    public function searchByUA($userAgent)
+    {
+        $phone = new Phone();
+
+        foreach ($this->getAll() as $vendorKey => $itemData) {
+            $phone->reload($itemData);
+            $result = $this->matchItemByUA($userAgent, $phone);
+            if ($result !== false) {
+                return $result;
+            }
+        }
+
+        return false;
     }
 }

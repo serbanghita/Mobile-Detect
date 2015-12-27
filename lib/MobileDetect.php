@@ -30,13 +30,13 @@ namespace MobileDetect;
 
 use MobileDetect\Device\DeviceInterface;
 use MobileDetect\Exception\InvalidArgumentException;
+use MobileDetect\Repository\Browser\Browser;
+use MobileDetect\Repository\Browser\BrowserRepository;
+use MobileDetect\Repository\Phone\PhoneRepository;
+use MobileDetect\Repository\Tablet\TabletRepository;
 use Psr\Http\Message\MessageInterface as HttpMessageInterface;
-use MobileDetect\Providers\UserAgentHeaders;
-use MobileDetect\Providers\HttpHeaders;
-use MobileDetect\Providers\Browsers;
-use MobileDetect\Providers\OperatingSystems;
-use MobileDetect\Providers\Phones;
-use MobileDetect\Providers\Tablets;
+use MobileDetect\Repository\UserAgentHeaders;
+use MobileDetect\Repository\HttpHeaders;
 use MobileDetect\Device\DeviceType;
 
 class MobileDetect
@@ -55,10 +55,6 @@ class MobileDetect
     // Database.
     protected $userAgentHeaders;
     protected $recognizedHttpHeaders;
-    protected $phonesProvider;
-    protected $tabletsProvider;
-    protected $browsersProvider;
-    protected $operatingSystemsProvider;
 
     protected static $knownMatchTypes = array(
         'regex', //regular expression
@@ -123,19 +119,11 @@ class MobileDetect
 
     /**
      * @param $headers \Iterator|array|HttpMessageInterface|string When it's a string, it's assumed to be User-Agent.
-     * @param Phones|null $phonesProvider
-     * @param Tablets|null $tabletsProvider
-     * @param Browsers|null $browsersProvider
-     * @param OperatingSystems|null $operatingSystemsProvider
      * @param UserAgentHeaders $userAgentHeaders
      * @param HttpHeaders $recognizedHttpHeaders
      */
     public function __construct(
         $headers = null,
-        Phones $phonesProvider = null,
-        Tablets $tabletsProvider = null,
-        Browsers $browsersProvider = null,
-        OperatingSystems $operatingSystemsProvider = null,
         UserAgentHeaders $userAgentHeaders = null,
         HttpHeaders $recognizedHttpHeaders = null
     ) {
@@ -178,31 +166,6 @@ class MobileDetect
         // When no param is passed, it is detected
         // based on all available headers.
         $this->setUserAgent();
-
-
-        if (!$phonesProvider) {
-            $phonesProvider = new Phones;
-        }
-        
-        if (!$tabletsProvider) {
-            $tabletsProvider = new Tablets;
-        }
-        
-        if (!$browsersProvider) {
-            $browsersProvider = new Browsers;
-        }
-        
-        if (!$operatingSystemsProvider) {
-            $operatingSystemsProvider = new OperatingSystems;
-        }
-
-
-
-        $this->phonesProvider = $phonesProvider;
-        $this->tabletsProvider = $tabletsProvider;
-        $this->browsersProvider = $browsersProvider;
-        $this->operatingSystemsProvider = $operatingSystemsProvider;
-
     }
 
     /**
@@ -381,7 +344,7 @@ class MobileDetect
      *
      * @return string
      */
-    protected function prepareRegex($regex)
+    private static function prepareRegex($regex)
     {
         // Regex can be an array, because we have some really long
         // expressions (eg. Samsung) and other programming languages
@@ -406,9 +369,9 @@ class MobileDetect
      * @return bool                               True if matched successfully.
      * @throws Exception\InvalidArgumentException If $against isn't a string or $type is invalid.
      */
-    protected function identityMatch($type, $test, $against)
+    public static function match($type, $test, $against)
     {
-        if (!in_array($type, $this->getKnownMatches())) {
+        if (!in_array($type, self::getKnownMatches())) {
             throw new Exception\InvalidArgumentException(
                 sprintf('Unknown match type: %s', $type)
             );
@@ -422,7 +385,7 @@ class MobileDetect
         }
 
         if ($type == 'regex') {
-            if ($this->regexMatch($this->prepareRegex($test), $against)) {
+            if (self::regexMatch(self::prepareRegex($test), $against)) {
                 return true;
             }
         } elseif ($type == 'strpos') {
@@ -575,7 +538,7 @@ class MobileDetect
     protected function detectBrowserVersion(array $browserInfoFromDb)
     {
         $browserVersionRaw = $this->matchEntity('version', $browserInfoFromDb['versionMatches'], $this->getUserAgent());
-        if ($browserInfoFromDb['versionHelper']) {
+        if (isset($browserInfoFromDb['versionHelper'])) {
             $funcName = $browserInfoFromDb['versionHelper'];
             if ($browserVersionDataFound = $this->browsersProvider->$funcName($browserVersionRaw)) {
                 return $browserVersionDataFound['version'];
@@ -633,42 +596,30 @@ class MobileDetect
                 return $cached;
             }
         }
-        
-        $prop = [
-            'userAgent' => null,
-            'deviceType' => null,
-            'deviceModel' => null,
-            'deviceModelVersion' => null,
-            'operatingSystemModel' => null,
-            'operatingSystemVersion' => null,
-            'browserModel' => null,
-            'browserVersion' => null,
-            'vendor' => null
-        ];
+
+        $deviceResult = null;
+        $context = new Context();
 
         // Search phone OR tablet database.
         // Get the device type.
-        $prop['deviceType'] = DeviceType::DESKTOP;
-
-        if ($phoneResult = $this->searchPhonesProvider()) {
-            $prop['deviceType'] = DeviceType::MOBILE;
-            $prop['deviceResult'] = $phoneResult;
+        if ($phone = $this->searchPhonesRepository()) {
+            $context->setDeviceType(DeviceType::MOBILE);
+            $deviceResult = $phone;
         }
 
-        if ($tabletResult = $this->searchTabletsProvider()) {
-            $prop['deviceType'] = DeviceType::TABLET;
-            $prop['deviceResult'] = $tabletResult;
+        if ($tablet = $this->searchTabletsProvider()) {
+            $context->setDeviceType(DeviceType::TABLET);
+            $deviceResult = $tablet;
         }
 
         // If we know the device,
         // get model and version of the physical device (if possible).
-        $deviceResult = isset($prop['deviceResult']) ? $prop['deviceResult'] : null;
         if (!is_null($deviceResult)) {
-            if (isset($deviceResult['model'])) {
+            if (!is_null($deviceResult->getModel())) {
                 // Device model is already known from the DB.
-                $prop['deviceModel'] = $deviceResult['model'];
+                $context->setDeviceModel($deviceResult->getModel());
             } else {
-                $prop['deviceModel'] = $this->detectDeviceModel($deviceResult);
+                $context->setDeviceModel($this->detectDeviceModel($deviceResult));
                 $prop['deviceModelVersion'] = $this->detectDeviceModelVersion($deviceResult);
             }
         }
@@ -722,62 +673,26 @@ class MobileDetect
 
     private function searchForItemInDb(array $itemData)
     {
-        // Check matching type, and assume regex if not present.
-        if (!isset($itemData['matchType'])) {
-            $itemData['matchType'] = 'regex';
-        }
 
-        if (!isset($itemData['vendor'])) {
-            throw new Exception\InvalidDeviceSpecificationException(
-                sprintf('Invalid spec for item. Missing %s key.', 'vendor')
-            );
-        }
-
-        if (!isset($itemData['identityMatches'])) {
-            throw new Exception\InvalidDeviceSpecificationException(
-                sprintf('Invalid spec for item. Missing %s key.', 'identityMatches')
-            );
-        } elseif ($itemData['identityMatches'] === false) {
-            // This is often case with vendors of phones that we
-            // do not want to specifically detect, but we keep the record
-            // for vendor matches purposes. (eg. Acer)
-            return false;
-        }
-
-        if ($this->identityMatch($itemData['matchType'], $itemData['identityMatches'], $this->getUserAgent())) {
-            // Found the matching item.
-            return $itemData;
-        }
-
-        return false;
     }
 
-    protected function searchPhonesProvider()
+    protected function searchPhonesRepository()
     {
-        foreach ($this->phonesProvider->getAll() as $vendorKey => $itemData) {
-            $result = $this->searchForItemInDb($itemData);
-            if ($result !== false) {
-                return $result;
-            }
-        }
-
-        return false;
+        $repo = new PhoneRepository();
+        return $repo->searchByUA($this->getUserAgent());
     }
 
     protected function searchTabletsProvider()
     {
-        foreach ($this->tabletsProvider->getAll() as $vendorKey => $itemData) {
-            $result = $this->searchForItemInDb($itemData);
-            if ($result !== false) {
-                return $result;
-            }
-        }
-
-        return false;
+        $repo = new TabletRepository();
+        return $repo->searchByUA($this->getUserAgent());
     }
 
     protected function searchBrowsersProvider()
     {
+        $repo = new BrowserRepository();
+        return $repo->searchByUA($this->getUserAgent());
+
         foreach ($this->browsersProvider->getAll() as $familyName => $items) {
             foreach ($items as $itemName => $itemData) {
                 $result = $this->searchForItemInDb($itemData);
@@ -810,7 +725,7 @@ class MobileDetect
      * @param null $matches
      * @return int
      */
-    private function regexMatch($regex, $against, &$matches = null)
+    private static function regexMatch($regex, $against, &$matches = null)
     {
         return preg_match($regex, $against, $matches);
     }

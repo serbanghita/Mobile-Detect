@@ -1,5 +1,5 @@
 <?php
-namespace MobileDetect\Providers;
+namespace MobileDetect\Repository;
 
 class MobileHeaders extends AbstractProvider
 {

@@ -2,7 +2,7 @@
 namespace MobileDetectTests\UnitTests\MobileDetect;
 
 use MobileDetect\MobileDetect;
-use MobileDetect\Providers;
+use MobileDetect\Repository;
 
 class ProvidersTest extends \PHPUnit_Framework_TestCase
 {
@@ -12,13 +12,13 @@ class ProvidersTest extends \PHPUnit_Framework_TestCase
     public function phoneAndTabledDevicesProvider()
     {
         $data = array();
-        $phones = new Providers\Phones();
+        $phones = new Repository\PhoneRepository();
 
         foreach ($phones->getAll() as $type => $spec) {
             $data[] = array($type, $spec);
         }
 
-        $tablets = new Providers\Tablets();
+        $tablets = new Repository\Tablets();
 
         foreach ($tablets->getAll() as $type => $spec) {
             $data[] = array($type, $spec);
@@ -58,14 +58,14 @@ class ProvidersTest extends \PHPUnit_Framework_TestCase
     {
         $data = array();
 
-        $osGroup = new Providers\OperatingSystems();
+        $osGroup = new Repository\OperatingSystems();
         foreach ($osGroup->getAll() as $group => $os) {
             foreach ($os as $name => $spec) {
                 $data[] = array($name, $spec);
             }
         }
 
-        $browsers = new Providers\Browsers();
+        $browsers = new Repository\Browsers();
         foreach ($browsers as $group => $browser) {
             foreach ($browser as $name => $spec) {
                 $data[] = array($name, $spec);
