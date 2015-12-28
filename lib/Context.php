@@ -15,6 +15,11 @@ class Context
     protected $browserVersion = null;
     protected $vendor = null;
 
+    public function isMobile()
+    {
+        return DeviceType::MOBILE || DeviceType::TABLET;
+    }
+
     /**
      * @return null
      */

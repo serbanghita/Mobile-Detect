@@ -450,10 +450,10 @@ class MobileDetect
      * @param $against
      * @return null
      */
-    protected function modelMatch($tests, $against)
+    protected function matchModel(array $tests, $against)
     {
         // Model match must be an array.
-        if (!is_array($tests) || !count($tests)) {
+        if (empty($tests)) {
             return null;
         }
 
@@ -475,10 +475,10 @@ class MobileDetect
         return null;
     }
 
-    protected function versionMatch($tests, $against)
+    protected function matchVersion(array $tests, $against)
     {
         // Model match must be an array.
-        if (!is_array($tests) || !count($tests)) {
+        if (empty($tests)) {
             return null;
         }
 
@@ -498,37 +498,6 @@ class MobileDetect
 
         $this->restoreRegexErrorHandler();
         return null;
-    }
-
-    protected function matchEntity($entity, $tests, $against)
-    {
-        if ($entity == 'version') {
-            return $this->versionMatch($tests, $against);
-        }
-
-        if ($entity == 'model') {
-            return $this->modelMatch($tests, $against);
-        }
-    }
-
-    // @todo: Reduce scope of $deviceInfoFromDb
-    protected function detectDeviceModel(DeviceResultInterface $deviceResult)
-    {
-        if (is_null($deviceResult->getModelMatches())) {
-            return null;
-        }
-
-        return $this->matchEntity('model', $deviceInfoFromDb['modelMatches'], $this->getUserAgent());
-    }
-
-    // @todo: temporary duplicated code
-    protected function detectDeviceModelVersion(array $deviceInfoFromDb)
-    {
-        if (!isset($deviceInfoFromDb['modelMatches'])) {
-            return null;
-        }
-
-        return $this->matchEntity('version', $deviceInfoFromDb['modelMatches'], $this->getUserAgent());
     }
 
     protected function detectBrowserModel(array $browserInfoFromDb)
@@ -626,13 +595,15 @@ class MobileDetect
                 // Device model is already known from the DB.
                 $context->setDeviceModel($deviceResult->getModel());
             } else {
-                $context->setDeviceModel($this->detectDeviceModel($deviceResult));
-                $prop['deviceModelVersion'] = $this->detectDeviceModelVersion($deviceResult);
+                // Attempt to detect model and model version.
+                $context->setDeviceModel($this->matchModel($deviceResult->getModelMatches(), $this->getUserAgent()));
+                $context->setDeviceModelVersion($this->matchVersion($deviceResult->getModelMatches(), $this->getUserAgent()));
             }
         }
 
         // Get model and version of the browser (if possible).
-        $browserResult = $this->searchBrowsersProvider();
+        $repo = new BrowserRepository($context);
+        $browserResult = $repo->searchByUA($this->getUserAgent());
         $prop['browserResult'] = $browserResult;
 
         if ($browserResult) {
@@ -681,23 +652,6 @@ class MobileDetect
     private function searchForItemInDb(array $itemData)
     {
 
-    }
-
-    protected function searchBrowsersProvider()
-    {
-        $repo = new BrowserRepository();
-        return $repo->searchByUA($this->getUserAgent());
-
-        foreach ($this->browsersProvider->getAll() as $familyName => $items) {
-            foreach ($items as $itemName => $itemData) {
-                $result = $this->searchForItemInDb($itemData);
-                if ($result !== false) {
-                    return $result;
-                }
-            }
-        }
-
-        return false;
     }
 
     protected function searchOperatingSystemsProvider()

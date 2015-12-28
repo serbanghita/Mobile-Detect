@@ -1,28 +1,34 @@
 <?php
 namespace MobileDetect\Repository\Browser;
 
-use MobileDetect\Context;
-
 class Browser
 {
-    protected $context;
-    
     protected $vendor;
     protected $model;
     protected $triggersIsMobile = false;
     protected $matchType = 'regex';
     protected $identityMatches;
+    protected $identityMatchesInContext = [];
     protected $versionMatches;
     protected $versionHelper;
 
-    public function setContext(Context $context)
+    public function reload(array $properties)
     {
-        $this->context = $context;
-    }
-    
-    public function getContext()
-    {
-        return $this->context;
+        // Reset
+        $this->vendor = null;
+        $this->model = null;
+        $this->triggersIsMobile = false;
+        $this->matchType = 'regex';
+        $this->identityMatches = null;
+        $this->identityMatchesInContext = [];
+        $this->versionMatches = null;
+        $this->versionHelper = null;
+
+        foreach ($properties as $key => $value) {
+            if (isset($this->{$key})) {
+                $this->{$key} = $value;
+            }
+        }
     }
 
     /**
@@ -117,6 +123,24 @@ class Browser
     {
         $this->identityMatches = $identityMatches;
 
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getIdentityMatchesInContext()
+    {
+        return $this->identityMatchesInContext;
+    }
+
+    /**
+     * @param array $identityMatchesInContext
+     * @return Browser
+     */
+    public function setIdentityMatchesInContext($identityMatchesInContext)
+    {
+        $this->identityMatchesInContext = $identityMatchesInContext;
         return $this;
     }
 

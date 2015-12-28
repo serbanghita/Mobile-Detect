@@ -1,10 +1,18 @@
 <?php
 namespace MobileDetect\Repository\Browser;
 
+use MobileDetect\Context;
 use MobileDetect\MobileDetect;
 
 class BrowserRepository
 {
+    protected $context;
+
+    public function __construct(Context $context)
+    {
+        $this->context = $context;
+    }
+
     /**
      * List of browsers.
      *
@@ -24,22 +32,55 @@ class BrowserRepository
          *
          * @docs http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
          */
-        'IE' => array(
-            'IE Mobile' => array(
+        'IE' => [
+            'IE Mobile' => [
                 'vendor' => 'Microsoft',
                 'model' => 'IE Mobile',
-                'isMobile' => true,
-                'identityMatches' => 'IEMobile|MSIEMobile|Trident/[0-9.]+; Touch; rv:[0-9.]+;',
-                'versionMatches' => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'Trident.*rv.[VER]'),
-            ),
-            'IE Desktop' => array(
+
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => 'IEMobile|MSIEMobile|Trident/[0-9.]+; Touch; rv:[0-9.]+;',
+                        'matchType' => 'regex'
+                    ]
+                ],
+
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'Trident.*rv.[VER]']
+                    ]
+                ],
+
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ],
+
+            'IE Desktop' => [
                 'vendor' => 'Microsoft',
                 'model' => 'IE Desktop',
-                'isMobile' => false,
-                'identityMatches' => 'MSIE [0-9.]+;|Trident.*rv.[0-9.]+',
-                'versionMatches' => array('MSIE [VER];', 'Trident.*rv.[VER]'),
-            ),
-        ),
+
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => 'MSIE [0-9.]+;|Trident.*rv.[0-9.]+',
+                        'matchType' => 'regex'
+                    ]
+                ],
+
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['MSIE [VER];', 'Trident.*rv.[VER]']
+                    ]
+                ],
+
+                'triggers' => [
+                    ['isMobile' => false]
+                ]
+            ],
+        ],
         /**
          * Opera family
          */
@@ -156,31 +197,61 @@ class BrowserRepository
          * @note Safari 7534.48.3 is actually Version 5.1.
          * @note On BlackBerry the Version is overwritten by the OS.
          */
-        'Safari'         => array(
-            'Safari Mobile' => array(
+        'Safari' => [
+
+            'Safari Mobile' => [
                 'vendor' => 'Apple',
                 'model' => 'Safari Mobile',
-                'isMobile' => true,
-                'identityMatches' => [
-                    'default' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari',
-                    'isMobile' => 'Safari/[0-9.]+'
+                'matchIdentity' => [
+                    [
+                        'context' => ['isMobile' => true],
+                        'match' => 'Safari/[0-9.]+',
+                        'matchType' => 'regex'
+                    ],
+                    [
+                        'context' => null,
+                        'match' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari',
+                        'matchType' => 'regex'
+                    ]
                 ],
                 // @note: Safari 7534.48.3 is actually Version 5.1.
                 // On BlackBerry the Version is overwritten by the OS.
-                'versionMatches' => array('Safari/[VER]', 'Version/[VER]'),
-                'versionHelper' => 'getSafariVersion'
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['Safari/[VER]', 'Version/[VER]'],
+                        'matchProcessor' => 'getSafariVersion'
+                    ]
+                ],
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ],
 
-            ),
-            'Safari Desktop' => array(
+            'Safari Desktop' => [
                 'vendor' => 'Apple',
                 'model' => 'Safari Desktop',
-                'isMobile' => false,
-                'identityMatches' => 'Safari/[0-9.]+',
-                'versionMatches' => array('Version/[VER]', 'Safari/[VER]'),
-                'versionHelper' => 'getSafariVersion'
-            ),
-        ),
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => 'Safari/[0-9.]+',
+                        'matchType' => 'regex'
+                    ]
+                ],
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['Version/[VER]', 'Safari/[VER]'],
+                        'matchType' => 'regex',
+                        'matchProcessor' => 'getSafariVersion'
+                    ]
+                ],
+                'triggers' => [
+                    ['isMobile' => false]
+                ]
+            ]
 
+        ]
     );
 
     public function getSafariVersion($versionMatch)
@@ -355,6 +426,15 @@ class BrowserRepository
             return false;
         }
 
+        if (!empty($item->getIdentityMatchesInContext())) {
+            foreach ($item->getIdentityMatchesInContext() as $contextSituation => $regex) {
+                $contextSituationPieces = explode(':', $contextSituation);
+                if ($this->context->{$contextSituationPieces[0]}()) {
+
+                }
+            }
+        }
+
         if (MobileDetect::match($item->getMatchType(), $item->getIdentityMatches(), $userAgent)) {
             // Found the matching item.
             return $item;
@@ -365,13 +445,15 @@ class BrowserRepository
 
     public function searchByUA($userAgent)
     {
-        $phone = new Browser();
+        $browser = new Browser();
 
-        foreach ($this->getAll() as $vendorKey => $itemData) {
-            $phone->reload($itemData);
-            $result = $this->matchItemByUA($userAgent, $phone);
-            if ($result !== false) {
-                return $result;
+        foreach ($this->getAll() as $familyName => $items) {
+            foreach ($items as $itemName => $itemData) {
+                $browser->reload($itemData);
+                $result = $this->matchItemByUA($userAgent, $browser);
+                if ($result !== false) {
+                    return $result;
+                }
             }
         }
 
