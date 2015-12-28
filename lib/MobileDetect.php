@@ -32,6 +32,7 @@ use MobileDetect\Device\DeviceInterface;
 use MobileDetect\Exception\InvalidArgumentException;
 use MobileDetect\Repository\Browser\Browser;
 use MobileDetect\Repository\Browser\BrowserRepository;
+use MobileDetect\Repository\DeviceResultInterface;
 use MobileDetect\Repository\Phone\PhoneRepository;
 use MobileDetect\Repository\Tablet\TabletRepository;
 use Psr\Http\Message\MessageInterface as HttpMessageInterface;
@@ -511,9 +512,9 @@ class MobileDetect
     }
 
     // @todo: Reduce scope of $deviceInfoFromDb
-    protected function detectDeviceModel(array $deviceInfoFromDb)
+    protected function detectDeviceModel(DeviceResultInterface $deviceResult)
     {
-        if (!isset($deviceInfoFromDb['modelMatches'])) {
+        if (is_null($deviceResult->getModelMatches())) {
             return null;
         }
 
@@ -600,14 +601,20 @@ class MobileDetect
         $deviceResult = null;
         $context = new Context();
 
-        // Search phone OR tablet database.
-        // Get the device type.
-        if ($phone = $this->searchPhonesRepository()) {
+        // Search phone database.
+        // Save the device type in Context.
+        $repo = new PhoneRepository();
+        $phone = $repo->searchByUA($this->getUserAgent());
+        if ($phone) {
             $context->setDeviceType(DeviceType::MOBILE);
             $deviceResult = $phone;
         }
 
-        if ($tablet = $this->searchTabletsProvider()) {
+        // Search tablet database.
+        // Save the device type in Context.
+        $repo = new TabletRepository();
+        $tablet = $repo->searchByUA($this->getUserAgent());
+        if ($tablet) {
             $context->setDeviceType(DeviceType::TABLET);
             $deviceResult = $tablet;
         }
@@ -674,18 +681,6 @@ class MobileDetect
     private function searchForItemInDb(array $itemData)
     {
 
-    }
-
-    protected function searchPhonesRepository()
-    {
-        $repo = new PhoneRepository();
-        return $repo->searchByUA($this->getUserAgent());
-    }
-
-    protected function searchTabletsProvider()
-    {
-        $repo = new TabletRepository();
-        return $repo->searchByUA($this->getUserAgent());
     }
 
     protected function searchBrowsersProvider()

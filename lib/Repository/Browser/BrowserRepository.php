@@ -1,6 +1,8 @@
 <?php
 namespace MobileDetect\Repository\Browser;
 
+use MobileDetect\MobileDetect;
+
 class BrowserRepository
 {
     /**
@@ -327,5 +329,52 @@ class BrowserRepository
     public function getFamily($familyName)
     {
         return $this->data[$familyName];
+    }
+
+    public function getAll()
+    {
+        return $this->data;
+    }
+
+    public function matchItemByUA($userAgent, Browser $item)
+    {
+        if (is_null($item->getVendor())) {
+            throw new \Exception(
+                sprintf('Invalid spec for item. Missing %s key.', 'vendor')
+            );
+        }
+
+        if (is_null($item->getIdentityMatches())) {
+            throw new \Exception(
+                sprintf('Invalid spec for item. Missing %s key.', 'identityMatches')
+            );
+        } elseif ($item->getIdentityMatches() === false) {
+            // This is often case with vendors of phones that we
+            // do not want to specifically detect, but we keep the record
+            // for vendor matches purposes. (eg. Acer)
+            return false;
+        }
+
+        if (MobileDetect::match($item->getMatchType(), $item->getIdentityMatches(), $userAgent)) {
+            // Found the matching item.
+            return $item;
+        }
+
+        return false;
+    }
+
+    public function searchByUA($userAgent)
+    {
+        $phone = new Browser();
+
+        foreach ($this->getAll() as $vendorKey => $itemData) {
+            $phone->reload($itemData);
+            $result = $this->matchItemByUA($userAgent, $phone);
+            if ($result !== false) {
+                return $result;
+            }
+        }
+
+        return false;
     }
 }

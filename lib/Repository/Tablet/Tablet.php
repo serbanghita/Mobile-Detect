@@ -1,7 +1,9 @@
 <?php
 namespace MobileDetect\Repository\Tablet;
 
-class Tablet
+use MobileDetect\Repository\DeviceResultInterface;
+
+class Tablet implements DeviceResultInterface
 {
     protected $identifier;
     protected $vendor;

@@ -1,7 +1,9 @@
 <?php
 namespace MobileDetect\Repository\Phone;
 
-class Phone
+use MobileDetect\Repository\DeviceResultInterface;
+
+class Phone implements DeviceResultInterface
 {
     protected $identifier;
     protected $vendor;
