@@ -1,52 +1,33 @@
 <?php
 namespace MobileDetect\Repository\Browser;
 
+use MobileDetect\Matcher;
+use MobileDetect\MobileDetect;
+
 class Browser
 {
     protected $vendor;
     protected $model;
-    protected $triggersIsMobile = false;
-    protected $matchType = 'regex';
-    protected $identityMatches;
-    protected $identityMatchesInContext = [];
-    protected $versionMatches;
-    protected $versionHelper;
+    protected $matchIdentity = [];
+    protected $matchVersion = [];
+    protected $triggers = [];
 
     public function reload(array $properties)
     {
         // Reset
         $this->vendor = null;
-        $this->model = null;
-        $this->triggersIsMobile = false;
-        $this->matchType = 'regex';
-        $this->identityMatches = null;
-        $this->identityMatchesInContext = [];
-        $this->versionMatches = null;
-        $this->versionHelper = null;
+        $this->model;
+        $this->matchIdentity = [];
+        $this->matchVersion = [];
+        $this->triggers = [];
 
+        // Populate.
         foreach ($properties as $key => $value) {
             if (isset($this->{$key})) {
                 $this->{$key} = $value;
             }
         }
-    }
-
-    /**
-     * @return string
-     */
-    public function getMatchType()
-    {
-        return $this->matchType;
-    }
-
-    /**
-     * @param string $matchType
-     * @return Browser
-     */
-    public function setMatchType($matchType)
-    {
-        $this->matchType = $matchType;
-
+        
         return $this;
     }
 
@@ -89,39 +70,20 @@ class Browser
     }
 
     /**
-     * @return boolean
+     * @return array
      */
-    public function isTriggersIsMobile()
+    public function getMatchIdentity()
     {
-        return $this->triggersIsMobile;
+        return $this->matchIdentity;
     }
 
     /**
-     * @param boolean $triggersIsMobile
+     * @param array $matchIdentity
      * @return Browser
      */
-    public function setTriggersIsMobile($triggersIsMobile)
+    public function setMatchIdentity($matchIdentity)
     {
-        $this->triggersIsMobile = $triggersIsMobile;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdentityMatches()
-    {
-        return $this->identityMatches;
-    }
-
-    /**
-     * @param mixed $identityMatches
-     * @return Browser
-     */
-    public function setIdentityMatches($identityMatches)
-    {
-        $this->identityMatches = $identityMatches;
+        $this->matchIdentity = $matchIdentity;
 
         return $this;
     }
@@ -129,58 +91,38 @@ class Browser
     /**
      * @return array
      */
-    public function getIdentityMatchesInContext()
+    public function getMatchVersion()
     {
-        return $this->identityMatchesInContext;
+        return $this->matchVersion;
     }
 
     /**
-     * @param array $identityMatchesInContext
+     * @param array $matchVersion
      * @return Browser
      */
-    public function setIdentityMatchesInContext($identityMatchesInContext)
+    public function setMatchVersion($matchVersion)
     {
-        $this->identityMatchesInContext = $identityMatchesInContext;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVersionMatches()
-    {
-        return $this->versionMatches;
-    }
-
-    /**
-     * @param mixed $versionMatches
-     * @return Browser
-     */
-    public function setVersionMatches($versionMatches)
-    {
-        $this->versionMatches = $versionMatches;
+        $this->matchVersion = $matchVersion;
 
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getVersionHelper()
+    public function getTriggers()
     {
-        return $this->versionHelper;
+        return $this->triggers;
     }
 
     /**
-     * @param mixed $versionHelper
+     * @param array $triggers
      * @return Browser
      */
-    public function setVersionHelper($versionHelper)
+    public function setTriggers($triggers)
     {
-        $this->versionHelper = $versionHelper;
+        $this->triggers = $triggers;
 
         return $this;
     }
-    
-    
 }

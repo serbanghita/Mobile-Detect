@@ -1,16 +1,14 @@
 <?php
-namespace MobileDetect\Repository\Tablet;
+namespace MobileDetect\Repository\Device;
 
-use MobileDetect\Repository\DeviceResultInterface;
-
-class Tablet implements DeviceResultInterface
+class Device implements DeviceInterface
 {
     protected $identifier;
     protected $vendor;
     protected $model;
     protected $matchType = 'regex';
-    protected $identityMatches;
-    protected $modelMatches = [];
+    protected $matchIdentity;
+    protected $matchModelAndVersion = [];
 
     public function reload(array $properties)
     {
@@ -19,8 +17,8 @@ class Tablet implements DeviceResultInterface
         $this->vendor = null;
         $this->model = null;
         $this->matchType = 'regex';
-        $this->identityMatches = null;
-        $this->modelMatches = [];
+        $this->matchIdentity = null;
+        $this->matchModelAndVersion = [];
 
         foreach ($properties as $key => $value) {
             if (isset($this->{$key})) {
@@ -104,36 +102,36 @@ class Tablet implements DeviceResultInterface
     /**
      * @return mixed
      */
-    public function getIdentityMatches()
+    public function getMatchIdentity()
     {
-        return $this->identityMatches;
+        return $this->matchIdentity;
     }
 
     /**
-     * @param mixed $identityMatches
+     * @param mixed $matchIdentity
      * @return Tablet
      */
-    public function setIdentityMatches($identityMatches)
+    public function setMatchIdentity($matchIdentity)
     {
-        $this->identityMatches = $identityMatches;
+        $this->matchIdentity = $matchIdentity;
         return $this;
     }
 
     /**
      * @return array
      */
-    public function getModelMatches()
+    public function getMatchModelAndVersion()
     {
-        return $this->modelMatches;
+        return $this->matchModelAndVersion;
     }
 
     /**
-     * @param array $modelMatches
+     * @param array $matchModelAndVersion
      * @return Tablet
      */
-    public function setModelMatches($modelMatches)
+    public function setMatchModelAndVersion($matchModelAndVersion)
     {
-        $this->modelMatches = $modelMatches;
+        $this->matchModelAndVersion = $matchModelAndVersion;
         return $this;
     }
 

@@ -35,8 +35,8 @@ class ProvidersTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('string', $device, 'The key should be a string');
         $this->assertArrayHasKey('vendor', $spec);
-        $this->assertArrayHasKey('identityMatches', $spec);
-        $this->assertArrayHasKey('modelMatches', $spec);
+        $this->assertArrayHasKey('matchIdentity', $spec);
+        $this->assertArrayHasKey('matchModelAndVersion', $spec);
 
         if (array_key_exists('type', $spec)) {
             if (!in_array($spec['type'], MobileDetect::getKnownMatches())) {
@@ -46,7 +46,7 @@ class ProvidersTest extends \PHPUnit_Framework_TestCase
             }
         }
 
-        $modelMatch = $spec['modelMatches'];
+        $modelMatch = $spec['matchModelAndVersion'];
         if (!is_array($modelMatch) && $modelMatch != '') {
             $this->fail(
                 sprintf('Not a valid "modelMatch": %s in %s', $spec['modelMatch'], $device)
@@ -84,7 +84,7 @@ class ProvidersTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $spec);
         $this->assertArrayHasKey('isMobile', $spec);
         $this->assertInternalType('boolean', $spec['isMobile']);
-        $this->assertArrayHasKey('identityMatches', $spec);
+        $this->assertArrayHasKey('matchIdentity', $spec);
         $this->assertArrayHasKey('versionMatches', $spec);
     }
 }

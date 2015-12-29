@@ -2,17 +2,10 @@
 namespace MobileDetect\Repository\Browser;
 
 use MobileDetect\Context;
-use MobileDetect\MobileDetect;
+use MobileDetect\Matcher\BrowserMatcher;
 
 class BrowserRepository
 {
-    protected $context;
-
-    public function __construct(Context $context)
-    {
-        $this->context = $context;
-    }
-
     /**
      * List of browsers.
      *
@@ -26,7 +19,7 @@ class BrowserRepository
      *
      * @var array
      */
-    protected $data = array(
+    protected static $data = array(
         /**
          * Microsoft Internet Explorer family
          *
@@ -40,7 +33,7 @@ class BrowserRepository
                 'matchIdentity' => [
                     [
                         'context' => null,
-                        'match' => 'IEMobile|MSIEMobile|Trident/[0-9.]+; Touch; rv:[0-9.]+;',
+                        'match' => ['IEMobile|MSIEMobile|Trident/[0-9.]+; Touch; rv:[0-9.]+;'],
                         'matchType' => 'regex'
                     ]
                 ],
@@ -64,7 +57,7 @@ class BrowserRepository
                 'matchIdentity' => [
                     [
                         'context' => null,
-                        'match' => 'MSIE [0-9.]+;|Trident.*rv.[0-9.]+',
+                        'match' => ['MSIE [0-9.]+;|Trident.*rv.[0-9.]+'],
                         'matchType' => 'regex'
                     ]
                 ],
@@ -81,114 +74,294 @@ class BrowserRepository
                 ]
             ],
         ],
+        
         /**
          * Opera family
          */
-        'Opera' => array(
-            'Opera Mini' => array(
+        'Opera' => [
+            'Opera Mini' => [
                 'vendor' => 'Opera',
                 'model' => 'Opera Mini',
-                'isMobile' => true,
-                'identityMatches' => 'Opera.*Mini',
-                'versionMatches' => array('Opera Mini/[VER]'),
-            ),
-            'Opera Mobi' => array(
+
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => ['Opera.*Mini'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['Opera Mini/[VER]']
+                    ]
+                ],
+                
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ],
+            
+            'Opera Mobi' => [
                 'vendor' => 'Opera',
                 'model' => 'Opera Mobi',
-                'isMobile' => true,
-                'identityMatches' => 'Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+',
-                'versionMatches' => array('Opera Mobi/[VER]', ' OPR/[VER]', 'Version/[VER]'),
-            ),
-            'Opera Coast' => array(
+                
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => ['Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['Opera Mobi/[VER]', ' OPR/[VER]', 'Version/[VER]'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ],
+    
+            'Opera Coast' => [
                 'vendor' => 'Opera',
                 'model' => 'Opera Coast',
-                'isMobile' => true,
-                'identityMatches' => 'Coast/[0-9.]+',
-                'versionMatches' => array('Coast/[VER]'),
-            ),
-            'Opera Desktop' => array(
+                
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => ['Coast/[0-9.]+'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['Coast/[VER]']
+                    ]
+                ],
+                
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ],
+            
+            'Opera Desktop' => [
                 'vendor' => 'Opera',
                 'model' => 'Opera Desktop',
-                'isMobile' => false,
-                'identityMatches' => '\bOpera\b| OPR/',
-                'versionMatches' => array('Opera/[VER]', ' OPR/[VER]', 'Version/[VER]' ),
-            ),
-        ),
+                
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => ['\bOpera\b| OPR/'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['Opera/[VER]', ' OPR/[VER]', 'Version/[VER]']
+                    ]
+                ],
+
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ],
+        ],
+        
         /**
          * Google Chrome browser family
          *
          * @docs https://developers.google.com/chrome/mobile/docs/user-agent
          */
-        'Chrome' => array(
-            'Chrome Mobile' => array(
+        'Chrome' => [
+            'Chrome Mobile' => [
                 'vendor' => 'Google',
                 'model' => 'Chrome Mobile',
-                'isMobile' => true,
-                'identityMatches' => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
-                'versionMatches' => array('Chrome/[VER]', 'CriOS/[VER]', 'CrMo/[VER]'),
-            ),
-            'Chrome Desktop' => array(
+                
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => ['\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['Chrome/[VER]', 'CriOS/[VER]', 'CrMo/[VER]'],
+                    ]
+                ],
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ],
+            
+            'Chrome Desktop' => [
                 'vendor' => 'Google',
                 'model' => 'Chrome Desktop',
-                'isMobile' => false,
-                'identityMatches' => '\bChrome\b/[.0-9]*',
-                'versionMatches' => array('Chrome/[VER]'),
-            ),
-        ),
+                
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => ['\bChrome\b/[.0-9]*'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['Chrome/[VER]']
+                    ]
+                ],
+                
+                'triggers' => [
+                    ['isMobile' => false]
+                ]
+            ],
+        ],
 
         /**
          * NetFront browsers family.
          * @todo (Serban) Should we split this into NetFront and NetFrontLife? Mobile/Desktop
          * @docs http://en.wikipedia.org/wiki/NetFront
          */
-        'NetFront' => array(
-            'NetFront Mobile' => array(
+        'NetFront' => [
+            'NetFront Mobile' => [
                 'vendor' => 'NetFront',
                 'model' => 'NetFront Mobile',
-                'isMobile' => true,
-                'identityMatches' => 'NetFront/[.0-9]+|NetFrontLifeBrowser|NF-Browser',
-                'versionMatches' => array('NetFront/[VER]', 'NetFrontLifeBrowser/[VER]', 'Version/[VER]'),
-            )
-        ),
+                
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => ['NetFront/[.0-9]+|NetFrontLifeBrowser|NF-Browser'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['NetFront/[VER]', 'NetFrontLifeBrowser/[VER]', 'Version/[VER]']
+                    ]
+                ],
+                
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ]
+        ],
 
-        'Generic' => array(
+        'Generic' => [
             /**
              * Dolfin family has only mobile browsers.
              * @docs https://en.wikipedia.org/wiki/Dolphin_Browser
              */
-            'Dolfin' => array(
+            'Dolfin' => [
                 'vendor' => 'Dolfin',
                 'model' => 'Dolfin',
-                'isMobile' => true,
-                'identityMatches' => '\bDolfin\b',
-                'versionMatches' => array('Dolfin/[VER]')
-            ),
+                
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => ['\bDolfin\b'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['Dolfin/[VER]']
+                    ]
+                ],
+                
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ],
+            
             /**
              * @docs http://www.ucweb.com/
              */
-            'UCBrowser' => array(
+            'UCBrowser' => [
                 'vendor' => 'UCWeb',
                 'model' => 'UCBrowser',
-                'isMobile' => true,
-                'identityMatches' => 'UC.*Browser|UCWEB',
-                'versionMatches' => array('UCWEB[VER]', 'UCBrowser/[VER]')
-            ),
-            'Silk' => array(
+                
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => ['UC.*Browser|UCWEB'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['UCWEB[VER]', 'UCBrowser/[VER]']
+                    ]
+                    
+                ],
+                
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ],
+            
+            'Silk' => [
                 'vendor' => 'Amazon',
                 'model' => 'Silk',
-                'isMobile' => true,
-                'identityMatches' => '\bSilk\b',
-                'versionMatches' => 'Silk\[VER]'
-            ),
-            'Generic Mobile' => array(
+                
+                'matchIdentity' => [
+                    [
+                        'context' => null,
+                        'match' => ['\bSilk\b'],
+                        'matchType' => 'regex'
+                    ]
+                ],
+                'matchVersion' => [
+                    [
+                        'context' => null,
+                        'match' => ['Silk\[VER]']
+                    ]
+                ],
+                
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ],
+            
+            'Generic Mobile' => [
                 'vendor' => 'Generic',
                 'model' => 'Generic Mobile',
-                'isMobile' => true,
-                'identityMatches' => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|UP.Browser|ObigoInternetBrowser',
+                
+                'matchIdentity' => [
+                        [
+                            'context' => null,
+                            'match' => [
+                                'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser',
+                                'FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|UP.Browser|ObigoInternetBrowser'
+                            ],
+                            'matchType' => 'regex'
+                        ]
+                ],
                 // @todo If this grows, then split into multiple generic browsers as they become important.
-                'versionMatches' => array('Version/[VER]', 'Safari/[VER]', 'Browser/[VER]'),
-            )
-        ),
+                'versionMatches' => [
+                    [
+                        'context' => null,
+                        'match' => ['Version/[VER]', 'Safari/[VER]', 'Browser/[VER]']
+                    ]
+                    
+                ],
+                
+                'triggers' => [
+                    ['isMobile' => true]
+                ]
+            ]
+        ],
 
         /**
          * Apple Safari family
@@ -205,12 +378,12 @@ class BrowserRepository
                 'matchIdentity' => [
                     [
                         'context' => ['isMobile' => true],
-                        'match' => 'Safari/[0-9.]+',
+                        'match' => ['Safari/[0-9.]+'],
                         'matchType' => 'regex'
                     ],
                     [
                         'context' => null,
-                        'match' => 'Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari',
+                        'match' => ['Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari'],
                         'matchType' => 'regex'
                     ]
                 ],
@@ -234,7 +407,7 @@ class BrowserRepository
                 'matchIdentity' => [
                     [
                         'context' => null,
-                        'match' => 'Safari/[0-9.]+',
+                        'match' => ['Safari/[0-9.]+'],
                         'matchType' => 'regex'
                     ]
                 ],
@@ -254,18 +427,8 @@ class BrowserRepository
         ]
     );
 
-    public function getSafariVersion($versionMatch)
-    {
-        $versions = $this->getSafariVersions();
-        if (isset($versions[$versionMatch])) {
-            return $versions[$versionMatch];
-        } else {
-            return null;
-        }
-    }
-
     // Updated from https://en.wikipedia.org/wiki/Safari_version_history
-    public function getSafariVersions()
+    public static function getSafariVersions()
     {
           return array(
               // On Mac OS.
@@ -396,61 +559,30 @@ class BrowserRepository
           );
     }
     
-    
-    public function getFamily($familyName)
+    public static function getFamily($familyName)
     {
-        return $this->data[$familyName];
+        return self::$data[$familyName];
     }
 
-    public function getAll()
+    public static function getSafariVersion($version)
     {
-        return $this->data;
+        $versions = self::getSafariVersions();
+        return (isset($versions[$version])) ?  $versions[$version] : null;
     }
 
-    public function matchItemByUA($userAgent, Browser $item)
+    public static function getAll()
     {
-        if (is_null($item->getVendor())) {
-            throw new \Exception(
-                sprintf('Invalid spec for item. Missing %s key.', 'vendor')
-            );
-        }
-
-        if (is_null($item->getIdentityMatches())) {
-            throw new \Exception(
-                sprintf('Invalid spec for item. Missing %s key.', 'identityMatches')
-            );
-        } elseif ($item->getIdentityMatches() === false) {
-            // This is often case with vendors of phones that we
-            // do not want to specifically detect, but we keep the record
-            // for vendor matches purposes. (eg. Acer)
-            return false;
-        }
-
-        if (!empty($item->getIdentityMatchesInContext())) {
-            foreach ($item->getIdentityMatchesInContext() as $contextSituation => $regex) {
-                $contextSituationPieces = explode(':', $contextSituation);
-                if ($this->context->{$contextSituationPieces[0]}()) {
-
-                }
-            }
-        }
-
-        if (MobileDetect::match($item->getMatchType(), $item->getIdentityMatches(), $userAgent)) {
-            // Found the matching item.
-            return $item;
-        }
-
-        return false;
+        return self::$data;
     }
 
-    public function searchByUA($userAgent)
+    public static function search(Context $context)
     {
         $browser = new Browser();
 
-        foreach ($this->getAll() as $familyName => $items) {
+        foreach (self::getAll() as $familyName => $items) {
             foreach ($items as $itemName => $itemData) {
                 $browser->reload($itemData);
-                $result = $this->matchItemByUA($userAgent, $browser);
+                $result = BrowserMatcher::matchItem($browser, $context);
                 if ($result !== false) {
                     return $result;
                 }

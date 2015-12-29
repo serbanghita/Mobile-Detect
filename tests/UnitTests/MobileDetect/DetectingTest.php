@@ -29,8 +29,8 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
                         ->method('searchPhonesProvider')
                         ->willReturn(array(
                             'vendor' => 'a',
-                            'identityMatches' => 'b',
-                            'modelMatches' => array('c','d')
+                            'matchIdentity' => 'b',
+                            'matchModelAndVersion' => array('c','d')
         ));
         $mobileDetect->expects($this->any())
                         ->method('searchBrowsersProvider')
@@ -71,8 +71,8 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
             ->method('searchTabletsProvider')
             ->willReturn(array(
                 'vendor' => 'a',
-                'identityMatches' => 'b',
-                'modelMatches' => array('c','d')
+                'matchIdentity' => 'b',
+                'matchModelAndVersion' => array('c','d')
             ));
         $mobileDetect->expects($this->any())
             ->method('searchBrowsersProvider')
@@ -122,7 +122,7 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
             ->willReturn(array(
                 'vendor' => 'a',
                 'isMobile' => true,
-                'identityMatches' => 'b',
+                'matchIdentity' => 'b',
                 'versionMatches' => array('c', 'd'),
             ));
 
@@ -176,7 +176,7 @@ class DetectingTest extends \PHPUnit_Framework_TestCase
             ->willReturn(array(
                 'vendor' => 'a',
                 'isMobile' => true,
-                'identityMatches' => 'b',
+                'matchIdentity' => 'b',
                 'versionMatches' => array('c', 'd'),
             ));
 

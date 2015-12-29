@@ -11,7 +11,7 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
     public function testMatchingAnArrayOfEmptyMatchesReturnsFalse()
     {
         $r = new \ReflectionObject($detect = new MobileDetect());
-        $m = $r->getMethod('modelAndVersionMatch');
+        $m = $r->getMethod('matchModelAndVersion');
         $m->setAccessible(true);
 
         $inputModelMatches = array();
@@ -28,7 +28,7 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
     public function testMatchingANullSetOfMatchesReturnsFalse()
     {
         $r = new \ReflectionObject($detect = new MobileDetect());
-        $m = $r->getMethod('modelAndVersionMatch');
+        $m = $r->getMethod('matchModelAndVersion');
         $m->setAccessible(true);
 
         $inputModelMatches = null;
@@ -45,7 +45,7 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
     public function testMatchingAnArrayOfMatchesThatContainMODELKeywordStopsAtTheFirstMatchedRegex()
     {
         $r = new \ReflectionObject($detect = new MobileDetect());
-        $m = $r->getMethod('modelAndVersionMatch');
+        $m = $r->getMethod('matchModelAndVersion');
         $m->setAccessible(true);
 
         $inputModelMatches = array('Nexus [MODEL]', '[MODEL] Nexus');
@@ -63,7 +63,7 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
     public function testMatchingAnArrayOfMatchesThatContainVERKeywordStopsAtTheFirstMatchedRegex()
     {
         $r = new \ReflectionObject($detect = new MobileDetect());
-        $m = $r->getMethod('modelAndVersionMatch');
+        $m = $r->getMethod('matchModelAndVersion');
         $m->setAccessible(true);
 
         $inputModelMatches = array('Nexus [VER]', '[VER] Nexus');
@@ -81,7 +81,7 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
     public function testMatchingPhoneThatContainModelAndVersionReturnTheModelAndVersionKeysWithExpectedValues()
     {
         $r = new \ReflectionObject($detect = new MobileDetect());
-        $m = $r->getMethod('modelAndVersionMatch');
+        $m = $r->getMethod('matchModelAndVersion');
         $m->setAccessible(true);
 
         $inputModelMatches = array(
@@ -105,7 +105,7 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
     public function testMatchingANonExistentSetOfMatchesReturnFalse()
     {
         $r = new \ReflectionObject($detect = new MobileDetect());
-        $m = $r->getMethod('modelAndVersionMatch');
+        $m = $r->getMethod('matchModelAndVersion');
         $m->setAccessible(true);
 
         $inputModelMatches = array(
@@ -123,7 +123,7 @@ class MatchingTheModelTest extends \PHPUnit_Framework_TestCase
     public function testModelMatch()
     {
         $r = new \ReflectionObject($detect = new MobileDetect());
-        $m = $r->getMethod('modelAndVersionMatch');
+        $m = $r->getMethod('matchModelAndVersion');
         $m->setAccessible(true);
 
         $modelMatches = array('hello[VER].*whatever{[MODEL]}');

@@ -32,8 +32,8 @@ use MobileDetect\Device\DeviceInterface;
 use MobileDetect\Exception\InvalidArgumentException;
 use MobileDetect\Repository\Browser\Browser;
 use MobileDetect\Repository\Browser\BrowserRepository;
-use MobileDetect\Repository\DeviceResultInterface;
-use MobileDetect\Repository\Phone\PhoneRepository;
+use MobileDetect\Repository\Device\DeviceMatcher;
+use MobileDetect\Repository\Device\PhoneRepository;
 use MobileDetect\Repository\Tablet\TabletRepository;
 use Psr\Http\Message\MessageInterface as HttpMessageInterface;
 use MobileDetect\Repository\UserAgentHeaders;
@@ -56,12 +56,6 @@ class MobileDetect
     // Database.
     protected $userAgentHeaders;
     protected $recognizedHttpHeaders;
-
-    protected static $knownMatchTypes = array(
-        'regex', //regular expression
-        'strpos', //simple case-sensitive string within string check
-        'stripos', //simple case-insensitive string within string check
-    );
 
     /**
      * For static invocations of this class, this holds a singleton for those methods.
@@ -315,207 +309,6 @@ class MobileDetect
         throw new \BadMethodCallException(sprintf('No such method "%s" exists in Device class.', $method));
     }
 
-    public static function getKnownMatches()
-    {
-        return self::$knownMatchTypes;
-    }
-
-    /**
-     * @param $version string The string to convert to a standard version.
-     * @param bool $asArray
-     * @return array|string A string or an array if $asArray is passed as true.
-     */
-    protected function prepareVersion($version, $asArray = false)
-    {
-        $version = str_replace('_', '.', $version);
-        // @todo Need to remove extra characters from resulting
-        // versions like '2.1-' or '2.1.'
-        if ($asArray) {
-            return explode('.', $version);
-        } else {
-            return $version;
-        }
-    }
-
-    /**
-     * Converts the quasi-regex into a full regex, replacing various common placeholders such
-     * as [VER] or [MODEL].
-     *
-     * @param $regex string|array
-     *
-     * @return string
-     */
-    private static function prepareRegex($regex)
-    {
-        // Regex can be an array, because we have some really long
-        // expressions (eg. Samsung) and other programming languages
-        // cannot cope with the length. See #352
-        if (is_array($regex)) {
-            $regex = implode('', $regex);
-        }
-
-        $regex = sprintf('/%s/i', addcslashes($regex, '/'));
-        $regex = str_replace('[VER]', '(?<version>[0-9\._-]+)', $regex);
-        $regex = str_replace('[MODEL]', '(?<model>[a-zA-Z0-9]+)', $regex);
-
-        return $regex;
-    }
-
-    /**
-     * Given a type of match, this method will check if a valid match is found.
-     *
-     * @param  string                             $type    The type {{@see $this->knownMatchTypes}}.
-     * @param  string                             $test    The test subject.
-     * @param  string                             $against The pattern (for regex) or substring (for str[i]pos).
-     * @return bool                               True if matched successfully.
-     * @throws Exception\InvalidArgumentException If $against isn't a string or $type is invalid.
-     */
-    public static function match($type, $test, $against)
-    {
-        if (!in_array($type, self::getKnownMatches())) {
-            throw new Exception\InvalidArgumentException(
-                sprintf('Unknown match type: %s', $type)
-            );
-        }
-
-        // Always take a string.
-        if (!is_string($against)) {
-            throw new Exception\InvalidArgumentException(
-                sprintf('Invalid %s pattern of type "%s" passed for "%s"', $type, gettype($against), $test)
-            );
-        }
-
-        if ($type == 'regex') {
-            if (self::regexMatch(self::prepareRegex($test), $against)) {
-                return true;
-            }
-        } elseif ($type == 'strpos') {
-            if (false !== strpos($against, $test)) {
-                return true;
-            }
-        } elseif ($type == 'stripos') {
-            if (false !== stripos($against, $test)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Attempts to match the model and extracts
-     * the version and model if available.
-     *
-     * @param $tests array Various tests.
-     * @param $against string The test.
-     *
-     * @return array|bool False if no match, hash of match data otherwise.
-     */
-    protected function modelAndVersionMatch($tests, $against)
-    {
-        // Model match must be an array.
-        if (!is_array($tests) || !count($tests)) {
-            return false;
-        }
-
-        $this->setRegexErrorHandler();
-
-        $matchReturn = array();
-
-        foreach ($tests as $test) {
-            $regex = $this->prepareRegex($test);
-
-            if ($this->regexMatch($regex, $against, $matches)) {
-                // If the match contained a version, save it.
-                if (isset($matches['version'])) {
-                    $matchReturn['version'] = $this->prepareVersion($matches['version']);
-                }
-
-                // If the match contained a model, save it.
-                if (isset($matches['model'])) {
-                    $matchReturn['model'] = $matches['model'];
-                }
-
-                $this->restoreRegexErrorHandler();
-                return $matchReturn;
-            }
-        }
-
-        $this->restoreRegexErrorHandler();
-        return false;
-    }
-
-    /**
-     * @param $tests
-     * @param $against
-     * @return null
-     */
-    protected function matchModel(array $tests, $against)
-    {
-        // Model match must be an array.
-        if (empty($tests)) {
-            return null;
-        }
-
-        $this->setRegexErrorHandler();
-
-        foreach ($tests as $test) {
-            $regex = $this->prepareRegex($test);
-
-            if ($this->regexMatch($regex, $against, $matches)) {
-                // If the match contained a model, save it.
-                if (isset($matches['model'])) {
-                    $this->restoreRegexErrorHandler();
-                    return $matches['model'];
-                }
-            }
-        }
-
-        $this->restoreRegexErrorHandler();
-        return null;
-    }
-
-    protected function matchVersion(array $tests, $against)
-    {
-        // Model match must be an array.
-        if (empty($tests)) {
-            return null;
-        }
-
-        $this->setRegexErrorHandler();
-
-        foreach ($tests as $test) {
-            $regex = $this->prepareRegex($test);
-
-            if ($this->regexMatch($regex, $against, $matches)) {
-                // If the match contained a version, save it.
-                if (isset($matches['version'])) {
-                    $this->restoreRegexErrorHandler();
-                    return $this->prepareVersion($matches['version']);
-                }
-            }
-        }
-
-        $this->restoreRegexErrorHandler();
-        return null;
-    }
-
-    protected function detectBrowserModel(array $browserInfoFromDb)
-    {
-        return (isset($browserInfoFromDb['model']) ? $browserInfoFromDb['model'] : null);
-    }
-
-    protected function detectBrowserVersion(array $browserInfoFromDb)
-    {
-        $browserVersionRaw = $this->matchEntity('version', $browserInfoFromDb['versionMatches'], $this->getUserAgent());
-        if (isset($browserInfoFromDb['versionHelper'])) {
-            $funcName = $browserInfoFromDb['versionHelper'];
-            if ($browserVersionDataFound = $this->browsersProvider->$funcName($browserVersionRaw)) {
-                return $browserVersionDataFound['version'];
-            }
-        }
-        return $browserVersionRaw;
-    }
 
     protected function detectOperatingSystemModel(array $operatingSystemInfoFromDb)
     {
@@ -567,47 +360,47 @@ class MobileDetect
             }
         }
 
-        $deviceResult = null;
+        $device = null;
         $context = new Context();
+        $context->setUserAgent($this->getUserAgent());
 
+        // @todo Unify DeviceRepository
+        
         // Search phone database.
         // Save the device type in Context.
-        $repo = new PhoneRepository();
-        $phone = $repo->searchByUA($this->getUserAgent());
+        $phone = PhoneRepository::search($context);
         if ($phone) {
             $context->setDeviceType(DeviceType::MOBILE);
-            $deviceResult = $phone;
+            $device = $phone;
         }
 
-        // Search tablet database.
+        // Search tablet database. Override device info if found.
         // Save the device type in Context.
-        $repo = new TabletRepository();
-        $tablet = $repo->searchByUA($this->getUserAgent());
+        $tablet = TabletRepository::search($context);
         if ($tablet) {
             $context->setDeviceType(DeviceType::TABLET);
-            $deviceResult = $tablet;
+            $device = $tablet;
         }
 
         // If we know the device,
         // get model and version of the physical device (if possible).
-        if (!is_null($deviceResult)) {
-            if (!is_null($deviceResult->getModel())) {
+        if (!is_null($device)) {
+            if (!is_null($device->getModel())) {
                 // Device model is already known from the DB.
-                $context->setDeviceModel($deviceResult->getModel());
+                $context->setDeviceModel($device->getModel());
             } else {
                 // Attempt to detect model and model version.
-                $context->setDeviceModel($this->matchModel($deviceResult->getModelMatches(), $this->getUserAgent()));
-                $context->setDeviceModelVersion($this->matchVersion($deviceResult->getModelMatches(), $this->getUserAgent()));
+                $deviceModelAndVersion = DeviceMatcher::matchItem($device, $context);
+                // @todo HERE
             }
         }
 
         // Get model and version of the browser (if possible).
-        $repo = new BrowserRepository($context);
-        $browserResult = $repo->searchByUA($this->getUserAgent());
-        $prop['browserResult'] = $browserResult;
+        $browser = BrowserRepository::search($context);
 
-        if ($browserResult) {
-            $prop['browserModel'] = $this->detectBrowserModel($browserResult);
+        if ($browser instanceof Browser) {
+            $context->setBrowserModel($browser->getModel());
+            $context->setBrowserVersion($browser->getVersion());
             $prop['browserVersion'] = $this->detectBrowserVersion($browserResult);
         }
 
@@ -623,7 +416,7 @@ class MobileDetect
         // Fallback if no device was found (phone or tablet)
         // and try to set the device type if the found browser
         // or operating system are mobile.
-        if (null === $deviceResult &&
+        if (null === $device &&
             (
                 (
                     $browserResult &&
@@ -639,7 +432,7 @@ class MobileDetect
             $prop['deviceType'] = DeviceType::MOBILE;
         }
 
-        $prop['vendor'] = !is_null($deviceResult) ? $deviceResult['vendor'] : null;
+        $prop['vendor'] = !is_null($device) ? $device['vendor'] : null;
         $prop['userAgent'] = $this->getUserAgent();
 
         // Add to cache.
@@ -668,16 +461,7 @@ class MobileDetect
         return false;
     }
 
-    /**
-     * @param $regex
-     * @param $against
-     * @param null $matches
-     * @return int
-     */
-    private static function regexMatch($regex, $against, &$matches = null)
-    {
-        return preg_match($regex, $against, $matches);
-    }
+
 
     /**
      * An error handler that gets registered to watch only for regex errors and convert
