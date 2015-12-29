@@ -2,10 +2,12 @@
 namespace MobileDetect;
 
 use MobileDetect\Device\DeviceType;
+use MobileDetect\Repository\Device\DeviceInterface;
 
 class Context
 {
     protected $userAgent = null;
+    protected $device = null;
     protected $deviceType = DeviceType::DESKTOP;
     protected $deviceModel = null;
     protected $deviceModelVersion = null;
@@ -18,6 +20,24 @@ class Context
     public function isMobile()
     {
         return DeviceType::MOBILE || DeviceType::TABLET;
+    }
+
+    /**
+     * @return null
+     */
+    public function getDevice()
+    {
+        return $this->device;
+    }
+
+    /**
+     * @param DeviceInterface $device
+     * @return Context
+     */
+    public function setDevice(DeviceInterface $device)
+    {
+        $this->device = $device;
+        return $this;
     }
 
     /**

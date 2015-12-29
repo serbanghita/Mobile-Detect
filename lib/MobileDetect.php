@@ -28,13 +28,12 @@
  */
 namespace MobileDetect;
 
-use MobileDetect\Device\DeviceInterface;
 use MobileDetect\Exception\InvalidArgumentException;
 use MobileDetect\Repository\Browser\Browser;
 use MobileDetect\Repository\Browser\BrowserRepository;
 use MobileDetect\Repository\Device\DeviceMatcher;
-use MobileDetect\Repository\Device\PhoneRepository;
-use MobileDetect\Repository\Tablet\TabletRepository;
+use MobileDetect\Repository\Device\DeviceRepository;
+use MobileDetect\Service\DetectDeviceService;
 use Psr\Http\Message\MessageInterface as HttpMessageInterface;
 use MobileDetect\Repository\UserAgentHeaders;
 use MobileDetect\Repository\HttpHeaders;
@@ -364,36 +363,10 @@ class MobileDetect
         $context = new Context();
         $context->setUserAgent($this->getUserAgent());
 
-        // @todo Unify DeviceRepository
-        
-        // Search phone database.
-        // Save the device type in Context.
-        $phone = PhoneRepository::search($context);
-        if ($phone) {
-            $context->setDeviceType(DeviceType::MOBILE);
-            $device = $phone;
-        }
 
-        // Search tablet database. Override device info if found.
-        // Save the device type in Context.
-        $tablet = TabletRepository::search($context);
-        if ($tablet) {
-            $context->setDeviceType(DeviceType::TABLET);
-            $device = $tablet;
-        }
-
-        // If we know the device,
-        // get model and version of the physical device (if possible).
-        if (!is_null($device)) {
-            if (!is_null($device->getModel())) {
-                // Device model is already known from the DB.
-                $context->setDeviceModel($device->getModel());
-            } else {
-                // Attempt to detect model and model version.
-                $deviceModelAndVersion = DeviceMatcher::matchItem($device, $context);
-                // @todo HERE
-            }
-        }
+        $detectDevice = new DetectDeviceService($context);
+        $detectDevice->detect();
+        // @todo TO BE CONTINUED
 
         // Get model and version of the browser (if possible).
         $browser = BrowserRepository::search($context);
