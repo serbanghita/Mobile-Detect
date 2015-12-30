@@ -33,7 +33,10 @@ use MobileDetect\Repository\Browser\Browser;
 use MobileDetect\Repository\Browser\BrowserRepository;
 use MobileDetect\Repository\Device\DeviceMatcher;
 use MobileDetect\Repository\Device\DeviceRepository;
+use MobileDetect\Result\Result;
+use MobileDetect\Service\DetectBrowserService;
 use MobileDetect\Service\DetectDeviceService;
+use MobileDetect\Service\DetectOperatingSystemService;
 use Psr\Http\Message\MessageInterface as HttpMessageInterface;
 use MobileDetect\Repository\UserAgentHeaders;
 use MobileDetect\Repository\HttpHeaders;
@@ -358,38 +361,26 @@ class MobileDetect
                 return $cached;
             }
         }
+        
+        $result = new Result();
+        $result->setUserAgent($this->getUserAgent());
 
-        $device = null;
-        $context = new Context();
-        $context->setUserAgent($this->getUserAgent());
-
-
-        $detectDevice = new DetectDeviceService($context);
+        $detectDevice = new DetectDeviceService($result);
         $detectDevice->detect();
-        // @todo TO BE CONTINUED
+        
+        
+        $detectBrowser = new DetectBrowserService($result);
+        $detectBrowser->detect();
 
-        // Get model and version of the browser (if possible).
-        $browser = BrowserRepository::search($context);
+        $detectOs = new DetectOperatingSystemService($result);
+        $detectOs->detect();
+                      
 
-        if ($browser instanceof Browser) {
-            $context->setBrowserModel($browser->getModel());
-            $context->setBrowserVersion($browser->getVersion());
-            $prop['browserVersion'] = $this->detectBrowserVersion($browserResult);
-        }
-
-        // Get model and version of the operating system (if possible).
-        $operatingSystemResult = $this->searchOperatingSystemsProvider();
-        $prop['operatingSystemResult'] = $operatingSystemResult;
-
-        if ($operatingSystemResult) {
-            $prop['operatingSystemModel'] = $this->detectOperatingSystemModel($operatingSystemResult);
-            $prop['operatingSystemVersion'] = $this->detectOperatingSystemVersion($operatingSystemResult);
-        }
 
         // Fallback if no device was found (phone or tablet)
         // and try to set the device type if the found browser
         // or operating system are mobile.
-        if (null === $device &&
+        if (null === $context->getDevice() &&
             (
                 (
                     $browserResult &&
@@ -414,27 +405,7 @@ class MobileDetect
         
         return $device;
     }
-
-    private function searchForItemInDb(array $itemData)
-    {
-
-    }
-
-    protected function searchOperatingSystemsProvider()
-    {
-        foreach ($this->operatingSystemsProvider->getAll() as $familyName => $items) {
-            foreach ($items as $itemName => $itemData) {
-                $result = $this->searchForItemInDb($itemData);
-                if ($result !== false) {
-                    return $result;
-                }
-            }
-        }
-
-        return false;
-    }
-
-
+    
 
     /**
      * An error handler that gets registered to watch only for regex errors and convert

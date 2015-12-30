@@ -1,0 +1,293 @@
+{
+  "Android": {
+    "Android": {
+      "vendor": "Google",
+      "model": "Android",
+      "matchIdentity": [
+        {
+          "context": null,
+          "match": [
+            "Android"
+          ],
+          "matchType": "strpos"
+        }
+      ],
+      "matchVersion": [
+        {
+          "context": null,
+          "match": [
+            "Android[ -][VER]"
+          ],
+          "matchType": "regex",
+          "matchProcessor": "getAndroidVersions"
+        }
+      ],
+      "triggers": [
+        {
+          "isMobile": true
+        }
+      ]
+    }
+  },
+  "iOS": {
+    "iOS": {
+      "vendor": "Apple",
+      "model": "iOS",
+      "matchIdentity": [
+        {
+          "context": null,
+          "match": [
+            "\\biPhone.*(Mobile|OS)|\\biPod|\\biPad"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "matchVersion": [
+        {
+          "context": null,
+          "match": [
+            "\\bOS\\b [VER]",
+            "iPhone OS\/[VER]",
+            "iOS [VER];",
+            "Version\/[VER]"
+          ],
+          "matchProcessor": "getiOsVersion"
+        }
+      ],
+      "triggers": [
+        {
+          "isMobile": true
+        }
+      ]
+    }
+  },
+  "Mac": {
+    "OSX": {
+      "vendor": "Apple",
+      "matchIdentity": [
+        {
+          "context": null,
+          "match": [
+            "Mac OS X"
+          ],
+          "matchType": "strpos"
+        }
+      ],
+      "matchVersion": [
+        {
+          "context": null,
+          "match": [
+            "Mac OS X [VER]"
+          ]
+        }
+      ],
+      "triggers": [
+        {
+          "isMobile": false
+        }
+      ]
+    }
+  },
+  "Windows": {
+    "Windows Mobile": {
+      "vendor": "Microsoft",
+      "model": "Windows Mobile",
+      "matchIdentity": [
+        {
+          "context": null,
+          "match": [
+            "Windows CE.*(PPC|Smartphone|Mobile|[0-9]{3}x[0-9]{3})|Window Mobile|Windows Phone [0-9.]+|WCE;"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "matchVersion": [
+        {
+          "context": null,
+          "match": [
+            "Windows CE\/[VER]"
+          ]
+        }
+      ],
+      "triggers": [
+        {
+          "isMobile": true
+        }
+      ]
+    },
+    "Windows Phone": {
+      "vendor": "Microsoft",
+      "model": "Windows Phone",
+      "matchIdentity": [
+        {
+          "context": null,
+          "match": [
+            "Windows Phone 8.1|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7|Windows NT 6.[23]; ARM;"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "matchVersion": [
+        {
+          "context": null,
+          "match": [
+            "Windows Phone OS [VER]",
+            "Windows Phone [VER]",
+            "Windows NT [VER]"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "triggers": [
+        {
+          "isMobile": true
+        }
+      ]
+    },
+    "Windows Classic": {
+      "vendor": "Microsoft",
+      "model": "Windows",
+      "matchIdentity": [
+        {
+          "context": null,
+          "match": [
+            "Windows|Win64"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "matchVersion": [
+        {
+          "context": null,
+          "match": [
+            "Windows NT [VER]"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "trigger": [
+        {
+          "isMobile": false
+        }
+      ]
+    }
+  },
+  "BlackBerry": {
+    "BlackBerry Tablet": {
+      "vendor": "BlackBerry",
+      "model": "BlackBerry Tablet",
+      "matchIdentity": [
+        {
+          "context": null,
+          "match": [
+            "PlayBook|RIM Tablet"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "matchVersion": [
+        {
+          "context": null,
+          "match": [
+            "Tablet OS [VER]"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "triggers": [
+        {
+          "isMobile": true
+        }
+      ]
+    },
+    "BlackBerry": {
+      "vendor": "BlackBerry",
+      "model": "BlackBerry",
+      "matchIdentity": [
+        {
+          "context": null,
+          "match": [
+            "blackberry|\\bBB10\\b|rim tablet os"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "matchVersion": [
+        {
+          "context": null,
+          "match": [
+            "Version\/[VER]",
+            "BlackBerry[VER]",
+            "BlackBerry [VER];"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "triggers": [
+        {
+          "isMobile": true
+        }
+      ]
+    }
+  },
+  "Bada": {
+    "Bada": {
+      "vendor": "Bada",
+      "model": "Bada",
+      "matchIdentity": [
+        {
+          "context": null,
+          "match": [
+            "\\bBada\\b"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "matchVersion": [
+        {
+          "context": null,
+          "match": [
+            "Bada\/[VER]"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "triggers": [
+        {
+          "isMobile": true
+        }
+      ]
+    }
+  },
+  "Java": {
+    "Java Mobile": {
+      "vendor": "Oracle",
+      "model": "Java Mobile",
+      "matchIdentity": [
+        {
+          "context": null,
+          "match": [
+            "J2ME\/|\\bMIDP\\b|\\bCLDC\\b"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "matchVersion": [
+        {
+          "context": null,
+          "match": [
+            "MIDP-[VER]",
+            "MMP\/[VER]",
+            "J2ME\/[VER]"
+          ],
+          "matchType": "regex"
+        }
+      ],
+      "triggers": [
+        {
+          "isMobile": true
+        }
+      ]
+    }
+  }
+}

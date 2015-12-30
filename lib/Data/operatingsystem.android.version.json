@@ -1,0 +1,442 @@
+{
+  "LVY48F": {
+    "version": "5.1.1_r18",
+    "codename": "Lollipop"
+  },
+  "LYZ28K": {
+    "version": "5.1.1_r17",
+    "codename": "Lollipop"
+  },
+  "LMY48P": {
+    "version": "5.1.1_r16",
+    "codename": "Lollipop"
+  },
+  "LMY48N": {
+    "version": "5.1.1_r15",
+    "codename": "Lollipop"
+  },
+  "LMY48M": {
+    "version": "5.1.1_r14",
+    "codename": "Lollipop"
+  },
+  "LVY48E": {
+    "version": "5.1.1_r13",
+    "codename": "Lollipop"
+  },
+  "LYZ28J": {
+    "version": "5.1.1_r12",
+    "codename": "Lollipop"
+  },
+  "LMY48J": {
+    "version": "5.1.1_r10",
+    "codename": "Lollipop"
+  },
+  "LMY48I": {
+    "version": "5.1.1_r9",
+    "codename": "Lollipop"
+  },
+  "LVY48C": {
+    "version": "5.1.1_r8",
+    "codename": "Lollipop"
+  },
+  "LMY48G": {
+    "version": "5.1.1_r6",
+    "codename": "Lollipop"
+  },
+  "LYZ28E": {
+    "version": "5.1.1_r5",
+    "codename": "Lollipop"
+  },
+  "LMY47Z": {
+    "version": "5.1.1_r4",
+    "codename": "Lollipop"
+  },
+  "LMY48B": {
+    "version": "5.1.1_r3",
+    "codename": "Lollipop"
+  },
+  "LMY47X": {
+    "version": "5.1.1_r2",
+    "codename": "Lollipop"
+  },
+  "LMY47V": {
+    "version": "5.1.1_r1",
+    "codename": "Lollipop"
+  },
+  "LMY47O": {
+    "version": "5.1.0_r5",
+    "codename": "Lollipop"
+  },
+  "LMY47M": {
+    "version": "5.1.0_r4",
+    "codename": "Lollipop"
+  },
+  "LMY47I": {
+    "version": "5.1.0_r3",
+    "codename": "Lollipop"
+  },
+  "LMY47E": {
+    "version": "5.1.0_r2",
+    "codename": "Lollipop"
+  },
+  "LMY47D": {
+    "version": "5.1.0_r1",
+    "codename": "Lollipop"
+  },
+  "LRX22L": {
+    "version": "5.0.2_r3",
+    "codename": "Lollipop"
+  },
+  "LRX22G": {
+    "version": "5.0.2_r1",
+    "codename": "Lollipop"
+  },
+  "LRX22C": {
+    "version": "5.0.1_r1",
+    "codename": "Lollipop"
+  },
+  "LRX21V": {
+    "version": "5.0.0_r7.0.1",
+    "codename": "Lollipop"
+  },
+  "LRX21T": {
+    "version": "5.0.0_r6.0.1",
+    "codename": "Lollipop"
+  },
+  "LRX21R": {
+    "version": "5.0.0_r5.1.0.1",
+    "codename": "Lollipop"
+  },
+  "LRX21Q": {
+    "version": "5.0.0_r5.0.1",
+    "codename": "Lollipop"
+  },
+  "LRX21P": {
+    "version": "5.0.0_r4.0.1",
+    "codename": "Lollipop"
+  },
+  "LRX21O": {
+    "version": "5.0.0_r3.0.1",
+    "codename": "Lollipop"
+  },
+  "LRX21M": {
+    "version": "5.0.0_r2.0.1",
+    "codename": "Lollipop"
+  },
+  "LRX21L": {
+    "version": "5.0.0_r1.0.1",
+    "codename": "Lollipop"
+  },
+  "KTU84Q": {
+    "version": "4.4.4_r2",
+    "codename": "KitKat"
+  },
+  "KTU84P": {
+    "version": "4.4.4_r1",
+    "codename": "KitKat"
+  },
+  "KTU84M": {
+    "version": "4.4.3_r1.1",
+    "codename": "KitKat"
+  },
+  "KTU84L": {
+    "version": "4.4.3_r1",
+    "codename": "KitKat"
+  },
+  "KVT49L": {
+    "version": "4.4.2_r2",
+    "codename": "KitKat"
+  },
+  "KOT49H": {
+    "version": "4.4.2_r1",
+    "codename": "KitKat"
+  },
+  "KOT49E": {
+    "version": "4.4.1_r1",
+    "codename": "KitKat"
+  },
+  "KRT16S": {
+    "version": "4.4_r1.2",
+    "codename": "KitKat"
+  },
+  "KRT16M": {
+    "version": "4.4_r1",
+    "codename": "KitKat"
+  },
+  "JLS36I": {
+    "version": "4.3.1_r1",
+    "codename": "Jelly Bean"
+  },
+  "JLS36C": {
+    "version": "4.3_r3",
+    "codename": "Jelly Bean"
+  },
+  "JSS15R": {
+    "version": "4.3_r2.3",
+    "codename": "Jelly Bean"
+  },
+  "JSS15Q": {
+    "version": "4.3_r2.2",
+    "codename": "Jelly Bean"
+  },
+  "JSS15J": {
+    "version": "4.3_r2.1",
+    "codename": "Jelly Bean"
+  },
+  "JSR78D": {
+    "version": "4.3_r2",
+    "codename": "Jelly Bean"
+  },
+  "JWR66Y": {
+    "version": "4.3_r1.1",
+    "codename": "Jelly Bean"
+  },
+  "JWR66V": {
+    "version": "4.3_r1",
+    "codename": "Jelly Bean"
+  },
+  "JWR66N": {
+    "version": "4.3_r0.9.1",
+    "codename": "Jelly Bean"
+  },
+  "JWR66L": {
+    "version": "4.3_r0.9",
+    "codename": "Jelly Bean"
+  },
+  "JDQ39E": {
+    "version": "4.2.2_r1.2",
+    "codename": "Jelly Bean"
+  },
+  "JDQ39B": {
+    "version": "4.2.2_r1.1",
+    "codename": "Jelly Bean"
+  },
+  "JDQ39": {
+    "version": "4.2.2_r1",
+    "codename": "Jelly Bean"
+  },
+  "JOP40G": {
+    "version": "4.2.1_r1.2",
+    "codename": "Jelly Bean"
+  },
+  "JOP40F": {
+    "version": "4.2.1_r1.1",
+    "codename": "Jelly Bean"
+  },
+  "JOP40D": {
+    "version": "4.2.1_r1",
+    "codename": "Jelly Bean"
+  },
+  "JOP40C": {
+    "version": "4.2_r1",
+    "codename": "Jelly Bean"
+  },
+  "JZO54M": {
+    "version": "4.1.2_r2.1",
+    "codename": "Jelly Bean"
+  },
+  "JZO54L": {
+    "version": "4.1.2_r2",
+    "codename": "Jelly Bean"
+  },
+  "JZO54K": {
+    "version": "4.1.2_r1",
+    "codename": "Jelly Bean"
+  },
+  "JRO03S": {
+    "version": "4.1.1_r6.1",
+    "codename": "Jelly Bean"
+  },
+  "JRO03R": {
+    "version": "4.1.1_r6",
+    "codename": "Jelly Bean"
+  },
+  "JRO03O": {
+    "version": "4.1.1_r5",
+    "codename": "Jelly Bean"
+  },
+  "JRO03L": {
+    "version": "4.1.1_r4",
+    "codename": "Jelly Bean"
+  },
+  "JRO03H": {
+    "version": "4.1.1_r3",
+    "codename": "Jelly Bean"
+  },
+  "JRO03E": {
+    "version": "4.1.1_r2",
+    "codename": "Jelly Bean"
+  },
+  "JRO03D": {
+    "version": "4.1.1_r1.1",
+    "codename": "Jelly Bean"
+  },
+  "JRO03C": {
+    "version": "4.1.1_r1",
+    "codename": "Jelly Bean"
+  },
+  "IMM76L": {
+    "version": "4.0.4_r2.1",
+    "codename": "Ice Cream Sandwich"
+  },
+  "IMM76K": {
+    "version": "4.0.4_r2",
+    "codename": "Ice Cream Sandwich"
+  },
+  "IMM76I": {
+    "version": "4.0.4_r1.2",
+    "codename": "Ice Cream Sandwich"
+  },
+  "IMM76D": {
+    "version": "4.0.4_r1.1",
+    "codename": "Ice Cream Sandwich"
+  },
+  "IMM76": {
+    "version": "4.0.4_r1",
+    "codename": "Ice Cream Sandwich"
+  },
+  "IML77": {
+    "version": "4.0.3_r1.1",
+    "codename": "Ice Cream Sandwich"
+  },
+  "IML74K": {
+    "version": "4.0.3_r1",
+    "codename": "Ice Cream Sandwich"
+  },
+  "ICL53F": {
+    "version": "4.0.2_r1",
+    "codename": "Ice Cream Sandwich"
+  },
+  "ITL41F": {
+    "version": "4.0.1_r1.2",
+    "codename": "Ice Cream Sandwich"
+  },
+  "ITL41D": {
+    "version": "4.0.1_r1.1",
+    "codename": "Ice Cream Sandwich"
+  },
+  "GWK74": {
+    "version": "2.3.7_r1",
+    "codename": "Gingerbread"
+  },
+  "GRK39F": {
+    "version": "2.3.6_r1",
+    "codename": "Gingerbread"
+  },
+  "GRK39C": {
+    "version": "2.3.6_r0.9",
+    "codename": "Gingerbread"
+  },
+  "GRJ90": {
+    "version": "2.3.5_r1",
+    "codename": "Gingerbread"
+  },
+  "GRJ22": {
+    "version": "2.3.4_r1",
+    "codename": "Gingerbread"
+  },
+  "GRJ06D": {
+    "version": "2.3.4_r0.9",
+    "codename": "Gingerbread"
+  },
+  "GRI54": {
+    "version": "2.3.3_r1.1",
+    "codename": "Gingerbread"
+  },
+  "GRI40": {
+    "version": "2.3.3_r1",
+    "codename": "Gingerbread"
+  },
+  "GRH78C": {
+    "version": "2.3.2_r1",
+    "codename": "Gingerbread"
+  },
+  "GRH78": {
+    "version": "2.3.1_r1",
+    "codename": "Gingerbread"
+  },
+  "GRH55": {
+    "version": "2.3_r1",
+    "codename": "Gingerbread"
+  },
+  "FRK76C": {
+    "version": "2.2.3_r2",
+    "codename": "Froyo"
+  },
+  "FRK76": {
+    "version": "2.2.3_r1",
+    "codename": "Froyo"
+  },
+  "FRG83G": {
+    "version": "2.2.2_r1",
+    "codename": "Froyo"
+  },
+  "FRG83D": {
+    "version": "2.2.1_r2",
+    "codename": "Froyo"
+  },
+  "FRG83": {
+    "version": "2.2.1_r1",
+    "codename": "Froyo"
+  },
+  "FRG22D": {
+    "version": "2.2_r1.3",
+    "codename": "Froyo"
+  },
+  "FRG01B": {
+    "version": "2.2_r1.2",
+    "codename": "Froyo"
+  },
+  "FRF91": {
+    "version": "2.2_r1.1",
+    "codename": "Froyo"
+  },
+  "FRF85B": {
+    "version": "2.2_r1",
+    "codename": "Froyo"
+  },
+  "EPF21B": {
+    "version": "2.1_r2.1p2",
+    "codename": "Eclair"
+  },
+  "ESE81": {
+    "version": "2.1_r2.1s",
+    "codename": "Eclair"
+  },
+  "EPE54B": {
+    "version": "2.1_r2.1p",
+    "codename": "Eclair"
+  },
+  "ERE27": {
+    "version": "2.1_r2",
+    "codename": "Eclair"
+  },
+  "ERD79": {
+    "version": "2.1_r1",
+    "codename": "Eclair"
+  },
+  "ESD56": {
+    "version": "2.0.1_r1",
+    "codename": "Eclair"
+  },
+  "ESD20": {
+    "version": "2.0_r1",
+    "codename": "Eclair"
+  },
+  "DMD64": {
+    "version": "1.6_r1.5",
+    "codename": "Donut"
+  },
+  "DRD20": {
+    "version": "1.6_r1.4",
+    "codename": ""
+  },
+  "DRD08": {
+    "version": "1.6_r1.3",
+    "codename": ""
+  },
+  "DRC92": {
+    "version": "1.6_r1.2",
+    "codename": ""
+  }
+}

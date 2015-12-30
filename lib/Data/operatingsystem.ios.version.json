@@ -1,0 +1,318 @@
+{
+  "7A341": {
+    "version": "3.0",
+    "codename": ""
+  },
+  "7A400": {
+    "version": "3.1",
+    "codename": ""
+  },
+  "7C144": {
+    "version": "3.1.1",
+    "codename": ""
+  },
+  "7C145": {
+    "version": "3.1.1",
+    "codename": ""
+  },
+  "7C146": {
+    "version": "3.1.1",
+    "codename": ""
+  },
+  "7D11": {
+    "version": "3.1.2",
+    "codename": ""
+  },
+  "7E18": {
+    "version": "3.1.3",
+    "codename": ""
+  },
+  "7B367": {
+    "version": "3.2",
+    "codename": ""
+  },
+  "7B405": {
+    "version": "3.2.1",
+    "codename": ""
+  },
+  "7B500": {
+    "version": "3.2.2",
+    "codename": ""
+  },
+  "8A293": {
+    "version": "4.0",
+    "codename": ""
+  },
+  "8A306": {
+    "version": "4.0.1",
+    "codename": ""
+  },
+  "8A400": {
+    "version": "4.0.2",
+    "codename": ""
+  },
+  "8B117": {
+    "version": "4.1",
+    "codename": ""
+  },
+  "8C148": {
+    "version": "4.2.1",
+    "codename": ""
+  },
+  "8C148a": {
+    "version": "4.2.1",
+    "codename": ""
+  },
+  "8E128": {
+    "version": "4.2.5",
+    "codename": ""
+  },
+  "8E200": {
+    "version": "4.2.6",
+    "codename": ""
+  },
+  "8E303": {
+    "version": "4.2.7",
+    "codename": ""
+  },
+  "8E401": {
+    "version": "4.2.8",
+    "codename": ""
+  },
+  "8E501": {
+    "version": "4.2.9",
+    "codename": ""
+  },
+  "8E600": {
+    "version": "4.2.10",
+    "codename": ""
+  },
+  "8F190": {
+    "version": "4.3",
+    "codename": ""
+  },
+  "8F191": {
+    "version": "4.3",
+    "codename": ""
+  },
+  "8G4": {
+    "version": "4.3.1",
+    "codename": ""
+  },
+  "8H7": {
+    "version": "4.3.2",
+    "codename": ""
+  },
+  "8H8": {
+    "version": "4.3.2",
+    "codename": ""
+  },
+  "8J2": {
+    "version": "4.3.3",
+    "codename": ""
+  },
+  "8J3": {
+    "version": "4.3.3",
+    "codename": ""
+  },
+  "8K2": {
+    "version": "4.3.4",
+    "codename": ""
+  },
+  "8L1": {
+    "version": "4.3.5",
+    "codename": ""
+  },
+  "9A334": {
+    "version": "5.0",
+    "codename": ""
+  },
+  "9A405": {
+    "version": "5.0.1",
+    "codename": ""
+  },
+  "9A406": {
+    "version": "5.0.1",
+    "codename": ""
+  },
+  "9B176": {
+    "version": "5.1",
+    "codename": ""
+  },
+  "9B179": {
+    "version": "5.1",
+    "codename": ""
+  },
+  "9B206": {
+    "version": "5.1.1",
+    "codename": ""
+  },
+  "9B208": {
+    "version": "5.1.1",
+    "codename": ""
+  },
+  "10A403": {
+    "version": "6.0",
+    "codename": ""
+  },
+  "10A405": {
+    "version": "6.0",
+    "codename": ""
+  },
+  "10A406": {
+    "version": "6.0",
+    "codename": ""
+  },
+  "10A523": {
+    "version": "6.0.1",
+    "codename": ""
+  },
+  "10A525": {
+    "version": "6.0.1",
+    "codename": ""
+  },
+  "10A551": {
+    "version": "6.0.2",
+    "codename": ""
+  },
+  "10B141": {
+    "version": "6.1",
+    "codename": ""
+  },
+  "10B142": {
+    "version": "6.1",
+    "codename": ""
+  },
+  "10B143": {
+    "version": "6.1",
+    "codename": ""
+  },
+  "10B144": {
+    "version": "6.1",
+    "codename": ""
+  },
+  "10B145": {
+    "version": "6.1.1",
+    "codename": ""
+  },
+  "10B146": {
+    "version": "6.1.2",
+    "codename": ""
+  },
+  "10B147": {
+    "version": "6.1.2",
+    "codename": ""
+  },
+  "10B329": {
+    "version": "6.1.3",
+    "codename": ""
+  },
+  "10B350": {
+    "version": "6.1.4",
+    "codename": ""
+  },
+  "10B400": {
+    "version": "6.1.5",
+    "codename": ""
+  },
+  "10B500": {
+    "version": "6.1.6",
+    "codename": ""
+  },
+  "11A465": {
+    "version": "7.0",
+    "codename": ""
+  },
+  "11A466": {
+    "version": "7.0",
+    "codename": ""
+  },
+  "11A470a": {
+    "version": "7.0.1",
+    "codename": ""
+  },
+  "11A501": {
+    "version": "7.0.2",
+    "codename": ""
+  },
+  "11B511": {
+    "version": "7.0.3",
+    "codename": ""
+  },
+  "11B554a": {
+    "version": "7.0.4",
+    "codename": ""
+  },
+  "11B601": {
+    "version": "7.0.5",
+    "codename": ""
+  },
+  "11B651": {
+    "version": "7.0.6",
+    "codename": ""
+  },
+  "11D167": {
+    "version": "7.1",
+    "codename": ""
+  },
+  "11D169": {
+    "version": "7.1",
+    "codename": ""
+  },
+  "11D201": {
+    "version": "7.1.1",
+    "codename": ""
+  },
+  "11D257": {
+    "version": "7.1.2",
+    "codename": ""
+  },
+  "12A365": {
+    "version": "8.0",
+    "codename": ""
+  },
+  "12A366": {
+    "version": "8.0",
+    "codename": ""
+  },
+  "12A402": {
+    "version": "8.0.1",
+    "codename": ""
+  },
+  "12A405": {
+    "version": "8.0.2",
+    "codename": ""
+  },
+  "12B410": {
+    "version": "8.1",
+    "codename": ""
+  },
+  "12B411": {
+    "version": "8.1",
+    "codename": ""
+  },
+  "12B435": {
+    "version": "8.1.1",
+    "codename": ""
+  },
+  "12B436": {
+    "version": "8.1.1",
+    "codename": ""
+  },
+  "12B440": {
+    "version": "8.1.2",
+    "codename": ""
+  },
+  "12D508": {
+    "version": "8.2",
+    "codename": ""
+  },
+  "12F69": {
+    "version": "8.3",
+    "codename": ""
+  },
+  "13T5365h": {
+    "version": "9.1",
+    "codename": ""
+  }
+}

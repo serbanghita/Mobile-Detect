@@ -1,19 +1,18 @@
 <?php
-namespace MobileDetect\Matcher;
+namespace MobileDetect\Repository\OperatingSystem;
 
 use MobileDetect\Context;
-use MobileDetect\Repository\Browser\Browser;
-use MobileDetect\Repository\Browser\BrowserRepository;
+use MobileDetect\Matcher\Matcher;
 
-class BrowserMatcher
+class OperatingSystemMatcher
 {
     /**
-     * @param Browser $item
+     * @param OperatingSystem $item
      * @param Context $context
-     * @return FALSE|Browser
+     * @return FALSE|OperatingSystem
      * @throws \Exception
      */
-    public static function matchItem(Browser $item, Context $context)
+    public static function matchItem(OperatingSystem $item, Context $context)
     {
         if (is_null($item->getVendor())) {
             throw new \Exception(
@@ -51,14 +50,14 @@ class BrowserMatcher
         return false;
     }
 
-    public static function matchVersion(Browser $browser, Context $context)
+    public static function matchVersion(OperatingSystem $os, Context $context)
     {
-        $matchVersion = $browser->getMatchVersion();
+        $matchVersion = $os->getMatchVersion();
         $version = Matcher::matchVersion($matchVersion, $context->getUserAgent());
 
         if (isset($matchVersion['matchProcessor']) && !is_null($version)) {
             $funcName = $matchVersion['matchProcessor'];
-            if ($browserVersionDataFound = BrowserRepository::$funcName($version)) {
+            if ($browserVersionDataFound = OperatingSystemRepository::$funcName($version)) {
                 return $browserVersionDataFound['version'];
             }
         }

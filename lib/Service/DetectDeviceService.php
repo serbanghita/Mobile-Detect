@@ -1,73 +1,51 @@
 <?php
 namespace MobileDetect\Service;
 
-use MobileDetect\Context;
 use MobileDetect\Device\DeviceType;
 use MobileDetect\Matcher\Matcher;
 use MobileDetect\Repository\Device\DeviceInterface;
 use MobileDetect\Repository\Device\DeviceRepository;
 
-class DetectDeviceService
+class DetectDeviceService extends AbstractService
 {
-    protected $context;
-
-    public function __construct(Context $context)
-    {
-        $this->context = $context;
-    }
-
-    protected function getContext()
-    {
-        return $this->context;
-    }
-
     public function detect()
     {
-        $device = null;
-        $context = $this->getContext();
+        $result = $this->getResult();
 
         // Search phone database.
-        // Save the device type in Context.
-        $phoneRepo = new DeviceRepository(new \stdClass(), $context);
-        $phone = $phoneRepo->search();
-        if ($phone) {
-            $context->setDeviceType(DeviceType::MOBILE);
-            $device = $phone;
+        $phoneRepo = new DeviceRepository(new \stdClass());
+        $phone = $phoneRepo->matchByUserAgent($result->getUserAgent());
+        if ($phone instanceof DeviceInterface) {
+            $result->setDevice($phone);
+            $result->getDevice()->setType(DeviceType::MOBILE);
         }
 
         // Search tablet database. Override device info if found.
-        // Save the device type in Context.
-        $tabletRepo = new DeviceRepository(new \stdClass(), $context);
-        $tablet = $tabletRepo->search();
-        if ($tablet) {
-            $context->setDeviceType(DeviceType::TABLET);
-            $device = $tablet;
+        $tabletRepo = new DeviceRepository(new \stdClass());
+        $tablet = $tabletRepo->matchByUserAgent($result->getUserAgent());
+        if ($tablet instanceof DeviceInterface) {
+            $result->setDevice($tablet);
+            $result->getDevice()->setType(DeviceType::TABLET);
         }
 
         // If we know the device,
         // get model and version of the physical device (if possible).
-        if ($device instanceof DeviceInterface) {
-            $this->context->setDevice($device);
-
-            if (!is_null($device->getModel())) {
-                // Device model is already known from the DB.
-                $context->setDeviceModel($device->getModel());
-            } else {
+        if ($result->getDevice() instanceof DeviceInterface) {
+            if (is_null($result->getDevice()->getModel())) {
                 // Attempt to detect model and model version.
                 $modelAndVersion = Matcher::matchModelAndVersion(
-                    $device->getMatchModelAndVersion(),
-                    $context->getUserAgent()
+                    $result->getDevice()->getMatchModelAndVersion(),
+                    $result->getUserAgent()
                 );
                 if ($modelAndVersion) {
                     if (isset($modelAndVersion['model'])) {
-                        $this->context->setDeviceModel($modelAndVersion['model']);
+                        $result->getDevice()->setModel($modelAndVersion['model']);
                     }
                     if (isset($modelAndVersion['version'])) {
-                        $this->context->setDeviceModelVersion($modelAndVersion['version']);
+                        $result->getDevice()->setVersion($modelAndVersion['version']);
                     }
                 }
             }
-
             return true;
         }
 
