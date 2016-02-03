@@ -1062,14 +1062,18 @@ class Mobile_Detect
     protected function matchDetectionRulesAgainstUA($userAgent = null)
     {
         // Begin general search.
+        $regex = '';
         foreach ($this->getRules() as $_regex) {
             if (empty($_regex)) {
                 continue;
             }
 
-            if ($this->match($_regex, $userAgent)) {
-                return true;
-            }
+            $regex .= '('.$_regex.')|';
+        }
+        $regex = rtrim($regex, '|');
+
+        if ($this->match($regex, $userAgent)) {
+            return true;
         }
 
         return false;
@@ -1161,10 +1165,13 @@ class Mobile_Detect
 
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
+        $regex = "";
         foreach (self::$tabletDevices as $_regex) {
-            if ($this->match($_regex, $userAgent)) {
-                return true;
-            }
+            $regex .= '('.$_regex.')|';
+        }
+        $regex = rtrim($regex, '|');
+        if ($this->match($regex, $userAgent)) {
+            return true;
         }
 
         return false;
