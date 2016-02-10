@@ -177,8 +177,8 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 </tr>
 
 <tr>
-  <td>Typo3</td>
-  <td><a href="https://docs.typo3.org/typo3cms/extensions/px_mobiledetect/1.0.2/">px_mobiledetect</a> is an extension that helps to detect visitor's mobile device class (if that’s tablet or mobile device like smartphone). Made by Alexander Tretyak.</td>
+  <td>TYPO3</td>
+  <td><a href="https://typo3.org/extensions/repository/view/px_mobiledetect">px_mobiledetect</a> is an extension that helps to detect visitor's mobile device class (if that’s tablet or mobile device like smartphone). Made by Alexander Tretyak.</td>
 </tr>
 
 <tr>
