@@ -133,32 +133,32 @@ class Mobile_Detect
      */
     protected static $mobileHeaders = array(
 
-            'HTTP_ACCEPT'                  => array('matches' => array(
-                                                                        // Opera Mini; @reference: http://dev.opera.com/articles/view/opera-binary-markup-language/
-                                                                        'application/x-obml2d',
-                                                                        // BlackBerry devices.
-                                                                        'application/vnd.rim.html',
-                                                                        'text/vnd.wap.wml',
-                                                                        'application/vnd.wap.xhtml+xml'
-                                            )),
-            'HTTP_X_WAP_PROFILE'           => null,
-            'HTTP_X_WAP_CLIENTID'          => null,
-            'HTTP_WAP_CONNECTION'          => null,
-            'HTTP_PROFILE'                 => null,
-            // Reported by Opera on Nokia devices (eg. C3).
-            'HTTP_X_OPERAMINI_PHONE_UA'    => null,
-            'HTTP_X_NOKIA_GATEWAY_ID'      => null,
-            'HTTP_X_ORANGE_ID'             => null,
-            'HTTP_X_VODAFONE_3GPDPCONTEXT' => null,
-            'HTTP_X_HUAWEI_USERID'         => null,
-            // Reported by Windows Smartphones.
-            'HTTP_UA_OS'                   => null,
-            // Reported by Verizon, Vodafone proxy system.
-            'HTTP_X_MOBILE_GATEWAY'        => null,
-            // Seen this on HTC Sensation. SensationXE_Beats_Z715e.
-            'HTTP_X_ATT_DEVICEID'          => null,
-            // Seen this on a HTC.
-            'HTTP_UA_CPU'                  => array('matches' => array('ARM')),
+        'HTTP_ACCEPT'                  => array('matches' => array(
+            // Opera Mini; @reference: http://dev.opera.com/articles/view/opera-binary-markup-language/
+            'application/x-obml2d',
+            // BlackBerry devices.
+            'application/vnd.rim.html',
+            'text/vnd.wap.wml',
+            'application/vnd.wap.xhtml+xml'
+        )),
+        'HTTP_X_WAP_PROFILE'           => null,
+        'HTTP_X_WAP_CLIENTID'          => null,
+        'HTTP_WAP_CONNECTION'          => null,
+        'HTTP_PROFILE'                 => null,
+        // Reported by Opera on Nokia devices (eg. C3).
+        'HTTP_X_OPERAMINI_PHONE_UA'    => null,
+        'HTTP_X_NOKIA_GATEWAY_ID'      => null,
+        'HTTP_X_ORANGE_ID'             => null,
+        'HTTP_X_VODAFONE_3GPDPCONTEXT' => null,
+        'HTTP_X_HUAWEI_USERID'         => null,
+        // Reported by Windows Smartphones.
+        'HTTP_UA_OS'                   => null,
+        // Reported by Verizon, Vodafone proxy system.
+        'HTTP_X_MOBILE_GATEWAY'        => null,
+        // Seen this on HTC Sensation. SensationXE_Beats_Z715e.
+        'HTTP_X_ATT_DEVICEID'          => null,
+        // Seen this on a HTC.
+        'HTTP_UA_CPU'                  => array('matches' => array('ARM')),
     );
 
     /**
@@ -195,13 +195,15 @@ class Mobile_Detect
         // Added simvalley mobile just for fun. They have some interesting devices.
         // http://www.simvalley.fr/telephonie---gps-_22_telephonie-mobile_telephones_.html
         'SimValley'     => '\b(SP-80|XT-930|SX-340|XT-930|SX-310|SP-360|SP60|SPT-800|SP-120|SPT-800|SP-140|SPX-5|SPX-8|SP-100|SPX-8|SPX-12)\b',
-         // Wolfgang - a brand that is sold by Aldi supermarkets.
-         // http://www.wolfgangmobile.com/
+        // Wolfgang - a brand that is sold by Aldi supermarkets.
+        // http://www.wolfgangmobile.com/
         'Wolfgang'      => 'AT-B24D|AT-AS50HD|AT-AS40W|AT-AS55HD|AT-AS45q2|AT-B26D|AT-AS50Q',
         'Alcatel'       => 'Alcatel',
         'Nintendo' => 'Nintendo 3DS',
         // http://en.wikipedia.org/wiki/Amoi
         'Amoi'          => 'Amoi',
+        // http://en.wikipedia.org/wiki/INQ
+        'OnePlus'          => 'A0001|A2001|A0002',
         // http://en.wikipedia.org/wiki/INQ
         'INQ'           => 'INQ',
         // @Tapatalk is a mobile app; http://support.tapatalk.com/threads/smf-2-0-2-os-and-browser-detection-plugin-and-tapatalk.15565/#post-79039
@@ -218,7 +220,7 @@ class Mobile_Detect
         'iPad'              => 'iPad|iPad.*Mobile',
         // Removed |^.*Android.*Nexus(?!(?:Mobile).)*$
         // @see #442
-        'NexusTablet'       => 'Android.*Nexus[\s]+(7|9|10)', 
+        'NexusTablet'       => 'Android.*Nexus[\s]+(7|9|10)',
         'SamsungTablet'     => 'SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|GT-P1000|GT-P1003|GT-P1010|GT-P3105|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P3100|GT-P3108|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7320|GT-P7511|GT-N8000|GT-P8510|SGH-I497|SPH-P500|SGH-T779|SCH-I705|SCH-I915|GT-N8013|GT-P3113|GT-P5113|GT-P8110|GT-N8010|GT-N8005|GT-N8020|GT-P1013|GT-P6201|GT-P7501|GT-N5100|GT-N5105|GT-N5110|SHV-E140K|SHV-E140L|SHV-E140S|SHV-E150S|SHV-E230K|SHV-E230L|SHV-E230S|SHW-M180K|SHW-M180L|SHW-M180S|SHW-M180W|SHW-M300W|SHW-M305W|SHW-M380K|SHW-M380S|SHW-M380W|SHW-M430W|SHW-M480K|SHW-M480S|SHW-M480W|SHW-M485W|SHW-M486W|SHW-M500W|GT-I9228|SCH-P739|SCH-I925|GT-I9200|GT-P5200|GT-P5210|GT-P5210X|SM-T311|SM-T310|SM-T310X|SM-T210|SM-T210R|SM-T211|SM-P600|SM-P601|SM-P605|SM-P900|SM-P901|SM-T217|SM-T217A|SM-T217S|SM-P6000|SM-T3100|SGH-I467|XE500|SM-T110|GT-P5220|GT-I9200X|GT-N5110X|GT-N5120|SM-P905|SM-T111|SM-T2105|SM-T315|SM-T320|SM-T320X|SM-T321|SM-T520|SM-T525|SM-T530NU|SM-T230NU|SM-T330NU|SM-T900|XE500T1C|SM-P605V|SM-P905V|SM-T337V|SM-T537V|SM-T707V|SM-T807V|SM-P600X|SM-P900X|SM-T210X|SM-T230|SM-T230X|SM-T325|GT-P7503|SM-T531|SM-T330|SM-T530|SM-T705|SM-T705C|SM-T535|SM-T331|SM-T800|SM-T700|SM-T537|SM-T807|SM-P907A|SM-T337A|SM-T537A|SM-T707A|SM-T807A|SM-T237|SM-T807P|SM-P607T|SM-T217T|SM-T337T|SM-T807T|SM-T116NQ|SM-P550|SM-T350|SM-T550|SM-T9000|SM-P9000|SM-T705Y|SM-T805|GT-P3113|SM-T710|SM-T810|SM-T360|SM-T533|SM-T113|SM-T335|SM-T715', // SCH-P709|SCH-P729|SM-T2558|GT-I9205 - Samsung Mega - treat them like a regular phone.
         // http://docs.aws.amazon.com/silk/latest/developerguide/user-agent.html
         'Kindle'            => 'Kindle|Silk.*Accelerated|Android.*\b(KFOT|KFTT|KFJWI|KFJWA|KFOTE|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|WFJWAE|KFSAWA|KFSAWI|KFASWI)\b',
@@ -288,9 +290,9 @@ class Mobile_Detect
         // @todo Research the Windows Tablets.
         'MSITablet' => 'MSI \b(Primo 73K|Primo 73L|Primo 81L|Primo 77|Primo 93|Primo 75|Primo 76|Primo 73|Primo 81|Primo 91|Primo 90|Enjoy 71|Enjoy 7|Enjoy 10)\b',
         // @todo http://www.kyoceramobile.com/support/drivers/
-    //    'KyoceraTablet' => null,
+        //    'KyoceraTablet' => null,
         // @todo http://intexuae.com/index.php/category/mobile-devices/tablets-products/
-    //    'IntextTablet' => null,
+        //    'IntextTablet' => null,
         // http://pdadb.net/index.php?m=pdalist&list=SMiT (NoName Chinese Tablets)
         // http://www.imp3.net/14/show.php?itemid=20454
         'SMiTTablet'        => 'Android.*(\bMID\b|MID-560|MTV-T1200|MTV-PND531|MTV-P1101|MTV-PND530)',
@@ -756,11 +758,11 @@ class Mobile_Detect
         return self::$uaHttpHeaders;
     }
 
-    
+
     /**
      * Set CloudFront headers
      * http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html#header-caching-web-device
-     * 
+     *
      * @param array $cfHeaders List of HTTP headers
      *
      * @return  boolean If there were CloudFront headers to be set
@@ -1368,7 +1370,7 @@ class Mobile_Detect
 
             // Kindle 3 and Fire  - Tested on the built-in WebKit browser for each
             ( $this->match('Kindle Fire') ||
-            $this->is('Kindle') && $this->version('Kindle', self::VERSION_TYPE_FLOAT) >= 3.0 ) ||
+                $this->is('Kindle') && $this->version('Kindle', self::VERSION_TYPE_FLOAT) >= 3.0 ) ||
 
             // Nook Color 1.4.1 - Tested on original Nook Color, not Nook Tablet
             $this->is('AndroidOS') && $this->is('NookTablet') ||
@@ -1401,7 +1403,7 @@ class Mobile_Detect
 
             //Opera Mini (5.0-6.5) - Tested on iOS 3.2/4.3 and Android 2.3
             ($this->version('Opera Mini', self::VERSION_TYPE_FLOAT) >= 5.0 && $this->version('Opera Mini', self::VERSION_TYPE_FLOAT) <= 7.0 &&
-            ($this->version('Android', self::VERSION_TYPE_FLOAT) >= 2.3 || $this->is('iOS')) ) ||
+                ($this->version('Android', self::VERSION_TYPE_FLOAT) >= 2.3 || $this->is('iOS')) ) ||
 
             // Nokia Symbian^3 - Tested on Nokia N8 (Symbian^3), C7 (Symbian^3), also works on N97 (Symbian^1)
             $this->match('NokiaN8|NokiaC7|N97.*Series60|Symbian/3') ||
@@ -1432,5 +1434,121 @@ class Mobile_Detect
         // All older smartphone platforms and featurephones - Any device that doesn't support media queries
         // will receive the basic, C grade experience.
         return self::MOBILE_GRADE_C;
+    }
+
+
+    /**
+     * Get mobile Name.
+     * This is the way to get mobile Name, it's used
+     * inside getClassCss() method.
+     *
+     * @return bool
+     */
+    public function getMobileName()
+    {
+
+        foreach ($this->getPhoneDevices() as $phoneName => $matchRule) {
+            if ($this->matchUAAgainstKey($phoneName)) {
+                return $phoneName;
+            }
+        }
+
+        return '';
+
+    }
+
+    /**
+     * Get tablette Name.
+     * This is the way to get tablette Name, it's used
+     * inside getClassCss() method.
+     *
+     * @return bool
+     */
+    public function getTabletName()
+    {
+
+        foreach ($this->getTabletDevices() as $tabletteName => $matchRule) {
+            if ($this->matchUAAgainstKey($tabletteName)) {
+                return $tabletteName;
+            }
+        }
+
+        return '';
+
+    }
+
+
+    /**
+     * Get Browser Name.
+     * This is the way to get Browser Name, it's used
+     * inside getClassCss() method.
+     *
+     * @return bool
+     */
+    public function getBrowserName()
+    {
+
+        foreach ($this->getBrowsers() as $browserName => $matchRule) {
+            if ($this->matchUAAgainstKey($browserName)) {
+                return $browserName;
+            }
+        }
+
+        return '';
+
+    }
+
+
+    /**
+     * Get Utilities Name.
+     * This is the way to get Browser Name, it's used
+     * inside getClassCss() method.
+     *
+     * @return bool
+     */
+    public function getUtilitiesName()
+    {
+
+        foreach ($this->getUtilities() as $utilitiesName => $matchRule) {
+            if ($this->matchUAAgainstKey($utilitiesName)) {
+                return $utilitiesName;
+            }
+        }
+
+        return '';
+
+    }
+
+    /**
+     * Construct a CSS class to add into your body html, to have specfic code for Mobile
+     *
+     * @return string List of CSS class
+     */
+    public function getCssClass() {
+        $cssClass = '';
+
+        if ($this->isTablet()) {
+            $cssClass .= ' tablet';
+            $cssClass .= ' '.$this->getTabletName();
+            $cssClass .= ' '.$this->getBrowserName();
+
+
+        } else if ($this->isMobile()) {
+            $cssClass .= ' mobile';
+            $cssClass .= ' '.$this->getMobileName();
+            $cssClass .= ' '.$this->getBrowserName();
+
+        } else {
+            $cssClass .= ' other';
+            $cssClass .= ' '.$this->getUtilitiesName();
+        }
+
+        // Grade
+        $cssClass .= ' grade_'.$this->mobileGrade();
+
+
+
+        return $cssClass;
+
     }
 }
