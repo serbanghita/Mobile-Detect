@@ -528,6 +528,8 @@ class Mobile_Detect
         // @reference: http://en.wikipedia.org/wiki/Minimo
         // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
         'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger',
+        //weChat detect (weChat is Chinese dominated chat app on mobile which has 600M users/month)
+        'weChat'        => 'MicroMessenger',
     );
 
     /**
