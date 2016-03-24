@@ -23,5 +23,6 @@ return array(
         'VendorAppName/1.7.0 (iPhone; iOS 8.1.2; Scale/3.00)'                                                                                                                                    => array('isMobile' => true, 'isTablet' => false, 'version' => array('iOS' => '8.1.2'), 'model' => 'iPhone', 'mobileGrade' => 'A' ),
         'Mozilla/5.0 (iPad; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.17 (KHTML, like Gecko) Version/8.0 Mobile/13A175 Safari/600.1.4' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (iPhone; CPU iPhone OS 9_0 like Mac OS X) AppleWebKit/601.1.37 (KHTML, like Gecko) Version/8.0 Mobile/13A4293g Safari/600.1.4' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (iPad; CPU OS 9_0_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A452 Safari/601.1' => array('isMobile' => true, 'isTablet' => true),
     ),
 );
