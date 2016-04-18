@@ -75,6 +75,14 @@ Special thanks to the community :+1: for donations, [BrowserStack](https://www.b
   </td>
 </tr>
 
+
+<tr>
+    <td>LUA</td>
+    <td>
+        <p><a href="https://github.com/yourpalmark/mobile-detect.lua">mobile-detect.lua</a> is a port of Mobile-Detect to Lua for NGINX HTTP servers. Follows closely to mobile-detect.js. Supports all methods that server-side mobile-detect.js supports. Fully unit-tested and synced with Travis CI (Build Passing badge included). Made by <a href="https://github.com/yourpalmark">Mark Walters</a>.</p>
+    </td>
+</tr>
+
 <tr>
   <td>WordPress</td>
   <td>
