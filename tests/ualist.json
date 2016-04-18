@@ -1,5 +1,5 @@
 {
-    "hash": "4f9950d6ca679376ad680cc9e02d809b73015ef2",
+    "hash": "2828521cbd54ecbd643ea56c086b2d6b9fa0a656",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -8012,6 +8012,12 @@
         {
             "vendor": "Generic",
             "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:2.0) Gecko\/20100101 Goanna\/20160121 PaleMoon\/26.0.0",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Generic",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:38.9) Gecko\/20100101 Goanna\/2.0 Firefox\/38.9 PaleMoon\/26.1.1",
             "mobile": false,
             "tablet": false
         },
