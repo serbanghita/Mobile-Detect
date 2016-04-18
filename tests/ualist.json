@@ -1,5 +1,5 @@
 {
-    "hash": "8c654d5307ee7f10fd56db4d3f30071b8a3b3b33",
+    "hash": "4f9950d6ca679376ad680cc9e02d809b73015ef2",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -8000,6 +8000,18 @@
         {
             "vendor": "Other",
             "user_agent": "Opera\/9.80 (Linux armv7l; HbbTV\/1.1.1 (; Sony; KDL32W650A; PKG3.211EUA; 2013;); ) Presto\/2.12.362 Version\/12.11",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Generic",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:38.9) Gecko\/20100101 Goanna\/2.0 Firefox\/38.9 PaleMoon\/26.0.0",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Generic",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:2.0) Gecko\/20100101 Goanna\/20160121 PaleMoon\/26.0.0",
             "mobile": false,
             "tablet": false
         },
