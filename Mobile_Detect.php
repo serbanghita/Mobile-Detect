@@ -190,7 +190,7 @@ class Mobile_Detect
         // http://www.fly-phone.com/devices/smartphones/ ; Included only smartphones.
         'Fly'           => 'IQ230|IQ444|IQ450|IQ440|IQ442|IQ441|IQ245|IQ256|IQ236|IQ255|IQ235|IQ245|IQ275|IQ240|IQ285|IQ280|IQ270|IQ260|IQ250',
         // http://fr.wikomobile.com
-        'Wiko'          => 'KITE 4G|HIGHWAY|GETAWAY|STAIRWAY|DARKSIDE|DARKFULL|DARKNIGHT|DARKMOON|SLIDE|WAX 4G|RAINBOW|BLOOM|SUNSET|GOA|LENNY|BARRY|IGGY|OZZY|CINK FIVE|CINK PEAX|CINK PEAX 2|CINK SLIM|CINK SLIM 2|CINK +|CINK KING|CINK PEAX|CINK SLIM|SUBLIM',
+        'Wiko'          => 'KITE 4G|HIGHWAY|GETAWAY|STAIRWAY|DARKSIDE|DARKFULL|DARKNIGHT|DARKMOON|SLIDE|WAX 4G|RAINBOW|BLOOM|SUNSET|GOA(?!nna)|LENNY|BARRY|IGGY|OZZY|CINK FIVE|CINK PEAX|CINK PEAX 2|CINK SLIM|CINK SLIM 2|CINK +|CINK KING|CINK PEAX|CINK SLIM|SUBLIM',
         'iMobile'        => 'i-mobile (IQ|i-STYLE|idea|ZAA|Hitz)',
         // Added simvalley mobile just for fun. They have some interesting devices.
         // http://www.simvalley.fr/telephonie---gps-_22_telephonie-mobile_telephones_.html
@@ -532,6 +532,8 @@ class Mobile_Detect
         // @reference: http://en.wikipedia.org/wiki/Minimo
         // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
         'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger',
+		// @reference: https://en.wikipedia.org/wiki/Pale_Moon_(web_browser)
+		'PaleMoon'        => 'Android.*PaleMoon|Mobile.*PaleMoon',
     );
 
     /**
@@ -623,11 +625,13 @@ class Mobile_Detect
         'Skyfire'       => 'Skyfire/[VER]',
         'Tizen'         => 'Tizen/[VER]',
         'Webkit'        => 'webkit[ /][VER]',
+		'PaleMoon'         => 'PaleMoon/[VER]',
 
         // Engine
         'Gecko'         => 'Gecko/[VER]',
         'Trident'       => 'Trident/[VER]',
         'Presto'        => 'Presto/[VER]',
+		'Goanna'           => 'Goanna/[VER]',
 
         // OS
         'iOS'              => ' \bi?OS\b [VER][ ;]{1}',
