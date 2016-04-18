@@ -137,6 +137,6 @@ return array(
         'Mozilla/5.0 (Linux; Android 4.4.4; SM-T561 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.95 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; U; Android 2.3.6; en-ph; GT-S5300 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 5.0.2; SANSUNG SM-T555 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.3 Chrome/38.0.2125.102 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
-
+        'SAMSUNG-GT-C3310R/1.0 NetFront/4.2 Profile/MIDP-2.0 Configuration/CLDC-1.1' => array('isMobile' => true, 'isTablet' => false)
     ),
 );

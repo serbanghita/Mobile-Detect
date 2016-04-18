@@ -455,6 +455,8 @@ class Mobile_Detect
         'UbislateTablet' => 'UbiSlate[\s]?7C',
         // http://www.pocketbook-int.com/ru/support
         'PocketBookTablet' => 'Pocketbook',
+        // http://www.kocaso.com/product_tablet.html
+        'KocasoTablet' => '\b(TB-1207)\b',
         // http://www.tesco.com/direct/hudl/
         'Hudl'              => 'Hudl HT7S3|Hudl 2',
         // http://www.telstra.com.au/home-phone/thub-2/
