@@ -504,6 +504,7 @@ class Mobile_Detect
      * @var array
      */
     protected static $browsers = array(
+        'Vivaldi'         => 'Vivaldi',
         // @reference: https://developers.google.com/chrome/mobile/docs/user-agent
         'Chrome'          => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
         'Dolfin'          => '\bDolfin\b',
