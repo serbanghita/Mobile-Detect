@@ -509,6 +509,7 @@ class Mobile_Detect
         'Dolfin'          => '\bDolfin\b',
         'Opera'           => 'Opera.*Mini|Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+|Coast/[0-9.]+',
         'Skyfire'         => 'Skyfire',
+        'Edge'             => 'Safari/[.0-9]* Edge|Mobile Safari/[.0-9]* Edge',
         'IE'              => 'IEMobile|MSIEMobile', // |Trident/[.0-9]+
         'Firefox'         => 'fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile',
         'Bolt'            => 'bolt',
@@ -609,6 +610,7 @@ class Mobile_Detect
         'Fennec'        => 'Fennec/[VER]',
         // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
         // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
+        'Edge' => 'Edge/[VER]',
         'IE'      => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'Trident/[0-9.]+;.*rv:[VER]'),
         // http://en.wikipedia.org/wiki/NetFront
         'NetFront'      => 'NetFront/[VER]',
