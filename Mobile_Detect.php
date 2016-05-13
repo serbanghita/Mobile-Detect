@@ -199,7 +199,7 @@ class Mobile_Detect
          // Wolfgang - a brand that is sold by Aldi supermarkets.
          // http://www.wolfgangmobile.com/
         'Wolfgang'      => 'AT-B24D|AT-AS50HD|AT-AS40W|AT-AS55HD|AT-AS45q2|AT-B26D|AT-AS50Q',
-        'Alcatel'       => 'Alcatel',
+        'Alcatel'       => 'Alcatel|VF-1497',
         'Nintendo' => 'Nintendo 3DS',
         // http://en.wikipedia.org/wiki/Amoi
         'Amoi'          => 'Amoi',
