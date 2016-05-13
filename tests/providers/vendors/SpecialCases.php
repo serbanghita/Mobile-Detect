@@ -78,6 +78,11 @@ return array(
 
     'Generic' => array(
 
+        //PaleMoon browser
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:38.9) Gecko/20100101 Goanna/2.0 Firefox/38.9 PaleMoon/26.0.0' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:2.0) Gecko/20100101 Goanna/20160121 PaleMoon/26.0.0' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:38.9) Gecko/20100101 Goanna/2.0 Firefox/38.9 PaleMoon/26.1.1' => array('isMobile' => false, 'isTablet' => false),
+
         'Mozilla/5.0 (Linux; U; Jolla; Sailfish; Mobile; rv:20.0) Gecko/20.0 Firefox/20.0 Sailfish Browser/1.0 like Safari/535.19' => array('isMobile' => true, 'isTablet' => true),
 
         // Generic Firefox User-agents

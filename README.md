@@ -14,11 +14,13 @@ and **weekly** basis.
 
 Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is _optimized_, _fast_ and _relevant_ to your users. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
 
-##### This month updates
+##### Announcements
 
-**THANK YOU** for your continuous support and feedback!
+For `2.x` branch we are no longer taking optimizations pull requests, but only new regexes and User-Agents for our tests.
+On `2.x` releases we are focusing on **new tablets only**. All the pull requests about TVs, bots or optimizations will be closed and analyzed after `3.0.0-beta` is released.
 
-Still working on `3.0.0` branch to provide you with device detection! We're really excited on this one!
+Still working on `3.0.0` branch to provide you with device detection!
+We're really excited on this one!
 We would like to speed this up, but life and family gets in the way ;)
 
 Special thanks to **JetBrains** for providing licenses for **PHPStorm**. In case you never heard or tried PHPStorm, you're
@@ -68,11 +70,23 @@ Special thanks to the community :+1: for donations, [BrowserStack](https://www.b
 <table>
 
 <tr>
+  <td>mobile-detect.js</td>
+  <td><p>A <a href="https://github.com/hgoebl/mobile-detect.js">JavaScript port</a> of Mobile-Detect class. Made by <a href="https://github.com/hgoebl">Heinrich Goebl</a>.</p></td>
+</tr>
+
+<tr>
   <td>Varnish Cache</td>
   <td>
-    <p><a href="https://github.com/willemk/varnish-mobiletranslate">Varnish Mobile Detect</a> - Drop-in varnish solution to mobile user detection based on the Mobile-Detect library. Made by <a href="https://github.com/willemk">willemk</a></p>
-    <p><a href="https://github.com/carlosabalde/mobiledetect2vcl">mobiledetect2vcl</a> - Python script to transform the Mobile Detect JSON database into an UA-based mobile detection VCL subroutine easily integrable in any Varnish Cache configuration. Made by <a href="https://github.com/carlosabalde">Carlos Abalde</a></p>
+    <p><a href="https://github.com/willemk/varnish-mobiletranslate">Varnish Mobile Detect</a> - Drop-in varnish solution to mobile user detection based on the Mobile-Detect library. Made by <a href="https://github.com/willemk">willemk</a>.</p>
+    <p><a href="https://github.com/carlosabalde/mobiledetect2vcl">mobiledetect2vcl</a> - Python script to transform the Mobile Detect JSON database into an UA-based mobile detection VCL subroutine easily integrable in any Varnish Cache configuration. Made by <a href="https://github.com/carlosabalde">Carlos Abalde</a>.</p>
   </td>
+</tr>
+
+<tr>
+    <td>LUA</td>
+    <td>
+        <p><a href="https://github.com/yourpalmark/mobile-detect.lua">mobile-detect.lua</a> is a port of Mobile-Detect to Lua for NGINX HTTP servers. Follows closely to mobile-detect.js. Supports all methods that server-side mobile-detect.js supports. Fully unit-tested and synced with Travis CI (Build Passing badge included). Made by <a href="https://github.com/yourpalmark">Mark Walters</a>.</p>
+    </td>
 </tr>
 
 <tr>
@@ -150,6 +164,13 @@ Special thanks to the community :+1: for donations, [BrowserStack](https://www.b
   </tr>
 
   <tr>
+    <td>Slim Framework</td>
+    <td>
+        <p><a href="https://github.com/zguillez/slim_mobile_detect">Slim_Mobile_Detect</a> implements Mobile_Detect lib for differents response's write on Slim Framework App</p>
+    </td>
+  </tr>
+
+  <tr>
     <td>ExpressionEngine</td>
     <td><p><a href="https://github.com/garethtdavies/detect-mobile">EE2 Detect Mobile</a> - Lightweight PHP plugin for <code>EE2</code> that detects a mobile browser using the Mobile Detect class. Made by <a href="https://github.com/garethtdavies">Gareth Davies</a>.</p></td>
  </tr>
@@ -182,6 +203,13 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 </tr>
 
 <tr>
+    <td>PHP</td>
+    <td>
+        <p><a href="https://github.com/mmamedov/page-cache">PageCache</a> is a lightweight PHP library for full page cache, with built-in Mobile-Detect support. Made by <a href="https://github.com/mmamedov">Muhammed Mamedov</a>.</p>
+    </td>
+</tr>
+
+<tr>
   <td>Statamic</td>
   <td><p><a href="https://github.com/haikulab/statamic-mobile-detect">Statamic CMS Mobile Detect</a> - <code>plugin</code>. Made by <a href="https://github.com/haikulab/statamic-mobile-detect">Sergei Filippov of Haiku Lab</a>.</p></td>
 </tr>
@@ -190,11 +218,6 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
   <td>Kohana</td>
   <td><p><a href="https://github.com/madeinnordeste/kohana-mobile-detect">Kohana Mobile Detect</a> - an example of implementation of <code>Mobile_Detect</code> class with Kohana framework. Written by <a href="https://github.com/madeinnordeste">Luiz Alberto S. Ribeiro</a>.</p></td>
 </tr>
-
-<tr>
-  <td>mobile-detect.js</td>
-  <td><p>A <a href="https://github.com/hgoebl/mobile-detect.js">JavaScript port</a> of Mobile-Detect class. Made by <a href="https://github.com/hgoebl">Heinrich Goebl</a></p></td>
-  </tr>
 
  <tr>
       <td>Perl</td>

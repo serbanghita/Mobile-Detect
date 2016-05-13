@@ -376,6 +376,10 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; POV_TAB-PROTAB30-IPS10 Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
         ),
 
+    'Polaroid' => array(
+        'Mozilla/5.0 (Linux; Android 5.1.1; MID4X10 Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.95 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+    ),
+
     'Praktica' => array(
         'Mozilla/5.0 (Linux; Android 4.0.4; TP750 3GGSM Build/IMM76I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.93 Safari/537.36' => array('isMobile' => true, 'isTablet' => true)
     ),
