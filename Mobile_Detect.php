@@ -510,7 +510,7 @@ class Mobile_Detect
         'Dolfin'          => '\bDolfin\b',
         'Opera'           => 'Opera.*Mini|Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+|Coast/[0-9.]+',
         'Skyfire'         => 'Skyfire',
-        'Edge'             => 'Safari/[.0-9]* Edge|Mobile Safari/[.0-9]* Edge',
+        'Edge'             => 'Mobile Safari/[.0-9]* Edge',
         'IE'              => 'IEMobile|MSIEMobile', // |Trident/[.0-9]+
         'Firefox'         => 'fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile',
         'Bolt'            => 'bolt',
