@@ -1,0 +1,3 @@
+/examples export-ignore
+/tests export-ignore
+/.* export-ignore
