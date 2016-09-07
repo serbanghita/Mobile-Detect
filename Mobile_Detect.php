@@ -960,6 +960,17 @@ class Mobile_Detect
 
     }
 
+    public function getMobileDetectionRulesLower()
+    {
+        static $rules;
+
+        if (!$rules) {
+            $rules = array_change_key_case($this->getMobileDetectionRules());
+        }
+
+        return $rules;
+    }
+
     /**
      * Method gets the mobile detection rules + utilities.
      * The reason this is separate is because utilities rules
@@ -988,6 +999,17 @@ class Mobile_Detect
         return $rules;
     }
 
+    public function getMobileDetectionRulesExtendedLower()
+    {
+        static $rules;
+
+        if (!$rules) {
+            $rules = array_change_key_case($this->getMobileDetectionRulesExtended());
+        }
+
+        return $rules;
+    }
+
     /**
      * Retrieve the current set of rules.
      *
@@ -1001,6 +1023,15 @@ class Mobile_Detect
             return self::getMobileDetectionRulesExtended();
         } else {
             return self::getMobileDetectionRules();
+        }
+    }
+
+    public function getRulesLower()
+    {
+        if ($this->detectionType == self::DETECTION_TYPE_EXTENDED) {
+            return self::getMobileDetectionRulesExtendedLower();
+        } else {
+            return self::getMobileDetectionRulesLower();
         }
     }
 
@@ -1076,12 +1107,12 @@ class Mobile_Detect
     protected function matchDetectionRulesAgainstUA($userAgent = null)
     {
         // Begin general search.
-        foreach ($this->getRules() as $_regex) {
+        foreach ($this->getRules() as $name => $_regex) {
             if (empty($_regex)) {
                 continue;
             }
 
-            if ($this->match($_regex, $userAgent)) {
+            if ($this->matchUAAgainstKey($name, $userAgent)) {
                 return true;
             }
         }
@@ -1095,20 +1126,21 @@ class Mobile_Detect
      * regex against the User-Agent.
      *
      * @param string $key
+     * @param  null    $userAgent deprecated
      *
      * @return boolean
      */
-    protected function matchUAAgainstKey($key)
+    protected function matchUAAgainstKey($key, $userAgent = null)
     {
         // Make the keys lowercase so we can match: isIphone(), isiPhone(), isiphone(), etc.
         $key = strtolower($key);
         if (false === isset($this->cache[$key])) {
 
             // change the keys to lower case
-            $_rules = array_change_key_case($this->getRules());
+            $_rules = $this->getRulesLower();
 
             if (false === empty($_rules[$key])) {
-                $this->cache[$key] = $this->match($_rules[$key]);
+                $this->cache[$key] = $this->match($_rules[$key], $userAgent);
             }
 
             if (false === isset($this->cache[$key])) {
@@ -1175,8 +1207,8 @@ class Mobile_Detect
 
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
-        foreach (self::$tabletDevices as $_regex) {
-            if ($this->match($_regex, $userAgent)) {
+        foreach (self::$tabletDevices as $name => $_regex) {
+            if ($this->matchUAAgainstKey($name, $userAgent)) {
                 return true;
             }
         }
