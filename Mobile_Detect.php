@@ -512,7 +512,7 @@ class Mobile_Detect
         'Skyfire'         => 'Skyfire',
         'Edge'             => 'Mobile Safari/[.0-9]* Edge',
         'IE'              => 'IEMobile|MSIEMobile', // |Trident/[.0-9]+
-        'Firefox'         => 'fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile',
+        'Firefox'         => 'fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile|FxiOS',
         'Bolt'            => 'bolt',
         'TeaShark'        => 'teashark',
         'Blazer'          => 'Blazer',
@@ -606,8 +606,8 @@ class Mobile_Detect
         'Chrome'        => array('Chrome/[VER]', 'CriOS/[VER]', 'CrMo/[VER]'),
         'Coast'         => array('Coast/[VER]'),
         'Dolfin'        => 'Dolfin/[VER]',
-        // @reference: https://developer.mozilla.org/en-US/docs/User_Agent_Strings_Reference
-        'Firefox'       => 'Firefox/[VER]',
+        // @reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent/Firefox
+        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'), 
         'Fennec'        => 'Fennec/[VER]',
         // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
         // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
