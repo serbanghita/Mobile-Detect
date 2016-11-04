@@ -275,4 +275,9 @@ Based on browscap, Mobile_Detect and ua-parser. Created for high traffic website
   <td><p><a href="https://github.com/lewisjenkins/craft-lj-mobiledetect">LJ Mobile Detect</a> is a simple implementation of Mobile Detect for Craft CMS. Made by <a href="https://github.com/lewisjenkins">Lewis Jenkins</a></p></td>
 </tr>
 
+<tr>
+  <td>Grav CMS</td>
+  <td><p><a href="https://github.com/dimitrilongo/grav-plugin-mobile-detect/">Grav Plugin Mobile Detect</a> is a simple implementation of Mobile Detect for Grav CMS. Made by <a href="https://github.com/dimitrilongo">Dimitri Longo</a></p></td>
+</tr>
+
 </table>
