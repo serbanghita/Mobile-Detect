@@ -1,5 +1,5 @@
 {
-    "hash": "04e5a6f698fbb49c8b79bcd667e735c7ae2a346d",
+    "hash": "b165cf07b6be9eb7e8ea97281782de857c51c3cc",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -5436,6 +5436,12 @@
         {
             "vendor": "bq",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; Aquaris E10 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.1; Aquaris M10 Build\/LMY47I) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/47.0.2526.83 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
