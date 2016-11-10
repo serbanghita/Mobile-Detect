@@ -1,5 +1,5 @@
 {
-    "hash": "04e5a6f698fbb49c8b79bcd667e735c7ae2a346d",
+    "hash": "63cdede0e70fdb6de381b63924171043ab4d5c1e",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -990,6 +990,18 @@
         {
             "vendor": "ASUS",
             "user_agent": "Mozilla\/5.0 (Linux; Android 5.0; PO1MA build\/LRX21V) AppelWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "ASUS",
+            "user_agent": "Mozilla\/5.0(Linus; Android 4.4.2; K011 Build\/KOT49H)AppleWebKit\/537.36 (KHTML, like Gecko)Chrome\/53.0.2785.124 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "ASUS",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.2; K01E Build\/LRX22G) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
@@ -4172,6 +4184,12 @@
         },
         {
             "vendor": "Microsoft",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/46.0.2486.0 Safari\/537.36 Edge\/13.10586",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "Microsoft",
             "user_agent": "Mozilla\/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident\/6.0; Touch; .NET4.0E; .NET4.0C; Tablet PC 2.0)",
             "mobile": true,
             "tablet": true,
@@ -5436,6 +5454,12 @@
         {
             "vendor": "bq",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; Aquaris E10 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.1; Aquaris M10 Build\/LMY47I) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/47.0.2526.83 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
@@ -7533,6 +7557,30 @@
             "tablet": false
         },
         {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0.1; SM-T713 Build\/MMB29M; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/54.0.2840.68 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0.1; SM-T580 Build\/MMB29K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/54.0.2840.68 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0.1; SM-T355Y Build\/MMB29M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/53.0.2785.124 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.1.1; SAMSUNG SM-T280 Build\/LMY47V) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/3.5 Chrome\/38.0.2125.102 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
             "vendor": "Sony",
             "user_agent": "SonyEricssonK800i\/R1AA Browser\/NetFront\/3.3 Profile\/MIDP-2.0 Configuration\/CLDC-1.1",
             "mobile": true,
@@ -8268,6 +8316,12 @@
             "tablet": false
         },
         {
+            "vendor": "TV",
+            "user_agent": "Mozilla\/5.0 (SMART-TV; Linux; Tizen 2.3) AppleWebkit\/538.1 (KHTML, like Gecko) SamsungBrowser\/1.0 TV Safari\/538.1",
+            "mobile": false,
+            "tablet": false
+        },
+        {
             "vendor": "Generic",
             "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:38.9) Gecko\/20100101 Goanna\/2.0 Firefox\/38.9 PaleMoon\/26.0.0",
             "mobile": false,
@@ -8287,7 +8341,13 @@
         },
         {
             "vendor": "Generic",
-            "user_agent": "Mozilla\/5.0 (Linux; U; Jolla; Sailfish; Mobile; rv:20.0) Gecko\/20.0 Firefox\/20.0 Sailfish Browser\/1.0 like Safari\/535.19",
+            "user_agent": "Mozilla\/5.0 (Maemo; Linux; U; Jolla; Sailfish; Mobile; rv:31.0) Gecko\/31.0 Firefox\/31.0 SailfishBrowser\/1.0",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Generic",
+            "user_agent": "Mozilla\/5.0 (Maemo; Linux; U; Jolla; Sailfish; Tablet; rv:31.0) Gecko\/31.0 Firefox\/31.0 SailfishBrowser\/1.0",
             "mobile": true,
             "tablet": true
         },

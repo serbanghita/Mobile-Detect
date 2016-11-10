@@ -1,6 +1,8 @@
 <?php
 return array(
     'Microsoft' => array(
+        // @See https://github.com/serbanghita/Mobile-Detect/issues/564
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586' => array('isMobile' => false, 'isTablet' => false),
         // Surface tablet
         'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch; .NET4.0E; .NET4.0C; Tablet PC 2.0)'                => array('isMobile' => true, 'isTablet' => true, 'version' => array('IE' => '10.0', 'Windows NT' => '6.2', 'Trident' => '6.0') ),
         // Ambiguous.
