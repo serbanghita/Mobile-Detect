@@ -180,7 +180,7 @@ Special thanks to the community :+1: for donations, [BrowserStack](https://www.b
   <td>
   <p><a href="https://github.com/iamsalnikov/MobileDetect">Yii Extension</a> - Mobile detect plugin for Yii framework.
   Made by <a href="https://github.com/iamsalnikov">Alexey Salnikov</a>.</p>
-
+  <p><a href="https://github.com/candasm/yii1-mobile-detect-component">Yii Extension</a> - Mobile detect component for Yii framework 1.x version which supports composer package manager. Made by <a href="https://github.com/candasm">Candas Minareci</a>.</p>
   <p><a href="https://github.com/alexandernst/yii2-device-detect/">Yii2 Device Detect</a> - Yii2 extension for Mobile-Detect library. Made by <a href="https://github.com/alexandernst">Alexander Nestorov</a></p>
 
   </td>
