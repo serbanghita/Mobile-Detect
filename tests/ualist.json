@@ -1,5 +1,5 @@
 {
-    "hash": "17c74321144bdfe9ab7f236a844a962aadf7f241",
+    "hash": "4caeb7c05a5da9341cebecaec7f0903bf4dc0e0f",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -8270,6 +8270,12 @@
         {
             "vendor": "Other",
             "user_agent": "Opera\/9.80 (Linux armv7l; HbbTV\/1.1.1 (; Sony; KDL32W650A; PKG3.211EUA; 2013;); ) Presto\/2.12.362 Version\/12.11",
+            "mobile": false,
+            "tablet": false
+        },
+        {
+            "vendor": "TV",
+            "user_agent": "Mozilla\/5.0 (SMART-TV; Linux; Tizen 2.3) AppleWebkit\/538.1 (KHTML, like Gecko) SamsungBrowser\/1.0 TV Safari\/538.1",
             "mobile": false,
             "tablet": false
         },

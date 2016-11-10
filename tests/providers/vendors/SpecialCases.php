@@ -73,6 +73,8 @@ return array(
         ),
 
     'TV' => array(
+        // @See https://github.com/serbanghita/Mobile-Detect/issues/591
+        'Mozilla/5.0 (SMART-TV; Linux; Tizen 2.3) AppleWebkit/538.1 (KHTML, like Gecko) SamsungBrowser/1.0 TV Safari/538.1' => array('isMobile' => false, 'isTablet' => false)
         //'Opera/9.80 (Linux mips ; U; HbbTV/1.1.1 (; Philips; ; ; ; ) CE-HTML/1.0 NETTV/3.2.1; en) Presto/2.6.33 Version/10.70' => null
         ),
 
