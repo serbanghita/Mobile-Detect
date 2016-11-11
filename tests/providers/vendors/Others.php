@@ -187,7 +187,9 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 2.3.3; pt-br; X1 Build/HCL ME Tablet X1) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'   => array('isMobile' => true, 'isTablet' => true),
         ),
 
-
+    'Hisense' => array(
+        'Mozilla/5.0 (Linux; Android 4.4.4; F5281 Build/KTU84Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/260.1985.135 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+    ),
 
     'Hudl'  => array(
         'Mozilla/5.0 (Linux; Android 4.2.2; Hudl HT7S3 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.82 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),

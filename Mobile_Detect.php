@@ -22,7 +22,7 @@
  *              README:       https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
  *              HOWTO:        https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
  *
- * @version     2.8.23
+ * @version     2.8.24
  */
 
 class Mobile_Detect
@@ -66,7 +66,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.8.23';
+    const VERSION                   = '2.8.24';
 
     /**
      * A type for the version() method indicating a string return value.
@@ -460,6 +460,8 @@ class Mobile_Detect
         'PocketBookTablet' => 'Pocketbook',
         // http://www.kocaso.com/product_tablet.html
         'KocasoTablet' => '\b(TB-1207)\b',
+        // http://global.hisense.com/product/asia/tablet/Sero7/201412/t20141215_91832.htm
+        'HisenseTablet' => '\b(F5281|E2371)\b',
         // http://www.tesco.com/direct/hudl/
         'Hudl'              => 'Hudl HT7S3|Hudl 2',
         // http://www.telstra.com.au/home-phone/thub-2/
@@ -509,7 +511,7 @@ class Mobile_Detect
      * @var array
      */
     protected static $browsers = array(
-        'Vivaldi'         => 'Vivaldi',
+        //'Vivaldi'         => 'Vivaldi',
         // @reference: https://developers.google.com/chrome/mobile/docs/user-agent
         'Chrome'          => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
         'Dolfin'          => '\bDolfin\b',
