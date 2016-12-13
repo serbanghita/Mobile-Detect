@@ -221,7 +221,7 @@ It overrides the Fuelphp Agent class its methods. Made by <a href="https://githu
 
  <tr>
       <td>Perl</td>
-      <td><p><a href="https://www.buzzerstar.com/development/">MobileDetect.pm</a> - <code>Perl module</code> for  Mobile Detect. Made by <a href="https://www.buzzerstar.com/">Sebastian Enger</a>.</p></td>
+      <td><p><a href="https://www.buzzerstar.com/development/">MobileDetect.pm</a> - <code>Perl module</code> for  Mobile Detect. Made by <a href="https://devop.tools/">Sebastian Enger</a>.</p></td>
  </tr>
 
  <tr>
