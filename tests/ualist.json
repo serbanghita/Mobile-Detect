@@ -1393,6 +1393,18 @@
             "tablet": true
         },
         {
+            "vendor": "Google",
+            "user_agent": "Mozilla/5.0 (Linux; Android 7.1.1; Pixel C Build/NMF26H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Safari/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Google",
+            "user_agent": "Mozilla/5.0 (Linux; Android 5.0.2; SM-T805 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Safari/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
             "vendor": "HP",
             "user_agent": "Mozilla\/5.0 (hp-tablet; Linux; hpwOS\/3.0.5; U; en-GB) AppleWebKit\/534.6 (KHTML, like Gecko) wOSBrowser\/234.83 Safari\/534.6 TouchPad\/1.0",
             "mobile": true,
