@@ -1194,7 +1194,7 @@ class Mobile_Detect
 	
      /**
      * Check if the device is a computer.
-     * Return true if any type of tablet device is detected.
+     * Return true if any type of computer device is detected.
      *
      * @param  string $userAgent   deprecated
      * @param  array  $httpHeaders deprecated
