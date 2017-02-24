@@ -114,7 +114,7 @@ class Mobile_Detect
      * This is good for debug.
      * @var array
      */
-    protected $matchesArray = [];
+    protected $matchesArray = array();
 
     /**
      * The detection type, using self::DETECTION_TYPE_MOBILE or self::DETECTION_TYPE_EXTENDED.
