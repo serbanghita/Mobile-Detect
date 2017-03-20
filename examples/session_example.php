@@ -43,7 +43,6 @@
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  *
  */
-
 // This is mandatory if you're using sessions.
 session_start();
 
@@ -53,19 +52,18 @@ require_once '../Mobile_Detect.php';
 /**
  *  Begin helper functions.
  */
-
 // Your default site layouts.
 // Update this array if you have fewer layout types.
 function layoutTypes()
 {
-    return array('classic', 'mobile', 'tablet');
-
+    return ['classic', 'mobile', 'tablet'];
 }
 
 function initLayoutType()
 {
     // Safety check.
-    if (!class_exists('Mobile_Detect')) { return 'classic'; }
+    if (!class_exists('Mobile_Detect'))
+        return 'classic';
 
     $detect = new Mobile_Detect;
     $isMobile = $detect->isMobile();
@@ -74,38 +72,30 @@ function initLayoutType()
     $layoutTypes = layoutTypes();
 
     // Set the layout type.
-    if ( isset($_GET['layoutType']) ) {
-
+    if (isset($_GET['layoutType']))
         $layoutType = $_GET['layoutType'];
 
-    } else {
-
-        if (empty($_SESSION['layoutType'])) {
-
+    else
+    {
+        if (empty($_SESSION['layoutType']))
             $layoutType = ($isMobile ? ($isTablet ? 'tablet' : 'mobile') : 'classic');
-
-        } else {
-
-            $layoutType =  $_SESSION['layoutType'];
-
-        }
-
+        else
+            $layoutType = $_SESSION['layoutType'];
     }
 
     // Fallback. If everything fails choose classic layout.
-    if ( !in_array($layoutType, $layoutTypes) ) { $layoutType = 'classic'; }
+    if (!in_array($layoutType, $layoutTypes))
+        $layoutType = 'classic';
 
     // Store the layout type for future use.
     $_SESSION['layoutType'] = $layoutType;
 
     return $layoutType;
-
 }
 
 /**
  *  End helper functions.
  */
-
 // Let's roll. Call this function!
 $layoutType = initLayoutType();
 
@@ -117,7 +107,7 @@ $layoutType = initLayoutType();
  */
 ?>
 
-<?php if(!isset($_GET['page'])): ?>
+<?php if (!isset($_GET['page'])): ?>
 
     <!-- example page #1 -->
     <h1>Demo page number one.</h1>
@@ -127,7 +117,7 @@ $layoutType = initLayoutType();
 
 <?php endif; ?>
 
-<?php if(isset($_GET['page']) && $_GET['page']=='two'): ?>
+<?php if (isset($_GET['page']) && $_GET['page'] == 'two'): ?>
 
     <!-- example page #2 -->
     <h1>Demo page number two.</h1>
@@ -137,10 +127,11 @@ $layoutType = initLayoutType();
 <?php endif; ?>
 
 <!-- Footer links example. Change this as you like. -->
-<?php foreach(layoutTypes() as $_layoutType): ?>
-    <?php if($_layoutType == $layoutType): ?>
+<?php foreach (layoutTypes() as $_layoutType): ?>
+    <?php if ($_layoutType == $layoutType): ?>
         <?php echo strtoupper($_layoutType); ?>
     <?php else: ?>
         <a href="<?php echo $_SERVER['PHP_SELF']; ?>?layoutType=<?php echo $_layoutType; ?>"><?php echo strtoupper($_layoutType); ?></a>
     <?php endif; ?>
-<?php endforeach;
+<?php
+endforeach;
