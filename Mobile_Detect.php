@@ -737,7 +737,7 @@ class Mobile_Detect
      *
      * @param string $header The name of the header to retrieve. Can be HTTP compliant such as
      *                       "User-Agent" or "X-Device-User-Agent" or can be php-esque with the
-     *                       all-caps, HTTP_ prefixed, underscore seperated awesomeness.
+     *                       all-caps, HTTP_ prefixed, underscore separated awesomeness.
      *
      * @return string|null The value of the header.
      */
