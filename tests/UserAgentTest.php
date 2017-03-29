@@ -160,10 +160,10 @@ class UserAgentTest extends PHPUnit_Framework_TestCase
         $this->detect->setUserAgent($userAgent);
 
         //is mobile?
-        $this->assertEquals($this->detect->isMobile(), $isMobile);
+        $this->assertEquals($isMobile, $this->detect->isMobile());
 
         //is tablet?
-        $this->assertEquals($this->detect->isTablet(), $isTablet, 'FAILED: ' . $userAgent . ' isTablet: ' . $isTablet);
+        $this->assertEquals($isTablet, $this->detect->isTablet(), 'FAILED: ' . $userAgent . ' isTablet: ' . $isTablet);
 
         if (isset($version)) {
             foreach ($version as $condition => $assertion) {
