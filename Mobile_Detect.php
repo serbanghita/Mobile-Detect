@@ -545,8 +545,8 @@ class Mobile_Detect
         // @reference: http://en.wikipedia.org/wiki/Minimo
         // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
         'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger',
-		// @reference: https://en.wikipedia.org/wiki/Pale_Moon_(web_browser)
-		'PaleMoon'        => 'Android.*PaleMoon|Mobile.*PaleMoon',
+        // @reference: https://en.wikipedia.org/wiki/Pale_Moon_(web_browser)
+        'PaleMoon'        => 'Android.*PaleMoon|Mobile.*PaleMoon',
     );
 
     /**
@@ -640,13 +640,13 @@ class Mobile_Detect
         'Skyfire'       => 'Skyfire/[VER]',
         'Tizen'         => 'Tizen/[VER]',
         'Webkit'        => 'webkit[ /][VER]',
-		'PaleMoon'         => 'PaleMoon/[VER]',
+        'PaleMoon'         => 'PaleMoon/[VER]',
 
         // Engine
         'Gecko'         => 'Gecko/[VER]',
         'Trident'       => 'Trident/[VER]',
         'Presto'        => 'Presto/[VER]',
-		'Goanna'           => 'Goanna/[VER]',
+        'Goanna'           => 'Goanna/[VER]',
 
         // OS
         'iOS'              => ' \bi?OS\b [VER][ ;]{1}',
