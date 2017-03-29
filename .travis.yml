@@ -11,9 +11,12 @@ branches:
     - devel
     - master
 
+before_script:
+  - wget -O phpunit.phar https://phar.phpunit.de/phpunit-4.8.phar
+
 script:
-  - phpunit --version
-  - phpunit -v -c tests/phpunit.xml
+  - php phpunit.phar --version
+  - php phpunit.phar -v -c tests/phpunit.xml
 
 notifications:
   email: false
