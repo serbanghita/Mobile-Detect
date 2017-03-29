@@ -12,6 +12,7 @@ branches:
     - master
 
 script:
+  - phpunit --version
   - phpunit -v -c tests/phpunit.xml
 
 notifications:
