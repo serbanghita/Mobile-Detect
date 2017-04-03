@@ -516,7 +516,8 @@ class Mobile_Detect
         // @reference: https://developers.google.com/chrome/mobile/docs/user-agent
         'Chrome'          => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
         'Dolfin'          => '\bDolfin\b',
-        'Opera'           => 'Opera.*Mini|Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+|Coast/[0-9.]+',
+        'OperaMini'       => 'Opera.*Mini',
+        'Opera'           => 'Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+|Coast/[0-9.]+',
         'Skyfire'         => 'Skyfire',
         'Edge'             => 'Mobile Safari/[.0-9]* Edge',
         'IE'              => 'IEMobile|MSIEMobile', // |Trident/[.0-9]+
