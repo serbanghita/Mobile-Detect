@@ -1061,7 +1061,9 @@ class Mobile_Detect
      */
     public function isBot()
     {
-        return (new CrawlerDetect())->isCrawler($this->userAgent) && ! $this->isMobileBot();
+        $cd = new CrawlerDetect();
+
+        return $cd->isCrawler($this->userAgent) && ! $this->isMobileBot();
     }
 
     /**
