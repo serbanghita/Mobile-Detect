@@ -25,6 +25,8 @@
  * @version     2.8.25
  */
 
+use Jaybizzle\CrawlerDetect\CrawlerDetect;
+
 class Mobile_Detect
 {
     /**
@@ -559,7 +561,6 @@ class Mobile_Detect
         // http://scottcate.com/technology/windows-phone-8-ie10-desktop-or-mobile/
         // https://github.com/serbanghita/Mobile-Detect/issues/57#issuecomment-15024011
         // https://developers.facebook.com/docs/sharing/best-practices
-        'Bot'         => 'Googlebot|facebookexternalhit|AdsBot-Google|Google Keyword Suggestion|Facebot|YandexBot|YandexMobileBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|Exabot|MJ12bot|YandexImages|TurnitinBot|Pingdom',
         'MobileBot'   => 'Googlebot-Mobile|AdsBot-Google-Mobile|YahooSeeker/M1A1-R2D2',
         'DesktopMode' => 'WPDesktop',
         'TV'          => 'SonyDTV|HbbTV', // experimental
@@ -1051,6 +1052,16 @@ class Mobile_Detect
 
         return false;
 
+    }
+
+    /**
+     * Check if user agent is a bot.
+     *
+     * @return boolean
+     */
+    public function isBot()
+    {
+        return (new CrawlerDetect())->isCrawler($this->userAgent) && ! $this->isMobileBot();
     }
 
     /**

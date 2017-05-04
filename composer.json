@@ -14,7 +14,8 @@
         }
     ],
     "require": {
-        "php": ">=5.0.0"
+        "php": ">=5.0.0",
+        "jaybizzle/crawler-detect": "1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
