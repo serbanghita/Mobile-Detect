@@ -18,5 +18,9 @@ return array(
         'Mozilla/5.0 (Linux; Android 4.2.2; ME302KL Build/JDQ39) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.58 Safari/537.31'                          => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 4.4.2; K010 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.111 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 4.4.2; K017 Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.111 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
-    ),
+        'Mozilla/5.0 (Linux; Android 5.0; PO1MA build/LRX21V) AppelWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.93 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0(Linus; Android 4.4.2; K011 Build/KOT49H)AppleWebKit/537.36 (KHTML, like Gecko)Chrome/53.0.2785.124 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 5.0.2; K01E Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.93 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 5.0.2; P01Z Build/LRX22G; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0' => array('isMobile' => true, 'isTablet' => true),
+        ),
 );

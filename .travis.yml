@@ -4,14 +4,19 @@ php:
   - "5.4"
   - "5.5"
   - "5.6"
+  - "7.0"
 
 branches:
   only:
     - devel
     - master
 
+before_script:
+  - wget -O phpunit.phar https://phar.phpunit.de/phpunit-4.8.phar
+
 script:
-  - phpunit -v -c tests/phpunit.xml
+  - php phpunit.phar --version
+  - php phpunit.phar -v -c tests/phpunit.xml
 
 notifications:
   email: false

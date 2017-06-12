@@ -22,6 +22,8 @@ return array(
         ),
 
     'Other' => array(
+        // Vivaldi Browser
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.148 Safari/537.36 Vivaldi/1.4.589.41' => array('isMobile' => false, 'isTablet' => false),
         // Unknown
         'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SV1; [eburo v4.0]; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; InfoPath.3; .NET4.0C; .NET4.0E)' => array('isMobile' => false, 'isTablet' => false),
 
@@ -73,12 +75,20 @@ return array(
         ),
 
     'TV' => array(
+        // @See https://github.com/serbanghita/Mobile-Detect/issues/591
+        'Mozilla/5.0 (SMART-TV; Linux; Tizen 2.3) AppleWebkit/538.1 (KHTML, like Gecko) SamsungBrowser/1.0 TV Safari/538.1' => array('isMobile' => false, 'isTablet' => false)
         //'Opera/9.80 (Linux mips ; U; HbbTV/1.1.1 (; Philips; ; ; ; ) CE-HTML/1.0 NETTV/3.2.1; en) Presto/2.6.33 Version/10.70' => null
         ),
 
     'Generic' => array(
 
-        'Mozilla/5.0 (Linux; U; Jolla; Sailfish; Mobile; rv:20.0) Gecko/20.0 Firefox/20.0 Sailfish Browser/1.0 like Safari/535.19' => array('isMobile' => true, 'isTablet' => true),
+        //PaleMoon browser
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:38.9) Gecko/20100101 Goanna/2.0 Firefox/38.9 PaleMoon/26.0.0' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:2.0) Gecko/20100101 Goanna/20160121 PaleMoon/26.0.0' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:38.9) Gecko/20100101 Goanna/2.0 Firefox/38.9 PaleMoon/26.1.1' => array('isMobile' => false, 'isTablet' => false),
+
+        'Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; Mobile; rv:31.0) Gecko/31.0 Firefox/31.0 SailfishBrowser/1.0' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; Tablet; rv:31.0) Gecko/31.0 Firefox/31.0 SailfishBrowser/1.0' => array('isMobile' => true, 'isTablet' => true),
 
         // Generic Firefox User-agents
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Gecko_user_agent_string_reference#Firefox_OS
