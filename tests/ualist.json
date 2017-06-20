@@ -1,5 +1,5 @@
 {
-    "hash": "132afd91e874a09c777d323f99a8c2d62a0025a1",
+    "hash": "e70aefb108bc7b336db2fcb510c2c22bfd5d1e86",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -1056,6 +1056,12 @@
         {
             "vendor": "ASUS",
             "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.2; P01Z Build\/LRX22G; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "ASUS",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0; P027 Build\/MRA58L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/56.0.2924.87 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },

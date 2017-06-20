@@ -22,5 +22,6 @@ return array(
         'Mozilla/5.0(Linus; Android 4.4.2; K011 Build/KOT49H)AppleWebKit/537.36 (KHTML, like Gecko)Chrome/53.0.2785.124 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 5.0.2; K01E Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.93 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 5.0.2; P01Z Build/LRX22G; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 6.0; P027 Build/MRA58L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         ),
 );
