@@ -102,7 +102,13 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider headersProvider
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::getCfHeaders
      * @covers Mobile_Detect::getHttpHeader
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testConstructorInjection(array $headers)
     {
@@ -126,7 +132,13 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider headersProvider
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::getCfHeaders
      * @covers Mobile_Detect::getHttpHeader
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testInvalidHeader($headers)
     {
@@ -153,8 +165,13 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider userAgentProvider
-     * @covers Mobile_Detect::setUserAgent
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::getCfHeaders
+     * @covers Mobile_Detect::getUaHttpHeaders
      * @covers Mobile_Detect::getUserAgent
+     * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testGetUserAgent($headers, $expectedUserAgent)
     {
@@ -165,7 +182,13 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * Headers should be reset when you use setHttpHeaders.
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::getCfHeaders
+     * @covers Mobile_Detect::getHttpHeaders
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::setCfHeaders
      * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      * @issue #144
      */
     public function testSetHttpHeaders()
@@ -181,7 +204,22 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * Read response from cloudfront, if the cloudfront headers are detected
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::checkHttpHeadersForMobile
+     * @covers Mobile_Detect::getCfHeaders
+     * @covers Mobile_Detect::getMobileDetectionRules
+     * @covers Mobile_Detect::getMobileHeaders
+     * @covers Mobile_Detect::getRules
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::getUserAgent
+     * @covers Mobile_Detect::isMobile
+     * @covers Mobile_Detect::isTablet
+     * @covers Mobile_Detect::match
+     * @covers Mobile_Detect::matchDetectionRulesAgainstUA
      * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setDetectionType
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testSetCfHeaders()
     {
@@ -228,8 +266,13 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Mobile_Detect::setUserAgent
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::getCfHeaders
+     * @covers Mobile_Detect::getUaHttpHeaders
      * @covers Mobile_Detect::getUserAgent
+     * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testSetUserAgent()
     {
@@ -239,7 +282,13 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::getCfHeaders
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::setCfHeaders
      * @covers Mobile_Detect::setDetectionType
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testSetDetectionType()
     {
@@ -334,7 +383,14 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider quickHeadersData
+     * @covers Mobile_Detect::__construct
      * @covers Mobile_Detect::checkHttpHeadersForMobile
+     * @covers Mobile_Detect::getCfHeaders
+     * @covers Mobile_Detect::getMobileHeaders
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testQuickHeaders($headers)
     {
@@ -368,7 +424,14 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider quickNonMobileHeadersData
+     * @covers Mobile_Detect::__construct
      * @covers Mobile_Detect::checkHttpHeadersForMobile
+     * @covers Mobile_Detect::getCfHeaders
+     * @covers Mobile_Detect::getMobileHeaders
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testNonMobileQuickHeaders($headers)
     {
@@ -430,6 +493,14 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider versionDataProvider
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::getCfHeaders
+     * @covers Mobile_Detect::getProperties
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::prepareVersionNo
+     * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      * @covers Mobile_Detect::version
      */
     public function testVersionExtraction($userAgent, $property, $stringVersion, $floatVersion)
@@ -448,7 +519,18 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::getBrowsers
+     * @covers Mobile_Detect::getCfHeaders
      * @covers Mobile_Detect::getMobileDetectionRules
+     * @covers Mobile_Detect::getOperatingSystems
+     * @covers Mobile_Detect::getPhoneDevices
+     * @covers Mobile_Detect::getRules
+     * @covers Mobile_Detect::getTabletDevices
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testRules()
     {
@@ -464,7 +546,20 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::getBrowsers
+     * @covers Mobile_Detect::getCfHeaders
      * @covers Mobile_Detect::getMobileDetectionRulesExtended
+     * @covers Mobile_Detect::getOperatingSystems
+     * @covers Mobile_Detect::getPhoneDevices
+     * @covers Mobile_Detect::getRules
+     * @covers Mobile_Detect::getTabletDevices
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::getUtilities
+     * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setDetectionType
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testRulesExtended()
     {
@@ -482,7 +577,13 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Mobile_Detect::__construct
+     * @covers Mobile_Detect::getCfHeaders
      * @covers Mobile_Detect::getScriptVersion
+     * @covers Mobile_Detect::getUaHttpHeaders
+     * @covers Mobile_Detect::setCfHeaders
+     * @covers Mobile_Detect::setHttpHeaders
+     * @covers Mobile_Detect::setUserAgent
      */
     public function testScriptVersion()
     {
@@ -509,6 +610,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider crazyVersionNumbers
      * @covers Mobile_Detect::prepareVersionNo
+     * @uses Mobile_Detect
      */
     public function testPrepareVersionNo($raw, $expected)
     {
