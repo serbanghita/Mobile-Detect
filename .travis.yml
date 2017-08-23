@@ -16,7 +16,7 @@ before_script:
 
 script:
   - php phpunit.phar --version
-  - php phpunit.phar -v -c tests/phpunit.xml
+  - php phpunit.phar -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky
 
 notifications:
   email: false
