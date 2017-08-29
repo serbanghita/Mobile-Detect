@@ -1,5 +1,5 @@
 {
-    "hash": "132afd91e874a09c777d323f99a8c2d62a0025a1",
+    "hash": "5498bbfea665739a10e5729f3f6e8bbcd9898540",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -6609,6 +6609,12 @@
             "tablet": true
         },
         {
+            "vendor": "Verizon",
+            "user_agent": "Mozilla\/5.0(LInux;Android 5.1.1;QTAQTZ3 Build\/LMY47V) AppleWebKit\/537.36(KHTML, like Gecko) Chrome\/59.0.3071.125 Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
             "vendor": "Versus",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; VS-TOUCHPAD 9 Build\/IMM76D) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
             "mobile": true,
@@ -7721,6 +7727,12 @@
         {
             "vendor": "Samsung",
             "user_agent": "Mozilla\/5.0 (Linux; Android 6.0.1; SAMSUNG SM-T587P Build\/MMB29M) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/4.0 Chrome\/44.0.2403.133 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.2; SAMSUNG SM-P350 Build\/LRX22G) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/3.3 Chrome\/38.0.2125.102 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
