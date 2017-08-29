@@ -120,7 +120,7 @@ Made by [Siegfried Neumann](https://www.drupal.org/user/45267).
 which integrates Context and PHP Mobile Detect library.
 Created by [Artem Shymko](https://www.drupal.org/user/432492).
 
-* [Drupal Mobile Detect](https://www.drupal.org/project/mobile_detect]) - Lightweight mobile detect module for Drupal
+* [Drupal Mobile Detect](https://www.drupal.org/project/mobile_detect) - Lightweight mobile detect module for Drupal
  created by [Matthew Donadio](https://www.drupal.org/user/325244).
 
 **Joomla**
