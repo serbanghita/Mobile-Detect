@@ -1,5 +1,8 @@
+sudo: false
+dist: precise # because it's still supporting PHP 5.3
 language: php
 php:
+  - "5.3"
   - "5.4"
   - "5.5"
   - "5.6"
