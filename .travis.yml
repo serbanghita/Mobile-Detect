@@ -1,14 +1,20 @@
 sudo: false
 dist: precise # because it's still supporting PHP 5.3
 language: php
-php:
-  - "5.3"
-  - "5.4"
-  - "5.5"
-  - "5.6"
-  - "7.0"
-  - "7.1"
-  - "7.2"
+matrix:
+  include:
+    - php: 5.3
+      dist: precise
+    - php: 5.4
+    - php: 5.5
+    - php: 5.6
+    - php: 7.0
+    - php: 7.1
+    - php: 7.2
+    - php: nightly
+  allow_failures:
+    - php: nightly
+  fast_finish: true
 
 branches:
   only:
