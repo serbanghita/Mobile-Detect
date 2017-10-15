@@ -22,11 +22,11 @@ branches:
     - master
 
 before_script:
-  - wget -O phpunit.phar https://phar.phpunit.de/phpunit-4.8.phar
+  - composer install
 
 script:
-  - php phpunit.phar --version
-  - php phpunit.phar -v -c tests/phpunit.xml
+  - vendor/bin/phpunit --version
+  - vendor/bin/phpunit -v -c tests/phpunit.xml
 
 notifications:
   email: false
