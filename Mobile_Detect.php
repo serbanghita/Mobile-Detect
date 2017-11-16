@@ -616,7 +616,7 @@ class Mobile_Detect
         'Coast'         => array('Coast/[VER]'),
         'Dolfin'        => 'Dolfin/[VER]',
         // @reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent/Firefox
-        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'), 
+        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'),
         'Fennec'        => 'Fennec/[VER]',
         // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
         // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
@@ -967,7 +967,6 @@ class Mobile_Detect
         }
 
         return $rules;
-
     }
 
     /**
@@ -982,20 +981,7 @@ class Mobile_Detect
      */
     public function getMobileDetectionRulesExtended()
     {
-        static $rules;
-
-        if (!$rules) {
-            // Merge all rules together.
-            $rules = array_merge(
-                self::$phoneDevices,
-                self::$tabletDevices,
-                self::$operatingSystems,
-                self::$browsers,
-                self::$utilities
-            );
-        }
-
-        return $rules;
+        return array_merge($this->getMobileDetectionRules(), self::$utilities);
     }
 
     /**
