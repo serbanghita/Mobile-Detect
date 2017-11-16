@@ -995,9 +995,9 @@ class Mobile_Detect
     {
         if ($this->detectionType == self::DETECTION_TYPE_EXTENDED) {
             return self::getMobileDetectionRulesExtended();
-        } else {
-            return self::getMobileDetectionRules();
         }
+
+        return self::getMobileDetectionRules();
     }
 
     /**
@@ -1019,7 +1019,6 @@ class Mobile_Detect
      */
     public function checkHttpHeadersForMobile()
     {
-
         foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
             if (isset($this->httpHeaders[$mobileHeader])) {
                 if (is_array($matchType['matches'])) {
@@ -1030,14 +1029,13 @@ class Mobile_Detect
                     }
 
                     return false;
-                } else {
-                    return true;
                 }
+
+                return true;
             }
         }
 
         return false;
-
     }
 
     /**
@@ -1124,7 +1122,6 @@ class Mobile_Detect
      */
     public function isMobile($userAgent = null, $httpHeaders = null)
     {
-
         if ($httpHeaders) {
             $this->setHttpHeaders($httpHeaders);
         }
@@ -1145,10 +1142,9 @@ class Mobile_Detect
 
         if ($this->checkHttpHeadersForMobile()) {
             return true;
-        } else {
-            return $this->matchDetectionRulesAgainstUA();
         }
 
+        return $this->matchDetectionRulesAgainstUA();
     }
 
     /**
@@ -1309,9 +1305,7 @@ class Mobile_Detect
 
                     return $version;
                 }
-
             }
-
         }
 
         return false;
