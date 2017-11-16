@@ -23,7 +23,14 @@ script:
   - php phpunit.phar -v -c tests/phpunit.xml
 
 notifications:
-  email: false
+  email:
+    recipients:
+      - serbanghita@gmail.com
+    on_success: never
+    on_failure: always
+  slack:
+    rooms:
+      - mobiledetect:in9qB4EvOrdR5v1E8V0nNqsJ#general
   irc:
     channels:
       - "asimov.freenode.net#mobiledetect"
