@@ -1130,12 +1130,8 @@ class Mobile_Detect
             $this->setUserAgent($userAgent);
         }
 
-        // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
-        if ($this->getUserAgent() === 'Amazon CloudFront') {
-            $cfHeaders = $this->getCfHeaders();
-            if(array_key_exists('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER', $cfHeaders) && $cfHeaders['HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'] === 'true') {
-                return true;
-            }
+        if ($this->isViaAmazonCloudFront('mobile')) {
+            return true;
         }
 
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
@@ -1148,6 +1144,24 @@ class Mobile_Detect
     }
 
     /**
+     * Decides whether user agent matches Amazon CloudFront and request is via mobile or tablet
+     *
+     * @param type string mobile|tablet
+     * @return boolean
+     */
+    public function isViaAmazonCloudFront($type)
+    {
+        if ($this->getUserAgent() !== 'Amazon CloudFront') {
+            return false;
+        }
+
+        $cfHeaders = $this->getCfHeaders();
+        $keyName = ($type == 'mobile') ? 'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER' : 'HTTP_CLOUDFRONT_IS_TABLET_VIEWER';
+
+        return array_key_exists($keyName, $cfHeaders) && $cfHeaders[$keyName] === 'true';
+    }
+
+    /**
      * Check if the device is a tablet.
      * Return true if any type of tablet device is detected.
      *
@@ -1157,12 +1171,8 @@ class Mobile_Detect
      */
     public function isTablet($userAgent = null, $httpHeaders = null)
     {
-        // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
-        if ($this->getUserAgent() === 'Amazon CloudFront') {
-            $cfHeaders = $this->getCfHeaders();
-            if(array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) && $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true') {
-                return true;
-            }
+        if ($this->isViaAmazonCloudFront('tablet')) {
+            return true;
         }
 
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
