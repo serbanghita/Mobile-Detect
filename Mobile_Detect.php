@@ -835,22 +835,23 @@ class Mobile_Detect
 
         if (false === empty($userAgent)) {
             return $this->userAgent = $userAgent;
-        } else {
-            $this->userAgent = null;
-            foreach ($this->getUaHttpHeaders() as $altHeader) {
-                if (false === empty($this->httpHeaders[$altHeader])) { // @todo: should use getHttpHeader(), but it would be slow. (Serban)
-                    $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
-                }
-            }
+        }
 
-            if (!empty($this->userAgent)) {
-                return $this->userAgent = trim($this->userAgent);
+        $this->userAgent = null;
+        foreach ($this->getUaHttpHeaders() as $altHeader) {
+            if (false === empty($this->httpHeaders[$altHeader])) { // @todo: should use getHttpHeader(), but it would be slow. (Serban)
+                $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
             }
+        }
+
+        if (!empty($this->userAgent)) {
+            return $this->userAgent = trim($this->userAgent);
         }
 
         if (count($this->getCfHeaders()) > 0) {
             return $this->userAgent = 'Amazon CloudFront';
         }
+
         return $this->userAgent = null;
     }
 
