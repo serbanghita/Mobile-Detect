@@ -616,7 +616,7 @@ class Mobile_Detect
         'Coast'         => array('Coast/[VER]'),
         'Dolfin'        => 'Dolfin/[VER]',
         // @reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent/Firefox
-        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'), 
+        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'),
         'Fennec'        => 'Fennec/[VER]',
         // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
         // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
@@ -800,15 +800,14 @@ class Mobile_Detect
 
         // Only save CLOUDFRONT headers. In PHP land, that means only _SERVER vars that
         // start with cloudfront-.
-        $response = false;
         foreach ($cfHeaders as $key => $value) {
             if (substr(strtolower($key), 0, 16) === 'http_cloudfront_') {
                 $this->cloudfrontHeaders[strtoupper($key)] = $value;
-                $response = true;
+                return true;
             }
         }
 
-        return $response;
+        return false;
     }
 
     /**
@@ -835,22 +834,23 @@ class Mobile_Detect
 
         if (false === empty($userAgent)) {
             return $this->userAgent = $userAgent;
-        } else {
-            $this->userAgent = null;
-            foreach ($this->getUaHttpHeaders() as $altHeader) {
-                if (false === empty($this->httpHeaders[$altHeader])) { // @todo: should use getHttpHeader(), but it would be slow. (Serban)
-                    $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
-                }
-            }
+        }
 
-            if (!empty($this->userAgent)) {
-                return $this->userAgent = trim($this->userAgent);
+        $this->userAgent = null;
+        foreach ($this->getUaHttpHeaders() as $altHeader) {
+            if (false === empty($this->httpHeaders[$altHeader])) { // @todo: should use getHttpHeader(), but it would be slow. (Serban)
+                $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
             }
+        }
+
+        if (!empty($this->userAgent)) {
+            return $this->userAgent = trim($this->userAgent);
         }
 
         if (count($this->getCfHeaders()) > 0) {
             return $this->userAgent = 'Amazon CloudFront';
         }
+
         return $this->userAgent = null;
     }
 
@@ -967,7 +967,6 @@ class Mobile_Detect
         }
 
         return $rules;
-
     }
 
     /**
@@ -982,20 +981,7 @@ class Mobile_Detect
      */
     public function getMobileDetectionRulesExtended()
     {
-        static $rules;
-
-        if (!$rules) {
-            // Merge all rules together.
-            $rules = array_merge(
-                self::$phoneDevices,
-                self::$tabletDevices,
-                self::$operatingSystems,
-                self::$browsers,
-                self::$utilities
-            );
-        }
-
-        return $rules;
+        return array_merge($this->getMobileDetectionRules(), self::$utilities);
     }
 
     /**
@@ -1009,9 +995,9 @@ class Mobile_Detect
     {
         if ($this->detectionType == self::DETECTION_TYPE_EXTENDED) {
             return self::getMobileDetectionRulesExtended();
-        } else {
-            return self::getMobileDetectionRules();
         }
+
+        return self::getMobileDetectionRules();
     }
 
     /**
@@ -1033,7 +1019,6 @@ class Mobile_Detect
      */
     public function checkHttpHeadersForMobile()
     {
-
         foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
             if (isset($this->httpHeaders[$mobileHeader])) {
                 if (is_array($matchType['matches'])) {
@@ -1044,14 +1029,13 @@ class Mobile_Detect
                     }
 
                     return false;
-                } else {
-                    return true;
                 }
+
+                return true;
             }
         }
 
         return false;
-
     }
 
     /**
@@ -1138,7 +1122,6 @@ class Mobile_Detect
      */
     public function isMobile($userAgent = null, $httpHeaders = null)
     {
-
         if ($httpHeaders) {
             $this->setHttpHeaders($httpHeaders);
         }
@@ -1147,22 +1130,35 @@ class Mobile_Detect
             $this->setUserAgent($userAgent);
         }
 
-        // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
-        if ($this->getUserAgent() === 'Amazon CloudFront') {
-            $cfHeaders = $this->getCfHeaders();
-            if(array_key_exists('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER', $cfHeaders) && $cfHeaders['HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'] === 'true') {
-                return true;
-            }
+        if ($this->isViaAmazonCloudFront('mobile')) {
+            return true;
         }
 
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
         if ($this->checkHttpHeadersForMobile()) {
             return true;
-        } else {
-            return $this->matchDetectionRulesAgainstUA();
         }
 
+        return $this->matchDetectionRulesAgainstUA();
+    }
+
+    /**
+     * Decides whether user agent matches Amazon CloudFront and request is via mobile or tablet
+     *
+     * @param type string mobile|tablet
+     * @return boolean
+     */
+    public function isViaAmazonCloudFront($type)
+    {
+        if ($this->getUserAgent() !== 'Amazon CloudFront') {
+            return false;
+        }
+
+        $cfHeaders = $this->getCfHeaders();
+        $keyName = ($type == 'mobile') ? 'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER' : 'HTTP_CLOUDFRONT_IS_TABLET_VIEWER';
+
+        return array_key_exists($keyName, $cfHeaders) && $cfHeaders[$keyName] === 'true';
     }
 
     /**
@@ -1175,12 +1171,8 @@ class Mobile_Detect
      */
     public function isTablet($userAgent = null, $httpHeaders = null)
     {
-        // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
-        if ($this->getUserAgent() === 'Amazon CloudFront') {
-            $cfHeaders = $this->getCfHeaders();
-            if(array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) && $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true') {
-                return true;
-            }
+        if ($this->isViaAmazonCloudFront('tablet')) {
+            return true;
         }
 
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
@@ -1323,9 +1315,7 @@ class Mobile_Detect
 
                     return $version;
                 }
-
             }
-
         }
 
         return false;
@@ -1434,23 +1424,6 @@ class Mobile_Detect
             $this->version('Opera Mobi', self::VERSION_TYPE_FLOAT) >= 11 && $this->is('SymbianOS')
         ){
             return self::MOBILE_GRADE_B;
-        }
-
-        if (
-            // Blackberry 4.x - Tested on the Curve 8330
-            $this->version('BlackBerry', self::VERSION_TYPE_FLOAT) <= 5.0 ||
-            // Windows Mobile - Tested on the HTC Leo (WinMo 5.2)
-            $this->match('MSIEMobile|Windows CE.*Mobile') || $this->version('Windows Mobile', self::VERSION_TYPE_FLOAT) <= 5.2 ||
-
-            // Tested on original iPhone (3.1), iPhone 3 (3.2)
-            $this->is('iOS') && $this->version('iPad', self::VERSION_TYPE_FLOAT) <= 3.2 ||
-            $this->is('iOS') && $this->version('iPhone', self::VERSION_TYPE_FLOAT) <= 3.2 ||
-            $this->is('iOS') && $this->version('iPod', self::VERSION_TYPE_FLOAT) <= 3.2 ||
-
-            // Internet Explorer 7 and older - Tested on Windows XP
-            $this->version('IE', self::VERSION_TYPE_FLOAT) <= 7.0 && !$isMobile
-        ){
-            return self::MOBILE_GRADE_C;
         }
 
         // All older smartphone platforms and featurephones - Any device that doesn't support media queries
