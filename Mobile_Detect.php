@@ -1426,23 +1426,6 @@ class Mobile_Detect
             return self::MOBILE_GRADE_B;
         }
 
-        if (
-            // Blackberry 4.x - Tested on the Curve 8330
-            $this->version('BlackBerry', self::VERSION_TYPE_FLOAT) <= 5.0 ||
-            // Windows Mobile - Tested on the HTC Leo (WinMo 5.2)
-            $this->match('MSIEMobile|Windows CE.*Mobile') || $this->version('Windows Mobile', self::VERSION_TYPE_FLOAT) <= 5.2 ||
-
-            // Tested on original iPhone (3.1), iPhone 3 (3.2)
-            $this->is('iOS') && $this->version('iPad', self::VERSION_TYPE_FLOAT) <= 3.2 ||
-            $this->is('iOS') && $this->version('iPhone', self::VERSION_TYPE_FLOAT) <= 3.2 ||
-            $this->is('iOS') && $this->version('iPod', self::VERSION_TYPE_FLOAT) <= 3.2 ||
-
-            // Internet Explorer 7 and older - Tested on Windows XP
-            $this->version('IE', self::VERSION_TYPE_FLOAT) <= 7.0 && !$isMobile
-        ){
-            return self::MOBILE_GRADE_C;
-        }
-
         // All older smartphone platforms and featurephones - Any device that doesn't support media queries
         // will receive the basic, C grade experience.
         return self::MOBILE_GRADE_C;
