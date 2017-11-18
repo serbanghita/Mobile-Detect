@@ -284,3 +284,8 @@ Made by [https://github.com/Shaked](Shaked).
 * [ua-lua](https://github.com/robinef/ua-lua) is a small lib written in LUA providing device type detection. 
 ua-lua is detecting mobile or tablet devices based on user-agent inside nginx daemon. 
 Made by [Frédéric Robinet](https://github.com/robinef).
+
+**.Net**
+
+* [mobile-detect](https://github.com/validide/mobile-detect) is a .Net partial port written in C#. 
+Made by [Valentin Dide](https://github.com/validide).
