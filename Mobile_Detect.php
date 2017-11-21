@@ -616,7 +616,7 @@ class Mobile_Detect
         'Coast'         => array('Coast/[VER]'),
         'Dolfin'        => 'Dolfin/[VER]',
         // @reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent/Firefox
-        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'), 
+        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'),
         'Fennec'        => 'Fennec/[VER]',
         // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
         // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
@@ -1085,18 +1085,10 @@ class Mobile_Detect
      */
     protected function matchDetectionRulesAgainstUA($userAgent = null)
     {
-        // Begin general search.
-        foreach ($this->getRules() as $_regex) {
-            if (empty($_regex)) {
-                continue;
-            }
+        $rules = $this->getRules();
+        $rules = array_filter($rules);
 
-            if ($this->match($_regex, $userAgent)) {
-                return true;
-            }
-        }
-
-        return false;
+        return $this->match('(?:'.implode(')|(?:', $rules).')', $userAgent);
     }
 
     /**
