@@ -154,6 +154,9 @@ is included in the default package since 1.5.x.
 additional functionality. 
 Made by [Jens Segers](https://github.com/jenssegers).
 
+* [Laravel Mobile Detect](https://github.com/riverskies/laravel-mobile-detect) is a package that enables you to use device detection right in your Laravel Blade templates. (Utilises the well-known, constantly updated PHP mobile detection library.)
+Made by [Barnabas Kecskes](https://github.com/barnabaskecskes).
+
 * [BrowserDetect](https://github.com/hisorange/browser-detect) is a browser and mobile detection package, collects 
 and wrap together the best user-agent identifiers for Laravel. 
 Created by [Varga Zsolt](https://github.com/hisorange).
