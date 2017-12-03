@@ -1,5 +1,5 @@
 {
-    "hash": "f0d7d1dad3dc2a2274070e0f4d5c7db8305e48fa",
+    "hash": "4ad32efbefe1c2d201c0a4345328685366accbdf",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -1357,6 +1357,12 @@
         {
             "vendor": "Dell",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 3.2; zh-cn; Dell Streak 10 Pro Build\/HTJ85B) AppleWebKit\/534.13 (KHTML, like Gecko) Version\/4.0 Safari\/534.13",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Dell",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Android 7.0.1; en-US; Dell Streak 7 Build\/FRF91) AppleWebKit\/51.0 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/51.0",
             "mobile": true,
             "tablet": true
         },

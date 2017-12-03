@@ -239,6 +239,15 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Mobile_Detect::prepareUserAgent
+     */
+    public function testSetLongUserAgent() {
+        $md = new Mobile_Detect();
+        $md->setUserAgent(str_repeat("a", 501));
+        $this->assertEquals(strlen($md->getUserAgent()), 500);
+    }
+
+    /**
      * @covers Mobile_Detect::setDetectionType
      */
     public function testSetDetectionType()
