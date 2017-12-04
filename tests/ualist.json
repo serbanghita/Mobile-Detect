@@ -1,5 +1,5 @@
 {
-    "hash": "1ee998b75abc907ade9c7ef5c9797e1e60fe3eea",
+    "hash": "93907c428ea27e413140da098aacc4b68d28e66b",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -5540,6 +5540,54 @@
             "user_agent": "Mozilla\/5.0 (Linux; Android 5.1; Aquaris M10 Build\/LMY47I) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/47.0.2526.83 Safari\/537.36",
             "mobile": true,
             "tablet": true
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0; Aquaris M10 FHD Build\/MRA58K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/58.0.3029.83 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0; Aquaris M8 Build\/MRA58K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/60.0.3112.116 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.4; Aquaris E5 Build\/KTU84P) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/57.0.2987.132 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.0; Aquaris E5 HD Build\/LRX21M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/55.0.2883.91 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0; Aquaris_M4.5 Build\/MRA58K; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/51.0.2704.81 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0.1; Aquaris X5 Build\/MMB29M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/52.0.2743.91 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; Aquaris E4 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/61.0.3163.98 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.2; Aquaris M5 Build\/LRX22G) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/61.0.3163.98 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
         },
         {
             "vendor": "Captiva",
