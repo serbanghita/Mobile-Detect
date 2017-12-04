@@ -23,7 +23,7 @@ branches:
     - master
 
 before_script:
-  - composer install --no-dev
+  - composer install
 
 script:
   - vendor/bin/phpunit --version
