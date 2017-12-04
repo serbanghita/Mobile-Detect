@@ -9,4 +9,3 @@ nbproject/
 *.iml
 /coverage
 /phpunit.phar
-composer.lock
