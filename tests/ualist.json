@@ -1,5 +1,5 @@
 {
-    "hash": "4ad32efbefe1c2d201c0a4345328685366accbdf",
+    "hash": "aabc4a6bc63016eb3a96c9ec580be5c1334e7d2a",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -3609,6 +3609,18 @@
         {
             "vendor": "HTC",
             "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.1; HTC One_M8 Build\/LRX22C.H5) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/40.0.2214.109 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 8.0.0; Pixel Build\/OPR6.170623.012) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/58.0.3029.125 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "HTC",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 7.1; Pixel XL Build\/NDE63H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/58.0.3029.83 Mobile Safari\/537.36",
             "mobile": true,
             "tablet": false
         },
@@ -7747,6 +7759,18 @@
             "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.2; SAMSUNG SM-P350 Build\/LRX22G) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/3.3 Chrome\/38.0.2125.102 Safari\/537.36",
             "mobile": true,
             "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 7.0; SM-G950F Build\/NRD90M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/58.0.3029.83 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 7.0; SM-G955F Build\/NRD90M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/58.0.3029.83 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
         },
         {
             "vendor": "Sony",
