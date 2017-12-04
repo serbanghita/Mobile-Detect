@@ -359,5 +359,8 @@ return array(
             'Mozilla/5.0 (Linux; Android 4.4.2; HTC One mini Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
             'Mozilla/5.0 (Linux; Android 5.0.1; HTC One_M8 Build/LRX22C.H5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
 
+            'Mozilla/5.0 (Linux; Android 8.0.0; Pixel Build/OPR6.170623.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.125 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+            'Mozilla/5.0 (Linux; Android 7.1; Pixel XL Build/NDE63H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.83 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+
             ),
 );
