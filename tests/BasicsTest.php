@@ -102,7 +102,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider headersProvider
-     * @covers Mobile_Detect::getHttpHeader
+     * @param array $headers
      */
     public function testConstructorInjection(array $headers)
     {
@@ -126,7 +126,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider headersProvider
-     * @covers Mobile_Detect::getHttpHeader
      */
     public function testInvalidHeader($headers)
     {
@@ -153,8 +152,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider userAgentProvider
-     * @covers Mobile_Detect::setUserAgent
-     * @covers Mobile_Detect::getUserAgent
      */
     public function testGetUserAgent($headers, $expectedUserAgent)
     {
@@ -165,7 +162,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * Headers should be reset when you use setHttpHeaders.
-     * @covers Mobile_Detect::setHttpHeaders
      * @issue #144
      */
     public function testSetHttpHeaders()
@@ -181,7 +177,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * Read response from cloudfront, if the cloudfront headers are detected
-     * @covers Mobile_Detect::setCfHeaders
      */
     public function testSetCfHeaders()
     {
@@ -227,10 +222,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertSame($md->getCfHeaders(), $header4);
     }
 
-    /**
-     * @covers Mobile_Detect::setUserAgent
-     * @covers Mobile_Detect::getUserAgent
-     */
     public function testSetUserAgent()
     {
         $md = new Mobile_Detect(array());
@@ -238,18 +229,12 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertSame('hello world', $md->getUserAgent());
     }
 
-    /**
-     * @covers Mobile_Detect::prepareUserAgent
-     */
     public function testSetLongUserAgent() {
         $md = new Mobile_Detect();
         $md->setUserAgent(str_repeat("a", 501));
         $this->assertEquals(strlen($md->getUserAgent()), 500);
     }
 
-    /**
-     * @covers Mobile_Detect::setDetectionType
-     */
     public function testSetDetectionType()
     {
         $md = new Mobile_Detect(array());
@@ -343,7 +328,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider quickHeadersData
-     * @covers Mobile_Detect::checkHttpHeadersForMobile
+     * @param $headers
      */
     public function testQuickHeaders($headers)
     {
@@ -377,7 +362,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider quickNonMobileHeadersData
-     * @covers Mobile_Detect::checkHttpHeadersForMobile
+     * @param $headers
      */
     public function testNonMobileQuickHeaders($headers)
     {
@@ -387,7 +372,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException BadMethodCallException
-     * @coversNothing
      */
     public function testBadMethodCall()
     {
@@ -439,7 +423,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider versionDataProvider
-     * @covers Mobile_Detect::version
      */
     public function testVersionExtraction($userAgent, $property, $stringVersion, $floatVersion)
     {
@@ -456,9 +439,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($prop);
     }
 
-    /**
-     * @covers Mobile_Detect::getMobileDetectionRules
-     */
     public function testRules()
     {
         $md = new Mobile_Detect;
@@ -472,9 +452,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($count, count($rules));
     }
 
-    /**
-     * @covers Mobile_Detect::getMobileDetectionRulesExtended
-     */
     public function testRulesExtended()
     {
         $md = new Mobile_Detect;
@@ -490,9 +467,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($count, count($rules));
     }
 
-    /**
-     * @covers Mobile_Detect::getScriptVersion
-     */
     public function testScriptVersion()
     {
         $v = Mobile_Detect::getScriptVersion();
@@ -517,7 +491,6 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider crazyVersionNumbers
-     * @covers Mobile_Detect::prepareVersionNo
      */
     public function testPrepareVersionNo($raw, $expected)
     {

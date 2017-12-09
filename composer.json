@@ -17,8 +17,7 @@
         "php": ">=5.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.8|5.7",
-        "squizlabs/php_codesniffer": "~2.8|3.*"
+        "phpunit/phpunit": "~4.8|5.7"
     },
     "autoload": {
         "classmap": ["Mobile_Detect.php"],
