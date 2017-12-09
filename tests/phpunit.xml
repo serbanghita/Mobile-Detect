@@ -25,5 +25,4 @@
       <file>../Mobile_Detect.php</file>
     </whitelist>
   </filter>
-
 </phpunit>

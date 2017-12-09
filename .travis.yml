@@ -27,7 +27,7 @@ before_script:
 
 script:
   - vendor/bin/phpunit --version
-  - vendor/bin/phpunit -v -c tests/phpunit.xml
+  - vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky
 
 notifications:
   email:

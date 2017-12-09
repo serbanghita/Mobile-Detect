@@ -126,6 +126,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider headersProvider
+     * @param $headers
      */
     public function testInvalidHeader($headers)
     {
@@ -152,6 +153,8 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider userAgentProvider
+     * @param $headers
+     * @param $expectedUserAgent
      */
     public function testGetUserAgent($headers, $expectedUserAgent)
     {
@@ -491,6 +494,8 @@ class BasicTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider crazyVersionNumbers
+     * @param $raw
+     * @param $expected
      */
     public function testPrepareVersionNo($raw, $expected)
     {
