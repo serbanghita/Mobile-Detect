@@ -36,3 +36,13 @@
 * Author
 
 Or you can submit a PR against `README.md`.
+
+**Website updates**
+
+1. Our official website is hosted at [http://mobiledetect.net](http://mobiledetect.net).
+1. The files are found on the `gh-pages` branch.
+1. `git checkout gh-pages`
+1. `npm install -g browser-sync`
+1. `browser-sync start --s . --f . --port 3000 --reload-debounce 1500 --no-ui`
+1. Go to `http://localhost:3000` and make changes.
+1. Commit, push and submit the PR against `serbanghita:gh-pages`.
