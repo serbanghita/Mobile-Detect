@@ -1,4 +1,5 @@
 <?php
+require __DIR__.'/../vendor/autoload.php';
 require_once '../Mobile_Detect.php';
 /*
 $detect = new Mobile_Detect;
@@ -23,7 +24,8 @@ foreach($user_agents as $user_agent)
 */
 
 $detect = new Mobile_Detect;
-//$detect->setUserAgent('Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko');
-//var_dump($detect->version('IE'));
-$detect->setUserAgent('Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko');
+$detect->setUserAgent('Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko');
 var_dump($detect->version('IE'));
+
+$detect->setUserAgent('DoCoMo/2.0 N905i(c100;TB;W24H16) (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)');
+var_dump($detect->isBot());
