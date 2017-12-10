@@ -23,7 +23,7 @@ We're committed to make Mobile_Detect the best open-source mobile detection reso
 each release we're running [unit tests](./tests), we also research and update the detection rules on **daily** 
 and **weekly** basis.
 
-See also [the history](../../docs/HISTORY.md) of the project.
+See also [the history](./docs/HISTORY.md) of the project.
 
 #### Announcements
 
