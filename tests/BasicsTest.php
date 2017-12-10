@@ -452,7 +452,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
             count(Mobile_Detect::getBrowsers())
         ));
         $rules = $md->getRules();
-        $this->assertEquals($count, count($rules));
+        $this->assertCount($count, $rules);
     }
 
     public function testRulesExtended()
@@ -467,7 +467,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
         ));
         $md->setDetectionType(Mobile_Detect::DETECTION_TYPE_EXTENDED);
         $rules = $md->getRules();
-        $this->assertEquals($count, count($rules));
+        $this->assertCount($count, $rules);
     }
 
     public function testScriptVersion()
