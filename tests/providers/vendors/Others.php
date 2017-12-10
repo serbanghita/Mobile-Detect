@@ -494,11 +494,6 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.1.1; ru-ru; Visture V10 Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'          => array('isMobile' => true, 'isTablet' => true),
         ),
 
-    'Verizon' => array(
-        // Fixes https://github.com/serbanghita/Mobile-Detect/issues/671
-        'Mozilla/5.0(LInux;Android 5.1.1;QTAQTZ3 Build/LMY47V) AppleWebKit/537.36(KHTML, like Gecko) Chrome/59.0.3071.125 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
-    ),
-
     'Versus' => array(
         'Mozilla/5.0 (Linux; Android 4.0.4; VS-TOUCHPAD 9 Build/IMM76D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19'                                                                                                                 => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; Versus Touchpad 9.7 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'                                                                                                                 => array('isMobile' => true, 'isTablet' => true),
