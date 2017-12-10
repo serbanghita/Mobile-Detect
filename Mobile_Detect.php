@@ -618,7 +618,7 @@ class Mobile_Detect
         'Coast'         => array('Coast/[VER]'),
         'Dolfin'        => 'Dolfin/[VER]',
         // @reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent/Firefox
-        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'), 
+        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'),
         'Fennec'        => 'Fennec/[VER]',
         // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
         // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
@@ -692,7 +692,7 @@ class Mobile_Detect
      *
      * @return string The version number in semantic version format.
      */
-    public static function getScriptVersion()
+    public static function getScriptVersion(): string
     {
         return self::VERSION;
     }
@@ -703,7 +703,7 @@ class Mobile_Detect
      * @param array $httpHeaders The headers to set. If null, then using PHP's _SERVER to extract
      *                           the headers. The default null is left for backwards compatibility.
      */
-    public function setHttpHeaders($httpHeaders = null)
+    public function setHttpHeaders(array $httpHeaders = null)
     {
         // use global _SERVER if $httpHeaders aren't defined
         if (!is_array($httpHeaders) || !count($httpHeaders)) {
@@ -730,7 +730,7 @@ class Mobile_Detect
      *
      * @return array
      */
-    public function getHttpHeaders()
+    public function getHttpHeaders(): array
     {
         return $this->httpHeaders;
     }
@@ -745,7 +745,7 @@ class Mobile_Detect
      *
      * @return string|null The value of the header.
      */
-    public function getHttpHeader($header)
+    public function getHttpHeader(string $header): string
     {
         // are we using PHP-flavored headers?
         if (strpos($header, '_') === false) {
@@ -766,7 +766,7 @@ class Mobile_Detect
         return null;
     }
 
-    public function getMobileHeaders()
+    public function getMobileHeaders(): array
     {
         return self::$mobileHeaders;
     }
@@ -777,7 +777,7 @@ class Mobile_Detect
      *
      * @return array List of HTTP headers.
      */
-    public function getUaHttpHeaders()
+    public function getUaHttpHeaders(): array
     {
         return self::$uaHttpHeaders;
     }
@@ -791,7 +791,8 @@ class Mobile_Detect
      *
      * @return  boolean If there were CloudFront headers to be set
      */
-    public function setCfHeaders($cfHeaders = null) {
+    public function setCfHeaders(array $cfHeaders = null): bool
+    {
         // use global _SERVER if $cfHeaders aren't defined
         if (!is_array($cfHeaders) || !count($cfHeaders)) {
             $cfHeaders = $_SERVER;
@@ -818,7 +819,7 @@ class Mobile_Detect
      *
      * @return array
      */
-    public function getCfHeaders()
+    public function getCfHeaders(): array
     {
         return $this->cloudfrontHeaders;
     }
@@ -840,7 +841,7 @@ class Mobile_Detect
      *
      * @return string|null
      */
-    public function setUserAgent($userAgent = null)
+    public function setUserAgent(string $userAgent = null): string
     {
         // Invalidate cache due to #375
         $this->cache = array();
@@ -871,7 +872,7 @@ class Mobile_Detect
      *
      * @return string|null The user agent if it's set.
      */
-    public function getUserAgent()
+    public function getUserAgent(): string
     {
         return $this->userAgent;
     }
@@ -885,7 +886,7 @@ class Mobile_Detect
      * @param string $type The type. Must be a self::DETECTION_TYPE_* constant. The default
      *                     parameter is null which will default to self::DETECTION_TYPE_MOBILE.
      */
-    public function setDetectionType($type = null)
+    public function setDetectionType(string $type = null)
     {
         if ($type === null) {
             $type = self::DETECTION_TYPE_MOBILE;
@@ -913,7 +914,7 @@ class Mobile_Detect
      *
      * @return array List of phone devices.
      */
-    public static function getPhoneDevices()
+    public static function getPhoneDevices(): array
     {
         return self::$phoneDevices;
     }
@@ -923,7 +924,7 @@ class Mobile_Detect
      *
      * @return array List of tablet devices.
      */
-    public static function getTabletDevices()
+    public static function getTabletDevices(): array
     {
         return self::$tabletDevices;
     }
@@ -933,7 +934,7 @@ class Mobile_Detect
      *
      * @return array List of user agents.
      */
-    public static function getUserAgents()
+    public static function getUserAgents(): array
     {
         return self::getBrowsers();
     }
@@ -943,7 +944,7 @@ class Mobile_Detect
      *
      * @return array List of browsers / user agents.
      */
-    public static function getBrowsers()
+    public static function getBrowsers(): array
     {
         return self::$browsers;
     }
@@ -953,7 +954,7 @@ class Mobile_Detect
      *
      * @return array List of utilities.
      */
-    public static function getUtilities()
+    public static function getUtilities(): array
     {
         return self::$utilities;
     }
@@ -965,7 +966,7 @@ class Mobile_Detect
      *
      * @return array All the rules (but not extended).
      */
-    public static function getMobileDetectionRules()
+    public static function getMobileDetectionRules(): array
     {
         static $rules;
 
@@ -992,7 +993,7 @@ class Mobile_Detect
      *
      * @return array All the rules + extended.
      */
-    public function getMobileDetectionRulesExtended()
+    public function getMobileDetectionRulesExtended(): array
     {
         static $rules;
 
@@ -1017,7 +1018,7 @@ class Mobile_Detect
      *
      * @return array
      */
-    public function getRules()
+    public function getRules(): array
     {
         if ($this->detectionType == self::DETECTION_TYPE_EXTENDED) {
             return self::getMobileDetectionRulesExtended();
@@ -1031,7 +1032,7 @@ class Mobile_Detect
      *
      * @return array The list of mobile operating systems.
      */
-    public static function getOperatingSystems()
+    public static function getOperatingSystems(): array
     {
         return self::$operatingSystems;
     }
@@ -1043,7 +1044,7 @@ class Mobile_Detect
      *
      * @return bool
      */
-    public function checkHttpHeadersForMobile()
+    public function checkHttpHeadersForMobile(): bool
     {
 
         foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
@@ -1075,7 +1076,7 @@ class Mobile_Detect
      * @return mixed
      * @throws BadMethodCallException when the method doesn't exist and doesn't start with 'is'
      */
-    public function __call($name, $arguments)
+    public function __call(string $name, array $arguments): bool
     {
         // make sure the name starts with 'is', otherwise
         if (substr($name, 0, 2) !== 'is') {
@@ -1095,7 +1096,7 @@ class Mobile_Detect
      * @param  null    $userAgent deprecated
      * @return boolean
      */
-    protected function matchDetectionRulesAgainstUA($userAgent = null)
+    protected function matchDetectionRulesAgainstUA($userAgent = null): bool
     {
         // Begin general search.
         foreach ($this->getRules() as $_regex) {
@@ -1120,7 +1121,7 @@ class Mobile_Detect
      *
      * @return boolean
      */
-    protected function matchUAAgainstKey($key)
+    protected function matchUAAgainstKey(string $key): bool
     {
         // Make the keys lowercase so we can match: isIphone(), isiPhone(), isiphone(), etc.
         $key = strtolower($key);
@@ -1148,7 +1149,7 @@ class Mobile_Detect
      * @param  null $httpHeaders deprecated
      * @return bool
      */
-    public function isMobile($userAgent = null, $httpHeaders = null)
+    public function isMobile(string $userAgent = null, array $httpHeaders = null): bool
     {
 
         if ($httpHeaders) {
@@ -1185,7 +1186,7 @@ class Mobile_Detect
      * @param  array  $httpHeaders deprecated
      * @return bool
      */
-    public function isTablet($userAgent = null, $httpHeaders = null)
+    public function isTablet(string $userAgent = null, array $httpHeaders = null): bool
     {
         // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
         if ($this->getUserAgent() === 'Amazon CloudFront') {
@@ -1216,7 +1217,7 @@ class Mobile_Detect
      * @param  string        $httpHeaders deprecated
      * @return bool|int|null
      */
-    public function is($key, $userAgent = null, $httpHeaders = null)
+    public function is(string $key, string $userAgent = null, array $httpHeaders = null): bool
     {
         // Set the UA and HTTP headers only if needed (eg. batch mode).
         if ($httpHeaders) {
@@ -1247,7 +1248,7 @@ class Mobile_Detect
      *
      * @todo: search in the HTTP headers too.
      */
-    public function match($regex, $userAgent = null)
+    public function match(string $regex, string $userAgent = null): bool
     {
         $match = (bool) preg_match(sprintf('#%s#is', $regex), (false === empty($userAgent) ? $userAgent : $this->userAgent), $matches);
         // If positive match is found, store the results for debug.
@@ -1264,7 +1265,7 @@ class Mobile_Detect
      *
      * @return array
      */
-    public static function getProperties()
+    public static function getProperties(): array
     {
         return self::$properties;
     }
@@ -1278,7 +1279,7 @@ class Mobile_Detect
      *
      * @return float
      */
-    public function prepareVersionNo($ver)
+    public function prepareVersionNo(string $ver): float
     {
         $ver = str_replace(array('_', ' ', '/'), '.', $ver);
         $arrVer = explode('.', $ver, 2);
@@ -1287,7 +1288,7 @@ class Mobile_Detect
             $arrVer[1] = @str_replace('.', '', $arrVer[1]); // @todo: treat strings versions.
         }
 
-        return (float) implode('.', $arrVer);
+        return implode('.', $arrVer);
     }
 
     /**
@@ -1303,7 +1304,7 @@ class Mobile_Detect
      *
      * @return string|float The version of the property we are trying to extract.
      */
-    public function version($propertyName, $type = self::VERSION_TYPE_STRING)
+    public function version(string $propertyName, string $type = self::VERSION_TYPE_STRING)
     {
         if (empty($propertyName)) {
             return false;
@@ -1348,7 +1349,7 @@ class Mobile_Detect
      *
      * @return string One of the self::MOBILE_GRADE_* constants.
      */
-    public function mobileGrade()
+    public function mobileGrade(): string
     {
         $isMobile = $this->isMobile();
 
