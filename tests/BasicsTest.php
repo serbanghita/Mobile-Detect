@@ -1,9 +1,12 @@
 <?php
+
+use PHPUnit\Framework\TestCase;
+
 /**
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  * @link        http://mobiledetect.net
  */
-class BasicTest extends PHPUnit_Framework_TestCase
+class BasicTest extends TestCase
 {
     /**
      * @var Mobile_Detect
