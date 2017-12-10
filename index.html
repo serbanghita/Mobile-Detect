@@ -41,16 +41,36 @@
 
             <div class="bs-docs-social">
               <div class="container">
+                  <ul class="bs-docs-social-buttons">
+                      <li>
+                          <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=serbanghita&amp;repo=Mobile-Detect&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                      </li>
+                      <li>
+                          <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=serbanghita&amp;repo=Mobile-Detect&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+                      </li>
+                      <li class="tweet-btn">
+                          <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://github.com/serbanghita/Mobile-Detect" data-count="horizontal" data-via="mobiledetect">Tweet</a>
+                      </li>
+                  </ul>
+                  <ul class="bs-docs-social-buttons">
+                      <li>
+                          <a href="https://travis-ci.org/serbanghita/Mobile-Detect"><img src="https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel"></a>
+                      </li>
+                      <li>
+                          <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib"><img src="https://poser.pugx.org/mobiledetect/mobiledetectlib/v/stable.png"></a>
+                      </li>
+                  </ul>
                 <ul class="bs-docs-social-buttons">
-                  <li>
-                    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=serbanghita&amp;repo=Mobile-Detect&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-                  </li>
-                  <li>
-                    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=serbanghita&amp;repo=Mobile-Detect&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
-                  </li>
-                  <li class="tweet-btn">
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://github.com/serbanghita/Mobile-Detect" data-count="horizontal" data-via="mobiledetect">Tweet</a>
-                  </li>
+
+                    <li>
+                        <img src="https://poser.pugx.org/mobiledetect/mobiledetectlib/downloads.svg" />
+                    </li>
+                    <li>
+                        <img src="https://poser.pugx.org/mobiledetect/mobiledetectlib/d/daily.png" />
+                    </li>
+                    <li>
+                        <img src="https://poser.pugx.org/mobiledetect/mobiledetectlib/license.svg" />
+                    </li>
                 </ul>
               </div>
             </div>
@@ -64,19 +84,47 @@
 
 <div class="row-fluid">
 
-<p><a href="https://github.com/serbanghita/Mobile-Detect">Mobile Detect</a> is a lightweight PHP class for detecting mobile devices (including tablets). It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</p>
-<p>You may consider this script as being part of the <b>RESS</b> (Responsive Web Design with Server-Side Component) movement. You can find out more on the topic by reading these articles: <a href="http://mobile.smashingmagazine.com/2013/04/09/improve-mobile-support-with-server-side-enhanced-responsive-design/">Improve Mobile Support With Server-Side-Enhanced Responsive Design</a> and <a href="http://www.lukew.com/ff/entry.asp?1392">RESS: Responsive Design + Server Side Components</a>.</p>
+<p><a href="https://github.com/serbanghita/Mobile-Detect">Mobile Detect</a> is a lightweight PHP class for detecting mobile
+devices (including tablets). It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.</p>
 
-<p>You can also benefit from Mobile Detect by using any of the <a href="https://github.com/serbanghita/Mobile-Detect#3rd-party-modules--submit-new">3<sup>rd</sup> party plugins</a> available for: WordPress, Drupal, Joomla, Magento, etc. </p>
+<div class="alert alert-warning" role="alert" style="text-align: center;">
+    <p>This project is sponsored by it's developers and community.<br />
+        Thanks to the JetBrains team for providing
+    <a href="https://www.jetbrains.com/phpstorm/">PHPStorm</a> and <a href="https://www.jetbrains.com/datagrip/">DataGrip</a> licenses.</p>
+</div>
 
-<p>Current development status:
-<a href="https://travis-ci.org/serbanghita/Mobile-Detect"><img src="https://travis-ci.org/serbanghita/Mobile-Detect.png?branch=devel"></a><br>
-Packagist status: <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib"><img src="https://poser.pugx.org/mobiledetect/mobiledetectlib/v/stable.png"></a>
-<a href="https://packagist.org/packages/mobiledetect/mobiledetectlib"><img src="https://poser.pugx.org/mobiledetect/mobiledetectlib/downloads.png"></a>
-</p>
+<h3>Install</h3>
 
+<p><b>Download and include manually</b></p>
+<blockquote>Use this to quickly test the demo.</blockquote>
 
-<p>Here are some code examples:</p>
+<ul>
+    <li><a href="https://github.com/serbanghita/Mobile-Detect/releases">Download latest release</a></li>
+    <li><a href="https://github.com/serbanghita/Mobile-Detect/blob/master/Mobile_Detect.php">Mobile_Detect.php</a></li>
+</ul>
+
+<pre class="prettyprint linenums">
+require_once "libs/Mobile_Detect.php";
+</pre>
+
+<p><b>Install as a <a href="https://packagist.org/packages/mobiledetect/mobiledetectlib">composer package</a></b></p>
+<blockquote>Use this method to get continuous updates.</blockquote>
+
+<pre class="prettyprint">
+composer require mobiledetect/mobiledetectlib
+</pre>
+
+<p>or include the dependency in the <code>composer.json</code> file:</p>
+
+<pre class="prettyprint linenums">
+{
+    "require": {
+        "mobiledetect/mobiledetectlib": "^2.8"
+    }
+}
+</pre>
+
+<h3>Develop</h3>
 
 <pre class="prettyprint linenums">
 // Include and instantiate the class.
@@ -138,12 +186,10 @@ $detect->version('Opera Mini'); // 5.0 (float)
 // [...]
 </pre>
 
-<p>Sponsored by the community &amp; <a target="_blank" href="http://www.browserstack.com">BrowserStack</a> - the complete browser coverage tool (including mobile devices) for testing your web application.</p>
-
 <hr class="soften">
 
 <p>Developers: <a href="http://twitter.com/serbanghita">Șerban Ghiță</a>, <a href="https://github.com/nicktacular">Nick Ilyin</a>. <br>Original author: <a href="http://twitter.com/victorstanciu">Victor Stanciu</a>. <br>Logo created by <a href="https://twitter.com/grafician">Dragoș Gavrilă</a></p>
-<p>&copy; PHP Mobile Detect is an open-source script released under <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.</p>
+<p>&copy; Mobile Detect is an open-source script released under <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.</p>
 
         </div>
 
