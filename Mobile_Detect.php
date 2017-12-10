@@ -22,7 +22,7 @@
  *              README:       https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
  *              HOWTO:        https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
  *
- * @version     2.8.29
+ * @version     2.8.30
  */
 
 class Mobile_Detect
@@ -66,7 +66,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.8.29';
+    const VERSION                   = '2.8.30';
 
     /**
      * A type for the version() method indicating a string return value.
@@ -491,7 +491,7 @@ class Mobile_Detect
         // http://msdn.microsoft.com/library/ms537503.aspx
         // https://msdn.microsoft.com/en-us/library/hh869301(v=vs.85).aspx
         'WindowsPhoneOS'   => 'Windows Phone 10.0|Windows Phone 8.1|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7|Windows NT 6.[23]; ARM;',
-        'iOS'               => '\biPhone.*Mobile|\biPod|\biPad',
+        'iOS'               => '\biPhone.*Mobile|\biPod|\biPad|AppleCoreMedia',
         // http://en.wikipedia.org/wiki/MeeGo
         // @todo: research MeeGo in UAs
         'MeeGoOS'           => 'MeeGo',
