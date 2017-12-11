@@ -1,5 +1,5 @@
 {
-    "hash": "6d28f37739f74bd14c2968f890dbaefee88d4eda",
+    "hash": "bb4aa57a4f3e17c473fc99fbcd0d422f86d023b9",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -4015,6 +4015,12 @@
             "tablet": true
         },
         {
+            "vendor": "Lenovo",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0.1; Lenovo TB-8703F Build\/MMB29M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/56.0.2924.87 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
             "vendor": "LG",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.6; en-us; LG-VS410PP Build\/GRK39F) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
             "mobile": true,
@@ -6705,42 +6711,6 @@
             "tablet": true
         },
         {
-            "vendor": "Verizon",
-            "user_agent": "Mozilla\/5.0 (Linux; Android 5.1.1; QTAQZ3 Build\/LMY47V) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/56.0.2924.87 Safari\/537.36",
-            "mobile": true,
-            "tablet": true
-        },
-        {
-            "vendor": "Verizon",
-            "user_agent": "Mozilla\/5.0 (Linux; Android 5.1; QTAIR7 Build\/LMY47D) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/56.0.2924.87 Safari\/537.36",
-            "mobile": true,
-            "tablet": true
-        },
-        {
-            "vendor": "Verizon",
-            "user_agent": "Mozilla\/5.0 (Linux; Android 5.1; QTAIR7 Build\/LMY47D; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/58.0.3029.83 Safari\/537.36 [Pinterest\/Android]",
-            "mobile": true,
-            "tablet": true
-        },
-        {
-            "vendor": "Verizon",
-            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0.1; QTASUN1 Build\/MMB29M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/56.0.2924.87 Safari\/537.36",
-            "mobile": true,
-            "tablet": true
-        },
-        {
-            "vendor": "Verizon",
-            "user_agent": "Mozilla\/5.0 (Linux; Android 7.0; QTASUN1 Build\/NRD90M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/60.0.3112.116 Safari\/537.36",
-            "mobile": true,
-            "tablet": true
-        },
-        {
-            "vendor": "Verizon",
-            "user_agent": "Mozilla\/5.0(LInux;Android 5.1.1; QTAQTZ3 Build\/LMY47V) AppleWebKit\/537.36(KHTML, like Gecko) Chrome\/59.0.3071.125 Safari\/537.36",
-            "mobile": true,
-            "tablet": true
-        },
-        {
             "vendor": "Versus",
             "user_agent": "Mozilla\/5.0 (Linux; Android 4.0.4; VS-TOUCHPAD 9 Build\/IMM76D) AppleWebKit\/535.19 (KHTML, like Gecko) Chrome\/18.0.1025.166 Mobile Safari\/535.19",
             "mobile": true,
@@ -7775,6 +7745,12 @@
         {
             "vendor": "Samsung",
             "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.2; SM-G920F Build\/LRX22G) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/54.0.2840.85 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 7.0; SM-G920F Build\/NRD90M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/58.0.3029.0 Mobile Safari\/537.36",
             "mobile": true,
             "tablet": false
         },
@@ -9049,6 +9025,42 @@
             "user_agent": "Facebot",
             "mobile": false,
             "tablet": false
+        },
+        {
+            "vendor": "Verizon",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.1.1; QTAQZ3 Build\/LMY47V) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/56.0.2924.87 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Verizon",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.1; QTAIR7 Build\/LMY47D) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/56.0.2924.87 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Verizon",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 5.1; QTAIR7 Build\/LMY47D; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/58.0.3029.83 Safari\/537.36 [Pinterest\/Android]",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Verizon",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0.1; QTASUN1 Build\/MMB29M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/56.0.2924.87 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Verizon",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 7.0; QTASUN1 Build\/NRD90M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/60.0.3112.116 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Verizon",
+            "user_agent": "Mozilla\/5.0(LInux;Android 5.1.1; QTAQTZ3 Build\/LMY47V) AppleWebKit\/537.36(KHTML, like Gecko) Chrome\/59.0.3071.125 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
         },
         {
             "vendor": "Vodafone",
