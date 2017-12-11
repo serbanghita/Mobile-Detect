@@ -179,5 +179,11 @@ return array(
         'Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-A310F Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/5.4 Chrome/51.0.2704.106 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 4.2.2; en-gb; SAMSUNG GT-I9190 Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Version/1.0 Chrome/18.0.1025.308 Mobile Safari/535.19' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 6.0.1; GT-I9190 Build/MOB30Z) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36 OPR/42.7.2246.114996' => array('isMobile' => true, 'isTablet' => false),
+
+        'Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG SM-A510F/A510FXXU4BQD1 Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/5.4 Chrome/51.0.2704.106 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-T535/T535XXU1BQC1 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.3 Chrome/38.0.2125.102 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG SM-J500FN/J500FNXXU1BQE2 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/5.4 Chrome/51.0.2704.106 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 5.0; SAMSUNG SM-N9005/N9005XXSGBQA1 Build/LRX21V) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/5.4 Chrome/51.0.2704.106 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG SM-G903F/G903FXXU1BQC1 Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/5.4 Chrome/51.0.2704.106 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
     ),
 );
