@@ -1318,7 +1318,7 @@ class Mobile_Detect
         $properties = self::getProperties();
 
         // Check if the property exists in the properties array.
-        if (isset($properties[$propertyName])) {
+        if (!isset($properties[$propertyName])) {
         	return false;
         }
 
