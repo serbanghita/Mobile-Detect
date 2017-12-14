@@ -630,7 +630,7 @@ class Mobile_Detect
         'Opera'         => array( ' OPR/[VER]', 'Opera Mini/[VER]', 'Version/[VER]' ),
         'Opera Mini'    => 'Opera Mini/[VER]',
         'Opera Mobi'    => 'Version/[VER]',
-        'UC Browser'    => array( 'UCWEB[VER]', 'UC.*Browser/[VER]' ),
+        'UCBrowser'    => array( 'UCWEB[VER]', 'UC.*Browser/[VER]' ),
         'MQQBrowser'    => 'MQQBrowser/[VER]',
         'MicroMessenger' => 'MicroMessenger/[VER]',
         'baiduboxapp'   => 'baiduboxapp/[VER]',
