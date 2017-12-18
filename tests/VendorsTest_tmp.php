@@ -49,12 +49,12 @@ class VendorsTest extends TestCase
                                 //if ($brand == 'Apple') {
                                 //	echo 'UA ('.$condition.'('.$assertKey.') === '.$assertValue.'): '.$userAgent . "\n";
                                 //}
-                                $this->assertTrue( $this->detect->$condition( $assertKey ) == $assertValue, 'UA ('.$condition.'('.$assertKey.') === '.$assertValue.'): '.$userAgent);
+                                $this->assertSame( $this->detect->$condition( $assertKey ), $assertValue, 'UA ('.$condition.'('.$assertKey.') === '.$assertValue.'): '.$userAgent);
                             }
                             break;
 
                         default:
-                            $this->assertTrue($this->detect->$condition() === $assert, 'UA ('.$condition.'): '.$userAgent);
+                            $this->assertSame($this->detect->$condition(), $assert, 'UA ('.$condition.'): '.$userAgent);
                             break;
                     }
 
