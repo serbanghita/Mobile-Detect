@@ -8,15 +8,9 @@ class Request
     public $userAgent;
     public $httpHeaders = [];
     public $cloudfrontHeaders = [];
-    protected $knownHttpHeaders;
-    protected $knownUserAgentHeaders;
 
     public function __construct($httpHeaders = null)
     {
-        // Setup
-        $this->knownHttpHeaders = new RequestHeaders();
-        $this->knownUserAgentHeaders = new UserAgentHeaders();
-
         $this->setHttpHeaders($httpHeaders);
         $this->setCfHeaders();
         $this->setUserAgent();
@@ -44,6 +38,11 @@ class Request
                 sprintf('Unexpected headers argument type=%s', gettype($httpHeaders))
             );
         }
+
+//        $httpHeadersKnown = self::$knownHttpHeaders;
+//        $httpHeaders = array_filter($httpHeaders, function($val) use ($httpHeadersKnown) {
+//            return in_array($val, $httpHeadersKnown);
+//        });
 
         // Prepare header names.
         foreach ($httpHeaders as $key => $value) {
@@ -95,11 +94,17 @@ class Request
             return $this->userAgent = $this->prepareUserAgent($userAgent);
         } else {
             $this->userAgent = null;
-            foreach ($this->knownUserAgentHeaders->getAll() as $altHeader) {
-                $altHeader = $this->prepareHeaderName($altHeader);
-                if (!empty($this->httpHeaders[$altHeader])) {
-                    $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
+            $userAgents = [];
+            foreach (Headers::$uaHeaders as $altHeader) {
+                if (
+                    !empty($this->httpHeaders[$altHeader]) &&
+                    !in_array($this->httpHeaders[$altHeader], $userAgents)
+                ) {
+                    $userAgents[] = $this->httpHeaders[$altHeader];
                 }
+            }
+            if (count($userAgents) > 0) {
+                $this->userAgent = implode(" ", $userAgents);
             }
 
             if (!empty($this->userAgent)) {

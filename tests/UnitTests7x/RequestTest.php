@@ -50,13 +50,11 @@ final class RequestTest extends TestCase {
     public function testWhenAHeaderIsExplicitlySetThenItSNameIsAlsoStandardized()
     {
         $request = new Request();
-        $request->setHeader('Authorization', 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==');
-        $request->setHeader('Content-Type', 'application/x-www-form-urlencoded  ');
-        $request->setHeader('Warning', '199 Miscellaneous warning');
+        $request->setHeader("HTTP_WAP_CONNECTION", "Stack-Type=HTTP");
+        $request->setHeader("HTTP_UA_CPU", "AMD64");
 
         $this->assertEquals($request->getHeader('authorization'), 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==');
         $this->assertEquals($request->getHeader('content-type'), 'application/x-www-form-urlencoded');
-        $this->assertEquals($request->getHeader('warning'), '199 Miscellaneous warning');
     }
 
     /**
