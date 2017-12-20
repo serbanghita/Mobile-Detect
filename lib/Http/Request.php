@@ -25,14 +25,13 @@ class Request
      */
     protected function setHttpHeaders($httpHeaders)
     {
-
         // Parse the various types of headers we could receive.
         if ($httpHeaders instanceof HttpMessageInterface) {
             $httpHeaders = $httpHeaders->getHeaders();
         } elseif ($httpHeaders instanceof \Iterator) {
             $httpHeaders = iterator_to_array($httpHeaders, true);
         } elseif (is_string($httpHeaders)) {
-            $httpHeaders = ["HTTP_USER_AGENT" => $httpHeaders];
+            $httpHeaders = ['HTTP_USER_AGENT' => $httpHeaders];
         } elseif ($httpHeaders === null) {
             $httpHeaders = static::getHttpHeadersFromEnv();
         } elseif (!is_array($httpHeaders)) {
@@ -41,15 +40,10 @@ class Request
             );
         }
 
-//        $httpHeadersKnown = self::$knownHttpHeaders;
-//        $httpHeaders = array_filter($httpHeaders, function($val) use ($httpHeadersKnown) {
-//            return in_array($val, $httpHeadersKnown);
-//        });
-
         // Prepare header names.
-        foreach ($httpHeaders as $key => $value) {
-            $standardKey = $this->prepareHeaderName($key);
-            $this->httpHeaders[$standardKey] = $value;
+        foreach ($httpHeaders as $headerName => $headerValue) {
+            $standardKey = $this->prepareHeaderName($headerName);
+            $this->httpHeaders[$standardKey] = $headerValue;
         }
 
         return $this;
@@ -69,7 +63,7 @@ class Request
         // Only save CLOUDFRONT headers. In PHP land, that means only _SERVER vars that
         // start with cloudfront-.
         foreach ($this->httpHeaders as $key => $value) {
-            if (substr($key, 0, 10) === "cloudfront") {
+            if (substr($key, 0, 10) === 'cloudfront') {
                 $this->cloudfrontHeaders[$key] = $value;
             }
         }
@@ -105,7 +99,7 @@ class Request
                 }
             }
             if (count($userAgents) > 0) {
-                $this->userAgent = implode(" ", $userAgents);
+                $this->userAgent = implode(' ', $userAgents);
             }
 
             if (!empty($this->userAgent)) {
@@ -158,15 +152,27 @@ class Request
      */
     public function getHttpHeadersFromEnv(): array
     {
+        $headers = [];
+
         if (function_exists('getallheaders')) {
-            return getallheaders();
+            $allHeaders = getallheaders();
+            $headers = $allHeaders ? $allHeaders : [];
         } elseif (function_exists('apache_request_headers')) {
-            return apache_request_headers();
+            $apacheHeaders = apache_request_headers();
+            $headers = $apacheHeaders ? $apacheHeaders : [];
         } elseif (isset($_SERVER)) {
-            return $_SERVER;
+            $headers = $_SERVER;
         }
 
-        return [];
+        foreach ($headers as $headerName => $headerValue) {
+            // Remove invalid headers.
+            if (strpos($headerName, 'HTTP_') === false) {
+                continue;
+            }
+            $headers[$this->prepareHeaderName($headerName)] = $headerValue;
+        }
+
+        return $headers;
     }
 
     /**

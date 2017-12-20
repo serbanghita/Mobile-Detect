@@ -30,7 +30,7 @@
         }
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "3.*",
+        "squizlabs/php_codesniffer": "3.1.1",
         "phpunit/phpunit": "^6.5",
         "mockery/mockery": "^0.9.4"
     }

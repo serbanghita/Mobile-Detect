@@ -1,22 +1,23 @@
 <?php
 namespace MobileDetect\Http;
 
-class Headers {
+class Headers
+{
 
     public static $uaHeaders = [
         // UA variants.
-        "user-agent",
+        'user-agent',
         // Header occurs on devices using Opera Mini.
-        "x-operamini-phone",
+        'x-operamini-phone',
         'x-operamini-phone-ua',
         // Vodafone specific header: http://www.seoprinciple.com/mobile-web-community-still-angry-at-vodafone/24/
         // Found on Nintendo 3DS.
-        "x-device-user-agent",
-        "x-original-user-agent",
-        "x-skyfire-phone",
-        "x-bold-phone-ua",
-        "device-stock-ua",
-        "x-ucbrowser-device-ua",
+        'x-device-user-agent',
+        'x-original-user-agent',
+        'x-skyfire-phone',
+        'x-bold-phone-ua',
+        'device-stock-ua',
+        'x-ucbrowser-device-ua',
     ];
 
     /**
@@ -24,22 +25,22 @@ class Headers {
      * to the device's profile.
      */
     public static $someHttpHeaders = [
-        "from",
-        "referer",
-        "upgrade",
-        "via",
-        "warning",
-        "wap-connection",
-        "profile",
-        "ua-os",
-        "ua-cpu"
+        'from',
+        'referer',
+        'upgrade',
+        'via',
+        'warning',
+        'wap-connection',
+        'profile',
+        'ua-os',
+        'ua-cpu'
     ];
 
     public static $cfHeaders = [
         // CloudFront Headers
-        "cloudfront-is-desktop-viewer",
-        "cloudfront-is-mobile-viewer",
-        "cloudfront-is-tablet-viewer"
+        'cloudfront-is-desktop-viewer',
+        'cloudfront-is-mobile-viewer',
+        'cloudfront-is-tablet-viewer'
     ];
 
     /**
@@ -76,6 +77,4 @@ class Headers {
         // Seen this on a HTC.
         'ua-cpu' => array('matches' => array('ARM')),
     ];
-
-
 }
