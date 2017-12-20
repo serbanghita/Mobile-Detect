@@ -1,15 +1,19 @@
 <?php
+namespace MobileDetectTests\UnitTests;
+
 use MobileDetect\Http\Request;
 use PHPUnit\Framework\TestCase;
 
-final class RequestTest extends TestCase {
+final class RequestTest extends TestCase
+{
 
     /**
      * When HTTP headers is a boolean then exception is thrown.
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Unexpected headers argument type=boolean
      */
-    public function testWhenHTTPHeadersIsABooleanThenExceptionIsThrown(): void {
+    public function testWhenHTTPHeadersIsABooleanThenExceptionIsThrown(): void
+    {
         new Request(false);
     }
 
@@ -69,7 +73,8 @@ final class RequestTest extends TestCase {
     /**
      * When setting an explicit user agent it has priority over the one set in headers
      */
-    public function testWhenSettingAnExplicitUserAgentItHasPriorityOverTheOneSetInHeaders() {
+    public function testWhenSettingAnExplicitUserAgentItHasPriorityOverTheOneSetInHeaders()
+    {
         $request = new Request(["User-Agent" => "efg"]);
         $request->setUserAgent("abc");
         $this->assertSame("abc", $request->getUserAgent());
@@ -78,7 +83,8 @@ final class RequestTest extends TestCase {
     /**
      * When setting a null user agent the one from the headers is set.
      */
-    public function testWhenSettingANullUserAgentTheOneFromTheHeadersIsSet() {
+    public function testWhenSettingANullUserAgentTheOneFromTheHeadersIsSet()
+    {
         $request = new Request(["User-Agent" => "efg"]);
         $request->setUserAgent(null);
         $this->assertSame("efg", $request->getUserAgent());
@@ -89,7 +95,7 @@ final class RequestTest extends TestCase {
      */
     public function testPSR7HeadersCanBeSet()
     {
-        $httpMessage = Mockery::mock('\\Psr\\Http\\Message\\MessageInterface');
+        $httpMessage = \Mockery::mock('\\Psr\\Http\\Message\\MessageInterface');
         $httpMessage->shouldReceive('getHeaders')->andReturn(['user-agent' => 'hello']);
         $request = new Request($httpMessage);
         $this->assertSame("hello", $request->getUserAgent());
@@ -236,7 +242,8 @@ final class RequestTest extends TestCase {
         $this->assertSame('1 2 3 4 5 6 7 8', $request->getUserAgent());
     }
 
-    public function testCloudFrontHeaders() {
+    public function testCloudFrontHeaders()
+    {
         $headers = [
             'HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER' => 'false',
             'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'  => 'true',
@@ -252,7 +259,7 @@ final class RequestTest extends TestCase {
 
     public function tearDown()
     {
-        Mockery::close();
+        \Mockery::close();
         parent::tearDown();
     }
 

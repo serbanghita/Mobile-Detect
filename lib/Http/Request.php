@@ -1,5 +1,6 @@
 <?php
 namespace MobileDetect\Http;
+
 use Psr\Http\Message\MessageInterface as HttpMessageInterface;
 
 class Request
@@ -22,7 +23,8 @@ class Request
      * @return Request
      * @throws \InvalidArgumentException
      */
-    protected function setHttpHeaders($httpHeaders) {
+    protected function setHttpHeaders($httpHeaders)
+    {
 
         // Parse the various types of headers we could receive.
         if ($httpHeaders instanceof HttpMessageInterface) {
@@ -58,7 +60,8 @@ class Request
      * http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html#header-caching-web-device
      * @return Request
      */
-    protected function setCfHeaders() {
+    protected function setCfHeaders()
+    {
 
         // clear existing headers
         $this->cloudfrontHeaders = [];
@@ -96,10 +99,8 @@ class Request
             $this->userAgent = null;
             $userAgents = [];
             foreach (Headers::$uaHeaders as $altHeader) {
-                if (
-                    !empty($this->httpHeaders[$altHeader]) &&
-                    !in_array($this->httpHeaders[$altHeader], $userAgents)
-                ) {
+                if (!empty($this->httpHeaders[$altHeader]) &&
+                    !in_array($this->httpHeaders[$altHeader], $userAgents)) {
                     $userAgents[] = $this->httpHeaders[$altHeader];
                 }
             }
@@ -124,7 +125,8 @@ class Request
      * @param string $userAgent
      * @return string
      */
-    protected static function prepareUserAgent($userAgent) {
+    protected static function prepareUserAgent(string $userAgent): string
+    {
         $userAgent = trim($userAgent);
         $userAgent = substr($userAgent, 0, self::MAX_UA_LENGTH);
         return $userAgent;
@@ -135,7 +137,7 @@ class Request
      * @return string The header, normalized, so HTTP_USER_AGENT becomes user-agent
      * @throws \InvalidArgumentException When the $headerName isn't a valid HTTP request header name.
      */
-    protected function prepareHeaderName($headerName)
+    protected function prepareHeaderName(string $headerName): string
     {
         if (strpos($headerName, 'HTTP_') === 0) {
             $headerName = substr($headerName, 5);
@@ -164,18 +166,18 @@ class Request
             return $_SERVER;
         }
 
-        return array();
+        return [];
     }
 
     /**
      * Set an HTTP header.
      *
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param string $value
      * @return Request Fluent interface.
      * @throws \InvalidArgumentException When the $key isn't a valid HTTP request header name.
      */
-    public function setHeader($key, $value)
+    public function setHeader(string $key, string $value)
     {
         $key = $this->prepareHeaderName($key);
         $this->httpHeaders[$key] = trim($value);
@@ -189,7 +191,7 @@ class Request
      * @param $key string The header.
      * @return string|null If the header is available, it's returned. Null otherwise.
      */
-    public function getHeader($key)
+    public function getHeader(string $key)
     {
         //normalized since access might be with a variety of cases
         $key = strtolower($key);
