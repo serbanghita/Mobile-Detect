@@ -1,0 +1,438 @@
+[
+  {
+    "vendor": "Microsoft",
+    "parentModel": "IE",
+    "model": "IE Mobile",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "IEMobile|MSIEMobile|Trident\/[0-9.]+; Touch; rv:[0-9.]+;"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "IEMobile\/[VER];",
+          "IEMobile [VER]",
+          "MSIE [VER];",
+          "Trident.*rv.[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Microsoft",
+    "parentModel": "IE",
+    "model": "IE Desktop",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "MSIE [0-9.]+;|Trident.*rv.[0-9.]+"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "MSIE [VER];",
+          "Trident.*rv.[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": false
+      }
+    ]
+  },
+  {
+    "vendor": "Opera",
+    "parentModel": "Opera",
+    "model": "Opera Mini",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "Opera.*Mini"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "Opera Mini\/[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Opera",
+    "parentModel": "Opera",
+    "model": "Opera Mobi",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "Opera.*Mobi|Android.*Opera|Mobile.*OPR\/[0-9.]+"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "Opera Mobi\/[VER]",
+          " OPR\/[VER]",
+          "Version\/[VER]"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Opera",
+    "parentModel": "Opera",
+    "model": "Opera Coast",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "Coast\/[0-9.]+"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "Coast\/[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Opera",
+    "parentModel": "Opera",
+    "model": "Opera Desktop",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "\\bOpera\\b| OPR\/"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "Opera\/[VER]",
+          " OPR\/[VER]",
+          "Version\/[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Google",
+    "parentModel": "Chrome",
+    "model": "Chrome Mobile",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "\\bCrMo\\b|CriOS|Android.*Chrome\/[.0-9]* (Mobile)?"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "Chrome\/[VER]",
+          "CriOS\/[VER]",
+          "CrMo\/[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Google",
+    "parentModel": "Chrome",
+    "model": "Chrome Desktop",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "\\bChrome\\b\/[.0-9]*"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "Chrome\/[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": false
+      }
+    ]
+  },
+  {
+    "vendor": "NetFront",
+    "parentModel": "NetFront",
+    "model": "NetFront Mobile",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "NetFront\/[.0-9]+|NetFrontLifeBrowser|NF-Browser"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "NetFront\/[VER]",
+          "NetFrontLifeBrowser\/[VER]",
+          "Version\/[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Dolfin",
+    "parentModel": "Generic",
+    "model": "Dolfin",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "\\bDolfin\\b"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "Dolfin\/[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "UCWeb",
+    "parentModel": "Generic",
+    "model": "UCBrowser",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "UC.*Browser|UCWEB"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "UCWEB[VER]",
+          "UCBrowser\/[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Amazon",
+    "parentModel": "Generic",
+    "model": "Silk",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "\\bSilk\\b"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "Silk\\[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Generic",
+    "parentModel": "Generic",
+    "model": "Generic Mobile",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser",
+          "FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|UP.Browser|ObigoInternetBrowser"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "versionMatches": [
+      {
+        "context": null,
+        "match": [
+          "Version\/[VER]",
+          "Safari\/[VER]",
+          "Browser\/[VER]"
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Apple",
+    "parentModel": "Safari",
+    "model": "Safari Mobile",
+    "matchIdentity": [
+      {
+        "context": {
+          "isMobile": true
+        },
+        "match": [
+          "Safari\/[0-9.]+"
+        ],
+        "matchType": "regex"
+      },
+      {
+        "context": null,
+        "match": [
+          "Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari|Android.*Safari"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "Safari\/[VER]",
+          "Version\/[VER]"
+        ],
+        "matchProcessor": "getSafariVersion"
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": true
+      }
+    ]
+  },
+  {
+    "vendor": "Apple",
+    "parentModel": "Safari",
+    "model": "Safari Desktop",
+    "matchIdentity": [
+      {
+        "context": null,
+        "match": [
+          "Safari\/[0-9.]+"
+        ],
+        "matchType": "regex"
+      }
+    ],
+    "matchVersion": [
+      {
+        "context": null,
+        "match": [
+          "Version\/[VER]",
+          "Safari\/[VER]"
+        ],
+        "matchType": "regex",
+        "matchProcessor": "getSafariVersion"
+      }
+    ],
+    "triggers": [
+      {
+        "isMobile": false
+      }
+    ]
+  }
+]
