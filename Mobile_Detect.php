@@ -1,30 +1,25 @@
 <?php
 /**
  * Mobile Detect Library
- * =====================
- *
  * Motto: "Every business should have a mobile detection script to detect mobile readers"
  *
  * Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
  * It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.
  *
- * @author      Current authors: Serban Ghita <serbanghita@gmail.com>
- *                               Nick Ilyin <nick.ilyin@gmail.com>
+ * Homepage: http://mobiledetect.net
+ * GitHub: https://github.com/serbanghita/Mobile-Detect
+ * README: https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
+ * CONTRIBUTING: https://github.com/serbanghita/Mobile-Detect/blob/master/docs/CONTRIBUTING.md
+ * KNOWN LIMITATIONS: https://github.com/serbanghita/Mobile-Detect/blob/master/docs/KNOWN_LIMITATIONS.md
+ * EXAMPLES: https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
  *
- *              Original author: Victor Stanciu <vic.stanciu@gmail.com>
+ * @license https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt MIT License
+ * @author  Serban Ghita <serbanghita@gmail.com>
+ * @author  Nick Ilyin <nick.ilyin@gmail.com>
+ * Original author: Victor Stanciu <vic.stanciu@gmail.com>
  *
- * @license     Code and contributions have 'MIT License'
- *              More details: https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
- *
- * @link        Homepage:     http://mobiledetect.net
- *              GitHub Repo:  https://github.com/serbanghita/Mobile-Detect
- *              Google Code:  http://code.google.com/p/php-mobile-detect/
- *              README:       https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
- *              HOWTO:        https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
- *
- * @version     2.8.30
+ * @version 2.8.30
  */
-
 class Mobile_Detect
 {
     /**
@@ -112,6 +107,7 @@ class Mobile_Detect
     /**
      * The matches extracted from the regex expression.
      * This is good for debug.
+     *
      * @var string
      */
     protected $matchesArray = null;
@@ -230,7 +226,7 @@ class Mobile_Detect
         'HPTablet'          => 'HP Slate (7|8|10)|HP ElitePad 900|hp-tablet|EliteBook.*Touch|HP 8|Slate 21|HP SlateBook 10',
         // Watch out for PadFone, see #132.
         // http://www.asus.com/de/Tablets_Mobile/Memo_Pad_Products/
-        'AsusTablet'        => '^.*PadFone((?!Mobile).)*$|Transformer|TF101|TF101G|TF300T|TF300TG|TF300TL|TF700T|TF700KL|TF701T|TF810C|ME171|ME301T|ME302C|ME371MG|ME370T|ME372MG|ME172V|ME173X|ME400C|Slider SL101|\bK00F\b|\bK00C\b|\bK00E\b|\bK00L\b|TX201LA|ME176C|ME102A|\bM80TA\b|ME372CL|ME560CG|ME372CG|ME302KL| K010 | K011 | K017 | K01E |ME572C|ME103K|ME170C|ME171C|\bME70C\b|ME581C|ME581CL|ME8510C|ME181C|P01Y|PO1MA|P01Z|\bP027\b',
+        'AsusTablet'        => '^.*PadFone((?!Mobile).)*$|Transformer|TF101|TF101G|TF300T|TF300TG|TF300TL|TF700T|TF700KL|TF701T|TF810C|ME171|ME301T|ME302C|ME371MG|ME370T|ME372MG|ME172V|ME173X|ME400C|Slider SL101|\bK00F\b|\bK00C\b|\bK00E\b|\bK00L\b|TX201LA|ME176C|ME102A|\bM80TA\b|ME372CL|ME560CG|ME372CG|ME302KL| K010 | K011 | K017 | K01E |ME572C|ME103K|ME170C|ME171C|\bME70C\b|ME581C|ME581CL|ME8510C|ME181C|P01Y|PO1MA|P01Z|\bP027\b|\bP024\b',
         'BlackBerryTablet'  => 'PlayBook|RIM Tablet',
         'HTCtablet'         => 'HTC_Flyer_P512|HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200|PG09410',
         'MotorolaTablet'    => 'xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617',
