@@ -17,6 +17,6 @@
  */
 
 namespace Detection;
-require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Mobile_Detect.php';
+require_once dirname(dirname(dirname(__FILE__))) . DIRECTORY_SEPARATOR . 'Mobile_Detect.php';
 
 class MobileDetect extends \Mobile_Detect {}
