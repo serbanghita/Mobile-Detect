@@ -1205,6 +1205,19 @@ class Mobile_Detect
 
         return false;
     }
+	
+     /**
+     * Check if the device is a computer.
+     * Return true if any type of computer device is detected.
+     *
+     * @param  string $userAgent   deprecated
+     * @param  array  $httpHeaders deprecated
+     * @return bool
+     */
+    public function isComputer($userAgent = null, $httpHeaders = null)
+    {
+        return (!$this->isMobile($userAgent, $httpHeaders) && !$this->isTablet($userAgent, $httpHeaders)) ? true : false;
+    }
 
     /**
      * This method checks for a certain property in the
