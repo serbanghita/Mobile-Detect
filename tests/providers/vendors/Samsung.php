@@ -185,5 +185,6 @@ return array(
         'Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG SM-J500FN/J500FNXXU1BQE2 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/5.4 Chrome/51.0.2704.106 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 5.0; SAMSUNG SM-N9005/N9005XXSGBQA1 Build/LRX21V) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/5.4 Chrome/51.0.2704.106 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG SM-G903F/G903FXXU1BQC1 Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/5.4 Chrome/51.0.2704.106 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 5.1.1; SAMSUNG SM-T285 Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.5 Chrome/38.0.2125.102 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
     ),
 );

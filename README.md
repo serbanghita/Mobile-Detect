@@ -285,6 +285,8 @@ for Craft CMS. Made by [Lewis Jenkins](https://github.com/lewisjenkins).
 * [Grav Plugin Mobile Detect](https://github.com/dimitrilongo/grav-plugin-mobile-detect/) is a simple implementation 
 of Mobile Detect for Grav CMS. Made by [Dimitri Longo](https://github.com/dimitrilongo).
 
+* [Mobile_Detect module for UliCMS](https://github.com/derUli/ulicms-Mobile_Detect). 
+Made by [derUli](https://github.com/derUli).
 
 **Perl**
 
