@@ -112,9 +112,9 @@ class Mobile_Detect
     /**
      * The matches extracted from the regex expression.
      * This is good for debug.
-     * @var string
+     * @var array
      */
-    protected $matchesArray = null;
+    protected $matchesArray = array();
 
     /**
      * The detection type, using self::DETECTION_TYPE_MOBILE or self::DETECTION_TYPE_EXTENDED.
