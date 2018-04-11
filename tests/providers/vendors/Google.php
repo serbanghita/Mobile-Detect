@@ -13,8 +13,9 @@ return array(
         'Mozilla/5.0 (Linux; Android 4.3; Nexus 10 Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.72 Safari/537.36'                                                   => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; U; Android; en_us; Nexus 7 Build/) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 NetFrontLifeBrowser/2.3 Mobile (Dragonfruit)'                             => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 5.1; Nexus 5 Build/LMY47D) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 momoWebView/6.3.1 android/404(Nexus 5;android 5.1;zh_CN;10;netType/1)' => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (Linux; Android 4.3; Nexus 10 Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.92 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
-        'Mozilla/5.0 (Linux; Android 7.1; Pixel XL Build/NDE63H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.85 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (Linux; Android 7.1; Pixel Build/NDE63H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.85 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 4.3; Nexus 10 Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.92 Safari/537.36'                                                   => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 7.1; Pixel XL Build/NDE63H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.85 Mobile Safari/537.36'                                            => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 7.1; Pixel Build/NDE63H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.85 Mobile Safari/537.36'                                               => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 8.1.0; Pixel C Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/65.0.3325.109 Safari/537.36'                        => array('isMobile' => true, 'isTablet' => true),
         ),
 );
