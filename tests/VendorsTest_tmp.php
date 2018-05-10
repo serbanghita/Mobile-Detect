@@ -1,9 +1,12 @@
 <?php
+
+use PHPUnit\Framework\TestCase;
+
 /**
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  * @link        http://mobiledetect.net
  */
-class VendorsTest extends PHPUnit_Framework_TestCase
+class VendorsTest extends TestCase
 {
     protected $detect;
     protected static $items;
@@ -46,12 +49,12 @@ class VendorsTest extends PHPUnit_Framework_TestCase
                                 //if ($brand == 'Apple') {
                                 //	echo 'UA ('.$condition.'('.$assertKey.') === '.$assertValue.'): '.$userAgent . "\n";
                                 //}
-                                $this->assertTrue( $this->detect->$condition( $assertKey ) == $assertValue, 'UA ('.$condition.'('.$assertKey.') === '.$assertValue.'): '.$userAgent);
+                                $this->assertSame( $this->detect->$condition( $assertKey ), $assertValue, 'UA ('.$condition.'('.$assertKey.') === '.$assertValue.'): '.$userAgent);
                             }
                             break;
 
                         default:
-                            $this->assertTrue($this->detect->$condition() === $assert, 'UA ('.$condition.'): '.$userAgent);
+                            $this->assertSame($this->detect->$condition(), $assert, 'UA ('.$condition.'): '.$userAgent);
                             break;
                     }
 

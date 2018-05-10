@@ -48,5 +48,7 @@ return array(
         'Mozilla/5.0 (Linux; Android 5.0.2; XT1032 Build/LXB22.46-28.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.92 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 5.1.1; Moto E Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 4.4.4; XT1021 Build/KTU84Q) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 5.0.2; XT1068 Build/LXB22.46-28) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.85 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 6.0; XT1092 Build/MPE24.49-18) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.85 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         ),
 );

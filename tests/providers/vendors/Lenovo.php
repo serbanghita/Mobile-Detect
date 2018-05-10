@@ -44,6 +44,11 @@ return array(
         'Lenovo A390 Linux/3.0.13 Android/4.4.2 Release/04.03.2013 Browser/AppleWebKit534.30 Profile/MIDP-2.0 Configuration/CLDC-1.1 Mobile Safari/534.30 Android 4.0.1;' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 4.4.2; Lenovo TAB 2 A7-30F Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.84 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 4.4.2; Lenovo A319 Build/MocorDroid4.4.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.95 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (Linux; Android 5.1; Lenovo YT3-X90L Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.105 Safari/537.36' => array('isMobile' => true, 'isTablet' => true)
+        'Mozilla/5.0 (Linux; Android 5.1; Lenovo YT3-X90L Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.105 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 6.0.1; Lenovo TB-X103F Build/LenovoTB-X103F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 7.1.1; Lenovo TB-X304F Build/NMF26F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.116 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 6.0.1; Lenovo TB-8703F Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 7.0; Lenovo P2a42 Build/NRD90N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.132 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 6.0.1; Lenovo P2a42 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.83 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false)
     ),
 );
