@@ -7,44 +7,56 @@
 [![Total Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/downloads.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) 
 [![Daily Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/d/daily.png)](https://packagist.org/packages/mobiledetect/mobiledetectlib) 
 [![License](https://poser.pugx.org/mobiledetect/mobiledetectlib/license.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib)
+[![Chat on Slack](https://img.shields.io/badge/Slack%20%23general-join-orange.svg)](https://join.slack.com/t/mobiledetect/shared_invite/enQtMjg1NDY0OTg5NzgzLTcwMzEzMWJjZjRlOWFkY2ZiNzE1ZmRmNzEwM2VhOGY5OGVkYWMxNjdkZDU5YjQ5MmM5MGUxYjhlZDQwOGVjZjE)
 
-*Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).
-It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.*
+#### About
+
+Mobile Detect is a lightweight PHP class for detecting mobile devices (including tablets).
+It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.
+
+Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is _optimized_, 
+_fast_ and _relevant_ to your users. Mobile Detect class is a 
+[server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, 
+it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
 
 We're committed to make Mobile_Detect the best open-source mobile detection resource and this is why before 
 each release we're running [unit tests](./tests), we also research and update the detection rules on **daily** 
 and **weekly** basis.
 
-Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is _optimized_, _fast_ and _relevant_ to your users. Mobile_Detect class is a [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
+See also [the history](./docs/HISTORY.md) of the project.
 
-##### Announcements
+#### Announcements
 
-For `2.x` branch we are no longer taking optimizations pull requests, but only new regexes and User-Agents for our tests.
-On `2.x` releases we are focusing on **new tablets only**. All the pull requests about TVs, bots or optimizations will be closed and analyzed after `3.0.0-beta` is released.
+For `2.x` branch we are only integrating new regexes and User-Agents for our tests.
+On `2.x` releases we are focusing on **new tablets only**. All the pull requests about TVs, bots or optimizations will 
+be closed and analyzed after `3.0.0-beta` is released.
 
 Still working on `3.0.0` branch to provide you with device detection!
 We're really excited on this one!
 We would like to speed this up, but life and family gets in the way ;)
 
-Special thanks to **JetBrains** for providing licenses for **PHPStorm**. In case you never heard or tried PHPStorm, you're
-clearly missing out! [Check PHPStorm](https://www.jetbrains.com/phpstorm/) out!
+Many thanks **JetBrains** team for providing licenses for [PHPStorm](https://www.jetbrains.com/phpstorm/) and 
+[DataGrip](https://www.jetbrains.com/datagrip/).
 
-##### Download and demo
+#### Install
 
-|Download|Docs|Examples|
-|-------------|-------------|-------------|
-|[Go to releases](../../tags)|[Become a contributor](../../wiki/Become-a-contributor)|[Code examples](../../wiki/Code-examples)
-|[Mobile_Detect.php](./Mobile_Detect.php)|[History](../../wiki/History)|[:iphone: Live demo!](http://is.gd/mobiletest)
-|[Composer package](https://packagist.org/packages/mobiledetect/mobiledetectlib)|
+**Download and include manually**
+> Use this to quickly test the demo.
 
-#### Continuous updates
+* [Download latest release](../../tags)
+* [Mobile_Detect.php](./Mobile_Detect.php)
 
-You can use [composer](https://getcomposer.org/doc/00-intro.md) in your release and update process to make sure you have the latest Mobile_Detect version.
+```php
+require_once "libs/Mobile_Detect.php";
+```
+
+**Install as a [composer package](https://packagist.org/packages/mobiledetect/mobiledetectlib)**
+> Use this method to get continuous updates.
 
 ```
 composer require mobiledetect/mobiledetectlib
 ```
-
+or include the dependency in the `composer.json` file:
 ```json
 {
     "require": {
@@ -53,7 +65,17 @@ composer require mobiledetect/mobiledetectlib
 }
 ```
 
-##### Help
+#### Demo 
+
+* [:iphone: Live demo!](http://is.gd/mobiletest)
+* [Code examples](../../wiki/Code-examples)
+
+#### Contribute
+
+*Submit a PR*
+> Submit a pull request but before make sure you read [how to contribute](../../docs/CONTRIBUTING.md) guide.
+
+*Donate*
 
 |Pledgie|Paypal|
 |-------|------|
@@ -63,9 +85,10 @@ composer require mobiledetect/mobiledetectlib
 I'm currently paying for hosting and spend a lot of my family time to maintain the project and planning the future releases.
 I would highly appreciate any money donations that will keep the research going.
 
-Special thanks to the community :+1: for donations, [BrowserStack](https://www.browserstack.com/) - for providing access to their great platform, [Zend](http://www.zend.com/) - for donating licenses, [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
+Special thanks to the community :+1: for donations, JetBrains team for the continuous support and [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
 
-##### 3rd party modules / [Submit new](../../issues/new?title=New%203rd%20party%20module&body=Name, Link and Description of the module.)
+#### Modules, plugins, ports
+> [Submit new module, plugin, port](../../issues/new?title=New%203rd%20party%20module&body=Name,%20Link%20and%20Description%20of%20the%20module.)
 
 :point_right: Keep `Mobile_Detect.php` class in a separate `module` and do NOT include it in your script core because of the high frequency of updates.
 :point_right: When including the class into you `web application` or `module` always use `include_once '../path/to/Mobile_Detect.php` to prevent conflicts.
@@ -92,6 +115,12 @@ Made by [Mark Walters](https://github.com/yourpalmark).
 **PHP**
 
 **WordPress**
+
+* [Mobile Detect for WordPress](https://wordpress.org/plugins/tinywp-mobile-detect/) - WordPress has a built-in function 
+(`wp_is_mobile()`) to detect mobile devices. There is (at least) one catch, though. It considers iPad (iPad pro, 
+and any tablet) as a mobile. So, this 3rd party module changes the way `wp_is_mobile()` works with the help of 
+Mobile Detect PHP library!
+Made by [Pothi Kalimuthu](https://github.com/pothi)
 
 * [WordPress Mobile Detect](https://wordpress.org/plugins/wp-mobile-detect/) - Gives you the ability to wrap that 
 infographic in a `[notdevice][/notdevice]` shortcode so at the server level WordPress will 
@@ -153,6 +182,9 @@ is included in the default package since 1.5.x.
 * [Agent](https://github.com/jenssegers/agent) is a user agent class for Laravel based on Mobile Detect with some 
 additional functionality. 
 Made by [Jens Segers](https://github.com/jenssegers).
+
+* [Laravel Mobile Detect](https://github.com/riverskies/laravel-mobile-detect) is a package that enables you to use device detection right in your Laravel Blade templates. (Utilises the well-known, constantly updated PHP mobile detection library.)
+Made by [Barnabas Kecskes](https://github.com/barnabaskecskes).
 
 * [BrowserDetect](https://github.com/hisorange/browser-detect) is a browser and mobile detection package, collects 
 and wrap together the best user-agent identifiers for Laravel. 
@@ -281,3 +313,8 @@ Made by [https://github.com/Shaked](Shaked).
 * [ua-lua](https://github.com/robinef/ua-lua) is a small lib written in LUA providing device type detection. 
 ua-lua is detecting mobile or tablet devices based on user-agent inside nginx daemon. 
 Made by [Frédéric Robinet](https://github.com/robinef).
+
+**.Net**
+
+* [mobile-detect](https://github.com/validide/mobile-detect) is a .Net partial port written in C#. 
+Made by [Valentin Dide](https://github.com/validide).

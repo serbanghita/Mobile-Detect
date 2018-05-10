@@ -1,9 +1,12 @@
 <?php
+
+use PHPUnit\Framework\TestCase;
+
 /**
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  * @link        http://mobiledetect.net
  */
-class UserAgentTest extends PHPUnit_Framework_TestCase
+class UserAgentTest extends TestCase
 {
     protected $detect;
     protected static $ualist = array();
