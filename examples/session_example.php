@@ -121,7 +121,7 @@ $layoutType = initLayoutType();
 
     <!-- example page #1 -->
     <h1>Demo page number one.</h1>
-    <p>You can go to page <a href="<?php echo $_SERVER['PHP_SELF']; ?>?page=two">two</a>.</p>
+    <p>You can go to page <a href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?page=two">two</a>.</p>
     <p>Showing you the <b><?php echo $layoutType; ?></b> version.</p>
     <p><b>Note:</b> When running this test using the same browser with multiple User-Agents, clear your cookies/session before each test.</p>
 
@@ -131,7 +131,7 @@ $layoutType = initLayoutType();
 
     <!-- example page #2 -->
     <h1>Demo page number two.</h1>
-    <p>You can go back to page <a href="<?php echo $_SERVER['PHP_SELF']; ?>">one</a>.</p>
+    <p>You can go back to page <a href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">one</a>.</p>
     <p>Showing you the <b><?php echo $layoutType; ?></b> version.</p>
 
 <?php endif; ?>
@@ -141,6 +141,6 @@ $layoutType = initLayoutType();
     <?php if($_layoutType == $layoutType): ?>
         <?php echo strtoupper($_layoutType); ?>
     <?php else: ?>
-        <a href="<?php echo $_SERVER['PHP_SELF']; ?>?layoutType=<?php echo $_layoutType; ?>"><?php echo strtoupper($_layoutType); ?></a>
+        <a href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?layoutType=<?php echo $_layoutType; ?>"><?php echo strtoupper($_layoutType); ?></a>
     <?php endif; ?>
 <?php endforeach;
