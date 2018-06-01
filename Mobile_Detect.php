@@ -618,7 +618,7 @@ class Mobile_Detect
         'Coast'         => array('Coast/[VER]'),
         'Dolfin'        => 'Dolfin/[VER]',
         // @reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent/Firefox
-        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'), 
+        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'),
         'Fennec'        => 'Fennec/[VER]',
         // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
         // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
@@ -759,7 +759,9 @@ class Mobile_Detect
         //Test both the regular and the HTTP_ prefix
         if (isset($this->httpHeaders[$header])) {
             return $this->httpHeaders[$header];
-        } elseif (isset($this->httpHeaders[$altHeader])) {
+        }
+
+        if (isset($this->httpHeaders[$altHeader])) {
             return $this->httpHeaders[$altHeader];
         }
 
@@ -845,24 +847,25 @@ class Mobile_Detect
         // Invalidate cache due to #375
         $this->cache = array();
 
-        if (false === empty($userAgent)) {
+        if (!empty($userAgent)) {
             return $this->userAgent = $this->prepareUserAgent($userAgent);
-        } else {
-            $this->userAgent = null;
-            foreach ($this->getUaHttpHeaders() as $altHeader) {
-                if (false === empty($this->httpHeaders[$altHeader])) { // @todo: should use getHttpHeader(), but it would be slow. (Serban)
-                    $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
-                }
-            }
+        }
 
-            if (!empty($this->userAgent)) {
-                return $this->userAgent = $this->prepareUserAgent($this->userAgent);
+        $this->userAgent = null;
+        foreach ($this->getUaHttpHeaders() as $altHeader) {
+            if (!empty($this->httpHeaders[$altHeader])) { // @todo: should use getHttpHeader(), but it would be slow. (Serban)
+                $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
             }
+        }
+
+        if (!empty($this->userAgent)) {
+            return $this->userAgent = $this->prepareUserAgent($this->userAgent);
         }
 
         if (count($this->getCfHeaders()) > 0) {
             return $this->userAgent = 'Amazon CloudFront';
         }
+
         return $this->userAgent = null;
     }
 
@@ -1021,9 +1024,9 @@ class Mobile_Detect
     {
         if ($this->detectionType == self::DETECTION_TYPE_EXTENDED) {
             return self::getMobileDetectionRulesExtended();
-        } else {
-            return self::getMobileDetectionRules();
         }
+
+        return self::getMobileDetectionRules();
     }
 
     /**
@@ -1048,17 +1051,17 @@ class Mobile_Detect
 
         foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
             if (isset($this->httpHeaders[$mobileHeader])) {
-                if (is_array($matchType['matches'])) {
-                    foreach ($matchType['matches'] as $_match) {
-                        if (strpos($this->httpHeaders[$mobileHeader], $_match) !== false) {
-                            return true;
-                        }
-                    }
-
-                    return false;
-                } else {
+                if (!is_array($matchType['matches'])) {
                     return true;
                 }
+
+                foreach ($matchType['matches'] as $_match) {
+                    if (strpos($this->httpHeaders[$mobileHeader], $_match) !== false) {
+                        return true;
+                    }
+                }
+
+                return false;
             }
         }
 
@@ -1124,17 +1127,15 @@ class Mobile_Detect
     {
         // Make the keys lowercase so we can match: isIphone(), isiPhone(), isiphone(), etc.
         $key = strtolower($key);
-        if (false === isset($this->cache[$key])) {
+        if (!isset($this->cache[$key])) {
+
+            $this->cache[$key] = false;
 
             // change the keys to lower case
             $_rules = array_change_key_case($this->getRules());
 
-            if (false === empty($_rules[$key])) {
+            if (!empty($_rules[$key])) {
                 $this->cache[$key] = $this->match($_rules[$key]);
-            }
-
-            if (false === isset($this->cache[$key])) {
-                $this->cache[$key] = false;
             }
         }
 
@@ -1171,9 +1172,9 @@ class Mobile_Detect
 
         if ($this->checkHttpHeadersForMobile()) {
             return true;
-        } else {
-            return $this->matchDetectionRulesAgainstUA();
         }
+
+        return $this->matchDetectionRulesAgainstUA();
 
     }
 
@@ -1249,7 +1250,7 @@ class Mobile_Detect
      */
     public function match($regex, $userAgent = null)
     {
-        $match = (bool) preg_match(sprintf('#%s#is', $regex), (false === empty($userAgent) ? $userAgent : $this->userAgent), $matches);
+        $match = (bool) preg_match(sprintf('#%s#is', $regex), (!empty($userAgent) ? $userAgent : $this->userAgent), $matches);
         // If positive match is found, store the results for debug.
         if ($match) {
             $this->matchingRegex = $regex;
@@ -1317,30 +1318,29 @@ class Mobile_Detect
         $properties = self::getProperties();
 
         // Check if the property exists in the properties array.
-        if (true === isset($properties[$propertyName])) {
+        if (!isset($properties[$propertyName])) {
+        	return false;
+        }
 
-            // Prepare the pattern to be matched.
-            // Make sure we always deal with an array (string is converted).
-            $properties[$propertyName] = (array) $properties[$propertyName];
+        // Prepare the pattern to be matched.
+        // Make sure we always deal with an array (string is converted).
+        $properties[$propertyName] = (array) $properties[$propertyName];
 
-            foreach ($properties[$propertyName] as $propertyMatchString) {
+        foreach ($properties[$propertyName] as $propertyMatchString) {
 
-                $propertyPattern = str_replace('[VER]', self::VER, $propertyMatchString);
+            $propertyPattern = str_replace('[VER]', self::VER, $propertyMatchString);
 
-                // Identify and extract the version.
-                preg_match(sprintf('#%s#is', $propertyPattern), $this->userAgent, $match);
+            // Identify and extract the version.
+            preg_match(sprintf('#%s#is', $propertyPattern), $this->userAgent, $match);
 
-                if (false === empty($match[1])) {
-                    $version = ($type == self::VERSION_TYPE_FLOAT ? $this->prepareVersionNo($match[1]) : $match[1]);
+            if (!empty($match[1])) {
+                $version = ($type == self::VERSION_TYPE_FLOAT ? $this->prepareVersionNo($match[1]) : $match[1]);
 
-                    return $version;
-                }
-
+                return $version;
             }
 
         }
 
-        return false;
     }
 
     /**
