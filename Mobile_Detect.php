@@ -532,6 +532,7 @@ class Mobile_Detect
         // http://en.wikipedia.org/wiki/Midori_(web_browser)
         //'Midori'          => 'midori',
         //'Tizen'           => 'Tizen',
+        'WeChat'          => '\bMicroMessenger\b',
         'UCBrowser'       => 'UC.*Browser|UCWEB',
         'baiduboxapp'     => 'baiduboxapp',
         'baidubrowser'    => 'baidubrowser',
