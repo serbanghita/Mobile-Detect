@@ -292,6 +292,8 @@ Made by [quentin389](https://github.com/quentin389).
 * [LJ Mobile Detect](https://github.com/lewisjenkins/craft-lj-mobiledetect) is a simple implementation of Mobile Detect 
 for Craft CMS. Made by [Lewis Jenkins](https://github.com/lewisjenkins).
 
+* [Detect Craft](https://github.com/mmikkel/Detect-Craft) is a Craft CMS wrapper for the Mobile_Detect library. Made by [Mikkel Rummelhoff](https://github.com/mmikkel).
+
 * [Grav Plugin Mobile Detect](https://github.com/dimitrilongo/grav-plugin-mobile-detect/) is a simple implementation 
 of Mobile Detect for Grav CMS. Made by [Dimitri Longo](https://github.com/dimitrilongo).
 
