@@ -335,3 +335,7 @@ Made by [Valentin Dide](https://github.com/validide).
 
 * [MobileDetect](https://github.com/GiancarloGomez/ColdFusion-MobileDetect) is a CFC port of the 
 Mobile_Detect PHP Library. Made by [Giancarlo Gomez](https://github.com/GiancarloGomez).
+
+**Experiments** :bulb:
+
+* [Mobile Detect Fast](https://bitbucket.org/lanaguani/mobile-detect-fast/) (See: [#474](https://github.com/serbanghita/Mobile-Detect/issues/474)) is a class to increase the performance of Mobile Detect lib. Made by [LanaGuani](https://github.com/lanaguanifw).
