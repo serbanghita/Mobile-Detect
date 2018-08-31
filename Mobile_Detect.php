@@ -336,7 +336,7 @@ class Mobile_Detect
         // http://www.danytech.com/category/tablet-pc
         'DanyTechTablet' => 'Genius Tab G3|Genius Tab S2|Genius Tab Q3|Genius Tab G4|Genius Tab Q4|Genius Tab G-II|Genius TAB GII|Genius TAB GIII|Genius Tab S1',
         // http://www.galapad.net/product.html
-        'GalapadTablet'     => 'Android.*\bG1\b',
+        'GalapadTablet'     => 'Android.*\bG1\b(?!\))',
         // http://www.micromaxinfo.com/tablet/funbook
         'MicromaxTablet'    => 'Funbook|Micromax.*\b(P250|P560|P360|P362|P600|P300|P350|P500|P275)\b',
         // http://www.karbonnmobiles.com/products_tablet.php
