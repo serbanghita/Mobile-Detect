@@ -1,6 +1,6 @@
 ![Mobile Detect](http://demo.mobiledetect.net/logo-github.png)
 
-> Motto: "Every business should have a mobile detection script to detect mobile readers."
+> Motto: "Every business should have a detection script to detect mobile readers."
 
 [![Build Status](https://travis-ci.org/serbanghita/Mobile-Detect.svg?branch=devel)](https://travis-ci.org/serbanghita/Mobile-Detect) 
 [![Latest Stable Version](https://poser.pugx.org/mobiledetect/mobiledetectlib/v/stable.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) 
@@ -14,29 +14,30 @@
 Mobile Detect is a lightweight PHP class for detecting mobile devices (including tablets).
 It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.
 
+*Why*
+
 Your website's _content strategy_ is important! You need a complete toolkit to deliver an experience that is _optimized_, 
 _fast_ and _relevant_ to your users. Mobile Detect class is a 
 [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) tool that can help you with your RWD strategy, 
 it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
 
-We're committed to make Mobile_Detect the best open-source mobile detection resource and this is why before 
-each release we're running [unit tests](./tests), we also research and update the detection rules on **daily** 
-and **weekly** basis.
+*How*
 
-See also [the history](./docs/HISTORY.md) of the project.
+We're committed to make Mobile_Detect the best open-source mobile detection resource and this is why before 
+each release we're running [unit tests](./tests) and research and update the detection rules on **monthly** basis.
+
+*Who*
+
+See [the history](./docs/HISTORY.md) of the project.
 
 #### Announcements
 
-For `2.x` branch we are only integrating new regexes and User-Agents for our tests.
-On `2.x` releases we are focusing on **new tablets only**. All the pull requests about TVs, bots or optimizations will 
-be closed and analyzed after `3.0.0-beta` is released.
-
-Still working on `3.0.0` branch to provide you with device detection!
-We're really excited on this one!
-We would like to speed this up, but life and family gets in the way ;)
-
-Many thanks **JetBrains** team for providing licenses for [PHPStorm](https://www.jetbrains.com/phpstorm/) and 
+* **JetBrains** is sponsoring the project by providing licenses for [PHPStorm](https://www.jetbrains.com/phpstorm/) and 
 [DataGrip](https://www.jetbrains.com/datagrip/).
+* **Mobile_Detect `2.x.x`** is only integrating new regexes, User-Agents and tests. We are focusing on **new tablets only**. 
+The rest of the PRs about TVs, bots or optimizations will be closed and analyzed after `3.0.0-beta` is released.
+* **Mobile_Detect `3.x.x`** is experimental and WIP.
+
 
 #### Install
 
