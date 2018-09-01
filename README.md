@@ -78,9 +78,9 @@ or include the dependency in the `composer.json` file:
 
 *Donate*
 
-|Pledgie|Paypal|
-|-------|------|
-|[Donate :+1:](https://pledgie.com/campaigns/21856)|[Donate :beer:](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mobiledetectlib%40gmail%2ecom&lc=US&item_name=Mobile%20Detect&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)|
+|Paypal|
+|------|
+|[Donate :+1:](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mobiledetectlib%40gmail%2ecom&lc=US&item_name=Mobile%20Detect&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)|
 
 
 I'm currently paying for hosting and spend a lot of my family time to maintain the project and planning the future releases.
@@ -293,6 +293,8 @@ Made by [quentin389](https://github.com/quentin389).
 * [LJ Mobile Detect](https://github.com/lewisjenkins/craft-lj-mobiledetect) is a simple implementation of Mobile Detect 
 for Craft CMS. Made by [Lewis Jenkins](https://github.com/lewisjenkins).
 
+* [Detect Craft](https://github.com/mmikkel/Detect-Craft) is a Craft CMS wrapper for the Mobile_Detect library. Made by [Mikkel Rummelhoff](https://github.com/mmikkel).
+
 * [Grav Plugin Mobile Detect](https://github.com/dimitrilongo/grav-plugin-mobile-detect/) is a simple implementation 
 of Mobile Detect for Grav CMS. Made by [Dimitri Longo](https://github.com/dimitrilongo).
 
@@ -336,3 +338,7 @@ Made by [Valentin Dide](https://github.com/validide).
 
 * [MobileDetect](https://github.com/GiancarloGomez/ColdFusion-MobileDetect) is a CFC port of the 
 Mobile_Detect PHP Library. Made by [Giancarlo Gomez](https://github.com/GiancarloGomez).
+
+**Experiments** :bulb:
+
+* [Mobile Detect Fast](https://bitbucket.org/lanaguani/mobile-detect-fast/) (See: [#474](https://github.com/serbanghita/Mobile-Detect/issues/474)) is a class to increase the performance of Mobile Detect lib. Made by [LanaGuani](https://github.com/lanaguanifw).
