@@ -1,5 +1,5 @@
 {
-    "hash": "a9af753f861d359f05a44bf87e226ba1295336ae",
+    "hash": "aa598a27aa4d525740fe08d7c94a609cf03546c8",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -4135,6 +4135,12 @@
             "tablet": true
         },
         {
+            "vendor": "Lenovo",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0.1; Lenovo TB2-X30L Build\/LenovoTB2-X30L) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/65.0.3325.109 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
             "vendor": "LG",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 2.3.6; en-us; LG-VS410PP Build\/GRK39F) AppleWebKit\/533.1 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/533.1",
             "mobile": true,
@@ -5595,6 +5601,12 @@
             "tablet": true
         },
         {
+            "vendor": "Onda",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 7.0; V10 4G Build\/NRD90M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/62.0.3202.94 YaBrowser\/17.11.1.628.01 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
             "vendor": "AdvanDigital",
             "user_agent": "Mozilla\/5.0 (Linux; U; Android 4.2.2; en-us; E1C Build\/JDQ39) AppleWebKit\/534.30 (KHTML, like Gecko) Version\/4.0 Mobile Safari\/534.30",
             "mobile": true,
@@ -6214,6 +6226,12 @@
         {
             "vendor": "Mediacom",
             "user_agent": "Mozilla\/5.0 (Linux; Android 6.0.1; M-MPI10C3G Build\/MMB29M) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/64.0.3282.137 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Mediacom",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 6.0; M-SP10HXAH Build\/MRA58K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/59.0.3071.125 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
@@ -8701,6 +8719,12 @@
             "user_agent": "Mozilla\/5.0 (Linux; Android 5.0; E2303 Build\/26.1.A.3.111) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/66.0.3359.126 Mobile Safari\/537.36",
             "mobile": true,
             "tablet": false
+        },
+        {
+            "vendor": "Sony",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 7.1.1; SGP771 Build\/32.4.A.1.54) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/68.0.3440.91 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
         },
         {
             "vendor": "Avant",

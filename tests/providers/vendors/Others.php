@@ -262,6 +262,7 @@ return array(
     // http://www.mediacomeurope.it/tablet/
     'Mediacom' => array(
         'Mozilla/5.0 (Linux; Android 6.0.1; M-MPI10C3G Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 6.0; M-SP10HXAH Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
     ),
 
     'MediaTek' => array(

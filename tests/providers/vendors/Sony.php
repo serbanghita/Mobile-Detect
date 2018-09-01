@@ -83,5 +83,6 @@ return array(
         'Mozilla / 5.0 (Linux; Android 5.0.2; SOT31 Build / 28.0.D.6.71) AppleWebKit / 537.36 (KHTML, like Gecko) Chrome / 39.0.2171.93 Safari / 537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 5.1.1; E5823 Build/32.0.A.4.11) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 5.0; E2303 Build/26.1.A.3.111) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.126 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 7.1.1; SGP771 Build/32.4.A.1.54) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.91 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         ),
 );
