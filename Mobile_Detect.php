@@ -201,6 +201,7 @@ class Mobile_Detect
         'Amoi'          => 'Amoi',
         // http://en.wikipedia.org/wiki/INQ
         'INQ'           => 'INQ',
+        'OnePlus'       => 'ONEPLUS',
         // @Tapatalk is a mobile app; http://support.tapatalk.com/threads/smf-2-0-2-os-and-browser-detection-plugin-and-tapatalk.15565/#post-79039
         'GenericPhone'  => 'Tapatalk|PDA;|SAGEM|\bmmp\b|pocket|\bpsp\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\bwap\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser',
     );
