@@ -19,6 +19,51 @@
  * Original author: Victor Stanciu <vic.stanciu@gmail.com>
  *
  * @version 2.8.33
+ *
+ * @method bool isAndroidOS
+ * @method bool isBlackBerryOS
+ * @method bool isPalmOS
+ * @method bool isSymbianOS
+ * @method bool isWindowsMobileOS
+ * @method bool isiOS
+ * @method bool isbadaOS
+ *
+ * @method bool isiPhone
+ * @method bool isHTC
+ * @method bool isNexus
+ * @method bool isDell
+ * @method bool isMotorola
+ * @method bool isSamsung
+ * @method bool isSony
+ * @method bool isAsus
+ * @method bool isPalm
+ * @method bool isVertu
+ * @method bool isGenericPhone
+ *
+ * @method bool isBlackBerryTablet
+ * @method bool isiPad
+ * @method bool isKindle
+ * @method bool isSamsungTablet
+ * @method bool isHTCtablet
+ * @method bool isMotorolaTablet
+ * @method bool isAsusTablet
+ * @method bool isNookTablet
+ * @method bool isAcerTablet
+ * @method bool isYarvikTablet
+ * @method bool isGenericTablet
+ *
+ * @method bool isChrome
+ * @method bool isDolfin
+ * @method bool isOpera
+ * @method bool isSkyfire
+ * @method bool isIE
+ * @method bool isFirefox
+ * @method bool isBolt
+ * @method bool isTeaShark
+ * @method bool isBlazer
+ * @method bool isSafari
+ * @method bool isMidori
+ * @method bool isGenericBrowser
  */
 class Mobile_Detect
 {
