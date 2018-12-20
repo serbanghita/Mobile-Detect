@@ -549,7 +549,7 @@ class Mobile_Detect
         'NetFront' => 'NF-Browser',
         // @reference: http://en.wikipedia.org/wiki/Minimo
         // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
-        'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger',
+        'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger.*Language',
         // @reference: https://en.wikipedia.org/wiki/Pale_Moon_(web_browser)
         'PaleMoon'        => 'Android.*PaleMoon|Mobile.*PaleMoon',
     );
