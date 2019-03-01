@@ -495,6 +495,9 @@ class Mobile_Detect
         'iOS'               => '\biPhone.*Mobile|\biPod|\biPad|AppleCoreMedia',
         // https://en.wikipedia.org/wiki/IPadOS
         'iPadOS' => 'CPU OS 13',
+        // @reference https://en.m.wikipedia.org/wiki/Sailfish_OS
+        // https://sailfishos.org/
+        'SailfishOS'        => 'Sailfish',
         // http://en.wikipedia.org/wiki/MeeGo
         // @todo: research MeeGo in UAs
         'MeeGoOS'           => 'MeeGo',
@@ -649,6 +652,7 @@ class Mobile_Detect
         'Tizen'         => 'Tizen/[VER]',
         'Webkit'        => 'webkit[ /][VER]',
         'PaleMoon'         => 'PaleMoon/[VER]',
+        'SailfishBrowser'  => 'SailfishBrowser/[VER]',
 
         // Engine
         'Gecko'         => 'Gecko/[VER]',
@@ -659,6 +663,7 @@ class Mobile_Detect
         // OS
         'iOS'              => ' \bi?OS\b [VER][ ;]{1}',
         'Android'          => 'Android [VER]',
+        'Sailfish'         => 'Sailfish [VER]',
         'BlackBerry'       => array('BlackBerry[\w]+/[VER]', 'BlackBerry.*Version/[VER]', 'Version/[VER]'),
         'BREW'             => 'BREW [VER]',
         'Java'             => 'Java/[VER]',
@@ -1396,6 +1401,9 @@ class Mobile_Detect
 
             // Meego 1.2 - Tested on Nokia 950 and N9
             $this->is('MeeGoOS') ||
+
+            // Sailfish OS
+            $this->is('SailfishOS') ||
 
             // Tizen (pre-release) - Tested on early hardware
             $this->is('Tizen') ||
