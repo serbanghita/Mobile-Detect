@@ -68,13 +68,13 @@ or include the dependency in the `composer.json` file:
 
 #### Demo 
 
-* [:iphone: Live demo!](http://is.gd/mobiletest)
+* [:iphone: Live demo!](http://demo.mobiledetect.net)
 * [Code examples](../../wiki/Code-examples)
 
 #### Contribute
 
 *Submit a PR*
-> Submit a pull request but before make sure you read [how to contribute](../../docs/CONTRIBUTING.md) guide.
+> Submit a pull request but before make sure you read [how to contribute](docs/CONTRIBUTING.md) guide.
 
 *Donate*
 
@@ -92,7 +92,7 @@ Special thanks to the community :+1: for donations, JetBrains team for the conti
 > [Submit new module, plugin, port](../../issues/new?title=New%203rd%20party%20module&body=Name,%20Link%20and%20Description%20of%20the%20module.)
 
 :point_right: Keep `Mobile_Detect.php` class in a separate `module` and do NOT include it in your script core because of the high frequency of updates.
-:point_right: When including the class into you `web application` or `module` always use `include_once '../path/to/Mobile_Detect.php` to prevent conflicts.
+:point_right: When including the class into your `web application` or `module` always use `include_once '../path/to/Mobile_Detect.php` to prevent conflicts.
 
 **JavaScript**
 
