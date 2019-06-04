@@ -22,6 +22,8 @@ return array(
         ),
 
     'Other' => array(
+        // Conflict in registered Model Name(#717)
+        'Mozilla/5.0 (Linux; U; Android 7.1.2; zh-cn; Z999 Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.4 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         // Vivaldi Browser
         'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.148 Safari/537.36 Vivaldi/1.4.589.41' => array('isMobile' => false, 'isTablet' => false),
         // Unknown
