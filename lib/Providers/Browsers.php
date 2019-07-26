@@ -71,6 +71,30 @@ class Browsers extends AbstractProvider
                 'versionMatches' => array('Opera/[VER]', ' OPR/[VER]', 'Version/[VER]' ),
             ),
         ),
+        
+        /**
+         *
+         * Mozilla Firefox browser family
+         *
+         * @docs https://developer.mozilla.org/fr/docs/Web/HTTP/Gecko_user_agent_string_reference
+         */
+        'Firefox' => array(
+            'Firefox Mobile' => array(
+                'vendor' => 'Mozilla',
+                'model' => 'Firefox Mobile',
+                'isMobile' => true,
+                'identityMatches' => '\bfennec?|\bfirefox.*maemo|\b(Mobile|Tablet).*Firefox?|\bFirefox.*Mobile|\bMozilla.*(Mobile|Tablet)|\bFxiOS?',
+                'versionMatches' => array('fennec/[VER]', 'Firefox/[VER]', 'FxiOS/[VER]', 'Mozilla/[VER]'),
+            ),
+            'Firefox Desktop' => array(
+                'vendor' => 'Mozilla',
+                'model' => 'Firefox Desktop',
+                'isMobile' => false,
+                'identityMatches' => '\bFirefox\b/[.0-9]*',
+                'versionMatches' => array('Firefox/[VER]'),
+            ),
+        ),
+        
         /**
          * Google Chrome browser family
          *
