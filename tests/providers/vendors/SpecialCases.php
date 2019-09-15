@@ -213,6 +213,7 @@ return array(
         'AdsBot-Google (+http://www.google.com/adsbot.html)' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
         'AdsBot-Google-Mobile (+http://www.google.com/mobile/adsbot.html) Mozilla (iPhone; U; CPU iPhone OS 3 0 like Mac OS X) AppleWebKit (KHTML, like Gecko) Mobile Safari' => array('isMobile' => true, 'isTablet' => false, /*'isBot' => true*/),
         'Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.16 (KHTML, like Gecko, Google Keyword Suggestion) Chrome/10.0.648.127 Safari/534.16' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
-        'Facebot' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/)
+        'Facebot' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36 (+https://whatis.contentkingapp.com)' => array('isMobile' => false, 'isTablet' => false),
         ),
 );

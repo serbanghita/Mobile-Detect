@@ -30,6 +30,19 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.1.2; fr-fr; Transformer Build/JZO54K; CyanogenMod-10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.1.2', 'Webkit' => '534.30', 'Safari' => '4.0', 'Build' => 'JZO54K'), 'model' => 'Transformer' ),
         'Mozilla/5.0 (Linux; Android 4.1.2; B1-A71 Build/JZO54K) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19'                      => array('isMobile' => true, 'isTablet' => true, 'version' => array('Android' => '4.1.2', 'Webkit' => '535.19', 'Chrome' => '18.0.1025.166'), 'model' => 'B1-A71' ),
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Acer; Allegro)'                                                      => array('isMobile' => true, 'isTablet' => false, 'version' => array('Windows Phone OS' => '7.5', 'Trident' => '5.0', 'IE' => '9.0'), 'model' => 'Allegro' ),
+        // Blackberry DTEK 60
+        'Mozilla/5.0 (Linux; Android 6.0.1; BBA100-1 Build/6.0.1_0.223.0.064) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.83 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        // Blackberry KeyOne
+        'Mozilla/5.0 (Linux; Android 8.1.0; BBB100-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.89 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 7.1.1; BBB100-3 Build/NMF26F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        // BlackBerry Motion
+        'Mozilla/5.0 (Linux; Android 7.1; BBD100-1 Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        // Blackberry KEY2 LE
+        'Mozilla/5.0 (Linux; Android 8.1.0; BBE100-1 Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        // Blackberry KEY2
+        'Mozilla/5.0 (Linux; Android 8.1.0; BBF100-9 Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        // Blackberry DTEK 50
+        'Mozilla/5.0 (Linux; Android 6.0.1; STH100-1 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         ),
 
 );
