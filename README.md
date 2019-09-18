@@ -68,13 +68,13 @@ or include the dependency in the `composer.json` file:
 
 #### Demo 
 
-* [:iphone: Live demo!](http://is.gd/mobiletest)
+* [:iphone: Live demo!](http://demo.mobiledetect.net)
 * [Code examples](../../wiki/Code-examples)
 
 #### Contribute
 
 *Submit a PR*
-> Submit a pull request but before make sure you read [how to contribute](../../docs/CONTRIBUTING.md) guide.
+> Submit a pull request but before make sure you read [how to contribute](docs/CONTRIBUTING.md) guide.
 
 *Donate*
 

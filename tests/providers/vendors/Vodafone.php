@@ -7,5 +7,7 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.0.4; de-de, SmartTabII7 Build/A2107A_A404_107_055_130124_VODA) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array(
             'isMobile' => true, 'isTablet' => true,
         ),
+        // https://github.com/serbanghita/Mobile-Detect/issues/780
+        'Mozilla/5.0 (Linux; Android 6.0.1; VFD 1400 Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.91 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         ),
 );

@@ -24,5 +24,6 @@ return array(
         'Mozilla/5.0 (iPad; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.17 (KHTML, like Gecko) Version/8.0 Mobile/13A175 Safari/600.1.4' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (iPhone; CPU iPhone OS 9_0 like Mac OS X) AppleWebKit/601.1.37 (KHTML, like Gecko) Version/8.0 Mobile/13A4293g Safari/600.1.4' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (iPad; CPU OS 9_0_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A452 Safari/601.1' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E302 rabbit%2F1.0 baiduboxapp/0_0.0.3.7_enohpi_4331_057/1.3.11_2C2%257enohPi/1099a/4D6A2107AC77E4AD3E534E146047A21C0EC9262D6OCCBFMJOPA/1' => array('isMobile' => true, 'isTablet' => false),
     ),
 );

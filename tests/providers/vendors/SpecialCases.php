@@ -22,6 +22,8 @@ return array(
         ),
 
     'Other' => array(
+        // Conflict in registered Model Name(#717)
+        'Mozilla/5.0 (Linux; U; Android 7.1.2; zh-cn; Z999 Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.4 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         // Vivaldi Browser
         'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.148 Safari/537.36 Vivaldi/1.4.589.41' => array('isMobile' => false, 'isTablet' => false),
         // Unknown
@@ -211,6 +213,7 @@ return array(
         'AdsBot-Google (+http://www.google.com/adsbot.html)' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
         'AdsBot-Google-Mobile (+http://www.google.com/mobile/adsbot.html) Mozilla (iPhone; U; CPU iPhone OS 3 0 like Mac OS X) AppleWebKit (KHTML, like Gecko) Mobile Safari' => array('isMobile' => true, 'isTablet' => false, /*'isBot' => true*/),
         'Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.16 (KHTML, like Gecko, Google Keyword Suggestion) Chrome/10.0.648.127 Safari/534.16' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
-        'Facebot' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/)
+        'Facebot' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36 (+https://whatis.contentkingapp.com)' => array('isMobile' => false, 'isTablet' => false),
         ),
 );
