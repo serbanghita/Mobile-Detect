@@ -1,0 +1,52 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__ . '/namespaced')
+    ->append(array(
+        __FILE__,
+        __DIR__ . '/Mobile_Detect.php'
+    ))
+    ->files()
+    ->name('*.php')
+;
+
+return PhpCsFixer\Config::create()
+    ->setFinder($finder)
+    ->setRules(array(
+        '@PSR2' => true,
+
+        'align_multiline_comment' => true,
+        'array_indentation' => true,
+        'array_syntax' => array('syntax' => 'long'),
+        'list_syntax' => array('syntax' => 'long'),
+        'blank_line_after_namespace' => true,
+        'blank_line_after_opening_tag' => true,
+        'binary_operator_spaces' => array(
+            'default' => 'single_space',
+        ),
+        'cast_spaces' => array('space' => 'none'),
+        'class_attributes_separation' => true,
+        'class_definition' => true,
+        'concat_space' => array('spacing' => 'one'),
+        'include' => true,
+        'lowercase_cast' => true,
+        'lowercase_static_reference' => true,
+        'no_mixed_echo_print' => array('use' => 'echo'),
+        'no_multiline_whitespace_around_double_arrow' => true,
+        'no_null_property_initialization' => true,
+        'no_singleline_whitespace_before_semicolons' => true,
+        'no_short_bool_cast' => true,
+        'no_short_echo_tag' => true,
+        'no_spaces_around_offset' => true,
+        'no_superfluous_elseif' => true,
+        'object_operator_without_whitespace' => true,
+        'ordered_class_elements' => true,
+        'ordered_imports' => array(
+            'imports_order' => array('class', 'function', 'const'),
+        ),
+        'single_quote' => true,
+        'trailing_comma_in_multiline_array' => false,
+        'trim_array_spaces' => true,
+        'unary_operator_spaces' => true,
+    ))
+;
