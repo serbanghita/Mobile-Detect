@@ -19,6 +19,9 @@
     "require-dev": {
         "phpunit/phpunit": "~4.8.35||~5.7"
     },
+    "suggest": {
+        "friendsofphp/php-cs-fixer": "^2.15"
+    },
     "config": {
         "preferred-install": {
             "*": "dist"
