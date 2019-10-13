@@ -2,6 +2,8 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__ . '/namespaced')
+    ->in(__DIR__ . '/examples')
+    ->in(__DIR__ . '/tests')
     ->append(array(
         __FILE__,
         __DIR__ . '/Mobile_Detect.php'
