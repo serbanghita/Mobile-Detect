@@ -191,22 +191,22 @@ $scriptVersion = $detect->getScriptVersion();
             <th colspan="2">Basic detection methods</th>
         </tr>
         <tr>
-            <td>isMobile()</td><td <?php $check = $detect->isMobile(); if($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
+            <td>isMobile()</td><td <?php $check = $detect->isMobile(); if ($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
         </tr>
         <tr>
-            <td>isTablet()</td><td <?php $check = $detect->isTablet(); if($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
+            <td>isTablet()</td><td <?php $check = $detect->isTablet(); if ($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
         </tr>
         </tbody>
         <tbody>
         <tr>
             <th colspan="2">Custom detection methods</th>
         </tr>
-        <?php foreach($detect->getRules() as $name => $regex):
-                        $check = $detect->{'is'.$name}();
+        <?php foreach ($detect->getRules() as $name => $regex):
+                        $check = $detect->{'is' . $name}();
         ?>
             <tr>
                     <td>is<?php echo $name; ?>()</td>
-                    <td <?php if($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
+                    <td <?php if ($check): ?>class="true"<?php endif; ?>><?php var_dump($check); ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
@@ -215,9 +215,9 @@ $scriptVersion = $detect->getScriptVersion();
                 <th colspan="2">Experimental version() method</th>
             </tr>
             <?php
-            foreach($detect->getProperties() as $name => $match):
+            foreach ($detect->getProperties() as $name => $match):
                 $check = $detect->version($name);
-                if($check!==false):
+                if ($check !== false):
             ?>
             <tr>
                 <td>version(<?php echo $name; ?>)</td>

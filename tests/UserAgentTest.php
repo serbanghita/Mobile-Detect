@@ -9,8 +9,32 @@ use PHPUnit\Framework\TestCase;
 class UserAgentTest extends TestCase
 {
     protected $detect;
+
     protected static $ualist = array();
+
     protected static $json;
+
+    public static function setUpBeforeClass()
+    {
+        //generate json file first
+        self::generateJson();
+
+        //get the generated JSON data
+        $json = self::$json;
+
+        //make a list that is usable by functions (THE ORDER OF THE KEYS MATTERS!)
+        foreach ($json as $userAgent) {
+            $tmp = array();
+            $tmp[] = isset($userAgent['user_agent']) ? $userAgent['user_agent'] : null;
+            $tmp[] = isset($userAgent['mobile']) ? $userAgent['mobile'] : null;
+            $tmp[] = isset($userAgent['tablet']) ? $userAgent['tablet'] : null;
+            $tmp[] = isset($userAgent['version']) ? $userAgent['version'] : null;
+            $tmp[] = isset($userAgent['model']) ? $userAgent['model'] : null;
+            $tmp[] = isset($userAgent['vendor']) ? $userAgent['vendor'] : null;
+
+            self::$ualist[] = $tmp;
+        }
+    }
 
     public function setUp()
     {
@@ -115,28 +139,6 @@ class UserAgentTest extends TestCase
         return self::$json;
     }
 
-    public static function setUpBeforeClass()
-    {
-        //generate json file first
-        self::generateJson();
-
-        //get the generated JSON data
-        $json = self::$json;
-
-        //make a list that is usable by functions (THE ORDER OF THE KEYS MATTERS!)
-        foreach ($json as $userAgent) {
-            $tmp = array();
-            $tmp[] = isset($userAgent['user_agent']) ? $userAgent['user_agent'] : null;
-            $tmp[] = isset($userAgent['mobile']) ? $userAgent['mobile'] : null;
-            $tmp[] = isset($userAgent['tablet']) ? $userAgent['tablet'] : null;
-            $tmp[] = isset($userAgent['version']) ? $userAgent['version'] : null;
-            $tmp[] = isset($userAgent['model']) ? $userAgent['model'] : null;
-            $tmp[] = isset($userAgent['vendor']) ? $userAgent['vendor'] : null;
-
-            self::$ualist[] = $tmp;
-        }
-    }
-
     public function userAgentData()
     {
         if (!count(self::$ualist)) {
@@ -170,7 +172,7 @@ class UserAgentTest extends TestCase
 
         if (isset($version)) {
             foreach ($version as $condition => $assertion) {
-                $this->assertEquals($assertion, $this->detect->version($condition), 'FAILED UA (version("'.$condition.'")): '.$userAgent);
+                $this->assertEquals($assertion, $this->detect->version($condition), 'FAILED UA (version("' . $condition . '")): ' . $userAgent);
             }
         }
 

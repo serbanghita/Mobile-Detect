@@ -1,19 +1,28 @@
 sudo: false
-dist: trusty
+dist: xenial
 language: php
 
 matrix:
   include:
     - php: 5.3
       dist: precise
+      env: DISABLE_PHP_CS_FIXER=true
     - php: 5.4
+      dist: trusty
+      env: DISABLE_PHP_CS_FIXER=true
     - php: 5.5
+      dist: trusty
+      env: DISABLE_PHP_CS_FIXER=true
     - php: 5.6
+      dist: trusty
     - php: 7.0
     - php: 7.1
     - php: 7.2
+    - php: 7.3
+    - php: 7.4snapshot
     - php: nightly
   allow_failures:
+    - php: 7.4snapshot
     - php: nightly
   fast_finish: true
 
@@ -23,9 +32,13 @@ branches:
     - master
 
 before_script:
-  - composer install
+  # turn off XDebug
+  - phpenv config-rm xdebug.ini || return 0
+  - composer install --no-interaction
+  - if [ "$DISABLE_PHP_CS_FIXER" != true ]; then composer create-project --no-dev --no-interaction friendsofphp/php-cs-fixer /tmp/php-cs-fixer ^2.15; fi
 
 script:
+  - if [ "$DISABLE_PHP_CS_FIXER" != true ]; then /tmp/php-cs-fixer/php-cs-fixer fix -v --dry-run --diff --diff-format udiff --stop-on-violation --using-cache=no; fi
   - vendor/bin/phpunit --version
   - vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky
 

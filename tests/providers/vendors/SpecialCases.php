@@ -1,4 +1,5 @@
 <?php
+
 return array(
     'Avant' => array(
         'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; Avant Browser; rv:11.0) like Gecko' => array('isMobile' => false, 'isTablet' => false),
@@ -6,21 +7,18 @@ return array(
         'Mozilla/5.0 (Windows NT 5.1; rv:27.0; Avant TriCore) Gecko/20100101 Firefox/27.0' => array('isMobile' => false, 'isTablet' => false),
     ),
     'Console' => array(
-
         //Nintendo Wii:
-        'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.28 (KHTML, like Gecko) NX/3.0.3.12.14 NintendoBrowser/3.1.1.9577.EU'    => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.28 (KHTML, like Gecko) NX/3.0.3.12.14 NintendoBrowser/3.1.1.9577.EU' => array('isMobile' => false, 'isTablet' => false),
         'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/{Version No} NintendoBrowser/{Version No}.US' => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7567.US'                                                              => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7498.US'                                                              => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7567.US' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Nintendo 3DS; U; ; en) Version/1.7498.US' => array('isMobile' => true, 'isTablet' => false),
         //Sony PlayStation:
-        'Mozilla/5.0 (PLAYSTATION 3 4.21) AppleWebKit/531.22.8 (KHTML, like Gecko)'                                          => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (PLAYSTATION 3 4.21) AppleWebKit/531.22.8 (KHTML, like Gecko)' => array('isMobile' => false, 'isTablet' => false),
         //Microsoft Xbox:
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)'                                              => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)' => array('isMobile' => false, 'isTablet' => false),
         // WTF? Must investigate.
         //'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Xbox)'                        => array('isMobile' => false, 'isTablet' => false),
-
-        ),
-
+    ),
     'Other' => array(
         // Conflict in registered Model Name(#717)
         'Mozilla/5.0 (Linux; U; Android 7.1.2; zh-cn; Z999 Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.4 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
@@ -43,44 +41,44 @@ return array(
         'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Iron/37.0.2000.0 Chrome/37.0.2000.0 Safari/537.36' => array('isMobile' => false, 'isTablet' => false, 'version' => array('Iron' => '37.0.2000.0')),
         // Liebao Browser
         //'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER',
-        'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/32.0.1700.102 Chrome/32.0.1700.102 Safari/537.36'                                                     => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0'                                                                                                                  => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0 AlexaToolbar/psPCtGhf-2.2'                                                                                        => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'                                                                                                              => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (X11; Linux ppc; rv:17.0) Gecko/20130626 Firefox/17.0 Iceweasel/17.0.7'                                                                                                        => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (X11; Linux) AppleWebKit/535.22+ Midori/0.4'                                                                                                                                   => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-us) AppleWebKit/535+ (KHTML, like Gecko) Version/5.0 Safari/535.20+ Midori/0.4'                                                              => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.20 Safari/537.36  OPR/15.0.1147.18 (Edition Next)'                                             => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.94 Safari/537.36'                                                                                     => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (Windows NT 5.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.94 Safari/537.36'                                                                              => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (Windows NT 5.2; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0'                                                                                                                  => array('isMobile' => false, 'isTablet' => false),
-        'Opera/9.80 (Windows NT 5.2; WOW64) Presto/2.12.388 Version/12.14'                                                                                                                          => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0'                                                                                                                  => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (X11; FreeBSD amd64; rv:14.0) Gecko/20100101 Firefox/14.0.1'                                                                                                                   => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/32.0.1700.102 Chrome/32.0.1700.102 Safari/537.36' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0 AlexaToolbar/psPCtGhf-2.2' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (X11; Linux ppc; rv:17.0) Gecko/20130626 Firefox/17.0 Iceweasel/17.0.7' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (X11; Linux) AppleWebKit/535.22+ Midori/0.4' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-us) AppleWebKit/535+ (KHTML, like Gecko) Version/5.0 Safari/535.20+ Midori/0.4' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.20 Safari/537.36  OPR/15.0.1147.18 (Edition Next)' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.94 Safari/537.36' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 5.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.94 Safari/537.36' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 5.2; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0' => array('isMobile' => false, 'isTablet' => false),
+        'Opera/9.80 (Windows NT 5.2; WOW64) Presto/2.12.388 Version/12.14' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (X11; FreeBSD amd64; rv:14.0) Gecko/20100101 Firefox/14.0.1' => array('isMobile' => false, 'isTablet' => false),
         // @todo Inspect https://gist.githubusercontent.com/pongacm/b7775bebf2b26c09e1f8/raw/0aff83747959386663f3a5c68d7f7150764a8e2d/Varnish%20-%20Tablet%20PC%20(TAB)
         // https://github.com/varnish/varnish-devicedetect/issues/19
         'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Win64; x64; Trident/6.0; Touch; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Tablet PC 2.0; MASMJS)' => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; MANMJS)'                                                                                                           => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; MASMJS)'                                                                                                      => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; Touch; MASMJS)'                                                                                                    => array('isMobile' => false, 'isTablet' => false),
-        'Opera/9.80 (Windows NT 6.2; WOW64; MRA 8.0 (build 5784)) Presto/2.12.388 Version/12.11'                                                                                                    => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; MANMJS)' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0; MASMJS)' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0; Touch; MASMJS)' => array('isMobile' => false, 'isTablet' => false),
+        'Opera/9.80 (Windows NT 6.2; WOW64; MRA 8.0 (build 5784)) Presto/2.12.388 Version/12.11' => array('isMobile' => false, 'isTablet' => false),
         // IE 10
-        'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)'                                                                                                                   => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)' => array('isMobile' => false, 'isTablet' => false),
         // IE 11 @todo: Trident(.*)rv.(\d+)\.(\d+)
-        'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko'                                                                                                                             => array('isMobile' => false, 'isTablet' => false),
-        'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko'                                                                                                               => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko' => array('isMobile' => false, 'isTablet' => false),
+        'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko' => array('isMobile' => false, 'isTablet' => false),
 
         // TV
-        'Mozilla/5.0 (Unknown; Linux armv7l) AppleWebKit/537.1+ (KHTML, like Gecko) Safari/537.1+ HbbTV/1.1.1 ( ;LGE ;NetCast 4.0 ;03.20.30 ;1.0M ;)'                                               => array('isMobile' => false, 'isTablet' => false),
-        'HbbTV/1.1.1 (;Panasonic;VIERA 2012;1.261;0071-3103 2000-0000;)'                                                                                                                            => array('isMobile' => false, 'isTablet' => false),
-        'Opera/9.80 (Linux armv7l; HbbTV/1.1.1 (; Sony; KDL32W650A; PKG3.211EUA; 2013;); ) Presto/2.12.362 Version/12.11'                                                                           => array('isMobile' => false, 'isTablet' => false),
-        ),
+        'Mozilla/5.0 (Unknown; Linux armv7l) AppleWebKit/537.1+ (KHTML, like Gecko) Safari/537.1+ HbbTV/1.1.1 ( ;LGE ;NetCast 4.0 ;03.20.30 ;1.0M ;)' => array('isMobile' => false, 'isTablet' => false),
+        'HbbTV/1.1.1 (;Panasonic;VIERA 2012;1.261;0071-3103 2000-0000;)' => array('isMobile' => false, 'isTablet' => false),
+        'Opera/9.80 (Linux armv7l; HbbTV/1.1.1 (; Sony; KDL32W650A; PKG3.211EUA; 2013;); ) Presto/2.12.362 Version/12.11' => array('isMobile' => false, 'isTablet' => false),
+    ),
 
     'TV' => array(
         // @See https://github.com/serbanghita/Mobile-Detect/issues/591
         'Mozilla/5.0 (SMART-TV; Linux; Tizen 2.3) AppleWebkit/538.1 (KHTML, like Gecko) SamsungBrowser/1.0 TV Safari/538.1' => array('isMobile' => false, 'isTablet' => false)
         //'Opera/9.80 (Linux mips ; U; HbbTV/1.1.1 (; Philips; ; ; ; ) CE-HTML/1.0 NETTV/3.2.1; en) Presto/2.6.33 Version/10.70' => null
-        ),
+    ),
 
     'Generic' => array(
 
@@ -121,9 +119,9 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.1.1; hu-hu; M758A Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
 
         'Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; EVOTAB Build/IMM76I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
-        'Java/1.6.0_22' => array('isMobile' => false, 'isTablet' => false, 'version' => array('Java' => '1.6.0_22') ),
+        'Java/1.6.0_22' => array('isMobile' => false, 'isTablet' => false, 'version' => array('Java' => '1.6.0_22')),
         'Opera/9.80 (Series 60; Opera Mini/6.5.29260/29.3417; U; ru) Presto/2.8.119 Version/11.10' => array('isMobile' => true, 'isTablet' => false),
-        'Opera/9.80 (Android; Opera Mini/6.5.27452/29.3417; U; ru) Presto/2.8.119 Version/11.10'  => array('isMobile' => true, 'isTablet' => false),
+        'Opera/9.80 (Android; Opera Mini/6.5.27452/29.3417; U; ru) Presto/2.8.119 Version/11.10' => array('isMobile' => true, 'isTablet' => false),
         'Opera/9.80 (iPhone; Opera Mini/7.1.32694/27.1407; U; en) Presto/2.8.119 Version/11.10' => array('isMobile' => true, 'isTablet' => false),
         // New Opera
         'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.60 Safari/537.17 OPR/14.0.1025.52315' => array('isMobile' => false, 'isTablet' => false),
@@ -202,8 +200,7 @@ return array(
         'Mozilla/5.0 (Linux; U; Android 4.2.2; de-de; Tagi Tab S10 Build/8089) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array(
             'isMobile' => true, 'isTablet' => true,
         ),
-        ),
-
+    ),
     'Bot' => array(
         'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
         'grub-client-1.5.3; (grub-client-1.5.3; Crawl your own stuff with http://grub.org)' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
@@ -215,5 +212,5 @@ return array(
         'Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.16 (KHTML, like Gecko, Google Keyword Suggestion) Chrome/10.0.648.127 Safari/534.16' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
         'Facebot' => array('isMobile' => false, 'isTablet' => false, /*'isBot' => true*/),
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36 (+https://whatis.contentkingapp.com)' => array('isMobile' => false, 'isTablet' => false),
-        ),
+    ),
 );

@@ -13,92 +13,91 @@ class BasicTest extends TestCase
      */
     protected $detect;
 
-    public function testClassExists()
-    {
-        $this->assertTrue(class_exists('Mobile_Detect'));
-    }
-
     public function setUp()
     {
         $this->detect = new Mobile_Detect;
     }
 
+    public function testClassExists()
+    {
+        $this->assertTrue(class_exists('Mobile_Detect'));
+    }
+
     public function testBasicMethods()
     {
-        $this->assertNotEmpty( $this->detect->getScriptVersion() );
+        $this->assertNotEmpty($this->detect->getScriptVersion());
 
         $this->detect->setHttpHeaders(array(
-                'SERVER_SOFTWARE'       => 'Apache/2.2.15 (Linux) Whatever/4.0 PHP/5.2.13',
-                'REQUEST_METHOD'        => 'POST',
-                'HTTP_HOST'             => 'home.ghita.org',
-                'HTTP_X_REAL_IP'        => '1.2.3.4',
-                'HTTP_X_FORWARDED_FOR'  => '1.2.3.5',
-                'HTTP_CONNECTION'       => 'close',
-                'HTTP_USER_AGENT'       => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25',
-                'HTTP_ACCEPT'           => 'text/vnd.wap.wml, application/json, text/javascript, */*; q=0.01',
-                'HTTP_ACCEPT_LANGUAGE'  => 'en-us,en;q=0.5',
-                'HTTP_ACCEPT_ENCODING'  => 'gzip, deflate',
-                'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest',
-                'HTTP_REFERER'          => 'http://mobiledetect.net',
-                'HTTP_PRAGMA'           => 'no-cache',
-                'HTTP_CACHE_CONTROL'    => 'no-cache',
-                'REMOTE_ADDR'           => '11.22.33.44',
-                'REQUEST_TIME'          => '01-10-2012 07:57'
-            ));
+            'SERVER_SOFTWARE' => 'Apache/2.2.15 (Linux) Whatever/4.0 PHP/5.2.13',
+            'REQUEST_METHOD' => 'POST',
+            'HTTP_HOST' => 'home.ghita.org',
+            'HTTP_X_REAL_IP' => '1.2.3.4',
+            'HTTP_X_FORWARDED_FOR' => '1.2.3.5',
+            'HTTP_CONNECTION' => 'close',
+            'HTTP_USER_AGENT' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25',
+            'HTTP_ACCEPT' => 'text/vnd.wap.wml, application/json, text/javascript, */*; q=0.01',
+            'HTTP_ACCEPT_LANGUAGE' => 'en-us,en;q=0.5',
+            'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+            'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest',
+            'HTTP_REFERER' => 'http://mobiledetect.net',
+            'HTTP_PRAGMA' => 'no-cache',
+            'HTTP_CACHE_CONTROL' => 'no-cache',
+            'REMOTE_ADDR' => '11.22.33.44',
+            'REQUEST_TIME' => '01-10-2012 07:57'
+        ));
 
         //12 because only 12 start with HTTP_
-        $this->assertCount( 12, $this->detect->getHttpHeaders() );
-        $this->assertTrue( $this->detect->checkHttpHeadersForMobile() );
+        $this->assertCount(12, $this->detect->getHttpHeaders());
+        $this->assertTrue($this->detect->checkHttpHeadersForMobile());
 
         $this->detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25');
-        $this->assertNotEmpty( $this->detect->getUserAgent() );
+        $this->assertNotEmpty($this->detect->getUserAgent());
 
-        $this->assertTrue( $this->detect->isMobile() );
-        $this->assertFalse( $this->detect->isTablet() );
+        $this->assertTrue($this->detect->isMobile());
+        $this->assertFalse($this->detect->isTablet());
 
-        $this->assertTrue( $this->detect->isIphone() );
-        $this->assertTrue( $this->detect->isiphone() );
-        $this->assertTrue( $this->detect->isiOS() );
-        $this->assertTrue( $this->detect->isios() );
-        $this->assertTrue( $this->detect->is('iphone') );
-        $this->assertTrue( $this->detect->is('ios') );
-
+        $this->assertTrue($this->detect->isIphone());
+        $this->assertTrue($this->detect->isiphone());
+        $this->assertTrue($this->detect->isiOS());
+        $this->assertTrue($this->detect->isios());
+        $this->assertTrue($this->detect->is('iphone'));
+        $this->assertTrue($this->detect->is('ios'));
     }
 
     public function headersProvider()
     {
         return array(
             array(array(
-                'SERVER_SOFTWARE'       => 'Apache/2.2.15 (Linux) Whatever/4.0 PHP/5.2.13',
-                'REQUEST_METHOD'        => 'POST',
-                'HTTP_HOST'             => 'home.ghita.org',
-                'HTTP_X_REAL_IP'        => '1.2.3.4',
-                'HTTP_X_FORWARDED_FOR'  => '1.2.3.5',
-                'HTTP_CONNECTION'       => 'close',
-                'HTTP_USER_AGENT'       => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25',
-                'HTTP_ACCEPT'           => 'text/vnd.wap.wml, application/json, text/javascript, */*; q=0.01',
-                'HTTP_ACCEPT_LANGUAGE'  => 'en-us,en;q=0.5',
-                'HTTP_ACCEPT_ENCODING'  => 'gzip, deflate',
+                'SERVER_SOFTWARE' => 'Apache/2.2.15 (Linux) Whatever/4.0 PHP/5.2.13',
+                'REQUEST_METHOD' => 'POST',
+                'HTTP_HOST' => 'home.ghita.org',
+                'HTTP_X_REAL_IP' => '1.2.3.4',
+                'HTTP_X_FORWARDED_FOR' => '1.2.3.5',
+                'HTTP_CONNECTION' => 'close',
+                'HTTP_USER_AGENT' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25',
+                'HTTP_ACCEPT' => 'text/vnd.wap.wml, application/json, text/javascript, */*; q=0.01',
+                'HTTP_ACCEPT_LANGUAGE' => 'en-us,en;q=0.5',
+                'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
                 'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest',
-                'HTTP_REFERER'          => 'http://mobiledetect.net',
-                'HTTP_PRAGMA'           => 'no-cache',
-                'HTTP_CACHE_CONTROL'    => 'no-cache',
-                'REMOTE_ADDR'           => '11.22.33.44',
-                'REQUEST_TIME'          => '01-10-2012 07:57'
+                'HTTP_REFERER' => 'http://mobiledetect.net',
+                'HTTP_PRAGMA' => 'no-cache',
+                'HTTP_CACHE_CONTROL' => 'no-cache',
+                'REMOTE_ADDR' => '11.22.33.44',
+                'REQUEST_TIME' => '01-10-2012 07:57'
             )),
             array(array(
-                'SERVER_SOFTWARE'       => 'Rogue software',
-                'REQUEST_METHOD'        => 'GET',
-                'REMOTE_ADDR'           => '8.8.8.8',
-                'REQUEST_TIME'          => '07-10-2013 23:56',
-                'HTTP_USER_AGENT'       => "garbage/1.0"
+                'SERVER_SOFTWARE' => 'Rogue software',
+                'REQUEST_METHOD' => 'GET',
+                'REMOTE_ADDR' => '8.8.8.8',
+                'REQUEST_TIME' => '07-10-2013 23:56',
+                'HTTP_USER_AGENT' => 'garbage/1.0'
             )),
             array(array(
-                'SERVER_SOFTWARE'       => 'Apache/1.3.17 (Linux) PHP/5.5.2',
-                'REQUEST_METHOD'        => 'HEAD',
-                'HTTP_USER_AGENT'       => 'Mozilla/5.0 (Linux; U; Android 1.5; en-us; ADR6200 Build/CUPCAKE) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
-                'REMOTE_ADDR'           => '1.250.250.0',
-                'REQUEST_TIME'          => '06-12-2006 11:06'
+                'SERVER_SOFTWARE' => 'Apache/1.3.17 (Linux) PHP/5.5.2',
+                'REQUEST_METHOD' => 'HEAD',
+                'HTTP_USER_AGENT' => 'Mozilla/5.0 (Linux; U; Android 1.5; en-us; ADR6200 Build/CUPCAKE) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
+                'REMOTE_ADDR' => '1.250.250.0',
+                'REQUEST_TIME' => '06-12-2006 11:06'
             )),
         );
     }
@@ -189,8 +188,8 @@ class BasicTest extends TestCase
         // Test mobile detected
         $header1 = array(
             'HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER' => 'false',
-            'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'  => 'true',
-            'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'false'
+            'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER' => 'true',
+            'HTTP_CLOUDFRONT_IS_TABLET_VIEWER' => 'false'
         );
         $md = new Mobile_Detect($header1);
         $this->assertSame($md->getCfHeaders(), $header1);
@@ -201,8 +200,8 @@ class BasicTest extends TestCase
         // Test neither mobile nor tablet (desktop)
         $header2 = array(
             'HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER' => 'true',
-            'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'  => 'false',
-            'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'false'
+            'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER' => 'false',
+            'HTTP_CLOUDFRONT_IS_TABLET_VIEWER' => 'false'
         );
         $md->setHttpHeaders($header2);
         $this->assertSame($md->getCfHeaders(), $header2);
@@ -213,8 +212,8 @@ class BasicTest extends TestCase
         // Test tablet detected
         $header3 = array(
             'HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER' => 'false',
-            'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'  => 'false',
-            'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'true'
+            'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER' => 'false',
+            'HTTP_CLOUDFRONT_IS_TABLET_VIEWER' => 'true'
         );
         $md->setCfHeaders($header3);
         $this->assertSame($md->getCfHeaders(), $header3);
@@ -235,9 +234,10 @@ class BasicTest extends TestCase
         $this->assertSame('hello world', $md->getUserAgent());
     }
 
-    public function testSetLongUserAgent() {
+    public function testSetLongUserAgent()
+    {
         $md = new Mobile_Detect();
-        $md->setUserAgent(str_repeat("a", 501));
+        $md->setUserAgent(str_repeat('a', 501));
         $this->assertEquals(strlen($md->getUserAgent()), 500);
     }
 
@@ -345,25 +345,23 @@ class BasicTest extends TestCase
     // Headers that are not mobile.
     public function quickNonMobileHeadersData()
     {
-
         return array(
             array(array(
                 'HTTP_UA_CPU' => 'AMD64'
-                )),
+            )),
             array(array(
                 'HTTP_UA_CPU' => 'X86'
-                )),
+            )),
             array(array(
                 'HTTP_ACCEPT' => 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01'
-                )),
+            )),
             array(array(
                 'HTTP_REQUEST_METHOD' => 'DELETE'
-                )),
+            )),
             array(array(
                 'HTTP_VIA' => '1.1 ws-proxy.stuff.co.il C0A800FA'
-                )),
+            )),
         );
-
     }
 
     /**
@@ -478,7 +476,7 @@ class BasicTest extends TestCase
         $v = Mobile_Detect::getScriptVersion();
         $formatCheck = (bool)preg_match('/^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9])?$/', $v);
 
-        $this->assertTrue($formatCheck, "Fails the semantic version test. The version " . var_export($v, true)
+        $this->assertTrue($formatCheck, 'Fails the semantic version test. The version ' . var_export($v, true)
                 . ' does not match X.Y.Z pattern');
     }
 
@@ -504,7 +502,7 @@ class BasicTest extends TestCase
     {
         $md = new Mobile_Detect;
         $actual = $md->prepareVersionNo($raw);
-        $this->assertSame($expected, $actual, "We expected " . var_export($raw, true) . " to convert to "
+        $this->assertSame($expected, $actual, 'We expected ' . var_export($raw, true) . ' to convert to '
             . var_export($expected, true) . ', but got ' . var_export($actual, true) . ' instead');
     }
 }
