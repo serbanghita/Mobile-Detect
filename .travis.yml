@@ -38,7 +38,7 @@ before_script:
   - if [ "$DISABLE_PHP_CS_FIXER" != true ]; then composer create-project --no-dev --no-interaction friendsofphp/php-cs-fixer /tmp/php-cs-fixer ^2.15; fi
 
 script:
-  - if [ "$DISABLE_PHP_CS_FIXER" != true ]; then /tmp/php-cs-fixer/php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no; fi
+  - if [ "$DISABLE_PHP_CS_FIXER" != true ]; then /tmp/php-cs-fixer/php-cs-fixer fix -v --dry-run --diff --diff-format udiff --stop-on-violation --using-cache=no; fi
   - vendor/bin/phpunit --version
   - vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky
 
