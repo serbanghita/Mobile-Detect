@@ -25,5 +25,17 @@ foreach($user_agents as $user_agent)
 $detect = new Mobile_Detect;
 //$detect->setUserAgent('Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko');
 //var_dump($detect->version('IE'));
-$detect->setUserAgent('Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko');
-var_dump($detect->version('IE'));
+echo '<pre>';
+$detect->setUserAgent('Mozilla/5.0 (Linux; Android 9; SM-T515 Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 Safari/537.36 PBIAB Android 19.10.10430 (680046765)');
+var_dump([
+    $detect->is('Samsung'),
+    $detect->isMobile(),
+    $detect->isTablet()
+]);
+
+$detect->setUserAgent('Mozilla/5.0 (Windows NT 6.3; ARM; Trident/7.0; Touch; rv:11.0) like Gecko');
+var_dump([
+    $detect->is('Surface'),
+    $detect->isMobile(),
+    $detect->isTablet()
+]);
