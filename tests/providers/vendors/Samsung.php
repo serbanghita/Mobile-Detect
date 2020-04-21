@@ -200,5 +200,7 @@ return array(
         'Mozilla/5.0 (Linux; Android 9; SM-T720) AppleWebKit 537.36 (KHTML, like Gecko) SamsungBrowser/8.0 Chrome/74.0.3729.157 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 9; SM-T510) AppleWebKit 537.36 (KHTML, like Gecko) SamsungBrowser/8.0 Chrome/74.0.3729.157 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 8.1.0; SM-T387V) AppleWebKit 537.36 (KHTML, like Gecko) SamsungBrowser/8.0 Chrome/74.0.3729.157 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+				'Mozilla/5.0 (Linux; Android 7.0; SM-G892A Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/67.0.3396.87 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+				'Mozilla/5.0 (Linux; Android 9; SM-A530F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         ),
 );
