@@ -14,10 +14,10 @@
         }
     ],
     "require": {
-        "php": ">=5.0.0"
+        "php": "^7.2 || ^8.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.8.35||~5.7"
+        "phpunit/phpunit": "~8.0 || ^9.4"
     },
     "autoload": {
         "classmap": ["Mobile_Detect.php"],

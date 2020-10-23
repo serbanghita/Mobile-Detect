@@ -18,7 +18,7 @@ class BasicTest extends TestCase
         $this->assertTrue(class_exists('Mobile_Detect'));
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->detect = new Mobile_Detect;
     }
@@ -241,39 +241,6 @@ class BasicTest extends TestCase
         $this->assertEquals(strlen($md->getUserAgent()), 500);
     }
 
-    public function testSetDetectionType()
-    {
-        $md = new Mobile_Detect(array());
-
-        $md->setDetectionType('bskdfjhs');
-        $this->assertAttributeEquals(
-            Mobile_Detect::DETECTION_TYPE_MOBILE,
-            'detectionType',
-            $md
-        );
-
-        $md->setDetectionType();
-        $this->assertAttributeEquals(
-            Mobile_Detect::DETECTION_TYPE_MOBILE,
-            'detectionType',
-            $md
-        );
-
-        $md->setDetectionType(Mobile_Detect::DETECTION_TYPE_MOBILE);
-        $this->assertAttributeEquals(
-            Mobile_Detect::DETECTION_TYPE_MOBILE,
-            'detectionType',
-            $md
-        );
-
-        $md->setDetectionType(Mobile_Detect::DETECTION_TYPE_EXTENDED);
-        $this->assertAttributeEquals(
-            Mobile_Detect::DETECTION_TYPE_EXTENDED,
-            'detectionType',
-            $md
-        );
-    }
-
     //special headers that give 'quick' indication that a device is mobile
     public function quickHeadersData()
     {
@@ -376,11 +343,9 @@ class BasicTest extends TestCase
         $this->assertFalse($md->checkHttpHeadersForMobile());
     }
 
-    /**
-     * @expectedException BadMethodCallException
-     */
     public function testBadMethodCall()
     {
+        $this->expectException(BadMethodCallException::class);
         $md = new Mobile_Detect(array());
         $md->badmethodthatdoesntexistatall();
     }

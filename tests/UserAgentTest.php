@@ -12,7 +12,7 @@ class UserAgentTest extends TestCase
     protected static $ualist = array();
     protected static $json;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->detect = new Mobile_Detect;
     }
@@ -115,7 +115,7 @@ class UserAgentTest extends TestCase
         return self::$json;
     }
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         //generate json file first
         self::generateJson();

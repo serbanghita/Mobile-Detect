@@ -11,13 +11,13 @@ class VendorsTest extends TestCase
     protected $detect;
     protected static $items;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->detect = new Mobile_Detect;
 
     }
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         //this method could be called multiple times
         if (!self::$items) {
