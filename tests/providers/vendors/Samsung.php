@@ -200,5 +200,9 @@ return array(
         'Mozilla/5.0 (Linux; Android 9; SM-T720) AppleWebKit 537.36 (KHTML, like Gecko) SamsungBrowser/8.0 Chrome/74.0.3729.157 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 9; SM-T510) AppleWebKit 537.36 (KHTML, like Gecko) SamsungBrowser/8.0 Chrome/74.0.3729.157 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 8.1.0; SM-T387V) AppleWebKit 537.36 (KHTML, like Gecko) SamsungBrowser/8.0 Chrome/74.0.3729.157 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 7.0; SM-G610F Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.91 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        // https://github.com/serbanghita/Mobile-Detect/issues/846
+        'Mozilla/5.0 (Linux; Android 10; SM-P610) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; Android 10; SM-T290) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.81 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         ),
 );
