@@ -1,5 +1,5 @@
 {
-    "hash": "e762511cd4476e5a8770e394814f36953e3c5f52",
+    "hash": "b0ae1e9fd8635b97dcdd9620f584b34edea6faa1",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -9340,6 +9340,28 @@
             "user_agent": "Mozilla\/5.0 (Maemo; Linux; U; Jolla; Sailfish; Tablet; rv:31.0) Gecko\/31.0 Firefox\/31.0 SailfishBrowser\/1.0",
             "mobile": true,
             "tablet": true
+        },
+        {
+            "vendor": "Generic",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Sailfish 3.0; Mobile; rv:38.0) Gecko\/38.0 Firefox\/38.0 SailfishBrowser\/1.0",
+            "mobile": true,
+            "tablet": false,
+            "version": {
+                "Sailfish": "3.0",
+                "SailfishBrowser": "1.0",
+                "Gecko": "38.0"
+            }
+        },
+        {
+            "vendor": "Generic",
+            "user_agent": "Mozilla\/5.0 (Linux; U; Sailfish 3.0; Tablet; rv:38.0) Gecko\/38.0 Firefox\/38.0 SailfishBrowser\/1.0",
+            "mobile": true,
+            "tablet": true,
+            "version": {
+                "Sailfish": "3.0",
+                "SailfishBrowser": "1.0",
+                "Gecko": "38.0"
+            }
         },
         {
             "vendor": "Generic",
