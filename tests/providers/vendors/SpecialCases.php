@@ -91,6 +91,8 @@ return array(
 
         'Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; Mobile; rv:31.0) Gecko/31.0 Firefox/31.0 SailfishBrowser/1.0' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; Tablet; rv:31.0) Gecko/31.0 Firefox/31.0 SailfishBrowser/1.0' => array('isMobile' => true, 'isTablet' => true),
+        'Mozilla/5.0 (Linux; U; Sailfish 3.0; Mobile; rv:38.0) Gecko/38.0 Firefox/38.0 SailfishBrowser/1.0' => array('isMobile' => true, 'isTablet' => false, 'version' => array('Sailfish' => '3.0', 'SailfishBrowser' => '1.0', 'Gecko' => '38.0')),
+        'Mozilla/5.0 (Linux; U; Sailfish 3.0; Tablet; rv:38.0) Gecko/38.0 Firefox/38.0 SailfishBrowser/1.0' => array('isMobile' => true, 'isTablet' => true, 'version' => array('Sailfish' => '3.0', 'SailfishBrowser' => '1.0', 'Gecko' => '38.0')),
 
         // Generic Firefox User-agents
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Gecko_user_agent_string_reference#Firefox_OS
