@@ -1,5 +1,5 @@
 <?php
-require_once '../Mobile_Detect.php';
+require_once dirname(__FILE__) . '/../Mobile_Detect.php';
 /*
 $detect = new Mobile_Detect;
 $detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) CriOS/38.0.2125.59 Mobile/12A405 Safari/600.1.4');
@@ -23,7 +23,11 @@ foreach($user_agents as $user_agent)
 */
 
 $detect = new Mobile_Detect;
-//$detect->setUserAgent('Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko');
+//$detect->setUserAgent('Mozilla/5.0 (Linux; U; Android 4.1.1; cs-cz; HUAWEI G510-0200 Build/HuaweiG510-0200) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30');
+$detect->setHttpHeaders(array(
+    'HTTP_X_WAP_PROFILE' => '',
+    'HTTP_USER_AGENT'       => 'Mozilla/5.0 (Linux; U; Android 4.1.1; cs-cz; HUAWEI G510-0200 Build/HuaweiG510-0200) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+));
+var_dump($detect->isMobile());
+var_dump($detect->isTablet());
 //var_dump($detect->version('IE'));
-$detect->setUserAgent('Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko');
-var_dump($detect->version('IE'));
