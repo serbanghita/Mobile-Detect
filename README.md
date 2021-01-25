@@ -68,7 +68,7 @@ or include the dependency in the `composer.json` file:
 
 #### Demo 
 
-* [:iphone: Live demo!](http://demo.mobiledetect.net)
+* [:iphone: Live demo!](https://demo.mobiledetect.net)
 * [Code examples](../../wiki/Code-examples)
 
 #### Contribute

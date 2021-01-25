@@ -1058,7 +1058,7 @@ class Mobile_Detect
 
         foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
             if (isset($this->httpHeaders[$mobileHeader])) {
-                if (is_array($matchType['matches'])) {
+                if (isset($matchType['matches']) && is_array($matchType['matches'])) {
                     foreach ($matchType['matches'] as $_match) {
                         if (strpos($this->httpHeaders[$mobileHeader], $_match) !== false) {
                             return true;
