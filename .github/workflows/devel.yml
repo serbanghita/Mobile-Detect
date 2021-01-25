@@ -1,0 +1,58 @@
+name: Mobile-Detect
+
+# Run this workflow every time a new commit pushed to your repository
+on:
+  push:
+    branches: ['devel']
+  pull_request:
+    branches: ['devel', 'master']
+
+jobs:
+  run:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        php-version: ["5.3", "7.4"]
+        os: ['ubuntu-latest']
+        include:
+          - os: 'ubuntu-latest'
+            php-version: '5.3'
+            phpunit-version: '4.8.36'
+            composer-version: 'v1'
+          - os: 'ubuntu-latest'
+            php-version: '7.4'
+            phpunit-version: '4.8.36'
+            composer-version: 'latest'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP ${{ matrix.php-version }} on ${{ matrix.os }}
+        uses: shivammathur/setup-php@verbose
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: mbstring, intl
+          ini-values: post_max_size=256M, max_execution_time=180
+          coverage: xdebug
+          tools: phpunit:${{ matrix.phpunit-version }}, composer:${{ matrix.composer-version }}
+
+      - name: Run tests
+        run: phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky
+        shell: bash
+
+      - name: Slack Notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: commit,repo,ref,author
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `${process.env.AS_AUTHOR} has pushed ${process.env.AS_COMMIT} in ${process.env.AS_REPO} with test status indicating ${{ job.status }}.`,
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        if: always() # Pick up events even if the job fails or is canceled.
