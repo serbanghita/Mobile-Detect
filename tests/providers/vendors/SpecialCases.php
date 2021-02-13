@@ -22,6 +22,9 @@ return array(
         ),
 
     'Other' => array(
+        // Possible conflict with Galapad G1 tablet https://github.com/serbanghita/Mobile-Detect/issues/761
+        'Mozilla/5.0 (Linux; Android 8.0.0; K10 G1 Build/O00623; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/58.0.3029.125 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; Android 8.1.0; GAAMII G1 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/61.0.3163.98 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         // Conflict in registered Model Name(#717)
         'Mozilla/5.0 (Linux; U; Android 7.1.2; zh-cn; Z999 Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.4 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         // Vivaldi Browser
