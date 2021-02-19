@@ -18,7 +18,7 @@
  * @author  Nick Ilyin <nick.ilyin@gmail.com>
  * Original author: Victor Stanciu <vic.stanciu@gmail.com>
  *
- * @version 2.8.36
+ * @version 2.8.37
  *
  * Auto-generated isXXXX() magic methods.
  * php -a examples/dump_magic_methods.php
@@ -255,7 +255,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.8.36';
+    const VERSION                   = '2.8.37';
 
     /**
      * A type for the version() method indicating a string return value.
