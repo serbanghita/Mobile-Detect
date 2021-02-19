@@ -1,5 +1,5 @@
 {
-    "hash": "7fda656353e46106386e65eb400dfcb7a694dd5b",
+    "hash": "d4fdf874cfee50aa89efd315d6c2cbcf81e3999b",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -4693,6 +4693,30 @@
             "tablet": false
         },
         {
+            "vendor": "Mi",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 10; POCOPHONE F1) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/84.0.4147.125 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Mi",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 10; MI 8) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/84.0.4147.125 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Mi",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 10; Redmi Note 9s) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/84.0.4147.125 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Mi",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 7.1.2; en-gb; Redmi Note 5A Prime Build\/N2G47H) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/71.0.3578.141 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
             "vendor": "Microsoft",
             "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/46.0.2486.0 Safari\/537.36 Edge\/13.10586",
             "mobile": false,
@@ -8737,6 +8761,18 @@
             "user_agent": "Mozilla\/5.0 (Linux; Android 11; SM-T970) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/88.0.4324.152 Safari\/537.36",
             "mobile": true,
             "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 7.0; SM-G892A Build\/NRD90M; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/67.0.3396.87 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 9; SM-A530F) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/80.0.3987.132 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
         },
         {
             "vendor": "Sony",
