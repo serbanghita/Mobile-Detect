@@ -163,6 +163,7 @@ class Mobile_Detect
      * @var array
      */
     protected static $phoneDevices = array(
+        'Xiaomi'        => 'Xiaomi|Redmi|MI 3W|HM NOTE 1LTE',
         'iPhone'        => '\biPhone\b|\biPod\b', // |\biTunes
         'BlackBerry'    => 'BlackBerry|\bBB10\b|rim[0-9]+|\b(BBA100|BBB100|BBD100|BBE100|BBF100|STH100)\b-[0-9]+',
         'Pixel'         => '; \bPixel\b',
