@@ -1,9 +1,43 @@
-**Reporting issues**
+# Contributing to Mobile Detect
+
+### License
+
+By contributing to Mobile Detect library you agree with the [MIT License](../LICENSE) + contributing agreement below.
+
+```
+Developer’s Certificate of Origin 1.1
+
+By making a contribution to this project, I certify that:
+
+(a) The contribution was created in whole or in part by me and I
+    have the right to submit it under the open source license
+    indicated in the file; or
+
+(b) The contribution is based upon previous work that, to the best
+    of my knowledge, is covered under an appropriate open source
+    license and I have the right under that license to submit that
+    work with modifications, whether created in whole or in part
+    by me, under the same open source license (unless I am
+    permitted to submit under a different license), as indicated
+    in the file; or
+
+(c) The contribution was provided directly to me by some other
+    person who certified (a), (b) or (c) and I have not modified
+    it.
+
+(d) I understand and agree that this project and the contribution
+    are public and that a record of the contribution (including all
+    personal information I submit with it, including my sign-off) is
+    maintained indefinitely and may be redistributed consistent with
+    this project or the open source license(s) involved.
+```
+
+### Reporting issues
 
 1. Specify the User-agent by visiting [http://demo.mobiledetect.net](http://demo.mobiledetect.net).
 1. Specify the expected behaviour.
 
-**Developing**
+### Developing
 
 1. Fork Mobile Detect repository. See ["How to fork"](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository) example.
 1. `git clone https://github.com/[yourname]/Mobile-Detect.git`
@@ -26,7 +60,7 @@
 1. `git push origin devel`
 1. Go to your repo on GitHub and ["Submit the PR"](https://help.github.com/articles/about-pull-requests/)
 
-**New module, plugin, plugin or port**
+### New module, plugin, plugin or port
 
 [Submit new module, plugin, port](../../issues/new?title=New%203rd%20party%20module&body=Name,%20Link%20and%20Description%20of%20the%20module.)
  including the following information:
@@ -37,7 +71,7 @@
 
 Or you can submit a PR against `README.md`.
 
-**Website updates**
+### Website updates
 
 1. Our official website is hosted at [http://mobiledetect.net](http://mobiledetect.net).
 1. The files are found on the `gh-pages` branch.

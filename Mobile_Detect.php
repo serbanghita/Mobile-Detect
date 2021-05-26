@@ -13,7 +13,7 @@
  * KNOWN LIMITATIONS: https://github.com/serbanghita/Mobile-Detect/blob/master/docs/KNOWN_LIMITATIONS.md
  * EXAMPLES: https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
  *
- * @license https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt MIT License
+ * @license https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE
  * @author  Serban Ghita <serbanghita@gmail.com>
  * @author  Nick Ilyin <nick.ilyin@gmail.com>
  * Original author: Victor Stanciu <vic.stanciu@gmail.com>
