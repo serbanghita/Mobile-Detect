@@ -40,25 +40,28 @@ By making a contribution to this project, I certify that:
 ### Developing
 
 1. Fork Mobile Detect repository. See ["How to fork"](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository) example.
-1. `git clone https://github.com/[yourname]/Mobile-Detect.git`
-1. `git add remote serbanghita https://github.com/serbanghita/Mobile-Detect.git`
-1. `git remote -v` - You should see:
+2. `git clone https://github.com/[yourname]/Mobile-Detect.git`
+3. `git add remote serbanghita https://github.com/serbanghita/Mobile-Detect.git`
+4. `git remote -v` - You should see:
     ```
     origin       git@github.com:serbanghita/Mobile-Detect.git
     serbanghita  https://github.com/serbanghita/Mobile-Detect.git
     ```
-1. `git checkout -b devel origin/devel`
-1. `composer install`
-1. Start working on your changes.
+5. `git checkout -b devel origin/devel`
+6. `composer install`
+   1. On Windows use `php composer.phar update` first.
+7. Start working on your changes.
     1. If you add new methods or make structural changes to the `Mobile_Detect.php` class
     you need to add unit tests!
     1. If you add new regexes make sure you commit the User-Agents in [`tests/providers/vendors`](https://github.com/serbanghita/Mobile-Detect/tree/master/tests/providers/vendors)
-1. Run tests `vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky`
-1. `git status` or `git diff` - inspect your changes
+8. Run tests 
+9. `vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky`
+   1. On Windows use `%cd%/vendor/bin/phpunit ...`
+10. `git status` or `git diff` - inspect your changes
 1  `git stage .`
-1. `git commit -m "[your commit message here]`
-1. `git push origin devel`
-1. Go to your repo on GitHub and ["Submit the PR"](https://help.github.com/articles/about-pull-requests/)
+11. `git commit -m "[your commit message here]`
+12. `git push origin devel`
+13. Go to your repo on GitHub and ["Submit the PR"](https://help.github.com/articles/about-pull-requests/)
 
 ### New module, plugin, plugin or port
 
