@@ -1,5 +1,5 @@
 {
-    "hash": "aef579c42f0862b6c1b31a306ad72d296d0dcda0",
+    "hash": "71b77fa681cd341d8395711e0615f9b3266b89e5",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -1100,6 +1100,12 @@
             "user_agent": "Mozilla\/5.0 (Linux; Android 7.1.1; ASUS_Z01QD) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/86.0.4240.185 Mobile Safari\/537.36",
             "mobile": true,
             "tablet": false
+        },
+        {
+            "vendor": "ASUS",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.3; K01A Build\/JSS15Q) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/42.0.2311.111 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
         },
         {
             "vendor": "BlackBerry",
@@ -7573,6 +7579,12 @@
             "user_agent": "Mozilla\/5.0 (Linux; Android 10; Redmi Note 7 Pro) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/95.0.4638.74 Mobile Safari\/537.36",
             "mobile": true,
             "tablet": false
+        },
+        {
+            "vendor": "Xiaomi",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 11; 21051182G) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/94.0.4606.85 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
         },
         {
             "vendor": "Prestigio",
