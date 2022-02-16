@@ -1521,6 +1521,10 @@ class Mobile_Detect
         if (empty($propertyName)) {
             return false;
         }
+        
+        if (!\is_string($this->userAgent)) {
+            return false;
+        }
 
         // set the $type to the default if we don't recognize the type
         if ($type !== self::VERSION_TYPE_STRING && $type !== self::VERSION_TYPE_FLOAT) {
