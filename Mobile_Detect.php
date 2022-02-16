@@ -677,7 +677,7 @@ class Mobile_Detect
      * @var array
      */
     protected static $operatingSystems = array(
-        'AndroidOS'         => 'Android',
+        'AndroidOS'         => 'Android.*Mobile',
         'BlackBerryOS'      => 'blackberry|\bBB10\b|rim tablet os',
         'PalmOS'            => 'PalmOS|avantgo|blazer|elaine|hiptop|palm|plucker|xiino',
         'SymbianOS'         => 'Symbian|SymbOS|Series60|Series40|SYB-[0-9]+|\bS60\b',
