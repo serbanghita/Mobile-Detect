@@ -1,5 +1,5 @@
 {
-    "hash": "71b77fa681cd341d8395711e0615f9b3266b89e5",
+    "hash": "b23e6dc59199514338b4dce581479fc0a6e07f6f",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -741,6 +741,18 @@
             "vendor": "Apple",
             "user_agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit\/600.1.4 (KHTML, like Gecko) CriOS\/38.0.2125.59 Mobile\/12A405 Safari\/600.1.4",
             "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "Apple",
+            "user_agent": "Mozilla\/5.0 (iPad; CPU OS 13_4 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) CriOS\/92.0.4515.90 Mobile\/15E148 Safari\/604.1",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Apple",
+            "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit\/605.1.15 (KHTML, like Gecko) CriOS\/92 Version\/11.1.1 Safari\/605.1.15",
+            "mobile": false,
             "tablet": false
         },
         {
