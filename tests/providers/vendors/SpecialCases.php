@@ -207,6 +207,10 @@ return array(
         'Opera/9.80 (Linux armv7l; Maemo; Opera Mobi/14; U; en) Presto/2.9.201 Version/11.50' => array('isMobile' => true, 'isTablet' => false),
         //Old UA, see new inserted UA string from Android 7 device using latest browser version
         //'Opera/9.80 (Android 2.2.1; Linux; Opera Mobi/ADR-1207201819; U; en) Presto/2.10.254 Version/12.00' => array('isMobile' => true, 'isTablet' => false),
+        //New UA from Opera browsers to replace the old one from above
+        'Mozilla/5.0 (Linux; U; Android 7.0; SM-A510F Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/98.0.4758.101 Mobile Safari/537.36 OPR/62.2.2254.60938' => array('isMobile' => true, 'isTablet' => false), //Opera Mini
+        'Mozilla/5.0 (Linux; Android 7.0; SM-A510F Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.101 Mobile Safari/537.36 OPT/2.9' => array('isMobile' => true, 'isTablet' => false), //Opera Touch
+        'Mozilla/5.0 (Linux; Android 7.0; SM-A510F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36 OPR/67.1.3508.63168' => array('isMobile' => true, 'isTablet' => false), //Opera Browser
         'Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; sdk Build/JRO03E) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; U; Android 4.2.2; de-de; Endeavour 1010 Build/ONDA_MID) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),     // Blaupunkt Endeavour 1010
         'Mozilla/5.0 (Linux; U; Android 4.0.4; de-de; Tablet-PC-4 Build/ICS.g08refem618.20121102) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => array('isMobile' => true, 'isTablet' => true),
