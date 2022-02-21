@@ -234,5 +234,9 @@ return array(
         // Old UA, according to Google developer docs Chrome must have „Mobile“ in UA when browsing with a phone
         //'Mozilla/5.0 (Linux; Android 7.1.2; SM-G988N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 6.0.1; SM-T536) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
+        //New UA from current Chrome on Android 7 - Samsung SM-A510F
+        'Mozilla/5.0 (Linux; Android 7.0; SM-A510F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.101 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        //New UA from current Brave on Android 7 - Samsung SM-A510F
+        'Mozilla/5.0 (Linux; Android 7.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         ),
 );
