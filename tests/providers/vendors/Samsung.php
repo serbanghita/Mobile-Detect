@@ -190,9 +190,12 @@ return array(
         'Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG SM-T585 Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/4.0 Chrome/44.0.2403.133 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-T585 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/5.2 Chrome/51.0.2704.106 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 5.1.1; SM-W708YZKAXTC  Build/LMY48Z) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
-        'Mozilla/5.0 (Linux; Android 4.4.2; SM-G900F Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (Linux; Android 7.1.2; SM-G950F Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.116 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
-        'Mozilla/5.0 (Linux; Android 4.4.2; SAMSUNG-SM-N900A Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        // Old UA, according to Google developer docs Chrome must have „Mobile“ in UA when browsing with a phone
+        //'Mozilla/5.0 (Linux; Android 4.4.2; SM-G900F Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        // Old UA, according to Google developer docs Chrome must have „Mobile“ in UA when browsing with a phone
+        //'Mozilla/5.0 (Linux; Android 7.1.2; SM-G950F Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.116 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        // Old UA, according to Google developer docs Chrome must have „Mobile“ in UA when browsing with a phone
+        //'Mozilla/5.0 (Linux; Android 4.4.2; SAMSUNG-SM-N900A Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-J330F Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/6.4 Chrome/56.0.2924.87 Mobile Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 8.1.0; SM-T835) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.136 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-T830 Build/PPR1.180610.011) AppleWebKit 537.36 (KHTML, like Gecko) SamsungBrowser/8.0 Chrome/63.0.4349.111 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
@@ -228,7 +231,8 @@ return array(
         'Mozilla/5.0 (Linux; Android 4.4.2; SM-T231 Build/KOT49H; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/48.0.2564.116 Safari/537.36 baiduboxapp/8.6.5 (Baidu; P1 4.4.2)' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 4.4.2; zh-cn; SAMSUNG SM-T231 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         'Mozilla/5.0 (Linux; Android 10; SM-T500) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.152 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
-        'Mozilla/5.0 (Linux; Android 7.1.2; SM-G988N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
+        // Old UA, according to Google developer docs Chrome must have „Mobile“ in UA when browsing with a phone
+        //'Mozilla/5.0 (Linux; Android 7.1.2; SM-G988N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Safari/537.36' => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 6.0.1; SM-T536) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Safari/537.36' => array('isMobile' => true, 'isTablet' => true),
         ),
 );
