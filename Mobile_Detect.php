@@ -1514,7 +1514,7 @@ class Mobile_Detect
      *                             is optional and defaults to self::VERSION_TYPE_STRING. Passing an
      *                             invalid parameter will default to the this type as well.
      *
-     * @return string|float The version of the property we are trying to extract.
+     * @return string|float|false The version of the property we are trying to extract.
      */
     public function version($propertyName, $type = self::VERSION_TYPE_STRING)
     {
