@@ -215,9 +215,9 @@ Made by [Nikola Posa](https://github.com/nikolaposa).
 
 **Symfony**
 
-* [Symfony2 Mobile Detect Bundle](https://github.com/suncat2000/MobileDetectBundle) is a bundle for detecting mobile devices, 
+* [Symfony Mobile Detect Bundle](https://github.com/tattali/MobileDetectBundle) is a bundle for detecting mobile devices, 
 manage mobile view and redirect to the mobile and tablet version.
-Made by [Nikolay Ivlev](https://github.com/suncat2000).
+Maintain by [Théo Attali](https://github.com/tattali).
 
 * [Silex Mobile Detect Service Provider](https://github.com/jbinfo/MobileDetectServiceProvider) is a service provider to 
 interact with Mobile detect class methods.
