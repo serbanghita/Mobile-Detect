@@ -22,5 +22,6 @@ return array(
         'Mozilla/5.0 (Linux; Android 10; MI 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Mobile Safari/537.36'  => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 10; Redmi Note 9s) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Mobile Safari/537.36'  => array('isMobile' => true, 'isTablet' => false),
         'Mozilla/5.0 (Linux; Android 7.1.2; en-gb; Redmi Note 5A Prime Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36'  => array('isMobile' => true, 'isTablet' => false),
+        'Mozilla/5.0 (Linux; U; Android 12; tr-tr; Redmi Note 10 Build/SP1A.210812.016) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.127 Mobile Safari/537.36 XiaoMi/MiuiBrowser/13.14.1-gn' => array('isMobile' => true, 'isTablet' => false),
     ),
 );

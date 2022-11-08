@@ -215,6 +215,8 @@ Made by [Nikola Posa](https://github.com/nikolaposa).
 
 **Symfony**
 
+* [Symfony3 MobileDetectBundle](https://github.com/tattali/MobileDetectBundle) is a Symfony bundle to detect mobile devices, manage mobile view and redirect to the mobile and tablet version. Made by [Théo Attali](https://github.com/tattali).
+
 * [Symfony2 Mobile Detect Bundle](https://github.com/suncat2000/MobileDetectBundle) is a bundle for detecting mobile devices, 
 manage mobile view and redirect to the mobile and tablet version.
 Made by [Nikolay Ivlev](https://github.com/suncat2000).
