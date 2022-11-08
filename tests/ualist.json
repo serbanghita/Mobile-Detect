@@ -1,5 +1,5 @@
 {
-    "hash": "4e724fb682c9bcb2fbca6b48fe753d43819a8772",
+    "hash": "a11a015ee3f2b5e2407981efb95ee42cceca078e",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -9065,6 +9065,12 @@
         {
             "vendor": "Samsung",
             "user_agent": "Mozilla\/5.0 (Linux; Android 12; SM-T220) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/105.0.0.0 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Samsung",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 11; SM-T870) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/90.0.4430.210 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
