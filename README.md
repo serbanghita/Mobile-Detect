@@ -45,10 +45,10 @@ The rest of the PRs about TVs, bots or optimizations will be closed and analyzed
 > Use this to quickly test the demo.
 
 * [Download latest release](../../tags)
-* [Mobile_Detect.php](./Mobile_Detect.php)
+* [Mobile_Detect.php](src/MobileDetect.php)
 
 ```php
-require_once "libs/Mobile_Detect.php";
+require_once "libs/MobileDetect.php";
 ```
 
 **Install as a [composer package](https://packagist.org/packages/mobiledetect/mobiledetectlib)**

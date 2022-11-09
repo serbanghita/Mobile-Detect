@@ -1,20 +1,21 @@
 <?php
 
+use Detection\MobileDetect;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  * @link        http://mobiledetect.net
  */
-class UserAgentTest extends TestCase
+final class UserAgentTest extends TestCase
 {
-    protected $detect;
-    protected static $ualist = array();
+    protected MobileDetect $detect;
+    protected static array $ualist = [];
     protected static $json;
 
     public function setUp()
     {
-        $this->detect = new Mobile_Detect;
+        $this->detect = new MobileDetect;
     }
 
     public static function generateJson()
@@ -37,10 +38,10 @@ class UserAgentTest extends TestCase
             $json = json_decode(file_get_contents($jsonFile), true);
 
             //check that the hash matches
-            $hash = isset($json['hash']) ? $json['hash'] : null;
+            $hash = $json['hash'] ?? null;
 
             if ($hash == sha1(serialize($list))) {
-                //file is up to date, just read the json file
+                //file is up-to-date, just read the json file
                 self::$json = $json['user_agents'];
 
                 return self::$json;
@@ -126,18 +127,18 @@ class UserAgentTest extends TestCase
         //make a list that is usable by functions (THE ORDER OF THE KEYS MATTERS!)
         foreach ($json as $userAgent) {
             $tmp = array();
-            $tmp[] = isset($userAgent['user_agent']) ? $userAgent['user_agent'] : null;
-            $tmp[] = isset($userAgent['mobile']) ? $userAgent['mobile'] : null;
-            $tmp[] = isset($userAgent['tablet']) ? $userAgent['tablet'] : null;
-            $tmp[] = isset($userAgent['version']) ? $userAgent['version'] : null;
-            $tmp[] = isset($userAgent['model']) ? $userAgent['model'] : null;
-            $tmp[] = isset($userAgent['vendor']) ? $userAgent['vendor'] : null;
+            $tmp[] = $userAgent['user_agent'] ?? null;
+            $tmp[] = $userAgent['mobile'] ?? null;
+            $tmp[] = $userAgent['tablet'] ?? null;
+            $tmp[] = $userAgent['version'] ?? null;
+            $tmp[] = $userAgent['model'] ?? null;
+            $tmp[] = $userAgent['vendor'] ?? null;
 
             self::$ualist[] = $tmp;
         }
     }
 
-    public function userAgentData()
+    public function userAgentData(): array
     {
         if (!count(self::$ualist)) {
             self::setUpBeforeClass();

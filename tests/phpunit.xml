@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
-    backupGlobals="false"
-    colors="false"
-    verbose="true"
-    stopOnFailure="true"
-    stopOnIncomplete="false"
-    bootstrap="bootstrap.php"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
-    mapTestClassNameToCoveredClassName="true">
-
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="./bootstrap.php"
+         backupGlobals="true"
+         colors="true"
+         executionOrder="random"
+>
+    <testsuites>
+        <testsuite name="Test Suite">
+            <directory>.</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../src</directory>
+            <exclude>
+                <directory>export/</directory>
+                <directory>examples/</directory>
+            </exclude>
+        </whitelist>
+    </filter>
     <php>
-        <ini name="error_reporting" value="-1"/>
-        <ini name="memory_limit" value="1G"/>
+        <!-- Temporarily preventing https://github.com/xdebug/xdebug/pull/699 -->
+        <const name="XDEBUG_CC_UNUSED"  value=""/>
+        <const name="XDEBUG_CC_DEAD_CODE"  value="-1"/>
     </php>
-
-  <testsuite name="All Mobile Detect tests">
-    <directory suffix="Test.php">./</directory>
-  </testsuite>
-
-  <filter>
-    <whitelist>
-      <file>../Mobile_Detect.php</file>
-    </whitelist>
-  </filter>
 </phpunit>

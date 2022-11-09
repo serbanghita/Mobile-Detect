@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/../Mobile_Detect.php';
+require_once dirname(__FILE__) . '/../MobileDetect.php';
 /*
 $detect = new Mobile_Detect;
 $detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) CriOS/38.0.2125.59 Mobile/12A405 Safari/600.1.4');
