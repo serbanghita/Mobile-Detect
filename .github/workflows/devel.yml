@@ -1,18 +1,18 @@
-name: Mobile-Detect
+name: 5x
 
 # Run this workflow every time a new commit pushed to your repository
 on:
   push:
-    branches: ['devel']
+    branches: ['5.x']
   pull_request:
-    branches: ['devel', 'master']
+    branches: ['5.x']
 
 jobs:
   run:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        php-version: ["5.3", "7.4"]
+        php-version: ["5.3"]
         os: ['ubuntu-latest']
         include:
           - os: 'ubuntu-latest'
