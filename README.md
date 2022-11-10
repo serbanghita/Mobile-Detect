@@ -2,7 +2,7 @@
 
 > Motto: "Every business should have a detection script to detect mobile readers."
 
-![Build status](https://github.com/serbanghita/Mobile-Detect/workflows/Mobile-Detect/badge.svg)
+[![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/5x.yml/badge.svg?branch=5.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/5x.yml)
 [![Latest Stable Version](https://poser.pugx.org/mobiledetect/mobiledetectlib/v/stable.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) 
 [![Total Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/downloads.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) 
 [![Daily Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/d/daily.png)](https://packagist.org/packages/mobiledetect/mobiledetectlib) 
@@ -30,13 +30,15 @@ each release we're running [unit tests](./tests) and research and update the det
 
 See [the history](./docs/HISTORY.md) of the project.
 
-#### Announcements
+#### Version guidance
+| Version | Status                                                                                                                                                                     | Namespace | Code                                                         | PHP Version |
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------------------------------------------------------|-------------|
+| 2.8.xx  | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/5x.yml/badge.svg?branch=5.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/5x.yml) | `\Mobile_Detect`       | [5.x](https://github.com/serbanghita/Mobile-Detect/tree/5.x) | \>=5.0,<7.0 |
+| 3.74.xx | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/7x.yml/badge.svg?branch=7.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/7x.yml) | `Detection\MobileDetect`        | [7.x](https://github.com/serbanghita/Mobile-Detect/tree/7.x) | >=7.3,<8.0  |
 
-* **JetBrains** is sponsoring the project by providing licenses for [PHPStorm](https://www.jetbrains.com/phpstorm/) and 
+**JetBrains** is sponsoring the project by providing licenses for [PHPStorm](https://www.jetbrains.com/phpstorm/) and 
 [DataGrip](https://www.jetbrains.com/datagrip/).
-* **Mobile_Detect `2.x.x`** is only integrating new regexes, User-Agents and tests. We are focusing on **new tablets only**. 
-The rest of the PRs about TVs, bots or optimizations will be closed and analyzed after `3.0.0-beta` is released.
-* **Mobile_Detect `3.x.x`** is experimental and WIP.
+
 
 
 #### Install
@@ -44,7 +46,7 @@ The rest of the PRs about TVs, bots or optimizations will be closed and analyzed
 **Download and include manually**
 > Use this to quickly test the demo.
 
-* [Download latest release](../../tags)
+* [Download the latest release](../../tags)
 * [Mobile_Detect.php](./Mobile_Detect.php)
 
 ```php
