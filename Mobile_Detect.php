@@ -1462,7 +1462,7 @@ class Mobile_Detect
             return false;
         }
 
-        $match = (bool) preg_match(sprintf('#%s#is', $regex), (false === empty($userAgent) ? $userAgent : $this->userAgent), $matches);
+        $match = (bool) preg_match(sprintf('#%s#is', $regex), (false === empty($userAgent) ? $userAgent : (is_string($this->userAgent) ? $this->userAgent : '')), $matches);
         // If positive match is found, store the results for debug.
         if ($match) {
             $this->matchingRegex = $regex;
@@ -1545,7 +1545,7 @@ class Mobile_Detect
                 $propertyPattern = str_replace('[VER]', self::VER, $propertyMatchString);
 
                 // Identify and extract the version.
-                preg_match(sprintf('#%s#is', $propertyPattern), $this->userAgent, $match);
+                preg_match(sprintf('#%s#is', $propertyPattern), (is_string($this->userAgent) ? $this->userAgent : ''), $match);
 
                 if (false === empty($match[1])) {
                     $version = ($type == self::VERSION_TYPE_FLOAT ? $this->prepareVersionNo($match[1]) : $match[1]);
