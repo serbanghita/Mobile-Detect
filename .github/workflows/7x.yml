@@ -21,7 +21,7 @@ jobs:
             composer-version: 'latest'
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup PHP ${{ matrix.php-version }} on ${{ matrix.os }}
         uses: shivammathur/setup-php@verbose
@@ -49,6 +49,6 @@ jobs:
               }]
             }
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         if: always() # Pick up events even if the job fails or is canceled.
