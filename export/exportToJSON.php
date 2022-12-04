@@ -19,10 +19,6 @@
 // This library is not mandatory.
 use Detection\MobileDetect;
 
-if (file_exists(dirname(__FILE__).'/nicejson/nicejson.php')) {
-    include_once dirname(__FILE__).'/nicejson/nicejson.php';
-}
-
 // Include Mobile Detect.
 require_once dirname(__FILE__) . '/../src/MobileDetect.php';
 $detect = new MobileDetect;
@@ -58,7 +54,7 @@ $fileName = dirname(__FILE__).'/../MobileDetect.json';
 // You can import this file in your app.
 if (file_put_contents(
     $fileName,
-    function_exists('json_format') ? json_format($json) : json_encode($json)
+    json_encode($json, JSON_PRETTY_PRINT)
 )) {
     echo 'Done. Check '.realpath($fileName).' file.';
 } else {
