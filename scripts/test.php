@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/../MobileDetect.php';
+require_once dirname(__FILE__) . '/../src/MobileDetect.php';
 /*
 $detect = new Mobile_Detect;
 $detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) CriOS/38.0.2125.59 Mobile/12A405 Safari/600.1.4');
@@ -29,7 +29,7 @@ foreach($user_agents as $user_agent)
 ////var_dump(preg_match("/^((?!cat).)*$/is", "this is a dog", $matches));
 //var_dump($matches);
 
-$detect = new Mobile_Detect;
+$detect = new \Detection\MobileDetect;
 ////$detect->setUserAgent('Mozilla/5.0 (Linux; U; Android 4.1.1; cs-cz; HUAWEI G510-0200 Build/HuaweiG510-0200) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30');
 //$detect->setHttpHeaders(array(
 //    'HTTP_X_WAP_PROFILE' => '',
@@ -39,7 +39,6 @@ $detect = new Mobile_Detect;
 //var_dump($detect->isTablet());
 ////var_dump($detect->version('IE'));
 /** Dump all methods (+ extended) */
-$detect->setDetectionType(Mobile_Detect::DETECTION_TYPE_EXTENDED);
-foreach($detect->getRules() as $name => $regex) {
+foreach ($detect->getRules() as $name => $regex) {
     echo "is$name()\n";
 }

@@ -48,7 +48,7 @@
 session_start();
 
 // It's mandatory to include the library.
-require_once '../MobileDetect.php';
+require_once '../src/MobileDetect.php';
 
 /**
  *  Begin helper functions.
@@ -59,47 +59,41 @@ require_once '../MobileDetect.php';
 function layoutTypes()
 {
     return array('classic', 'mobile', 'tablet');
-
 }
 
 function initLayoutType()
 {
     // Safety check.
-    if (!class_exists('Mobile_Detect')) { return 'classic'; }
+    if (!class_exists('Mobile_Detect')) {
+        return 'classic';
+    }
 
-    $detect = new Mobile_Detect;
+    $detect = new \Detection\MobileDetect;
     $isMobile = $detect->isMobile();
     $isTablet = $detect->isTablet();
 
     $layoutTypes = layoutTypes();
 
     // Set the layout type.
-    if ( isset($_GET['layoutType']) ) {
-
+    if (isset($_GET['layoutType'])) {
         $layoutType = $_GET['layoutType'];
-
     } else {
-
         if (empty($_SESSION['layoutType'])) {
-
             $layoutType = ($isMobile ? ($isTablet ? 'tablet' : 'mobile') : 'classic');
-
         } else {
-
             $layoutType =  $_SESSION['layoutType'];
-
         }
-
     }
 
     // Fallback. If everything fails choose classic layout.
-    if ( !in_array($layoutType, $layoutTypes) ) { $layoutType = 'classic'; }
+    if (!in_array($layoutType, $layoutTypes)) {
+        $layoutType = 'classic';
+    }
 
     // Store the layout type for future use.
     $_SESSION['layoutType'] = $layoutType;
 
     return $layoutType;
-
 }
 
 /**
@@ -117,8 +111,7 @@ $layoutType = initLayoutType();
  */
 ?>
 
-<?php if(!isset($_GET['page'])): ?>
-
+<?php if (!isset($_GET['page'])) : ?>
     <!-- example page #1 -->
     <h1>Demo page number one.</h1>
     <p>You can go to page <a href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?page=two">two</a>.</p>
@@ -127,8 +120,7 @@ $layoutType = initLayoutType();
 
 <?php endif; ?>
 
-<?php if(isset($_GET['page']) && $_GET['page']=='two'): ?>
-
+<?php if (isset($_GET['page']) && $_GET['page']=='two') : ?>
     <!-- example page #2 -->
     <h1>Demo page number two.</h1>
     <p>You can go back to page <a href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">one</a>.</p>
@@ -137,10 +129,10 @@ $layoutType = initLayoutType();
 <?php endif; ?>
 
 <!-- Footer links example. Change this as you like. -->
-<?php foreach(layoutTypes() as $_layoutType): ?>
-    <?php if($_layoutType == $layoutType): ?>
+<?php foreach (layoutTypes() as $_layoutType) : ?>
+    <?php if ($_layoutType == $layoutType) : ?>
         <?php echo strtoupper($_layoutType); ?>
-    <?php else: ?>
+    <?php else : ?>
         <a href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?layoutType=<?php echo $_layoutType; ?>"><?php echo strtoupper($_layoutType); ?></a>
     <?php endif; ?>
 <?php endforeach;

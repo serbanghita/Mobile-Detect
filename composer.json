@@ -30,6 +30,6 @@
         }
     },
     "archive": {
-      "exclude": ["docs", "examples", "export"]
+      "exclude": ["docs", "scripts"]
     }
 }

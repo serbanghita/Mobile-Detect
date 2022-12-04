@@ -15,13 +15,13 @@
  *
  */
 
+
+
 // Included nicejson function to beautify the result JSON file.
 // This library is not mandatory.
-use Detection\MobileDetect;
 
-// Include Mobile Detect.
 require_once dirname(__FILE__) . '/../src/MobileDetect.php';
-$detect = new MobileDetect;
+$detect = new \Detection\MobileDetect;
 
 $json = [
     // The current version of Mobile Detect class that
@@ -49,7 +49,7 @@ $json = [
     ]
 ];
 
-$fileName = dirname(__FILE__).'/../MobileDetect.json';
+$fileName = dirname(__FILE__) . '/../MobileDetect.json';
 // Write the JSON file to disk.11
 // You can import this file in your app.
 if (file_put_contents(

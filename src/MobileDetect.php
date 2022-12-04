@@ -841,7 +841,7 @@ class MobileDetect
 
     /**
      * Get the current script version.
-     * This is useful for the demo.php file,
+     * This is useful for the demo file,
      * so people can check on what version they are testing
      * for mobile devices.
      *
