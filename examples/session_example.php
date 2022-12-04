@@ -48,7 +48,7 @@
 session_start();
 
 // It's mandatory to include the library.
-require_once '../Mobile_Detect.php';
+require_once '../MobileDetect.php';
 
 /**
  *  Begin helper functions.
