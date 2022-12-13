@@ -769,7 +769,7 @@ class Mobile_Detect
         // http://scottcate.com/technology/windows-phone-8-ie10-desktop-or-mobile/
         // https://github.com/serbanghita/Mobile-Detect/issues/57#issuecomment-15024011
         // https://developers.facebook.com/docs/sharing/webmasters/crawler/
-        'Bot'         => 'Googlebot|facebookexternalhit|Google-AMPHTML|s~amp-validator|AdsBot-Google|Google Keyword Suggestion|Facebot|YandexBot|YandexMobileBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|Exabot|MJ12bot|YandexImages|TurnitinBot|Pingdom|contentkingapp|AspiegelBot|Semrush',
+        'Bot'         => 'Googlebot|facebookexternalhit|Google-AMPHTML|s~amp-validator|AdsBot-Google|Google Keyword Suggestion|Facebot|YandexBot|YandexMobileBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|Exabot|MJ12bot|YandexImages|TurnitinBot|Pingdom|contentkingapp|AspiegelBot|Semrush|DotBot|PetalBot|MetadataScraper',
         'MobileBot'   => 'Googlebot-Mobile|AdsBot-Google-Mobile|YahooSeeker/M1A1-R2D2',
         'DesktopMode' => 'WPDesktop',
         'TV'          => 'SonyDTV|HbbTV', // experimental
