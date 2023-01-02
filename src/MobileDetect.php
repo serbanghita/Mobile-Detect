@@ -19,9 +19,14 @@
  * @author: Victor Stanciu <vic.stanciu@gmail.com> (original author)
  *
  * @version 3.74.0
- *
+ */
+namespace Detection;
+
+use BadMethodCallException;
+
+/**
  * Auto-generated isXXXX() magic methods.
- * php -a export/dump_magic_methods.php
+ * php export/dump_magic_methods.php
  *
  * @method bool isiPhone()
  * @method bool isBlackBerry()
@@ -212,12 +217,7 @@
  * @method bool isWebKit()
  * @method bool isConsole()
  * @method bool isWatch()
-
  */
-namespace Detection;
-
-use BadMethodCallException;
-
 class MobileDetect
 {
     /**
