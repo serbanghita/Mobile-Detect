@@ -830,7 +830,7 @@ class MobileDetect
      *
      * @param array|null $headers Specify the headers as injection. Should be PHP _SERVER flavored.
      *                          If left empty, will use the global _SERVER['HTTP_*'] vars instead.
-     * @param null $userAgent Inject the User-Agent header. If null, will use HTTP_USER_AGENT
+     * @param string|null $userAgent Inject the User-Agent header. If null, will use HTTP_USER_AGENT
      *                          from the $headers array instead.
      */
     public function __construct(array $headers = null, $userAgent = null)
@@ -944,7 +944,7 @@ class MobileDetect
      *
      * @param array|null $cfHeaders List of HTTP headers
      *
-     * @return  boolean If there were CloudFront headers to be set
+     * @return bool If there were CloudFront headers to be set
      */
     public function setCfHeaders(array $cfHeaders = null): bool
     {
@@ -1168,8 +1168,8 @@ class MobileDetect
     /**
      * Find a detection rule that matches the current User-agent.
      *
-     * @param  null    $userAgent deprecated
-     * @return boolean
+     * @param  string|null $userAgent deprecated
+     * @return bool
      */
     protected function matchDetectionRulesAgainstUA($userAgent = null): bool
     {
@@ -1194,7 +1194,7 @@ class MobileDetect
      *
      * @param string $key
      *
-     * @return boolean
+     * @return bool
      */
     protected function matchUAAgainstKey(string $key): bool
     {
@@ -1219,8 +1219,8 @@ class MobileDetect
     /**
      * Check if the device is mobile.
      * Returns true if any type of mobile device detected, including special ones
-     * @param  null $userAgent   deprecated
-     * @param  null $httpHeaders deprecated
+     * @param  string|null $userAgent  deprecated
+     * @param  array|null $httpHeaders deprecated
      * @return bool
      */
     public function isMobile($userAgent = null, $httpHeaders = null): bool
@@ -1287,8 +1287,8 @@ class MobileDetect
      * @param string|null $userAgent   deprecated
      * @param array|null $httpHeaders deprecated
      * @return bool
-     *@todo: The httpHeaders part is not yet used.
      *
+     * @todo: The httpHeaders part is not yet used.
      */
     public function is(string $key, string $userAgent = null, array $httpHeaders = null): bool
     {
@@ -1313,7 +1313,7 @@ class MobileDetect
      * This method will be used to check custom regexes against
      * the User-Agent string.
      *
-     * @param $regex
+     * @param string $regex
      * @param string|null $userAgent
      * @return bool
      *
@@ -1355,8 +1355,8 @@ class MobileDetect
      * @param string $ver The string version, like "2.6.21.2152";
      *
      * @return float
-          *@todo Remove the error suppression from str_replace() call.
      *
+     * @todo Remove the error suppression from str_replace() call.
      */
     public function prepareVersionNo(string $ver): float
     {
