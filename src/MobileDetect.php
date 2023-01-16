@@ -26,7 +26,7 @@ use BadMethodCallException;
 
 /**
  * Auto-generated isXXXX() magic methods.
- * php export/dump_magic_methods.php
+ * php scripts/dump_magic_methods.php
  *
  * @method bool isiPhone()
  * @method bool isBlackBerry()
