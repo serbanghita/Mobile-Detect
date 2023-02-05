@@ -1,11 +1,11 @@
-name: 7x
+name: 3.74.x
 
 # Run this workflow every time a new commit pushed to your repository
 on:
   push:
-    branches: ['7.x']
+    branches: ['3.74.x']
   pull_request:
-    branches: ['7.x']
+    branches: ['3.74.x']
 
 jobs:
   run:
