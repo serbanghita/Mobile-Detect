@@ -1,11 +1,11 @@
-name: 5x
+name: test
 
 # Run this workflow every time a new commit pushed to your repository
 on:
   push:
-    branches: ['5.x']
+    branches: ['2.8.x']
   pull_request:
-    branches: ['5.x']
+    branches: ['2.8.x']
 
 jobs:
   run:

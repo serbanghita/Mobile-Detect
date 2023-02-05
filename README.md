@@ -2,12 +2,13 @@
 
 > Motto: "Every business should have a detection script to detect mobile readers."
 
-[![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/5x.yml/badge.svg?branch=5.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/5x.yml)
-[![Latest Stable Version](https://poser.pugx.org/mobiledetect/mobiledetectlib/v/stable.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) 
-[![Total Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/downloads.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib) 
-[![Daily Downloads](https://poser.pugx.org/mobiledetect/mobiledetectlib/d/daily.png)](https://packagist.org/packages/mobiledetect/mobiledetectlib) 
-[![License](https://poser.pugx.org/mobiledetect/mobiledetectlib/license.svg)](https://packagist.org/packages/mobiledetect/mobiledetectlib)
-[![Chat on Slack](https://img.shields.io/badge/Slack%20%23general-join-orange.svg)](https://join.slack.com/t/mobiledetect/shared_invite/enQtMjg1NDY0OTg5NzgzLTcwMzEzMWJjZjRlOWFkY2ZiNzE1ZmRmNzEwM2VhOGY5OGVkYWMxNjdkZDU5YjQ5MmM5MGUxYjhlZDQwOGVjZjE)
+![Build status](https://github.com/serbanghita/Mobile-Detect/workflows/Mobile-Detect/badge.svg)
+![Latest version](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?style=flat-square)
+![3.74.x PHP7](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=3.74.x&label=3.74.x%20PHP7&style=flat-square)
+![2.8.x PHP5](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=2.8.x&label=2.8.x%20PHP5&style=flat-square)
+![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square)
+![Monthly Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square)
+![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)
 
 #### About
 
@@ -31,10 +32,10 @@ each release we're running [unit tests](./tests) and research and update the det
 See [the history](./docs/HISTORY.md) of the project.
 
 #### Version guidance
-| Version | Status                                                                                                                                                                     | Namespace | Code                                                         | PHP Version |
-|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------------------------------------------------------|-------------|
-| 2.8.xx  | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/5x.yml/badge.svg?branch=5.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/5x.yml) | `\Mobile_Detect`       | [5.x](https://github.com/serbanghita/Mobile-Detect/tree/5.x) | \>=5.0,<7.0 |
-| 3.74.xx | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/7x.yml/badge.svg?branch=7.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/7x.yml) | `Detection\MobileDetect`        | [7.x](https://github.com/serbanghita/Mobile-Detect/tree/7.x) | >=7.3,<8.0  |
+| Version | Status                                                                                                                                                                            | Namespace | Code                                                             | PHP Version |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|-------------|
+| 2.8.x  | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=2.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 |
+| 3.74.x | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=3.74.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0  |
 
 **JetBrains** is sponsoring the project by providing licenses for [PHPStorm](https://www.jetbrains.com/phpstorm/) and 
 [DataGrip](https://www.jetbrains.com/datagrip/).
