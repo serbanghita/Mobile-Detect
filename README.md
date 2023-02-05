@@ -4,8 +4,8 @@
 
 ![Build status](https://github.com/serbanghita/Mobile-Detect/workflows/Mobile-Detect/badge.svg)
 ![Latest version](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?style=flat-square)
-![5.x](https://img.shields.io/github/workflow/status/serbanghita/Mobile-Detect/5x/5.x?label=5.x&style=flat-square)
-![7.x](https://img.shields.io/github/workflow/status/serbanghita/Mobile-Detect/7x/7.x?label=7.x&style=flat-square)
+![3.74.x PHP7](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=3.74.x&label=3.74.x%20PHP7&style=flat-square)
+![2.8.x PHP5](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=2.8.x&label=2.8.x%20PHP5&style=flat-square)
 ![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square)
 ![Monthly Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square)
 ![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)
@@ -45,10 +45,10 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
 
 ## Versions
 
-| Version | Status                                                                                                                                                                     | Namespace | Code                                                         | PHP Version |
-|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------------------------------------------------------|-------------|
-| 2.8.xx  | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/5x.yml/badge.svg?branch=5.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/5x.yml) | `\Mobile_Detect`       | [5.x](https://github.com/serbanghita/Mobile-Detect/tree/5.x) | \>=5.0,<7.0 |
-| 3.74.xx | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/7x.yml/badge.svg?branch=7.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/7x.yml) | `Detection\MobileDetect`        | [7.x](https://github.com/serbanghita/Mobile-Detect/tree/7.x) | >=7.3,<8.0  |
+| Version | Status                                                                                                                                                                            | Namespace | Code                                                             | PHP Version |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|-------------|
+| 2.8.x  | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=2.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 |
+| 3.74.x | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=3.74.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0  |
 
 ## Contribute
 
