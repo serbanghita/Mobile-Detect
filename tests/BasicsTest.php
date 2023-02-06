@@ -1,5 +1,7 @@
 <?php
 
+namespace DetectionTests;
+
 use Detection\MobileDetect;
 use PHPUnit\Framework\TestCase;
 
@@ -19,7 +21,7 @@ final class BasicsTest extends TestCase
         $this->assertTrue(class_exists('\Detection\MobileDetect'));
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->detect = new MobileDetect;
     }
@@ -343,11 +345,9 @@ final class BasicsTest extends TestCase
         $this->assertFalse($md->checkHttpHeadersForMobile());
     }
 
-    /**
-     * @expectedException BadMethodCallException
-     */
     public function testBadMethodCall()
     {
+        $this->expectException(\BadMethodCallException::class);
         $md = new MobileDetect([]);
         $md->badmethodthatdoesntexistatall();
     }

@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-         bootstrap="./bootstrap.php"
-         backupGlobals="true"
-         colors="true"
-         executionOrder="random"
->
-    <testsuites>
-        <testsuite name="Test Suite">
-            <directory>.</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">../src</directory>
-            <exclude>
-                <directory>export/</directory>
-                <directory>examples/</directory>
-            </exclude>
-        </whitelist>
-    </filter>
-    <php>
-        <!-- Temporarily preventing https://github.com/xdebug/xdebug/pull/699 -->
-        <const name="XDEBUG_CC_UNUSED"  value=""/>
-        <const name="XDEBUG_CC_DEAD_CODE"  value="-1"/>
-    </php>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" bootstrap="./bootstrap.php" backupGlobals="true" colors="true" executionOrder="random">
+  <coverage>
+    <include>
+      <directory suffix=".php">../src</directory>
+    </include>
+    <exclude>
+      <directory>export/</directory>
+      <directory>examples/</directory>
+    </exclude>
+  </coverage>
+  <testsuites>
+    <testsuite name="Test Suite">
+      <directory>.</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <!-- Temporarily preventing https://github.com/xdebug/xdebug/pull/699 -->
+    <const name="XDEBUG_CC_UNUSED" value=""/>
+    <const name="XDEBUG_CC_DEAD_CODE" value="-1"/>
+  </php>
 </phpunit>

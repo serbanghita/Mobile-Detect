@@ -1,5 +1,7 @@
 <?php
 
+namespace DetectionTests;
+
 use Detection\MobileDetect;
 use PHPUnit\Framework\TestCase;
 
@@ -13,7 +15,7 @@ final class UserAgentTest extends TestCase
     protected static array $ualist = [];
     protected static $json;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->detect = new MobileDetect;
     }
@@ -116,7 +118,7 @@ final class UserAgentTest extends TestCase
         return self::$json;
     }
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         //generate json file first
         self::generateJson();

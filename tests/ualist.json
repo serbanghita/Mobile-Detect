@@ -1,5 +1,5 @@
 {
-    "hash": "a57a69129c875d84bffdc9082a5bdf854727fced",
+    "hash": "1e4b40b2377f08872aeb645669878d05eed51fb6",
     "user_agents": [
         {
             "vendor": "Acer",
@@ -4545,6 +4545,12 @@
         {
             "vendor": "Lenovo",
             "user_agent": "Mozilla\/5.0 (Linux; Android 12; Lenovo YT-J706X) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/106.0.0.0 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "Lenovo",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 12; Lenovo TB128FU) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/108.0.0.0 Safari\/537.36",
             "mobile": true,
             "tablet": true
         },
