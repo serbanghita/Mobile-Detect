@@ -3,6 +3,7 @@
 namespace DetectionTests;
 
 use Detection\MobileDetect;
+use Detection\MobileDetectInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,7 +12,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class UserAgentTest extends TestCase
 {
-    protected MobileDetect $detect;
+    protected MobileDetectInterface $detect;
     protected static array $ualist = [];
     protected static $json;
 

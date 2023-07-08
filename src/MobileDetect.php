@@ -214,7 +214,7 @@ use BadMethodCallException;
  * @method bool isConsole()
  * @method bool isWatch()
  */
-class MobileDetect
+class MobileDetect implements MobileDetectInterface
 {
     /**
      * A frequently used regular expression to extract version #s.

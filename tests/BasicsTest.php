@@ -3,6 +3,7 @@
 namespace DetectionTests;
 
 use Detection\MobileDetect;
+use Detection\MobileDetectInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,10 +12,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class BasicsTest extends TestCase
 {
-    /**
-     * @var MobileDetect
-     */
-    protected MobileDetect $detect;
+    protected MobileDetectInterface $detect;
 
     public function testClassExists()
     {
@@ -239,7 +237,7 @@ final class BasicsTest extends TestCase
 
     public function testSetLongUserAgent()
     {
-        $md = new MobileDetect();
+        $md = new MobileDetect;
         $md->setUserAgent(str_repeat("a", 501));
         $this->assertEquals(strlen($md->getUserAgent()), 500);
     }
