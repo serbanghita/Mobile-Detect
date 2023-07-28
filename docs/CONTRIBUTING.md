@@ -35,7 +35,7 @@ By making a contribution to this project, I certify that:
 ### Reporting issues
 
 1. Specify the User-agent by visiting [http://demo.mobiledetect.net](http://demo.mobiledetect.net).
-1. Specify the expected behaviour.
+2. Specify the expected behaviour.
 
 ### Developing
 
@@ -53,7 +53,7 @@ By making a contribution to this project, I certify that:
 7. Start working on your changes.
     1. If you add new methods or make structural changes to the `Mobile_Detect.php` class
     you need to add unit tests!
-    1. If you add new regexes make sure you commit the User-Agents in [`tests/providers/vendors`](https://github.com/serbanghita/Mobile-Detect/tree/master/tests/providers/vendors)
+    2. If you add new regexes make sure you commit the User-Agents in [`tests/providers/vendors`](https://github.com/serbanghita/Mobile-Detect/tree/master/tests/providers/vendors)
 8. Run tests 
 9. `vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky`
    1. On Windows use `%cd%/vendor/bin/phpunit ...`
@@ -77,9 +77,9 @@ Or you can submit a PR against `README.md`.
 ### Website updates
 
 1. Our official website is hosted at [http://mobiledetect.net](http://mobiledetect.net).
-1. The files are found on the `gh-pages` branch.
-1. `git checkout gh-pages`
-1. `npm install -g browser-sync`
-1. `browser-sync start --s . --f . --port 3000 --reload-debounce 1500 --no-ui`
-1. Go to `http://localhost:3000` and make changes.
-1. Commit, push and submit the PR against `serbanghita:gh-pages`.
+2. The files are found on the `gh-pages` branch.
+3. `git checkout gh-pages`
+4. `npm install -g browser-sync`
+5. `browser-sync start --s . --f . --port 3000 --reload-debounce 1500 --no-ui`
+6. Go to `http://localhost:3000` and make changes.
+7. Commit, push and submit the PR against `serbanghita:gh-pages`.

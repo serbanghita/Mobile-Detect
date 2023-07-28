@@ -1,3 +1,6 @@
-/scripts export-ignore
-/tests export-ignore
-/.* export-ignore
+.editorconfig           export-ignore
+.gitattributes          export-ignore
+/docs/                  export-ignore
+/scripts/               export-ignore
+/tests/                 export-ignore
+/.*                     export-ignore

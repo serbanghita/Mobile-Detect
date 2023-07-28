@@ -15,11 +15,6 @@
  *
  */
 
-
-
-// Included nicejson function to beautify the result JSON file.
-// This library is not mandatory.
-
 require_once dirname(__FILE__) . '/../src/MobileDetect.php';
 $detect = new \Detection\MobileDetect;
 
