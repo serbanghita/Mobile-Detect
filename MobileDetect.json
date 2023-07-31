@@ -1,5 +1,5 @@
 {
-    "version": "3.74.0",
+    "version": "3.74.1",
     "headerMatch": {
         "HTTP_ACCEPT": {
             "matches": [
