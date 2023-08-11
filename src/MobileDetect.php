@@ -919,7 +919,7 @@ class MobileDetect
 
     public function getMobileHeaders(): array
     {
-        return self::$mobileHeaders;
+        return static::$mobileHeaders;
     }
 
     /**
@@ -930,7 +930,7 @@ class MobileDetect
      */
     public function getUaHttpHeaders(): array
     {
-        return self::$uaHttpHeaders;
+        return static::$uaHttpHeaders;
     }
 
 
@@ -1046,7 +1046,7 @@ class MobileDetect
      */
     public static function getPhoneDevices(): array
     {
-        return self::$phoneDevices;
+        return static::$phoneDevices;
     }
 
     /**
@@ -1056,7 +1056,7 @@ class MobileDetect
      */
     public static function getTabletDevices(): array
     {
-        return self::$tabletDevices;
+        return static::$tabletDevices;
     }
 
     /**
@@ -1066,7 +1066,7 @@ class MobileDetect
      */
     public static function getUserAgents(): array
     {
-        return self::getBrowsers();
+        return static::getBrowsers();
     }
 
     /**
@@ -1076,7 +1076,7 @@ class MobileDetect
      */
     public static function getBrowsers(): array
     {
-        return self::$browsers;
+        return static::$browsers;
     }
 
     /**
@@ -1091,10 +1091,10 @@ class MobileDetect
 
         if (!$rules) {
             $rules = array_merge(
-                self::$phoneDevices,
-                self::$tabletDevices,
-                self::$operatingSystems,
-                self::$browsers
+                static::$phoneDevices,
+                static::$tabletDevices,
+                static::$operatingSystems,
+                static::$browsers
             );
         }
 
@@ -1108,7 +1108,7 @@ class MobileDetect
      */
     public static function getOperatingSystems(): array
     {
-        return self::$operatingSystems;
+        return static::$operatingSystems;
     }
 
     /**
@@ -1267,7 +1267,7 @@ class MobileDetect
             }
         }
 
-        foreach (self::$tabletDevices as $_regex) {
+        foreach (static::$tabletDevices as $_regex) {
             if ($this->match($_regex, $userAgent)) {
                 return true;
             }
@@ -1342,7 +1342,7 @@ class MobileDetect
      */
     public static function getProperties(): array
     {
-        return self::$properties;
+        return static::$properties;
     }
 
     /**
