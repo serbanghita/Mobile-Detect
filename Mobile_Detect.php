@@ -1180,10 +1180,10 @@ class Mobile_Detect
 
         if (!$rules) {
             $rules = array_merge(
-                self::$phoneDevices,
-                self::$tabletDevices,
-                self::$operatingSystems,
-                self::$browsers
+                static::getPhoneDevices(),
+                static::getTabletDevices(),
+                static::getOperatingSystems(),
+                static::getBrowsers()
             );
         }
 
@@ -1208,11 +1208,11 @@ class Mobile_Detect
         if (!$rules) {
             // Merge all rules together.
             $rules = array_merge(
-                self::$phoneDevices,
-                self::$tabletDevices,
-                self::$operatingSystems,
-                self::$browsers,
-                self::$utilities
+                static::getPhoneDevices(),
+                static::getTabletDevices(),
+                static::getOperatingSystems(),
+                static::getBrowsers(),
+                static::getUtilities()
             );
         }
 
@@ -1406,7 +1406,7 @@ class Mobile_Detect
 
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
-        foreach (self::$tabletDevices as $_regex) {
+        foreach (static::getTabletDevices() as $_regex) {
             if ($this->match($_regex, $userAgent)) {
                 return true;
             }
@@ -1531,7 +1531,7 @@ class Mobile_Detect
             $type = self::VERSION_TYPE_STRING;
         }
 
-        $properties = self::getProperties();
+        $properties = static::getProperties();
 
         // Check if the property exists in the properties array.
         if (true === isset($properties[$propertyName])) {
