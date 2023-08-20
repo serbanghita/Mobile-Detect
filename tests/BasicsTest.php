@@ -4,6 +4,7 @@ namespace DetectionTests;
 
 use Detection\MobileDetect;
 use PHPUnit\Framework\TestCase;
+use Psr\Cache\InvalidArgumentException;
 
 /**
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
@@ -11,26 +12,47 @@ use PHPUnit\Framework\TestCase;
  */
 final class BasicsTest extends TestCase
 {
-    /**
-     * @var MobileDetect
-     */
-    protected MobileDetect $detect;
-
     public function testClassExists()
     {
         $this->assertTrue(class_exists('\Detection\MobileDetect'));
     }
 
-    public function setUp(): void
+    public function testNoUserAgentSet()
     {
-        $this->detect = new MobileDetect;
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('No user-agent has been set.');
+
+        $detect = new MobileDetect;
+        $detect->isMobile();
+    }
+
+    public function testValidHeadersNoUserAgentSet()
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('No user-agent has been set.');
+
+        $detect = new MobileDetect;
+        $detect->setHttpHeaders([
+            'HTTP_CONNECTION'       => 'close',
+            'HTTP_USER_AGENT'       => 'iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26',
+            'HTTP_ACCEPT'           => 'text/vnd.wap.wml, application/json, text/javascript, */*; q=0.01',
+        ]);
+        $detect->isMobile();
+    }
+
+    public function testScriptVersion()
+    {
+        $detect = new MobileDetect;
+        $this->assertNotEmpty($v = $detect->getVersion());
+        $formatCheck = (bool)preg_match('/^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9])?$/', $v);
+        $this->assertTrue($formatCheck, "Fails the semantic version test. The version " . var_export($v, true)
+            . ' does not match X.Y.Z pattern');
     }
 
     public function testBasicMethods()
     {
-        $this->assertNotEmpty($this->detect->getScriptVersion());
-
-        $this->detect->setHttpHeaders(array(
+        $detect = new MobileDetect;
+        $detect->setHttpHeaders([
                 'SERVER_SOFTWARE'       => 'Apache/2.2.15 (Linux) Whatever/4.0 PHP/5.2.13',
                 'REQUEST_METHOD'        => 'POST',
                 'HTTP_HOST'             => 'home.ghita.org',
@@ -47,24 +69,24 @@ final class BasicsTest extends TestCase
                 'HTTP_CACHE_CONTROL'    => 'no-cache',
                 'REMOTE_ADDR'           => '11.22.33.44',
                 'REQUEST_TIME'          => '01-10-2012 07:57'
-            ));
+            ]);
 
         //12 because only 12 start with HTTP_
-        $this->assertCount(12, $this->detect->getHttpHeaders());
-        $this->assertTrue($this->detect->checkHttpHeadersForMobile());
+        $this->assertCount(12, $detect->getHttpHeaders());
+        $this->assertTrue($detect->checkHttpHeadersForMobile());
 
-        $this->detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25');
-        $this->assertNotEmpty($this->detect->getUserAgent());
+        $detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25');
+        $this->assertNotEmpty($detect->getUserAgent());
 
-        $this->assertTrue($this->detect->isMobile());
-        $this->assertFalse($this->detect->isTablet());
+        $this->assertTrue($detect->isMobile());
+        $this->assertFalse($detect->isTablet());
 
-        $this->assertTrue($this->detect->isIphone());
-        $this->assertTrue($this->detect->isiphone());
-        $this->assertTrue($this->detect->isiOS());
-        $this->assertTrue($this->detect->isios());
-        $this->assertTrue($this->detect->is('iphone'));
-        $this->assertTrue($this->detect->is('ios'));
+        $this->assertTrue($detect->isIphone());
+        $this->assertTrue($detect->isiphone());
+        $this->assertTrue($detect->isiOS());
+        $this->assertTrue($detect->isios());
+        $this->assertTrue($detect->is('iphone'));
+        $this->assertTrue($detect->is('ios'));
     }
 
     public function headersProvider(): array
@@ -109,24 +131,25 @@ final class BasicsTest extends TestCase
      * @dataProvider headersProvider
      * @param array $headers
      */
-    public function testConstructorInjection(array $headers)
+    public function testHeaders(array $headers)
     {
-        $md = new MobileDetect($headers);
+        $detect = new MobileDetect;
+        $detect->setHttpHeaders($headers);
 
         foreach ($headers as $header => $value) {
             if (substr($header, 0, 5) !== 'HTTP_') {
                 //make sure it wasn't set
-                $this->assertNull($md->getHttpHeader($value));
+                $this->assertNull($detect->getHttpHeader($value));
             } else {
                 //make sure it's equal
-                $this->assertEquals($value, $md->getHttpHeader($header));
+                $this->assertEquals($value, $detect->getHttpHeader($header));
             }
         }
 
         //verify some headers work with the translated getter
-        $this->assertNull($md->getHttpHeader('Remote-Addr'));
-        $this->assertNull($md->getHttpHeader('Server-Software'));
-        $this->assertEquals($headers['HTTP_USER_AGENT'], $md->getHttpHeader('User-Agent'));
+        $this->assertNull($detect->getHttpHeader('Remote-Addr'));
+        $this->assertNull($detect->getHttpHeader('Server-Software'));
+        $this->assertEquals($headers['HTTP_USER_AGENT'], $detect->getHttpHeader('User-Agent'));
     }
 
     /**
@@ -135,8 +158,9 @@ final class BasicsTest extends TestCase
      */
     public function testInvalidHeader($headers)
     {
-        $md = new MobileDetect($headers);
-        $this->assertNull($md->getHttpHeader('garbage_is_Garbage'));
+        $detect = new MobileDetect;
+        $detect->setHttpHeaders($headers);
+        $this->assertNull($detect->getHttpHeader('garbage_is_Garbage'));
     }
 
     public function userAgentProvider(): array
@@ -163,9 +187,9 @@ final class BasicsTest extends TestCase
      */
     public function testGetUserAgent($headers, $expectedUserAgent)
     {
-        $md = new MobileDetect($headers);
-        $md->setUserAgent();
-        $this->assertSame($expectedUserAgent, $md->getUserAgent());
+        $detect = new MobileDetect;
+        $detect->setHttpHeaders($headers);
+        $this->assertSame($expectedUserAgent, $detect->getUserAgent());
     }
 
     /**
@@ -195,7 +219,7 @@ final class BasicsTest extends TestCase
             'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'false'
         ];
         $md = new MobileDetect($header1);
-        $this->assertSame($md->getCfHeaders(), $header1);
+        $this->assertSame($md->getCloudFrontHeaders(), $header1);
         $this->assertSame($md->getUserAgent(), 'Amazon CloudFront');
         $this->assertSame($md->isTablet(), false);
         $this->assertSame($md->isMobile(), true);
@@ -207,7 +231,7 @@ final class BasicsTest extends TestCase
             'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'false'
         ];
         $md->setHttpHeaders($header2);
-        $this->assertSame($md->getCfHeaders(), $header2);
+        $this->assertSame($md->getCloudFrontHeaders(), $header2);
         $this->assertSame($md->getUserAgent(), 'Amazon CloudFront');
         $this->assertSame($md->isTablet(), false);
         $this->assertSame($md->isMobile(), false);
@@ -218,8 +242,8 @@ final class BasicsTest extends TestCase
             'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'  => 'false',
             'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'true'
         ];
-        $md->setCfHeaders($header3);
-        $this->assertSame($md->getCfHeaders(), $header3);
+        $md->setCloudFrontHeaders($header3);
+        $this->assertSame($md->getCloudFrontHeaders(), $header3);
         $this->assertSame($md->getUserAgent(), 'Amazon CloudFront');
         $this->assertSame($md->isTablet(), true);
         $this->assertSame($md->isMobile(), false);
@@ -227,7 +251,7 @@ final class BasicsTest extends TestCase
         // Check if the headers are cleared
         $header4 = [];
         $md->setHttpHeaders($header4);
-        $this->assertSame($md->getCfHeaders(), $header4);
+        $this->assertSame($md->getCloudFrontHeaders(), $header4);
     }
 
     public function testSetUserAgent()
@@ -436,15 +460,6 @@ final class BasicsTest extends TestCase
         ]);
         $rules = $md->getRules();
         $this->assertCount($count, $rules);
-    }
-
-    public function testScriptVersion()
-    {
-        $v = MobileDetect::getScriptVersion();
-        $formatCheck = (bool)preg_match('/^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9])?$/', $v);
-
-        $this->assertTrue($formatCheck, "Fails the semantic version test. The version " . var_export($v, true)
-                . ' does not match X.Y.Z pattern');
     }
 
     public function crazyVersionNumbers(): array

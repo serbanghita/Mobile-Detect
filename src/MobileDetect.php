@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Mobile Detect Library
  * Motto: "Every business should have a mobile detection script to detect mobile readers"
@@ -18,11 +20,16 @@
  * @author  Nick Ilyin <nick.ilyin@gmail.com>
  * @author: Victor Stanciu <vic.stanciu@gmail.com> (original author)
  *
- * @version 3.74.1
+ * @version 4.8.01
  */
 namespace Detection;
 
 use BadMethodCallException;
+use Detection\Cache\CacheItem;
+use Detection\Cache\CacheItemPool;
+use Detection\Cache\CacheFactory;
+use Psr\Cache\CacheItemPoolInterface;
+use Psr\Cache\InvalidArgumentException;
 
 /**
  * Auto-generated isXXXX() magic methods.
@@ -226,7 +233,9 @@ class MobileDetect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '3.74.1';
+    protected string $VERSION                   = '4.8.01';
+
+    protected int $USER_AGENT_MAX_LEN = 500;
 
     /**
      * A type for the version() method indicating a string return value.
@@ -240,9 +249,9 @@ class MobileDetect
 
     /**
      * A cache for resolved matches
-     * @var array
+     * @var CacheItemPoolInterface
      */
-    protected array $cache = [];
+    protected CacheItemPoolInterface $cacheItemPool;
 
     /**
      * The User-Agent HTTP header is stored in here.
@@ -820,32 +829,29 @@ class MobileDetect
         'Symbian'          => ['SymbianOS/[VER]', 'Symbian/[VER]'],
         'webOS'            => ['webOS/[VER]', 'hpwOS/[VER];'],
     ];
+    private CacheFactory $cacheManager;
 
     /**
      * Construct an instance of this class.
-     *
-     * @param array|null $headers Specify the headers as injection. Should be PHP _SERVER flavored.
-     *                            If left empty, will use the global _SERVER['HTTP_*'] vars instead.
-     * @param string|null $userAgent Inject the User-Agent header. If null, will use HTTP_USER_AGENT
-     *                               from the $headers array instead.
      */
-    public function __construct(array $headers = null, string $userAgent = null)
-    {
-        $this->setHttpHeaders($headers);
-        $this->setUserAgent($userAgent);
+    public function __construct(
+        CacheFactory $cacheManager = null
+    ) {
+        // If no custom cache provided then use our own
+        // static associative array cache.
+        $this->cacheManager = $cacheManager == null ? new CacheFactory : $cacheManager;
+        $this->cacheItemPool = $this->cacheManager->createPool();
     }
 
     /**
      * Get the current script version.
-     * This is useful for the demo.php file,
-     * so people can check on what version they are testing
-     * for mobile devices.
+     * Used in demo.php file.
      *
      * @return string The version number in semantic version format.
      */
-    public static function getScriptVersion(): string
+    public function getVersion(): string
     {
-        return self::VERSION;
+        return $this->VERSION;
     }
 
     /**
@@ -854,7 +860,7 @@ class MobileDetect
      * @param array|null $httpHeaders The headers to set. If null, then using PHP's _SERVER to extract
      *                           the headers. The default null is left for backwards compatibility.
      */
-    public function setHttpHeaders(array $httpHeaders = null)
+    public function setHttpHeaders(array $httpHeaders = null): void
     {
         // use global _SERVER if $httpHeaders aren't defined
         if (!is_array($httpHeaders) || !count($httpHeaders)) {
@@ -862,18 +868,43 @@ class MobileDetect
         }
 
         // clear existing headers
-        $this->httpHeaders = array();
+        $this->httpHeaders = [];
 
         // Only save HTTP headers. In PHP land, that means only _SERVER vars that
         // start with HTTP_.
         foreach ($httpHeaders as $key => $value) {
-            if (substr($key, 0, 5) === 'HTTP_') {
+            if (str_starts_with($key, 'HTTP_')) {
                 $this->httpHeaders[$key] = $value;
             }
         }
 
         // In case we're dealing with CloudFront, we need to know.
-        $this->setCfHeaders($httpHeaders);
+        $this->setCloudFrontHeaders($httpHeaders);
+
+        // Override User-Agent string.
+        if (count($this->getCloudFrontHeaders()) > 0) {
+            $this->userAgent = 'Amazon CloudFront';
+        }
+    }
+
+    /**
+     * Set CloudFront headers
+     * http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html#header-caching-web-device
+     *
+     * @param array $cfHeaders List of HTTP headers
+     */
+    protected function setCloudFrontHeaders(array $cfHeaders): void
+    {
+        // clear existing headers
+        $this->cloudfrontHeaders = [];
+
+        // Only save CLOUDFRONT headers. In PHP land, that means only _SERVER vars that
+        // start with cloudfront-.
+        foreach ($cfHeaders as $key => $value) {
+            if (str_starts_with(strtolower($key), 'http_cloudfront_')) {
+                $this->cloudfrontHeaders[strtoupper($key)] = $value;
+            }
+        }
     }
 
     /**
@@ -884,6 +915,11 @@ class MobileDetect
     public function getHttpHeaders(): array
     {
         return $this->httpHeaders;
+    }
+
+    public function hasHttpHeaders(): bool
+    {
+        return count($this->httpHeaders) > 0;
     }
 
     /**
@@ -899,7 +935,7 @@ class MobileDetect
     public function getHttpHeader(string $header): ?string
     {
         // are we using PHP-flavored headers?
-        if (strpos($header, '_') === false) {
+        if (!str_contains($header, '_')) {
             $header = str_replace('-', '_', $header);
             $header = strtoupper($header);
         }
@@ -933,90 +969,59 @@ class MobileDetect
         return static::$uaHttpHeaders;
     }
 
-
-    /**
-     * Set CloudFront headers
-     * http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html#header-caching-web-device
-     *
-     * @param array|null $cfHeaders List of HTTP headers
-     *
-     * @return bool If there were CloudFront headers to be set
-     */
-    public function setCfHeaders(array $cfHeaders = null): bool
-    {
-        // use global _SERVER if $cfHeaders aren't defined
-        if (!is_array($cfHeaders) || !count($cfHeaders)) {
-            $cfHeaders = $_SERVER;
-        }
-
-        // clear existing headers
-        $this->cloudfrontHeaders = array();
-
-        // Only save CLOUDFRONT headers. In PHP land, that means only _SERVER vars that
-        // start with cloudfront-.
-        $response = false;
-        foreach ($cfHeaders as $key => $value) {
-            if (substr(strtolower($key), 0, 16) === 'http_cloudfront_') {
-                $this->cloudfrontHeaders[strtoupper($key)] = $value;
-                $response = true;
-            }
-        }
-
-        return $response;
-    }
-
     /**
      * Retrieves the cloudfront headers.
      *
      * @return array
      */
-    public function getCfHeaders(): array
+    public function getCloudFrontHeaders(): array
     {
         return $this->cloudfrontHeaders;
     }
 
     /**
-     * @param string $userAgent
+     * Prepare the User-Agent string for matching phase.
+     *
+     * @param string $userAgent The User-Agent string.
      * @return string
      */
     private function prepareUserAgent(string $userAgent): string
     {
         $userAgent = trim($userAgent);
-        return substr($userAgent, 0, 500);
+        return substr($userAgent, 0, $this->USER_AGENT_MAX_LEN);
     }
 
     /**
      * Set the User-Agent to be used.
      *
-     * @param string|null $userAgent The user agent string to set.
-     *
+     * @param string $userAgent The User-Agent string.
      * @return string|null
      */
-    public function setUserAgent(string $userAgent = null): ?string
+    public function setUserAgent(string $userAgent): string|null
     {
-        // Invalidate cache due to #375
-        $this->cache = array();
+        $preparedUserAgent = $this->prepareUserAgent($userAgent);
+        return $this->userAgent = !empty($preparedUserAgent) ? $preparedUserAgent : null;
 
-        if (false === empty($userAgent)) {
-            return $this->userAgent = $this->prepareUserAgent($userAgent);
-        } else {
-            $this->userAgent = null;
-            foreach ($this->getUaHttpHeaders() as $altHeader) {
-                // @todo: should use getHttpHeader(), but it would be slow. (Serban)
-                if (false === empty($this->httpHeaders[$altHeader])) {
-                    $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
-                }
-            }
-
-            if (!empty($this->userAgent)) {
-                return $this->userAgent = $this->prepareUserAgent($this->userAgent);
-            }
-        }
-
-        if (count($this->getCfHeaders()) > 0) {
-            return $this->userAgent = 'Amazon CloudFront';
-        }
-        return $this->userAgent = null;
+//        if (false === empty($userAgent)) {
+//
+//        } else {
+//            $this->userAgent = null;
+//            foreach ($this->getUaHttpHeaders() as $altHeader) {
+//                // @todo: should use getHttpHeader(), but it would be slow. (Serban)
+//                if (false === empty($this->httpHeaders[$altHeader])) {
+//                    $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
+//                }
+//            }
+//
+//            if (!empty($this->userAgent)) {
+//                return $this->userAgent = $this->prepareUserAgent($this->userAgent);
+//            }
+//        }
+//
+//        if (count($this->getCfHeaders()) > 0) {
+//            return $this->userAgent = 'Amazon CloudFront';
+//        }
+//        return $this->userAgent = null;
     }
 
     /**
@@ -1027,6 +1032,11 @@ class MobileDetect
     public function getUserAgent(): ?string
     {
         return $this->userAgent;
+    }
+
+    public function hasUserAgent(): bool
+    {
+        return \is_string($this->userAgent) && !empty($this->userAgent);
     }
 
     public function getMatchingRegex(): ?string
@@ -1120,12 +1130,11 @@ class MobileDetect
      */
     public function checkHttpHeadersForMobile(): bool
     {
-
         foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
             if (isset($this->httpHeaders[$mobileHeader])) {
                 if (isset($matchType['matches']) && is_array($matchType['matches'])) {
                     foreach ($matchType['matches'] as $_match) {
-                        if (strpos($this->httpHeaders[$mobileHeader], $_match) !== false) {
+                        if (str_contains($this->httpHeaders[$mobileHeader], $_match)) {
                             return true;
                         }
                     }
@@ -1148,156 +1157,144 @@ class MobileDetect
      * @param array $arguments
      * @return bool
      * @throws BadMethodCallException when the method doesn't exist and doesn't start with 'is'
+     * @throws \Exception
+     * @throws InvalidArgumentException
      */
     public function __call(string $name, array $arguments)
     {
         // make sure the name starts with 'is', otherwise
-        if (substr($name, 0, 2) !== 'is') {
+        if (!str_starts_with($name, 'is')) {
             throw new BadMethodCallException("No such method exists: $name");
         }
 
-        $key = substr($name, 2);
+        $ruleName = substr($name, 2);
 
-        return $this->matchUAAgainstKey($key);
-    }
-
-    /**
-     * Find a detection rule that matches the current User-agent.
-     *
-     * @param string|null $userAgent deprecated
-     * @return bool
-     */
-    protected function matchDetectionRulesAgainstUA(string $userAgent = null): bool
-    {
-        // Begin general search.
-        foreach ($this->getRules() as $_regex) {
-            if (empty($_regex)) {
-                continue;
-            }
-
-            if ($this->match($_regex, $userAgent)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Search for a certain key in the rules array.
-     * If the key is found then try to match the corresponding
-     * regex against the User-Agent.
-     *
-     * @param string $key
-     *
-     * @return bool
-     */
-    protected function matchUAAgainstKey(string $key): bool
-    {
-        // Make the keys lowercase, so we can match: isIphone(), isiPhone(), isiphone(), etc.
-        $key = strtolower($key);
-        if (false === isset($this->cache[$key])) {
-            // change the keys to lower case
-            $_rules = array_change_key_case($this->getRules());
-
-            if (false === empty($_rules[$key])) {
-                $this->cache[$key] = $this->match($_rules[$key]);
-            }
-
-            if (false === isset($this->cache[$key])) {
-                $this->cache[$key] = false;
-            }
-        }
-
-        return $this->cache[$key];
+        return $this->is($ruleName);
     }
 
     /**
      * Check if the device is mobile.
      * Returns true if any type of mobile device detected, including special ones
-     * @param string|null $userAgent  deprecated
-     * @param array|null $httpHeaders deprecated
      * @return bool
+     * @throws InvalidArgumentException
+     * @throws \Exception
      */
-    public function isMobile(string $userAgent = null, array $httpHeaders = null): bool
+    public function isMobile(): bool
     {
-
-        if ($httpHeaders) {
-            $this->setHttpHeaders($httpHeaders);
+        if (!$this->hasUserAgent()) {
+            throw new \Exception('No user-agent has been set.');
         }
 
-        if ($userAgent) {
-            $this->setUserAgent($userAgent);
+        // Cache check.
+        $cacheKey = $this->createCacheKey("mobile");
+        if ($this->cacheItemPool->hasItem($cacheKey)) {
+            return $this->cacheItemPool->getItem($cacheKey)->get();
+        } else {
+            $cacheItem = $this->cacheManager::createItem($cacheKey);
         }
 
-        // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
+        // Special case: Amazon CloudFront mobile viewer
+        // @todo: add GH issue
         if ($this->getUserAgent() === 'Amazon CloudFront') {
-            $cfHeaders = $this->getCfHeaders();
+            $cfHeaders = $this->getCloudFrontHeaders();
             if (array_key_exists('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER', $cfHeaders) &&
                 $cfHeaders['HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'] === 'true'
             ) {
+                $cacheItem->set(true);
+                $this->cacheItemPool->save($cacheItem);
                 return true;
             }
         }
 
-        if ($this->checkHttpHeadersForMobile()) {
+        if ($this->hasHttpHeaders() && $this->checkHttpHeadersForMobile()) {
+            $cacheItem->set(true);
+            $this->cacheItemPool->save($cacheItem);
             return true;
         } else {
-            return $this->matchDetectionRulesAgainstUA();
+            $result = $this->matchUserAgentWithFirstFoundMatchingRule();
+            $cacheItem->set($result);
+            $this->cacheItemPool->save($cacheItem);
+            return $result;
         }
     }
 
     /**
      * Check if the device is a tablet.
      * Return true if any type of tablet device is detected.
-     *
-     * @param string|null $userAgent   deprecated
-     * @param array|null $httpHeaders deprecated
      * @return bool
+     * @throws \Exception
+     * @throws InvalidArgumentException
      */
-    public function isTablet(string $userAgent = null, array $httpHeaders = null): bool
+    public function isTablet(): bool
     {
+        if (!$this->hasUserAgent()) {
+            throw new \Exception('No user-agent has been set.');
+        }
+
+        // Cache check.
+        $cacheKey = $this->createCacheKey("tablet");
+        if ($this->cacheItemPool->hasItem($cacheKey)) {
+            return $this->cacheItemPool->getItem($cacheKey)->get();
+        } else {
+            $cacheItem = $this->cacheManager::createItem($cacheKey);
+        }
+
         // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
         if ($this->getUserAgent() === 'Amazon CloudFront') {
-            $cfHeaders = $this->getCfHeaders();
+            $cfHeaders = $this->getCloudFrontHeaders();
             if (array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) &&
                 $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true'
             ) {
+                $cacheItem->set(true);
+                $this->cacheItemPool->save($cacheItem);
                 return true;
             }
         }
 
         foreach (static::$tabletDevices as $_regex) {
-            if ($this->match($_regex, $userAgent)) {
+            if ($this->match($_regex, $this->getUserAgent())) {
+                $cacheItem->set(true);
+                $this->cacheItemPool->save($cacheItem);
                 return true;
             }
         }
 
+        $cacheItem->set(false);
+        $this->cacheItemPool->save($cacheItem);
         return false;
     }
 
     /**
-     * This method checks for a certain property in the
-     * userAgent.
-     * @param  string        $key
-     * @param string|null $userAgent   deprecated
-     * @param array|null $httpHeaders deprecated
+     * Checks if a rule (e.g. isIphone, isIOS, etc.) matches its regex against the User-Agent.
+     *
+     * @param string $ruleName
      * @return bool
      *
-     * @todo: The httpHeaders part is not yet used.
+     * @throws \Exception
+     * @throws InvalidArgumentException
+     * @todo Throw specific exception.
      */
-    public function is(string $key, string $userAgent = null, array $httpHeaders = null): bool
+    public function is(string $ruleName): bool
     {
-        // Set the UA and HTTP headers only if needed (eg. batch mode).
-        if ($httpHeaders) {
-            $this->setHttpHeaders($httpHeaders);
+        if (!$this->hasUserAgent()) {
+            throw new \Exception('No user-agent has been set.');
         }
 
-        if ($userAgent) {
-            $this->setUserAgent($userAgent);
+        // Cache check.
+        $cacheKey = $this->createCacheKey($ruleName);
+        if ($this->cacheItemPool->hasItem($cacheKey)) {
+            return $this->cacheItemPool->getItem($cacheKey)->get();
+        } else {
+            $cacheItem = $this->cacheManager::createItem($cacheKey);
         }
 
-        return $this->matchUAAgainstKey($key);
+        $result = $this->matchUserAgentWithRule($ruleName);
+
+        // Cache save.
+        $cacheItem->set($result);
+        $this->cacheItemPool->save($cacheItem);
+
+        return $result;
     }
 
     /**
@@ -1310,22 +1307,14 @@ class MobileDetect
      * the User-Agent string.
      *
      * @param string $regex
-     * @param string|null $userAgent
+     * @param string $userAgent
      * @return bool
      *
      * @todo: search in the HTTP headers too.
      */
-    public function match(string $regex, string $userAgent = null): bool
+    public function match(string $regex, string $userAgent): bool
     {
-        if (!\is_string($userAgent) && !\is_string($this->userAgent)) {
-            return false;
-        }
-
-        $match = (bool) preg_match(
-            sprintf('#%s#is', $regex),
-            (false === empty($userAgent) ? $userAgent : $this->userAgent),
-            $matches
-        );
+        $match = (bool) preg_match(sprintf('#%s#is', $regex), $userAgent, $matches);
         // If positive match is found, store the results for debug.
         if ($match) {
             $this->matchingRegex = $regex;
@@ -1336,23 +1325,54 @@ class MobileDetect
     }
 
     /**
-     * Get the properties array.
-     *
-     * @return array
+     * Find a detection rule that matches the current User-agent.
+     * @return bool
      */
-    public static function getProperties(): array
+    protected function matchUserAgentWithFirstFoundMatchingRule(): bool
     {
-        return static::$properties;
+        // Begin general search.
+        foreach ($this->getRules() as $_regex) {
+            if (empty($_regex)) {
+                continue;
+            }
+
+            if ($this->match($_regex, $this->getUserAgent())) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Search for a certain key in the rules array.
+     * If the key is found then try to match the corresponding
+     * regex against the User-Agent.
+     *
+     * @param string $ruleName
+     * @return bool
+     */
+    protected function matchUserAgentWithRule(string $ruleName): bool
+    {
+        $result = false;
+        // Make the keys lowercase, so we can match: isIphone(), isiPhone(), isiphone(), etc.
+        $ruleName = strtolower($ruleName);
+        // change the keys to lower case
+        $_rules = array_change_key_case($this->getRules());
+
+        if (false === empty($_rules[$ruleName])) {
+            $result = $this->match($_rules[$ruleName], $this->getUserAgent());
+        }
+
+        return $result;
     }
 
     /**
      * Prepare the version number.
+     * @todo Remove the error suppression from str_replace() call.
      *
      * @param string $ver The string version, like "2.6.21.2152";
-     *
      * @return float
-     *
-     * @todo Remove the error suppression from str_replace() call.
      */
     public function prepareVersionNo(string $ver): float
     {
@@ -1379,13 +1399,9 @@ class MobileDetect
      *
      * @return string|float|false The version of the property we are trying to extract.
      */
-    public function version(string $propertyName, string $type = self::VERSION_TYPE_STRING)
+    public function version(string $propertyName, string $type = self::VERSION_TYPE_STRING): float|bool|string
     {
-        if (empty($propertyName)) {
-            return false;
-        }
-
-        if (!\is_string($this->userAgent)) {
+        if (empty($propertyName) || !$this->hasUserAgent()) {
             return false;
         }
 
@@ -1415,5 +1431,37 @@ class MobileDetect
         }
 
         return false;
+    }
+
+    public function getCache(): CacheItemPoolInterface
+    {
+        return $this->cacheItemPool;
+    }
+
+    protected function createCacheKey(string $key): string
+    {
+        $userAgentKey = $this->hasUserAgent() ? $this->userAgent : '';
+        $httpHeadersKey = $this->hasHttpHeaders() ? static::flattenHeaders($this->httpHeaders) : '';
+
+        return base64_encode("$key:$userAgentKey:$httpHeadersKey");
+    }
+
+    public static function flattenHeaders(array $httpHeaders): string
+    {
+        $key = '';
+        foreach ($httpHeaders as $name => $value) {
+            $key .= "${name}: ${value}\r\n";
+        }
+        return trim($key);
+    }
+
+    /**
+     * Get the properties array.
+     *
+     * @return array
+     */
+    public static function getProperties(): array
+    {
+        return static::$properties;
     }
 }
