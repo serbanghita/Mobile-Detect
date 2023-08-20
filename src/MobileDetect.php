@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -22,6 +23,7 @@ declare(strict_types=1);
  *
  * @version 4.8.01
  */
+
 namespace Detection;
 
 use BadMethodCallException;
@@ -228,24 +230,24 @@ class MobileDetect
      *
      * @deprecated since version 2.6.9
      */
-    const VER                       = '([\w._\+]+)';
+    protected const VER = '([\w._\+]+)';
 
     /**
      * Stores the version number of the current release.
      */
-    protected string $VERSION                   = '4.8.01';
+    protected string $VERSION = '4.8.01';
 
     protected int $USER_AGENT_MAX_LEN = 500;
 
     /**
      * A type for the version() method indicating a string return value.
      */
-    const VERSION_TYPE_STRING       = 'text';
+    private const VERSION_TYPE_STRING = 'text';
 
     /**
      * A type for the version() method indicating a float return value.
      */
-    const VERSION_TYPE_FLOAT        = 'float';
+    private const VERSION_TYPE_FLOAT = 'float';
 
     /**
      * A cache for resolved matches
@@ -839,7 +841,7 @@ class MobileDetect
     ) {
         // If no custom cache provided then use our own
         // static associative array cache.
-        $this->cacheManager = $cacheManager == null ? new CacheFactory : $cacheManager;
+        $this->cacheManager = $cacheManager == null ? new CacheFactory() : $cacheManager;
         $this->cacheItemPool = $this->cacheManager->createPool();
     }
 
@@ -1197,7 +1199,8 @@ class MobileDetect
         // @todo: add GH issue
         if ($this->getUserAgent() === 'Amazon CloudFront') {
             $cfHeaders = $this->getCloudFrontHeaders();
-            if (array_key_exists('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER', $cfHeaders) &&
+            if (
+                array_key_exists('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER', $cfHeaders) &&
                 $cfHeaders['HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'] === 'true'
             ) {
                 $cacheItem->set(true);
@@ -1242,7 +1245,8 @@ class MobileDetect
         // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
         if ($this->getUserAgent() === 'Amazon CloudFront') {
             $cfHeaders = $this->getCloudFrontHeaders();
-            if (array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) &&
+            if (
+                array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) &&
                 $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true'
             ) {
                 $cacheItem->set(true);

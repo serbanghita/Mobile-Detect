@@ -2,8 +2,6 @@
 
 namespace DetectionTests;
 
-use Detection\Cache\CacheFactory;
-use Detection\Cache\CacheItemPool;
 use Detection\MobileDetect;
 use PHPUnit\Framework\TestCase;
 
@@ -16,11 +14,11 @@ final class CacheTest extends TestCase
 
     public function testFlattenHeaders()
     {
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $cacheKey = $detect->flattenHeaders([
             'HTTP_REQUEST_METHOD' => 'DELETE',
             'HTTP_USER_AGENT'     => 'Mozilla/5.0 iPhone;',
-            'HTTP_ACCEPT_LANGUAGE'=> 'en-us,en;q=0.5',
+            'HTTP_ACCEPT_LANGUAGE' => 'en-us,en;q=0.5',
         ]);
 
         $expectedString = "HTTP_REQUEST_METHOD: DELETE
@@ -31,7 +29,7 @@ HTTP_ACCEPT_LANGUAGE: en-us,en;q=0.5";
 
     public function testDefaultCacheClassCreatesACacheRecord()
     {
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $detect->setUserAgent('Some iPhone user agent');
         $isMobile = $detect->isMobile();
 
@@ -45,7 +43,7 @@ HTTP_ACCEPT_LANGUAGE: en-us,en;q=0.5";
 
     public function testDefaultCacheClassCreatesASingleCacheRecordOnMultipleIsMobileCalls()
     {
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $detect->setUserAgent('Some iPhone user agent');
         $isMobile = $detect->isMobile();
         $this->assertTrue($isMobile);
@@ -63,7 +61,7 @@ HTTP_ACCEPT_LANGUAGE: en-us,en;q=0.5";
 
     public function testDefaultCacheClassCreatesMultipleCacheRecordsForAllCalls()
     {
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $detect->setUserAgent('iPad; AppleWebKit/533.17.9 Version/5.0.2 Mobile/8C148 Safari/6533.18.5');
 
         $isMobile = $detect->isMobile();

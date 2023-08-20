@@ -22,7 +22,7 @@ final class BasicsTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('No user-agent has been set.');
 
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $detect->isMobile();
     }
 
@@ -31,7 +31,7 @@ final class BasicsTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('No user-agent has been set.');
 
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $detect->setHttpHeaders([
             'HTTP_CONNECTION'       => 'close',
             'HTTP_USER_AGENT'       => 'iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26',
@@ -42,7 +42,7 @@ final class BasicsTest extends TestCase
 
     public function testScriptVersion()
     {
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $this->assertNotEmpty($v = $detect->getVersion());
         $formatCheck = (bool)preg_match('/^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9])?$/', $v);
         $this->assertTrue($formatCheck, "Fails the semantic version test. The version " . var_export($v, true)
@@ -51,7 +51,7 @@ final class BasicsTest extends TestCase
 
     public function testBasicMethods()
     {
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $detect->setHttpHeaders([
                 'SERVER_SOFTWARE'       => 'Apache/2.2.15 (Linux) Whatever/4.0 PHP/5.2.13',
                 'REQUEST_METHOD'        => 'POST',
@@ -133,11 +133,11 @@ final class BasicsTest extends TestCase
      */
     public function testHeaders(array $headers)
     {
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $detect->setHttpHeaders($headers);
 
         foreach ($headers as $header => $value) {
-            if (substr($header, 0, 5) !== 'HTTP_') {
+            if (!str_starts_with($header, 'HTTP_')) {
                 //make sure it wasn't set
                 $this->assertNull($detect->getHttpHeader($value));
             } else {
@@ -158,7 +158,7 @@ final class BasicsTest extends TestCase
      */
     public function testInvalidHeader($headers)
     {
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $detect->setHttpHeaders($headers);
         $this->assertNull($detect->getHttpHeader('garbage_is_Garbage'));
     }
@@ -187,7 +187,7 @@ final class BasicsTest extends TestCase
      */
     public function testGetUserAgent($headers, $expectedUserAgent)
     {
-        $detect = new MobileDetect;
+        $detect = new MobileDetect();
         $detect->setHttpHeaders($headers);
         $this->assertSame($expectedUserAgent, $detect->getUserAgent());
     }
@@ -438,7 +438,7 @@ final class BasicsTest extends TestCase
 
     public function testRules()
     {
-        $md = new MobileDetect;
+        $md = new MobileDetect();
         $count = array_sum([
             count(MobileDetect::getPhoneDevices()),
             count(MobileDetect::getTabletDevices()),
@@ -451,7 +451,7 @@ final class BasicsTest extends TestCase
 
     public function testRulesExtended()
     {
-        $md = new MobileDetect;
+        $md = new MobileDetect();
         $count = array_sum([
             count(MobileDetect::getPhoneDevices()),
             count(MobileDetect::getTabletDevices()),
@@ -482,7 +482,7 @@ final class BasicsTest extends TestCase
      */
     public function testPrepareVersionNo($raw, $expected)
     {
-        $md = new MobileDetect;
+        $md = new MobileDetect();
         $actual = $md->prepareVersionNo($raw);
         $this->assertSame($expected, $actual, "We expected " . var_export($raw, true) . " to convert to "
             . var_export($expected, true) . ', but got ' . var_export($actual, true) . ' instead');
