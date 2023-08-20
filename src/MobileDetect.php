@@ -226,17 +226,25 @@ use Psr\Cache\InvalidArgumentException;
 class MobileDetect
 {
     /**
-     * A frequently used regular expression to extract version #s.
-     *
-     * @deprecated since version 2.6.9
+     * A cache for resolved matches
+     * @var CacheItemPoolInterface
      */
-    protected const VER = '([\w._\+]+)';
+    protected CacheItemPoolInterface $cacheItemPool;
 
     /**
      * Stores the version number of the current release.
      */
     protected string $VERSION = '4.8.01';
 
+    /**
+     * A frequently used regular expression to extract version #s.
+     */
+    protected const VERSION_REGEX = '([\w._\+]+)';
+
+    /**
+     * Maximum HTTP User-Agent value allowed.
+     * @var int
+     */
     protected int $USER_AGENT_MAX_LEN = 500;
 
     /**
@@ -248,12 +256,6 @@ class MobileDetect
      * A type for the version() method indicating a float return value.
      */
     private const VERSION_TYPE_FLOAT = 'float';
-
-    /**
-     * A cache for resolved matches
-     * @var CacheItemPoolInterface
-     */
-    protected CacheItemPoolInterface $cacheItemPool;
 
     /**
      * The User-Agent HTTP header is stored in here.
@@ -274,61 +276,54 @@ class MobileDetect
     protected array $cloudfrontHeaders = [];
 
     /**
-     * The matching Regex.
-     * This is good for debug.
-     * @var string|null
+     * The matching regex string. Used only for debugging.
+     * @var string
      */
-    protected ?string $matchingRegex = null;
+    protected string $matchingRegex = "";
 
     /**
-     * The matches extracted from the regex expression.
-     * This is good for debug.
-     *
-     * @var array|null
+     * The matches extracted from the regex expression. Used only for debugging.
+     * @var array
      */
-    protected ?array $matchesArray = null;
+    protected array $matchesArray = [];
 
     /**
-     * HTTP headers that trigger the 'isMobile' detection
-     * to be true.
-     *
+     * HTTP headers that trigger the 'isMobile' detection to be true.
      * @var array
      */
     protected static array $mobileHeaders = [
-
-            'HTTP_ACCEPT'                  => [
-                'matches' => [
-                    // Opera Mini
-                    // @reference: http://dev.opera.com/articles/view/opera-binary-markup-language/
-                    'application/x-obml2d',
-                    // BlackBerry devices.
-                    'application/vnd.rim.html',
-                    'text/vnd.wap.wml',
-                    'application/vnd.wap.xhtml+xml'
-                ]],
-            'HTTP_X_WAP_PROFILE'           => null,
-            'HTTP_X_WAP_CLIENTID'          => null,
-            'HTTP_WAP_CONNECTION'          => null,
-            'HTTP_PROFILE'                 => null,
-            // Reported by Opera on Nokia devices (eg. C3).
-            'HTTP_X_OPERAMINI_PHONE_UA'    => null,
-            'HTTP_X_NOKIA_GATEWAY_ID'      => null,
-            'HTTP_X_ORANGE_ID'             => null,
-            'HTTP_X_VODAFONE_3GPDPCONTEXT' => null,
-            'HTTP_X_HUAWEI_USERID'         => null,
-            // Reported by Windows Smartphones.
-            'HTTP_UA_OS'                   => null,
-            // Reported by Verizon, Vodafone proxy system.
-            'HTTP_X_MOBILE_GATEWAY'        => null,
-            // Seen this on HTC Sensation. SensationXE_Beats_Z715e.
-            'HTTP_X_ATT_DEVICEID'          => null,
-            // Seen this on a HTC.
-            'HTTP_UA_CPU'                  => ['matches' => ['ARM']],
+        'HTTP_ACCEPT'                  => [
+            'matches' => [
+                // Opera Mini
+                // @reference: http://dev.opera.com/articles/view/opera-binary-markup-language/
+                'application/x-obml2d',
+                // BlackBerry devices.
+                'application/vnd.rim.html',
+                'text/vnd.wap.wml',
+                'application/vnd.wap.xhtml+xml'
+            ]],
+        'HTTP_X_WAP_PROFILE'           => null,
+        'HTTP_X_WAP_CLIENTID'          => null,
+        'HTTP_WAP_CONNECTION'          => null,
+        'HTTP_PROFILE'                 => null,
+        // Reported by Opera on Nokia devices (eg. C3).
+        'HTTP_X_OPERAMINI_PHONE_UA'    => null,
+        'HTTP_X_NOKIA_GATEWAY_ID'      => null,
+        'HTTP_X_ORANGE_ID'             => null,
+        'HTTP_X_VODAFONE_3GPDPCONTEXT' => null,
+        'HTTP_X_HUAWEI_USERID'         => null,
+        // Reported by Windows Smartphones.
+        'HTTP_UA_OS'                   => null,
+        // Reported by Verizon, Vodafone proxy system.
+        'HTTP_X_MOBILE_GATEWAY'        => null,
+        // Seen this on HTC Sensation. SensationXE_Beats_Z715e.
+        'HTTP_X_ATT_DEVICEID'          => null,
+        // Seen this on a HTC.
+        'HTTP_UA_CPU'                  => ['matches' => ['ARM']],
     ];
 
     /**
      * List of mobile devices (phones).
-     *
      * @var array
      */
     protected static array $phoneDevices = [
@@ -379,7 +374,6 @@ class MobileDetect
 
     /**
      * List of tablet devices.
-     *
      * @var array
      */
     protected static array $tabletDevices = [
@@ -648,7 +642,6 @@ class MobileDetect
 
     /**
      * List of mobile Operating Systems.
-     *
      * @var array
      */
     protected static array $operatingSystems = [
@@ -685,11 +678,9 @@ class MobileDetect
     /**
      * List of mobile User Agents.
      *
-     * IMPORTANT: This is a list of only mobile browsers.
-     * Mobile Detect 2.x supports only mobile browsers,
-     * it was never designed to detect all browsers.
-     * The change will come in 2017 in the 3.x release for PHP7.
-     *
+     * IMPORTANT: This is a list of mobile browsers only.
+     * Since Mobile Detect 2.x.x, this list supports mobile browsers only.
+     * Mobile Detect was never designed to detect all browsers.
      * @var array
      */
     protected static array $browsers = [
@@ -737,7 +728,6 @@ class MobileDetect
     /**
      * All possible HTTP headers that represent the
      * User-Agent string.
-     *
      * @var array
      */
     protected static array $uaHttpHeaders = [
@@ -756,8 +746,7 @@ class MobileDetect
 
     /**
      * The individual segments that could exist in a User-Agent string. VER refers to the regular
-     * expression defined in the constant self::VER.
-     *
+     * expression defined in the constant self::VERSION_REGEX.
      * @var array
      */
     protected static array $properties = [
@@ -831,6 +820,13 @@ class MobileDetect
         'Symbian'          => ['SymbianOS/[VER]', 'Symbian/[VER]'],
         'webOS'            => ['webOS/[VER]', 'hpwOS/[VER];'],
     ];
+
+    /**
+     * Implementation of PSR-6: Caching Interface - https://www.php-fig.org/psr/psr-6/
+     * Replace this with your own implementation.
+     *
+     * @var CacheFactory
+     */
     private CacheFactory $cacheManager;
 
     /**
@@ -859,13 +855,13 @@ class MobileDetect
     /**
      * Set the HTTP Headers. Must be PHP-flavored. This method will reset existing headers.
      *
-     * @param array|null $httpHeaders The headers to set. If null, then using PHP's _SERVER to extract
+     * @param array $httpHeaders The headers to set. If null, then using PHP's _SERVER to extract
      *                           the headers. The default null is left for backwards compatibility.
      */
-    public function setHttpHeaders(array $httpHeaders = null): void
+    public function setHttpHeaders(array $httpHeaders = []): void
     {
         // use global _SERVER if $httpHeaders aren't defined
-        if (!is_array($httpHeaders) || !count($httpHeaders)) {
+        if (!count($httpHeaders)) {
             $httpHeaders = $_SERVER;
         }
 
@@ -1423,7 +1419,7 @@ class MobileDetect
             $properties[$propertyName] = (array) $properties[$propertyName];
 
             foreach ($properties[$propertyName] as $propertyMatchString) {
-                $propertyPattern = str_replace('[VER]', self::VER, $propertyMatchString);
+                $propertyPattern = str_replace('[VER]', self::VERSION_REGEX, $propertyMatchString);
 
                 // Identify and extract the version.
                 preg_match(sprintf('#%s#is', $propertyPattern), $this->userAgent, $match);

@@ -163,6 +163,13 @@ final class BasicsTest extends TestCase
         $this->assertNull($detect->getHttpHeader('garbage_is_Garbage'));
     }
 
+    public function testEmptyHeaders()
+    {
+        $detect = new MobileDetect();
+        $detect->setHttpHeaders([]);
+        $this->assertCount(0, $detect->getHttpHeaders());
+    }
+
     public function userAgentProvider(): array
     {
         return [
