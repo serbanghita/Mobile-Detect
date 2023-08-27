@@ -1,4 +1,5 @@
 <?php
+
 return [
     'Prestigio' => [
         'Mozilla/5.0 (Linux; U; Android 4.2.2; en-gb; PMP5297C_QUAD Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => ['isMobile' => true, 'isTablet' => true],

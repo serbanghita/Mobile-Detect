@@ -1,4 +1,5 @@
 <?php
+
 return [
     'Microsoft' => [
         // @See https://github.com/serbanghita/Mobile-Detect/issues/564

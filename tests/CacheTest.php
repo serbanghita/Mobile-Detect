@@ -2,6 +2,7 @@
 
 namespace DetectionTests;
 
+use Detection\Exception\MobileDetectException;
 use Detection\MobileDetect;
 use PHPUnit\Framework\TestCase;
 
@@ -27,6 +28,9 @@ HTTP_ACCEPT_LANGUAGE: en-us,en;q=0.5";
         $this->assertSame($expectedString, $cacheKey);
     }
 
+    /**
+     * @throws MobileDetectException
+     */
     public function testDefaultCacheClassCreatesACacheRecord()
     {
         $detect = new MobileDetect();
@@ -41,6 +45,9 @@ HTTP_ACCEPT_LANGUAGE: en-us,en;q=0.5";
         );
     }
 
+    /**
+     * @throws MobileDetectException
+     */
     public function testDefaultCacheClassCreatesASingleCacheRecordOnMultipleIsMobileCalls()
     {
         $detect = new MobileDetect();
@@ -59,6 +66,9 @@ HTTP_ACCEPT_LANGUAGE: en-us,en;q=0.5";
         $this->assertCount(1, $detect->getCache()->getAllItems());
     }
 
+    /**
+     * @throws MobileDetectException
+     */
     public function testDefaultCacheClassCreatesMultipleCacheRecordsForAllCalls()
     {
         $detect = new MobileDetect();

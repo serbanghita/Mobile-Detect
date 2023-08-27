@@ -1,4 +1,5 @@
 <?php
+
 return [
     'Apple' => [
         'iTunes/9.1.1'                                                                                                                                                                           => ['isMobile' => false, 'isTablet' => false],

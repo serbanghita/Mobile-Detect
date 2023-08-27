@@ -1,4 +1,5 @@
 <?php
+
 return [
     'BlackBerry' => [
         'Mozilla/5.0 (BlackBerry; U; BlackBerry 9300; en) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.546 Mobile Safari/534.8+'                          => ['isMobile' => true, 'isTablet' => false, 'version' => ['Webkit' => '534.8+', 'BlackBerry' => '6.0.0.546'], 'model' => 'BlackBerry 9300'],

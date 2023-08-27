@@ -1,4 +1,5 @@
 <?php
+
 namespace Detection\Cache;
 
 use Psr\Cache\CacheItemInterface;
@@ -6,8 +7,7 @@ use Psr\Cache\CacheItemInterface;
 class CacheItem implements CacheItemInterface
 {
     protected string $key;
-    protected string $value;
-
+    protected string|bool $value;
     public function __construct($key, $value = null)
     {
         $this->key = $key;
@@ -21,7 +21,7 @@ class CacheItem implements CacheItemInterface
         return $this->key;
     }
 
-    public function get(): string
+    public function get(): string|bool
     {
         return $this->value;
     }
@@ -31,7 +31,7 @@ class CacheItem implements CacheItemInterface
         // TODO: Implement isHit() method.
     }
 
-    public function set($value)
+    public function set($value): void
     {
         $this->value = $value;
     }

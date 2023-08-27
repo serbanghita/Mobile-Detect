@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Mobile Detect Library
  * Motto: "Every business should have a mobile detection script to detect mobile readers"
@@ -24,12 +22,13 @@ declare(strict_types=1);
  * @version 4.8.01
  */
 
+declare(strict_types=1);
+
 namespace Detection;
 
 use BadMethodCallException;
-use Detection\Cache\CacheItem;
-use Detection\Cache\CacheItemPool;
 use Detection\Cache\CacheFactory;
+use Detection\Exception\MobileDetectException;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Cache\InvalidArgumentException;
 
@@ -876,12 +875,23 @@ class MobileDetect
             }
         }
 
+        // Set current User-Agent from known User-Agent-like HTTP header(s).
+        $userAgent = "";
+        foreach ($this->getUaHttpHeaders() as $altHeader) {
+            if (!empty($this->httpHeaders[$altHeader])) {
+                $userAgent .= $this->httpHeaders[$altHeader] . " ";
+            }
+        }
+        if (!empty($userAgent)) {
+            $this->setUserAgent($userAgent);
+        }
+
         // In case we're dealing with CloudFront, we need to know.
         $this->setCloudFrontHeaders($httpHeaders);
 
         // Override User-Agent string.
         if (count($this->getCloudFrontHeaders()) > 0) {
-            $this->userAgent = 'Amazon CloudFront';
+            $this->setUserAgent('Amazon CloudFront');
         }
     }
 
@@ -1068,16 +1078,6 @@ class MobileDetect
     }
 
     /**
-     * Alias for getBrowsers() method.
-     *
-     * @return array List of user agents.
-     */
-    public static function getUserAgents(): array
-    {
-        return static::getBrowsers();
-    }
-
-    /**
      * Retrieve the list of known browsers. Specifically, the user agents.
      *
      * @return array List of browsers / user agents.
@@ -1174,21 +1174,24 @@ class MobileDetect
      * Check if the device is mobile.
      * Returns true if any type of mobile device detected, including special ones
      * @return bool
-     * @throws InvalidArgumentException
-     * @throws \Exception
+     * @throws MobileDetectException
      */
     public function isMobile(): bool
     {
         if (!$this->hasUserAgent()) {
-            throw new \Exception('No user-agent has been set.');
+            throw new MobileDetectException('No user-agent has been set.');
         }
 
         // Cache check.
-        $cacheKey = $this->createCacheKey("mobile");
-        if ($this->cacheItemPool->hasItem($cacheKey)) {
-            return $this->cacheItemPool->getItem($cacheKey)->get();
-        } else {
-            $cacheItem = $this->cacheManager::createItem($cacheKey);
+        try {
+            $cacheKey = $this->createCacheKey("mobile");
+            if ($this->cacheItemPool->hasItem($cacheKey)) {
+                return $this->cacheItemPool->getItem($cacheKey)->get();
+            } else {
+                $cacheItem = $this->cacheManager::createItem($cacheKey);
+            }
+        } catch (InvalidArgumentException $e) {
+            throw new MobileDetectException("Cache problem in isMobile(): {$e->getMessage()}");
         }
 
         // Special case: Amazon CloudFront mobile viewer
@@ -1221,21 +1224,24 @@ class MobileDetect
      * Check if the device is a tablet.
      * Return true if any type of tablet device is detected.
      * @return bool
-     * @throws \Exception
-     * @throws InvalidArgumentException
+     * @throws MobileDetectException
      */
     public function isTablet(): bool
     {
         if (!$this->hasUserAgent()) {
-            throw new \Exception('No user-agent has been set.');
+            throw new MobileDetectException('No user-agent has been set.');
         }
 
         // Cache check.
-        $cacheKey = $this->createCacheKey("tablet");
-        if ($this->cacheItemPool->hasItem($cacheKey)) {
-            return $this->cacheItemPool->getItem($cacheKey)->get();
-        } else {
-            $cacheItem = $this->cacheManager::createItem($cacheKey);
+        try {
+            $cacheKey = $this->createCacheKey("tablet");
+            if ($this->cacheItemPool->hasItem($cacheKey)) {
+                return $this->cacheItemPool->getItem($cacheKey)->get();
+            } else {
+                $cacheItem = $this->cacheManager::createItem($cacheKey);
+            }
+        } catch (InvalidArgumentException $e) {
+            throw new MobileDetectException("Cache problem in isTablet(): {$e->getMessage()}");
         }
 
         // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
@@ -1269,23 +1275,24 @@ class MobileDetect
      *
      * @param string $ruleName
      * @return bool
-     *
-     * @throws \Exception
-     * @throws InvalidArgumentException
-     * @todo Throw specific exception.
+     * @throws MobileDetectException
      */
     public function is(string $ruleName): bool
     {
         if (!$this->hasUserAgent()) {
-            throw new \Exception('No user-agent has been set.');
+            throw new MobileDetectException('No user-agent has been set.');
         }
 
         // Cache check.
-        $cacheKey = $this->createCacheKey($ruleName);
-        if ($this->cacheItemPool->hasItem($cacheKey)) {
-            return $this->cacheItemPool->getItem($cacheKey)->get();
-        } else {
-            $cacheItem = $this->cacheManager::createItem($cacheKey);
+        try {
+            $cacheKey = $this->createCacheKey($ruleName);
+            if ($this->cacheItemPool->hasItem($cacheKey)) {
+                return $this->cacheItemPool->getItem($cacheKey)->get();
+            } else {
+                $cacheItem = $this->cacheManager::createItem($cacheKey);
+            }
+        } catch (InvalidArgumentException $e) {
+            throw new MobileDetectException("Cache problem in is(): {$e->getMessage()}");
         }
 
         $result = $this->matchUserAgentWithRule($ruleName);
@@ -1450,7 +1457,7 @@ class MobileDetect
     {
         $key = '';
         foreach ($httpHeaders as $name => $value) {
-            $key .= "${name}: ${value}\r\n";
+            $key .= "${name}: ${value}\n";
         }
         return trim($key);
     }

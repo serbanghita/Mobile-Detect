@@ -12,24 +12,24 @@ use PHPUnit\Framework\TestCase;
 final class UserAgentTest extends TestCase
 {
     protected MobileDetect $detect;
-    protected static array $ualist = [];
-    protected static $json;
+    protected static array $userAgentList = [];
+    protected static array $json = [];
 
     public function setUp(): void
     {
-        $this->detect = new MobileDetect;
+        $this->detect = new MobileDetect();
     }
 
     public static function generateJson()
     {
         //in case this gets run multiple times
-        if (isset(self::$json)) {
+        if (count(self::$json) > 0) {
             return self::$json;
         }
 
         //the json and PHP formatted files
         $jsonFile = dirname(__FILE__) . '/ualist.json';
-        $phpFile = dirname(__FILE__) . '/UA_List.inc.php';
+        $phpFile = dirname(__FILE__) . '/UserAgentList.inc.php';
 
         //currently stored as a PHP array
         $list = include $phpFile;
@@ -51,18 +51,14 @@ final class UserAgentTest extends TestCase
         }
 
 
-        //uses the UA_List.inc.php to generate a json file
+        //uses the UserAgentList.inc.php to generate a json file
         if (file_exists($jsonFile) && !is_writable($jsonFile)) {
-            throw new RuntimeException("Need to be able to create/update $jsonFile from UA_List.inc.php.");
+            throw new \RuntimeException("Need to be able to create/update $jsonFile from UserAgentList.inc.php.");
         }
 
         if (!is_writable(dirname($jsonFile))) {
-            throw new RuntimeException("Insufficient permissions to create this file: $jsonFile");
+            throw new \RuntimeException("Insufficient permissions to create this file: $jsonFile");
         }
-
-
-
-        //print_r($list['Acer']); exit;
 
         $json = array();
 
@@ -136,17 +132,17 @@ final class UserAgentTest extends TestCase
             $tmp[] = $userAgent['model'] ?? null;
             $tmp[] = $userAgent['vendor'] ?? null;
 
-            self::$ualist[] = $tmp;
+            self::$userAgentList[] = $tmp;
         }
     }
 
     public function userAgentData(): array
     {
-        if (!count(self::$ualist)) {
+        if (!count(self::$userAgentList)) {
             self::setUpBeforeClass();
         }
 
-        return self::$ualist;
+        return self::$userAgentList;
     }
 
     /**
@@ -158,8 +154,6 @@ final class UserAgentTest extends TestCase
         //make sure we're passed valid data
         if (!is_string($userAgent) || !is_bool($isMobile) || !is_bool($isTablet)) {
             $this->markTestIncomplete("The User-Agent $userAgent does not have sufficient information for testing.");
-
-            return;
         }
 
         //setup
@@ -173,7 +167,7 @@ final class UserAgentTest extends TestCase
 
         if (isset($version)) {
             foreach ($version as $condition => $assertion) {
-                $this->assertEquals($assertion, $this->detect->version($condition), 'FAILED UA (version("'.$condition.'")): '.$userAgent);
+                $this->assertEquals($assertion, $this->detect->version($condition), 'FAILED UA (version("' . $condition . '")): ' . $userAgent);
             }
         }
 

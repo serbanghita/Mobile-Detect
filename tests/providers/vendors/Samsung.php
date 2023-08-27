@@ -1,4 +1,5 @@
 <?php
+
 return [
     'Samsung' => [
         'MQQBrowser/4.0/Mozilla/5.0 (Linux; U; Android 3.2; zh-cn; GT-P6800 Build/HTJ85B) AppleWebKit/533.1 (KHTML, like Gecko) Mobile Safari/533.1'                                                                            => ['isMobile' => true, 'isTablet' => true, 'version' => ['MQQBrowser' => '4.0']],

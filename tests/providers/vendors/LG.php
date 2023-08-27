@@ -1,4 +1,5 @@
 <?php
+
 return [
     'LG' => [
         'Mozilla/5.0 (Linux; U; Android 2.3.6; en-us; LG-VS410PP Build/GRK39F) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1' => ['isMobile' => true, 'isTablet' => false],

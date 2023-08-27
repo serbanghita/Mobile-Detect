@@ -1,4 +1,5 @@
 <?php
+
 return [
     'Motorola' => [
         'MOT-W510/08.11.05R MIB/BER2.2 Profile/MIDP-2.0 Configuration/CLDC-1.1 EGE/1.0 UP.Link/6.3.0.0.0'   => ['isMobile' => true, 'isTablet' => false],
@@ -24,7 +25,7 @@ return [
         'Mozilla/5.0 (Linux; Android 4.1.2; DROID BIONIC Build/9.8.2O-72_VZW-22) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Mobile Safari/537.36'            => ['isMobile' => true, 'isTablet' => false],
 
         'Mozilla/5.0 (Linux; Android 4.4.2; XT1022 Build/KXC20.82-14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36' => ['isMobile' => true, 'isTablet' => false],
-        'Mozilla/5.0 (Linux; U; Android 4.4.4; en-in; XT1022 Build/KXC21.5-40) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16'=> ['isMobile' => true, 'isTablet' => false],
+        'Mozilla/5.0 (Linux; U; Android 4.4.4; en-in; XT1022 Build/KXC21.5-40) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16' => ['isMobile' => true, 'isTablet' => false],
         'Mozilla/5.0 (Linux; Android 4.4.2; XT1025 Build/KXC20.82-13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36' => ['isMobile' => true, 'isTablet' => false],
         'Mozilla/5.0 (Linux; Android 4.4.2; XT1052 Build/KLA20.16-2.16.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Mobile Safari/537.36' => ['isMobile' => true, 'isTablet' => false],
         'Mozilla/5.0 (Linux; U; Android 4.2.2; en-gb; XT1052 Build/13.9.0Q2.X_83) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => ['isMobile' => true, 'isTablet' => false],

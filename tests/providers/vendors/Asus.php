@@ -1,4 +1,5 @@
 <?php
+
 return [
     'ASUS' => [
         'Mozilla/5.0 (Linux; U; Android 3.2.1; en-us; Transformer TF101 Build/HTK75) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13'            => ['isMobile' => true, 'isTablet' => true, 'version' => ['Android' => '3.2.1', 'Webkit' => '534.13', 'Safari' => '4.0'], 'model' => 'Transformer TF101'],

@@ -1,4 +1,5 @@
 <?php
+
 return [
     'Amazon' => [
         'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Mobile Safari/535.19 Silk-Accelerated =true' => ['isMobile' => true, 'isTablet' => true],

@@ -1,4 +1,5 @@
 <?php
+
 return [
 
     'AdvanDigital' => [
@@ -409,7 +410,7 @@ return [
     'Praktica' => [
         'Mozilla/5.0 (Linux; Android 4.0.4; TP750 3GGSM Build/IMM76I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.93 Safari/537.36' => ['isMobile' => true, 'isTablet' => true]
     ],
-    
+
     'PROSCAN' => [
         'Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; PLT8088 Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30' => ['isMobile' => true, 'isTablet' => true, 'version' => ['Android' => '4.1.1', 'Build' => 'JRO03H', 'Webkit' => '534.30', 'Safari' => '4.0']],
     ],

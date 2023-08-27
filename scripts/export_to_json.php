@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Mobile Detect Library
  * - export -
@@ -15,13 +16,14 @@
  *
  */
 
-require_once dirname(__FILE__) . '/../src/MobileDetect.php';
-$detect = new \Detection\MobileDetect;
+use Detection\MobileDetect;
 
+require_once dirname(__FILE__) . '/../src/MobileDetect.php';
+$detect = new MobileDetect();
 $json = [
     // The current version of Mobile Detect class that
     // is being exported.
-    'version' => $detect->getScriptVersion(),
+    'version' => $detect->getVersion(),
 
     // All headers that trigger 'isMobile' to be 'true',
     // before reaching the User-Agent match detection.
@@ -43,15 +45,13 @@ $json = [
         'os'       => $detect->getOperatingSystems()
     ]
 ];
-
 $fileName = dirname(__FILE__) . '/../MobileDetect.json';
 // Write the JSON file to disk.11
 // You can import this file in your app.
-if (file_put_contents(
-    $fileName,
-    json_encode($json, JSON_PRETTY_PRINT)
-)) {
-    echo 'Done. Check '.realpath($fileName).' file.';
+if (
+    file_put_contents($fileName, json_encode($json, JSON_PRETTY_PRINT))
+) {
+    echo 'Done. Check ' . realpath($fileName) . ' file.';
 } else {
-    echo 'Failed to write '.realpath($fileName).' to disk.';
+    echo 'Failed to write ' . realpath($fileName) . ' to disk.';
 }

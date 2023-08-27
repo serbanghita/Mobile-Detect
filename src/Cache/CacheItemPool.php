@@ -1,4 +1,5 @@
 <?php
+
 namespace Detection\Cache;
 
 use Psr\Cache\CacheItemInterface;
@@ -10,7 +11,6 @@ class CacheItemPool implements CacheItemPoolInterface
      * @var array{cache_key:string, cache_value:CacheItemInterface} $cache_db
      */
     protected array $cache_db = [];
-
     public function getItem($key): CacheItemInterface
     {
         // @todo: throw exception if key not in cache.
@@ -33,15 +33,18 @@ class CacheItemPool implements CacheItemPoolInterface
 
     public function hasItem($key): bool
     {
+        if (!is_string($key)) {
+            return false;
+        }
         return isset($this->cache_db[$key]);
     }
 
-    public function clear()
+    public function clear(): void
     {
         $this->cache_db = [];
     }
 
-    public function deleteItem($key)
+    public function deleteItem($key): void
     {
         unset($this->cache_db[$key]);
     }
@@ -51,7 +54,7 @@ class CacheItemPool implements CacheItemPoolInterface
         // TODO: Implement deleteItems() method.
     }
 
-    public function save(CacheItemInterface $item)
+    public function save(CacheItemInterface $item): void
     {
         $this->cache_db[$item->getKey()] = $item;
     }

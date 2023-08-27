@@ -1,4 +1,5 @@
 <?php
+
 return [
     'Vodafone' => [
         'Mozilla/5.0 (Linux; U; Android 3.2; hu-hu; SmartTab10-MSM8260-V02d-Dec022011-Vodafone-HU) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0' => ['isMobile' => true, 'isTablet' => true],

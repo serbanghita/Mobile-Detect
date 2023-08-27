@@ -1,4 +1,5 @@
 <?php
+
 return [
     'HP' => [
         'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-GB) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 TouchPad/1.0' => ['isMobile' => true, 'isTablet' => true],

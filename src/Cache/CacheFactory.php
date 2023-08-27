@@ -1,4 +1,5 @@
 <?php
+
 namespace Detection\Cache;
 
 use Psr\Cache\CacheItemInterface;

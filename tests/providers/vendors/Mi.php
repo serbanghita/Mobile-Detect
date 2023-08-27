@@ -1,4 +1,5 @@
 <?php
+
 return [
     'Mi' => [
         'Mozilla/5.0 (Linux; U; Android 4.2; xx-xx; HM NOTE 1W Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 MobilSafari/534.30 XiaoMi/MiuiBrowser/1.0' => ['isMobile' => true, 'isTablet' => true],

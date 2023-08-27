@@ -1,4 +1,5 @@
 <?php
+
 return [
     'Onda' => [
         'Mozilla/5.0 (Linux; Android 4.2.2; V975i Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.108 Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
