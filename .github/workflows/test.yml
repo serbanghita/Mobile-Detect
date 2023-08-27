@@ -32,6 +32,9 @@ jobs:
           coverage: xdebug
           tools: phpunit:${{ matrix.phpunit-version }}, composer:${{ matrix.composer-version }}
 
+      - name: Install composer
+        run: composer install
+
       - name: Run linting
         run: vendor/bin/phpcs
 
