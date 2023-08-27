@@ -300,7 +300,7 @@ Made by [Karthik T](https://github.com/ktaragorn).
 **Go**
 
 * [GoMobileDetect](https://github.com/Shaked/gomobiledetect) is a Go port of Mobile Detect class. 
-Made by [https://github.com/Shaked](Shaked).
+Made by [Shaked](https://github.com/Shaked).
 
 
 **LUA**

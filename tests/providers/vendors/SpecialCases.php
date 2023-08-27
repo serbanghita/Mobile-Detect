@@ -184,7 +184,6 @@ return [
         // Maxthon
         'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.12 (KHTML, like Gecko) Maxthon/3.0 Chrome/18.0.966.0 Safari/535.12' => ['isMobile' => false, 'isTablet' => false],
         'Opera/9.80 (Windows NT 5.1; U; Edition Yx; ru) Presto/2.10.289 Version/12.02' => ['isMobile' => false, 'isTablet' => false],
-        'Mozilla/5.0 (Linux; U; Android 4.2; en-us; sdk Build/JB_MR1) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' => ['isMobile' => true, 'isTablet' => false],
         'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Windows Phone 6.5.3.5)' => ['isMobile' => true, 'isTablet' => false],
         'PalmCentro/v0001 Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; PalmSource/Palm-D061; Blazer/4.5) 16;320x320' => ['isMobile' => true, 'isTablet' => false],
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0)' => ['isMobile' => true, 'isTablet' => false],
