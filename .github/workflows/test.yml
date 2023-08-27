@@ -3,21 +3,21 @@ name: test
 # Run this workflow every time a new commit pushed to your repository
 on:
   push:
-    branches: ['3.74.x']
+    branches: ['4.8.x']
   pull_request:
-    branches: ['3.74.x']
+    branches: ['4.8.x']
 
 jobs:
   run:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        php-version: [7.4]
+        php-version: [8.0]
         os: ['ubuntu-latest']
         include:
           - os: 'ubuntu-latest'
-            php-version: '7.4'
-            phpunit-version: '7.0.0'
+            php-version: '8.0'
+            phpunit-version: '9.6.10'
             composer-version: 'latest'
     steps:
       - name: Checkout
@@ -31,6 +31,9 @@ jobs:
           ini-values: post_max_size=256M, max_execution_time=180
           coverage: xdebug
           tools: phpunit:${{ matrix.phpunit-version }}, composer:${{ matrix.composer-version }}
+
+      - name: Run linting
+        run: vendor/bin/phpcs
 
       - name: Run tests
         run: XDEBUG_MODE=coverage && phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky
