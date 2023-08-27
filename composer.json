@@ -32,6 +32,8 @@
         ],
         "psr-4": {
             "Detection\\": "src/",
+            "Detection\\Cache\\": "src/Cache",
+            "Detection\\Exception\\": "src/Exception",
             "DetectionTests\\": "tests/"
         }
     },
