@@ -53,7 +53,7 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
 ## Contribute
 
 - Go to * [:iphone: Live demo](https://demo.mobiledetect.net)
-- Read [how to contribute](docs/CONTRIBUTING.md) guide.
+- Read [how to contribute](CONTRIBUTING.md) guide.
 - Submit a pull request.
 
 *Donate*
@@ -325,4 +325,4 @@ Mobile_Detect PHP Library. Made by [Giancarlo Gomez](https://github.com/Giancarl
 
 ## About
 
-See [the history](./docs/HISTORY.md) of the project.
+See [the history](CHANGELOG.md) of the project.

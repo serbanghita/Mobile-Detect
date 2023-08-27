@@ -32,6 +32,6 @@
         }
     },
     "archive": {
-      "exclude": ["docs", "scripts"]
+      "exclude": ["scripts"]
     }
 }

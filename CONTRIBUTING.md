@@ -21,8 +21,8 @@ Next create your own git working branch from one of the existing branches 4.x 3.
 depending on your PHP version:
 
 ```
-git checkout -b my-new-patch origin/x.x.x`
-composer install`
+git checkout -b my-new-patch origin/x.x.x
+composer install
 ```
 
 If you add new methods or make structural changes to the `Mobile_Detect.php` class you need to add unit tests
@@ -85,4 +85,4 @@ Or you can submit a PR against `README.md`.
 
 ### License
 
-By contributing to Mobile Detect library you agree with the [MIT License](../LICENSE) + contributing agreement below.
+By contributing to Mobile Detect library you agree with the [MIT License](LICENSE) + contributing agreement below.

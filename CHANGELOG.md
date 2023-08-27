@@ -1,4 +1,16 @@
-# History
+# Change log
+
+**4.8.01**
+- [x] PHP 8.x only.
+- [x] PSR6 cache support.
+- [x] Constructor accepts `CacheFactory` class where you can inject your own PSR-6 Cache interfaces.
+- [x] You need to explicitly `setUserAgent("...")` or `setUserAgentHeaders([...])` otherwise an exception is being thrown.
+- [x] `scripts/` folder no longer included in the git tag release archive.
+
+
+# 2023
+
+Launched 4.8.xx which contains PHP 8.x support, refactorings and external Cache support.
 
 ## 2022
 
