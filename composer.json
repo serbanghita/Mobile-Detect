@@ -24,7 +24,11 @@
     },
     "autoload": {
         "classmap": [
-            "src/MobileDetect.php"
+            "src/MobileDetect.php",
+            "src/Cache/CacheFactory.php",
+            "src/Cache/CacheItem.php",
+            "src/Cache/CacheItemPool.php",
+            "src/Exception/MobileDetectException.php"
         ],
         "psr-4": {
             "Detection\\": "src/",
