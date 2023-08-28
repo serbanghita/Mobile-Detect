@@ -1457,7 +1457,7 @@ class MobileDetect
     {
         $key = '';
         foreach ($httpHeaders as $name => $value) {
-            $key .= "${name}: ${value}\n";
+            $key .= "$name: $value\n";
         }
         return trim($key);
     }
