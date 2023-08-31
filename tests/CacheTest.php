@@ -2,113 +2,95 @@
 
 namespace DetectionTests;
 
-use Detection\Exception\MobileDetectException;
-use Detection\MobileDetect;
+use Detection\Cache\Cache;
+use Detection\Cache\CacheException;
+use Detection\Cache\CacheItem;
 use PHPUnit\Framework\TestCase;
+use Psr\SimpleCache\InvalidArgumentException;
 
 final class CacheTest extends TestCase
 {
-    /**
-     * @var MobileDetect
-     */
-    protected MobileDetect $detect;
-
-    public function testFlattenHeaders()
+    protected Cache $cache;
+    protected function setUp(): void
     {
-        $detect = new MobileDetect();
-        $cacheKey = $detect->flattenHeaders([
-            'HTTP_REQUEST_METHOD' => 'DELETE',
-            'HTTP_USER_AGENT'     => 'Mozilla/5.0 iPhone;',
-            'HTTP_ACCEPT_LANGUAGE' => 'en-us,en;q=0.5',
-        ]);
+        $this->cache = new Cache();
+    }
 
-        $expectedString = "HTTP_REQUEST_METHOD: DELETE
-HTTP_USER_AGENT: Mozilla/5.0 iPhone;
-HTTP_ACCEPT_LANGUAGE: en-us,en;q=0.5";
-        $this->assertSame($expectedString, $cacheKey);
+    public function testGetInvalidCacheKey()
+    {
+        $this->expectException(CacheException::class);
+        $this->cache->get('');
+    }
+
+    public function testSetInvalidCacheKey()
+    {
+        $this->expectException(CacheException::class);
+        $this->cache->set('', 'a', 100);
     }
 
     /**
-     * @throws MobileDetectException
+     * @throws CacheException
      */
-    public function testDefaultCacheClassCreatesACacheRecord()
+    public function testGetNonExistent()
     {
-        $detect = new MobileDetect();
-        $detect->setUserAgent('Some iPhone user agent');
-        $isMobile = $detect->isMobile();
-
-        $this->assertTrue($isMobile);
-        $this->assertCount(1, $detect->getCache()->getAllItems());
-        $this->assertSame(
-            "mobile:Some iPhone user agent:",
-            base64_decode(array_key_first($detect->getCache()->getAllItems()))
-        );
+        $this->assertNull($this->cache->get('random'));
     }
 
     /**
-     * @throws MobileDetectException
+     * @throws CacheException
      */
-    public function testDefaultCacheClassCreatesASingleCacheRecordOnMultipleIsMobileCalls()
+    public function testSetBoolean()
     {
-        $detect = new MobileDetect();
-        $detect->setUserAgent('Some iPhone user agent');
-        $isMobile = $detect->isMobile();
-        $this->assertTrue($isMobile);
-        $this->assertCount(1, $detect->getCache()->getAllItems());
+        $this->cache->set('isMobile', true, 100);
+        $this->assertInstanceOf(CacheItem::class, $this->cache->get('isMobile'));
+        $this->assertTrue($this->cache->get('isMobile')->get());
 
-        $isMobile = $detect->isMobile();
-        $this->assertTrue($isMobile);
-        $this->assertCount(1, $detect->getCache()->getAllItems());
-
-        $detect->isMobile();
-        $detect->isMobile();
-        $detect->isMobile();
-        $this->assertCount(1, $detect->getCache()->getAllItems());
+        $this->cache->set('isTablet', false, 100);
+        $this->assertInstanceOf(CacheItem::class, $this->cache->get('isTablet'));
+        $this->assertFalse($this->cache->get('isTablet')->get());
     }
 
     /**
-     * @throws MobileDetectException
+     * @throws CacheException
      */
-    public function testDefaultCacheClassCreatesMultipleCacheRecordsForAllCalls()
+    public function testGetTTL0()
     {
-        $detect = new MobileDetect();
-        $detect->setUserAgent('iPad; AppleWebKit/533.17.9 Version/5.0.2 Mobile/8C148 Safari/6533.18.5');
+        $this->cache->set('isMobile', true, 0);
+        $this->assertInstanceOf(CacheItem::class, $this->cache->get('isMobile'));
+        $this->assertEquals(0, $this->cache->get('isMobile')->getTtl());
+    }
 
-        $isMobile = $detect->isMobile();
-        $isTablet = $detect->isTablet();
-        $isMobile2 = $detect->is("mobile");
-        $isTablet2 = $detect->is("tablet");
+    /**
+     * @throws CacheException
+     */
+    public function testGetTTLNull()
+    {
+        $this->cache->set('isMobile', true);
+        $this->assertInstanceOf(CacheItem::class, $this->cache->get('isMobile'));
+        $this->assertNull($this->cache->get('isMobile')->getTtl());
+    }
 
-        $isIpad = $detect->isiPad();
-        $isIpad2 = $detect->is("iPad");
-        $isiOS = $detect->isiOS();
-        $isiOS2 = $detect->is("iOS");
+    /**
+     * @throws CacheException
+     * @throws InvalidArgumentException
+     */
+    public function testDelete()
+    {
+        $this->cache->set('isMobile', true, 100);
+        $this->assertTrue($this->cache->get('isMobile')->get());
+        $this->cache->delete('isMobile');
+        $this->assertNull($this->cache->get('isMobile'));
+    }
 
-        $this->assertTrue($isMobile);
-        $this->assertTrue($isTablet);
-        $this->assertTrue($isMobile2);
-        $this->assertTrue($isTablet2);
-        $this->assertTrue($isIpad);
-        $this->assertTrue($isIpad2);
-        $this->assertTrue($isiOS);
-        $this->assertTrue($isiOS2);
-
-        $this->assertCount(4, $detect->getCache()->getAllItems());
-        $this->assertSame(
-            "mobile:iPad; AppleWebKit/533.17.9 Version/5.0.2 Mobile/8C148 Safari/6533.18.5:",
-            base64_decode(array_keys($detect->getCache()->getAllItems())[0])
-        );
-        $this->assertSame(
-            "tablet:iPad; AppleWebKit/533.17.9 Version/5.0.2 Mobile/8C148 Safari/6533.18.5:",
-            base64_decode(array_keys($detect->getCache()->getAllItems())[1])
-        );
-        $this->assertSame(
-            "iPad:iPad; AppleWebKit/533.17.9 Version/5.0.2 Mobile/8C148 Safari/6533.18.5:",
-            base64_decode(array_keys($detect->getCache()->getAllItems())[2])
-        );
-        $this->assertSame(
-            "iOS:iPad; AppleWebKit/533.17.9 Version/5.0.2 Mobile/8C148 Safari/6533.18.5:",
-            base64_decode(array_keys($detect->getCache()->getAllItems())[3])
-        );
+    /**
+     * @throws CacheException
+     */
+    public function testClear()
+    {
+        $this->cache->set('isMobile', true);
+        $this->cache->set('isTablet', true);
+        $this->cache->clear();
+        $this->assertNull($this->cache->get('isMobile'));
+        $this->assertNull($this->cache->get('isTablet'));
     }
 }

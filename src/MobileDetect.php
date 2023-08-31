@@ -27,9 +27,9 @@ declare(strict_types=1);
 namespace Detection;
 
 use BadMethodCallException;
-use Detection\Cache\CacheFactory;
+use Detection\Cache\Cache;
+use Detection\Cache\CacheException;
 use Detection\Exception\MobileDetectException;
-use Psr\Cache\CacheItemPoolInterface;
 use Psr\Cache\InvalidArgumentException;
 
 /**
@@ -226,9 +226,12 @@ class MobileDetect
 {
     /**
      * A cache for resolved matches
-     * @var CacheItemPoolInterface
+     *  Implementation of PSR-16: Common Interface for Caching Libraries
+     *  https://www.php-fig.org/psr/psr-16/
+     *
+     * Replace this with your own implementation.
      */
-    protected CacheItemPoolInterface $cacheItemPool;
+    protected Cache $cache;
 
     /**
      * Stores the version number of the current release.
@@ -821,23 +824,13 @@ class MobileDetect
     ];
 
     /**
-     * Implementation of PSR-6: Caching Interface - https://www.php-fig.org/psr/psr-6/
-     * Replace this with your own implementation.
-     *
-     * @var CacheFactory
-     */
-    private CacheFactory $cacheManager;
-
-    /**
      * Construct an instance of this class.
      */
     public function __construct(
-        CacheFactory $cacheManager = null
+        Cache $cache = null
     ) {
-        // If no custom cache provided then use our own
-        // static associative array cache.
-        $this->cacheManager = $cacheManager == null ? new CacheFactory() : $cacheManager;
-        $this->cacheItemPool = $this->cacheManager->createPool();
+        // If no custom cache provided then use our own.
+        $this->cache = $cache == null ? new Cache() : $cache;
     }
 
     /**
@@ -1185,38 +1178,34 @@ class MobileDetect
         // Cache check.
         try {
             $cacheKey = $this->createCacheKey("mobile");
-            if ($this->cacheItemPool->hasItem($cacheKey)) {
-                return $this->cacheItemPool->getItem($cacheKey)->get();
-            } else {
-                $cacheItem = $this->cacheManager::createItem($cacheKey);
+            $cacheItem = $this->cache->get($cacheKey);
+            if (!is_null($cacheItem)) {
+                return $cacheItem->get();
             }
-        } catch (InvalidArgumentException $e) {
-            throw new MobileDetectException("Cache problem in isMobile(): {$e->getMessage()}");
-        }
 
-        // Special case: Amazon CloudFront mobile viewer
-        // @todo: add GH issue
-        if ($this->getUserAgent() === 'Amazon CloudFront') {
-            $cfHeaders = $this->getCloudFrontHeaders();
-            if (
-                array_key_exists('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER', $cfHeaders) &&
-                $cfHeaders['HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'] === 'true'
-            ) {
-                $cacheItem->set(true);
-                $this->cacheItemPool->save($cacheItem);
+            // Special case: Amazon CloudFront mobile viewer
+            // @todo: add GH issue
+            if ($this->getUserAgent() === 'Amazon CloudFront') {
+                $cfHeaders = $this->getCloudFrontHeaders();
+                if (
+                    array_key_exists('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER', $cfHeaders) &&
+                    $cfHeaders['HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'] === 'true'
+                ) {
+                    $this->cache->set($cacheKey, true);
+                    return true;
+                }
+            }
+
+            if ($this->hasHttpHeaders() && $this->checkHttpHeadersForMobile()) {
+                $this->cache->set($cacheKey, true);
                 return true;
+            } else {
+                $result = $this->matchUserAgentWithFirstFoundMatchingRule();
+                $this->cache->set($cacheKey, $result);
+                return $result;
             }
-        }
-
-        if ($this->hasHttpHeaders() && $this->checkHttpHeadersForMobile()) {
-            $cacheItem->set(true);
-            $this->cacheItemPool->save($cacheItem);
-            return true;
-        } else {
-            $result = $this->matchUserAgentWithFirstFoundMatchingRule();
-            $cacheItem->set($result);
-            $this->cacheItemPool->save($cacheItem);
-            return $result;
+        } catch (CacheException $e) {
+            throw new MobileDetectException("Cache problem in isMobile(): {$e->getMessage()}");
         }
     }
 
@@ -1235,39 +1224,35 @@ class MobileDetect
         // Cache check.
         try {
             $cacheKey = $this->createCacheKey("tablet");
-            if ($this->cacheItemPool->hasItem($cacheKey)) {
-                return $this->cacheItemPool->getItem($cacheKey)->get();
-            } else {
-                $cacheItem = $this->cacheManager::createItem($cacheKey);
+            $cacheItem = $this->cache->get($cacheKey);
+            if (!is_null($cacheItem)) {
+                return $cacheItem->get();
             }
-        } catch (InvalidArgumentException $e) {
+
+            // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
+            if ($this->getUserAgent() === 'Amazon CloudFront') {
+                $cfHeaders = $this->getCloudFrontHeaders();
+                if (
+                    array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) &&
+                    $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true'
+                ) {
+                    $this->cache->set($cacheKey, true);
+                    return true;
+                }
+            }
+
+            foreach (static::$tabletDevices as $_regex) {
+                if ($this->match($_regex, $this->getUserAgent())) {
+                    $this->cache->set($cacheKey, true);
+                    return true;
+                }
+            }
+
+            $this->cache->set($cacheKey, false);
+            return false;
+        } catch (CacheException $e) {
             throw new MobileDetectException("Cache problem in isTablet(): {$e->getMessage()}");
         }
-
-        // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
-        if ($this->getUserAgent() === 'Amazon CloudFront') {
-            $cfHeaders = $this->getCloudFrontHeaders();
-            if (
-                array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) &&
-                $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true'
-            ) {
-                $cacheItem->set(true);
-                $this->cacheItemPool->save($cacheItem);
-                return true;
-            }
-        }
-
-        foreach (static::$tabletDevices as $_regex) {
-            if ($this->match($_regex, $this->getUserAgent())) {
-                $cacheItem->set(true);
-                $this->cacheItemPool->save($cacheItem);
-                return true;
-            }
-        }
-
-        $cacheItem->set(false);
-        $this->cacheItemPool->save($cacheItem);
-        return false;
     }
 
     /**
@@ -1286,22 +1271,19 @@ class MobileDetect
         // Cache check.
         try {
             $cacheKey = $this->createCacheKey($ruleName);
-            if ($this->cacheItemPool->hasItem($cacheKey)) {
-                return $this->cacheItemPool->getItem($cacheKey)->get();
-            } else {
-                $cacheItem = $this->cacheManager::createItem($cacheKey);
+            $cacheItem = $this->cache->get($cacheKey);
+            if (!is_null($cacheItem)) {
+                return $cacheItem->get();
             }
-        } catch (InvalidArgumentException $e) {
+
+            $result = $this->matchUserAgentWithRule($ruleName);
+
+            // Cache save.
+            $this->cache->set($cacheKey, $result);
+            return $result;
+        } catch (CacheException $e) {
             throw new MobileDetectException("Cache problem in is(): {$e->getMessage()}");
         }
-
-        $result = $this->matchUserAgentWithRule($ruleName);
-
-        // Cache save.
-        $cacheItem->set($result);
-        $this->cacheItemPool->save($cacheItem);
-
-        return $result;
     }
 
     /**
@@ -1440,9 +1422,9 @@ class MobileDetect
         return false;
     }
 
-    public function getCache(): CacheItemPoolInterface
+    public function getCache(): Cache
     {
-        return $this->cacheItemPool;
+        return $this->cache;
     }
 
     protected function createCacheKey(string $key): string
