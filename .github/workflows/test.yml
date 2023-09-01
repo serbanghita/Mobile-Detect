@@ -38,6 +38,9 @@ jobs:
       - name: Run linting
         run: vendor/bin/phpcs
 
+      - name: Run quality rules
+        run: vendor/bin/phpstan analyse src tests
+
       - name: Run tests
         run: XDEBUG_MODE=coverage && phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky
         shell: bash

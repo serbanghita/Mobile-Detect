@@ -7,7 +7,7 @@ use Psr\SimpleCache\CacheInterface;
 class Cache implements CacheInterface
 {
     /**
-     * @var array{cache_key:string, cache_value:CacheItem} $cache_db
+     * @var array|array{cache_key:string, cache_value:CacheItem} $cache_db
      */
     protected array $cache_db = [];
 
@@ -16,6 +16,9 @@ class Cache implements CacheInterface
         return count($this->cache_db);
     }
 
+    /**
+     * @return array{string}
+     */
     public function getKeys(): array
     {
         return array_keys($this->cache_db);
@@ -66,7 +69,7 @@ class Cache implements CacheInterface
     }
 
     /**
-     * @param array{key:string, value:string, ttl:int} $values
+     * @param array<array{key:string, value:string, ttl:int}> $values
      * @param \DateInterval|int|null $ttl
      * @return bool
      */
