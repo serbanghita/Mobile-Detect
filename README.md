@@ -75,14 +75,14 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
 │    │         └── ... 
 │    ├── bootstrap.php  
 │    ├── CacheTest.php  
-│    ├── MobileDetectGeneralTest.php  
-│    ├── MobileDetectVersionTest.php  
-│    ├── MobileDetectWithCacheTest.php  
+│    ├── MobileDetectGeneralTest.php        # Unit tests
+│    ├── MobileDetectVersionTest.php        # Unit tests for $detect->version("...")
+│    ├── MobileDetectWithCacheTest.php      # Unit tests for caching system.
 │    ├── UserAgentList.inc.php  
-│    ├── UserAgentTest.php  
+│    ├── UserAgentTest.php                  # Integration tests using User-Agents. These prevent collisions.
 │    ├── phpunit.xml  
 │    └── ualist.json  
-└── MobileDetect.json
+└── MobileDetect.json                       # Use this file to create a 3rd-party project.
 ```
 
 ## Performance
@@ -111,6 +111,11 @@ Visit [:iphone: Live demo](https://demo.mobiledetect.net) on your device.
 **Code contribution**
 
 Read [how to contribute](CONTRIBUTING.md) guide.
+
+**Creating a 3rd party library**
+
+The file [MobileDetect.json](./MobileDetect.json) is a model representation of this PHP script. It contains all the information necessary to create a "mobile" detection script in any programming language.
+You can auto-import this periodically in your repository by checking the `version` property, which is updated on each release.
 
 **Donate**
 

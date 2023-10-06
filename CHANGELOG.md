@@ -7,6 +7,8 @@
 - [x] Constructor accepts `CacheFactory` class where you can inject your own PSR-6 Cache interfaces.
 - [x] You need to explicitly `setUserAgent("...")` or `setUserAgentHeaders([...])` otherwise an exception is being thrown.
 - [x] `scripts/` folder no longer included in the git tag release archive.
+- [x] added performance tests
+- [x] regexes can be arrays of strings or strings
 
 
 # 2023
