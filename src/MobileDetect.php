@@ -19,7 +19,7 @@
  * @author  Nick Ilyin <nick.ilyin@gmail.com>
  * @author: Victor Stanciu <vic.stanciu@gmail.com> (original author)
  *
- * @version 4.8.01
+ * @version 4.8.02
  */
 
 declare(strict_types=1);
@@ -236,7 +236,7 @@ class MobileDetect
     /**
      * Stores the version number of the current release.
      */
-    protected string $VERSION = '4.8.01';
+    protected string $VERSION = '4.8.02';
 
     /**
      * A frequently used regular expression to extract version #s.
