@@ -241,7 +241,7 @@ return [
         'Mozilla/5.0 (Linux; Android 12; SM-X906C Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/80.0.3987.119 Mobile Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
         'Mozilla/5.0 (Linux; Android 12; SM-F916B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.41 Mobile Safari/537.36' => ['isMobile' => true, 'isTablet' => false],
         'Mozilla/5.0 (Linux; Android 10; SM-F9160 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/76.0.3809.89 Mobile Safari/537.36 T7/12.4 SP-engine/2.21.0 matrixstyle/0 lite baiduboxapp/5.1.6.10 (Baidu; P1 10) NABar/1.0' => ['isMobile' => true, 'isTablet' => false],
-         "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-F900U Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.3396.87 Mobile Safari/537.36" => ['isMobile' => true, 'isTablet' => false],
+        "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-F900U Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.3396.87 Mobile Safari/537.36" => ['isMobile' => true, 'isTablet' => false],
         "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-F926B) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/16.2 Chrome/92.0.4515.166 Mobile Safari/537.36" => ['isMobile' => true, 'isTablet' => false],
         "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-F926B) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/17.0 Chrome/96.0.4664.104 Mobile Safari/537.36"  => ['isMobile' => true, 'isTablet' => false],
         "Mozilla/5.0 (Linux; Android 11; SM-F926B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.61 Mobile Safari/537.36" => ['isMobile' => true, 'isTablet' => false],
@@ -258,5 +258,18 @@ return [
         "Mozilla/5.0 (Linux; Android 12; SM-F936B Build/SP2A.220305.013; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/105.0.5195.136 Mobile Safari/537.36" => ['isMobile' => true, 'isTablet' => false],
         "Mozilla/5.0 (Linux; Android 9.0; SAMSUNG SM-F900U Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Mobile Safari/537.36" => ['isMobile' => true, 'isTablet' => false],
         "Mozilla/5.0 (Linux; Android 9.0; SAMSUNG SM-F900U Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Mobile Safari/537.36" => ['isMobile' => true, 'isTablet' => false],
+
+        // Added in https://github.com/serbanghita/Mobile-Detect/issues/912
+        "Mozilla/5.0 (Linux; Android 12; SM-X700) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.41 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 12; SM-X706B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 12; SM-X900) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 12; SM-X706B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 13; SM-X806B Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 13; SM-X706B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 13; SM-X706B Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.130 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+
+        "Mozilla/5.0 (Linux; Android 12; SM-P613) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 13; SM-P613 Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/111.0.5563.58 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
+        "Mozilla/5.0 (Linux; Android 13; SAMSUNG SM-P613) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/21.0 Chrome/110.0.5481.154 Safari/537.36" => ['isMobile' => true, 'isTablet' => true],
     ],
 ];
