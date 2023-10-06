@@ -5,8 +5,6 @@
 ![Build status](https://github.com/serbanghita/Mobile-Detect/workflows/Mobile-Detect/badge.svg)
 ![Latest version](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?style=flat-square)
 ![4.8.x PHP8](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=4.8.x&label=4.8.x%20PHP8&style=flat-square)
-![3.74.x PHP7](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=3.74.x&label=3.74.x%20PHP7&style=flat-square)
-![2.8.x PHP5](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=2.8.x&label=2.8.x%20PHP5&style=flat-square)
 ![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square)
 ![Monthly Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square)
 ![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)
@@ -19,6 +17,18 @@ It uses the User-Agent string combined with specific HTTP headers to detect the 
 it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
 - Can detect the difference between a mobile phone and a table by using regexes.
 - The **accuracy** and **relevance** of the detection is kept by running [tests](./tests) to check for detection conflicts.
+
+## Before you install
+
+There are three versions of MobileDetect. 
+`4.8.x` is the main version that is ALWAYS going to be updated first.
+
+| Version | Tests                                                                                                                                                                             | Namespace | Code                                                             | PHP Version | Status               |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|--------|----------------------|
+| 2.8.x   | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=2.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 | Deprecated           |
+| 3.74.x  | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=3.74.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0 | LTS                  |
+| 4.8.x   | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=4.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `Detection\MobileDetect`        | [4.8](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x)   | >=8.0  | Current, Recommended |
+
 
 ## Installing
 
@@ -45,14 +55,6 @@ $detect->setUserAgent('Mozilla/5.0 (iPad; CPU OS 14_7 like Mac OS X) ...');
 // Finally, check for "mobile".
 $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
 ```
-
-## Versions
-
-| Version | Status                                                                                                                                                                            | Namespace | Code                                                             | PHP Version |
-|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|--------|
-| 2.8.x   | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=2.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 |
-| 3.74.x  | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=3.74.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0 |
-| 4.8.x   | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=4.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `Detection\MobileDetect`        | [4.8](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x)   | >=8.0  |
 
 ## Project structure
 
@@ -86,6 +88,8 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
 ```
 
 ## Performance
+
+Results are taken from a PC with 32GB RAM, i7-10700KF CPU, Win11 Pro, PHP 8.x (xdebug: yes, opcache: no)
 
 ```shell
 +-------------------+--------------------------------+-----+------+-----+----------+------------------+--------+
