@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 use Detection\MobileDetect;
 
-require_once __DIR__ . '/../src/MobileDetect.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $detect = new MobileDetect();
 

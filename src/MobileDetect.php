@@ -1429,7 +1429,6 @@ class MobileDetect
             }
 
             foreach (static::$tabletDevices as $_regex) {
-
                 $regexString = $_regex;
                 // "regex" is array of "strings"
                 if (is_array($_regex)) {
@@ -1455,7 +1454,6 @@ class MobileDetect
 //                        return true;
 //                    }
 //                }
-
             }
 
             $this->cache->set($cacheKey, false);
@@ -1548,8 +1546,6 @@ class MobileDetect
                     return true;
                 }
             }
-
-
         }
 
         return false;
