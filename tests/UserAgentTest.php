@@ -2,6 +2,7 @@
 
 namespace DetectionTests;
 
+use Detection\Exception\MobileDetectException;
 use Detection\MobileDetect;
 use PHPUnit\Framework\TestCase;
 
@@ -148,6 +149,7 @@ final class UserAgentTest extends TestCase
     /**
      * @medium
      * @dataProvider userAgentData
+     * @throws MobileDetectException
      */
     public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor)
     {
@@ -163,7 +165,7 @@ final class UserAgentTest extends TestCase
         $this->assertEquals($isMobile, $this->detect->isMobile());
 
         //is tablet?
-        $this->assertEquals($isTablet, $this->detect->isTablet(), 'FAILED: ' . $userAgent . ' isTablet: ' . $isTablet);
+        $this->assertEquals($isTablet, $this->detect->isTablet(), "FAILED: \n----\nUA: $userAgent\n----\nisTablet: $isTablet");
 
         if (isset($version)) {
             foreach ($version as $condition => $assertion) {
@@ -185,5 +187,16 @@ final class UserAgentTest extends TestCase
             $method = "is$vendor";
             $this->assertTrue($this->detect->{$method}(), "Expected Mobile_Detect::{$method}() to be true.");
         }*/
+    }
+
+    /**
+     * @throws MobileDetectException
+     */
+    public function testIsSamsung()
+    {
+        $this->detect->setUserAgent('SM-X906C');
+        $this->assertTrue($this->detect->isMobile());
+        $this->assertTrue($this->detect->isTablet());
+        $this->assertTrue($this->detect->isSamsungTablet());
     }
 }

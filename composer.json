@@ -25,14 +25,12 @@
         "phpstan/phpstan": "^1.10"
     },
     "autoload": {
-        "classmap": [
-            "src/MobileDetect.php",
-            "src/Cache/CacheItem.php",
-            "src/Cache/Cache.php",
-            "src/Exception/MobileDetectException.php"
-        ],
         "psr-4": {
-            "Detection\\": "src/",
+            "Detection\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "DetectionTests\\": "tests/"
         }
     },

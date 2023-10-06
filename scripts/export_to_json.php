@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Mobile Detect Library
  * - export -
@@ -16,10 +15,14 @@
  *
  */
 
+declare(strict_types=1);
+
 use Detection\MobileDetect;
 
-require_once dirname(__FILE__) . '/../src/MobileDetect.php';
+require __DIR__ . '/../vendor/autoload.php';
+
 $detect = new MobileDetect();
+
 $json = [
     // The current version of Mobile Detect class that
     // is being exported.
@@ -46,12 +49,12 @@ $json = [
     ]
 ];
 $fileName = dirname(__FILE__) . '/../MobileDetect.json';
-// Write the JSON file to disk.11
+// Write the JSON file to disk.
 // You can import this file in your app.
 if (
     file_put_contents($fileName, json_encode($json, JSON_PRETTY_PRINT))
 ) {
-    echo 'Done. Check ' . realpath($fileName) . ' file.';
+    echo "Done exporting version ". $detect->getVersion() ." to JSON.\nCheck the output at: " . realpath($fileName);
 } else {
-    echo 'Failed to write ' . realpath($fileName) . ' to disk.';
+    echo "Failed to write to disk: " . realpath($fileName) ;
 }

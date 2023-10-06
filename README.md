@@ -4,6 +4,7 @@
 
 ![Build status](https://github.com/serbanghita/Mobile-Detect/workflows/Mobile-Detect/badge.svg)
 ![Latest version](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?style=flat-square)
+![4.8.x PHP8](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=4.8.x&label=4.8.x%20PHP8&style=flat-square)
 ![3.74.x PHP7](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=3.74.x&label=3.74.x%20PHP7&style=flat-square)
 ![2.8.x PHP5](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=2.8.x&label=2.8.x%20PHP5&style=flat-square)
 ![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square)
@@ -17,46 +18,101 @@ It uses the User-Agent string combined with specific HTTP headers to detect the 
 [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) PHP class that can help you with your RWD strategy, 
 it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
 - Can detect the difference between a mobile phone and a table by using regexes.
-- The accuracy and relevance of the detection is kept by running [tests](./tests) to check for detection conflicts.
+- The **accuracy** and **relevance** of the detection is kept by running [tests](./tests) to check for detection conflicts.
 
-```php
-$detect = new \Detection\MobileDetect;
-$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
-```
 ## Installing
 
-### Download and include manually
-
-- [Download the latest release](../../tags) 
-- Get the PHP class [MobileDetect.php](src/MobileDetect.php) and include it in your PHP source.
-
-### Composer
-
-- Install via [composer](https://packagist.org/packages/mobiledetect/mobiledetectlib).
-`composer require mobiledetect/mobiledetectlib`
+- Install via [composer](https://packagist.org/packages/mobiledetect/mobiledetectlib): `composer require mobiledetect/mobiledetectlib`
 - Include the dependency in the `composer.json` file:
-  ```json
-  {
-      "require": {
-          "mobiledetect/mobiledetectlib": "^3.74"
-      }
+```json
+{
+  "require": {
+      "mobiledetect/mobiledetectlib": "^4.8"
   }
-  ```
+}
+```
+
+```php
+// 1. Include composer's autoloader
+require __DIR__ . '/vendor/autoload.php';
+
+use Detection\MobileDetect;
+// Instantiate the class.
+// Here you can inject your own caching system.
+$detect = new MobileDetect;
+// Set the user agent string from HTTP headers or manually.
+$detect->setUserAgent('Mozilla/5.0 (iPad; CPU OS 14_7 like Mac OS X) ...');
+// Finally, check for "mobile".
+$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
+```
 
 ## Versions
 
 | Version | Status                                                                                                                                                                            | Namespace | Code                                                             | PHP Version |
-|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|-------------|
-| 2.8.x  | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=2.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 |
-| 3.74.x | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=3.74.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0  |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|--------|
+| 2.8.x   | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=2.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 |
+| 3.74.x  | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=3.74.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0 |
+| 4.8.x   | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=4.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `Detection\MobileDetect`        | [4.8](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x)   | >=8.0  |
+
+## Project structure
+
+```shell
+├── .github                                 # Definitions of GitHub workflows.
+├── scripts                                 # Various utility PHP scripts for dev purposes.
+├── src                                     
+│    ├── Cache                              
+│    │    ├── Cache.php                     # PSR-16 cache array implementation.
+│    │    ├── CacheException.php
+│    │    └── CacheItem.php                 # Cache item that holds key, value and ttl.
+│    ├── Exception                          
+│    │    └── MobileDetectException.php     # Generic exception.
+│    └── MobileDetect.php                   # Main library PHP code.
+├── tests                                   
+│    ├── Benchmark                          # Performance tests.
+│    │    └── MobileDetectBench.php         
+│    ├── providers                          
+│    │    └── vendors                       # Mobile vendors (Acer, Apple, Samsung, etc.) 
+│    │         └── ... 
+│    ├── bootstrap.php  
+│    ├── CacheTest.php  
+│    ├── MobileDetectGeneralTest.php  
+│    ├── MobileDetectVersionTest.php  
+│    ├── MobileDetectWithCacheTest.php  
+│    ├── UserAgentList.inc.php  
+│    ├── UserAgentTest.php  
+│    ├── phpunit.xml  
+│    └── ualist.json  
+└── MobileDetect.json
+```
+
+## Performance
+
+```shell
++-------------------+--------------------------------+-----+------+-----+----------+------------------+--------+
+| benchmark         | subject                        | set | revs | its | mem_peak | mode             | rstdev |
++-------------------+--------------------------------+-----+------+-----+----------+------------------+--------+
+| MobileDetectBench | benchIsMobileAgainstBestMatch  |     | 1000 | 10  | 1.866mb  | 16,211.566ops/s  | ±0.43% |
+| MobileDetectBench | benchIsMobileAgainstWorstMatch |     | 1000 | 10  | 1.866mb  | 2,327.531ops/s   | ±0.25% |
+| MobileDetectBench | benchIsTabletAgainstBestMatch  |     | 1000 | 10  | 1.866mb  | 104,689.667ops/s | ±0.42% |
+| MobileDetectBench | benchIsTabletAgainstWorstMatch |     | 1000 | 10  | 1.866mb  | 5,151.454ops/s   | ±0.39% |
+| MobileDetectBench | benchIsIOS                     |     | 1000 | 10  | 1.866mb  | 52,449.311ops/s  | ±0.38% |
+| MobileDetectBench | benchIsIpad                    |     | 1000 | 10  | 1.866mb  | 52,261.416ops/s  | ±0.40% |
+| MobileDetectBench | benchIsSamsung                 |     | 1000 | 10  | 1.866mb  | 37,232.133ops/s  | ±0.41% |
+| MobileDetectBench | benchIsSamsungTablet           |     | 1000 | 10  | 1.866mb  | 46,380.775ops/s  | ±0.49% |
++-------------------+--------------------------------+-----+------+-----+----------+------------------+--------+
+```
 
 ## Contribute
 
-- Go to * [:iphone: Live demo](https://demo.mobiledetect.net)
-- Read [how to contribute](CONTRIBUTING.md) guide.
-- Submit a pull request.
+**Submit your User-agent**
 
-*Donate*
+Visit [:iphone: Live demo](https://demo.mobiledetect.net) on your device.
+
+**Code contribution**
+
+Read [how to contribute](CONTRIBUTING.md) guide.
+
+**Donate**
 
 |Paypal|
 |------|
