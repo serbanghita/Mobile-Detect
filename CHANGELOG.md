@@ -1,5 +1,16 @@
 # Change log
 
+# 4.8.03
+- [x] added optional `$config` to MobileDetect constructor.
+- [x] added `autoInitOfHttpHeaders` configuration which is by default `true`. This enabled the old behavior from `3.x` and `2.x` that allows automatic detection of HTTP headers and User Agent from $_SERVER.
+- [x] refactored internal CloudFront related methods and the way `setHttpHeaders` work. It no longer falls back on `$_SERVER`. The method still calls `setUserAgent` in case `HTTP_USER_AGENT` and friends are present.
+- [x] added `maximumUserAgentLength` to the `$config`, by default the limit is `500`.
+
+# 4.8.02
+- [x] new user agents
+- [x] Samsung Galaxy Tab S6 Lite #919 
+- [x] Samsung Galaxy Tab S8 series #912
+
 # 4.8.01
 
 - [x] PHP 8.x only.
