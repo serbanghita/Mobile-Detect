@@ -39,6 +39,19 @@ final class MobileDetectGeneralTest extends TestCase
     /**
      * @throws MobileDetectException
      */
+    public function testAutoInitPicksUpKnownHttpHeaders()
+    {
+        $_SERVER['HTTP_USER_AGENT'] = 'iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 Mobile/10A523';
+
+        $detect = new MobileDetect();
+        $this->assertTrue($detect->isMobile());
+        $this->assertTrue($detect->isiOS());
+        $this->assertTrue($detect->isiPhone());
+    }
+
+    /**
+     * @throws MobileDetectException
+     */
     public function testValidHeadersThatDoNotContainHttpUserAgentHeaderButNoUserAgentIsManuallySet()
     {
         $this->expectException(MobileDetectException::class);
@@ -102,8 +115,7 @@ final class MobileDetectGeneralTest extends TestCase
                 'REQUEST_TIME'          => '01-10-2012 07:57'
             ]);
 
-        //12 because only 12 start with HTTP_
-        $this->assertCount(12, $detect->getHttpHeaders());
+        $this->assertCount(16, $detect->getHttpHeaders());
         $this->assertTrue($detect->checkHttpHeadersForMobile());
 
         $detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25');
@@ -178,8 +190,6 @@ final class MobileDetectGeneralTest extends TestCase
         }
 
         //verify some headers work with the translated getter
-        $this->assertNull($detect->getHttpHeader('Remote-Addr'));
-        $this->assertNull($detect->getHttpHeader('Server-Software'));
         $this->assertEquals($headers['HTTP_USER_AGENT'], $detect->getHttpHeader('User-Agent'));
     }
 
@@ -260,7 +270,6 @@ final class MobileDetectGeneralTest extends TestCase
         ];
         $detect = new MobileDetect();
         $detect->setHttpHeaders($header1);
-        $this->assertSame($detect->getCloudFrontHeaders(), $header1);
         $this->assertSame($detect->getUserAgent(), 'Amazon CloudFront');
         $this->assertSame($detect->isTablet(), false);
         $this->assertSame($detect->isMobile(), true);
@@ -272,7 +281,6 @@ final class MobileDetectGeneralTest extends TestCase
             'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'false'
         ];
         $detect->setHttpHeaders($header2);
-        $this->assertSame($detect->getCloudFrontHeaders(), $header2);
         $this->assertSame($detect->getUserAgent(), 'Amazon CloudFront');
         $this->assertSame($detect->isTablet(), false);
         $this->assertSame($detect->isMobile(), false);
@@ -284,15 +292,9 @@ final class MobileDetectGeneralTest extends TestCase
             'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'true'
         ];
         $detect->setHttpHeaders($header3);
-        $this->assertSame($detect->getCloudFrontHeaders(), $header3);
         $this->assertSame($detect->getUserAgent(), 'Amazon CloudFront');
         $this->assertSame($detect->isTablet(), true);
         $this->assertSame($detect->isMobile(), false);
-
-        // Check if the headers are cleared
-        $header4 = [];
-        $detect->setHttpHeaders($header4);
-        $this->assertSame($detect->getCloudFrontHeaders(), $header4);
     }
 
     public function testSetUserAgent()

@@ -19,7 +19,7 @@
  * @author  Nick Ilyin <nick.ilyin@gmail.com>
  * @author: Victor Stanciu <vic.stanciu@gmail.com> (original author)
  *
- * @version 4.8.02
+ * @version 4.8.03
  */
 
 declare(strict_types=1);
@@ -236,18 +236,23 @@ class MobileDetect
     /**
      * Stores the version number of the current release.
      */
-    protected string $VERSION = '4.8.02';
+    protected string $VERSION = '4.8.03';
+
+    protected array $config = [
+        // Auto-initialization on HTTP headers from $_SERVER['HTTP...']
+        // Disable this if you're going for performance and set the
+        // User-Agent via $detect->setUserAgent("...").
+        // @var boolean
+        'autoInitOfHttpHeaders' => true,
+        // Maximum HTTP User-Agent value allowed.
+        // @var int
+        'maximumUserAgentLength' => 500
+    ];
 
     /**
      * A frequently used regular expression to extract version #s.
      */
     protected const VERSION_REGEX = '([\w._\+]+)';
-
-    /**
-     * Maximum HTTP User-Agent value allowed.
-     * @var int
-     */
-    protected int $USER_AGENT_MAX_LEN = 500;
 
     /**
      * A type for the version() method indicating a string return value.
@@ -275,7 +280,13 @@ class MobileDetect
      * CloudFront headers. E.g. CloudFront-Is-Desktop-Viewer, CloudFront-Is-Mobile-Viewer & CloudFront-Is-Tablet-Viewer.
      * @var array
      */
-    protected array $cloudfrontHeaders = [];
+    protected static array $knownCloudFrontHeaders = [
+        'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER',
+        'HTTP_CLOUDFRONT_IS_TABLET_VIEWER',
+        'HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER'
+    ];
+
+    protected static string $cloudFrontUA = 'Amazon CloudFront';
 
     /**
      * The matching regex string. Used only for debugging.
@@ -293,7 +304,7 @@ class MobileDetect
      * HTTP headers that trigger the 'isMobile' detection to be true.
      * @var array
      */
-    protected static array $mobileHeaders = [
+    protected static array $knownMobilePositiveHeaders = [
         'HTTP_ACCEPT'                  => [
             'matches' => [
                 // Opera Mini
@@ -919,7 +930,7 @@ class MobileDetect
      * User-Agent string.
      * @var array
      */
-    protected static array $uaHttpHeaders = [
+    protected static array $knownUserAgentHttpHeaders = [
         // The default User-Agent string.
         'HTTP_USER_AGENT',
         // Header can occur on devices using Opera Mini.
@@ -1014,10 +1025,17 @@ class MobileDetect
      * Construct an instance of this class.
      */
     public function __construct(
-        Cache $cache = null
+        Cache $cache = null,
+        array $config = [],
     ) {
         // If no custom cache provided then use our own.
         $this->cache = $cache == null ? new Cache() : $cache;
+        // Override config from user.
+        $this->config = array_merge($this->config, $config);
+
+        if ($this->config['autoInitOfHttpHeaders']) {
+            $this->autoInitKnownHttpHeaders();
+        }
     }
 
     /**
@@ -1032,6 +1050,36 @@ class MobileDetect
     }
 
     /**
+     * On startup Mobile Detect library will auto-initiate from the existing
+     * HTTP headers extracted from $_SERVER.
+     *
+     * @return void
+     */
+    public function autoInitKnownHttpHeaders(): void
+    {
+        // Go through known HTTP headers that we care about.
+        // See "4.1.18. Protocol-Specific Meta-Variables" of http://www.faqs.org/rfcs/rfc3875.html
+        $knownHttpHeaders = array_merge(
+            array_values(self::$knownUserAgentHttpHeaders),
+            array_keys(self::$knownMobilePositiveHeaders),
+            array_values(self::$knownCloudFrontHeaders)
+        );
+
+        // Did not iterate through global $_SERVER to find ['HTTP...'] header values
+        // because it's very slow and on some servers it can have more than 50 worthless keys.
+//        $httpHeaders = array_filter($_SERVER, function ($key) {
+//            return str_starts_with($key, 'HTTP_');
+//        }, ARRAY_FILTER_USE_KEY);
+        $httpHeaders = [];
+        foreach ($knownHttpHeaders as $headerName) {
+            if (isset($_SERVER[$headerName])) {
+                $httpHeaders[$headerName] = $_SERVER[$headerName];
+            }
+        }
+        $this->setHttpHeaders($httpHeaders);
+    }
+
+    /**
      * Set the HTTP Headers. Must be PHP-flavored. This method will reset existing headers.
      *
      * @param array $httpHeaders The headers to set. If null, then using PHP's _SERVER to extract
@@ -1039,22 +1087,14 @@ class MobileDetect
      */
     public function setHttpHeaders(array $httpHeaders = []): void
     {
-        // use global _SERVER if $httpHeaders aren't defined
-        if (!count($httpHeaders)) {
-            $httpHeaders = $_SERVER;
+        $this->httpHeaders = $httpHeaders;
+
+        // Don't process any further if no actual HTTP headers were set.
+        if (count($httpHeaders) === 0) {
+            return;
         }
 
-        // clear existing headers
-        $this->httpHeaders = [];
-
-        // Only save HTTP headers. In PHP land, that means only _SERVER vars that
-        // start with HTTP_.
-        foreach ($httpHeaders as $key => $value) {
-            if (str_starts_with($key, 'HTTP_')) {
-                $this->httpHeaders[$key] = $value;
-            }
-        }
-
+        // Setting new HTTP headers automatically resets the User-Agent.
         // Set current User-Agent from known User-Agent-like HTTP header(s).
         $userAgent = "";
         foreach ($this->getUaHttpHeaders() as $altHeader) {
@@ -1062,36 +1102,17 @@ class MobileDetect
                 $userAgent .= $this->httpHeaders[$altHeader] . " ";
             }
         }
+
         if (!empty($userAgent)) {
             $this->setUserAgent($userAgent);
         }
 
-        // In case we're dealing with CloudFront, we need to know.
-        $this->setCloudFrontHeaders($httpHeaders);
-
-        // Override User-Agent string.
-        if (count($this->getCloudFrontHeaders()) > 0) {
-            $this->setUserAgent('Amazon CloudFront');
-        }
-    }
-
-    /**
-     * Set CloudFront headers
-     * http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html#header-caching-web-device
-     *
-     * @param array $cfHeaders List of HTTP headers
-     */
-    protected function setCloudFrontHeaders(array $cfHeaders): void
-    {
-        // clear existing headers
-        $this->cloudfrontHeaders = [];
-
-        // Only save CLOUDFRONT headers. In PHP land, that means only _SERVER vars that
-        // start with cloudfront-.
-        foreach ($cfHeaders as $key => $value) {
-            if (str_starts_with(strtolower($key), 'http_cloudfront_')) {
-                $this->cloudfrontHeaders[strtoupper($key)] = $value;
-            }
+        // Override User-Agent string if 'Amazon Cloudfront' specific HTTP headers are present.
+        if (
+            $this->hasHttpHeader(self::$knownCloudFrontHeaders[0]) ||
+            $this->hasHttpHeader(self::$knownCloudFrontHeaders[1])
+        ) {
+            $this->setUserAgent(self::$cloudFrontUA);
         }
     }
 
@@ -1108,6 +1129,11 @@ class MobileDetect
     public function hasHttpHeaders(): bool
     {
         return count($this->httpHeaders) > 0;
+    }
+
+    protected function hasHttpHeader(string $name): bool
+    {
+        return !empty($this->httpHeaders[$name]);
     }
 
     /**
@@ -1143,7 +1169,7 @@ class MobileDetect
 
     public function getMobileHeaders(): array
     {
-        return static::$mobileHeaders;
+        return static::$knownMobilePositiveHeaders;
     }
 
     /**
@@ -1154,17 +1180,18 @@ class MobileDetect
      */
     public function getUaHttpHeaders(): array
     {
-        return static::$uaHttpHeaders;
+        return static::$knownUserAgentHttpHeaders;
     }
 
     /**
-     * Retrieves the cloudfront headers.
+     * Retrieves the HTTP CloudFront headers
+     * that trigger a mobile detection.
      *
      * @return array
      */
-    public function getCloudFrontHeaders(): array
+    public function getCloudFrontHttpHeaders(): array
     {
-        return $this->cloudfrontHeaders;
+        return static::$knownCloudFrontHeaders;
     }
 
     /**
@@ -1176,7 +1203,7 @@ class MobileDetect
     private function prepareUserAgent(string $userAgent): string
     {
         $userAgent = trim($userAgent);
-        return substr($userAgent, 0, $this->USER_AGENT_MAX_LEN);
+        return substr($userAgent, 0, $this->config['maximumUserAgentLength']);
     }
 
     /**
@@ -1189,27 +1216,6 @@ class MobileDetect
     {
         $preparedUserAgent = $this->prepareUserAgent($userAgent);
         return $this->userAgent = !empty($preparedUserAgent) ? $preparedUserAgent : null;
-
-//        if (false === empty($userAgent)) {
-//
-//        } else {
-//            $this->userAgent = null;
-//            foreach ($this->getUaHttpHeaders() as $altHeader) {
-//                // @todo: should use getHttpHeader(), but it would be slow. (Serban)
-//                if (false === empty($this->httpHeaders[$altHeader])) {
-//                    $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
-//                }
-//            }
-//
-//            if (!empty($this->userAgent)) {
-//                return $this->userAgent = $this->prepareUserAgent($this->userAgent);
-//            }
-//        }
-//
-//        if (count($this->getCfHeaders()) > 0) {
-//            return $this->userAgent = 'Amazon CloudFront';
-//        }
-//        return $this->userAgent = null;
     }
 
     /**
@@ -1372,16 +1378,12 @@ class MobileDetect
             }
 
             // Special case: Amazon CloudFront mobile viewer
-            // @todo: add GH issue
-            if ($this->getUserAgent() === 'Amazon CloudFront') {
-                $cfHeaders = $this->getCloudFrontHeaders();
-                if (
-                    array_key_exists('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER', $cfHeaders) &&
-                    $cfHeaders['HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'] === 'true'
-                ) {
-                    $this->cache->set($cacheKey, true);
-                    return true;
-                }
+            if (
+                $this->getUserAgent() === self::$cloudFrontUA &&
+                $this->getHttpHeader('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER') === 'true'
+            ) {
+                $this->cache->set($cacheKey, true);
+                return true;
             }
 
             if ($this->hasHttpHeaders() && $this->checkHttpHeadersForMobile()) {
@@ -1417,16 +1419,13 @@ class MobileDetect
                 return $cacheItem->get();
             }
 
-            // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
-            if ($this->getUserAgent() === 'Amazon CloudFront') {
-                $cfHeaders = $this->getCloudFrontHeaders();
-                if (
-                    array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) &&
-                    $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true'
-                ) {
-                    $this->cache->set($cacheKey, true);
-                    return true;
-                }
+            // Special case: Amazon CloudFront mobile viewer
+            if (
+                $this->getUserAgent() === self::$cloudFrontUA &&
+                $this->getHttpHeader('HTTP_CLOUDFRONT_IS_TABLET_VIEWER') === 'true'
+            ) {
+                $this->cache->set($cacheKey, true);
+                return true;
             }
 
             foreach (static::$tabletDevices as $_regex) {
@@ -1672,7 +1671,7 @@ class MobileDetect
     {
         $key = '';
         foreach ($httpHeaders as $name => $value) {
-            $key .= "$name: $value\n";
+            $key .= "$name: $value" . "\n";
         }
         return trim($key);
     }

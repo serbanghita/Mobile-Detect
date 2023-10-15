@@ -35,6 +35,8 @@ $json = [
     // All possible User-Agent headers.
     'uaHttpHeaders' => $detect->getUaHttpHeaders(),
 
+    'cloudFrontHttpHeaders' => $detect->getCloudFrontHttpHeaders(),
+
     // All the regexes that trigger 'isMobile' or 'isTablet'
     // to be true.
     'uaMatch' => [
