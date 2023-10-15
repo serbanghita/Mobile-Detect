@@ -4,8 +4,7 @@
 
 ![Build status](https://github.com/serbanghita/Mobile-Detect/workflows/Mobile-Detect/badge.svg)
 ![Latest version](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?style=flat-square)
-![3.74.x PHP7](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=3.74.x&label=3.74.x%20PHP7&style=flat-square)
-![2.8.x PHP5](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=2.8.x&label=2.8.x%20PHP5&style=flat-square)
+![3.74.x PHP7.4](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=3.74.x&label=3.74.x%20PHP%207.4&style=flat-square)
 ![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square)
 ![Monthly Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square)
 ![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)
@@ -27,13 +26,15 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
 
 ### Download and include manually
 
+You need PHP >= `7.4`.
+
 - [Download the latest release](../../tags) 
 - Get the PHP class [MobileDetect.php](src/MobileDetect.php) and include it in your PHP source.
 
 ### Composer
 
 - Install via [composer](https://packagist.org/packages/mobiledetect/mobiledetectlib).
-`composer require mobiledetect/mobiledetectlib`
+`composer require mobiledetect/mobiledetectlib:3.74`
 - Include the dependency in the `composer.json` file:
   ```json
   {
@@ -42,13 +43,6 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
       }
   }
   ```
-
-## Versions
-
-| Version | Status                                                                                                                                                                            | Namespace | Code                                                             | PHP Version |
-|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|-------------|
-| 2.8.x  | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=2.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 |
-| 3.74.x | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=3.74.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0  |
 
 ## Contribute
 
