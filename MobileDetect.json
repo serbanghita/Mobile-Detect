@@ -1,5 +1,5 @@
 {
-    "version": "4.8.02",
+    "version": "4.8.03",
     "headerMatch": {
         "HTTP_ACCEPT": {
             "matches": [
@@ -36,6 +36,11 @@
         "HTTP_X_BOLT_PHONE_UA",
         "HTTP_DEVICE_STOCK_UA",
         "HTTP_X_UCBROWSER_DEVICE_UA"
+    ],
+    "cloudFrontHttpHeaders": [
+        "HTTP_CLOUDFRONT_IS_MOBILE_VIEWER",
+        "HTTP_CLOUDFRONT_IS_TABLET_VIEWER",
+        "HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER"
     ],
     "uaMatch": {
         "phones": {
