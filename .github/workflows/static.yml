@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Converts Markdown to HTML
-        uses: jaywcjlove/markdown-to-html-cli@main
+        uses: jaywcjlove/markdown-to-html-cli@v4
         with:
           source: README.md
           output: .github/docs/index.html
