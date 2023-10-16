@@ -16,7 +16,7 @@ It uses the User-Agent string combined with specific HTTP headers to detect the 
 [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) PHP class that can help you with your RWD strategy, 
 it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
 - Can detect the difference between a mobile phone and a table by using regexes.
-- The **accuracy** and **relevance** of the detection is kept by running [tests](./tests) to check for detection conflicts.
+- The **accuracy** and **relevance** of the detection is kept by running [tests](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x/tests) to check for detection conflicts.
 
 ## Before you install
 
@@ -34,6 +34,7 @@ There are three versions of MobileDetect.
 
 - Install via [composer](https://packagist.org/packages/mobiledetect/mobiledetectlib): `composer require mobiledetect/mobiledetectlib`
 - Include the dependency in the `composer.json` file:
+- 
 ```json
 {
   "require": {
@@ -108,34 +109,26 @@ Results are taken from a PC with 32GB RAM, i7-10700KF CPU, Win11 Pro, PHP 8.x (x
 
 ## Contribute
 
-**Submit your User-agent**
-
-Visit [:iphone: Live demo](https://demo.mobiledetect.net) on your device.
-
-**Code contribution**
-
-Read [how to contribute](CONTRIBUTING.md) guide.
-
-**Creating a 3rd party library**
-
-The file [MobileDetect.json](./MobileDetect.json) is a model representation of this PHP script. It contains all the information necessary to create a "mobile" detection script in any programming language.
+1. **Submit your User-agent** by visiting [:iphone: https://demo.mobiledetect.net](https://demo.mobiledetect.net) on your device.
+2. Submit a code patch, see [CONTRIBUTING.md](https://github.com/serbanghita/Mobile-Detect/blob/4.8.x/CONTRIBUTING.md) guide.
+3. Creating a 3rd party library. The file [MobileDetect.json](https://github.com/serbanghita/Mobile-Detect/blob/4.8.x/MobileDetect.json) is a model representation of this PHP script. \
+It contains all the information necessary to create a "mobile" detection script in any programming language. \
 You can auto-import this periodically in your repository by checking the `version` property, which is updated on each release.
+4. [Donate :+1:](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mobiledetectlib%40gmail%2ecom&lc=US&item_name=Mobile%20Detect&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted).
+I'm currently paying for hosting and spend a lot of my family time to maintain the project and planning the future releases. I would highly appreciate any money donations.
 
-**Donate**
+Special thanks to the community :+1: for donations and the JetBrains team for the open-source licenses.
 
-|Paypal|
-|------|
-|[Donate :+1:](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mobiledetectlib%40gmail%2ecom&lc=US&item_name=Mobile%20Detect&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)|
+## Credits
 
-
-I'm currently paying for hosting and spend a lot of my family time to maintain the project and planning the future releases.
-I would highly appreciate any money donations that will keep the research going.
-
-Special thanks to the community :+1: for donations, JetBrains team for the continuous support and [Dragos Gavrila](https://twitter.com/grafician) who contributed with the logo.
+* [Serban Ghita](https://github.com/serbanghita) - maintainer, lead dev
+* [Nick Ilyin](https://github.com/nicktacular) - developer 2.x, 3.x-dev
+* [Victor Stanciu](https://github.com/victorstanciu) - developer first version
+* [Dragos Gavrila](https://twitter.com/grafician) - logo design
 
 ## Modules, plugins, ports
 
-[Submit new module, plugin, port](../../issues/new?title=New%203rd%20party%20module&body=Name,%20Link%20and%20Description%20of%20the%20module.)
+[Submit new module, plugin, port](https://github.com/serbanghita/Mobile-Detect/issues/new?title=New%203rd%20party%20module&body=Name,%20Link%20and%20Description%20of%20the%20module.)
 
 **JavaScript**
 
