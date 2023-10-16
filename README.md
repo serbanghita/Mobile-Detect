@@ -4,7 +4,7 @@
 
 ![Build status](https://github.com/serbanghita/Mobile-Detect/workflows/Mobile-Detect/badge.svg)
 ![Latest version](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?style=flat-square)
-![4.8.x PHP8](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/test.yml?branch=4.8.x&label=4.8.x%20PHP8&style=flat-square)
+![4.8.x PHP8.x](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/4.8.x-test.yml?branch=4.8.x&label=4.8.x%20PHP8.x&style=flat-square)
 ![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square)
 ![Monthly Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square)
 ![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)
