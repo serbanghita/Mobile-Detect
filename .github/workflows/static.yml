@@ -36,7 +36,8 @@ jobs:
         with:
           source: README.md
           output: .github/docs/index.html
-          github-corners: https://github.com/jaywcjlove/markdown-to-html-cli
+          corners: false
+          dark-mode: false
           favicon: data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>
       - name: Setup Pages
         uses: actions/configure-pages@v3
