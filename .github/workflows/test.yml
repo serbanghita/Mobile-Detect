@@ -4,8 +4,16 @@ name: test
 on:
   push:
     branches: ['4.8.x']
+    paths-ignore:
+      - '*.md'
+      - '.github/**'
+      - 'scripts/**'
   pull_request:
     branches: ['4.8.x']
+    paths-ignore:
+      - '*.md'
+      - '.github/**'
+      - 'scripts/**'
 
 jobs:
   run:
