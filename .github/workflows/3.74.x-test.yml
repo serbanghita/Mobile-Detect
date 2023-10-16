@@ -1,4 +1,4 @@
-name: 3.74.x-test
+name: 3.74.x on PHP 7.4
 
 # Run this workflow every time a new commit pushed to your repository
 on:
