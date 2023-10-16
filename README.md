@@ -27,7 +27,7 @@ There are three versions of MobileDetect.
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|--------|----------------------|
 | 2.8.x   | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=2.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 | Deprecated           |
 | 3.74.x  | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=3.74.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0 | LTS                  |
-| 4.8.x   | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=4.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `Detection\MobileDetect`        | [4.8](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x)   | >=8.0  | Current, Recommended |
+| 4.8.x   | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml/badge.svg?branch=4.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `Detection\MobileDetect`        | [4.8](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x)   | >=8.0  | Current, **Recommended** |
 
 
 ## Installing
@@ -49,7 +49,7 @@ require __DIR__ . '/vendor/autoload.php';
 use Detection\MobileDetect;
 // Instantiate the class.
 // Here you can inject your own caching system.
-$detect = new MobileDetect;
+$detect = new MobileDetect();
 // Set the user agent string from HTTP headers or manually.
 $detect->setUserAgent('Mozilla/5.0 (iPad; CPU OS 14_7 like Mac OS X) ...');
 // Finally, check for "mobile".
