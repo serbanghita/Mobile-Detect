@@ -1,4 +1,4 @@
-name: 2.8.x-test
+name: 2.8.x on PHP 5.3
 
 # Run this workflow every time a new commit pushed to your repository
 on:
