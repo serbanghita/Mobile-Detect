@@ -25,9 +25,9 @@ There are three versions of MobileDetect.
 
 | Version | Tests                                                                                                                                                                             | Namespace | Code                                                             | PHP Version | Status               |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|--------|----------------------|
-| 2.8.x   | [![5x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/2.8.x-test.yml/badge.svg?branch=2.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/2.8.x-test.yml)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 | Deprecated           |
-| 3.74.x  | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/3.74.x-test.yml/badge.svg?branch=3.74.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/3.74.x-test.yml) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0 | LTS                  |
-| 4.8.x   | [![7x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/4.8.x-test.yml/badge.svg?branch=4.8.x)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/4.8.x-test.yml)  | `Detection\MobileDetect`        | [4.8](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x)   | >=8.0  | Current, **Recommended** |
+| 2.8.x   | ![2.8.x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/2.8.x-test.yml/badge.svg)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 | Deprecated           |
+| 3.74.x  | ![3.74.x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/3.74.x-test.yml/badge.svg) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0 | LTS                  |
+| 4.8.x   | ![4.8.x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/4.8.x-test.yml/badge.svg) | `Detection\MobileDetect`        | [4.8](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x)   | >=8.0  | Current, **Recommended** |
 
 
 ## Installing
