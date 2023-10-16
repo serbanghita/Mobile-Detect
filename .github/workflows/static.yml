@@ -36,9 +36,12 @@ jobs:
         with:
           source: README.md
           output: .github/docs/index.html
-          description: MobileDetect - the PHP mobile detection class
+          title: MobileDetect - the PHP mobile detection class
+          description: Mobile Detect is a lightweight PHP class for detecting mobile devices (including tablets). It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.
+          keywords: php mobile-detect device-detection user-agents mobile-redirects
           corners: false
           dark-mode: false
+          img-base64: true
           favicon: data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>
       - name: Setup Pages
         uses: actions/configure-pages@v3
