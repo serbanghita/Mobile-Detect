@@ -1,4 +1,4 @@
-name: test
+name: 4.8.x-test
 
 # Run this workflow every time a new commit pushed to your repository
 on:
