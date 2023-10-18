@@ -2,11 +2,10 @@
 
 # MobileDetect, PHP mobile detection class
 
-![Build status](https://github.com/serbanghita/Mobile-Detect/workflows/Mobile-Detect/badge.svg)
-![Latest version](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?style=flat-square)
-![4.8.x PHP8.x](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/4.8.x-test.yml?branch=4.8.x&label=4.8.x%20PHP8.x&style=flat-square)
-![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square)
-![Monthly Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square)
+![Workflow status](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/4.8.x-test.yml?style=flat-square)
+![Latest tag](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?filter=4.*&style=flat-square)
+![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square&label=installs)
+![Total Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square&label=installs)
 ![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)
 
 Mobile Detect is a lightweight PHP class for detecting mobile devices (including tablets).
@@ -23,11 +22,11 @@ it is not a replacement for CSS3 media queries or other forms of client-side fea
 There are three versions of MobileDetect. 
 `4.8.x` is the main version that is ALWAYS going to be updated first.
 
-| Version | Tests                                                                                                                                                                             | Namespace | Code                                                             | PHP Version | Status               |
-|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|--------|----------------------|
-| 2.8.x   | ![2.8.x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/2.8.x-test.yml/badge.svg)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 | Deprecated           |
-| 3.74.x  | ![3.74.x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/3.74.x-test.yml/badge.svg) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0 | LTS                  |
-| 4.8.x   | ![4.8.x](https://github.com/serbanghita/Mobile-Detect/actions/workflows/4.8.x-test.yml/badge.svg) | `Detection\MobileDetect`        | [4.8](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x)   | >=8.0  | Current, **Recommended** |
+| Version | Tests                                                                                                                                                                                                 | Namespace | Code                                                             | PHP Version | Status               |
+|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------------------------------------------|--------|----------------------|
+| 2.8.x   | [![5x](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/2.8.x-test.yml?style=flat-square)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `\Mobile_Detect`       | [2.8](https://github.com/serbanghita/Mobile-Detect/tree/2.8.x)   | \>=5.0,<7.0 | Deprecated           |
+| 3.74.x  | [![7x](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/3.74.x-test.yml?style=flat-square)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml) | `Detection\MobileDetect`        | [3.74](https://github.com/serbanghita/Mobile-Detect/tree/3.74.x) | >=7.3,<8.0 | LTS                  |
+| 4.8.x   | [![7x](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/4.8.x-test.yml?style=flat-square)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/test.yml)  | `Detection\MobileDetect`        | [4.8](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x)   | >=8.0  | Current, **Recommended** |
 
 
 ## Installing
