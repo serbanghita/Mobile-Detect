@@ -9,7 +9,7 @@
         {
             "name": "Serban Ghita",
             "email": "serbanghita@gmail.com",
-            "homepage": "http://mobiledetect.net",
+            "homepage": "https://mobiledetect.net",
             "role": "Developer"
         }
     ],
@@ -26,7 +26,11 @@
             "src/MobileDetect.php"
         ],
         "psr-4": {
-            "Detection\\": "src/",
+            "Detection\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "DetectionTests\\": "tests/"
         }
     },
