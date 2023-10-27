@@ -18,7 +18,7 @@
  * @author  Nick Ilyin <nick.ilyin@gmail.com>
  * @author: Victor Stanciu <vic.stanciu@gmail.com> (original author)
  *
- * @version 3.74.2
+ * @version 3.74.3
  */
 namespace Detection;
 
@@ -226,7 +226,7 @@ class MobileDetect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '3.74.2';
+    const VERSION                   = '3.74.3';
 
     /**
      * A type for the version() method indicating a string return value.
