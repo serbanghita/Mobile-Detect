@@ -1,3 +1,5 @@
 /examples export-ignore
+/docs export-ignore
+/export export-ignore
 /tests export-ignore
 /.* export-ignore

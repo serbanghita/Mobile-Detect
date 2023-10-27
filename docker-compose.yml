@@ -1,16 +1,15 @@
-app:
-  restart: 'on-failure'
-  image: php:7
-  working_dir: /app
-  command: vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky
-  ports:
-    - "8000:8000"
-  volumes:
-    - .:/app
-
-composer:
-  restart: 'no'
-  image: composer/composer:php7
-  command: install
-  volumes:
-    - .:/app
+services:
+  app:
+    image: php:5.6-cli-alpine3.8
+    working_dir: /app
+    command: >
+      /bin/sh -c "
+      rm -rf vendor && 
+      rm -f composer.lock composer.phar &&
+      curl -s https://getcomposer.org/download/2.0.0/composer.phar -o composer.phar &&
+      php composer.phar update --no-interaction --prefer-dist -vvv &&
+      vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
