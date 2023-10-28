@@ -13,17 +13,23 @@ services:
       - .:/app
 
   runUnitTests:
-    image: php:8.0.3-fpm-alpine3.13
+    image: php:8.3-rc-alpine3.18
     working_dir: /app
     command: >
       /bin/sh -c "vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky"
-    ports:
-      - "8000:8000"
+    volumes:
+      - .:/app
+
+  runPerfTests:
+    image: php:8.3-rc-alpine3.18
+    working_dir: /app
+    command: >
+      /bin/sh -c "vendor/bin/phpbench run tests/Benchmark/MobileDetectBench.php --retry-threshold=1 --iterations=10 --revs=1000 --report=aggregate"
     volumes:
       - .:/app
 
   runLinting:
-    image: php:8.0.3-fpm-alpine3.13
+    image: php:8.3-rc-alpine3.18
     working_dir: /app
     command: >
       /bin/sh -c "vendor/bin/phpcs; vendor/bin/phpcbf"
@@ -33,7 +39,7 @@ services:
       - .:/app
 
   generateModel:
-    image: php:8.0.3-fpm-alpine3.13
+    image: php:8.3-rc-alpine3.18
     working_dir: /app
     command: >
       /bin/sh -c "php ./scripts/export_to_json.php"
@@ -41,3 +47,5 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+
+
