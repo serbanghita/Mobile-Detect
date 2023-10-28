@@ -30,10 +30,20 @@ final class MobileDetectGeneralTest extends TestCase
     public function testNoUserAgentSet()
     {
         $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('No user-agent has been set.');
+        $this->expectExceptionMessage('No valid user-agent has been set.');
 
         $detect = new MobileDetect();
         $detect->isMobile();
+    }
+
+    /**
+     * @throws MobileDetectException
+     */
+    public function testEmptyStringAsAUserAgent()
+    {
+        $detect = new MobileDetect();
+        $detect->setUserAgent('');
+        $this->assertFalse($detect->isMobile());
     }
 
     /**
@@ -55,7 +65,7 @@ final class MobileDetectGeneralTest extends TestCase
     public function testValidHeadersThatDoNotContainHttpUserAgentHeaderButNoUserAgentIsManuallySet()
     {
         $this->expectException(MobileDetectException::class);
-        $this->expectExceptionMessage('No user-agent has been set.');
+        $this->expectExceptionMessage('No valid user-agent has been set.');
 
         $detect = new MobileDetect();
         $detect->setHttpHeaders([

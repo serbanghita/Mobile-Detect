@@ -19,7 +19,7 @@
  * @author  Nick Ilyin <nick.ilyin@gmail.com>
  * @author: Victor Stanciu <vic.stanciu@gmail.com> (original author)
  *
- * @version 4.8.03
+ * @version 4.8.04
  */
 
 declare(strict_types=1);
@@ -236,7 +236,7 @@ class MobileDetect
     /**
      * Stores the version number of the current release.
      */
-    protected string $VERSION = '4.8.03';
+    protected string $VERSION = '4.8.04';
 
     protected array $config = [
         // Auto-initialization on HTTP headers from $_SERVER['HTTP...']
@@ -1210,12 +1210,12 @@ class MobileDetect
      * Set the User-Agent to be used.
      *
      * @param string $userAgent The User-Agent string.
-     * @return string|null
+     * @return string
      */
-    public function setUserAgent(string $userAgent): string|null
+    public function setUserAgent(string $userAgent): string
     {
         $preparedUserAgent = $this->prepareUserAgent($userAgent);
-        return $this->userAgent = !empty($preparedUserAgent) ? $preparedUserAgent : null;
+        return $this->userAgent = $preparedUserAgent;
     }
 
     /**
@@ -1230,7 +1230,12 @@ class MobileDetect
 
     public function hasUserAgent(): bool
     {
-        return \is_string($this->userAgent) && !empty($this->userAgent);
+        return is_string($this->userAgent);
+    }
+
+    public function isUserAgentEmpty(): bool
+    {
+        return $this->hasUserAgent() && $this->userAgent === '';
     }
 
     public function getMatchingRegex(): ?string
@@ -1366,7 +1371,11 @@ class MobileDetect
     public function isMobile(): bool
     {
         if (!$this->hasUserAgent()) {
-            throw new MobileDetectException('No user-agent has been set.');
+            throw new MobileDetectException('No valid user-agent has been set.');
+        }
+
+        if ($this->isUserAgentEmpty()) {
+            return false;
         }
 
         // Cache check.
@@ -1409,6 +1418,10 @@ class MobileDetect
     {
         if (!$this->hasUserAgent()) {
             throw new MobileDetectException('No user-agent has been set.');
+        }
+
+        if ($this->isUserAgentEmpty()) {
+            return false;
         }
 
         // Cache check.
@@ -1474,6 +1487,10 @@ class MobileDetect
     {
         if (!$this->hasUserAgent()) {
             throw new MobileDetectException('No user-agent has been set.');
+        }
+
+        if ($this->isUserAgentEmpty()) {
+            return false;
         }
 
         // Cache check.
@@ -1671,7 +1688,7 @@ class MobileDetect
     {
         $key = '';
         foreach ($httpHeaders as $name => $value) {
-            $key .= "$name: $value" . "\n";
+            $key .= "$name: $value" . PHP_EOL;
         }
         return trim($key);
     }

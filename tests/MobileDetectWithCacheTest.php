@@ -22,11 +22,10 @@ final class MobileDetectWithCacheTest extends TestCase
             'HTTP_ACCEPT_LANGUAGE' => 'en-us,en;q=0.5',
         ]);
 
-        $expectedString = <<<TEXT
-HTTP_REQUEST_METHOD: DELETE
-HTTP_USER_AGENT: Mozilla/5.0 iPhone;
-HTTP_ACCEPT_LANGUAGE: en-us,en;q=0.5
-TEXT;
+        $expectedString = "HTTP_REQUEST_METHOD: DELETE" . PHP_EOL .
+        "HTTP_USER_AGENT: Mozilla/5.0 iPhone;" . PHP_EOL .
+        "HTTP_ACCEPT_LANGUAGE: en-us,en;q=0.5";
+
         $this->assertEquals($expectedString, $cacheKey);
     }
 
