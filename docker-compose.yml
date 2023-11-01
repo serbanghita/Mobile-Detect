@@ -1,6 +1,9 @@
+# This is for local development. NOT WORKING ATM!
+# Docker image of PHP 5.3 lacks ssl module and composer requires it
+# Also this image lacks git which is at some point required during installation of phpunit deps.
 services:
   app:
-    image: php:5.6-cli-alpine3.8
+    image: php:5.3-cli
     working_dir: /app
     command: >
       /bin/sh -c "
@@ -9,7 +12,5 @@ services:
       curl -s https://getcomposer.org/download/2.0.0/composer.phar -o composer.phar &&
       php composer.phar update --no-interaction --prefer-dist -vvv &&
       vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky"
-    ports:
-      - "8000:8000"
     volumes:
       - .:/app
