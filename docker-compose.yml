@@ -3,7 +3,7 @@
 # Also this image lacks git which is at some point required during installation of phpunit deps.
 services:
   app:
-    image: php:5.3-cli
+    image: php:7-alpine3.16
     working_dir: /app
     command: >
       /bin/sh -c "

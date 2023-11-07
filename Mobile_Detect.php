@@ -18,7 +18,7 @@
  * @author  Nick Ilyin <nick.ilyin@gmail.com>
  * @author: Victor Stanciu <vic.stanciu@gmail.com> (original author)
  *
- * @version 2.8.44
+ * @version 2.8.45
  *
  * Auto-generated isXXXX() magic methods.
  * php -a examples/dump_magic_methods.php
@@ -255,7 +255,7 @@ class Mobile_Detect
     /**
      * Stores the version number of the current release.
      */
-    const VERSION                   = '2.8.44';
+    const VERSION                   = '2.8.45';
 
     /**
      * A type for the version() method indicating a string return value.
@@ -1180,10 +1180,10 @@ class Mobile_Detect
 
         if (!$rules) {
             $rules = array_merge(
-                static::getPhoneDevices(),
-                static::getTabletDevices(),
-                static::getOperatingSystems(),
-                static::getBrowsers()
+                self::getPhoneDevices(),
+                self::getTabletDevices(),
+                self::getOperatingSystems(),
+                self::getBrowsers()
             );
         }
 
