@@ -14,7 +14,7 @@ It uses the User-Agent string combined with specific HTTP headers to detect the 
 - MobileDetect class is a 
 [server-side detection](http://www.w3.org/TR/mwabp/#bp-devcap-detection) PHP class that can help you with your RWD strategy, 
 it is not a replacement for CSS3 media queries or other forms of client-side feature detection.
-- Can detect the difference between a mobile phone and a table by using regexes.
+- Can detect the difference between a mobile phone and a tablet by using regexes.
 - The **accuracy** and **relevance** of the detection is kept by running [tests](https://github.com/serbanghita/Mobile-Detect/tree/4.8.x/tests) to check for detection conflicts.
 
 ## Before you install
