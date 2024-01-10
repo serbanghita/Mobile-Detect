@@ -27,13 +27,22 @@ final class MobileDetectGeneralTest extends TestCase
     /**
      * @throws MobileDetectException
      */
-    public function testNoUserAgentSet()
+    public function testNoUserAgentSetAndAutoInitOfHttpHeadersIsFalse()
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('No valid user-agent has been set.');
 
-        $detect = new MobileDetect();
+        $detect = new MobileDetect(null, ['autoInitOfHttpHeaders' => false]);
         $detect->isMobile();
+    }
+
+    /**
+     * @throws MobileDetectException
+     */
+    public function testNoUserAgentSet()
+    {
+        $detect = new MobileDetect();
+        $this->assertFalse($detect->isMobile());
     }
 
     /**
@@ -64,10 +73,20 @@ final class MobileDetectGeneralTest extends TestCase
      */
     public function testValidHeadersThatDoNotContainHttpUserAgentHeaderButNoUserAgentIsManuallySet()
     {
+        $detect = new MobileDetect();
+        $detect->setHttpHeaders([
+            'HTTP_CONNECTION'       => 'close',
+            'HTTP_ACCEPT'           => 'text/vnd.wap.wml, application/json, text/javascript, */*; q=0.01',
+        ]);
+        $this->assertFalse($detect->isMobile());
+    }
+
+    public function testValidHeadersThatDoNotContainHttpUserAgentHeaderButNoUserAgentIsManuallySetAndAutoInitOfHttpHeadersIsFalse()
+    {
         $this->expectException(MobileDetectException::class);
         $this->expectExceptionMessage('No valid user-agent has been set.');
 
-        $detect = new MobileDetect();
+        $detect = new MobileDetect(null, ['autoInitOfHttpHeaders' => false]);
         $detect->setHttpHeaders([
             'HTTP_CONNECTION'       => 'close',
             'HTTP_ACCEPT'           => 'text/vnd.wap.wml, application/json, text/javascript, */*; q=0.01',
@@ -234,7 +253,7 @@ final class MobileDetectGeneralTest extends TestCase
             [[
                 'HTTP_X_DEVICE_USER_AGENT' => 'hello world'
             ], 'hello world'],
-            [[], null]
+            [[], '']
         ];
     }
 

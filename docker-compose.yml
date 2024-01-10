@@ -13,6 +13,7 @@ services:
       - .:/app
 
   runUnitTests:
+    depends_on: ['setup']
     image: php:8.3-rc-alpine3.18
     working_dir: /app
     command: >
@@ -21,6 +22,7 @@ services:
       - .:/app
 
   runPerfTests:
+    depends_on: ['setup']
     image: php:8.3-rc-alpine3.18
     working_dir: /app
     command: >
@@ -29,6 +31,7 @@ services:
       - .:/app
 
   runLinting:
+    depends_on: ['setup']
     image: php:8.3-rc-alpine3.18
     working_dir: /app
     command: >
@@ -39,6 +42,7 @@ services:
       - .:/app
 
   generateModel:
+    depends_on: ['setup', 'runUnitTests', 'runPerfTests', 'runLinting']
     image: php:8.3-rc-alpine3.18
     working_dir: /app
     command: >

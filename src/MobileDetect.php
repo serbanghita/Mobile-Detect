@@ -19,7 +19,7 @@
  * @author  Nick Ilyin <nick.ilyin@gmail.com>
  * @author: Victor Stanciu <vic.stanciu@gmail.com> (original author)
  *
- * @version 4.8.04
+ * @version 4.8.05
  */
 
 declare(strict_types=1);
@@ -236,7 +236,7 @@ class MobileDetect
     /**
      * Stores the version number of the current release.
      */
-    protected string $VERSION = '4.8.04';
+    protected string $VERSION = '4.8.05';
 
     protected array $config = [
         // Auto-initialization on HTTP headers from $_SERVER['HTTP...']
@@ -1033,6 +1033,8 @@ class MobileDetect
         // Override config from user.
         $this->config = array_merge($this->config, $config);
 
+        // Beware that if you use "autoInitOfHttpHeaders: false" and you forget to setUserAgent
+        // to something other than a string, an MobileDetectException exception will be thrown.
         if ($this->config['autoInitOfHttpHeaders']) {
             $this->autoInitKnownHttpHeaders();
         }
@@ -1077,6 +1079,12 @@ class MobileDetect
             }
         }
         $this->setHttpHeaders($httpHeaders);
+
+        // Set the User-Agent even if it's an empty string so that "autoInitOfHttpHeaders" doesn't throw an exception.
+        // https://github.com/serbanghita/Mobile-Detect/issues/946#issuecomment-1885675939
+        if (!$this->hasUserAgent()) {
+            $this->setUserAgent("");
+        }
     }
 
     /**
