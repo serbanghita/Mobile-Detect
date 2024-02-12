@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=8.0",
-        "psr/simple-cache": "^3.0"
+        "psr/simple-cache": "^2 || ^3"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^v3.35.1",
