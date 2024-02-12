@@ -55,20 +55,3 @@ jobs:
       - name: Run tests
         run: XDEBUG_MODE=coverage && phpunit -v -c tests/phpunit.xml --coverage-text --strict-coverage --stop-on-risky
         shell: bash
-
-      - name: Slack Notification
-        uses: 8398a7/action-slack@v3
-        with:
-          status: custom
-          fields: commit,repo,ref,author
-          custom_payload: |
-            {
-              attachments: [{
-                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `${process.env.AS_AUTHOR} has pushed ${process.env.AS_COMMIT} in ${process.env.AS_REPO} with test status indicating ${{ job.status }}.`,
-              }]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
-        if: always() # Pick up events even if the job fails or is canceled.
