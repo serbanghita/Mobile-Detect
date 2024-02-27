@@ -22,9 +22,3 @@ There are four types of regexes: `browsers`, `operatingSystems`, `mobile` and `t
 All the regexes inside `MobileDetect.php` file refer to "mobile" devices, not "desktop" or other type of devices.
 
 The library's main purpose is to detect "mobile" devices and attempt to figure out if the "mobile" device is a "phone" or a "tablet".
-
-***
-
-## Extending / Porting
-
-[https://github.com/serbanghita/Mobile-Detect/blob/4.8.x/MobileDetect.json](https://github.com/serbanghita/Mobile-Detect/blob/4.8.x/MobileDetect.json)
