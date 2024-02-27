@@ -12,6 +12,10 @@ description: How to install and use the library
 
 If you are using `composer` and it's autoload, then just install it via Composer.
 
+```sh
+composer require mobiledetect/mobiledetectlib
+```
+
 If you want to install it manually, then it's probably better to use the branch "2.8.x" or "3.74.x".
 
 Since "4.8.x" branch, the MobileDetect library is no longer stand-alone, it requires some extra classes for Cache and Exceptions.
