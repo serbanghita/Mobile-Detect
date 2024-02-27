@@ -1,8 +1,8 @@
 ---
-description: This is guide on how to use Mobile Detect PHP library in your project.
+description: Welcome to the guide on how to use Mobile Detect PHP library in your project.
 ---
 
-# Mobile Detect
+# 👋 Introduction
 
 ## **What is it?**
 
@@ -22,28 +22,6 @@ There are four types of regexes: `browsers`, `operatingSystems`, `mobile` and `t
 All the regexes inside `MobileDetect.php` file refer to "mobile" devices, not "desktop" or other type of devices.
 
 The library's main purpose is to detect "mobile" devices and attempt to figure out if the "mobile" device is a "phone" or a "tablet".
-
-***
-
-## **Can I test it on my devices?**
-
-[https://demo.mobiledetect.net/](https://demo.mobiledetect.net/)
-
-***
-
-## **What version should I install?**
-
-<table><thead><tr><th width="113">Version</th><th width="132">PHP version</th><th>How to use / install</th></tr></thead><tbody><tr><td>2.8.x</td><td>>=5.0</td><td><code>git checkout 2.8.x</code><br><code>include "Mobile_Detect.php"</code></td></tr><tr><td>3.74.x</td><td>=7.4,&#x3C;8.0</td><td><code>git checkout 3.74.x</code><br><code>include "src/MobileDetect.php"</code></td></tr><tr><td>4.8.x</td><td>>=8.0</td><td><code>git checkout 4.8.x</code><br><code>composer require mobiledetect/mobiledetectlib</code></td></tr></tbody></table>
-
-***
-
-## **How do I install it in my project?**
-
-If you are using `composer` and it's autoload, then just install it via Composer.
-
-If you want to install it manually, then it's probably better to use the branch "2.8.x" or "3.74.x".
-
-Since "4.8.x" branch, the MobileDetect library is no longer stand-alone, it requires some extra classes for Cache and Exceptions.
 
 ***
 
