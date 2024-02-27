@@ -25,37 +25,6 @@ The library's main purpose is to detect "mobile" devices and attempt to figure o
 
 ***
 
-## **How do I use it?**
-
-```php
-// 1. Include composer's autoloader
-require __DIR__ . '/vendor/autoload.php';
-
-use Detection\MobileDetect;
-// Instantiate the class.
-// Here you can inject your own caching system.
-$detect = new MobileDetect();
-// Set the user agent string from HTTP headers or manually.
-$detect->setUserAgent('Mozilla/5.0 (iPad; CPU OS 14_7 like Mac OS X) ...');
-// Finally, check for "mobile".
-$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
-```
-
-## Examples
-
-```php
-use Detection\MobileDetect;
-
-require_once  __DIR__ . '/../vendor/autoload.php';
-
-$detect = new MobileDetect();
-// This is optional. We scan for known $_SERVER variables.
-// See: https://github.com/serbanghita/Mobile-Detect/issues/948#issuecomment-1800271108
-$detect->setUserAgent('Mozilla/5.0 (iPad; CPU OS 14_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/248.1.504392274 Mobile/15E148 Safari/604.1');
-$isMobile = $detect->isMobile();
-$isTablet = $detect->isTablet();
-```
-
 ## Extending / Porting
 
 [https://github.com/serbanghita/Mobile-Detect/blob/4.8.x/MobileDetect.json](https://github.com/serbanghita/Mobile-Detect/blob/4.8.x/MobileDetect.json)
