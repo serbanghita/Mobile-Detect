@@ -16,6 +16,16 @@ If you are using `composer` and it's autoload, then just install it via Composer
 composer require mobiledetect/mobiledetectlib
 ```
 
+or manually including the library in `composer.json`:
+
+```json
+{
+  "require": {
+      "mobiledetect/mobiledetectlib": "^4.8"
+  }
+}
+```
+
 If you want to install it manually, then it's probably better to use the branch "2.8.x" or "3.74.x".
 
 Since "4.8.x" branch, the MobileDetect library is no longer stand-alone, it requires some extra classes for Cache and Exceptions.

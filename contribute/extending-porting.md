@@ -8,6 +8,8 @@ description: >-
 
 Open [https://github.com/serbanghita/Mobile-Detect/blob/4.8.x/MobileDetect.json](https://github.com/serbanghita/Mobile-Detect/blob/4.8.x/MobileDetect.json)
 
+It contains all the information necessary to create a "mobile" detection script in any programming language. You can auto-import this periodically in your repository by checking the `version` property, which is updated on each release.
+
 The following fields will help you create a Mobile Detect script in the language of your choice.
 
 ```json
