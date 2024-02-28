@@ -4,14 +4,14 @@ description: Welcome to the guide on how to use Mobile Detect PHP library in you
 
 # 👋 Introduction
 
-## **What is it?**
+### **What is it?**
 
 Mobile Detect is a lightweight PHP package for detecting mobile devices (including tablets). \
 It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.
 
 ***
 
-## **How does it work?**
+### **How does it work?**
 
 MobileDetect class uses a list of regexes ordered by importance.
 
