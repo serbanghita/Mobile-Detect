@@ -10,7 +10,7 @@ description: How to install and use the library
 
 ## **How do I install it in my project?**
 
-If you are using `composer` and it's autoload, then just install it via Composer.
+If you are using `composer` and it's autoload, then just install it [via Composer](https://packagist.org/packages/mobiledetect/mobiledetectlib).
 
 ```sh
 composer require mobiledetect/mobiledetectlib
