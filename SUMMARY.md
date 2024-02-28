@@ -12,4 +12,4 @@
   * [📄 Project structure](project-structure.md)
   * [🌏 Extending / Porting](contribute/extending-porting.md)
 * [🤓 Credits](credits.md)
-* [Mobile Detect ports](mobile-detect-ports.md)
+* [🐉 Mobile Detect ports](mobile-detect-ports.md)
