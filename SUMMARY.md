@@ -5,7 +5,7 @@
 * [⌨️ Library](usage/README.md)
   * [Example](usage/example.md)
   * [The constructor](usage/the-constructor.md)
-  * [2.x and 3.x](usage/2.x-and-3.x.md)
+  * [Other versions](usage/2.x-and-3.x.md)
 * [📱 Demo](demo.md)
 * [📊 Performance](performance.md)
 * [🤝 Contribute](contribute/README.md)
