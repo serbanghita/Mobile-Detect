@@ -36,7 +36,7 @@ Special thanks to:
 
 ## 📃 Documentation
 
-[The entire documentation is available on Gitbook 🌍](https://mobile-detect.gitbook.io/)
+The entire documentation is available on Gitbook: [https://docs.mobiledetect.net](https://docs.mobiledetect.net)
 
 ## 👾 Demo
 
