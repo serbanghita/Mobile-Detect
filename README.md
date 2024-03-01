@@ -38,6 +38,11 @@ Special thanks to:
 
 [The entire documentation is available on Gitbook 🌍](https://mobile-detect.gitbook.io/)
 
+## 👾 Demo
+
+Point your device to:
+[https://demo.mobiledetect.net](https://demo.mobiledetect.net)
+
 ## 🐛 Testing
 
 ``` bash
