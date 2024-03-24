@@ -4,9 +4,7 @@ description: Learn how to use Mobile Detect library.
 
 # ⌨️ Library
 
-### Basic usage
-
-1. Include composer's autoloader.
+1. ### Include composer's autoloader.
 
 In case you are already using a PHP app, this step is probably already covered.
 
@@ -14,14 +12,14 @@ In case you are already using a PHP app, this step is probably already covered.
 require __DIR__ . '/vendor/autoload.php';
 ```
 
-2. Instantiate the class.
+2. ### Instantiate the class.
 
 ```php
 use Detection\MobileDetect;
 $detect = new MobileDetect();
 ```
 
-3. (Optional) Set the User-Agent.
+3. ### (Optional) Set the User-Agent.
 
 Omit this step if your HTTP headers are available in `$_SERVER` global variable.
 
@@ -29,7 +27,7 @@ Omit this step if your HTTP headers are available in `$_SERVER` global variable.
 $detect->setUserAgent('Mozilla/5.0 (iPad; CPU OS 14_7 like Mac OS X) ...');
 ```
 
-4. Check for "mobile".
+4. ### Check for "mobile".
 
 ```php
 $isMobile = $detect->isMobile();

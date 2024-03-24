@@ -111,7 +111,7 @@ description: Various libraries, modules, plugins and ports submitted by users.
 
 **Perl**
 
-* [MobileDetect.pm](https://www.buzzerstar.com/development/) is a Perl module for Mobile Detect. Made by [Sebastian Enger](https://devop.tools/).
+* [MobileDetect.pm](https://metacpan.org/pod/MobileDetect) is a Perl module for Mobile Detect. Made by [Sebastian Enger](https://github.com/sebastianenger1981/).
 
 **Python**
 
