@@ -1028,11 +1028,11 @@ class MobileDetect
      * Construct an instance of this class.
      */
     public function __construct(
-        Cache $cache = null,
+        ?Cache $cache = null,
         array $config = [],
     ) {
         // If no custom cache provided then use our own.
-        $this->cache = $cache == null ? new Cache() : $cache;
+        $this->cache = $cache ?? new Cache();
         // Override config from user.
         $this->config = array_merge($this->config, $config);
 
