@@ -333,6 +333,8 @@ class MobileDetect
         'HTTP_X_ATT_DEVICEID'          => null,
         // Seen this on a HTC.
         'HTTP_UA_CPU'                  => ['matches' => ['ARM']],
+        // See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Mobile
+        'Sec-CH-UA-Mobile'             => ['matches' => ['?1']],
     ];
 
     /**
