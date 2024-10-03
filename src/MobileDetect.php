@@ -31,6 +31,7 @@ use Detection\Cache\Cache;
 use Detection\Cache\CacheException;
 use Detection\Exception\MobileDetectException;
 use Psr\Cache\InvalidArgumentException;
+use Psr\SimpleCache\CacheInterface;
 
 /**
  * Auto-generated isXXXX() magic methods.
@@ -231,7 +232,7 @@ class MobileDetect
      *
      * Replace this with your own implementation.
      */
-    protected Cache $cache;
+    protected CacheInterface $cache;
 
     /**
      * Stores the version number of the current release.
@@ -1028,7 +1029,7 @@ class MobileDetect
      * Construct an instance of this class.
      */
     public function __construct(
-        ?Cache $cache = null,
+        ?CacheInterface $cache = null,
         array $config = [],
     ) {
         // If no custom cache provided then use our own.
@@ -1508,7 +1509,7 @@ class MobileDetect
         try {
             $cacheKey = $this->createCacheKey($ruleName);
             $cacheItem = $this->cache->get($cacheKey);
-            if (!is_null($cacheItem)) {
+            if ($cacheItem) {
                 return $cacheItem->get();
             }
 
