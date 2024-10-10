@@ -191,6 +191,7 @@ use Psr\SimpleCache\CacheInterface;
  * @method bool isWindowsPhoneOS()
  * @method bool isiOS()
  * @method bool isiPadOS()
+ * @method bool isMacintosh()
  * @method bool isSailfishOS()
  * @method bool isMeeGoOS()
  * @method bool isMaemoOS()
@@ -864,6 +865,7 @@ class MobileDetect
         'iOS'               => '\biPhone.*Mobile|\biPod|\biPad|AppleCoreMedia',
         // https://en.wikipedia.org/wiki/IPadOS
         'iPadOS' => 'CPU OS 13',
+        'Macintosh' => 'Macintosh',
         // @reference https://en.m.wikipedia.org/wiki/Sailfish_OS
         // https://sailfishos.org/
         'SailfishOS'        => 'Sailfish',
