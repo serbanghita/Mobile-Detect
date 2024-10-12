@@ -65,6 +65,7 @@ use Psr\SimpleCache\CacheInterface;
  * @method bool isINQ()
  * @method bool isOnePlus()
  * @method bool isGenericPhone()
+ * @method bool isHuawei()
  * @method bool isiPad()
  * @method bool isNexusTablet()
  * @method bool isGoogleTablet()
@@ -198,6 +199,7 @@ use Psr\SimpleCache\CacheInterface;
  * @method bool iswebOS()
  * @method bool isbadaOS()
  * @method bool isBREWOS()
+ * @method bool isHarmonyOS()
  * @method bool isChrome()
  * @method bool isDolfin()
  * @method bool isOpera()
@@ -219,6 +221,7 @@ use Psr\SimpleCache\CacheInterface;
  * @method bool isNetFront()
  * @method bool isGenericBrowser()
  * @method bool isPaleMoon()
+ * @method bool isHuaweiBrowser()
  * @method bool isWebKit()
  * @method bool isConsole()
  * @method bool isWatch()
@@ -470,6 +473,7 @@ class MobileDetect
         'OnePlus'   => 'ONEPLUS',
         // @Tapatalk is a mobile app; http://support.tapatalk.com/threads/smf-2-0-2-os-and-browser-detection-plugin-and-tapatalk.15565/#post-79039
         'GenericPhone'  => 'Tapatalk|PDA;|SAGEM|\bmmp\b|pocket|\bpsp\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\bwap\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser',
+        'Huawei'        => 'HMSCore',
     ];
 
     /**
@@ -877,6 +881,7 @@ class MobileDetect
         'webOS'             => 'webOS|hpwOS',
         'badaOS'            => '\bBada\b',
         'BREWOS'            => 'BREW',
+        'HarmonyOS'         => 'HarmonyOS',
     ];
 
     /**
@@ -927,6 +932,7 @@ class MobileDetect
         'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger',
         // @reference: https://en.wikipedia.org/wiki/Pale_Moon_(web_browser)
         'PaleMoon'        => 'Android.*PaleMoon|Mobile.*PaleMoon',
+        'HuaweiBrowser'   => 'HuaweiBrowser',
     ];
 
     /**
