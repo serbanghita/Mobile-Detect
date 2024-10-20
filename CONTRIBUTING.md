@@ -22,16 +22,43 @@ depending on your PHP version:
 
 ```bash
 git checkout -b my-new-patch origin/x.x.x
+```
+
+### 3. Build
+
+#### Local
+
+```shell
 composer install
+```
+
+#### With Docker CLI
+
+```shell
+DOCKER_BUILDKIT=0 docker build -f ./docker/Dockerfile -t build .
+```
+
+#### With `docker-compose.yml` (recommended)
+
+```shell
+docker compose build setup
 ```
 
 ### 3. Lint the code
 
 Ensure the code is clean, just run the linters:
 
+#### Local
+
 ```bash
 ./vendor/bin/phpcs
 ./vendor/bin/phpcbf
+```
+
+#### With `docker-compose.yml` (recommended)
+
+```shell
+docker compose build runLinting
 ```
 
 ### 4. Run unit and integration tests
@@ -41,8 +68,16 @@ otherwise your PR will not be accepted.
 If you add new regexes make sure you commit the User-Agents in [`tests/providers/vendors`](https://github.com/serbanghita/Mobile-Detect/tree/master/tests/providers/vendors).
 Now that your changes are done, **run the unit tests**:
 
+#### Locally
+
 ```bash
 vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-html .coverage
+```
+
+#### With `docker-compose.yml` (recommended)
+
+```shell
+docker compose run runUnitTests
 ```
 
 Make sure you check the `.coverage` folder and open the report. \
@@ -50,8 +85,16 @@ The coverage should be just like you first started (close to 100%).
 
 ### 5. Run performance tests
 
+#### Local
+
 ```bash
 ./vendor/bin/phpbench run tests/Benchmark/MobileDetectBench.php --ref=baseline --retry-threshold=1 --iterations=10 --revs=1000 --report=aggregate
+```
+
+#### With `docker-compose.yml` (recommended)
+
+```shell
+docker compose run runPerfTests
 ```
 
 Baseline re-creation:
