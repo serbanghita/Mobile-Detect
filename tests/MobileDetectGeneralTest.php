@@ -394,7 +394,10 @@ final class MobileDetectGeneralTest extends TestCase
             ]],
             [[
                 'HTTP_UA_CPU' => 'ARM'
-            ]]
+            ]],
+            [[
+                'Sec-CH-UA-Mobile' => '?1'
+            ]],
         ];
     }
 
@@ -428,6 +431,9 @@ final class MobileDetectGeneralTest extends TestCase
             ]],
             [[
                 'HTTP_VIA' => '1.1 ws-proxy.stuff.co.il C0A800FA'
+            ]],
+            [[
+                'Sec-CH-UA-Mobile' => '?0'
             ]],
         ];
     }
