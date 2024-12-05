@@ -65,6 +65,7 @@ use Psr\SimpleCache\CacheInterface;
  * @method bool isINQ()
  * @method bool isOnePlus()
  * @method bool isGenericPhone()
+ * @method bool isHuawei()
  * @method bool isiPad()
  * @method bool isNexusTablet()
  * @method bool isGoogleTablet()
@@ -198,6 +199,7 @@ use Psr\SimpleCache\CacheInterface;
  * @method bool iswebOS()
  * @method bool isbadaOS()
  * @method bool isBREWOS()
+ * @method bool isHarmonyOS()
  * @method bool isChrome()
  * @method bool isDolfin()
  * @method bool isOpera()
@@ -219,6 +221,7 @@ use Psr\SimpleCache\CacheInterface;
  * @method bool isNetFront()
  * @method bool isGenericBrowser()
  * @method bool isPaleMoon()
+ * @method bool isHuaweiBrowser()
  * @method bool isWebKit()
  * @method bool isConsole()
  * @method bool isWatch()
@@ -334,6 +337,9 @@ class MobileDetect
         'HTTP_X_ATT_DEVICEID'          => null,
         // Seen this on a HTC.
         'HTTP_UA_CPU'                  => ['matches' => ['ARM']],
+        // See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-CH-UA-Mobile
+        // "?1" means that the device wants a "mobile" experience.
+        'Sec-CH-UA-Mobile'             => ['matches' => ['?1']],
     ];
 
     /**
@@ -553,6 +559,7 @@ class MobileDetect
         'OnePlus'   => 'ONEPLUS',
         // @Tapatalk is a mobile app; http://support.tapatalk.com/threads/smf-2-0-2-os-and-browser-detection-plugin-and-tapatalk.15565/#post-79039
         'GenericPhone'  => 'Tapatalk|PDA;|SAGEM|\bmmp\b|pocket|\bpsp\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\bwap\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser',
+        'Huawei'        => 'HMSCore|Huawei',
     ];
 
     /**
@@ -694,7 +701,7 @@ class MobileDetect
         'bqTablet'          => 'Android.*(bq)?.*\b(Elcano|Curie|Edison|Maxwell|Kepler|Pascal|Tesla|Hypatia|Platon|Newton|Livingstone|Cervantes|Avant|Aquaris ([E|M]10|M8))\b|Maxwell.*Lite|Maxwell.*Plus',
         // http://www.huaweidevice.com/worldwide/productFamily.do?method=index&directoryId=5011&treeId=3290
         // http://www.huaweidevice.com/worldwide/downloadCenter.do?method=index&directoryId=3372&treeId=0&tb=1&type=software (including legacy tablets)
-        'HuaweiTablet'      => 'MediaPad|MediaPad 7 Youth|IDEOS S7|S7-201c|S7-202u|S7-101|S7-103|S7-104|S7-105|S7-106|S7-201|S7-Slim|M2-A01L|BAH-L09|BAH-W09|AGS-L09|CMR-AL19|KOB2-L09|BG2-U01|BG2-W09|BG2-U03',
+        'HuaweiTablet'      => 'MediaPad|MediaPad 7 Youth|IDEOS S7|S7-201c|S7-202u|S7-101|S7-103|S7-104|S7-105|S7-106|S7-201|S7-Slim|M2-A01L|BAH-L09|BAH-W09|AGS-L09|CMR-AL19|KOB2-L09|BG2-U01|BG2-W09|BG2-U03|AGS-W09',
         // Nec or Medias Tab
         'NecTablet'         => '\bN-06D|\bN-08D',
         // Pantech Tablets: http://www.pantechusa.com/phones/
@@ -960,6 +967,7 @@ class MobileDetect
         'webOS'             => 'webOS|hpwOS',
         'badaOS'            => '\bBada\b',
         'BREWOS'            => 'BREW',
+        'HarmonyOS'         => 'HarmonyOS',
     ];
 
     /**
@@ -1010,6 +1018,7 @@ class MobileDetect
         'GenericBrowser'  => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger',
         // @reference: https://en.wikipedia.org/wiki/Pale_Moon_(web_browser)
         'PaleMoon'        => 'Android.*PaleMoon|Mobile.*PaleMoon',
+        'HuaweiBrowser'   => 'HuaweiBrowser',
     ];
 
     /**

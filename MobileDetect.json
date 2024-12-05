@@ -25,6 +25,11 @@
             "matches": [
                 "ARM"
             ]
+        },
+        "Sec-CH-UA-Mobile": {
+            "matches": [
+                "?1"
+            ]
         }
     },
     "uaHttpHeaders": [
@@ -189,7 +194,8 @@
             "Amoi": "Amoi",
             "INQ": "INQ",
             "OnePlus": "ONEPLUS",
-            "GenericPhone": "Tapatalk|PDA;|SAGEM|\\bmmp\\b|pocket|\\bpsp\\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\\bwap\\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser"
+            "GenericPhone": "Tapatalk|PDA;|SAGEM|\\bmmp\\b|pocket|\\bpsp\\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\\bwap\\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser",
+            "Huawei": "HMSCore"
         },
         "tablets": {
             "iPad": "iPad|iPad.*Mobile",
@@ -437,7 +443,8 @@
             "ObigoBrowser": "Obigo",
             "NetFront": "NF-Browser",
             "GenericBrowser": "NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger",
-            "PaleMoon": "Android.*PaleMoon|Mobile.*PaleMoon"
+            "PaleMoon": "Android.*PaleMoon|Mobile.*PaleMoon",
+            "HuaweiBrowser": "HuaweiBrowser"
         },
         "os": {
             "AndroidOS": "Android",
@@ -454,7 +461,8 @@
             "JavaOS": "J2ME\/|\\bMIDP\\b|\\bCLDC\\b",
             "webOS": "webOS|hpwOS",
             "badaOS": "\\bBada\\b",
-            "BREWOS": "BREW"
+            "BREWOS": "BREW",
+            "HarmonyOS": "HarmonyOS"
         }
     }
 }

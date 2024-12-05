@@ -76,6 +76,12 @@ final class UserAgentTest extends TestCase
                     'user_agent' => $userAgent
                 );
 
+                // Get all dynamic functions to allow test checking.
+                // e.g. "isHuawei"
+//                $tmpDynamicFunctions = array_filter($props, function($value) {
+//                    return !in_array($value, ['isMobile', 'isTablet', 'version', 'model']);
+//                });
+
                 if (isset($props['isMobile'])) {
                     $tmp['mobile'] = $props['isMobile'];
                 }
@@ -90,6 +96,10 @@ final class UserAgentTest extends TestCase
 
                 if (isset($props['model'])) {
                     $tmp['model'] = $props['model'];
+                }
+
+                if (isset($props['vendorCheck'])) {
+                    $tmp['vendorCheck'] = $props['vendorCheck'];
                 }
 
                 $json[] = $tmp;
@@ -132,6 +142,7 @@ final class UserAgentTest extends TestCase
             $tmp[] = $userAgent['version'] ?? null;
             $tmp[] = $userAgent['model'] ?? null;
             $tmp[] = $userAgent['vendor'] ?? null;
+            $tmp[] = $userAgent['vendorCheck'] ?? null;
 
             self::$userAgentList[] = $tmp;
         }
@@ -151,7 +162,7 @@ final class UserAgentTest extends TestCase
      * @dataProvider userAgentData
      * @throws MobileDetectException
      */
-    public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor)
+    public function testUserAgents($userAgent, $isMobile, $isTablet, $version, $model, $vendor, $vendorCheck = false)
     {
         //make sure we're passed valid data
         if (!is_string($userAgent) || !is_bool($isMobile) || !is_bool($isTablet)) {
@@ -181,12 +192,10 @@ final class UserAgentTest extends TestCase
             }
         }
 
-        //@todo: model test, not sure how exactly yet
-        //@todo: vendor test. The below is theoretical, but fails 50% of the tests...
-        /*if (isset($vendor)) {
+        if (isset($vendorCheck) && $vendorCheck === true) {
             $method = "is$vendor";
             $this->assertTrue($this->detect->{$method}(), "Expected Mobile_Detect::{$method}() to be true.");
-        }*/
+        }
     }
 
     /**

@@ -340,7 +340,8 @@ final class MobileDetectGeneralTest extends TestCase
         $this->assertEquals(500, strlen($detect->getUserAgent()));
     }
 
-    //special headers that give 'quick' indication that a device is mobile
+    // Special headers that give 'quick' indication that a device is mobile.
+    // @See: MobileDetect::checkHttpHeadersForMobile()
     public function quickHeadersData(): array
     {
         return [
@@ -394,7 +395,10 @@ final class MobileDetectGeneralTest extends TestCase
             ]],
             [[
                 'HTTP_UA_CPU' => 'ARM'
-            ]]
+            ]],
+            [[
+                'Sec-CH-UA-Mobile' => '?1'
+            ]],
         ];
     }
 
@@ -428,6 +432,10 @@ final class MobileDetectGeneralTest extends TestCase
             ]],
             [[
                 'HTTP_VIA' => '1.1 ws-proxy.stuff.co.il C0A800FA'
+            ]],
+            // Note: the device could be a mobile but doesn't want a "mobile" experience.
+            [[
+                'Sec-CH-UA-Mobile' => '?0'
             ]],
         ];
     }

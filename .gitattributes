@@ -1,3 +1,4 @@
+* text=auto eol=lf
 .editorconfig           export-ignore
 .gitattributes          export-ignore
 /docs/                  export-ignore
