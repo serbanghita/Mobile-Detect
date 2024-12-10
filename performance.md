@@ -1,4 +1,4 @@
-# 📊 Performance
+# Performance
 
 Results are taken from a PC with 32GB RAM, Intel(R) Core(TM) i7-10700KF CPU @ 3.80GHz, Win11 Pro running WSL, PHP 8.x (xdebug: yes, opcache: no)
 

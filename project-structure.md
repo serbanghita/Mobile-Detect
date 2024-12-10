@@ -1,4 +1,8 @@
-# 📄 Project structure
+---
+icon: down-right
+---
+
+# Project structure
 
 ```
 ├── .github                                 # Definitions of GitHub workflows.

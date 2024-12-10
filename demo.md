@@ -1,4 +1,4 @@
-# 📱 Demo
+# Demo
 
 ## **Can I test it on my devices?**
 

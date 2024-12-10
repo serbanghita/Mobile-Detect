@@ -2,9 +2,10 @@
 description: >-
   Learn how to create a port of Mobile Detect in a different language or
   library.
+icon: down-right
 ---
 
-# 🌏 Extending / Porting
+# Extending / Porting
 
 Open [https://github.com/serbanghita/Mobile-Detect/blob/4.8.x/MobileDetect.json](https://github.com/serbanghita/Mobile-Detect/blob/4.8.x/MobileDetect.json)
 
@@ -31,4 +32,4 @@ The following fields will help you create a Mobile Detect script in the language
     }
 ```
 
-If you believe you need more fields or values, please [open a Github issue](https://github.com/serbanghita/Mobile-Detect/issues/new?assignees=serbanghita\&labels=feature\&projects=\&template=feature\_request.md\&title=%5Bfeature%5D).
+If you believe you need more fields or values, please [open a Github issue](https://github.com/serbanghita/Mobile-Detect/issues/new?assignees=serbanghita\&labels=feature\&projects=\&template=feature_request.md\&title=%5Bfeature%5D).

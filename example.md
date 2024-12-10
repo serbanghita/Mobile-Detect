@@ -1,5 +1,6 @@
 ---
 description: A simple example of how to use MobileDetect library.
+icon: down-right
 ---
 
 # Example

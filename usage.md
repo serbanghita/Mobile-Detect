@@ -1,8 +1,9 @@
 ---
-description: Learn how to use Mobile Detect library.
+description: Learn how to use Mobile Detect library step-by-step.
+icon: down-right
 ---
 
-# ⌨️ Library
+# How to use
 
 1. ### Include composer's autoloader.
 

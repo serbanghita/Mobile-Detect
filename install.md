@@ -2,7 +2,7 @@
 description: How to install and use the library
 ---
 
-# 📦 Install
+# Install
 
 ## **What version should I install?**
 

@@ -2,9 +2,9 @@
 description: Welcome to the guide on how to use Mobile Detect PHP library in your project.
 ---
 
-# 👋 Introduction
+# Introduction
 
-![Workflow status](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/4.8.x-test.yml?style=flat-square) ![Latest tag](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?filter=4.\*\&style=flat-square) ![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square\&label=installs) ![Total Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square\&label=installs) ![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)
+![Workflow status](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/4.8.x-test.yml?style=flat-square) ![Latest tag](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?filter=4.*\&style=flat-square) ![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square\&label=installs) ![Total Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square\&label=installs) ![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)
 
 ### **What is it?**
 

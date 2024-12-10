@@ -2,7 +2,7 @@
 description: Various libraries, modules, plugins and ports submitted by users.
 ---
 
-# 🐉 Mobile Detect ports
+# Plugins, Modules and Ports
 
 [Submit new module, plugin, port](https://github.com/serbanghita/Mobile-Detect/issues/new?title=New%203rd%20party%20module\&body=Name,%20Link%20and%20Description%20of%20the%20module.)
 
@@ -33,9 +33,9 @@ description: Various libraries, modules, plugins and ports submitted by users.
 
 **Drupal**
 
-* [Drupal Mobile Switch](https://www.drupal.org/project/mobile\_switch) - The Mobile Switch Drupal module provides a automatic theme switch functionality for mobile devices, detected by Browscap or Mobile Detect. Made by [Siegfried Neumann](https://www.drupal.org/user/45267).
-* [Drupal Context Mobile Detect](https://www.drupal.org/project/context\_mobile\_detect) - This is a Drupal context module which integrates Context and PHP Mobile Detect library. Created by [Artem Shymko](https://www.drupal.org/user/432492).
-* [Drupal Mobile Detect](https://www.drupal.org/project/mobile\_detect) - Lightweight mobile detect module for Drupal created by [Matthew Donadio](https://www.drupal.org/user/325244).
+* [Drupal Mobile Switch](https://www.drupal.org/project/mobile_switch) - The Mobile Switch Drupal module provides a automatic theme switch functionality for mobile devices, detected by Browscap or Mobile Detect. Made by [Siegfried Neumann](https://www.drupal.org/user/45267).
+* [Drupal Context Mobile Detect](https://www.drupal.org/project/context_mobile_detect) - This is a Drupal context module which integrates Context and PHP Mobile Detect library. Created by [Artem Shymko](https://www.drupal.org/user/432492).
+* [Drupal Mobile Detect](https://www.drupal.org/project/mobile_detect) - Lightweight mobile detect module for Drupal created by [Matthew Donadio](https://www.drupal.org/user/325244).
 
 **Joomla**
 
@@ -70,7 +70,7 @@ description: Various libraries, modules, plugins and ports submitted by users.
 
 **Slim Framework**
 
-* [Slim\_Mobile\_Detect](https://github.com/zguillez/slim\_mobile\_detect) implements Mobile\_Detect lib for different responses write on Slim Framework App.
+* [Slim\_Mobile\_Detect](https://github.com/zguillez/slim_mobile_detect) implements Mobile\_Detect lib for different responses write on Slim Framework App.
 
 **ExpressionEngine**
 
@@ -88,11 +88,11 @@ description: Various libraries, modules, plugins and ports submitted by users.
 
 **FuelPHP**
 
-* [Special Agent](https://github.com/rob-bar/special\_agent) is a FuelPHP package which uses php-mobile-detect to determine whether a device is mobile or not. It overrides the Fuelphp Agent class its methods. Made by [Robbie Bardjin](https://github.com/rob-bar).
+* [Special Agent](https://github.com/rob-bar/special_agent) is a FuelPHP package which uses php-mobile-detect to determine whether a device is mobile or not. It overrides the Fuelphp Agent class its methods. Made by [Robbie Bardjin](https://github.com/rob-bar).
 
 **TYPO3**
 
-* [px\_mobiledetect](https://typo3.org/extensions/repository/view/px\_mobiledetect) is an extension that helps to detect visitor's mobile device class (if that’s tablet or mobile device like smartphone). Made by Alexander Tretyak.
+* [px\_mobiledetect](https://typo3.org/extensions/repository/view/px_mobiledetect) is an extension that helps to detect visitor's mobile device class (if that’s tablet or mobile device like smartphone). Made by Alexander Tretyak.
 
 **Other**
 
@@ -107,7 +107,7 @@ description: Various libraries, modules, plugins and ports submitted by users.
 * [LJ Mobile Detect](https://github.com/lewisjenkins/craft-lj-mobiledetect) is a simple implementation of Mobile Detect for Craft CMS. Made by [Lewis Jenkins](https://github.com/lewisjenkins).
 * [Detect Craft](https://github.com/mmikkel/Detect-Craft) is a Craft CMS wrapper for the Mobile\_Detect library. Made by [Mikkel Rummelhoff](https://github.com/mmikkel).
 * [Grav Plugin Mobile Detect](https://github.com/dimitrilongo/grav-plugin-mobile-detect/) is a simple implementation of Mobile Detect for Grav CMS. Made by [Dimitri Longo](https://github.com/dimitrilongo).
-* [Mobile\_Detect module for UliCMS](https://github.com/derUli/ulicms-Mobile\_Detect). Made by [derUli](https://github.com/derUli).
+* [Mobile\_Detect module for UliCMS](https://github.com/derUli/ulicms-Mobile_Detect). Made by [derUli](https://github.com/derUli).
 
 **Perl**
 
@@ -119,7 +119,7 @@ description: Various libraries, modules, plugins and ports submitted by users.
 
 **Ruby**
 
-* [mobile\_detect.rb](https://github.com/ktaragorn/mobile\_detect) is a Ruby gem using the JSON data exposed by the php project and implementing a basic subset of the API (as much as can be done by the exposed data). Made by [Karthik T](https://github.com/ktaragorn).
+* [mobile\_detect.rb](https://github.com/ktaragorn/mobile_detect) is a Ruby gem using the JSON data exposed by the php project and implementing a basic subset of the API (as much as can be done by the exposed data). Made by [Karthik T](https://github.com/ktaragorn).
 
 **Go**
 

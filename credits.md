@@ -1,4 +1,4 @@
-# 🤓 Credits
+# Credits
 
 * [Serban Ghita](https://github.com/serbanghita) - maintainer, lead dev
 

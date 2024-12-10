@@ -1,8 +1,9 @@
 ---
 description: Learn how to contribute with code patches.
+icon: down-right
 ---
 
-# 🚢 Contribute by developing code
+# Developing code
 
 1. ### [Fork](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository) the repository.
 
