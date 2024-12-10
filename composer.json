@@ -15,6 +15,7 @@
     ],
     "require": {
         "php": ">=8.0",
+        "psr/cache": "^2 || ^3",
         "psr/simple-cache": "^2 || ^3"
     },
     "require-dev": {
