@@ -3,13 +3,14 @@ icon: down-right
 description: Learn how to use Mobile Detect library via composer
 ---
 
-# How to use (with composer)
+# How to use (composer)
 
 ```
 composer require mobiledetect/mobiledetectlib
 ```
 
 ```json
+// composer.json
 {
     "require": {
         "mobiledetect/mobiledetectlib": "4.8.09" // Change to the lastest version.
@@ -18,6 +19,7 @@ composer require mobiledetect/mobiledetectlib
 ```
 
 ```php
+// your_script.php
 // (optional) You're app is probably already using composer autoloader.
 require __DIR__ . '/vendor/autoload.php';
 
