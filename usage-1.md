@@ -1,13 +1,12 @@
 ---
-description: Learn how to use Mobile Detect library step-by-step.
 icon: down-right
+description: Learn how to use Mobile Detect library step-by-step.
 ---
 
 # How to use (standalone)
 
 ```bash
-git@github.com:serbanghita/Mobile-Detect.git
-touch example.php
+git clone git@github.com:serbanghita/Mobile-Detect.git
 ```
 
 ```php
