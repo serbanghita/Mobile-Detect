@@ -2,8 +2,8 @@
 
 * [Introduction](README.md)
 * [Install](install.md)
-* [How to use (composer)](usage.md)
-* [How to use (standalone)](usage-1.md)
+* [How to use (composer)](usage-composer.md)
+* [How to use (standalone)](usage-standalone.md)
 * [The constructor](the-constructor.md)
 * [Example](example.md)
 * [Other versions](2.x-and-3.x.md)
