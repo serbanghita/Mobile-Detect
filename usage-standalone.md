@@ -1,6 +1,8 @@
 ---
 icon: down-right
-description: Learn how to use Mobile Detect library step-by-step.
+description: >-
+  Learn how to use Mobile Detect library as a standalone PHP class, without
+  composer.
 ---
 
 # How to use (standalone)
