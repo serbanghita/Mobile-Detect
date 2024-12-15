@@ -7,7 +7,10 @@ description: Learn how to use Mobile Detect library step-by-step.
 
 ```bash
 git clone git@github.com:serbanghita/Mobile-Detect.git
+git checkout 4.8.x
 ```
+
+Or without `git`, just go to [https://github.com/serbanghita/Mobile-Detect](https://github.com/serbanghita/Mobile-Detect) and click on the green button "Code" -> "Download ZIP" (by default you get 4.8.x version).
 
 ```php
 <?php
