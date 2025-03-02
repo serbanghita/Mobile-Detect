@@ -31,8 +31,8 @@ use Detection\Cache\Cache;
 use Detection\Cache\CacheException;
 use Detection\Exception\MobileDetectException;
 use Psr\Cache\CacheItemInterface;
-use Psr\Cache\InvalidArgumentException;
 use Psr\SimpleCache\CacheInterface;
+use Psr\SimpleCache\InvalidArgumentException;
 
 /**
  * Auto-generated isXXXX() magic methods.
@@ -1375,7 +1375,6 @@ class MobileDetect
      * @return bool
      * @throws BadMethodCallException when the method doesn't exist and doesn't start with 'is'
      * @throws \Exception
-     * @throws InvalidArgumentException
      */
     public function __call(string $name, array $arguments)
     {
@@ -1434,7 +1433,7 @@ class MobileDetect
                 $this->cache->set($cacheKey, $result, $this->config['cacheTtl']);
                 return $result;
             }
-        } catch (CacheException $e) {
+        } catch (InvalidArgumentException $e) {
             throw new MobileDetectException("Cache problem in isMobile(): {$e->getMessage()}");
         }
     }
@@ -1506,7 +1505,7 @@ class MobileDetect
 
             $this->cache->set($cacheKey, false, $this->config['cacheTtl']);
             return false;
-        } catch (CacheException $e) {
+        } catch (InvalidArgumentException $e) {
             throw new MobileDetectException("Cache problem in isTablet(): {$e->getMessage()}");
         }
     }
@@ -1545,7 +1544,7 @@ class MobileDetect
             // Cache save.
             $this->cache->set($cacheKey, $result, $this->config['cacheTtl']);
             return $result;
-        } catch (CacheException $e) {
+        } catch (InvalidArgumentException $e) {
             throw new MobileDetectException("Cache problem in is(): {$e->getMessage()}");
         }
     }

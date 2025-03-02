@@ -4,7 +4,7 @@ namespace Detection\Cache;
 
 use Psr\SimpleCache\InvalidArgumentException;
 
-class CacheException extends \Exception
+class CacheException extends \Exception implements InvalidArgumentException
 {
     public function __construct($message, $code = 0, ?\Throwable $previous = null)
     {
