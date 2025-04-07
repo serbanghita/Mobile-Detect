@@ -3,7 +3,6 @@
 namespace DetectionTests;
 
 use Detection\Cache\Cache;
-use Detection\Cache\CacheItem;
 use Detection\Exception\MobileDetectException;
 use Detection\MobileDetect;
 use PHPUnit\Framework\TestCase;
@@ -47,7 +46,7 @@ final class MobileDetectWithCacheTest extends TestCase
     }
 
     /**
-     * @throws MobileDetectException
+     * @throws MobileDetectException|InvalidArgumentException
      */
     public function testDefaultCacheClassCreatesMultipleCacheRecordsForAllCalls()
     {
@@ -74,14 +73,11 @@ final class MobileDetectWithCacheTest extends TestCase
         $this->assertTrue($isiOS);
         $this->assertTrue($isiOS2);
 
-        $this->assertInstanceOf(CacheItem::class, $detect->getCache()->get(sha1("mobile:$userAgent:")));
-        $this->assertTrue($detect->getCache()->get(sha1("mobile:$userAgent:"))->get());
-        $this->assertInstanceOf(CacheItem::class, $detect->getCache()->get(sha1("tablet:$userAgent:")));
-        $this->assertTrue($detect->getCache()->get(sha1("tablet:$userAgent:"))->get());
-        $this->assertInstanceOf(CacheItem::class, $detect->getCache()->get(sha1("iPad:$userAgent:")));
-        $this->assertTrue($detect->getCache()->get(sha1("iPad:$userAgent:"))->get());
-        $this->assertInstanceOf(CacheItem::class, $detect->getCache()->get(sha1("iOS:$userAgent:")));
-        $this->assertTrue($detect->getCache()->get(sha1("iOS:$userAgent:"))->get());
+
+        $this->assertTrue($detect->getCache()->get(sha1("mobile:$userAgent:")));
+        $this->assertTrue($detect->getCache()->get(sha1("tablet:$userAgent:")));
+        $this->assertTrue($detect->getCache()->get(sha1("iPad:$userAgent:")));
+        $this->assertTrue($detect->getCache()->get(sha1("iOS:$userAgent:")));
     }
 
     /**
@@ -121,17 +117,16 @@ final class MobileDetectWithCacheTest extends TestCase
     public function testGetCacheKeyIsUsedInConsecutiveCallsIfFoundIn()
     {
         $cache = $this->getMockBuilder(Cache::class)
-            ->onlyMethods(["get", "set"])
+            ->enableProxyingToOriginalMethods()
             ->getMock();
-        $cache->method('get')->withAnyParameters()->willReturn(new CacheItem('name', 'value'));
-        $cache->method('set')->withAnyParameters()->willReturn(true);
 
-        $cache->expects($spy = $this->exactly(2))->method('get');
-        $cache->expects($spy = $this->never())->method('set');
+        $cache->expects($this->exactly(3))->method('get');
+        $cache->expects($this->exactly(1))->method('set');
 
         $detect = new MobileDetect($cache);
         $detect->setUserAgent('iPad; AppleWebKit/533.17.9 Version/5.0.2 Mobile/8C148 Safari/6533.18.5');
 
+        $detect->isMobile();
         $detect->isMobile();
         $detect->isMobile();
     }

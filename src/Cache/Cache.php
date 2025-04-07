@@ -1,104 +1,195 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Detection\Cache;
 
-use DateTime;
 use Psr\SimpleCache\CacheInterface;
+use DateInterval;
+use DateTime;
+use InvalidArgumentException;
+use Traversable;
+
+use function is_array;
+use function is_int;
+use function iterator_to_array;
+use function time;
 
 /**
- * Generic naive implementation of a Simple Cache system using an associative array.
- * The cache items are PSR-6 compatible.
+ * In-memory cache implementing https://www.php-fig.org/psr/psr-16/
+ * This is a fallback, use something specialised like https://github.com/chillerlan/php-cache
  */
 class Cache implements CacheInterface
 {
-    /**
-     * @var array|array{cache_key:string, cache_value:CacheItem} $cache_db
-     */
-    protected array $cache_db = [];
+    protected array $cache = [];
 
-    public function count(): int
+    /** @inheritdoc */
+    public function get(string $key, mixed $default = null): mixed
     {
-        return count($this->cache_db);
+        $key = $this->checkKey($key);
+
+        if (isset($this->cache[$key])) {
+            if ($this->cache[$key]['ttl'] === null || $this->cache[$key]['ttl'] > time()) {
+                return $this->cache[$key]['content'];
+            }
+
+            unset($this->cache[$key]);
+        }
+
+        return $default;
+    }
+
+    /** @inheritdoc */
+    public function set(string $key, mixed $value, int|DateInterval|null $ttl = null): bool
+    {
+        $ttl = $this->getTTL($ttl);
+
+        if ($ttl !== null) {
+            $ttl = (time() + $ttl);
+        }
+
+        $this->cache[$this->checkKey($key)] = ['ttl' => $ttl, 'content' => $value];
+
+        return true;
+    }
+
+    /** @inheritdoc */
+    public function delete(string $key): bool
+    {
+        unset($this->cache[$this->checkKey($key)]);
+
+        return true;
+    }
+
+    /** @inheritdoc */
+    public function clear(): bool
+    {
+        $this->cache = [];
+
+        return true;
+    }
+
+    /** @inheritdoc */
+    public function has(string $key): bool
+    {
+        return $this->get($key) !== null;
+    }
+
+    /** @inheritdoc */
+    public function getMultiple(iterable $keys, mixed $default = null): iterable
+    {
+        $data = [];
+
+        foreach ($this->fromIterable($keys) as $key) {
+            $data[$key] = $this->get($key, $default);
+        }
+
+        return $data;
+    }
+
+    /** @inheritdoc */
+    public function setMultiple(iterable $values, int|DateInterval|null $ttl = null): bool
+    {
+        $return = [];
+
+        foreach ($this->fromIterable($values) as $key => $value) {
+            $return[] = $this->set($key, $value, $ttl);
+        }
+
+        return $this->checkReturn($return);
+    }
+
+    /** @inheritdoc */
+    public function deleteMultiple(iterable $keys): bool
+    {
+        $return = [];
+
+        foreach ($this->fromIterable($keys) as $key) {
+            $return[] = $this->delete($key);
+        }
+
+        return $this->checkReturn($return);
     }
 
     /**
+     * @throws \InvalidArgumentException
+     */
+    protected function checkKey(string $key): string
+    {
+
+        if (empty($key)) {
+            throw new InvalidArgumentException('cache key is empty');
+        }
+
+        return $key;
+    }
+
+    /**  */
+    protected function checkKeyArray(array $keys): array
+    {
+
+        foreach ($keys as $key) {
+            $this->checkKey($key);
+        }
+
+        return $keys;
+    }
+
+    /**
+     * @throws \InvalidArgumentException
+     */
+    protected function fromIterable(iterable $data): array
+    {
+
+        if (is_array($data)) {
+            return $data;
+        }
+
+        if ($data instanceof Traversable) {
+            return iterator_to_array($data); // @codeCoverageIgnore
+        }
+
+        throw new InvalidArgumentException('invalid data');
+    }
+
+    /**  */
+    protected function getTTL(DateInterval|int|null $ttl): ?int
+    {
+
+        if ($ttl instanceof DateInterval) {
+            return (new DateTime())->add($ttl)->getTimeStamp() - time();
+        }
+
+        // We treat 0 as a valid value.
+        if (is_int($ttl)) {
+            return $ttl;
+        }
+
+        return null;
+    }
+
+    /**
+     * @param bool[]|int[] $booleans
+     */
+    protected function checkReturn(array $booleans): bool
+    {
+
+        foreach ($booleans as $boolean) {
+            if (!(bool)$boolean) {
+                return false; // @codeCoverageIgnore
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Get all cache keys. Needed for testing purposes.
+     *
      * @return array{string}
      */
     public function getKeys(): array
     {
-        return array_keys($this->cache_db);
-    }
-
-    /**
-     * @throws CacheException
-     */
-    public function get(string $key, mixed $default = null): CacheItem|null
-    {
-        if (empty($key)) {
-            throw new CacheException('Invalid cache key');
-        }
-
-        return $this->cache_db[$key] ?? null;
-    }
-
-    /**
-     * @throws CacheException
-     */
-    public function set(string $key, mixed $value, \DateInterval|int|null $ttl = null): bool
-    {
-        if (empty($key)) {
-            throw new CacheException('Invalid cache key');
-        }
-        $item = new CacheItem($key, $value);
-        $item->expiresAfter($ttl);
-        $this->cache_db[$key] = $item;
-        return true;
-    }
-
-    public function delete(string $key): bool
-    {
-        unset($this->cache_db[$key]);
-        return true;
-    }
-
-    public function clear(): bool
-    {
-        $this->cache_db = [];
-        return true;
-    }
-
-    public function getMultiple(iterable $keys, mixed $default = null): iterable
-    {
-        return array_reduce((array)$keys, function ($result, $key) {
-            $result[$key] = $this->get($key);
-            return $result;
-        }, []);
-    }
-
-    /**
-     * @param array<array{key:string, value:string}> $values
-     * @param \DateInterval|int|null $ttl
-     * @return bool
-     * @throws CacheException
-     */
-    public function setMultiple(iterable $values, \DateInterval|int|null $ttl = null): bool
-    {
-        foreach ($values as $key => $value) {
-            $this->set($key, $value, $ttl);
-        }
-        return true;
-    }
-
-    public function deleteMultiple(iterable $keys): bool
-    {
-        foreach ($keys as $key) {
-            unset($this->cache_db[$key]);
-        }
-        return true;
-    }
-
-    public function has(string $key): bool
-    {
-        return isset($this->cache_db[$key]);
+        return array_keys($this->cache);
     }
 }

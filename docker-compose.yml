@@ -4,13 +4,14 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile.setup
     volumes:
+#      - ./:/app
       - ./vendor:/app/vendor
 
   # Example: docker compose -p mobile-detect up --build runUnitTests
   runUnitTests:
     # Need xdebug from this image to run with coverage
     # https://hub.docker.com/r/alcohol/php/tags
-    image: alcohol/php:8.3-xdebug
+    image: alcohol/php:8.4-xdebug
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -23,7 +24,7 @@ services:
       - .:/app
 
   runPerfTests:
-    image: php:8.3-rc-alpine3.18
+    image: php:8.4-rc-alpine3.21
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -34,7 +35,7 @@ services:
       - .:/app
 
   runLinting:
-    image: php:8.3-rc-alpine3.18
+    image: php:8.4-rc-alpine3.21
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -45,7 +46,7 @@ services:
       - .:/app
 
   runQualityCheck:
-    image: php:8.3-rc-alpine3.18
+    image: php:8.4-rc-alpine3.21
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -56,7 +57,7 @@ services:
       - .:/app
 
   generateJsonModel:
-    image: php:8.3-rc-alpine3.18
+    image: php:8.4-rc-alpine3.21
     depends_on:
       setup:
         condition: service_completed_successfully

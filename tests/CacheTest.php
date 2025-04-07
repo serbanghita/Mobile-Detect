@@ -3,8 +3,6 @@
 namespace DetectionTests;
 
 use Detection\Cache\Cache;
-use Detection\Cache\CacheException;
-use Detection\Cache\CacheItem;
 use PHPUnit\Framework\TestCase;
 use Psr\SimpleCache\InvalidArgumentException;
 
@@ -16,20 +14,26 @@ final class CacheTest extends TestCase
         $this->cache = new Cache();
     }
 
+    /**
+     * @throws \InvalidArgumentException|InvalidArgumentException
+     */
     public function testGetInvalidCacheKey()
     {
-        $this->expectException(CacheException::class);
+        $this->expectException(\InvalidArgumentException::class);
         $this->cache->get('');
     }
 
+    /**
+     * @throws \InvalidArgumentException|InvalidArgumentException
+     */
     public function testSetInvalidCacheKey()
     {
-        $this->expectException(CacheException::class);
+        $this->expectException(\InvalidArgumentException::class);
         $this->cache->set('', 'a', 100);
     }
 
     /**
-     * @throws CacheException
+     * @throws InvalidArgumentException
      */
     public function testGetNonExistent()
     {
@@ -37,62 +41,57 @@ final class CacheTest extends TestCase
     }
 
     /**
-     * @throws CacheException
+     * @throws InvalidArgumentException
      */
     public function testSetBoolean()
     {
         $this->cache->set('isMobile', true, 100);
-        $this->assertInstanceOf(CacheItem::class, $this->cache->get('isMobile'));
-        $this->assertTrue($this->cache->get('isMobile')->get());
+        $this->assertTrue($this->cache->get('isMobile'));
 
         $this->cache->set('isTablet', false, 100);
-        $this->assertInstanceOf(CacheItem::class, $this->cache->get('isTablet'));
-        $this->assertFalse($this->cache->get('isTablet')->get());
+        $this->assertFalse($this->cache->get('isTablet'));
     }
 
     /**
-     * @throws CacheException
+     * @throws InvalidArgumentException
      */
     public function testGetTTL0()
     {
         $this->cache->set('isMobile', true, 0);
-        $this->assertInstanceOf(CacheItem::class, $this->cache->get('isMobile'));
-        $this->assertNull($this->cache->get('isMobile')->expiresAt);
-        $this->assertNull($this->cache->get('isMobile')->expiresAfter);
+        $this->assertNull($this->cache->get('isMobile'));
     }
 
-    public function testGetTtlIsInteger()
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function testSetTtlAsInteger()
     {
         $this->cache->set('isMobile', true, 1000);
-        $this->assertInstanceOf(CacheItem::class, $this->cache->get('isMobile'));
-        $this->assertNUll($this->cache->get('isMobile')->expiresAt);
-        $this->assertInstanceOf(\DateInterval::class, $this->cache->get('isMobile')->expiresAfter);
+        $this->assertTrue($this->cache->get('isMobile'));
     }
 
     /**
-     * @throws CacheException
+     * @throws InvalidArgumentException
      */
-    public function testGetExpiresAfter()
+    public function testSetTtlAsNull()
     {
         $this->cache->set('isMobile', true);
-        $this->assertInstanceOf(CacheItem::class, $this->cache->get('isMobile'));
-        $this->assertNull($this->cache->get('isMobile')->expiresAfter);
+        $this->assertTrue($this->cache->get('isMobile'));
     }
 
     /**
-     * @throws CacheException
      * @throws InvalidArgumentException
      */
     public function testDelete()
     {
         $this->cache->set('isMobile', true, 100);
-        $this->assertTrue($this->cache->get('isMobile')->get());
+        $this->assertTrue($this->cache->get('isMobile'));
         $this->cache->delete('isMobile');
         $this->assertNull($this->cache->get('isMobile'));
     }
 
     /**
-     * @throws CacheException
+     * @throws InvalidArgumentException
      */
     public function testClear()
     {
@@ -104,7 +103,6 @@ final class CacheTest extends TestCase
     }
 
     /**
-     * @throws CacheException
      * @throws InvalidArgumentException
      */
     public function testGetMultiple(): void
@@ -114,8 +112,8 @@ final class CacheTest extends TestCase
 
         $this->assertEquals(
             [
-            'isMobile' => (new CacheItem('isMobile', true))->expiresAfter(100),
-            'isTablet' => (new CacheItem('isTablet', false))->expiresAfter(200),
+            'isMobile' => true,
+            'isTablet' => false,
             'isUnknown' => null,
             ],
             $this->cache->getMultiple(['isMobile', 'isTablet', 'isUnknown'])
@@ -124,19 +122,17 @@ final class CacheTest extends TestCase
 
     /**
      * @throws InvalidArgumentException
-     * @throws CacheException
      */
     public function testSetMultiple(): void
     {
         $this->cache->setMultiple(['isA' => true, 'isB' => false], 200);
         $this->assertEquals([
-            'isA' => (new CacheItem('isA', true))->expiresAfter(200),
-            'isB' => (new CacheItem('isB', false))->expiresAfter(200)
+            'isA' => true,
+            'isB' => false
         ], $this->cache->getMultiple(['isA', 'isB']));
     }
 
     /**
-     * @throws CacheException
      * @throws InvalidArgumentException
      */
     public function testDeleteMultiple(): void
@@ -148,12 +144,11 @@ final class CacheTest extends TestCase
         $this->assertEquals([
             'isA' => null,
             'isB' => null,
-            'isC' => (new CacheItem('isC', true))->expiresAfter(300)
+            'isC' => true
         ], $this->cache->getMultiple(['isA', 'isB', 'isC']));
     }
 
     /**
-     * @throws CacheException
      * @throws InvalidArgumentException
      */
     public function testHas(): void

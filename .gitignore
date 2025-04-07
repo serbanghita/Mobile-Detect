@@ -17,3 +17,4 @@ composer.lock
 /.coverage
 /.phpbench
 /index.php
+.php-cs-fixer.cache

@@ -1,16 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Detection\Cache;
 
-use Psr\SimpleCache\InvalidArgumentException;
-
-class CacheException extends \Exception implements InvalidArgumentException
+class CacheException extends \Exception implements \Psr\SimpleCache\CacheException
 {
-    public function __construct($message, $code = 0, ?\Throwable $previous = null)
-    {
-        // some code
-
-        // make sure everything is assigned properly
-        parent::__construct($message, $code, $previous);
-    }
 }
