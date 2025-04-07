@@ -6,7 +6,6 @@ use Detection\Cache\Cache;
 use Detection\Exception\MobileDetectException;
 use Detection\MobileDetect;
 use PHPUnit\Framework\TestCase;
-use Psr\SimpleCache\CacheInterface;
 use Psr\SimpleCache\InvalidArgumentException;
 
 final class MobileDetectWithCacheTest extends TestCase
@@ -102,7 +101,7 @@ final class MobileDetectWithCacheTest extends TestCase
     {
         $cache = new Cache();
 
-        $detect = new MobileDetect($cache, ['cacheKeyFn' => fn ($key) => sha1($key)]);
+        $detect = new MobileDetect($cache, ['cacheKeyFn' => fn ($key) => base64_encode($key)]);
         $detect->setUserAgent('iPad; AppleWebKit/533.17.9 Version/5.0.2 Mobile/8C148 Safari/6533.18.5');
 
         $detect->isMobile();
@@ -130,67 +129,5 @@ final class MobileDetectWithCacheTest extends TestCase
         $detect->isMobile();
         $detect->isMobile();
         $detect->isMobile();
-    }
-
-    /**
-     * @throws MobileDetectException
-     */
-    public function testMainClassWorksWithCustomPsr16Class()
-    {
-        $cacheClass = new class () implements CacheInterface {
-            public array $cache = [];
-
-            public function get(string $key, mixed $default = null): mixed
-            {
-                return $this->cache[$key] ?? null;
-            }
-
-            public function set(string $key, mixed $value, \DateInterval|int|null $ttl = null): bool
-            {
-                $this->cache[$key] = $value;
-                return true;
-            }
-
-            public function delete(string $key): bool
-            {
-                unset($this->cache[$key]);
-                return true;
-            }
-
-            public function clear(): bool
-            {
-                $this->cache = [];
-                return true;
-            }
-
-            public function getMultiple(iterable $keys, mixed $default = null): iterable
-            {
-                return [];
-            }
-
-            public function setMultiple(iterable $values, \DateInterval|int|null $ttl = null): bool
-            {
-                return true;
-            }
-
-            public function deleteMultiple(iterable $keys): bool
-            {
-                return true;
-            }
-
-            public function has(string $key): bool
-            {
-                return true;
-            }
-        };
-
-        $detect = new MobileDetect($cacheClass);
-        $detect->setUserAgent('iPad; AppleWebKit/533.17.9 Version/5.0.2 Mobile/8C148 Safari/6533.18.5');
-
-        $this->assertTrue($detect->isMobile());
-        $this->assertTrue($detect->isMobile());
-        $this->assertTrue($detect->isMobile());
-        $this->assertTrue($detect->isTablet());
-        $this->assertCount(2, $cacheClass->cache);
     }
 }

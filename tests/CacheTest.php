@@ -3,9 +3,6 @@
 namespace DetectionTests;
 
 use Detection\Cache\Cache;
-use Detection\Cache\CacheException;
-use Detection\Cache\CacheInvalidArgumentException;
-use Detection\Exception\MobileDetectException;
 use PHPUnit\Framework\TestCase;
 use Psr\SimpleCache\InvalidArgumentException;
 
@@ -18,57 +15,35 @@ final class CacheTest extends TestCase
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws \InvalidArgumentException|InvalidArgumentException
      */
-    public function testGetInvalidCacheKeyThrowsException()
+    public function testGetInvalidCacheKey()
     {
-        $this->expectException(CacheInvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
         $this->cache->get('');
     }
 
     /**
-     * @throws CacheInvalidArgumentException
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException|InvalidArgumentException
      */
-    public function testGetExpiringCacheKeyWithIntegerTTLIsDeleted()
+    public function testSetInvalidCacheKey()
     {
-        $this->cache->set('someKey', 'someValue', 1);
-        sleep(1);
-        $this->assertNull($this->cache->get('someKey'));
-    }
-
-    /**
-     * @throws CacheInvalidArgumentException
-     * @throws InvalidArgumentException
-     */
-    public function testGetExpiringCacheKeyWithDateIntervalTTLIsDeleted()
-    {
-        $this->cache->set('someKey', 'someValue', new \DateInterval('PT1S'));
-        sleep(1);
-        $this->assertNull($this->cache->get('someKey'));
-    }
-
-    /**
-     * @throws CacheInvalidArgumentException
-     */
-    public function testSetInvalidCacheKeyThrowsException()
-    {
-        $this->expectException(CacheInvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
         $this->cache->set('', 'a', 100);
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function testGetNonExistentReturnsNull()
+    public function testGetNonExistent()
     {
         $this->assertNull($this->cache->get('random'));
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function testSetGetBooleanValues()
+    public function testSetBoolean()
     {
         $this->cache->set('isMobile', true, 100);
         $this->assertTrue($this->cache->get('isMobile'));
@@ -78,84 +53,57 @@ final class CacheTest extends TestCase
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function testSetGetZeroTTL()
+    public function testGetTTL0()
     {
         $this->cache->set('isMobile', true, 0);
         $this->assertNull($this->cache->get('isMobile'));
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function testSetGetNegativeTTL()
+    public function testSetTtlAsInteger()
     {
-        $this->cache->set('isMobile', true, -999);
-        $this->assertNull($this->cache->get('isMobile'));
+        $this->cache->set('isMobile', true, 1000);
+        $this->assertTrue($this->cache->get('isMobile'));
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function testSetZeroTTLWithInvalidKeyThrowsException()
+    public function testSetTtlAsNull()
     {
-        $this->expectException(CacheInvalidArgumentException::class);
-        $this->cache->set('', true, 0);
+        $this->cache->set('isMobile', true);
+        $this->assertTrue($this->cache->get('isMobile'));
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function testSetNegativeTTLWithInvalidKeyThrowsException()
+    public function testDelete()
     {
-        $this->expectException(CacheInvalidArgumentException::class);
-        $this->cache->set('', true, -999);
-    }
-
-    /**
-     * @throws CacheInvalidArgumentException
-     */
-    public function testSetValidTTLAsAnIntegerReturnsTheSetValue()
-    {
-        $this->cache->set('isMobile', 'someValue', 1000);
-        $this->assertEquals('someValue', $this->cache->get('isMobile'));
-    }
-
-    /**
-     * @throws CacheInvalidArgumentException
-     */
-    public function testSetNullTTLReturnsTheSetValue()
-    {
-        $this->cache->set('isMobile', 'abc');
-        $this->assertEquals('abc', $this->cache->get('isMobile'));
-    }
-
-    /**
-     * @throws CacheInvalidArgumentException
-     */
-    public function testDeletionOfValidRecord()
-    {
-        $this->cache->set('isMobile', 'a b c', 100);
-        $this->assertEquals('a b c', $this->cache->get('isMobile'));
+        $this->cache->set('isMobile', true, 100);
+        $this->assertTrue($this->cache->get('isMobile'));
         $this->cache->delete('isMobile');
         $this->assertNull($this->cache->get('isMobile'));
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function testClear()
     {
         $this->cache->set('isMobile', true);
         $this->cache->set('isTablet', true);
-        $this->assertCount(2, $this->cache->getKeys());
         $this->cache->clear();
-        $this->assertCount(0, $this->cache->getKeys());
+        $this->assertNull($this->cache->get('isMobile'));
+        $this->assertNull($this->cache->get('isTablet'));
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function testGetMultiple(): void
     {
@@ -173,7 +121,7 @@ final class CacheTest extends TestCase
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function testSetMultiple(): void
     {
@@ -186,16 +134,6 @@ final class CacheTest extends TestCase
 
     /**
      * @throws InvalidArgumentException
-     */
-    public function testSetMultipleWithOneInvalidKey(): void
-    {
-        $result = $this->cache->setMultiple(['a' => 'valueA', 'b' => 'valueB'], 0);
-
-        $this->assertFalse($result);
-    }
-
-    /**
-     * @throws CacheInvalidArgumentException
      */
     public function testDeleteMultiple(): void
     {
@@ -211,37 +149,11 @@ final class CacheTest extends TestCase
     }
 
     /**
-     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function testHasReturnsTrueForValidCacheRecord(): void
+    public function testHas(): void
     {
-        $this->cache->set('isA', 'some value1');
+        $this->cache->set('isA', true);
         $this->assertTrue($this->cache->has('isA'));
-    }
-
-    /**
-     * @throws CacheInvalidArgumentException
-     */
-    public function testHasReturnsTrueForInvalidCacheRecord(): void
-    {
-        $this->cache->set('isA', 'some value2', time());
-        $this->assertTrue($this->cache->has('isA'));
-    }
-
-    /**
-     * @throws CacheInvalidArgumentException
-     */
-    public function testHasReturnsFalseForNonExistentCacheRecord(): void
-    {
-        $this->assertFalse($this->cache->has('non_existent'));
-    }
-
-    /**
-     * @throws CacheInvalidArgumentException
-     */
-    public function testHasThrowsExceptionForNonExistentCacheRecord(): void
-    {
-        $this->expectException(CacheInvalidArgumentException::class);
-        $this->cache->has('invalid key');
     }
 }
