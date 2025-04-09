@@ -101,7 +101,7 @@ final class MobileDetectWithCacheTest extends TestCase
     {
         $cache = new Cache();
 
-        $detect = new MobileDetect($cache, ['cacheKeyFn' => fn ($key) => base64_encode($key)]);
+        $detect = new MobileDetect($cache, ['cacheKeyFn' => fn ($key) => sha1($key)]);
         $detect->setUserAgent('iPad; AppleWebKit/533.17.9 Version/5.0.2 Mobile/8C148 Safari/6533.18.5');
 
         $detect->isMobile();
