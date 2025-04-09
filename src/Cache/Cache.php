@@ -178,8 +178,9 @@ class Cache implements CacheInterface
     }
 
     /**
-     * Get all cache keys. Needed for testing purposes.
+     * Get all cache keys.
      *
+     * @internal Needed for testing purposes.
      * @return array{string}
      */
     public function getKeys(): array

@@ -5,6 +5,8 @@ spl_autoload_register(function ($class) use ($dir) {
     $classMap = [
         // "mobiledetect/mobiledetectlib"
         "Detection\Cache\Cache" => $dir . "/../src/Cache/Cache.php",
+        "Detection\Cache\CacheException" => $dir . "/../src/Cache/CacheException.php",
+        "Detection\Cache\CacheInvalidArgumentException" => $dir . "/../src/Cache/CacheInvalidArgumentException.php",
         "Detection\Exception\MobileDetectException" => $dir . "/../src/Exception/MobileDetectException.php",
         "Detection\MobileDetect" => $dir . "/../src/MobileDetect.php",
 
