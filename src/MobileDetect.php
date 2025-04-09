@@ -29,9 +29,10 @@ namespace Detection;
 use BadMethodCallException;
 use Detection\Cache\Cache;
 use Detection\Cache\CacheException;
+use Detection\Cache\CacheInvalidArgumentException;
 use Detection\Exception\MobileDetectException;
 use Psr\SimpleCache\CacheInterface;
-use Psr\SimpleCache\InvalidArgumentException;
+use Psr\SimpleCache\InvalidArgumentException as PsrInvalidArgumentException;
 
 /**
  * Auto-generated isXXXX() magic methods.
@@ -1428,9 +1429,7 @@ class MobileDetect
                 $this->cache->set($cacheKey, $result, $this->config['cacheTtl']);
                 return $result;
             }
-        } catch (CacheException $e) {
-            throw new MobileDetectException("Cache problem in isMobile(): {$e->getMessage()}");
-        } catch (InvalidArgumentException $e) {
+        } catch (CacheInvalidArgumentException | CacheException | PsrInvalidArgumentException $e) {
             throw new MobileDetectException("Cache problem in isMobile(): {$e->getMessage()}");
         }
     }
@@ -1498,9 +1497,7 @@ class MobileDetect
 
             $this->cache->set($cacheKey, false, $this->config['cacheTtl']);
             return false;
-        } catch (CacheException $e) {
-            throw new MobileDetectException("Cache problem in isTablet(): {$e->getMessage()}");
-        } catch (InvalidArgumentException $e) {
+        } catch (CacheInvalidArgumentException | CacheException | PsrInvalidArgumentException $e) {
             throw new MobileDetectException("Cache problem in isTablet(): {$e->getMessage()}");
         }
     }
@@ -1535,9 +1532,7 @@ class MobileDetect
             // Cache save.
             $this->cache->set($cacheKey, $result, $this->config['cacheTtl']);
             return $result;
-        } catch (CacheException $e) {
-            throw new MobileDetectException("Cache problem in is(): {$e->getMessage()}");
-        } catch (InvalidArgumentException $e) {
+        } catch (CacheInvalidArgumentException | CacheException | PsrInvalidArgumentException $e) {
             throw new MobileDetectException("Cache problem in is(): {$e->getMessage()}");
         }
     }
