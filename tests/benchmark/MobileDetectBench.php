@@ -125,23 +125,12 @@ final class MobileDetectBench
         $detect->isSamsungTablet();
     }
 
-    public function benchIsMobileCacheKeyFnBase64AgainstBestMatch(): void
-    {
-        $detect = new MobileDetect(null, ['cacheKeyFn' => 'base64_encode']);
-        $detect->setUserAgent('iPhone');
-        $detect->isMobile();
-    }
-
+    /**
+     * @throws MobileDetectException
+     */
     public function benchIsMobileCacheKeyFnSha1AgainstBestMatch(): void
     {
-        $detect = new MobileDetect(null, ['cacheKeyFn' => 'sha1']);
-        $detect->setUserAgent('iPhone');
-        $detect->isMobile();
-    }
-
-    public function benchIsMobileCacheKeyFnCustomCryptFnAgainstBestMatch(): void
-    {
-        $detect = new MobileDetect(null, ['cacheKeyFn' => fn ($key) => crypt($key, 'bla')]);
+        $detect = new MobileDetect(null, ['cacheKeyFn' => fn ($key) => sha1($key) . 'salt']);
         $detect->setUserAgent('iPhone');
         $detect->isMobile();
     }

@@ -4,7 +4,6 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile.setup
     volumes:
-#      - ./:/app
       - ./vendor:/app/vendor
 
   # Example: docker compose -p mobile-detect up --build runUnitTests
@@ -19,7 +18,7 @@ services:
     environment:
       XDEBUG_MODE: coverage
     command: >
-      /bin/sh -c "vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-html ./coverage --strict-coverage --stop-on-risky"
+      /bin/sh -c "vendor/bin/phpunit -v -c tests/phpunit.xml --coverage-html .coverage --strict-coverage --stop-on-risky"
     volumes:
       - .:/app
 
