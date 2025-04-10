@@ -8,6 +8,7 @@ spl_autoload_register(function ($class) use ($dir) {
         "Detection\Cache\CacheException" => $dir . "/../src/Cache/CacheException.php",
         "Detection\Cache\CacheInvalidArgumentException" => $dir . "/../src/Cache/CacheInvalidArgumentException.php",
         "Detection\Exception\MobileDetectException" => $dir . "/../src/Exception/MobileDetectException.php",
+        "Detection\Exception\MobileDetectExceptionCode" => $dir . "/../src/Exception/MobileDetectExceptionCode.php",
         "Detection\MobileDetect" => $dir . "/../src/MobileDetect.php",
 
         // "psr/simple-cache"

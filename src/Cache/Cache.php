@@ -164,7 +164,7 @@ class Cache implements CacheInterface
     }
 
     /**
-     * @param bool[]|int[] $booleans
+     * @param bool[] $booleans
      */
     protected function checkReturn(array $booleans): bool
     {
@@ -181,7 +181,7 @@ class Cache implements CacheInterface
      * Get all cache keys.
      *
      * @internal Needed for testing purposes.
-     * @return array{string}
+     * @return string[]
      */
     public function getKeys(): array
     {

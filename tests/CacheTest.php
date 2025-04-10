@@ -91,7 +91,7 @@ final class CacheTest extends TestCase
     /**
      * @throws CacheInvalidArgumentException
      */
-    public function testSetValidTtlAsAnIntegerReturnsTheSetValue()
+    public function testSetValidTTLAsAnIntegerReturnsTheSetValue()
     {
         $this->cache->set('isMobile', 'someValue', 1000);
         $this->assertEquals('someValue', $this->cache->get('isMobile'));
@@ -100,7 +100,7 @@ final class CacheTest extends TestCase
     /**
      * @throws CacheInvalidArgumentException
      */
-    public function testSetNullTtlReturnsTheSetValue()
+    public function testSetNullTTLReturnsTheSetValue()
     {
         $this->cache->set('isMobile', 'abc');
         $this->assertEquals('abc', $this->cache->get('isMobile'));
