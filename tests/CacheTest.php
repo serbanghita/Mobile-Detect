@@ -3,8 +3,11 @@
 namespace DetectionTests;
 
 use Detection\Cache\Cache;
+use Detection\Cache\CacheException;
 use Detection\Cache\CacheInvalidArgumentException;
+use Detection\Exception\MobileDetectException;
 use PHPUnit\Framework\TestCase;
+use Psr\SimpleCache\InvalidArgumentException;
 
 final class CacheTest extends TestCase
 {
@@ -21,6 +24,28 @@ final class CacheTest extends TestCase
     {
         $this->expectException(CacheInvalidArgumentException::class);
         $this->cache->get('');
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
+     */
+    public function testGetExpiringCacheKeyWithIntegerTTLIsDeleted()
+    {
+        $this->cache->set('someKey', 'someValue', 1);
+        sleep(1);
+        $this->assertNull($this->cache->get('someKey'));
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     * @throws InvalidArgumentException
+     */
+    public function testGetExpiringCacheKeyWithDateIntervalTTLIsDeleted()
+    {
+        $this->cache->set('someKey', 'someValue', new \DateInterval('PT1S'));
+        sleep(1);
+        $this->assertNull($this->cache->get('someKey'));
     }
 
     /**
@@ -157,6 +182,16 @@ final class CacheTest extends TestCase
             'isA' => true,
             'isB' => false
         ], $this->cache->getMultiple(['isA', 'isB']));
+    }
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function testSetMultipleWithOneInvalidKey(): void
+    {
+        $result = $this->cache->setMultiple(['a' => 'valueA', 'b' => 'valueB'], 0);
+
+        $this->assertFalse($result);
     }
 
     /**

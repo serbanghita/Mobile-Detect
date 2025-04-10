@@ -32,6 +32,8 @@ class Cache implements CacheInterface
                 return $this->cache[$key]['content'];
             }
 
+            // @Note: this is an interpretation of "Definitions" -> "Expiration"
+            // Implementing Libraries MAY expire an item before its requested Expiration Time, but MUST treat an item as expired once its Expiration Time is reached.
             $this->deleteSingle($key);
         }
 
@@ -164,17 +166,13 @@ class Cache implements CacheInterface
     }
 
     /**
+     * Checks if at least one of the values is FALSE, then returns FALSE.
+     *
      * @param bool[] $booleans
      */
     protected function checkReturn(array $booleans): bool
     {
-        foreach ($booleans as $boolean) {
-            if (!$boolean) {
-                return false;
-            }
-        }
-
-        return true;
+        return !in_array(false, $booleans, true);
     }
 
     /**
