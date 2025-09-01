@@ -1,0 +1,69 @@
+{
+    "stubs": {
+        "path": "ide\/%version%\/%namespace%\/",
+        "stubs-run-after-generate": false,
+        "banner": ""
+    },
+    "api": {
+        "path": "doc\/%version%",
+        "theme": {
+            "name": "zephir",
+            "options": {
+                "github": null,
+                "analytics": null,
+                "main_color": "#3E6496",
+                "link_color": "#3E6496",
+                "link_hover_color": "#5F9AE7"
+            }
+        }
+    },
+    "warnings": {
+        "unused-variable": true,
+        "unused-variable-external": false,
+        "possible-wrong-parameter": true,
+        "possible-wrong-parameter-undefined": false,
+        "nonexistent-function": true,
+        "nonexistent-class": true,
+        "non-valid-isset": true,
+        "non-array-update": true,
+        "non-valid-objectupdate": true,
+        "non-valid-fetch": true,
+        "invalid-array-index": true,
+        "non-array-append": true,
+        "invalid-return-type": true,
+        "unreachable-code": true,
+        "nonexistent-constant": true,
+        "not-supported-magic-constant": true,
+        "non-valid-decrement": true,
+        "non-valid-increment": true,
+        "non-valid-clone": true,
+        "non-valid-new": true,
+        "non-array-access": true,
+        "invalid-reference": true,
+        "invalid-typeof-comparison": true,
+        "conditional-initialization": true
+    },
+    "optimizations": {
+        "static-type-inference": true,
+        "static-type-inference-second-pass": true,
+        "local-context-pass": true,
+        "constant-folding": true,
+        "static-constant-class-folding": true,
+        "call-gatherer-pass": true,
+        "check-invalid-reads": false,
+        "internal-call-transformation": false
+    },
+    "extra": {
+        "indent": "spaces",
+        "export-classes": false
+    },
+    "namespace": "myproject",
+    "name": "myproject",
+    "description": "",
+    "author": "Phalcon Team",
+    "version": "0.0.1",
+    "verbose": false,
+    "requires": {
+        "extensions": []
+    }
+}
