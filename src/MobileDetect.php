@@ -1677,7 +1677,7 @@ class MobileDetect
             $type = self::VERSION_TYPE_STRING;
         }
 
-        $properties = self::getProperties();
+        $properties = static::getProperties();
 
         // Check if the property exists in the properties array.
         if (true === isset($properties[$propertyName])) {
