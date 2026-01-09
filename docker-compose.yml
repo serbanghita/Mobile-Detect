@@ -25,7 +25,7 @@ services:
       - .:/app
 
   runPerfTests:
-    image: php:8.4-rc-alpine3.21
+    image: php:8.4-alpine
     platform: linux/amd64
     depends_on:
       setup:
@@ -37,7 +37,7 @@ services:
       - .:/app
 
   runLinting:
-    image: php:8.4-rc-alpine3.21
+    image: php:8.4-alpine
     platform: linux/amd64
     depends_on:
       setup:
@@ -49,7 +49,7 @@ services:
       - .:/app
 
   runQualityCheck:
-    image: php:8.4-rc-alpine3.21
+    image: php:8.4-alpine
     platform: linux/amd64
     depends_on:
       setup:
@@ -60,12 +60,12 @@ services:
     volumes:
       - .:/app
 
-  generateJsonModel:
-    image: php:8.4-rc-alpine3.21
+  # Pre-release validation gate - runs all checks
+  # Usage: docker compose -p mobile-detect up --build runAll
+  runAll:
+    image: php:8.4-alpine
     platform: linux/amd64
     depends_on:
-      setup:
-        condition: service_completed_successfully
       runLinting:
         condition: service_completed_successfully
       runQualityCheck:
@@ -73,6 +73,15 @@ services:
       runUnitTests:
         condition: service_completed_successfully
       runPerfTests:
+        condition: service_completed_successfully
+    command: >
+      /bin/sh -c "echo '✅ All pre-release checks passed!'"
+
+  generateJsonModel:
+    image: php:8.4-alpine
+    platform: linux/amd64
+    depends_on:
+      runAll:
         condition: service_completed_successfully
     working_dir: /app
     command: >

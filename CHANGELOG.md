@@ -1,5 +1,18 @@
 # Change log
 
+# 4.8.10
+
+## Fixed
+- [x] `Cache::has()` now properly checks TTL expiration before returning `true` (PSR-16 compliance fix). Previously, `has()` returned `true` for expired items.
+
+## Added
+- [x] `Cache::evictExpired()` method to manually clean up expired cache entries. Useful for long-running processes (CLI scripts, workers, daemons) to prevent memory growth.
+- [x] Expanded test coverage for `Cache` class: added 17 new tests covering all if/else branches including custom defaults, DateInterval TTL, key validation edge cases, and expiration scenarios.
+- [x] `README-EXAMPLES.md` with comprehensive usage examples including long-running processes, framework integration, and debugging.
+
+## Changed
+- [x] `Cache::has()` now deletes expired items on check (lazy cleanup, consistent with `get()` behavior).
+
 # 4.8.09
 
 - [x] `sha1` is now the default fn for encoding cache keys. Using `base64` [was causing problems](https://github.com/serbanghita/Mobile-Detect/issues/974#issuecomment-2531597903) in Laravel.

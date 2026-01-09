@@ -18,3 +18,4 @@ composer.lock
 /.phpbench
 /index.php
 .php-cs-fixer.cache
+.DS_Store

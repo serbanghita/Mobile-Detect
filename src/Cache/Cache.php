@@ -92,12 +92,23 @@ class Cache implements CacheInterface
         return true;
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc
+     * @throws CacheInvalidArgumentException
+     */
     public function has(string $key): bool
     {
-        $key = $this->checkKey($key);
+        $this->checkKey($key);
 
-        return isset($this->cache[$key]);
+        if (isset($this->cache[$key])) {
+            if ($this->cache[$key]['ttl'] === null || $this->cache[$key]['ttl'] > time()) {
+                return true;
+            }
+
+            $this->deleteSingle($key);
+        }
+
+        return false;
     }
 
     /** @inheritdoc */
@@ -186,5 +197,28 @@ class Cache implements CacheInterface
     public function getKeys(): array
     {
         return array_keys($this->cache);
+    }
+
+    /**
+     * Evict all expired items from the cache.
+     *
+     * Useful for long-running processes (CLI scripts, workers, daemons)
+     * to periodically clean up expired entries and free memory.
+     *
+     * @return int Number of items evicted
+     */
+    public function evictExpired(): int
+    {
+        $evicted = 0;
+        $now = time();
+
+        foreach ($this->cache as $key => $item) {
+            if ($item['ttl'] !== null && $item['ttl'] <= $now) {
+                unset($this->cache[$key]);
+                $evicted++;
+            }
+        }
+
+        return $evicted;
     }
 }

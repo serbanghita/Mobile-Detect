@@ -25,12 +25,15 @@ There are three versions of MobileDetect.
 
 ## 🤝 Supporting
 
-If you are using Mobile Detect open-source package in your production apps, in presentation demos, hobby projects, school projects or so, you can sponsor my work by [donating a small amount :+1:](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mobiledetectlib%40gmail%2ecom&lc=US&item_name=Mobile%20Detect&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted). I'm currently paying for hosting and spend a lot of my family time to maintain the project and planning the future releases. I would highly appreciate any money donations.
+If you are using Mobile Detect open-source package in your production apps, in presentation demos, hobby projects, 
+school projects or so, you can sponsor my work by [donating a small amount :+1:](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mobiledetectlib%40gmail%2ecom&lc=US&item_name=Mobile%20Detect&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted).  
+
+I'm currently paying for domains, hosting and spend a lot of my family time to maintain the project and planning the future 
+releases. I would highly appreciate any money donations.
 
 Special thanks to:
 
 * the community :+1: for donations, submitting patches and issues
-* the JetBrains team for the open-source licenses for [PHPStorm IDE](https://www.jetbrains.com/phpstorm/)
 * [Gitbook](https://www.gitbook.com/) team for the open-source license for their technical documentation tool.
 
 

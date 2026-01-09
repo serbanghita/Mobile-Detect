@@ -2,6 +2,7 @@
 
 namespace DetectionTests;
 
+use DateInterval;
 use Detection\Cache\Cache;
 use Detection\Cache\CacheInvalidArgumentException;
 use PHPUnit\Framework\TestCase;
@@ -38,6 +39,34 @@ final class CacheTest extends TestCase
     public function testGetNonExistentReturnsNull()
     {
         $this->assertNull($this->cache->get('random'));
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testGetNonExistentReturnsCustomDefault(): void
+    {
+        $this->assertEquals('customDefault', $this->cache->get('random', 'customDefault'));
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testGetExpiredItemReturnsDefault(): void
+    {
+        $this->cache->set('expiring', 'value', 1);
+        sleep(2);
+        $this->assertNull($this->cache->get('expiring'));
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testGetExpiredItemReturnsCustomDefault(): void
+    {
+        $this->cache->set('expiring', 'value', 1);
+        sleep(2);
+        $this->assertEquals('fallback', $this->cache->get('expiring', 'fallback'));
     }
 
     /**
@@ -109,12 +138,38 @@ final class CacheTest extends TestCase
     /**
      * @throws CacheInvalidArgumentException
      */
+    public function testSetWithDateIntervalTtl(): void
+    {
+        $this->cache->set('withInterval', 'intervalValue', new DateInterval('PT1H'));
+        $this->assertEquals('intervalValue', $this->cache->get('withInterval'));
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
     public function testDeletionOfValidRecord()
     {
         $this->cache->set('isMobile', 'a b c', 100);
         $this->assertEquals('a b c', $this->cache->get('isMobile'));
         $this->cache->delete('isMobile');
         $this->assertNull($this->cache->get('isMobile'));
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testDeleteInvalidKeyThrowsException(): void
+    {
+        $this->expectException(CacheInvalidArgumentException::class);
+        $this->cache->delete('invalid key');
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testDeleteNonExistentKeyReturnsTrue(): void
+    {
+        $this->assertTrue($this->cache->delete('non_existent'));
     }
 
     /**
@@ -187,10 +242,20 @@ final class CacheTest extends TestCase
     /**
      * @throws CacheInvalidArgumentException
      */
-    public function testHasReturnsTrueForInvalidCacheRecord(): void
+    public function testHasReturnsTrueForValidNonNullTtl(): void
     {
-        $this->cache->set('isA', 'some value2', time());
-        $this->assertTrue($this->cache->has('isA'));
+        $this->cache->set('isB', 'some value', 3600);
+        $this->assertTrue($this->cache->has('isB'));
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testHasReturnsFalseForExpiredCacheRecord(): void
+    {
+        $this->cache->set('isA', 'some value2', 1);
+        sleep(2);
+        $this->assertFalse($this->cache->has('isA'));
     }
 
     /**
@@ -204,9 +269,131 @@ final class CacheTest extends TestCase
     /**
      * @throws CacheInvalidArgumentException
      */
-    public function testHasThrowsExceptionForNonExistentCacheRecord(): void
+    public function testHasThrowsExceptionForInvalidKey(): void
     {
         $this->expectException(CacheInvalidArgumentException::class);
         $this->cache->has('invalid key');
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testGetMultipleWithCustomDefault(): void
+    {
+        $this->cache->set('exists', 'value', 100);
+
+        $this->assertEquals(
+            [
+                'exists' => 'value',
+                'missing' => 'customDefault',
+            ],
+            $this->cache->getMultiple(['exists', 'missing'], 'customDefault')
+        );
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testSetMultipleReturnsFalseWhenOneFails(): void
+    {
+        // Setting with zero TTL causes set() to return false
+        $result = $this->cache->setMultiple(['isA' => true, 'isB' => false], 0);
+        $this->assertFalse($result);
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testCheckKeyWithInvalidCharactersThrowsException(): void
+    {
+        $this->expectException(CacheInvalidArgumentException::class);
+        $this->cache->get('invalid@key');
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testCheckKeyWithSpecialCharsThrowsException(): void
+    {
+        $this->expectException(CacheInvalidArgumentException::class);
+        $this->cache->get('key{}[]');
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testCheckKeyExceeding64CharsThrowsException(): void
+    {
+        $this->expectException(CacheInvalidArgumentException::class);
+        $longKey = str_repeat('a', 65);
+        $this->cache->get($longKey);
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testCheckKeyWith64CharsIsValid(): void
+    {
+        $validKey = str_repeat('a', 64);
+        $this->cache->set($validKey, 'value');
+        $this->assertEquals('value', $this->cache->get($validKey));
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testEvictExpiredRemovesExpiredItems(): void
+    {
+        $this->cache->set('expiring1', 'value1', 1);
+        $this->cache->set('expiring2', 'value2', 1);
+        $this->cache->set('persistent', 'value3', 3600);
+
+        $this->assertCount(3, $this->cache->getKeys());
+
+        sleep(2);
+
+        $evicted = $this->cache->evictExpired();
+
+        $this->assertEquals(2, $evicted);
+        $this->assertCount(1, $this->cache->getKeys());
+        $this->assertEquals('value3', $this->cache->get('persistent'));
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testEvictExpiredKeepsNullTtlItems(): void
+    {
+        $this->cache->set('noTtl', 'value1');
+        $this->cache->set('expiring', 'value2', 1);
+
+        sleep(2);
+
+        $evicted = $this->cache->evictExpired();
+
+        $this->assertEquals(1, $evicted);
+        $this->assertCount(1, $this->cache->getKeys());
+        $this->assertEquals('value1', $this->cache->get('noTtl'));
+    }
+
+    /**
+     * @throws CacheInvalidArgumentException
+     */
+    public function testEvictExpiredReturnsZeroWhenNothingToEvict(): void
+    {
+        $this->cache->set('valid1', 'value1', 3600);
+        $this->cache->set('valid2', 'value2');
+
+        $evicted = $this->cache->evictExpired();
+
+        $this->assertEquals(0, $evicted);
+        $this->assertCount(2, $this->cache->getKeys());
+    }
+
+    public function testEvictExpiredOnEmptyCache(): void
+    {
+        $evicted = $this->cache->evictExpired();
+
+        $this->assertEquals(0, $evicted);
     }
 }
