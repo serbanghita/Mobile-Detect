@@ -12,6 +12,7 @@ Mobile-Detect is a lightweight PHP library for detecting mobile devices (includi
 When working on 4.8.x-based branches, always rebase changes into the `4.8.x` branch only (not `main` or `master`).
 When releasing a new version tag, make sure that the new tag is reflected in the `@version` comment section of `MobileDetect.php` and also 
 in the `protected string $VERSION` property of the `MobileDetect` class.
+The latest tag should also be reflected in `MobileDetect.json`'s `version` property.
 
 ## Code Navigation
 
