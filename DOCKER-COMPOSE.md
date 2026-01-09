@@ -6,7 +6,7 @@ This document describes the Docker Compose setup for running all necessary check
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                              SETUP SERVICE                               │
+│                              SETUP SERVICE                              │
 │  (composer:latest) - Installs dependencies into ./vendor                │
 └─────────────────────────────────────────────────────────────────────────┘
                                     │

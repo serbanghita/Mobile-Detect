@@ -31,6 +31,7 @@ use Detection\Cache\Cache;
 use Detection\Cache\CacheException;
 use Detection\Cache\CacheInvalidArgumentException;
 use Detection\Exception\MobileDetectException;
+use Detection\Exception\MobileDetectExceptionCode;
 use Psr\SimpleCache\CacheInterface;
 use Psr\SimpleCache\InvalidArgumentException as PsrInvalidArgumentException;
 
@@ -1399,7 +1400,7 @@ class MobileDetect
     public function isMobile(): bool
     {
         if (!$this->hasUserAgent()) {
-            throw new MobileDetectException('No valid user-agent has been set.');
+            throw new MobileDetectException('No valid user-agent has been set.', MobileDetectExceptionCode::INVALID_USER_AGENT_ERR);
         }
 
         if ($this->isUserAgentEmpty()) {
@@ -1432,7 +1433,7 @@ class MobileDetect
                 return $result;
             }
         } catch (CacheInvalidArgumentException | CacheException | PsrInvalidArgumentException $e) {
-            throw new MobileDetectException("Cache problem in isMobile(): {$e->getMessage()}");
+            throw new MobileDetectException("Cache problem in isMobile(): {$e->getMessage()}", MobileDetectExceptionCode::IS_MOBILE_ERR, $e);
         }
     }
 
@@ -1445,7 +1446,7 @@ class MobileDetect
     public function isTablet(): bool
     {
         if (!$this->hasUserAgent()) {
-            throw new MobileDetectException('No user-agent has been set.');
+            throw new MobileDetectException('No user-agent has been set.', MobileDetectExceptionCode::INVALID_USER_AGENT_ERR);
         }
 
         if ($this->isUserAgentEmpty()) {
@@ -1500,7 +1501,7 @@ class MobileDetect
             $this->cache->set($cacheKey, false, $this->config['cacheTtl']);
             return false;
         } catch (CacheInvalidArgumentException | CacheException | PsrInvalidArgumentException $e) {
-            throw new MobileDetectException("Cache problem in isTablet(): {$e->getMessage()}");
+            throw new MobileDetectException("Cache problem in isTablet(): {$e->getMessage()}", MobileDetectExceptionCode::IS_TABLET_ERR, $e);
         }
     }
 
@@ -1514,7 +1515,7 @@ class MobileDetect
     public function is(string $ruleName): bool
     {
         if (!$this->hasUserAgent()) {
-            throw new MobileDetectException('No user-agent has been set.');
+            throw new MobileDetectException('No user-agent has been set.', MobileDetectExceptionCode::INVALID_USER_AGENT_ERR);
         }
 
         if ($this->isUserAgentEmpty()) {
@@ -1535,7 +1536,7 @@ class MobileDetect
             $this->cache->set($cacheKey, $result, $this->config['cacheTtl']);
             return $result;
         } catch (CacheInvalidArgumentException | CacheException | PsrInvalidArgumentException $e) {
-            throw new MobileDetectException("Cache problem in is(): {$e->getMessage()}");
+            throw new MobileDetectException("Cache problem in is(): {$e->getMessage()}", MobileDetectExceptionCode::IS_MAGIC_ERR, $e);
         }
     }
 
