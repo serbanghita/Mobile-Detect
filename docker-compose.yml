@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/Dockerfile.setup
+    platform: linux/amd64
     volumes:
       - ./vendor:/app/vendor
 
@@ -11,6 +12,7 @@ services:
     # Need xdebug from this image to run with coverage
     # https://hub.docker.com/r/alcohol/php/tags
     image: alcohol/php:8.4-xdebug
+    platform: linux/amd64
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -24,6 +26,7 @@ services:
 
   runPerfTests:
     image: php:8.4-rc-alpine3.21
+    platform: linux/amd64
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -35,6 +38,7 @@ services:
 
   runLinting:
     image: php:8.4-rc-alpine3.21
+    platform: linux/amd64
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -46,6 +50,7 @@ services:
 
   runQualityCheck:
     image: php:8.4-rc-alpine3.21
+    platform: linux/amd64
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -57,6 +62,7 @@ services:
 
   generateJsonModel:
     image: php:8.4-rc-alpine3.21
+    platform: linux/amd64
     depends_on:
       setup:
         condition: service_completed_successfully
