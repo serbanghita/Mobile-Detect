@@ -480,4 +480,34 @@ final class MobileDetectGeneralTest extends TestCase
         $rules = $md->getRules();
         $this->assertCount($count, $rules);
     }
+
+    /**
+     * Test that isTablet() returns false for non-tablet user agents
+     * This ensures the function properly returns false at the end when no tablet match is found
+     * @throws MobileDetectException
+     */
+    public function testIsTabletReturnsFalseForNonTablets()
+    {
+        $detect = new MobileDetect();
+
+        // Test with a desktop browser user agent
+        $detect->setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
+        $this->assertFalse($detect->isTablet(), 'Desktop Chrome should not be detected as tablet');
+
+        // Test with a mobile phone user agent (iPhone)
+        $detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1');
+        $this->assertFalse($detect->isTablet(), 'iPhone should not be detected as tablet');
+
+        // Test with Android phone user agent
+        $detect->setUserAgent('Mozilla/5.0 (Linux; Android 11; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36');
+        $this->assertFalse($detect->isTablet(), 'Android phone should not be detected as tablet');
+
+        // Test with a generic/unknown user agent
+        $detect->setUserAgent('SomeUnknownBrowser/1.0');
+        $this->assertFalse($detect->isTablet(), 'Unknown user agent should not be detected as tablet');
+
+        // Test with an empty-like but valid user agent
+        $detect->setUserAgent('Mozilla/5.0');
+        $this->assertFalse($detect->isTablet(), 'Generic Mozilla user agent should not be detected as tablet');
+    }
 }
