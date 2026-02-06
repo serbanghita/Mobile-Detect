@@ -163,7 +163,7 @@ class Cache implements CacheInterface
     {
 
         if ($ttl instanceof DateInterval) {
-            return (new DateTime())->add($ttl)->getTimeStamp() - time();
+            return (new DateTime())->add($ttl)->getTimestamp() - time();
         }
 
         // We treat 0 as a valid value.
