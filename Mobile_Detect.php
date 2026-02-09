@@ -886,7 +886,7 @@ class Mobile_Detect
      *                          from the $headers array instead.
      */
     public function __construct(
-        array $headers = null,
+        $headers = null,
         $userAgent = null
     ) {
         $this->setHttpHeaders($headers);
