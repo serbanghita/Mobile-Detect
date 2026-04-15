@@ -18,7 +18,7 @@
  * @author  Nick Ilyin <nick.ilyin@gmail.com>
  * @author: Victor Stanciu <vic.stanciu@gmail.com> (original author)
  *
- * @version 3.74.3
+ * @version 3.74.4
  */
 namespace Detection;
 
