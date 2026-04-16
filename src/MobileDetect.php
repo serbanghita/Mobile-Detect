@@ -1086,9 +1086,9 @@ class MobileDetect
         // Go through known HTTP headers that we care about.
         // See "4.1.18. Protocol-Specific Meta-Variables" of http://www.faqs.org/rfcs/rfc3875.html
         $knownHttpHeaders = array_merge(
-            array_values(self::$knownUserAgentHttpHeaders),
-            array_keys(self::$knownMobilePositiveHeaders),
-            array_values(self::$knownCloudFrontHeaders)
+            array_values(static::$knownUserAgentHttpHeaders),
+            array_keys(static::$knownMobilePositiveHeaders),
+            array_values(static::$knownCloudFrontHeaders)
         );
 
         // Did not iterate through global $_SERVER to find ['HTTP...'] header values
@@ -1141,10 +1141,10 @@ class MobileDetect
 
         // Override User-Agent string if 'Amazon Cloudfront' specific HTTP headers are present.
         if (
-            $this->hasHttpHeader(self::$knownCloudFrontHeaders[0]) ||
-            $this->hasHttpHeader(self::$knownCloudFrontHeaders[1])
+            $this->hasHttpHeader(static::$knownCloudFrontHeaders[0]) ||
+            $this->hasHttpHeader(static::$knownCloudFrontHeaders[1])
         ) {
-            $this->setUserAgent(self::$cloudFrontUA);
+            $this->setUserAgent(static::$cloudFrontUA);
         }
     }
 
@@ -1319,10 +1319,10 @@ class MobileDetect
      */
     public function getRules(): array
     {
-        static $rules;
-
-        if (!$rules) {
-            $rules = array_merge(
+        static $rulesByClass = [];
+        $class = static::class;
+        if (!isset($rulesByClass[$class])) {
+            $rulesByClass[$class] = array_merge(
                 static::$browsers,
                 static::$operatingSystems,
                 static::$phoneDevices,
@@ -1330,7 +1330,7 @@ class MobileDetect
             );
         }
 
-        return $rules;
+        return $rulesByClass[$class];
     }
 
     /**
@@ -1418,7 +1418,7 @@ class MobileDetect
 
             // Special case: Amazon CloudFront mobile viewer
             if (
-                $this->getUserAgent() === self::$cloudFrontUA &&
+                $this->getUserAgent() === static::$cloudFrontUA &&
                 $this->getHttpHeader('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER') === 'true'
             ) {
                 $this->cache->set($cacheKey, true, $this->config['cacheTtl']);
@@ -1464,7 +1464,7 @@ class MobileDetect
 
             // Special case: Amazon CloudFront mobile viewer
             if (
-                $this->getUserAgent() === self::$cloudFrontUA &&
+                $this->getUserAgent() === static::$cloudFrontUA &&
                 $this->getHttpHeader('HTTP_CLOUDFRONT_IS_TABLET_VIEWER') === 'true'
             ) {
                 $this->cache->set($cacheKey, true, $this->config['cacheTtl']);
@@ -1678,7 +1678,7 @@ class MobileDetect
             $type = self::VERSION_TYPE_STRING;
         }
 
-        $properties = self::getProperties();
+        $properties = static::getProperties();
 
         // Check if the property exists in the properties array.
         if (true === isset($properties[$propertyName])) {
@@ -1687,7 +1687,7 @@ class MobileDetect
             $properties[$propertyName] = (array) $properties[$propertyName];
 
             foreach ($properties[$propertyName] as $propertyMatchString) {
-                $propertyPattern = str_replace('[VER]', self::VERSION_REGEX, $propertyMatchString);
+                $propertyPattern = str_replace('[VER]', static::VERSION_REGEX, $propertyMatchString);
 
                 // Identify and extract the version.
                 preg_match(sprintf('#%s#is', $propertyPattern), $this->userAgent, $match);
