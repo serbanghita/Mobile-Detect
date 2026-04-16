@@ -3,6 +3,7 @@
 namespace DetectionTests;
 
 use Detection\Exception\MobileDetectException;
+use Detection\MobileDetect;
 use DetectionTests\Fixtures\CustomMobileDetect;
 use PHPUnit\Framework\TestCase;
 
@@ -77,6 +78,13 @@ final class MobileDetectSubclassTest extends TestCase
      */
     public function testParentRulesDoNotLeakIntoSubclass(): void
     {
+        // Prime the parent class getRules() cache first — without the class-keyed
+        // cache fix, the parent's 186 rules would leak into the subclass and this
+        // iPhone UA would incorrectly match.
+        $parent = new MobileDetect(null, ['autoInitOfHttpHeaders' => false]);
+        $parent->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X)');
+        $this->assertTrue($parent->isMobile());
+
         $detect = new CustomMobileDetect(null, ['autoInitOfHttpHeaders' => false]);
         $detect->setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X)');
         $this->assertFalse($detect->isMobile());
