@@ -86,5 +86,11 @@ return [
         'Mozilla/5.0 (Linux; Android 10; Lenovo TB-X306X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.74 Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
         'Mozilla/5.0 (Linux; Android 12; Lenovo YT-J706X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
         'Mozilla/5.0 (Linux; Android 12; Lenovo TB128FU) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
+        // 2024-2025 Lenovo tablets matched by broad "Lenovo TB" prefix (PR #994, issues #871, #855)
+        'Mozilla/5.0 (Linux; Android 13; Lenovo TB330FU Build/TP1A.220624.014) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.144 Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
+        'Mozilla/5.0 (Linux; Android 14; Lenovo TB370FU) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.119 Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
+        'Mozilla/5.0 (Linux; Android 14; Lenovo TB351FU Build/UP1A.231005.007) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.165 Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
+        'Mozilla/5.0 (Linux; Android 15; Lenovo TB321FU) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.6778.200 Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
+        'Mozilla/5.0 (Linux; Android 14; Lenovo TB311XU Build/UP1A.231005.007) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.6613.88 Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
     ],
 ];
