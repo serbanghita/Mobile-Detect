@@ -2,11 +2,12 @@
 
 # MobileDetect, PHP mobile detection class
 
-![Workflow status](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/3.74.x-test.yml?style=flat-square)
-![Latest tag](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?filter=3.*&style=flat-square)
-![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square&label=installs)
-![Total Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square&label=installs)
-![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)
+[![Build status](https://img.shields.io/github/actions/workflow/status/serbanghita/Mobile-Detect/3.x-test.yml?branch=3.x&label=build&style=flat-square)](https://github.com/serbanghita/Mobile-Detect/actions/workflows/3.x-test.yml)
+[![Latest stable version](https://img.shields.io/packagist/v/mobiledetect/mobiledetectlib?style=flat-square)](https://packagist.org/packages/mobiledetect/mobiledetectlib)
+[![Latest tag](https://img.shields.io/github/v/tag/serbanghita/Mobile-Detect?filter=3.*&style=flat-square)](https://github.com/serbanghita/Mobile-Detect/tags)
+[![Monthly Downloads](https://img.shields.io/packagist/dm/mobiledetect/mobiledetectlib?style=flat-square&label=installs)](https://packagist.org/packages/mobiledetect/mobiledetectlib/stats)
+[![Total Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square&label=installs)](https://packagist.org/packages/mobiledetect/mobiledetectlib/stats)
+[![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)](https://github.com/serbanghita/Mobile-Detect/blob/3.x/LICENSE)
 
 Mobile Detect is a lightweight PHP class for detecting mobile devices (including tablets).
 It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.

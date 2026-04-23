@@ -1,13 +1,13 @@
-name: 3.74.x on PHP 7.4
+name: 3.x on PHP 7.4
 
 # Run this workflow every time a new commit pushed to your repository
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   push:
-    branches: ['3.74.x']
+    branches: ['3.x']
   pull_request:
-    branches: ['3.74.x']
+    branches: ['3.x']
 
 jobs:
   run:
