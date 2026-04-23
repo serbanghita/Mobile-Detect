@@ -1,13 +1,13 @@
-name: 2.8.x on PHP 5.6
+name: 2.x on PHP 5.6
 
 # Run this workflow every time a new commit pushed to your repository
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   push:
-    branches: ['2.8.x']
+    branches: ['2.x']
   pull_request:
-    branches: ['2.8.x']
+    branches: ['2.x']
 
 jobs:
   run:
