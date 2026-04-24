@@ -16,6 +16,7 @@ composer.lock
 /tests/phpunit.xml.bak
 /.coverage
 /.phpbench
+/phpbench-*.xml
 /index.php
 .php-cs-fixer.cache
 .DS_Store

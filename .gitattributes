@@ -4,4 +4,6 @@
 /docs/                  export-ignore
 /scripts/               export-ignore
 /tests/                 export-ignore
+/phpbench.json          export-ignore
+/phpbench-*.xml         export-ignore
 /.*                     export-ignore

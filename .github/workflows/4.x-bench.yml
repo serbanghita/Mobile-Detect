@@ -1,0 +1,97 @@
+name: 4.x Benchmarks (advisory)
+
+on:
+  pull_request:
+    branches: ['4.x']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          path: head
+
+      - name: Checkout base 4.x
+        uses: actions/checkout@v4
+        with:
+          ref: 4.x
+          path: base
+
+      - name: Setup PHP 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, intl
+          tools: composer:latest
+
+      - name: Install deps (base)
+        working-directory: base
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Install deps (head)
+        working-directory: head
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Run baseline on 4.x
+        working-directory: base
+        run: composer bench:baseline
+
+      - name: Copy baseline into head
+        run: cp base/phpbench-baseline.xml head/phpbench-baseline.xml
+
+      - name: Compare head vs baseline
+        id: compare
+        working-directory: head
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          composer bench:compare 2>&1 | tee phpbench-compare.txt
+
+      - name: Upload bench artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: phpbench-results
+          path: |
+            head/phpbench-baseline.xml
+            head/phpbench-compare.txt
+          retention-days: 30
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('head/phpbench-compare.txt', 'utf8');
+            const baseSha = context.payload.pull_request.base.sha.slice(0, 7);
+            const headSha = context.payload.pull_request.head.sha.slice(0, 7);
+            const body = [
+              '## PHPBench (advisory)',
+              '',
+              `Baseline: \`origin/4.x\` @ ${baseSha}`,
+              `Head: ${headSha}`,
+              '',
+              '<details><summary>Aggregate report</summary>',
+              '',
+              '```',
+              report,
+              '```',
+              '',
+              '</details>',
+              '',
+              '_This job is advisory and does not block merge. The full XML is attached to the workflow run as an artifact._',
+            ].join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body,
+            });

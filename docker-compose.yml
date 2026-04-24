@@ -31,8 +31,9 @@ services:
       setup:
         condition: service_completed_successfully
     working_dir: /app
+    # Path/iterations/revs/warmup/retry-threshold come from /phpbench.json.
     command: >
-      /bin/sh -c "vendor/bin/phpbench run tests/benchmark/MobileDetectBench.php --retry-threshold=1 --iterations=10 --revs=1000 --report=aggregate"
+      /bin/sh -c "vendor/bin/phpbench run --report=aggregate"
     volumes:
       - .:/app
 

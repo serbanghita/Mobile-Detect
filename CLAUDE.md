@@ -23,10 +23,25 @@ vendor/bin/phpcs
 vendor/bin/php-cs-fixer fix
 vendor/bin/phpstan analyse --memory-limit=1G --level 3 src tests
 
-# Benchmark
-vendor/bin/phpbench run tests/benchmark/MobileDetectBench.php --retry-threshold=1 --iterations=10 --revs=1000 --report=aggregate --tag=baseline
-vendor/bin/phpbench run tests/benchmark/MobileDetectBench.php --ref=baseline --retry-threshold=1 --iterations=10 --revs=1000 --report=aggregate
+# Benchmark (defaults live in /phpbench.json and per-method @Revs/@Iterations)
+composer bench                # aggregate report
+composer bench:baseline       # stores tag=baseline + phpbench-baseline.xml
+composer bench:compare        # runs with --ref=baseline, enforces 2% @Assert
+# Advisory CI: .github/workflows/4.x-bench.yml runs on every PR to 4.x,
+# uploads artifacts, and posts a PR comment. Does not block merge.
 ```
+
+## Performance reviews
+
+Every time you run a performance review (ad-hoc benchmarking, before a release,
+after touching a hot path, or at the end of a perf-oriented PR), **append a new
+dated section to `PERFORMANCE.md`** using the template block at the bottom of
+that file. Do not edit prior sections — they are a historical record for
+regression comparison.
+
+Minimum contents per section: branch/commit, PHP image, host, phpbench config,
+the full aggregate table (13 subjects today), and a short notes list
+interpreting what's surprising or actionable in the numbers.
 
 ## Architecture
 
@@ -41,7 +56,7 @@ tests/
   UserAgentTest.php          # Data-driven tests from vendor fixtures
   MobileDetectGeneralTest.php # Core logic tests
   CacheTest.php, MobileDetectWithCacheTest.php, MobileDetectExceptionTest.php
-  benchmark/MobileDetectBench.php
+  Benchmark/MobileDetectBench.php   # PHPBench suite (PSR-4: DetectionTests\Benchmark)
 ```
 
 ## Key Patterns

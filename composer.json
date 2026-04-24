@@ -34,7 +34,21 @@
             "DetectionTests\\": "tests/"
         }
     },
+    "scripts": {
+        "bench": "phpbench run --report=aggregate",
+        "bench:baseline": "phpbench run --report=aggregate --tag=baseline --dump-file=phpbench-baseline.xml",
+        "bench:compare": "phpbench run --ref=baseline --report=aggregate"
+    },
     "archive": {
-      "exclude": ["scripts"]
+        "exclude": [
+            "scripts",
+            "tests",
+            "docs",
+            ".github",
+            ".editorconfig",
+            ".gitattributes",
+            "phpbench.json",
+            "phpbench-*.xml"
+        ]
     }
 }
