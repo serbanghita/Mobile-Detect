@@ -45,7 +45,7 @@ bottom of this file. Do not edit prior sections — they are a historical record
 - Branch / base: `<branch>` @ `<sha>`
 - PHP: `<php version/image>` (<arch>), run via `<command>`
 - Host: <cpu, runtime>
-- PHPBench config: `iterations=N, revs=N, warmup=N, retry_threshold=N%`
+- PHPBench config: `iterations=N, revs=N, warmup=N, retry_threshold=N` (percent; from `/phpbench.json`)
 - Subjects: N, Assertions: N, Failures: N, Errors: N
 
 | Subject | ops/s | rstdev |
