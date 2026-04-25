@@ -58,9 +58,14 @@ jobs:
         working-directory: base
         run: composer bench:baseline
 
-      - name: Copy baseline into head
+      # `--ref=baseline` in bench:compare resolves through PHPBench's local
+      # storage (.phpbench/), not the dumped XML. Sync both so the head
+      # working directory can resolve the baseline tag and ref.
+      - name: Sync baseline storage + dump into head
         if: steps.base_caps.outputs.has_bench == 'true'
-        run: cp base/phpbench-baseline.xml head/phpbench-baseline.xml
+        run: |
+          cp -r base/.phpbench head/.phpbench
+          cp base/phpbench-baseline.xml head/phpbench-baseline.xml
 
       - name: Compare head vs baseline
         if: steps.base_caps.outputs.has_bench == 'true'

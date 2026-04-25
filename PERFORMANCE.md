@@ -10,7 +10,7 @@ bottom of this file. Do not edit prior sections — they are a historical record
 - Branch / base: `4.x` @ `c91cc4b`
 - PHP: `8.4-alpine` (linux/amd64), run via `docker compose -p mobile-detect up runPerfTests`
 - Host: Apple Silicon, OrbStack
-- PHPBench config: `iterations=10, revs=1000, warmup=2, retry_threshold=1%` (from `/phpbench.json`)
+- PHPBench config: `iterations=10, revs=1000, warmup=2, retry_threshold=1` (percent; from `/phpbench.json`)
 - Subjects: 13, Assertions: 13, Failures: 0, Errors: 0
 
 | Subject | ops/s | rstdev |
