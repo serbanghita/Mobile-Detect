@@ -24,7 +24,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        php-version: [8.2, 8.3, 8.4]
+        php-version: [8.2, 8.3, 8.4, 8.5]
         os: ['ubuntu-latest']
         composer-version: ['latest']
         phpunit-version: ['^9.6.18']
@@ -63,7 +63,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: [8.2, 8.4]
+        php-version: [8.2, 8.5]
         psr-simple-cache: ['^1.0', '^2.0', '^3.0']
     steps:
       - name: Checkout
