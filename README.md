@@ -9,6 +9,13 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/mobiledetect/mobiledetectlib?style=flat-square&label=installs)](https://packagist.org/packages/mobiledetect/mobiledetectlib/stats)
 [![MIT License](https://img.shields.io/packagist/l/mobiledetect/mobiledetectlib?style=flat-square)](https://github.com/serbanghita/Mobile-Detect/blob/3.x/LICENSE)
 
+> [!WARNING]
+> **Mobile Detect 3.x is deprecated.** Please upgrade to [Mobile Detect 4.x](https://github.com/serbanghita/Mobile-Detect/tree/4.x), which requires PHP >= 8.2.
+>
+> 3.x targets PHP 7.4, which reached end of life in November 2022 and no longer receives security releases from the PHP project.
+> On 2026-10-21 PHP disclosed two critical remote code execution vulnerabilities (CVE-2026-109618, CVE-2026-109619).
+> Official fixes shipped only for PHP 8.2 and later. See the [PHP security advisory](https://www.php.net/archive/2026.php#2026-10-21-5).
+
 Mobile Detect is a lightweight PHP class for detecting mobile devices (including tablets).
 It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.
 
