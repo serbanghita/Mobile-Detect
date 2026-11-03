@@ -626,7 +626,9 @@ class MobileDetect
         // http://www.fly-phone.com/devices/tablets/ ; http://www.fly-phone.com/service/
         'FlyTablet'         => 'IQ310|Fly Vision',
         // http://www.bqreaders.com/gb/tablets-prices-sale.html
-        'bqTablet'          => 'Android.*(bq)?.*\b(Elcano|Curie|Edison|Maxwell|Kepler|Pascal|Tesla|Hypatia|Platon|Newton|Livingstone|Cervantes|Avant|Aquaris ([E|M]10|M8))\b|Maxwell.*Lite|Maxwell.*Plus',
+        // "bq " is required in front of the generic model names (Edison, Tesla, Newton, ...);
+        // Aquaris and Edison 3 tablets and Maxwell Lite/Plus do not carry the brand in the User-Agent.
+        'bqTablet'          => 'Android.*\bbq (Elcano|Curie|Edison|Maxwell|Kepler|Pascal|Tesla|Hypatia|Platon|Newton|Livingstone|Cervantes|Avant)\b|Android.*\b(Aquaris ([EM]10|M8)|Edison 3)\b|Maxwell.*Lite|Maxwell.*Plus',
         // http://www.huaweidevice.com/worldwide/productFamily.do?method=index&directoryId=5011&treeId=3290
         // http://www.huaweidevice.com/worldwide/downloadCenter.do?method=index&directoryId=3372&treeId=0&tb=1&type=software (including legacy tablets)
         'HuaweiTablet'      => 'MediaPad|MediaPad 7 Youth|IDEOS S7|S7-201c|S7-202u|S7-101|S7-103|S7-104|S7-105|S7-106|S7-201|S7-Slim|M2-A01L|BAH-L09|BAH-W09|AGS-L09|CMR-AL19|KOB2-L09|BG2-U01|BG2-W09|BG2-U03|AGS-W09',
