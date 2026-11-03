@@ -330,6 +330,33 @@ final class MobileDetectGeneralTest extends TestCase
         $this->assertSame($detect->isMobile(), false);
     }
 
+    /**
+     * Any client can send CloudFront viewer headers; apps not behind CloudFront can opt out of the override.
+     * @throws MobileDetectException
+     */
+    public function testCloudFrontHeadersAreIgnoredWhenNotTrusted()
+    {
+        $headers = [
+            'HTTP_USER_AGENT' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+            'HTTP_CLOUDFRONT_IS_DESKTOP_VIEWER' => 'true',
+            'HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'  => 'false',
+            'HTTP_CLOUDFRONT_IS_TABLET_VIEWER'  => 'false'
+        ];
+
+        $detect = new MobileDetect(null, ['trustCloudFrontHeaders' => false]);
+        $detect->setHttpHeaders($headers);
+        $this->assertSame($headers['HTTP_USER_AGENT'], $detect->getUserAgent());
+        $this->assertTrue($detect->isMobile());
+        $this->assertTrue($detect->isiPhone());
+        $this->assertSame('17_0', $detect->version('iOS'));
+
+        // Default behaviour is unchanged.
+        $detect = new MobileDetect();
+        $detect->setHttpHeaders($headers);
+        $this->assertSame('Amazon CloudFront', $detect->getUserAgent());
+        $this->assertFalse($detect->isMobile());
+    }
+
     public function testSetUserAgent()
     {
         $detect = new MobileDetect();

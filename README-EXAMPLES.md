@@ -275,6 +275,9 @@ $detect = new MobileDetect();
 if ($detect->isMobile()) {
     // Mobile device detected via CloudFront
 }
+
+// Not behind CloudFront? Any client can send these headers, so turn the override off.
+$detect = new MobileDetect(null, ['trustCloudFrontHeaders' => false]);
 ```
 
 ## Debugging
