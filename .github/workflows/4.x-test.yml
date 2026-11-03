@@ -19,6 +19,9 @@ on:
       - '.github/**'
       - 'scripts/**'
 
+permissions:
+  contents: read
+
 jobs:
   run:
     runs-on: ${{ matrix.os }}
@@ -30,10 +33,12 @@ jobs:
         phpunit-version: ['^9.6.18']
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup PHP ${{ matrix.php-version }} on ${{ matrix.os }}
-        uses: shivammathur/setup-php@verbose
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: ${{ matrix.php-version }}
           extensions: mbstring, intl
@@ -67,10 +72,12 @@ jobs:
         psr-simple-cache: ['^1.0', '^2.0', '^3.0']
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup PHP ${{ matrix.php-version }}
-        uses: shivammathur/setup-php@verbose
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: ${{ matrix.php-version }}
           extensions: mbstring, intl
