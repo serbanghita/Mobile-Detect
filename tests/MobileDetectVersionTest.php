@@ -45,6 +45,12 @@ final class MobileDetectVersionTest extends TestCase
                 'BlackBerry',
                 '6.0.0.546',
                 6.00546
+            ],
+            [
+                'Mozilla/5.0 (Linux; Android 9e999; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36',
+                'Android',
+                '9e999',
+                9.0
             ]
         ];
     }
@@ -77,7 +83,13 @@ final class MobileDetectVersionTest extends TestCase
             ['4_7  /7 7 12_9', 4.777129],
             ['49', 49.0],
             ['2.6.x', 2.6],
-            ['45.6.1.x.12', 45.61]
+            ['45.6.1.x.12', 45.61],
+            // only the leading numeric part counts; exponent notation is not a version
+            ['9e999', 9.0],
+            ['1e5', 1.0],
+            ['4.3.1_r2', 4.31],
+            // a digit run that overflows a float must not become INF
+            [str_repeat('9', 320), 0.0],
         ];
     }
 
