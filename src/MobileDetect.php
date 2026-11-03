@@ -259,6 +259,11 @@ class MobileDetect
         // Cache TTL
         // @var null|int|\DateInterval
         'cacheTtl' => 86400,
+        // Trust the Amazon CloudFront viewer headers (CloudFront-Is-Mobile-Viewer, CloudFront-Is-Tablet-Viewer).
+        // When present they replace the User-Agent. Set this to false when the app is not behind CloudFront:
+        // any client can send these headers.
+        // @var boolean
+        'trustCloudFrontHeaders' => true,
     ];
 
     /**
@@ -1149,8 +1154,11 @@ class MobileDetect
 
         // Override User-Agent string if 'Amazon Cloudfront' specific HTTP headers are present.
         if (
-            $this->hasHttpHeader(static::$knownCloudFrontHeaders[0]) ||
-            $this->hasHttpHeader(static::$knownCloudFrontHeaders[1])
+            $this->config['trustCloudFrontHeaders'] &&
+            (
+                $this->hasHttpHeader(static::$knownCloudFrontHeaders[0]) ||
+                $this->hasHttpHeader(static::$knownCloudFrontHeaders[1])
+            )
         ) {
             $this->setUserAgent(static::$cloudFrontUA);
         }
