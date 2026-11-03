@@ -222,112 +222,37 @@ Use the `$maxEntries` cap (or `clear()`) for that.
 
 ### Worker Example
 
+`setUserAgent()` replaces only the User-Agent. The HTTP headers captured when the instance was created
+(`Accept`, `X-WAP-Profile`, `X-OperaMini-Phone-UA`, the CloudFront viewer headers, ...) stay in place and keep
+deciding `isMobile()` and the cache key for every later call. In an HTTP worker, either create a new instance
+per request and share one `Cache`, or reset the headers of the reused instance with `setHttpHeaders()` (it also
+derives the User-Agent from the headers you pass).
+
 ```php
 use Detection\MobileDetect;
 use Detection\Cache\Cache;
 
-$detect = new MobileDetect();
-$cache = $detect->getCache();
+// HTTP worker (RoadRunner, Octane, FrankenPHP, Swoole): a fresh instance per request, one shared cache.
+$cache = new Cache();
 
-$iterationCount = 0;
+while ($request = getNextRequest()) {
+    $detect = new MobileDetect($cache, ['autoInitOfHttpHeaders' => false]);
+    // PHP-style server array of the current request (HTTP_USER_AGENT, HTTP_ACCEPT, ...),
+    // e.g. $request->server->all() in Symfony/Laravel.
+    $detect->setHttpHeaders($request->server->all());
+
+    $isMobile = $detect->isMobile();
+    $isTablet = $detect->isTablet();
+}
+
+// Queue worker: User-Agent strings only, no HTTP headers involved, so one instance can be reused.
+$detect = new MobileDetect(null, ['autoInitOfHttpHeaders' => false]);
 
 while ($userAgent = getNextUserAgentFromQueue()) {
     $detect->setUserAgent($userAgent);
 
     $isMobile = $detect->isMobile();
     $isTablet = $detect->isTablet();
-
-    // Process the result...
-    processDevice($userAgent, $isMobile, $isTablet);
-
-    $iterationCount++;
-
-    // The bundled Cache is bounded by default (1000 entries, FIFO).
-    // Optionally reset it periodically as a belt-and-braces measure.
-    if ($iterationCount % 1000 === 0 && $cache instanceof Cache) {
-        $cache->clear();
-    }
-}
-```
-
-### Batch Processing Example
-
-```php
-use Detection\MobileDetect;
-use Detection\Cache\Cache;
-
-$detect = new MobileDetect();
-
-// Process a large batch of User-Agents. The bundled Cache caps itself
-// at 1000 entries by default, so memory stays bounded even if the file
-// contains millions of unique UAs.
-$userAgents = file('user-agents.txt', FILE_IGNORE_NEW_LINES);
-
-foreach ($userAgents as $index => $ua) {
-    $detect->setUserAgent($ua);
-
-    $results[] = [
-        'ua' => $ua,
-        'mobile' => $detect->isMobile(),
-        'tablet' => $detect->isTablet(),
-    ];
-}
-
-// Optional: drop the cache entirely once the batch is done.
-$cache = $detect->getCache();
-if ($cache instanceof Cache) {
-    $cache->clear();
-}
-```
-
-## Framework Integration
-
-### Laravel Middleware Example
-
-```php
-namespace App\Http\Middleware;
-
-use Closure;
-use Detection\MobileDetect;
-use Illuminate\Http\Request;
-
-class DetectMobileDevice
-{
-    public function handle(Request $request, Closure $next)
-    {
-        $detect = new MobileDetect();
-
-        $request->attributes->set('is_mobile', $detect->isMobile());
-        $request->attributes->set('is_tablet', $detect->isTablet());
-
-        return $next($request);
-    }
-}
-```
-
-### Symfony Service Example
-
-```php
-// config/services.yaml
-services:
-    Detection\MobileDetect:
-        public: true
-```
-
-```php
-// In a controller
-use Detection\MobileDetect;
-
-class MyController
-{
-    public function index(MobileDetect $detect)
-    {
-        if ($detect->isMobile()) {
-            return $this->render('mobile/index.html.twig');
-        }
-
-        return $this->render('desktop/index.html.twig');
-    }
 }
 ```
 
