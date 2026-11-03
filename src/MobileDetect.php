@@ -1645,7 +1645,10 @@ class MobileDetect
 
     /**
      * Prepare the version number.
-     * @todo Remove the error suppression from str_replace() call.
+     *
+     * Only the leading numeric part is converted ("2.6.21.2152" -> 2.6212152, "4.3.1_r2" -> 4.31).
+     * The token is never handed to a bare float cast: PHP would read "9e999" as exponent notation
+     * and turn it, or an over-long digit run, into INF, which cannot be JSON-encoded or stored.
      *
      * @param string $ver The string version, like "2.6.21.2152";
      * @return float
@@ -1659,7 +1662,13 @@ class MobileDetect
             $arrVer[1] = str_replace('.', '', $arrVer[1]); // @todo: treat strings versions.
         }
 
-        return (float) implode('.', $arrVer);
+        if (!preg_match('/^\d+(?:\.\d+)?/', implode('.', $arrVer), $match)) {
+            return 0.0;
+        }
+
+        $float = (float) $match[0];
+
+        return is_finite($float) ? $float : 0.0;
     }
 
     /**
