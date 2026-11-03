@@ -1249,6 +1249,11 @@ class MobileDetect
     /**
      * Set the User-Agent to be used.
      *
+     * Only the User-Agent is replaced. HTTP headers already stored on this instance
+     * (from the constructor's auto-init or from setHttpHeaders()) are kept and keep
+     * influencing isMobile() and the cache key. When one instance serves many HTTP
+     * requests, call setHttpHeaders() with the current request's headers instead.
+     *
      * @param string $userAgent The User-Agent string.
      * @return string
      */
