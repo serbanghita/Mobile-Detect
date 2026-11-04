@@ -37,6 +37,38 @@ bottom of this file. Do not edit prior sections — they are a historical record
 
 ---
 
+## 2026-11-03 — bqTablet regex: brand guard restored, `(bq)?.*` removed
+
+- Branch / base: `fix/bq-tablet-regex` on top of `4.x` @ `f024e73`
+- PHP: `8.5-alpine` (linux/amd64), run via `docker run --rm --platform linux/amd64 -v "$PWD":/app -v "$PWD/vendor":/app/vendor:ro -w /app php:8.5-alpine vendor/bin/phpbench run --report=aggregate` (the `runPerfTests` compose command, without the `setup` service)
+- Host: Apple Silicon (8 CPU), OrbStack
+- PHPBench config: `iterations=10, revs=1000, warmup=2, retry_threshold=1` (percent; from `/phpbench.json`)
+- Subjects: 13, Assertions: 13, Failures: 0, Errors: 0
+
+| Subject | ops/s | rstdev |
+|---|---:|---:|
+| `benchMatchOnlyBestRegex` | 3,343,300 | ±0.65% |
+| `benchMatchOnlyWorstRegex` | 2,235,913 | ±0.46% |
+| `benchIsMobileCacheWarm` | 1,044,116 | ±0.40% |
+| `benchIsTabletAgainstBestMatch` | 313,369 | ±0.63% |
+| `benchIsIpad` | 93,198 | ±0.62% |
+| `benchIsIOS` | 92,278 | ±0.43% |
+| `benchIsSamsungTablet` | 72,593 | ±0.57% |
+| `benchIsMobileCacheCold` | 67,553 | ±0.36% |
+| `benchIsMobileCacheKeyFnCustomAgainstBestMatch` | 67,531 | ±0.51% |
+| `benchIsMobileAgainstBestMatch` | 67,417 | ±0.54% |
+| `benchIsSamsung` | 56,349 | ±0.54% |
+| `benchIsTabletAgainstWorstMatch` | 20,155 | ±0.41% |
+| `benchIsMobileAgainstWorstMatch` | 8,908 | ±0.44% |
+
+### Notes
+
+- Base `4.x` @ `f024e73` was run first in the same session and image: `benchIsTabletAgainstWorstMatch` 20,409 ops/s, `benchIsMobileAgainstWorstMatch` 9,057, `benchIsSamsungTablet` 74,234, `benchIsMobileCacheCold` 69,663, `benchMatchOnlyBestRegex` 3,303,659. Every delta is within ±3%, and the largest one (`benchIsMobileCacheCold`, −3.0%) is on a path that never reaches the bq rule, so that is the noise floor of the emulated run, not a regression. On real User-Agents the rule change is invisible, which is the expected outcome: the old `(bq)?.*` only hurt when "Android" occurred many times.
+- The change is about adversarial input, which this suite does not cover. Measured separately (PHP 8.4.27, PCRE2 10.44, native arm64, rule compiled as the library does): `isTablet()` on "Android bq " repeated to the 500-byte cap costs 109.6 ms with `pcre.jit=0` before and 6.6 ms after (0.86 ms vs 0.16 ms with JIT on). The bq regex alone hit `PREG_BACKTRACK_LIMIT_ERROR` at 8,000 bytes before; after the change it completes in 49 µs with JIT.
+- The 2% `@Assert` in `bench:compare` can trip on `benchIsSamsungTablet` (−2.2% here) for this kind of run; it is the same noise band as the untouched subjects.
+
+---
+
 ## Template (copy this block, do not fill it in-place)
 
 ```md

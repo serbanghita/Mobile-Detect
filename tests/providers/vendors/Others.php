@@ -59,6 +59,11 @@ return [
         'Mozilla/5.0 (Linux; Android 6.0.1; Aquaris X5 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.91 Mobile Safari/537.36' => ['isMobile' => true, 'isTablet' => false],
         'Mozilla/5.0 (Linux; Android 4.4.2; Aquaris E4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Mobile Safari/537.36' => ['isMobile' => true, 'isTablet' => false],
         'Mozilla/5.0 (Linux; Android 5.0.2; Aquaris M5 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Mobile Safari/537.36' => ['isMobile' => true, 'isTablet' => false],
+        // Build.MODEL carries no "bq" prefix on this model (matomo/device-detector matches it as "Edison 3").
+        'Mozilla/5.0 (Linux; Android 4.4.2; Edison 3 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.93 Safari/537.36' => ['isMobile' => true, 'isTablet' => true],
+        // Not bq devices: a bq model word on its own must not trigger bqTablet (see #790 for a real case).
+        'Mozilla/5.0 (Linux; Android 13; Tesla Build/TQ3A.230805.001) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36' => ['isMobile' => true, 'isTablet' => false],
+        'Mozilla/5.0 (Linux; Android 11; Newton Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36' => ['isMobile' => true, 'isTablet' => false],
     ],
 
     'Captiva' => [

@@ -1,5 +1,5 @@
 {
-    "hash": "8914010fcf0911d5dfd7897461156f2ab6661f01",
+    "hash": "fe8b0340cc3f21c003f4cb4219913f3a428bd82e",
     "user_agents": [
         {
             "vendor": "Lava",
@@ -2711,6 +2711,24 @@
         {
             "vendor": "bq",
             "user_agent": "Mozilla\/5.0 (Linux; Android 5.0.2; Aquaris M5 Build\/LRX22G) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/61.0.3163.98 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 4.4.2; Edison 3 Build\/KOT49H) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/39.0.2171.93 Safari\/537.36",
+            "mobile": true,
+            "tablet": true
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 13; Tesla Build\/TQ3A.230805.001) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.0.0 Mobile Safari\/537.36",
+            "mobile": true,
+            "tablet": false
+        },
+        {
+            "vendor": "bq",
+            "user_agent": "Mozilla\/5.0 (Linux; Android 11; Newton Build\/RKQ1.200826.002) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.0.0 Mobile Safari\/537.36",
             "mobile": true,
             "tablet": false
         },
